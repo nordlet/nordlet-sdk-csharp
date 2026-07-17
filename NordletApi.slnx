@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="src/NordletApi.Test/NordletApi.Test.csproj" />
+  <Project Path="src/NordletApi/NordletApi.csproj" />
+</Solution>

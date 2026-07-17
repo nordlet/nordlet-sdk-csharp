@@ -1,0 +1,128 @@
+using NordletApi;
+using NordletApi.Test.Unit.MockServer;
+using NordletApi.Test.Utils;
+using NUnit.Framework;
+
+namespace NordletApi.Test.Unit.MockServer.Partners;
+
+[TestFixture]
+[Parallelizable(ParallelScope.Self)]
+public class PostV1PartnersAddressesListTest : BaseMockServerTest
+{
+    [NUnit.Framework.Test]
+    public async Task MockServerTest_1()
+    {
+        const string requestJson = """
+            {}
+            """;
+
+        const string mockResponse = """
+            {
+              "rows": [
+                {
+                  "id": "x",
+                  "partnerId": "x",
+                  "type": "type",
+                  "street": "street",
+                  "city": "city",
+                  "postalCode": "postalCode",
+                  "countryCode": "countryCode",
+                  "isDefault": true,
+                  "createdAt": "createdAt"
+                },
+                {
+                  "id": "x",
+                  "partnerId": "x",
+                  "type": "type",
+                  "street": "street",
+                  "city": "city",
+                  "postalCode": "postalCode",
+                  "countryCode": "countryCode",
+                  "isDefault": true,
+                  "createdAt": "createdAt"
+                }
+              ],
+              "page": 1000000,
+              "pageSize": 1000000,
+              "total": 1000000
+            }
+            """;
+
+        Server
+            .Given(
+                WireMock
+                    .RequestBuilders.Request.Create()
+                    .WithPath("/v1/partners/addresses/list")
+                    .WithHeader("Content-Type", "application/json")
+                    .UsingPost()
+                    .WithBodyAsJson(requestJson)
+            )
+            .RespondWith(
+                WireMock
+                    .ResponseBuilders.Response.Create()
+                    .WithStatusCode(200)
+                    .WithBody(mockResponse)
+            );
+
+        var response = await Client.Partners.PostV1PartnersAddressesListAsync(
+            new PostV1PartnersAddressesListRequest
+            {
+                Page = null,
+                PageSize = null,
+                Sort = null,
+                Filter = null,
+            }
+        );
+        JsonAssert.AreEqual(response, mockResponse);
+    }
+
+    [NUnit.Framework.Test]
+    public async Task MockServerTest_2()
+    {
+        const string requestJson = """
+            {}
+            """;
+
+        const string mockResponse = """
+            {
+              "rows": [
+                {
+                  "id": "id",
+                  "partnerId": "partnerId",
+                  "type": "type",
+                  "street": "street",
+                  "city": "city",
+                  "postalCode": "postalCode",
+                  "countryCode": "countryCode",
+                  "isDefault": true,
+                  "createdAt": "createdAt"
+                }
+              ],
+              "page": 1000000,
+              "pageSize": 1000000,
+              "total": 1000000
+            }
+            """;
+
+        Server
+            .Given(
+                WireMock
+                    .RequestBuilders.Request.Create()
+                    .WithPath("/v1/partners/addresses/list")
+                    .WithHeader("Content-Type", "application/json")
+                    .UsingPost()
+                    .WithBodyAsJson(requestJson)
+            )
+            .RespondWith(
+                WireMock
+                    .ResponseBuilders.Response.Create()
+                    .WithStatusCode(200)
+                    .WithBody(mockResponse)
+            );
+
+        var response = await Client.Partners.PostV1PartnersAddressesListAsync(
+            new PostV1PartnersAddressesListRequest()
+        );
+        JsonAssert.AreEqual(response, mockResponse);
+    }
+}
