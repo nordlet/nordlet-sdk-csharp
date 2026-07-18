@@ -24,6 +24,9 @@ public record PostV1AgreementsAgreementsUpdateRequest
     [JsonPropertyName("value")]
     public string? Value { get; set; }
 
+    [JsonPropertyName("billingPeriod")]
+    public PostV1AgreementsAgreementsUpdateRequestBillingPeriod? BillingPeriod { get; set; }
+
     [JsonPropertyName("status")]
     public PostV1AgreementsAgreementsUpdateRequestStatus? Status { get; set; }
 

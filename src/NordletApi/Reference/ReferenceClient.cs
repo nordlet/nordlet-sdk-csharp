@@ -2525,6 +2525,200 @@ public partial class ReferenceClient : IReferenceClient
     }
 
     private async Task<
+        WithRawResponse<PostV1ReferenceEuVatRatesSetOverridesResponse>
+    > PostV1ReferenceEuVatRatesSetOverridesAsyncCore(
+        PostV1ReferenceEuVatRatesSetOverridesRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        var _queryString = new NordletApi.Core.QueryStringBuilder.Builder(capacity: 0)
+            .MergeAdditional(options?.AdditionalQueryParameters)
+            .Build();
+        var _headers = await new NordletApi.Core.HeadersBuilder.Builder()
+            .Add(_client.Options.Headers)
+            .Add(_client.Options.AdditionalHeaders)
+            .Add(options?.AdditionalHeaders)
+            .BuildAsync()
+            .ConfigureAwait(false);
+        var response = await _client
+            .SendRequestAsync(
+                new JsonRequest
+                {
+                    Method = HttpMethod.Post,
+                    Path = "v1/reference/eu-vat-rates/set-overrides",
+                    Body = request,
+                    QueryString = _queryString,
+                    Headers = _headers,
+                    ContentType = "application/json",
+                    Options = options,
+                },
+                cancellationToken
+            )
+            .ConfigureAwait(false);
+        if (response.StatusCode is >= 200 and < 400)
+        {
+            var responseBody = await response
+                .Raw.Content.ReadAsStringAsync(cancellationToken)
+                .ConfigureAwait(false);
+            try
+            {
+                var responseData =
+                    JsonUtils.Deserialize<PostV1ReferenceEuVatRatesSetOverridesResponse>(
+                        responseBody
+                    )!;
+                return new WithRawResponse<PostV1ReferenceEuVatRatesSetOverridesResponse>()
+                {
+                    Data = responseData,
+                    RawResponse = new NordletApi.RawResponse()
+                    {
+                        StatusCode = response.Raw.StatusCode,
+                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
+                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                    },
+                };
+            }
+            catch (JsonException e)
+            {
+                throw new NordletApiApiException(
+                    "Failed to deserialize response",
+                    response.StatusCode,
+                    responseBody,
+                    e,
+                    rawResponse: new NordletApi.RawResponse()
+                    {
+                        StatusCode = response.Raw.StatusCode,
+                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
+                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                    }
+                );
+            }
+        }
+        {
+            var responseBody = await response
+                .Raw.Content.ReadAsStringAsync(cancellationToken)
+                .ConfigureAwait(false);
+            try
+            {
+                switch (response.StatusCode)
+                {
+                    case 400:
+                        throw new BadRequestError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 401:
+                        throw new UnauthorizedError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 403:
+                        throw new ForbiddenError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 404:
+                        throw new NotFoundError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 409:
+                        throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 422:
+                        throw new UnprocessableEntityError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 429:
+                        throw new TooManyRequestsError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 500:
+                        throw new InternalServerError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                }
+            }
+            catch (JsonException)
+            {
+                // unable to map error response, throwing generic error
+            }
+            throw new NordletApiApiException(
+                $"Error with status code {response.StatusCode}",
+                response.StatusCode,
+                responseBody,
+                rawResponse: new NordletApi.RawResponse()
+                {
+                    StatusCode = response.Raw.StatusCode,
+                    Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
+                    Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                }
+            );
+        }
+    }
+
+    private async Task<
         WithRawResponse<PostV1ReferenceVatResolveResponse>
     > PostV1ReferenceVatResolveAsyncCore(
         PostV1ReferenceVatResolveRequest request,
@@ -4276,6 +4470,9 @@ public partial class ReferenceClient : IReferenceClient
         );
     }
 
+    /// <summary>
+    /// Effective EU VAT rate mapping for this company: EC TEDB defaults, replaced per country by any company overrides. Verify the mapping fits the goods and services you sell before relying on it.
+    /// </summary>
     /// <example><code>
     /// await client.Reference.PostV1ReferenceEuVatRatesListAsync(
     ///     new PostV1ReferenceEuVatRatesListRequest()
@@ -4289,6 +4486,36 @@ public partial class ReferenceClient : IReferenceClient
     {
         return new WithRawResponseTask<PostV1ReferenceEuVatRatesListResponse>(
             PostV1ReferenceEuVatRatesListAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <summary>
+    /// Replace the VAT rate mapping this company uses for one EU country. Pass an empty rates array to drop the overrides and return to the TEDB defaults. Overrides feed rate suggestions (vat/resolve) and OSS/IOSS return rate classification.
+    /// </summary>
+    /// <example><code>
+    /// await client.Reference.PostV1ReferenceEuVatRatesSetOverridesAsync(
+    ///     new PostV1ReferenceEuVatRatesSetOverridesRequest
+    ///     {
+    ///         CountryCode = "countryCode",
+    ///         Rates = new List&lt;PostV1ReferenceEuVatRatesSetOverridesRequestRatesItem&gt;()
+    ///         {
+    ///             new PostV1ReferenceEuVatRatesSetOverridesRequestRatesItem
+    ///             {
+    ///                 Category = PostV1ReferenceEuVatRatesSetOverridesRequestRatesItemCategory.Standard,
+    ///                 RatePercent = "ratePercent",
+    ///             },
+    ///         },
+    ///     }
+    /// );
+    /// </code></example>
+    public WithRawResponseTask<PostV1ReferenceEuVatRatesSetOverridesResponse> PostV1ReferenceEuVatRatesSetOverridesAsync(
+        PostV1ReferenceEuVatRatesSetOverridesRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<PostV1ReferenceEuVatRatesSetOverridesResponse>(
+            PostV1ReferenceEuVatRatesSetOverridesAsyncCore(request, options, cancellationToken)
         );
     }
 

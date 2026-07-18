@@ -65,6 +65,9 @@ public record PostV1SalesInvoicesUpdateResponse : IJsonOnDeserialized
     [JsonPropertyName("creditedInvoiceId")]
     public string? CreditedInvoiceId { get; set; }
 
+    [JsonPropertyName("agreementId")]
+    public string? AgreementId { get; set; }
+
     [JsonPropertyName("vatScheme")]
     public PostV1SalesInvoicesUpdateResponseVatScheme? VatScheme { get; set; }
 

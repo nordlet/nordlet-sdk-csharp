@@ -47,6 +47,30 @@ public class PostV1DeclarationsEuIossComputeTest : BaseMockServerTest
                 "taxableAmount": "taxableAmount",
                 "vatAmount": "vatAmount"
               },
+              "corrections": [
+                {
+                  "countryCode": "countryCode",
+                  "periodYear": 1000000,
+                  "periodQuarter": 1000000,
+                  "periodMonth": 1000000,
+                  "taxableAmount": "taxableAmount",
+                  "vatAmount": "vatAmount",
+                  "documents": 1000000
+                },
+                {
+                  "countryCode": "countryCode",
+                  "periodYear": 1000000,
+                  "periodQuarter": 1000000,
+                  "periodMonth": 1000000,
+                  "taxableAmount": "taxableAmount",
+                  "vatAmount": "vatAmount",
+                  "documents": 1000000
+                }
+              ],
+              "correctionsTotal": {
+                "taxableAmount": "taxableAmount",
+                "vatAmount": "vatAmount"
+              },
               "warnings": [
                 "warnings",
                 "warnings"
@@ -104,6 +128,21 @@ public class PostV1DeclarationsEuIossComputeTest : BaseMockServerTest
                 }
               ],
               "totals": {
+                "taxableAmount": "taxableAmount",
+                "vatAmount": "vatAmount"
+              },
+              "corrections": [
+                {
+                  "countryCode": "countryCode",
+                  "periodYear": 1000000,
+                  "periodQuarter": 1000000,
+                  "periodMonth": 1000000,
+                  "taxableAmount": "taxableAmount",
+                  "vatAmount": "vatAmount",
+                  "documents": 1000000
+                }
+              ],
+              "correctionsTotal": {
                 "taxableAmount": "taxableAmount",
                 "vatAmount": "vatAmount"
               },

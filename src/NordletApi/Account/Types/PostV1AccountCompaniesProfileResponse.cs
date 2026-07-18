@@ -23,6 +23,9 @@ public record PostV1AccountCompaniesProfileResponse : IJsonOnDeserialized
     [JsonPropertyName("vatCode")]
     public string? VatCode { get; set; }
 
+    [JsonPropertyName("smeExemptionNumber")]
+    public string? SmeExemptionNumber { get; set; }
+
     [JsonPropertyName("isVatPayer")]
     public required bool IsVatPayer { get; set; }
 

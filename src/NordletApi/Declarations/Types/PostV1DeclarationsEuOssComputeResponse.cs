@@ -30,6 +30,13 @@ public record PostV1DeclarationsEuOssComputeResponse : IJsonOnDeserialized
     [JsonPropertyName("totals")]
     public required PostV1DeclarationsEuOssComputeResponseTotals Totals { get; set; }
 
+    [JsonPropertyName("corrections")]
+    public IEnumerable<PostV1DeclarationsEuOssComputeResponseCorrectionsItem> Corrections { get; set; } =
+        new List<PostV1DeclarationsEuOssComputeResponseCorrectionsItem>();
+
+    [JsonPropertyName("correctionsTotal")]
+    public required PostV1DeclarationsEuOssComputeResponseCorrectionsTotal CorrectionsTotal { get; set; }
+
     [JsonPropertyName("warnings")]
     public IEnumerable<string> Warnings { get; set; } = new List<string>();
 

@@ -68,6 +68,15 @@ public readonly record struct PostV1LedgerPostingRulesUpdateRequestRulesItemKey 
     public static readonly PostV1LedgerPostingRulesUpdateRequestRulesItemKey SettlementsSuspense =
         new(Values.SettlementsSuspense);
 
+    public static readonly PostV1LedgerPostingRulesUpdateRequestRulesItemKey RevenueDeferredIncome =
+        new(Values.RevenueDeferredIncome);
+
+    public static readonly PostV1LedgerPostingRulesUpdateRequestRulesItemKey RevenueContractAsset =
+        new(Values.RevenueContractAsset);
+
+    public static readonly PostV1LedgerPostingRulesUpdateRequestRulesItemKey RevenueRefundLiability =
+        new(Values.RevenueRefundLiability);
+
     public PostV1LedgerPostingRulesUpdateRequestRulesItemKey(string value)
     {
         Value = value;
@@ -206,5 +215,11 @@ public readonly record struct PostV1LedgerPostingRulesUpdateRequestRulesItemKey 
         public const string SettlementsSellerPayable = "settlements.sellerPayable";
 
         public const string SettlementsSuspense = "settlements.suspense";
+
+        public const string RevenueDeferredIncome = "revenue.deferredIncome";
+
+        public const string RevenueContractAsset = "revenue.contractAsset";
+
+        public const string RevenueRefundLiability = "revenue.refundLiability";
     }
 }

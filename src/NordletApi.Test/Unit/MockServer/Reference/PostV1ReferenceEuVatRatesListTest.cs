@@ -18,20 +18,23 @@ public class PostV1ReferenceEuVatRatesListTest : BaseMockServerTest
 
         const string mockResponse = """
             {
+              "notice": "notice",
               "rows": [
                 {
                   "countryCode": "countryCode",
                   "category": "standard",
                   "ratePercent": "ratePercent",
                   "validFrom": "validFrom",
-                  "validTo": "validTo"
+                  "validTo": "validTo",
+                  "source": "default"
                 },
                 {
                   "countryCode": "countryCode",
                   "category": "standard",
                   "ratePercent": "ratePercent",
                   "validFrom": "validFrom",
-                  "validTo": "validTo"
+                  "validTo": "validTo",
+                  "source": "default"
                 }
               ]
             }
@@ -68,13 +71,15 @@ public class PostV1ReferenceEuVatRatesListTest : BaseMockServerTest
 
         const string mockResponse = """
             {
+              "notice": "notice",
               "rows": [
                 {
                   "countryCode": "countryCode",
                   "category": "standard",
                   "ratePercent": "ratePercent",
                   "validFrom": "validFrom",
-                  "validTo": "validTo"
+                  "validTo": "validTo",
+                  "source": "default"
                 }
               ]
             }

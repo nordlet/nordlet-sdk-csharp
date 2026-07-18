@@ -34,6 +34,10 @@ public readonly record struct PostV1ReferenceVatResolveResponseScheme : IStringE
         Values.OutOfScope
     );
 
+    public static readonly PostV1ReferenceVatResolveResponseScheme SmeExempt = new(
+        Values.SmeExempt
+    );
+
     public PostV1ReferenceVatResolveResponseScheme(string value)
     {
         Value = value;
@@ -148,5 +152,7 @@ public readonly record struct PostV1ReferenceVatResolveResponseScheme : IStringE
         public const string Export = "export";
 
         public const string OutOfScope = "out_of_scope";
+
+        public const string SmeExempt = "sme_exempt";
     }
 }

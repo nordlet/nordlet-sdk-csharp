@@ -44,6 +44,18 @@ public partial interface IAgreementsClient
         CancellationToken cancellationToken = default
     );
 
+    WithRawResponseTask<PostV1AgreementsAgreementsGenerateInvoiceResponse> PostV1AgreementsAgreementsGenerateInvoiceAsync(
+        PostV1AgreementsAgreementsGenerateInvoiceRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1AgreementsAgreementsBillingRunResponse> PostV1AgreementsAgreementsBillingRunAsync(
+        PostV1AgreementsAgreementsBillingRunRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
     WithRawResponseTask<PostV1AgreementsInsurancePoliciesCreateResponse> PostV1AgreementsInsurancePoliciesCreateAsync(
         PostV1AgreementsInsurancePoliciesCreateRequest request,
         RequestOptions? options = null,

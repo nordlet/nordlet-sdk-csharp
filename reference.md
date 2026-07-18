@@ -518,6 +518,20 @@ await client.Reference.PostV1ReferenceVatClassifiersUpsertAsync(
 <dl>
 <dd>
 
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Effective EU VAT rate mapping for this company: EC TEDB defaults, replaced per country by any company overrides. Verify the mapping fits the goods and services you sell before relying on it.
+</dd>
+</dl>
+</dd>
+</dl>
+
 #### 🔌 Usage
 
 <dl>
@@ -545,6 +559,73 @@ await client.Reference.PostV1ReferenceEuVatRatesListAsync(
 <dd>
 
 **request:** `PostV1ReferenceEuVatRatesListRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">PostV1ReferenceEuVatRatesSetOverridesAsync</a>(PostV1ReferenceEuVatRatesSetOverridesRequest { ... }) -> WithRawResponseTask&lt;PostV1ReferenceEuVatRatesSetOverridesResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Replace the VAT rate mapping this company uses for one EU country. Pass an empty rates array to drop the overrides and return to the TEDB defaults. Overrides feed rate suggestions (vat/resolve) and OSS/IOSS return rate classification.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Reference.PostV1ReferenceEuVatRatesSetOverridesAsync(
+    new PostV1ReferenceEuVatRatesSetOverridesRequest
+    {
+        CountryCode = "countryCode",
+        Rates = new List<PostV1ReferenceEuVatRatesSetOverridesRequestRatesItem>()
+        {
+            new PostV1ReferenceEuVatRatesSetOverridesRequestRatesItem
+            {
+                Category = PostV1ReferenceEuVatRatesSetOverridesRequestRatesItemCategory.Standard,
+                RatePercent = "ratePercent",
+            },
+        },
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1ReferenceEuVatRatesSetOverridesRequest` 
     
 </dd>
 </dl>
@@ -3351,6 +3432,48 @@ await client.Sales.PostV1SalesInvoicesIssueAsync(new PostV1SalesInvoicesIssueReq
 </dl>
 </details>
 
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesRecognitionSchedulesListAsync</a>(PostV1SalesRecognitionSchedulesListRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesRecognitionSchedulesListResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Sales.PostV1SalesRecognitionSchedulesListAsync(
+    new PostV1SalesRecognitionSchedulesListRequest()
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1SalesRecognitionSchedulesListRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesInvoicesApplyAdvanceAsync</a>(PostV1SalesInvoicesApplyAdvanceRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesInvoicesApplyAdvanceResponse&gt;</code></summary>
 <dl>
 <dd>
@@ -3704,6 +3827,358 @@ await client.Sales.PostV1SalesActsPdfAsync(new PostV1SalesActsPdfRequest { Id = 
 <dd>
 
 **request:** `PostV1SalesActsPdfRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesRecognitionComputeAsync</a>(PostV1SalesRecognitionComputeRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesRecognitionComputeResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Sales.PostV1SalesRecognitionComputeAsync(new PostV1SalesRecognitionComputeRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1SalesRecognitionComputeRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesRecognitionRunAsync</a>(PostV1SalesRecognitionRunRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesRecognitionRunResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Sales.PostV1SalesRecognitionRunAsync(new PostV1SalesRecognitionRunRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1SalesRecognitionRunRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesRecognitionProgressAsync</a>(PostV1SalesRecognitionProgressRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesRecognitionProgressResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Sales.PostV1SalesRecognitionProgressAsync(
+    new PostV1SalesRecognitionProgressRequest
+    {
+        InvoiceLineId = "invoiceLineId",
+        PercentComplete = "percentComplete",
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1SalesRecognitionProgressRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesRecognitionModifyAsync</a>(PostV1SalesRecognitionModifyRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesRecognitionModifyResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Apply an IFRS 15 contract modification to a deferred invoice line. Prospective: cancel the pending schedule and respread the unrecognized remainder over the new terms. Cumulative catch-up (ratable only): recompute revenue as if the new terms applied from the start and post the difference immediately.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Sales.PostV1SalesRecognitionModifyAsync(
+    new PostV1SalesRecognitionModifyRequest
+    {
+        InvoiceLineId = "invoiceLineId",
+        Approach = PostV1SalesRecognitionModifyRequestApproach.Prospective,
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1SalesRecognitionModifyRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesRecognitionRunsListAsync</a>(PostV1SalesRecognitionRunsListRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesRecognitionRunsListResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Sales.PostV1SalesRecognitionRunsListAsync(new PostV1SalesRecognitionRunsListRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1SalesRecognitionRunsListRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesRecognitionSummaryAsync</a>(PostV1SalesRecognitionSummaryRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesRecognitionSummaryResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Sales.PostV1SalesRecognitionSummaryAsync(new PostV1SalesRecognitionSummaryRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1SalesRecognitionSummaryRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesRefundLiabilityListAsync</a>(PostV1SalesRefundLiabilityListRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesRefundLiabilityListResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Sales.PostV1SalesRefundLiabilityListAsync(new PostV1SalesRefundLiabilityListRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1SalesRefundLiabilityListRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesRefundLiabilityTrueUpAsync</a>(PostV1SalesRefundLiabilityTrueUpRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesRefundLiabilityTrueUpResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Sales.PostV1SalesRefundLiabilityTrueUpAsync(
+    new PostV1SalesRefundLiabilityTrueUpRequest
+    {
+        InvoiceId = "invoiceId",
+        EstimatedTotal = "estimatedTotal",
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1SalesRefundLiabilityTrueUpRequest` 
     
 </dd>
 </dl>
@@ -4437,6 +4912,305 @@ await client.Declarations.PostV1DeclarationsEuIossComputeAsync(
 <dd>
 
 **request:** `PostV1DeclarationsEuIossComputeRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsEuDistanceSalesThresholdGetAsync</a>(PostV1DeclarationsEuDistanceSalesThresholdGetRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsEuDistanceSalesThresholdGetResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsEuDistanceSalesThresholdGetAsync(
+    new PostV1DeclarationsEuDistanceSalesThresholdGetRequest()
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsEuDistanceSalesThresholdGetRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsEuUnionTurnoverGetAsync</a>(PostV1DeclarationsEuUnionTurnoverGetRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsEuUnionTurnoverGetResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsEuUnionTurnoverGetAsync(
+    new PostV1DeclarationsEuUnionTurnoverGetRequest()
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsEuUnionTurnoverGetRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsEuSmeCrossBorderReportComputeAsync</a>(PostV1DeclarationsEuSmeCrossBorderReportComputeRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsEuSmeCrossBorderReportComputeResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsEuSmeCrossBorderReportComputeAsync(
+    new PostV1DeclarationsEuSmeCrossBorderReportComputeRequest { Year = 1000000, Quarter = 1000000 }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsEuSmeCrossBorderReportComputeRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsEuSmeThresholdsListAsync</a>(PostV1DeclarationsEuSmeThresholdsListRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsEuSmeThresholdsListResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsEuSmeThresholdsListAsync(
+    new PostV1DeclarationsEuSmeThresholdsListRequest()
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsEuSmeThresholdsListRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsEuSmeThresholdGetAsync</a>(PostV1DeclarationsEuSmeThresholdGetRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsEuSmeThresholdGetResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsEuSmeThresholdGetAsync(
+    new PostV1DeclarationsEuSmeThresholdGetRequest()
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsEuSmeThresholdGetRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsEuVatReturnPacksListAsync</a>(PostV1DeclarationsEuVatReturnPacksListRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsEuVatReturnPacksListResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsEuVatReturnPacksListAsync(
+    new PostV1DeclarationsEuVatReturnPacksListRequest()
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsEuVatReturnPacksListRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsEuVatReturnComputeAsync</a>(PostV1DeclarationsEuVatReturnComputeRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsEuVatReturnComputeResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsEuVatReturnComputeAsync(
+    new PostV1DeclarationsEuVatReturnComputeRequest
+    {
+        CountryCode = "countryCode",
+        Year = 1000000,
+        Month = 1000000,
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsEuVatReturnComputeRequest` 
     
 </dd>
 </dl>
@@ -7771,6 +8545,90 @@ await client.Agreements.PostV1AgreementsAgreementsListAsync(
 <dd>
 
 **request:** `PostV1AgreementsAgreementsListRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Agreements.<a href="/src/NordletApi/Agreements/AgreementsClient.cs">PostV1AgreementsAgreementsGenerateInvoiceAsync</a>(PostV1AgreementsAgreementsGenerateInvoiceRequest { ... }) -> WithRawResponseTask&lt;PostV1AgreementsAgreementsGenerateInvoiceResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Agreements.PostV1AgreementsAgreementsGenerateInvoiceAsync(
+    new PostV1AgreementsAgreementsGenerateInvoiceRequest { Id = "id" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1AgreementsAgreementsGenerateInvoiceRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Agreements.<a href="/src/NordletApi/Agreements/AgreementsClient.cs">PostV1AgreementsAgreementsBillingRunAsync</a>(PostV1AgreementsAgreementsBillingRunRequest { ... }) -> WithRawResponseTask&lt;PostV1AgreementsAgreementsBillingRunResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Agreements.PostV1AgreementsAgreementsBillingRunAsync(
+    new PostV1AgreementsAgreementsBillingRunRequest()
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1AgreementsAgreementsBillingRunRequest` 
     
 </dd>
 </dl>

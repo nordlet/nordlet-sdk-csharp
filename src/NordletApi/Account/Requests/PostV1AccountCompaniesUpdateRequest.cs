@@ -15,6 +15,9 @@ public record PostV1AccountCompaniesUpdateRequest
     [JsonPropertyName("vatCode")]
     public string? VatCode { get; set; }
 
+    [JsonPropertyName("smeExemptionNumber")]
+    public string? SmeExemptionNumber { get; set; }
+
     [JsonPropertyName("isVatPayer")]
     public bool? IsVatPayer { get; set; }
 

@@ -56,6 +56,12 @@ public partial interface ISalesClient
         CancellationToken cancellationToken = default
     );
 
+    WithRawResponseTask<PostV1SalesRecognitionSchedulesListResponse> PostV1SalesRecognitionSchedulesListAsync(
+        PostV1SalesRecognitionSchedulesListRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
     WithRawResponseTask<PostV1SalesInvoicesApplyAdvanceResponse> PostV1SalesInvoicesApplyAdvanceAsync(
         PostV1SalesInvoicesApplyAdvanceRequest request,
         RequestOptions? options = null,
@@ -106,6 +112,57 @@ public partial interface ISalesClient
 
     WithRawResponseTask<PostV1SalesActsPdfResponse> PostV1SalesActsPdfAsync(
         PostV1SalesActsPdfRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1SalesRecognitionComputeResponse> PostV1SalesRecognitionComputeAsync(
+        PostV1SalesRecognitionComputeRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1SalesRecognitionRunResponse> PostV1SalesRecognitionRunAsync(
+        PostV1SalesRecognitionRunRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1SalesRecognitionProgressResponse> PostV1SalesRecognitionProgressAsync(
+        PostV1SalesRecognitionProgressRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    /// <summary>
+    /// Apply an IFRS 15 contract modification to a deferred invoice line. Prospective: cancel the pending schedule and respread the unrecognized remainder over the new terms. Cumulative catch-up (ratable only): recompute revenue as if the new terms applied from the start and post the difference immediately.
+    /// </summary>
+    WithRawResponseTask<PostV1SalesRecognitionModifyResponse> PostV1SalesRecognitionModifyAsync(
+        PostV1SalesRecognitionModifyRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1SalesRecognitionRunsListResponse> PostV1SalesRecognitionRunsListAsync(
+        PostV1SalesRecognitionRunsListRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1SalesRecognitionSummaryResponse> PostV1SalesRecognitionSummaryAsync(
+        PostV1SalesRecognitionSummaryRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1SalesRefundLiabilityListResponse> PostV1SalesRefundLiabilityListAsync(
+        PostV1SalesRefundLiabilityListRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1SalesRefundLiabilityTrueUpResponse> PostV1SalesRefundLiabilityTrueUpAsync(
+        PostV1SalesRefundLiabilityTrueUpRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );

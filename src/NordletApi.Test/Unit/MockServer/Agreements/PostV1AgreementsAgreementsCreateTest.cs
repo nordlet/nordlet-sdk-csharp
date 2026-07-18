@@ -31,6 +31,7 @@ public class PostV1AgreementsAgreementsCreateTest : BaseMockServerTest
               "endDate": "endDate",
               "autoRenew": true,
               "value": "value",
+              "billingPeriod": "monthly",
               "currency": "currency",
               "status": "draft",
               "notes": "notes",
@@ -41,14 +42,16 @@ public class PostV1AgreementsAgreementsCreateTest : BaseMockServerTest
                   "itemId": "x",
                   "description": "description",
                   "quantity": "quantity",
-                  "unitPrice": "unitPrice"
+                  "unitPrice": "unitPrice",
+                  "vatRatePercent": "vatRatePercent"
                 },
                 {
                   "id": "x",
                   "itemId": "x",
                   "description": "description",
                   "quantity": "quantity",
-                  "unitPrice": "unitPrice"
+                  "unitPrice": "unitPrice",
+                  "vatRatePercent": "vatRatePercent"
                 }
               ]
             }
@@ -81,6 +84,7 @@ public class PostV1AgreementsAgreementsCreateTest : BaseMockServerTest
                 EndDate = null,
                 AutoRenew = null,
                 Value = null,
+                BillingPeriod = null,
                 Currency = null,
                 Status = null,
                 Notes = null,
@@ -112,6 +116,7 @@ public class PostV1AgreementsAgreementsCreateTest : BaseMockServerTest
               "endDate": "endDate",
               "autoRenew": true,
               "value": "value",
+              "billingPeriod": "monthly",
               "currency": "currency",
               "status": "draft",
               "notes": "notes",
@@ -122,7 +127,8 @@ public class PostV1AgreementsAgreementsCreateTest : BaseMockServerTest
                   "itemId": "itemId",
                   "description": "description",
                   "quantity": "quantity",
-                  "unitPrice": "unitPrice"
+                  "unitPrice": "unitPrice",
+                  "vatRatePercent": "vatRatePercent"
                 }
               ]
             }

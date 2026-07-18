@@ -38,6 +38,9 @@ public record PostV1AgreementsAgreementsUpdateResponse : IJsonOnDeserialized
     [JsonPropertyName("value")]
     public string? Value { get; set; }
 
+    [JsonPropertyName("billingPeriod")]
+    public PostV1AgreementsAgreementsUpdateResponseBillingPeriod? BillingPeriod { get; set; }
+
     [JsonPropertyName("currency")]
     public required string Currency { get; set; }
 

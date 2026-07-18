@@ -34,6 +34,10 @@ public readonly record struct PostV1SalesInvoicesGetResponseVatScheme : IStringE
         Values.OutOfScope
     );
 
+    public static readonly PostV1SalesInvoicesGetResponseVatScheme SmeExempt = new(
+        Values.SmeExempt
+    );
+
     public PostV1SalesInvoicesGetResponseVatScheme(string value)
     {
         Value = value;
@@ -148,5 +152,7 @@ public readonly record struct PostV1SalesInvoicesGetResponseVatScheme : IStringE
         public const string Export = "export";
 
         public const string OutOfScope = "out_of_scope";
+
+        public const string SmeExempt = "sme_exempt";
     }
 }

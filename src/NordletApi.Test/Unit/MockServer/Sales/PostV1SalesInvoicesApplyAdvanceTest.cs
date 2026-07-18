@@ -39,6 +39,7 @@ public class PostV1SalesInvoicesApplyAdvanceTest : BaseMockServerTest
               "journalTransactionId": "x",
               "appliedToInvoiceId": "x",
               "creditedInvoiceId": "x",
+              "agreementId": "x",
               "vatScheme": "domestic",
               "vatCountryCode": "vatCountryCode",
               "deemedSupplier": true,
@@ -60,7 +61,25 @@ public class PostV1SalesInvoicesApplyAdvanceTest : BaseMockServerTest
                   "lineNet": "lineNet",
                   "lineVat": "lineVat",
                   "lineGross": "lineGross",
-                  "sortOrder": 1000000
+                  "sortOrder": 1000000,
+                  "recognitionMethod": "point_in_time",
+                  "recognitionStartDate": "recognitionStartDate",
+                  "recognitionEndDate": "recognitionEndDate",
+                  "recognitionMilestones": [
+                    {
+                      "description": "description",
+                      "expectedDate": "expectedDate",
+                      "percent": "percent"
+                    },
+                    {
+                      "description": "description",
+                      "expectedDate": "expectedDate",
+                      "percent": "percent"
+                    }
+                  ],
+                  "standaloneSellingPrice": "standaloneSellingPrice",
+                  "allocatedNet": "allocatedNet",
+                  "refundEstimatePercent": "refundEstimatePercent"
                 },
                 {
                   "id": "x",
@@ -76,7 +95,25 @@ public class PostV1SalesInvoicesApplyAdvanceTest : BaseMockServerTest
                   "lineNet": "lineNet",
                   "lineVat": "lineVat",
                   "lineGross": "lineGross",
-                  "sortOrder": 1000000
+                  "sortOrder": 1000000,
+                  "recognitionMethod": "point_in_time",
+                  "recognitionStartDate": "recognitionStartDate",
+                  "recognitionEndDate": "recognitionEndDate",
+                  "recognitionMilestones": [
+                    {
+                      "description": "description",
+                      "expectedDate": "expectedDate",
+                      "percent": "percent"
+                    },
+                    {
+                      "description": "description",
+                      "expectedDate": "expectedDate",
+                      "percent": "percent"
+                    }
+                  ],
+                  "standaloneSellingPrice": "standaloneSellingPrice",
+                  "allocatedNet": "allocatedNet",
+                  "refundEstimatePercent": "refundEstimatePercent"
                 }
               ]
             }
@@ -139,6 +176,7 @@ public class PostV1SalesInvoicesApplyAdvanceTest : BaseMockServerTest
               "journalTransactionId": "journalTransactionId",
               "appliedToInvoiceId": "appliedToInvoiceId",
               "creditedInvoiceId": "creditedInvoiceId",
+              "agreementId": "agreementId",
               "vatScheme": "domestic",
               "vatCountryCode": "vatCountryCode",
               "deemedSupplier": true,
@@ -160,7 +198,19 @@ public class PostV1SalesInvoicesApplyAdvanceTest : BaseMockServerTest
                   "lineNet": "lineNet",
                   "lineVat": "lineVat",
                   "lineGross": "lineGross",
-                  "sortOrder": 1000000
+                  "sortOrder": 1000000,
+                  "recognitionMethod": "point_in_time",
+                  "recognitionStartDate": "recognitionStartDate",
+                  "recognitionEndDate": "recognitionEndDate",
+                  "recognitionMilestones": [
+                    {
+                      "description": "description",
+                      "percent": "percent"
+                    }
+                  ],
+                  "standaloneSellingPrice": "standaloneSellingPrice",
+                  "allocatedNet": "allocatedNet",
+                  "refundEstimatePercent": "refundEstimatePercent"
                 }
               ]
             }

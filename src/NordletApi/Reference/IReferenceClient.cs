@@ -74,8 +74,20 @@ public partial interface IReferenceClient
         CancellationToken cancellationToken = default
     );
 
+    /// <summary>
+    /// Effective EU VAT rate mapping for this company: EC TEDB defaults, replaced per country by any company overrides. Verify the mapping fits the goods and services you sell before relying on it.
+    /// </summary>
     WithRawResponseTask<PostV1ReferenceEuVatRatesListResponse> PostV1ReferenceEuVatRatesListAsync(
         PostV1ReferenceEuVatRatesListRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    /// <summary>
+    /// Replace the VAT rate mapping this company uses for one EU country. Pass an empty rates array to drop the overrides and return to the TEDB defaults. Overrides feed rate suggestions (vat/resolve) and OSS/IOSS return rate classification.
+    /// </summary>
+    WithRawResponseTask<PostV1ReferenceEuVatRatesSetOverridesResponse> PostV1ReferenceEuVatRatesSetOverridesAsync(
+        PostV1ReferenceEuVatRatesSetOverridesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );

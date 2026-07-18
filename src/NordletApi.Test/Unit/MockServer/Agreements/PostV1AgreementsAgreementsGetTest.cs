@@ -29,6 +29,7 @@ public class PostV1AgreementsAgreementsGetTest : BaseMockServerTest
               "endDate": "endDate",
               "autoRenew": true,
               "value": "value",
+              "billingPeriod": "monthly",
               "currency": "currency",
               "status": "draft",
               "notes": "notes",
@@ -39,14 +40,16 @@ public class PostV1AgreementsAgreementsGetTest : BaseMockServerTest
                   "itemId": "x",
                   "description": "description",
                   "quantity": "quantity",
-                  "unitPrice": "unitPrice"
+                  "unitPrice": "unitPrice",
+                  "vatRatePercent": "vatRatePercent"
                 },
                 {
                   "id": "x",
                   "itemId": "x",
                   "description": "description",
                   "quantity": "quantity",
-                  "unitPrice": "unitPrice"
+                  "unitPrice": "unitPrice",
+                  "vatRatePercent": "vatRatePercent"
                 }
               ]
             }
@@ -94,6 +97,7 @@ public class PostV1AgreementsAgreementsGetTest : BaseMockServerTest
               "endDate": "endDate",
               "autoRenew": true,
               "value": "value",
+              "billingPeriod": "monthly",
               "currency": "currency",
               "status": "draft",
               "notes": "notes",
@@ -104,7 +108,8 @@ public class PostV1AgreementsAgreementsGetTest : BaseMockServerTest
                   "itemId": "itemId",
                   "description": "description",
                   "quantity": "quantity",
-                  "unitPrice": "unitPrice"
+                  "unitPrice": "unitPrice",
+                  "vatRatePercent": "vatRatePercent"
                 }
               ]
             }

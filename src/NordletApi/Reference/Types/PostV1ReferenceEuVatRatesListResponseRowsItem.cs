@@ -26,6 +26,9 @@ public record PostV1ReferenceEuVatRatesListResponseRowsItem : IJsonOnDeserialize
     [JsonPropertyName("validTo")]
     public string? ValidTo { get; set; }
 
+    [JsonPropertyName("source")]
+    public required PostV1ReferenceEuVatRatesListResponseRowsItemSource Source { get; set; }
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

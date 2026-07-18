@@ -39,6 +39,15 @@ public record PostV1SalesInvoicesUpdateRequestLinesItem : IJsonOnDeserialized
     [JsonPropertyName("costCenterId")]
     public string? CostCenterId { get; set; }
 
+    [JsonPropertyName("recognition")]
+    public PostV1SalesInvoicesUpdateRequestLinesItemRecognition? Recognition { get; set; }
+
+    [JsonPropertyName("standaloneSellingPrice")]
+    public string? StandaloneSellingPrice { get; set; }
+
+    [JsonPropertyName("refundEstimatePercent")]
+    public string? RefundEstimatePercent { get; set; }
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

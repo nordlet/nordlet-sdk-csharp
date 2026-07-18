@@ -11,6 +11,9 @@ public record PostV1ReferenceEuVatRatesListResponse : IJsonOnDeserialized
     private readonly IDictionary<string, JsonElement> _extensionData =
         new Dictionary<string, JsonElement>();
 
+    [JsonPropertyName("notice")]
+    public required string Notice { get; set; }
+
     [JsonPropertyName("rows")]
     public IEnumerable<PostV1ReferenceEuVatRatesListResponseRowsItem> Rows { get; set; } =
         new List<PostV1ReferenceEuVatRatesListResponseRowsItem>();

@@ -30,6 +30,9 @@ public record PostV1AgreementsAgreementsCreateRequest
     [JsonPropertyName("value")]
     public string? Value { get; set; }
 
+    [JsonPropertyName("billingPeriod")]
+    public PostV1AgreementsAgreementsCreateRequestBillingPeriod? BillingPeriod { get; set; }
+
     [JsonPropertyName("currency")]
     public string? Currency { get; set; }
 

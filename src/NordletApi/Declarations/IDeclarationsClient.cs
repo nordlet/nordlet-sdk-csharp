@@ -68,6 +68,48 @@ public partial interface IDeclarationsClient
         CancellationToken cancellationToken = default
     );
 
+    WithRawResponseTask<PostV1DeclarationsEuDistanceSalesThresholdGetResponse> PostV1DeclarationsEuDistanceSalesThresholdGetAsync(
+        PostV1DeclarationsEuDistanceSalesThresholdGetRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1DeclarationsEuUnionTurnoverGetResponse> PostV1DeclarationsEuUnionTurnoverGetAsync(
+        PostV1DeclarationsEuUnionTurnoverGetRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1DeclarationsEuSmeCrossBorderReportComputeResponse> PostV1DeclarationsEuSmeCrossBorderReportComputeAsync(
+        PostV1DeclarationsEuSmeCrossBorderReportComputeRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1DeclarationsEuSmeThresholdsListResponse> PostV1DeclarationsEuSmeThresholdsListAsync(
+        PostV1DeclarationsEuSmeThresholdsListRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1DeclarationsEuSmeThresholdGetResponse> PostV1DeclarationsEuSmeThresholdGetAsync(
+        PostV1DeclarationsEuSmeThresholdGetRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1DeclarationsEuVatReturnPacksListResponse> PostV1DeclarationsEuVatReturnPacksListAsync(
+        PostV1DeclarationsEuVatReturnPacksListRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1DeclarationsEuVatReturnComputeResponse> PostV1DeclarationsEuVatReturnComputeAsync(
+        PostV1DeclarationsEuVatReturnComputeRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
     WithRawResponseTask<PostV1DeclarationsConfigsListResponse> PostV1DeclarationsConfigsListAsync(
         PostV1DeclarationsConfigsListRequest request,
         RequestOptions? options = null,

@@ -26,6 +26,9 @@ public record PostV1AgreementsAgreementsCreateResponseItemsItem : IJsonOnDeseria
     [JsonPropertyName("unitPrice")]
     public string? UnitPrice { get; set; }
 
+    [JsonPropertyName("vatRatePercent")]
+    public string? VatRatePercent { get; set; }
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

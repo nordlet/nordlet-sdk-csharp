@@ -53,6 +53,27 @@ public record PostV1SalesInvoicesApplyAdvanceResponseLinesItem : IJsonOnDeserial
     [JsonPropertyName("sortOrder")]
     public required long SortOrder { get; set; }
 
+    [JsonPropertyName("recognitionMethod")]
+    public required PostV1SalesInvoicesApplyAdvanceResponseLinesItemRecognitionMethod RecognitionMethod { get; set; }
+
+    [JsonPropertyName("recognitionStartDate")]
+    public string? RecognitionStartDate { get; set; }
+
+    [JsonPropertyName("recognitionEndDate")]
+    public string? RecognitionEndDate { get; set; }
+
+    [JsonPropertyName("recognitionMilestones")]
+    public IEnumerable<PostV1SalesInvoicesApplyAdvanceResponseLinesItemRecognitionMilestonesItem>? RecognitionMilestones { get; set; }
+
+    [JsonPropertyName("standaloneSellingPrice")]
+    public string? StandaloneSellingPrice { get; set; }
+
+    [JsonPropertyName("allocatedNet")]
+    public string? AllocatedNet { get; set; }
+
+    [JsonPropertyName("refundEstimatePercent")]
+    public string? RefundEstimatePercent { get; set; }
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

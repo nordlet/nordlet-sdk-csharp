@@ -51,6 +51,7 @@ public class PostV1AccountCompaniesCreateTest : BaseMockServerTest
                 Name = "x",
                 Code = null,
                 VatCode = null,
+                SmeExemptionNumber = null,
                 IsVatPayer = null,
                 Address = null,
                 Email = null,
