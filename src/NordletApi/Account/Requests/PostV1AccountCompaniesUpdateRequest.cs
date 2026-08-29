@@ -39,6 +39,9 @@ public record PostV1AccountCompaniesUpdateRequest
     [JsonPropertyName("peppolId")]
     public string? PeppolId { get; set; }
 
+    [JsonPropertyName("sepaCreditorId")]
+    public string? SepaCreditorId { get; set; }
+
     [JsonPropertyName("defaultInvoiceCurrency")]
     public string? DefaultInvoiceCurrency { get; set; }
 

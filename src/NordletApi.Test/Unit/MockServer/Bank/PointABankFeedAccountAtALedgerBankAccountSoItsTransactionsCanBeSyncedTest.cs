@@ -1,0 +1,112 @@
+using NordletApi;
+using NordletApi.Test.Unit.MockServer;
+using NordletApi.Test.Utils;
+using NUnit.Framework;
+
+namespace NordletApi.Test.Unit.MockServer.Bank;
+
+[TestFixture]
+[Parallelizable(ParallelScope.Self)]
+public class PointABankFeedAccountAtALedgerBankAccountSoItsTransactionsCanBeSyncedTest
+    : BaseMockServerTest
+{
+    [NUnit.Framework.Test]
+    public async Task MockServerTest_1()
+    {
+        const string requestJson = """
+            {
+              "id": "x"
+            }
+            """;
+
+        const string mockResponse = """
+            {
+              "id": "x",
+              "connectionId": "x",
+              "bankAccountId": "x",
+              "externalId": "externalId",
+              "iban": "iban",
+              "currency": "currency",
+              "name": "name",
+              "product": "product",
+              "syncFrom": "syncFrom",
+              "lastSyncedAt": "lastSyncedAt"
+            }
+            """;
+
+        Server
+            .Given(
+                WireMock
+                    .RequestBuilders.Request.Create()
+                    .WithPath("/v1/bank/feeds/accounts/link")
+                    .WithHeader("Content-Type", "application/json")
+                    .UsingPost()
+                    .WithBodyAsJson(requestJson)
+            )
+            .RespondWith(
+                WireMock
+                    .ResponseBuilders.Response.Create()
+                    .WithStatusCode(200)
+                    .WithBody(mockResponse)
+            );
+
+        var response =
+            await Client.Bank.PointABankFeedAccountAtALedgerBankAccountSoItsTransactionsCanBeSyncedAsync(
+                new PostV1BankFeedsAccountsLinkRequest
+                {
+                    Id = "x",
+                    BankAccountId = null,
+                    CreateBankAccount = null,
+                    SyncFrom = null,
+                }
+            );
+        JsonAssert.AreEqual(response, mockResponse);
+    }
+
+    [NUnit.Framework.Test]
+    public async Task MockServerTest_2()
+    {
+        const string requestJson = """
+            {
+              "id": "id"
+            }
+            """;
+
+        const string mockResponse = """
+            {
+              "id": "id",
+              "connectionId": "connectionId",
+              "bankAccountId": "bankAccountId",
+              "externalId": "externalId",
+              "iban": "iban",
+              "currency": "currency",
+              "name": "name",
+              "product": "product",
+              "syncFrom": "syncFrom",
+              "lastSyncedAt": "lastSyncedAt"
+            }
+            """;
+
+        Server
+            .Given(
+                WireMock
+                    .RequestBuilders.Request.Create()
+                    .WithPath("/v1/bank/feeds/accounts/link")
+                    .WithHeader("Content-Type", "application/json")
+                    .UsingPost()
+                    .WithBodyAsJson(requestJson)
+            )
+            .RespondWith(
+                WireMock
+                    .ResponseBuilders.Response.Create()
+                    .WithStatusCode(200)
+                    .WithBody(mockResponse)
+            );
+
+        var response =
+            await Client.Bank.PointABankFeedAccountAtALedgerBankAccountSoItsTransactionsCanBeSyncedAsync(
+                new PostV1BankFeedsAccountsLinkRequest { Id = "id" }
+            );
+        JsonAssert.AreEqual(response, mockResponse);
+    }
+}

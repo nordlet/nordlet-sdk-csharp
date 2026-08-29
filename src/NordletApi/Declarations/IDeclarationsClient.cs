@@ -110,6 +110,15 @@ public partial interface IDeclarationsClient
         CancellationToken cancellationToken = default
     );
 
+    /// <summary>
+    /// Generate the Polish JPK_V7M(3) file (VAT declaration with evidence) for a month, per the MF schema in force since February 2026. Amounts must already be in PLN; rows are marked BFK until a KSeF integration supplies invoice numbers. Review the warnings before submitting via e-dokumenty.mf.gov.pl.
+    /// </summary>
+    WithRawResponseTask<PostV1DeclarationsPlJpkV7MGenerateResponse> PostV1DeclarationsPlJpkV7MGenerateAsync(
+        PostV1DeclarationsPlJpkV7MGenerateRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
     WithRawResponseTask<PostV1DeclarationsConfigsListResponse> PostV1DeclarationsConfigsListAsync(
         PostV1DeclarationsConfigsListRequest request,
         RequestOptions? options = null,

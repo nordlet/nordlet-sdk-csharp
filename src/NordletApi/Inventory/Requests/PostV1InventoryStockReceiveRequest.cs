@@ -21,6 +21,12 @@ public record PostV1InventoryStockReceiveRequest
     [JsonPropertyName("unitCost")]
     public required string UnitCost { get; set; }
 
+    [JsonPropertyName("lotNumber")]
+    public string? LotNumber { get; set; }
+
+    [JsonPropertyName("expiryDate")]
+    public string? ExpiryDate { get; set; }
+
     [JsonPropertyName("notes")]
     public string? Notes { get; set; }
 

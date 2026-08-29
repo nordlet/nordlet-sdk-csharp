@@ -90,6 +90,9 @@ public record PostV1SalesInvoicesGetResponse : IJsonOnDeserialized
     public IEnumerable<PostV1SalesInvoicesGetResponseLinesItem> Lines { get; set; } =
         new List<PostV1SalesInvoicesGetResponseLinesItem>();
 
+    [JsonPropertyName("vatEvidence")]
+    public PostV1SalesInvoicesGetResponseVatEvidence? VatEvidence { get; set; }
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

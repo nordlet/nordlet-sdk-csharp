@@ -25,17 +25,20 @@ public class PostV1ProductionBomsGetTest : BaseMockServerTest
               "name": "name",
               "finishedItemId": "x",
               "outputQuantity": "outputQuantity",
+              "routingId": "x",
               "isActive": true,
               "lines": [
                 {
                   "id": "x",
                   "componentItemId": "x",
-                  "quantity": "quantity"
+                  "quantity": "quantity",
+                  "scrapPercent": "scrapPercent"
                 },
                 {
                   "id": "x",
                   "componentItemId": "x",
-                  "quantity": "quantity"
+                  "quantity": "quantity",
+                  "scrapPercent": "scrapPercent"
                 }
               ]
             }
@@ -79,12 +82,14 @@ public class PostV1ProductionBomsGetTest : BaseMockServerTest
               "name": "name",
               "finishedItemId": "finishedItemId",
               "outputQuantity": "outputQuantity",
+              "routingId": "routingId",
               "isActive": true,
               "lines": [
                 {
                   "id": "id",
                   "componentItemId": "componentItemId",
-                  "quantity": "quantity"
+                  "quantity": "quantity",
+                  "scrapPercent": "scrapPercent"
                 }
               ]
             }

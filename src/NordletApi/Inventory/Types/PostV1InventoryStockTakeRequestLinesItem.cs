@@ -23,6 +23,12 @@ public record PostV1InventoryStockTakeRequestLinesItem : IJsonOnDeserialized
     [JsonPropertyName("unitCost")]
     public string? UnitCost { get; set; }
 
+    [JsonPropertyName("lotNumber")]
+    public string? LotNumber { get; set; }
+
+    [JsonPropertyName("expiryDate")]
+    public string? ExpiryDate { get; set; }
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

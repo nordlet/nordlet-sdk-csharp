@@ -59,6 +59,9 @@ public record PostV1PurchasesInvoicesRegisterResponse : IJsonOnDeserialized
     [JsonPropertyName("creditedInvoiceId")]
     public string? CreditedInvoiceId { get; set; }
 
+    [JsonPropertyName("purchaseOrderId")]
+    public string? PurchaseOrderId { get; set; }
+
     [JsonPropertyName("notes")]
     public string? Notes { get; set; }
 

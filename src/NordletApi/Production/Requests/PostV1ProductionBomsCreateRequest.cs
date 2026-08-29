@@ -18,6 +18,9 @@ public record PostV1ProductionBomsCreateRequest
     [JsonPropertyName("outputQuantity")]
     public string? OutputQuantity { get; set; }
 
+    [JsonPropertyName("routingId")]
+    public string? RoutingId { get; set; }
+
     [JsonPropertyName("lines")]
     public IEnumerable<PostV1ProductionBomsCreateRequestLinesItem> Lines { get; set; } =
         new List<PostV1ProductionBomsCreateRequestLinesItem>();

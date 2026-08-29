@@ -17,6 +17,9 @@ public record PostV1CatalogItemsUpdateResponse : IJsonOnDeserialized
     [JsonPropertyName("type")]
     public required PostV1CatalogItemsUpdateResponseType Type { get; set; }
 
+    [JsonPropertyName("tracking")]
+    public required PostV1CatalogItemsUpdateResponseTracking Tracking { get; set; }
+
     [JsonPropertyName("name")]
     public required string Name { get; set; }
 

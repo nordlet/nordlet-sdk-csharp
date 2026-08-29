@@ -15,6 +15,9 @@ public record PostV1ProductionOrdersCreateRequest
     [JsonPropertyName("warehouseId")]
     public required string WarehouseId { get; set; }
 
+    [JsonPropertyName("routingId")]
+    public string? RoutingId { get; set; }
+
     [JsonPropertyName("quantity")]
     public required string Quantity { get; set; }
 

@@ -22,6 +22,7 @@ public class PostV1CatalogItemsCreateTest : BaseMockServerTest
             {
               "id": "x",
               "type": "product",
+              "tracking": "none",
               "name": "name",
               "code": "code",
               "barcode": "barcode",
@@ -83,6 +84,7 @@ public class PostV1CatalogItemsCreateTest : BaseMockServerTest
             new PostV1CatalogItemsCreateRequest
             {
                 Type = null,
+                Tracking = null,
                 Name = "x",
                 Code = null,
                 Barcode = null,
@@ -119,6 +121,7 @@ public class PostV1CatalogItemsCreateTest : BaseMockServerTest
             {
               "id": "id",
               "type": "product",
+              "tracking": "none",
               "name": "name",
               "code": "code",
               "barcode": "barcode",

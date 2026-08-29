@@ -40,6 +40,7 @@ public class PostV1AccountCompaniesUpdateTest : BaseMockServerTest
               "iban": "iban",
               "bankName": "bankName",
               "peppolId": "peppolId",
+              "sepaCreditorId": "sepaCreditorId",
               "logoFileId": "logoFileId"
             }
             """;
@@ -74,6 +75,7 @@ public class PostV1AccountCompaniesUpdateTest : BaseMockServerTest
                 Iban = null,
                 BankName = null,
                 PeppolId = null,
+                SepaCreditorId = null,
                 DefaultInvoiceCurrency = null,
                 Logo = null,
             }
@@ -112,6 +114,7 @@ public class PostV1AccountCompaniesUpdateTest : BaseMockServerTest
               "iban": "iban",
               "bankName": "bankName",
               "peppolId": "peppolId",
+              "sepaCreditorId": "sepaCreditorId",
               "logoFileId": "logoFileId"
             }
             """;

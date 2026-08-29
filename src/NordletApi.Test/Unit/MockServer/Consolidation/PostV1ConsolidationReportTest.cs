@@ -161,6 +161,69 @@ public class PostV1ConsolidationReportTest : BaseMockServerTest
                 "balanced": true,
                 "net": "net"
               },
+              "cashFlow": {
+                "openingCash": "openingCash",
+                "closingCash": "closingCash",
+                "netChange": "netChange",
+                "operating": {
+                  "inflow": "inflow",
+                  "outflow": "outflow",
+                  "net": "net",
+                  "rows": [
+                    {
+                      "code": "code",
+                      "name": "name",
+                      "inflow": "inflow",
+                      "outflow": "outflow"
+                    },
+                    {
+                      "code": "code",
+                      "name": "name",
+                      "inflow": "inflow",
+                      "outflow": "outflow"
+                    }
+                  ]
+                },
+                "investing": {
+                  "inflow": "inflow",
+                  "outflow": "outflow",
+                  "net": "net",
+                  "rows": [
+                    {
+                      "code": "code",
+                      "name": "name",
+                      "inflow": "inflow",
+                      "outflow": "outflow"
+                    },
+                    {
+                      "code": "code",
+                      "name": "name",
+                      "inflow": "inflow",
+                      "outflow": "outflow"
+                    }
+                  ]
+                },
+                "financing": {
+                  "inflow": "inflow",
+                  "outflow": "outflow",
+                  "net": "net",
+                  "rows": [
+                    {
+                      "code": "code",
+                      "name": "name",
+                      "inflow": "inflow",
+                      "outflow": "outflow"
+                    },
+                    {
+                      "code": "code",
+                      "name": "name",
+                      "inflow": "inflow",
+                      "outflow": "outflow"
+                    }
+                  ]
+                },
+                "balanced": true
+              },
               "intercompanyCandidates": [
                 {
                   "memberCompanyId": "x",
@@ -340,6 +403,51 @@ public class PostV1ConsolidationReportTest : BaseMockServerTest
                 ],
                 "balanced": true,
                 "net": "net"
+              },
+              "cashFlow": {
+                "openingCash": "openingCash",
+                "closingCash": "closingCash",
+                "netChange": "netChange",
+                "operating": {
+                  "inflow": "inflow",
+                  "outflow": "outflow",
+                  "net": "net",
+                  "rows": [
+                    {
+                      "code": "code",
+                      "name": "name",
+                      "inflow": "inflow",
+                      "outflow": "outflow"
+                    }
+                  ]
+                },
+                "investing": {
+                  "inflow": "inflow",
+                  "outflow": "outflow",
+                  "net": "net",
+                  "rows": [
+                    {
+                      "code": "code",
+                      "name": "name",
+                      "inflow": "inflow",
+                      "outflow": "outflow"
+                    }
+                  ]
+                },
+                "financing": {
+                  "inflow": "inflow",
+                  "outflow": "outflow",
+                  "net": "net",
+                  "rows": [
+                    {
+                      "code": "code",
+                      "name": "name",
+                      "inflow": "inflow",
+                      "outflow": "outflow"
+                    }
+                  ]
+                },
+                "balanced": true
               },
               "intercompanyCandidates": [
                 {

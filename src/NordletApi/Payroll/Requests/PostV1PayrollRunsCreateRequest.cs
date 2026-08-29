@@ -12,6 +12,9 @@ public record PostV1PayrollRunsCreateRequest
     [JsonPropertyName("month")]
     public required long Month { get; set; }
 
+    [JsonPropertyName("includeNatura")]
+    public bool? IncludeNatura { get; set; }
+
     [JsonPropertyName("lines")]
     public IEnumerable<PostV1PayrollRunsCreateRequestLinesItem>? Lines { get; set; }
 

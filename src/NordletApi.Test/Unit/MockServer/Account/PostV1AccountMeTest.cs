@@ -29,6 +29,12 @@ public class PostV1AccountMeTest : BaseMockServerTest
               "locale": "locale",
               "activeCompanyId": "x",
               "role": "role",
+              "billing": {
+                "status": "trial",
+                "plan": "plan",
+                "balanceCents": 1000000,
+                "trialEndsAt": "trialEndsAt"
+              },
               "companies": [
                 {
                   "id": "x",
@@ -94,6 +100,12 @@ public class PostV1AccountMeTest : BaseMockServerTest
               "locale": "locale",
               "activeCompanyId": "activeCompanyId",
               "role": "role",
+              "billing": {
+                "status": "trial",
+                "plan": "plan",
+                "balanceCents": 1000000,
+                "trialEndsAt": "trialEndsAt"
+              },
               "companies": [
                 {
                   "id": "id",

@@ -66,6 +66,7 @@ public class PostV1LedgerJournalTransactionsCreateTest : BaseMockServerTest
                     {
                         AccountCode = "x",
                         CostCenterId = null,
+                        ProjectId = null,
                         Debit = null,
                         Credit = null,
                         Description = null,
@@ -74,6 +75,7 @@ public class PostV1LedgerJournalTransactionsCreateTest : BaseMockServerTest
                     {
                         AccountCode = "x",
                         CostCenterId = null,
+                        ProjectId = null,
                         Debit = null,
                         Credit = null,
                         Description = null,

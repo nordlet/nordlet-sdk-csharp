@@ -38,16 +38,19 @@ public partial class NordletApiClient : INordletApiClient
         Catalog = new CatalogClient(_client);
         Sales = new SalesClient(_client);
         Purchases = new PurchasesClient(_client);
+        Capture = new CaptureClient(_client);
         Declarations = new DeclarationsClient(_client);
         Ledger = new LedgerClient(_client);
         Assets = new AssetsClient(_client);
         Hr = new HrClient(_client);
+        Fleet = new FleetClient(_client);
         Payroll = new PayrollClient(_client);
         Agreements = new AgreementsClient(_client);
         Inventory = new InventoryClient(_client);
         Production = new ProductionClient(_client);
         Ecommerce = new EcommerceClient(_client);
         Cash = new CashClient(_client);
+        Projects = new ProjectsClient(_client);
         Transport = new TransportClient(_client);
         Pos = new PosClient(_client);
         Audit = new AuditClient(_client);
@@ -57,6 +60,7 @@ public partial class NordletApiClient : INordletApiClient
         Reports = new ReportsClient(_client);
         Consolidation = new ConsolidationClient(_client);
         Public = new PublicClient(_client);
+        Billing = new BillingClient(_client);
         Account = new AccountClient(_client);
     }
 
@@ -70,6 +74,8 @@ public partial class NordletApiClient : INordletApiClient
 
     public IPurchasesClient Purchases { get; }
 
+    public ICaptureClient Capture { get; }
+
     public IDeclarationsClient Declarations { get; }
 
     public ILedgerClient Ledger { get; }
@@ -77,6 +83,8 @@ public partial class NordletApiClient : INordletApiClient
     public IAssetsClient Assets { get; }
 
     public IHrClient Hr { get; }
+
+    public IFleetClient Fleet { get; }
 
     public IPayrollClient Payroll { get; }
 
@@ -89,6 +97,8 @@ public partial class NordletApiClient : INordletApiClient
     public IEcommerceClient Ecommerce { get; }
 
     public ICashClient Cash { get; }
+
+    public IProjectsClient Projects { get; }
 
     public ITransportClient Transport { get; }
 
@@ -107,6 +117,8 @@ public partial class NordletApiClient : INordletApiClient
     public IConsolidationClient Consolidation { get; }
 
     public IPublicClient Public { get; }
+
+    public IBillingClient Billing { get; }
 
     public IAccountClient Account { get; }
 }

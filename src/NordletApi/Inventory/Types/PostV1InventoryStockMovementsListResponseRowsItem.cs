@@ -20,6 +20,9 @@ public record PostV1InventoryStockMovementsListResponseRowsItem : IJsonOnDeseria
     [JsonPropertyName("itemId")]
     public required string ItemId { get; set; }
 
+    [JsonPropertyName("lotId")]
+    public string? LotId { get; set; }
+
     [JsonPropertyName("date")]
     public required string Date { get; set; }
 

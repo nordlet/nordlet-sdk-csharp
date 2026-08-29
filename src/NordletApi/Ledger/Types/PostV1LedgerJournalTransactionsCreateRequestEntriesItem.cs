@@ -17,6 +17,9 @@ public record PostV1LedgerJournalTransactionsCreateRequestEntriesItem : IJsonOnD
     [JsonPropertyName("costCenterId")]
     public string? CostCenterId { get; set; }
 
+    [JsonPropertyName("projectId")]
+    public string? ProjectId { get; set; }
+
     [JsonPropertyName("debit")]
     public string? Debit { get; set; }
 

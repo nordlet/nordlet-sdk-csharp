@@ -53,6 +53,8 @@ public class PostV1InventoryStockReceiveTest : BaseMockServerTest
                 Date = "date",
                 Quantity = "quantity",
                 UnitCost = "unitCost",
+                LotNumber = null,
+                ExpiryDate = null,
                 Notes = null,
             }
         );

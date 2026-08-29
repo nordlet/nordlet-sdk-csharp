@@ -24,6 +24,9 @@ public record PostV1PurchasesInvoicesUpdateRequest
     [JsonPropertyName("currency")]
     public string? Currency { get; set; }
 
+    [JsonPropertyName("purchaseOrderId")]
+    public string? PurchaseOrderId { get; set; }
+
     [JsonPropertyName("notes")]
     public string? Notes { get; set; }
 

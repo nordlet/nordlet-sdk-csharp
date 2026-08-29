@@ -42,6 +42,7 @@ public class PostV1PayrollRunsCreateTest : BaseMockServerTest
                   "contractId": "x",
                   "employeeName": "employeeName",
                   "gross": "gross",
+                  "natura": "natura",
                   "additions": [
                     {
                       "name": "name",
@@ -77,6 +78,7 @@ public class PostV1PayrollRunsCreateTest : BaseMockServerTest
                   "contractId": "x",
                   "employeeName": "employeeName",
                   "gross": "gross",
+                  "natura": "natura",
                   "additions": [
                     {
                       "name": "name",
@@ -131,6 +133,7 @@ public class PostV1PayrollRunsCreateTest : BaseMockServerTest
             {
                 Year = 1000000,
                 Month = 1000000,
+                IncludeNatura = null,
                 Lines = null,
                 Notes = null,
             }
@@ -171,6 +174,7 @@ public class PostV1PayrollRunsCreateTest : BaseMockServerTest
                   "contractId": "contractId",
                   "employeeName": "employeeName",
                   "gross": "gross",
+                  "natura": "natura",
                   "additions": [
                     {
                       "name": "name",

@@ -9,6 +9,9 @@ public record PostV1CatalogItemsCreateRequest
     [JsonPropertyName("type")]
     public PostV1CatalogItemsCreateRequestType? Type { get; set; }
 
+    [JsonPropertyName("tracking")]
+    public PostV1CatalogItemsCreateRequestTracking? Tracking { get; set; }
+
     [JsonPropertyName("name")]
     public required string Name { get; set; }
 

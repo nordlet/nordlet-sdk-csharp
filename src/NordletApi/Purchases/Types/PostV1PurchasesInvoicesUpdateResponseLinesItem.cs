@@ -41,6 +41,9 @@ public record PostV1PurchasesInvoicesUpdateResponseLinesItem : IJsonOnDeserializ
     [JsonPropertyName("costCenterId")]
     public string? CostCenterId { get; set; }
 
+    [JsonPropertyName("projectId")]
+    public string? ProjectId { get; set; }
+
     [JsonPropertyName("accountCode")]
     public string? AccountCode { get; set; }
 

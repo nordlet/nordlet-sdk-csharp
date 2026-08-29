@@ -39,6 +39,9 @@ public record PostV1SalesInvoicesUpdateRequestLinesItem : IJsonOnDeserialized
     [JsonPropertyName("costCenterId")]
     public string? CostCenterId { get; set; }
 
+    [JsonPropertyName("projectId")]
+    public string? ProjectId { get; set; }
+
     [JsonPropertyName("recognition")]
     public PostV1SalesInvoicesUpdateRequestLinesItemRecognition? Recognition { get; set; }
 

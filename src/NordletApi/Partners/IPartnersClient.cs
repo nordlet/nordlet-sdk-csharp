@@ -80,6 +80,18 @@ public partial interface IPartnersClient
         CancellationToken cancellationToken = default
     );
 
+    WithRawResponseTask<PostV1PartnersVatReviewsListResponse> PostV1PartnersVatReviewsListAsync(
+        PostV1PartnersVatReviewsListRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1PartnersVatReviewsResolveResponse> PostV1PartnersVatReviewsResolveAsync(
+        PostV1PartnersVatReviewsResolveRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
     WithRawResponseTask<PostV1PartnersCreateResponse> PostV1PartnersCreateAsync(
         PostV1PartnersCreateRequest request,
         RequestOptions? options = null,

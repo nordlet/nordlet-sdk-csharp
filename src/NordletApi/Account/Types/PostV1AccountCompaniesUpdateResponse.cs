@@ -62,6 +62,9 @@ public record PostV1AccountCompaniesUpdateResponse : IJsonOnDeserialized
     [JsonPropertyName("peppolId")]
     public string? PeppolId { get; set; }
 
+    [JsonPropertyName("sepaCreditorId")]
+    public string? SepaCreditorId { get; set; }
+
     [JsonPropertyName("logoFileId")]
     public string? LogoFileId { get; set; }
 

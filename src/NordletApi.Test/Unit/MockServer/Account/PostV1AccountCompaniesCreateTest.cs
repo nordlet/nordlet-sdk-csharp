@@ -59,6 +59,7 @@ public class PostV1AccountCompaniesCreateTest : BaseMockServerTest
                 Iban = null,
                 BankName = null,
                 PeppolId = null,
+                SepaCreditorId = null,
                 DefaultInvoiceCurrency = null,
                 CountryCode = null,
                 IsSandbox = null,

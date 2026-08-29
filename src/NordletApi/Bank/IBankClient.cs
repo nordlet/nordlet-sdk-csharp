@@ -50,6 +50,42 @@ public partial interface IBankClient
         CancellationToken cancellationToken = default
     );
 
+    WithRawResponseTask<PostV1BankMandatesCreateResponse> PostV1BankMandatesCreateAsync(
+        PostV1BankMandatesCreateRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1BankMandatesUpdateResponse> PostV1BankMandatesUpdateAsync(
+        PostV1BankMandatesUpdateRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1BankMandatesCancelResponse> PostV1BankMandatesCancelAsync(
+        PostV1BankMandatesCancelRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1BankMandatesGetResponse> PostV1BankMandatesGetAsync(
+        PostV1BankMandatesGetRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1BankMandatesListResponse> PostV1BankMandatesListAsync(
+        PostV1BankMandatesListRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1BankDirectDebitsExportResponse> PostV1BankDirectDebitsExportAsync(
+        PostV1BankDirectDebitsExportRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
     WithRawResponseTask<PostV1BankTransactionsSuggestMatchesResponse> PostV1BankTransactionsSuggestMatchesAsync(
         PostV1BankTransactionsSuggestMatchesRequest request,
         RequestOptions? options = null,
@@ -82,6 +118,54 @@ public partial interface IBankClient
 
     WithRawResponseTask<PostV1BankSettlementsPostResponse> PostV1BankSettlementsPostAsync(
         PostV1BankSettlementsPostRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1BankFeedsBanksListResponse> ListThePsd2BanksAspsPsAvailableToConnectAsync(
+        PostV1BankFeedsBanksListRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1BankFeedsConnectionsStartResponse> BeginBankAuthorizationRedirectTheUserToTheReturnedUrlAsync(
+        PostV1BankFeedsConnectionsStartRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1BankFeedsConnectionsCompleteResponse> ExchangeTheRedirectCodeForASessionAndStoreTheBankAccountsItExposesAsync(
+        PostV1BankFeedsConnectionsCompleteRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1BankFeedsConnectionsGetResponse> PostV1BankFeedsConnectionsGetAsync(
+        PostV1BankFeedsConnectionsGetRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1BankFeedsConnectionsListResponse> PostV1BankFeedsConnectionsListAsync(
+        PostV1BankFeedsConnectionsListRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1BankFeedsConnectionsDeleteResponse> RevokeTheConsentAtTheBankAndDropTheStoredConnectionAsync(
+        PostV1BankFeedsConnectionsDeleteRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1BankFeedsAccountsLinkResponse> PointABankFeedAccountAtALedgerBankAccountSoItsTransactionsCanBeSyncedAsync(
+        PostV1BankFeedsAccountsLinkRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1BankFeedsSyncResponse> PullNewTransactionsFromTheBankIntoTheLedgerEmitsBankFeedSyncedAsync(
+        PostV1BankFeedsSyncRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );

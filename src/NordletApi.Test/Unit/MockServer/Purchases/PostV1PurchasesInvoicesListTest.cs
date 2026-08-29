@@ -36,6 +36,7 @@ public class PostV1PurchasesInvoicesListTest : BaseMockServerTest
                   "paidAmount": "paidAmount",
                   "journalTransactionId": "x",
                   "creditedInvoiceId": "x",
+                  "purchaseOrderId": "x",
                   "notes": "notes",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
@@ -57,6 +58,7 @@ public class PostV1PurchasesInvoicesListTest : BaseMockServerTest
                   "paidAmount": "paidAmount",
                   "journalTransactionId": "x",
                   "creditedInvoiceId": "x",
+                  "purchaseOrderId": "x",
                   "notes": "notes",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
@@ -123,6 +125,7 @@ public class PostV1PurchasesInvoicesListTest : BaseMockServerTest
                   "paidAmount": "paidAmount",
                   "journalTransactionId": "journalTransactionId",
                   "creditedInvoiceId": "creditedInvoiceId",
+                  "purchaseOrderId": "purchaseOrderId",
                   "notes": "notes",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"

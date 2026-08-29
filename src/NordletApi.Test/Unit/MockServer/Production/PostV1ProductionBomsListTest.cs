@@ -25,6 +25,7 @@ public class PostV1ProductionBomsListTest : BaseMockServerTest
                   "name": "name",
                   "finishedItemId": "x",
                   "outputQuantity": "outputQuantity",
+                  "routingId": "x",
                   "isActive": true
                 },
                 {
@@ -33,6 +34,7 @@ public class PostV1ProductionBomsListTest : BaseMockServerTest
                   "name": "name",
                   "finishedItemId": "x",
                   "outputQuantity": "outputQuantity",
+                  "routingId": "x",
                   "isActive": true
                 }
               ],
@@ -86,6 +88,7 @@ public class PostV1ProductionBomsListTest : BaseMockServerTest
                   "name": "name",
                   "finishedItemId": "finishedItemId",
                   "outputQuantity": "outputQuantity",
+                  "routingId": "routingId",
                   "isActive": true
                 }
               ],

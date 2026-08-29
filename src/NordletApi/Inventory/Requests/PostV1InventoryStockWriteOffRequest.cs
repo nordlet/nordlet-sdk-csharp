@@ -18,6 +18,9 @@ public record PostV1InventoryStockWriteOffRequest
     [JsonPropertyName("quantity")]
     public required string Quantity { get; set; }
 
+    [JsonPropertyName("lotNumber")]
+    public string? LotNumber { get; set; }
+
     [JsonPropertyName("expenseAccountCode")]
     public string? ExpenseAccountCode { get; set; }
 

@@ -26,6 +26,9 @@ public record PostV1PayrollRunsCreateResponseLinesItem : IJsonOnDeserialized
     [JsonPropertyName("gross")]
     public required string Gross { get; set; }
 
+    [JsonPropertyName("natura")]
+    public required string Natura { get; set; }
+
     [JsonPropertyName("additions")]
     public IEnumerable<PostV1PayrollRunsCreateResponseLinesItemAdditionsItem> Additions { get; set; } =
         new List<PostV1PayrollRunsCreateResponseLinesItemAdditionsItem>();

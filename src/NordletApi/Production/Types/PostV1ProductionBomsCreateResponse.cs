@@ -26,6 +26,9 @@ public record PostV1ProductionBomsCreateResponse : IJsonOnDeserialized
     [JsonPropertyName("outputQuantity")]
     public required string OutputQuantity { get; set; }
 
+    [JsonPropertyName("routingId")]
+    public string? RoutingId { get; set; }
+
     [JsonPropertyName("isActive")]
     public required bool IsActive { get; set; }
 

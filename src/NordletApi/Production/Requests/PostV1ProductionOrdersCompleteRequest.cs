@@ -9,6 +9,9 @@ public record PostV1ProductionOrdersCompleteRequest
     [JsonPropertyName("id")]
     public required string Id { get; set; }
 
+    [JsonPropertyName("scrappedQuantity")]
+    public string? ScrappedQuantity { get; set; }
+
     [JsonPropertyName("componentsAccountCode")]
     public string? ComponentsAccountCode { get; set; }
 

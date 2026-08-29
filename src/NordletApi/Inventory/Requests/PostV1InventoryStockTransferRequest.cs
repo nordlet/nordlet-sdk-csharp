@@ -21,6 +21,9 @@ public record PostV1InventoryStockTransferRequest
     [JsonPropertyName("quantity")]
     public required string Quantity { get; set; }
 
+    [JsonPropertyName("lotNumber")]
+    public string? LotNumber { get; set; }
+
     [JsonPropertyName("notes")]
     public string? Notes { get; set; }
 

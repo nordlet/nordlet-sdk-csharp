@@ -38,6 +38,24 @@ public partial interface ISalesClient
         CancellationToken cancellationToken = default
     );
 
+    /// <summary>
+    /// Render an issued invoice as the national e-invoicing payload for the company country: FatturaPA (IT), KSeF FA(3) (PL) or UBL CIUS-RO (RO). Review the warnings - data the invoice does not carry is flagged, never invented.
+    /// </summary>
+    WithRawResponseTask<PostV1SalesInvoicesEinvoiceXmlResponse> PostV1SalesInvoicesEinvoiceXmlAsync(
+        PostV1SalesInvoicesEinvoiceXmlRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    /// <summary>
+    /// Build the national e-invoicing payload and deliver it to the bridge endpoint configured for the country gateway in compliance settings. The bridge (an accredited intermediary or connector) handles the certified national channel - SdI accreditation, KSeF sessions or ANAF SPV OAuth.
+    /// </summary>
+    WithRawResponseTask<PostV1SalesInvoicesEinvoiceSendResponse> PostV1SalesInvoicesEinvoiceSendAsync(
+        PostV1SalesInvoicesEinvoiceSendRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
     WithRawResponseTask<PostV1SalesInvoicesUpdateResponse> PostV1SalesInvoicesUpdateAsync(
         PostV1SalesInvoicesUpdateRequest request,
         RequestOptions? options = null,

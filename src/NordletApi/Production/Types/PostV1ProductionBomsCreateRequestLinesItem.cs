@@ -17,6 +17,9 @@ public record PostV1ProductionBomsCreateRequestLinesItem : IJsonOnDeserialized
     [JsonPropertyName("quantity")]
     public required string Quantity { get; set; }
 
+    [JsonPropertyName("scrapPercent")]
+    public string? ScrapPercent { get; set; }
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

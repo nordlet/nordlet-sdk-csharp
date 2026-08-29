@@ -54,6 +54,7 @@ public class PostV1InventoryStockTransferTest : BaseMockServerTest
                 ItemId = "x",
                 Date = "date",
                 Quantity = "quantity",
+                LotNumber = null,
                 Notes = null,
             }
         );

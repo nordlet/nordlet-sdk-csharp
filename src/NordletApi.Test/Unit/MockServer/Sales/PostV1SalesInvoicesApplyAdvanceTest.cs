@@ -58,6 +58,7 @@ public class PostV1SalesInvoicesApplyAdvanceTest : BaseMockServerTest
                   "vatRatePercent": "vatRatePercent",
                   "vatClassifierCode": "vatClassifierCode",
                   "costCenterId": "x",
+                  "projectId": "x",
                   "lineNet": "lineNet",
                   "lineVat": "lineVat",
                   "lineGross": "lineGross",
@@ -92,6 +93,7 @@ public class PostV1SalesInvoicesApplyAdvanceTest : BaseMockServerTest
                   "vatRatePercent": "vatRatePercent",
                   "vatClassifierCode": "vatClassifierCode",
                   "costCenterId": "x",
+                  "projectId": "x",
                   "lineNet": "lineNet",
                   "lineVat": "lineVat",
                   "lineGross": "lineGross",
@@ -115,7 +117,53 @@ public class PostV1SalesInvoicesApplyAdvanceTest : BaseMockServerTest
                   "allocatedNet": "allocatedNet",
                   "refundEstimatePercent": "refundEstimatePercent"
                 }
-              ]
+              ],
+              "vatEvidence": {
+                "capturedAt": "capturedAt",
+                "issueDate": "issueDate",
+                "scheme": {
+                  "vatScheme": "vatScheme",
+                  "vatCountryCode": "vatCountryCode",
+                  "deemedSupplier": true
+                },
+                "partner": {
+                  "id": "x",
+                  "vatCode": "vatCode",
+                  "vatValid": true,
+                  "vatValidatedAt": "vatValidatedAt"
+                },
+                "vies": {
+                  "valid": true,
+                  "countryCode": "countryCode",
+                  "vatNumber": "vatNumber",
+                  "name": "name",
+                  "address": "address",
+                  "requestIdentifier": "requestIdentifier",
+                  "checkedAt": "checkedAt"
+                },
+                "location": {
+                  "billingCountryCode": "billingCountryCode",
+                  "source": "source"
+                },
+                "rateTable": {
+                  "importId": "x",
+                  "situationOn": "situationOn",
+                  "trigger": "trigger",
+                  "startedAt": "startedAt"
+                },
+                "rates": [
+                  {
+                    "ratePercent": "ratePercent",
+                    "country": "country",
+                    "category": "category"
+                  },
+                  {
+                    "ratePercent": "ratePercent",
+                    "country": "country",
+                    "category": "category"
+                  }
+                ]
+              }
             }
             """;
 
@@ -195,6 +243,7 @@ public class PostV1SalesInvoicesApplyAdvanceTest : BaseMockServerTest
                   "vatRatePercent": "vatRatePercent",
                   "vatClassifierCode": "vatClassifierCode",
                   "costCenterId": "costCenterId",
+                  "projectId": "projectId",
                   "lineNet": "lineNet",
                   "lineVat": "lineVat",
                   "lineGross": "lineGross",
@@ -212,7 +261,47 @@ public class PostV1SalesInvoicesApplyAdvanceTest : BaseMockServerTest
                   "allocatedNet": "allocatedNet",
                   "refundEstimatePercent": "refundEstimatePercent"
                 }
-              ]
+              ],
+              "vatEvidence": {
+                "capturedAt": "capturedAt",
+                "issueDate": "issueDate",
+                "scheme": {
+                  "vatScheme": "vatScheme",
+                  "vatCountryCode": "vatCountryCode",
+                  "deemedSupplier": true
+                },
+                "partner": {
+                  "id": "id",
+                  "vatCode": "vatCode",
+                  "vatValid": true,
+                  "vatValidatedAt": "vatValidatedAt"
+                },
+                "vies": {
+                  "valid": true,
+                  "countryCode": "countryCode",
+                  "vatNumber": "vatNumber",
+                  "name": "name",
+                  "address": "address",
+                  "requestIdentifier": "requestIdentifier",
+                  "checkedAt": "checkedAt"
+                },
+                "location": {
+                  "billingCountryCode": "billingCountryCode",
+                  "source": "source"
+                },
+                "rateTable": {
+                  "importId": "importId",
+                  "situationOn": "situationOn",
+                  "trigger": "trigger",
+                  "startedAt": "startedAt"
+                },
+                "rates": [
+                  {
+                    "ratePercent": "ratePercent",
+                    "country": "country"
+                  }
+                ]
+              }
             }
             """;
 

@@ -47,6 +47,13 @@ public readonly record struct PostV1LedgerPostingRulesUpdateRequestRulesItemKey 
         Values.InventoryStock
     );
 
+    public static readonly PostV1LedgerPostingRulesUpdateRequestRulesItemKey ProductionLaborApplied =
+        new(Values.ProductionLaborApplied);
+
+    public static readonly PostV1LedgerPostingRulesUpdateRequestRulesItemKey ProductionScrap = new(
+        Values.ProductionScrap
+    );
+
     public static readonly PostV1LedgerPostingRulesUpdateRequestRulesItemKey BankFxGain = new(
         Values.BankFxGain
     );
@@ -203,6 +210,10 @@ public readonly record struct PostV1LedgerPostingRulesUpdateRequestRulesItemKey 
         public const string InventoryCogs = "inventory.cogs";
 
         public const string InventoryStock = "inventory.stock";
+
+        public const string ProductionLaborApplied = "production.laborApplied";
+
+        public const string ProductionScrap = "production.scrap";
 
         public const string BankFxGain = "bank.fxGain";
 

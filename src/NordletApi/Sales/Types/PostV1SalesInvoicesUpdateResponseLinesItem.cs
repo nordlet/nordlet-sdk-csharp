@@ -41,6 +41,9 @@ public record PostV1SalesInvoicesUpdateResponseLinesItem : IJsonOnDeserialized
     [JsonPropertyName("costCenterId")]
     public string? CostCenterId { get; set; }
 
+    [JsonPropertyName("projectId")]
+    public string? ProjectId { get; set; }
+
     [JsonPropertyName("lineNet")]
     public required string LineNet { get; set; }
 

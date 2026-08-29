@@ -43,6 +43,9 @@ public record PostV1ConsolidationReportResponse : IJsonOnDeserialized
     [JsonPropertyName("eliminations")]
     public required PostV1ConsolidationReportResponseEliminations Eliminations { get; set; }
 
+    [JsonPropertyName("cashFlow")]
+    public required PostV1ConsolidationReportResponseCashFlow CashFlow { get; set; }
+
     [JsonPropertyName("intercompanyCandidates")]
     public IEnumerable<PostV1ConsolidationReportResponseIntercompanyCandidatesItem> IntercompanyCandidates { get; set; } =
         new List<PostV1ConsolidationReportResponseIntercompanyCandidatesItem>();

@@ -52,6 +52,7 @@ public class PostV1InventoryStockWriteOffTest : BaseMockServerTest
                 ItemId = "x",
                 Date = "date",
                 Quantity = "quantity",
+                LotNumber = null,
                 ExpenseAccountCode = null,
                 InventoryAccountCode = null,
                 Notes = null,

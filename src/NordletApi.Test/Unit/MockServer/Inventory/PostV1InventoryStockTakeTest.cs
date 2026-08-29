@@ -80,6 +80,8 @@ public class PostV1InventoryStockTakeTest : BaseMockServerTest
                         Barcode = null,
                         CountedQty = "countedQty",
                         UnitCost = null,
+                        LotNumber = null,
+                        ExpiryDate = null,
                     },
                     new PostV1InventoryStockTakeRequestLinesItem
                     {
@@ -87,6 +89,8 @@ public class PostV1InventoryStockTakeTest : BaseMockServerTest
                         Barcode = null,
                         CountedQty = "countedQty",
                         UnitCost = null,
+                        LotNumber = null,
+                        ExpiryDate = null,
                     },
                 },
             }

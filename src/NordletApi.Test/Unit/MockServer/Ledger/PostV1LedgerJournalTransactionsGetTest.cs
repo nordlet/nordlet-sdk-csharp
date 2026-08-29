@@ -35,6 +35,7 @@ public class PostV1LedgerJournalTransactionsGetTest : BaseMockServerTest
                   "accountCode": "accountCode",
                   "accountName": "accountName",
                   "costCenterId": "x",
+                  "projectId": "x",
                   "debit": "debit",
                   "credit": "credit",
                   "description": "description"
@@ -45,6 +46,7 @@ public class PostV1LedgerJournalTransactionsGetTest : BaseMockServerTest
                   "accountCode": "accountCode",
                   "accountName": "accountName",
                   "costCenterId": "x",
+                  "projectId": "x",
                   "debit": "debit",
                   "credit": "credit",
                   "description": "description"
@@ -101,6 +103,7 @@ public class PostV1LedgerJournalTransactionsGetTest : BaseMockServerTest
                   "accountCode": "accountCode",
                   "accountName": "accountName",
                   "costCenterId": "costCenterId",
+                  "projectId": "projectId",
                   "debit": "debit",
                   "credit": "credit",
                   "description": "description"

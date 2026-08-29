@@ -12,6 +12,9 @@ public record PostV1CatalogItemsUpdateRequest
     [JsonPropertyName("type")]
     public PostV1CatalogItemsUpdateRequestType? Type { get; set; }
 
+    [JsonPropertyName("tracking")]
+    public PostV1CatalogItemsUpdateRequestTracking? Tracking { get; set; }
+
     [JsonPropertyName("name")]
     public string? Name { get; set; }
 
