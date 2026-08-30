@@ -41,6 +41,7 @@ public partial class NordletApiClient : INordletApiClient
         Capture = new CaptureClient(_client);
         Declarations = new DeclarationsClient(_client);
         Ledger = new LedgerClient(_client);
+        Migration = new MigrationClient(_client);
         Assets = new AssetsClient(_client);
         Hr = new HrClient(_client);
         Fleet = new FleetClient(_client);
@@ -79,6 +80,8 @@ public partial class NordletApiClient : INordletApiClient
     public IDeclarationsClient Declarations { get; }
 
     public ILedgerClient Ledger { get; }
+
+    public IMigrationClient Migration { get; }
 
     public IAssetsClient Assets { get; }
 

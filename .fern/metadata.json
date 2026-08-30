@@ -2,9 +2,9 @@
   "cliVersion": "5.75.0",
   "generatorName": "fernapi/fern-csharp-sdk",
   "generatorVersion": "2.76.1",
-  "originGitCommit": "7b8c905baac68d02b209f0c0717b49d7e899bed5",
-  "originGitCommitIsDirty": false,
+  "originGitCommit": "7a410c7538b9138f0a181abb90df32b4b8137bab",
+  "originGitCommitIsDirty": true,
   "invokedBy": "ci",
-  "requestedVersion": "0.2.1",
+  "requestedVersion": "0.2.2",
   "ciProvider": "github"
 }

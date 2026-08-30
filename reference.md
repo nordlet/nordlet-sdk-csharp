@@ -7667,6 +7667,119 @@ await client.Ledger.PostV1LedgerJournalTransactionsCreateAsync(
 </dl>
 </details>
 
+## Migration
+<details><summary><code>client.Migration.<a href="/src/NordletApi/Migration/MigrationClient.cs">CheckAHistoricalBooksPackageWithoutWritingAnythingAsync</a>(PostV1MigrationBooksValidateRequest { ... }) -> WithRawResponseTask&lt;PostV1MigrationBooksValidateResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Runs every check the import runs (accounts, partners, balances, open invoices, assets, stock) and returns the same summary and warnings, then rolls everything back. Nothing is stored.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Migration.CheckAHistoricalBooksPackageWithoutWritingAnythingAsync(
+    new PostV1MigrationBooksValidateRequest { CutoverDate = "cutoverDate" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1MigrationBooksValidateRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Migration.<a href="/src/NordletApi/Migration/MigrationClient.cs">ImportHistoricalBooksFromAPreviousAccountingSystemAsync</a>(PostV1MigrationBooksImportRequest { ... }) -> WithRawResponseTask&lt;PostV1MigrationBooksImportResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Brings a company over from another system in one call: chart of accounts, partners, items, opening balances (or the full journal history), open customer and supplier invoices, fixed assets with their accumulated depreciation, and stock on hand. The whole package is written in one database transaction — if any row fails, nothing is stored.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Migration.ImportHistoricalBooksFromAPreviousAccountingSystemAsync(
+    new PostV1MigrationBooksImportRequest { CutoverDate = "cutoverDate" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1MigrationBooksImportRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 ## Assets
 <details><summary><code>client.Assets.<a href="/src/NordletApi/Assets/AssetsClient.cs">PostV1AssetsGroupsCreateAsync</a>(PostV1AssetsGroupsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1AssetsGroupsCreateResponse&gt;</code></summary>
 <dl>

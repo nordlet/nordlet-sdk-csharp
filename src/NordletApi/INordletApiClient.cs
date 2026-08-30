@@ -10,6 +10,7 @@ public partial interface INordletApiClient
     public ICaptureClient Capture { get; }
     public IDeclarationsClient Declarations { get; }
     public ILedgerClient Ledger { get; }
+    public IMigrationClient Migration { get; }
     public IAssetsClient Assets { get; }
     public IHrClient Hr { get; }
     public IFleetClient Fleet { get; }
