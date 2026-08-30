@@ -7,27 +7,20 @@ namespace NordletApi.Test.Unit.MockServer.Account;
 
 [TestFixture]
 [Parallelizable(ParallelScope.Self)]
-public class PostV1AccountInvitesAcceptTest : BaseMockServerTest
+public class PostV1AccountEmailChangeRequestTest : BaseMockServerTest
 {
     [NUnit.Framework.Test]
     public async Task MockServerTest_1()
     {
         const string requestJson = """
             {
-              "token": "strawberry"
+              "newEmail": "newEmail"
             }
             """;
 
         const string mockResponse = """
             {
-              "token": "token",
-              "expiresAt": "expiresAt",
-              "user": {
-                "id": "x",
-                "email": "email",
-                "name": "name",
-                "plan": "plan"
-              }
+              "sent": true
             }
             """;
 
@@ -35,7 +28,7 @@ public class PostV1AccountInvitesAcceptTest : BaseMockServerTest
             .Given(
                 WireMock
                     .RequestBuilders.Request.Create()
-                    .WithPath("/v1/account/invites/accept")
+                    .WithPath("/v1/account/email/change-request")
                     .WithHeader("Content-Type", "application/json")
                     .UsingPost()
                     .WithBodyAsJson(requestJson)
@@ -47,15 +40,8 @@ public class PostV1AccountInvitesAcceptTest : BaseMockServerTest
                     .WithBody(mockResponse)
             );
 
-        var response = await Client.Account.PostV1AccountInvitesAcceptAsync(
-            new PostV1AccountInvitesAcceptRequest
-            {
-                Token = "strawberry",
-                Name = null,
-                Locale = null,
-                AcceptTerms = null,
-                AcceptDpa = null,
-            }
+        var response = await Client.Account.PostV1AccountEmailChangeRequestAsync(
+            new PostV1AccountEmailChangeRequestRequest { NewEmail = "newEmail", Locale = null }
         );
         JsonAssert.AreEqual(response, mockResponse);
     }
@@ -65,20 +51,13 @@ public class PostV1AccountInvitesAcceptTest : BaseMockServerTest
     {
         const string requestJson = """
             {
-              "token": "token"
+              "newEmail": "newEmail"
             }
             """;
 
         const string mockResponse = """
             {
-              "token": "token",
-              "expiresAt": "expiresAt",
-              "user": {
-                "id": "id",
-                "email": "email",
-                "name": "name",
-                "plan": "plan"
-              }
+              "sent": true
             }
             """;
 
@@ -86,7 +65,7 @@ public class PostV1AccountInvitesAcceptTest : BaseMockServerTest
             .Given(
                 WireMock
                     .RequestBuilders.Request.Create()
-                    .WithPath("/v1/account/invites/accept")
+                    .WithPath("/v1/account/email/change-request")
                     .WithHeader("Content-Type", "application/json")
                     .UsingPost()
                     .WithBodyAsJson(requestJson)
@@ -98,8 +77,8 @@ public class PostV1AccountInvitesAcceptTest : BaseMockServerTest
                     .WithBody(mockResponse)
             );
 
-        var response = await Client.Account.PostV1AccountInvitesAcceptAsync(
-            new PostV1AccountInvitesAcceptRequest { Token = "token" }
+        var response = await Client.Account.PostV1AccountEmailChangeRequestAsync(
+            new PostV1AccountEmailChangeRequestRequest { NewEmail = "newEmail" }
         );
         JsonAssert.AreEqual(response, mockResponse);
     }

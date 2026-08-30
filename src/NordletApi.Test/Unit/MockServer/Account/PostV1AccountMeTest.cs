@@ -35,6 +35,15 @@ public class PostV1AccountMeTest : BaseMockServerTest
                 "balanceCents": 1000000,
                 "trialEndsAt": "trialEndsAt"
               },
+              "consent": {
+                "termsVersion": "termsVersion",
+                "termsAcceptedAt": "termsAcceptedAt",
+                "dpaVersion": "dpaVersion",
+                "dpaAcceptedAt": "dpaAcceptedAt",
+                "currentTermsVersion": "currentTermsVersion",
+                "currentDpaVersion": "currentDpaVersion",
+                "required": true
+              },
               "companies": [
                 {
                   "id": "x",
@@ -105,6 +114,15 @@ public class PostV1AccountMeTest : BaseMockServerTest
                 "plan": "plan",
                 "balanceCents": 1000000,
                 "trialEndsAt": "trialEndsAt"
+              },
+              "consent": {
+                "termsVersion": "termsVersion",
+                "termsAcceptedAt": "termsAcceptedAt",
+                "dpaVersion": "dpaVersion",
+                "dpaAcceptedAt": "dpaAcceptedAt",
+                "currentTermsVersion": "currentTermsVersion",
+                "currentDpaVersion": "currentDpaVersion",
+                "required": true
               },
               "companies": [
                 {

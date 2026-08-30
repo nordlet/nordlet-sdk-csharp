@@ -12,6 +12,12 @@ public record PostV1AccountLoginLinkRequestRequest
     [JsonPropertyName("locale")]
     public PostV1AccountLoginLinkRequestRequestLocale? Locale { get; set; }
 
+    [JsonPropertyName("acceptTerms")]
+    public bool? AcceptTerms { get; set; }
+
+    [JsonPropertyName("acceptDpa")]
+    public bool? AcceptDpa { get; set; }
+
     /// <inheritdoc />
     public override string ToString()
     {

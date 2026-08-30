@@ -26,6 +26,9 @@ public record PostV1AccountMeResponse : IJsonOnDeserialized
     [JsonPropertyName("billing")]
     public required PostV1AccountMeResponseBilling Billing { get; set; }
 
+    [JsonPropertyName("consent")]
+    public required PostV1AccountMeResponseConsent Consent { get; set; }
+
     [JsonPropertyName("companies")]
     public IEnumerable<PostV1AccountMeResponseCompaniesItem> Companies { get; set; } =
         new List<PostV1AccountMeResponseCompaniesItem>();

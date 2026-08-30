@@ -41,7 +41,13 @@ public class PostV1AccountLoginLinkRequestTest : BaseMockServerTest
             );
 
         var response = await Client.Account.PostV1AccountLoginLinkRequestAsync(
-            new PostV1AccountLoginLinkRequestRequest { Email = "email", Locale = null }
+            new PostV1AccountLoginLinkRequestRequest
+            {
+                Email = "email",
+                Locale = null,
+                AcceptTerms = null,
+                AcceptDpa = null,
+            }
         );
         JsonAssert.AreEqual(response, mockResponse);
     }

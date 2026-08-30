@@ -7,27 +7,20 @@ namespace NordletApi.Test.Unit.MockServer.Account;
 
 [TestFixture]
 [Parallelizable(ParallelScope.Self)]
-public class PostV1AccountInvitesAcceptTest : BaseMockServerTest
+public class DeleteTheSignedInUserAccountTest : BaseMockServerTest
 {
     [NUnit.Framework.Test]
     public async Task MockServerTest_1()
     {
         const string requestJson = """
             {
-              "token": "strawberry"
+              "confirmEmail": "confirmEmail"
             }
             """;
 
         const string mockResponse = """
             {
-              "token": "token",
-              "expiresAt": "expiresAt",
-              "user": {
-                "id": "x",
-                "email": "email",
-                "name": "name",
-                "plan": "plan"
-              }
+              "deleted": true
             }
             """;
 
@@ -35,7 +28,7 @@ public class PostV1AccountInvitesAcceptTest : BaseMockServerTest
             .Given(
                 WireMock
                     .RequestBuilders.Request.Create()
-                    .WithPath("/v1/account/invites/accept")
+                    .WithPath("/v1/account/delete")
                     .WithHeader("Content-Type", "application/json")
                     .UsingPost()
                     .WithBodyAsJson(requestJson)
@@ -47,15 +40,8 @@ public class PostV1AccountInvitesAcceptTest : BaseMockServerTest
                     .WithBody(mockResponse)
             );
 
-        var response = await Client.Account.PostV1AccountInvitesAcceptAsync(
-            new PostV1AccountInvitesAcceptRequest
-            {
-                Token = "strawberry",
-                Name = null,
-                Locale = null,
-                AcceptTerms = null,
-                AcceptDpa = null,
-            }
+        var response = await Client.Account.DeleteTheSignedInUserAccountAsync(
+            new PostV1AccountDeleteRequest { ConfirmEmail = "confirmEmail" }
         );
         JsonAssert.AreEqual(response, mockResponse);
     }
@@ -65,20 +51,13 @@ public class PostV1AccountInvitesAcceptTest : BaseMockServerTest
     {
         const string requestJson = """
             {
-              "token": "token"
+              "confirmEmail": "confirmEmail"
             }
             """;
 
         const string mockResponse = """
             {
-              "token": "token",
-              "expiresAt": "expiresAt",
-              "user": {
-                "id": "id",
-                "email": "email",
-                "name": "name",
-                "plan": "plan"
-              }
+              "deleted": true
             }
             """;
 
@@ -86,7 +65,7 @@ public class PostV1AccountInvitesAcceptTest : BaseMockServerTest
             .Given(
                 WireMock
                     .RequestBuilders.Request.Create()
-                    .WithPath("/v1/account/invites/accept")
+                    .WithPath("/v1/account/delete")
                     .WithHeader("Content-Type", "application/json")
                     .UsingPost()
                     .WithBodyAsJson(requestJson)
@@ -98,8 +77,8 @@ public class PostV1AccountInvitesAcceptTest : BaseMockServerTest
                     .WithBody(mockResponse)
             );
 
-        var response = await Client.Account.PostV1AccountInvitesAcceptAsync(
-            new PostV1AccountInvitesAcceptRequest { Token = "token" }
+        var response = await Client.Account.DeleteTheSignedInUserAccountAsync(
+            new PostV1AccountDeleteRequest { ConfirmEmail = "confirmEmail" }
         );
         JsonAssert.AreEqual(response, mockResponse);
     }

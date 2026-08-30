@@ -139,4 +139,55 @@ public partial interface IAccountClient
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
+
+    WithRawResponseTask<PostV1AccountConsentAcceptResponse> PostV1AccountConsentAcceptAsync(
+        PostV1AccountConsentAcceptRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1AccountProfileUpdateResponse> PostV1AccountProfileUpdateAsync(
+        PostV1AccountProfileUpdateRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1AccountEmailChangeRequestResponse> PostV1AccountEmailChangeRequestAsync(
+        PostV1AccountEmailChangeRequestRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1AccountSessionsListResponse> PostV1AccountSessionsListAsync(
+        PostV1AccountSessionsListRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1AccountSessionsRevokeResponse> PostV1AccountSessionsRevokeAsync(
+        PostV1AccountSessionsRevokeRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1AccountSessionsRevokeOthersResponse> PostV1AccountSessionsRevokeOthersAsync(
+        PostV1AccountSessionsRevokeOthersRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1AccountExportResponse> DownloadEverythingNordletStoresAboutTheSignedInUserAsync(
+        PostV1AccountExportRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    /// <summary>
+    /// Removes the user: sessions, sign-in links, memberships and pending invitations are deleted at once; the email and name are replaced by an anonymous placeholder immediately and the remaining row is removed after 30 days. Refused while the user still owns or pays for a company that is not deleted.
+    /// </summary>
+    WithRawResponseTask<PostV1AccountDeleteResponse> DeleteTheSignedInUserAccountAsync(
+        PostV1AccountDeleteRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
 }

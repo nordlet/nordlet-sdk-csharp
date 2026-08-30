@@ -1912,6 +1912,62 @@ await client.Partners.PostV1PartnersDeleteAsync(new PostV1PartnersDeleteRequest 
 </dl>
 </details>
 
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">BlankAPartnersPersonalDataAndHideTheRecordAsync</a>(PostV1PartnersAnonymizeRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersAnonymizeResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Removes birth date, self-employment certificate number, email, phone, address, notes, contacts, addresses and bank accounts, then hides the partner. The name, code and VAT number stay because issued invoices must keep identifying the counterparty for the statutory retention period.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Partners.BlankAPartnersPersonalDataAndHideTheRecordAsync(
+    new PostV1PartnersAnonymizeRequest { Id = "id" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1PartnersAnonymizeRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1PartnersListAsync</a>(PostV1PartnersListRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersListResponse&gt;</code></summary>
 <dl>
 <dd>
@@ -8401,6 +8457,102 @@ await client.Hr.PostV1HrEmployeesListAsync(new PostV1HrEmployeesListRequest());
 <dd>
 
 **request:** `PostV1HrEmployeesListRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">PostV1HrEmployeesDeleteAsync</a>(PostV1HrEmployeesDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1HrEmployeesDeleteResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Hr.PostV1HrEmployeesDeleteAsync(new PostV1HrEmployeesDeleteRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1HrEmployeesDeleteRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">BlankAnEmployeesPersonalDataAndHideTheRecordAsync</a>(PostV1HrEmployeesAnonymizeRequest { ... }) -> WithRawResponseTask&lt;PostV1HrEmployeesAnonymizeResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Replaces the name with a placeholder and removes personal code, birth date, contact details, address, bank account, social-insurance number, notes and sick-leave reasons. Payroll and contract rows stay linked to the record for the statutory retention period.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Hr.BlankAnEmployeesPersonalDataAndHideTheRecordAsync(
+    new PostV1HrEmployeesAnonymizeRequest { Id = "id" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1HrEmployeesAnonymizeRequest` 
     
 </dd>
 </dl>
@@ -18386,6 +18538,352 @@ await client.Account.PostV1AccountApiKeysRevokeAsync(
 <dd>
 
 **request:** `PostV1AccountApiKeysRevokeRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountConsentAcceptAsync</a>(PostV1AccountConsentAcceptRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountConsentAcceptResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Account.PostV1AccountConsentAcceptAsync(
+    new PostV1AccountConsentAcceptRequest { AcceptTerms = true, AcceptDpa = true }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1AccountConsentAcceptRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountProfileUpdateAsync</a>(PostV1AccountProfileUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountProfileUpdateResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Account.PostV1AccountProfileUpdateAsync(new PostV1AccountProfileUpdateRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1AccountProfileUpdateRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountEmailChangeRequestAsync</a>(PostV1AccountEmailChangeRequestRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountEmailChangeRequestResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Account.PostV1AccountEmailChangeRequestAsync(
+    new PostV1AccountEmailChangeRequestRequest { NewEmail = "newEmail" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1AccountEmailChangeRequestRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountSessionsListAsync</a>(PostV1AccountSessionsListRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountSessionsListResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Account.PostV1AccountSessionsListAsync(new PostV1AccountSessionsListRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1AccountSessionsListRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountSessionsRevokeAsync</a>(PostV1AccountSessionsRevokeRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountSessionsRevokeResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Account.PostV1AccountSessionsRevokeAsync(
+    new PostV1AccountSessionsRevokeRequest { Id = "id" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1AccountSessionsRevokeRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountSessionsRevokeOthersAsync</a>(PostV1AccountSessionsRevokeOthersRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountSessionsRevokeOthersResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Account.PostV1AccountSessionsRevokeOthersAsync(
+    new PostV1AccountSessionsRevokeOthersRequest()
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1AccountSessionsRevokeOthersRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">DownloadEverythingNordletStoresAboutTheSignedInUserAsync</a>(PostV1AccountExportRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountExportResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Account.DownloadEverythingNordletStoresAboutTheSignedInUserAsync(
+    new PostV1AccountExportRequest()
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1AccountExportRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">DeleteTheSignedInUserAccountAsync</a>(PostV1AccountDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountDeleteResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Removes the user: sessions, sign-in links, memberships and pending invitations are deleted at once; the email and name are replaced by an anonymous placeholder immediately and the remaining row is removed after 30 days. Refused while the user still owns or pays for a company that is not deleted.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Account.DeleteTheSignedInUserAccountAsync(
+    new PostV1AccountDeleteRequest { ConfirmEmail = "confirmEmail" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1AccountDeleteRequest` 
     
 </dd>
 </dl>

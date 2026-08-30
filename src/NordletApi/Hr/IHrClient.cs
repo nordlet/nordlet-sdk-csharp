@@ -44,6 +44,21 @@ public partial interface IHrClient
         CancellationToken cancellationToken = default
     );
 
+    WithRawResponseTask<PostV1HrEmployeesDeleteResponse> PostV1HrEmployeesDeleteAsync(
+        PostV1HrEmployeesDeleteRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    /// <summary>
+    /// Replaces the name with a placeholder and removes personal code, birth date, contact details, address, bank account, social-insurance number, notes and sick-leave reasons. Payroll and contract rows stay linked to the record for the statutory retention period.
+    /// </summary>
+    WithRawResponseTask<PostV1HrEmployeesAnonymizeResponse> BlankAnEmployeesPersonalDataAndHideTheRecordAsync(
+        PostV1HrEmployeesAnonymizeRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
     WithRawResponseTask<PostV1HrContractsCreateResponse> PostV1HrContractsCreateAsync(
         PostV1HrContractsCreateRequest request,
         RequestOptions? options = null,

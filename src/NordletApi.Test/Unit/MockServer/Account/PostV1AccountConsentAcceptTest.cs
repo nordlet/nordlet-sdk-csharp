@@ -7,27 +7,27 @@ namespace NordletApi.Test.Unit.MockServer.Account;
 
 [TestFixture]
 [Parallelizable(ParallelScope.Self)]
-public class PostV1AccountInvitesAcceptTest : BaseMockServerTest
+public class PostV1AccountConsentAcceptTest : BaseMockServerTest
 {
     [NUnit.Framework.Test]
     public async Task MockServerTest_1()
     {
         const string requestJson = """
             {
-              "token": "strawberry"
+              "acceptTerms": true,
+              "acceptDpa": true
             }
             """;
 
         const string mockResponse = """
             {
-              "token": "token",
-              "expiresAt": "expiresAt",
-              "user": {
-                "id": "x",
-                "email": "email",
-                "name": "name",
-                "plan": "plan"
-              }
+              "termsVersion": "termsVersion",
+              "termsAcceptedAt": "termsAcceptedAt",
+              "dpaVersion": "dpaVersion",
+              "dpaAcceptedAt": "dpaAcceptedAt",
+              "currentTermsVersion": "currentTermsVersion",
+              "currentDpaVersion": "currentDpaVersion",
+              "required": true
             }
             """;
 
@@ -35,7 +35,7 @@ public class PostV1AccountInvitesAcceptTest : BaseMockServerTest
             .Given(
                 WireMock
                     .RequestBuilders.Request.Create()
-                    .WithPath("/v1/account/invites/accept")
+                    .WithPath("/v1/account/consent/accept")
                     .WithHeader("Content-Type", "application/json")
                     .UsingPost()
                     .WithBodyAsJson(requestJson)
@@ -47,15 +47,8 @@ public class PostV1AccountInvitesAcceptTest : BaseMockServerTest
                     .WithBody(mockResponse)
             );
 
-        var response = await Client.Account.PostV1AccountInvitesAcceptAsync(
-            new PostV1AccountInvitesAcceptRequest
-            {
-                Token = "strawberry",
-                Name = null,
-                Locale = null,
-                AcceptTerms = null,
-                AcceptDpa = null,
-            }
+        var response = await Client.Account.PostV1AccountConsentAcceptAsync(
+            new PostV1AccountConsentAcceptRequest { AcceptTerms = true, AcceptDpa = true }
         );
         JsonAssert.AreEqual(response, mockResponse);
     }
@@ -65,20 +58,20 @@ public class PostV1AccountInvitesAcceptTest : BaseMockServerTest
     {
         const string requestJson = """
             {
-              "token": "token"
+              "acceptTerms": true,
+              "acceptDpa": true
             }
             """;
 
         const string mockResponse = """
             {
-              "token": "token",
-              "expiresAt": "expiresAt",
-              "user": {
-                "id": "id",
-                "email": "email",
-                "name": "name",
-                "plan": "plan"
-              }
+              "termsVersion": "termsVersion",
+              "termsAcceptedAt": "termsAcceptedAt",
+              "dpaVersion": "dpaVersion",
+              "dpaAcceptedAt": "dpaAcceptedAt",
+              "currentTermsVersion": "currentTermsVersion",
+              "currentDpaVersion": "currentDpaVersion",
+              "required": true
             }
             """;
 
@@ -86,7 +79,7 @@ public class PostV1AccountInvitesAcceptTest : BaseMockServerTest
             .Given(
                 WireMock
                     .RequestBuilders.Request.Create()
-                    .WithPath("/v1/account/invites/accept")
+                    .WithPath("/v1/account/consent/accept")
                     .WithHeader("Content-Type", "application/json")
                     .UsingPost()
                     .WithBodyAsJson(requestJson)
@@ -98,8 +91,8 @@ public class PostV1AccountInvitesAcceptTest : BaseMockServerTest
                     .WithBody(mockResponse)
             );
 
-        var response = await Client.Account.PostV1AccountInvitesAcceptAsync(
-            new PostV1AccountInvitesAcceptRequest { Token = "token" }
+        var response = await Client.Account.PostV1AccountConsentAcceptAsync(
+            new PostV1AccountConsentAcceptRequest { AcceptTerms = true, AcceptDpa = true }
         );
         JsonAssert.AreEqual(response, mockResponse);
     }
