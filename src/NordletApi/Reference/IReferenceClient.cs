@@ -84,24 +84,6 @@ public partial interface IReferenceClient
     );
 
     /// <summary>
-    /// History of EU VAT rate imports from the EC TEDB VatRetrievalService: when rates were pulled, what changed, and whether the run succeeded. The initial seed run carries the built-in snapshot.
-    /// </summary>
-    WithRawResponseTask<PostV1ReferenceEuVatRatesImportsListResponse> PostV1ReferenceEuVatRatesImportsListAsync(
-        PostV1ReferenceEuVatRatesImportsListRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    );
-
-    /// <summary>
-    /// Trigger an immediate pull of EU VAT rates from the EC TEDB VatRetrievalService. Rates are shared reference data: new rates open with today as their effective date, rates that disappeared are closed with a validity end date. Returns the finished import run.
-    /// </summary>
-    WithRawResponseTask<PostV1ReferenceEuVatRatesSyncResponse> PostV1ReferenceEuVatRatesSyncAsync(
-        PostV1ReferenceEuVatRatesSyncRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    );
-
-    /// <summary>
     /// Replace the VAT rate mapping this company uses for one EU country. Pass an empty rates array to drop the overrides and return to the TEDB defaults. Overrides feed rate suggestions (vat/resolve) and OSS/IOSS return rate classification.
     /// </summary>
     WithRawResponseTask<PostV1ReferenceEuVatRatesSetOverridesResponse> PostV1ReferenceEuVatRatesSetOverridesAsync(

@@ -27,6 +27,7 @@ public class PostV1FilesGetTest : BaseMockServerTest
               "mimeType": "mimeType",
               "sizeBytes": 1000000,
               "sha256": "sha256",
+              "storageKey": "storageKey",
               "createdAt": "createdAt",
               "content": "content"
             }
@@ -72,6 +73,7 @@ public class PostV1FilesGetTest : BaseMockServerTest
               "mimeType": "mimeType",
               "sizeBytes": 1000000,
               "sha256": "sha256",
+              "storageKey": "storageKey",
               "createdAt": "createdAt",
               "content": "content"
             }

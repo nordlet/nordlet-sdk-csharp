@@ -5,24 +5,18 @@ using NordletApi.Core;
 namespace NordletApi;
 
 [JsonConverter(
-    typeof(PostV1ReferenceEuVatRatesImportsListResponseRowsItemTrigger.PostV1ReferenceEuVatRatesImportsListResponseRowsItemTriggerSerializer)
+    typeof(PostV1HrContractsListResponseRowsItemWorkHoursUnit.PostV1HrContractsListResponseRowsItemWorkHoursUnitSerializer)
 )]
 [Serializable]
-public readonly record struct PostV1ReferenceEuVatRatesImportsListResponseRowsItemTrigger
-    : IStringEnum
+public readonly record struct PostV1HrContractsListResponseRowsItemWorkHoursUnit : IStringEnum
 {
-    public static readonly PostV1ReferenceEuVatRatesImportsListResponseRowsItemTrigger Seed = new(
-        Values.Seed
+    public static readonly PostV1HrContractsListResponseRowsItemWorkHoursUnit Day = new(Values.Day);
+
+    public static readonly PostV1HrContractsListResponseRowsItemWorkHoursUnit Week = new(
+        Values.Week
     );
 
-    public static readonly PostV1ReferenceEuVatRatesImportsListResponseRowsItemTrigger Scheduled =
-        new(Values.Scheduled);
-
-    public static readonly PostV1ReferenceEuVatRatesImportsListResponseRowsItemTrigger Manual = new(
-        Values.Manual
-    );
-
-    public PostV1ReferenceEuVatRatesImportsListResponseRowsItemTrigger(string value)
+    public PostV1HrContractsListResponseRowsItemWorkHoursUnit(string value)
     {
         Value = value;
     }
@@ -35,11 +29,9 @@ public readonly record struct PostV1ReferenceEuVatRatesImportsListResponseRowsIt
     /// <summary>
     /// Create a string enum with the given value.
     /// </summary>
-    public static PostV1ReferenceEuVatRatesImportsListResponseRowsItemTrigger FromCustom(
-        string value
-    )
+    public static PostV1HrContractsListResponseRowsItemWorkHoursUnit FromCustom(string value)
     {
-        return new PostV1ReferenceEuVatRatesImportsListResponseRowsItemTrigger(value);
+        return new PostV1HrContractsListResponseRowsItemWorkHoursUnit(value);
     }
 
     public bool Equals(string? other)
@@ -56,27 +48,27 @@ public readonly record struct PostV1ReferenceEuVatRatesImportsListResponseRowsIt
     }
 
     public static bool operator ==(
-        PostV1ReferenceEuVatRatesImportsListResponseRowsItemTrigger value1,
+        PostV1HrContractsListResponseRowsItemWorkHoursUnit value1,
         string value2
     ) => value1.Value.Equals(value2);
 
     public static bool operator !=(
-        PostV1ReferenceEuVatRatesImportsListResponseRowsItemTrigger value1,
+        PostV1HrContractsListResponseRowsItemWorkHoursUnit value1,
         string value2
     ) => !value1.Value.Equals(value2);
 
     public static explicit operator string(
-        PostV1ReferenceEuVatRatesImportsListResponseRowsItemTrigger value
+        PostV1HrContractsListResponseRowsItemWorkHoursUnit value
     ) => value.Value;
 
-    public static explicit operator PostV1ReferenceEuVatRatesImportsListResponseRowsItemTrigger(
+    public static explicit operator PostV1HrContractsListResponseRowsItemWorkHoursUnit(
         string value
     ) => new(value);
 
-    internal class PostV1ReferenceEuVatRatesImportsListResponseRowsItemTriggerSerializer
-        : JsonConverter<PostV1ReferenceEuVatRatesImportsListResponseRowsItemTrigger>
+    internal class PostV1HrContractsListResponseRowsItemWorkHoursUnitSerializer
+        : JsonConverter<PostV1HrContractsListResponseRowsItemWorkHoursUnit>
     {
-        public override PostV1ReferenceEuVatRatesImportsListResponseRowsItemTrigger Read(
+        public override PostV1HrContractsListResponseRowsItemWorkHoursUnit Read(
             ref Utf8JsonReader reader,
             Type typeToConvert,
             JsonSerializerOptions options
@@ -87,19 +79,19 @@ public readonly record struct PostV1ReferenceEuVatRatesImportsListResponseRowsIt
                 ?? throw new global::System.Exception(
                     "The JSON value could not be read as a string."
                 );
-            return new PostV1ReferenceEuVatRatesImportsListResponseRowsItemTrigger(stringValue);
+            return new PostV1HrContractsListResponseRowsItemWorkHoursUnit(stringValue);
         }
 
         public override void Write(
             Utf8JsonWriter writer,
-            PostV1ReferenceEuVatRatesImportsListResponseRowsItemTrigger value,
+            PostV1HrContractsListResponseRowsItemWorkHoursUnit value,
             JsonSerializerOptions options
         )
         {
             writer.WriteStringValue(value.Value);
         }
 
-        public override PostV1ReferenceEuVatRatesImportsListResponseRowsItemTrigger ReadAsPropertyName(
+        public override PostV1HrContractsListResponseRowsItemWorkHoursUnit ReadAsPropertyName(
             ref Utf8JsonReader reader,
             Type typeToConvert,
             JsonSerializerOptions options
@@ -110,12 +102,12 @@ public readonly record struct PostV1ReferenceEuVatRatesImportsListResponseRowsIt
                 ?? throw new global::System.Exception(
                     "The JSON property name could not be read as a string."
                 );
-            return new PostV1ReferenceEuVatRatesImportsListResponseRowsItemTrigger(stringValue);
+            return new PostV1HrContractsListResponseRowsItemWorkHoursUnit(stringValue);
         }
 
         public override void WriteAsPropertyName(
             Utf8JsonWriter writer,
-            PostV1ReferenceEuVatRatesImportsListResponseRowsItemTrigger value,
+            PostV1HrContractsListResponseRowsItemWorkHoursUnit value,
             JsonSerializerOptions options
         )
         {
@@ -129,10 +121,8 @@ public readonly record struct PostV1ReferenceEuVatRatesImportsListResponseRowsIt
     [Serializable]
     public static class Values
     {
-        public const string Seed = "seed";
+        public const string Day = "day";
 
-        public const string Scheduled = "scheduled";
-
-        public const string Manual = "manual";
+        public const string Week = "week";
     }
 }

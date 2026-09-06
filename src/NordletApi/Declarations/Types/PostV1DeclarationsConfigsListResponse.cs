@@ -11,6 +11,9 @@ public record PostV1DeclarationsConfigsListResponse : IJsonOnDeserialized
     private readonly IDictionary<string, JsonElement> _extensionData =
         new Dictionary<string, JsonElement>();
 
+    [JsonPropertyName("companyCountry")]
+    public required string CompanyCountry { get; set; }
+
     [JsonPropertyName("rows")]
     public IEnumerable<PostV1DeclarationsConfigsListResponseRowsItem> Rows { get; set; } =
         new List<PostV1DeclarationsConfigsListResponseRowsItem>();

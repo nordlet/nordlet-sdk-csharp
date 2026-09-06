@@ -45,6 +45,16 @@ public class PostV1HrEmployeesCreateTest : BaseMockServerTest
               "pensionAccumulation": true,
               "status": "active",
               "notes": "notes",
+              "attributes": [
+                {
+                  "name": "x",
+                  "value": "value"
+                },
+                {
+                  "name": "x",
+                  "value": "value"
+                }
+              ],
               "createdAt": "createdAt"
             }
             """;
@@ -84,6 +94,7 @@ public class PostV1HrEmployeesCreateTest : BaseMockServerTest
                 NpdOverride = null,
                 PensionAccumulation = null,
                 Notes = null,
+                Attributes = null,
             }
         );
         JsonAssert.AreEqual(response, mockResponse);
@@ -125,6 +136,12 @@ public class PostV1HrEmployeesCreateTest : BaseMockServerTest
               "pensionAccumulation": true,
               "status": "active",
               "notes": "notes",
+              "attributes": [
+                {
+                  "name": "name",
+                  "value": "value"
+                }
+              ],
               "createdAt": "createdAt"
             }
             """;

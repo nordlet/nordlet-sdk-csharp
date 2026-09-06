@@ -65,6 +65,9 @@ public record PostV1CaptureDocumentsConfirmResponseInvoice : IJsonOnDeserialized
     [JsonPropertyName("notes")]
     public string? Notes { get; set; }
 
+    [JsonPropertyName("documentRef")]
+    public string? DocumentRef { get; set; }
+
     [JsonPropertyName("createdAt")]
     public required string CreatedAt { get; set; }
 

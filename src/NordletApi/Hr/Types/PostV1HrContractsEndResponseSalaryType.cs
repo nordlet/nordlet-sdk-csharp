@@ -14,6 +14,12 @@ public readonly record struct PostV1HrContractsEndResponseSalaryType : IStringEn
 
     public static readonly PostV1HrContractsEndResponseSalaryType Hourly = new(Values.Hourly);
 
+    public static readonly PostV1HrContractsEndResponseSalaryType Weekly = new(Values.Weekly);
+
+    public static readonly PostV1HrContractsEndResponseSalaryType Daily = new(Values.Daily);
+
+    public static readonly PostV1HrContractsEndResponseSalaryType Yearly = new(Values.Yearly);
+
     public PostV1HrContractsEndResponseSalaryType(string value)
     {
         Value = value;
@@ -116,5 +122,11 @@ public readonly record struct PostV1HrContractsEndResponseSalaryType : IStringEn
         public const string Monthly = "monthly";
 
         public const string Hourly = "hourly";
+
+        public const string Weekly = "weekly";
+
+        public const string Daily = "daily";
+
+        public const string Yearly = "yearly";
     }
 }

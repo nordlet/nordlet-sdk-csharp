@@ -23,6 +23,15 @@ public class PullNewTransactionsFromTheBankIntoTheLedgerEmitsBankFeedSyncedTest 
               "connectionId": "x",
               "imported": 1000000,
               "skipped": 1000000,
+              "posted": 1000000,
+              "partnersCreated": 1000000,
+              "invoicesCreated": 1000000,
+              "invoicesLinked": 1000000,
+              "paymentsMatched": 1000000,
+              "warnings": [
+                "warnings",
+                "warnings"
+              ],
               "accounts": [
                 {
                   "feedAccountId": "x",
@@ -81,6 +90,14 @@ public class PullNewTransactionsFromTheBankIntoTheLedgerEmitsBankFeedSyncedTest 
               "connectionId": "connectionId",
               "imported": 1000000,
               "skipped": 1000000,
+              "posted": 1000000,
+              "partnersCreated": 1000000,
+              "invoicesCreated": 1000000,
+              "invoicesLinked": 1000000,
+              "paymentsMatched": 1000000,
+              "warnings": [
+                "warnings"
+              ],
               "accounts": [
                 {
                   "feedAccountId": "feedAccountId",

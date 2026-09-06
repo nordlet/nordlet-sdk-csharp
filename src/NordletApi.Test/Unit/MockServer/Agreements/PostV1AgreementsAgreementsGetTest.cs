@@ -22,7 +22,10 @@ public class PostV1AgreementsAgreementsGetTest : BaseMockServerTest
             {
               "id": "x",
               "typeId": "x",
+              "kind": "customer",
               "partnerId": "x",
+              "employeeId": "x",
+              "bankAccountId": "x",
               "number": "number",
               "name": "name",
               "startDate": "startDate",
@@ -33,6 +36,7 @@ public class PostV1AgreementsAgreementsGetTest : BaseMockServerTest
               "currency": "currency",
               "status": "draft",
               "notes": "notes",
+              "documentRef": "documentRef",
               "createdAt": "createdAt",
               "items": [
                 {
@@ -90,7 +94,10 @@ public class PostV1AgreementsAgreementsGetTest : BaseMockServerTest
             {
               "id": "id",
               "typeId": "typeId",
+              "kind": "customer",
               "partnerId": "partnerId",
+              "employeeId": "employeeId",
+              "bankAccountId": "bankAccountId",
               "number": "number",
               "name": "name",
               "startDate": "startDate",
@@ -101,6 +108,7 @@ public class PostV1AgreementsAgreementsGetTest : BaseMockServerTest
               "currency": "currency",
               "status": "draft",
               "notes": "notes",
+              "documentRef": "documentRef",
               "createdAt": "createdAt",
               "items": [
                 {

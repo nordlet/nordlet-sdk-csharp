@@ -12,6 +12,9 @@ public record PostV1LedgerAccountsCreateRequest
     [JsonPropertyName("name")]
     public required string Name { get; set; }
 
+    [JsonPropertyName("translations")]
+    public PostV1LedgerAccountsCreateRequestTranslations? Translations { get; set; }
+
     [JsonPropertyName("type")]
     public required PostV1LedgerAccountsCreateRequestType Type { get; set; }
 

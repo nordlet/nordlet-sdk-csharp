@@ -15,7 +15,6 @@ public class PostV1HrContractsCreateTest : BaseMockServerTest
         const string requestJson = """
             {
               "employeeId": "x",
-              "contractNo": "x",
               "startDate": "startDate",
               "baseSalary": "baseSalary"
             }
@@ -28,6 +27,7 @@ public class PostV1HrContractsCreateTest : BaseMockServerTest
               "positionId": "x",
               "departmentId": "x",
               "scheduleId": "x",
+              "agreementId": "x",
               "contractNo": "contractNo",
               "type": "permanent",
               "startDate": "startDate",
@@ -35,7 +35,8 @@ public class PostV1HrContractsCreateTest : BaseMockServerTest
               "endReason": "endReason",
               "baseSalary": "baseSalary",
               "salaryType": "monthly",
-              "workHoursPerWeek": "workHoursPerWeek",
+              "workHours": "workHours",
+              "workHoursUnit": "day",
               "status": "active",
               "notes": "notes",
               "createdAt": "createdAt"
@@ -65,13 +66,14 @@ public class PostV1HrContractsCreateTest : BaseMockServerTest
                 PositionId = null,
                 DepartmentId = null,
                 ScheduleId = null,
-                ContractNo = "x",
+                AgreementId = null,
+                ContractNo = null,
                 Type = null,
                 StartDate = "startDate",
                 EndDate = null,
                 BaseSalary = "baseSalary",
                 SalaryType = null,
-                WorkHoursPerWeek = null,
+                WorkHours = null,
                 Notes = null,
             }
         );
@@ -84,7 +86,6 @@ public class PostV1HrContractsCreateTest : BaseMockServerTest
         const string requestJson = """
             {
               "employeeId": "employeeId",
-              "contractNo": "contractNo",
               "startDate": "startDate",
               "baseSalary": "baseSalary"
             }
@@ -97,6 +98,7 @@ public class PostV1HrContractsCreateTest : BaseMockServerTest
               "positionId": "positionId",
               "departmentId": "departmentId",
               "scheduleId": "scheduleId",
+              "agreementId": "agreementId",
               "contractNo": "contractNo",
               "type": "permanent",
               "startDate": "startDate",
@@ -104,7 +106,8 @@ public class PostV1HrContractsCreateTest : BaseMockServerTest
               "endReason": "endReason",
               "baseSalary": "baseSalary",
               "salaryType": "monthly",
-              "workHoursPerWeek": "workHoursPerWeek",
+              "workHours": "workHours",
+              "workHoursUnit": "day",
               "status": "active",
               "notes": "notes",
               "createdAt": "createdAt"
@@ -131,7 +134,6 @@ public class PostV1HrContractsCreateTest : BaseMockServerTest
             new PostV1HrContractsCreateRequest
             {
                 EmployeeId = "employeeId",
-                ContractNo = "contractNo",
                 StartDate = "startDate",
                 BaseSalary = "baseSalary",
             }

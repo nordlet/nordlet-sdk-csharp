@@ -12,6 +12,9 @@ public record PostV1LedgerAccountsUpdateRequest
     [JsonPropertyName("name")]
     public string? Name { get; set; }
 
+    [JsonPropertyName("translations")]
+    public PostV1LedgerAccountsUpdateRequestTranslations? Translations { get; set; }
+
     [JsonPropertyName("parentId")]
     public string? ParentId { get; set; }
 

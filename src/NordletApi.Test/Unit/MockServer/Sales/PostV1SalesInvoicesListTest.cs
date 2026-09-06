@@ -43,6 +43,7 @@ public class PostV1SalesInvoicesListTest : BaseMockServerTest
                   "vatCountryCode": "vatCountryCode",
                   "deemedSupplier": true,
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 },
@@ -70,6 +71,7 @@ public class PostV1SalesInvoicesListTest : BaseMockServerTest
                   "vatCountryCode": "vatCountryCode",
                   "deemedSupplier": true,
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 }
@@ -142,6 +144,7 @@ public class PostV1SalesInvoicesListTest : BaseMockServerTest
                   "vatCountryCode": "vatCountryCode",
                   "deemedSupplier": true,
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 }

@@ -34,6 +34,16 @@ public class PostV1FleetVehiclesListTest : BaseMockServerTest
                   "insuranceDue": "insuranceDue",
                   "status": "active",
                   "notes": "notes",
+                  "documents": [
+                    {
+                      "name": "x",
+                      "ref": "x"
+                    },
+                    {
+                      "name": "x",
+                      "ref": "x"
+                    }
+                  ],
                   "currentAssignment": {
                     "id": "x",
                     "employeeId": "x",
@@ -59,6 +69,16 @@ public class PostV1FleetVehiclesListTest : BaseMockServerTest
                   "insuranceDue": "insuranceDue",
                   "status": "active",
                   "notes": "notes",
+                  "documents": [
+                    {
+                      "name": "x",
+                      "ref": "x"
+                    },
+                    {
+                      "name": "x",
+                      "ref": "x"
+                    }
+                  ],
                   "currentAssignment": {
                     "id": "x",
                     "employeeId": "x",
@@ -129,6 +149,12 @@ public class PostV1FleetVehiclesListTest : BaseMockServerTest
                   "insuranceDue": "insuranceDue",
                   "status": "active",
                   "notes": "notes",
+                  "documents": [
+                    {
+                      "name": "name",
+                      "ref": "ref"
+                    }
+                  ],
                   "currentAssignment": {
                     "id": "id",
                     "employeeId": "employeeId",

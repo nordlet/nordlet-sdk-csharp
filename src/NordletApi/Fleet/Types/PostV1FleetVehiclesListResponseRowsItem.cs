@@ -53,6 +53,9 @@ public record PostV1FleetVehiclesListResponseRowsItem : IJsonOnDeserialized
     [JsonPropertyName("notes")]
     public string? Notes { get; set; }
 
+    [JsonPropertyName("documents")]
+    public IEnumerable<PostV1FleetVehiclesListResponseRowsItemDocumentsItem>? Documents { get; set; }
+
     [JsonPropertyName("currentAssignment")]
     public PostV1FleetVehiclesListResponseRowsItemCurrentAssignment? CurrentAssignment { get; set; }
 

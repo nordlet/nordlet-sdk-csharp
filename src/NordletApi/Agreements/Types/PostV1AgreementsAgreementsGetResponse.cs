@@ -17,8 +17,17 @@ public record PostV1AgreementsAgreementsGetResponse : IJsonOnDeserialized
     [JsonPropertyName("typeId")]
     public string? TypeId { get; set; }
 
+    [JsonPropertyName("kind")]
+    public required PostV1AgreementsAgreementsGetResponseKind Kind { get; set; }
+
     [JsonPropertyName("partnerId")]
-    public required string PartnerId { get; set; }
+    public string? PartnerId { get; set; }
+
+    [JsonPropertyName("employeeId")]
+    public string? EmployeeId { get; set; }
+
+    [JsonPropertyName("bankAccountId")]
+    public string? BankAccountId { get; set; }
 
     [JsonPropertyName("number")]
     public required string Number { get; set; }
@@ -49,6 +58,9 @@ public record PostV1AgreementsAgreementsGetResponse : IJsonOnDeserialized
 
     [JsonPropertyName("notes")]
     public string? Notes { get; set; }
+
+    [JsonPropertyName("documentRef")]
+    public string? DocumentRef { get; set; }
 
     [JsonPropertyName("createdAt")]
     public required string CreatedAt { get; set; }

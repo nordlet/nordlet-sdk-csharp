@@ -46,6 +46,7 @@ public class PostV1PartnersListTest : BaseMockServerTest
                     "countryCode": "xy"
                   },
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 },
@@ -76,6 +77,7 @@ public class PostV1PartnersListTest : BaseMockServerTest
                     "countryCode": "xy"
                   },
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 }
@@ -146,6 +148,7 @@ public class PostV1PartnersListTest : BaseMockServerTest
                   "vatValidatedAt": "vatValidatedAt",
                   "address": {},
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 }

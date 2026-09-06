@@ -26,6 +26,9 @@ public record PostV1LedgerJournalTransactionsListResponseRowsItem : IJsonOnDeser
     [JsonPropertyName("documentId")]
     public string? DocumentId { get; set; }
 
+    [JsonPropertyName("partnerId")]
+    public string? PartnerId { get; set; }
+
     [JsonPropertyName("status")]
     public required PostV1LedgerJournalTransactionsListResponseRowsItemStatus Status { get; set; }
 

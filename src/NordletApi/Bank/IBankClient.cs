@@ -44,8 +44,44 @@ public partial interface IBankClient
         CancellationToken cancellationToken = default
     );
 
+    WithRawResponseTask<PostV1BankTransactionsRecordResponse> PostV1BankTransactionsRecordAsync(
+        PostV1BankTransactionsRecordRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
     WithRawResponseTask<PostV1BankPaymentsExportResponse> PostV1BankPaymentsExportAsync(
         PostV1BankPaymentsExportRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1BankImportTemplatesCreateResponse> CreateABankImportTemplateFieldsDefaultToTheTypesStandardFieldListAsync(
+        PostV1BankImportTemplatesCreateRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1BankImportTemplatesUpdateResponse> PostV1BankImportTemplatesUpdateAsync(
+        PostV1BankImportTemplatesUpdateRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1BankImportTemplatesDeleteResponse> PostV1BankImportTemplatesDeleteAsync(
+        PostV1BankImportTemplatesDeleteRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1BankImportTemplatesGetResponse> PostV1BankImportTemplatesGetAsync(
+        PostV1BankImportTemplatesGetRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1BankImportTemplatesListResponse> PostV1BankImportTemplatesListAsync(
+        PostV1BankImportTemplatesListRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
@@ -160,6 +196,12 @@ public partial interface IBankClient
 
     WithRawResponseTask<PostV1BankFeedsAccountsLinkResponse> PointABankFeedAccountAtALedgerBankAccountSoItsTransactionsCanBeSyncedAsync(
         PostV1BankFeedsAccountsLinkRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1BankFeedsAccountsConfigureResponse> ChooseTheImportTemplateAppliedOnSyncAndHowOftenTheAccountIsSyncedAutomaticallyAsync(
+        PostV1BankFeedsAccountsConfigureRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );

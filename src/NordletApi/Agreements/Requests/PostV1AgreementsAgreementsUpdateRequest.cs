@@ -12,6 +12,9 @@ public record PostV1AgreementsAgreementsUpdateRequest
     [JsonPropertyName("typeId")]
     public string? TypeId { get; set; }
 
+    [JsonPropertyName("kind")]
+    public PostV1AgreementsAgreementsUpdateRequestKind? Kind { get; set; }
+
     [JsonPropertyName("name")]
     public string? Name { get; set; }
 
@@ -32,6 +35,9 @@ public record PostV1AgreementsAgreementsUpdateRequest
 
     [JsonPropertyName("notes")]
     public string? Notes { get; set; }
+
+    [JsonPropertyName("documentRef")]
+    public string? DocumentRef { get; set; }
 
     /// <inheritdoc />
     public override string ToString()

@@ -33,6 +33,9 @@ public record PostV1AssetsAssetsCreateRequest
     [JsonPropertyName("notes")]
     public string? Notes { get; set; }
 
+    [JsonPropertyName("documents")]
+    public IEnumerable<PostV1AssetsAssetsCreateRequestDocumentsItem>? Documents { get; set; }
+
     /// <inheritdoc />
     public override string ToString()
     {

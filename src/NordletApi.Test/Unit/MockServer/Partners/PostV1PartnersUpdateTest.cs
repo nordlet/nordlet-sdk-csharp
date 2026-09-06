@@ -46,6 +46,7 @@ public class PostV1PartnersUpdateTest : BaseMockServerTest
                 "countryCode": "xy"
               },
               "notes": "notes",
+              "documentRef": "documentRef",
               "createdAt": "createdAt",
               "updatedAt": "updatedAt"
             }
@@ -89,6 +90,7 @@ public class PostV1PartnersUpdateTest : BaseMockServerTest
                 StatusId = null,
                 Address = null,
                 Notes = null,
+                DocumentRef = null,
             }
         );
         JsonAssert.AreEqual(response, mockResponse);
@@ -131,6 +133,7 @@ public class PostV1PartnersUpdateTest : BaseMockServerTest
                 "countryCode": "countryCode"
               },
               "notes": "notes",
+              "documentRef": "documentRef",
               "createdAt": "createdAt",
               "updatedAt": "updatedAt"
             }

@@ -5,22 +5,28 @@ using NordletApi.Core;
 namespace NordletApi;
 
 [JsonConverter(
-    typeof(PostV1ReferenceEuVatRatesSyncResponseStatus.PostV1ReferenceEuVatRatesSyncResponseStatusSerializer)
+    typeof(PostV1BankFeedsAccountsLinkResponseSyncSchedule.PostV1BankFeedsAccountsLinkResponseSyncScheduleSerializer)
 )]
 [Serializable]
-public readonly record struct PostV1ReferenceEuVatRatesSyncResponseStatus : IStringEnum
+public readonly record struct PostV1BankFeedsAccountsLinkResponseSyncSchedule : IStringEnum
 {
-    public static readonly PostV1ReferenceEuVatRatesSyncResponseStatus Running = new(
-        Values.Running
+    public static readonly PostV1BankFeedsAccountsLinkResponseSyncSchedule Manual = new(
+        Values.Manual
     );
 
-    public static readonly PostV1ReferenceEuVatRatesSyncResponseStatus Succeeded = new(
-        Values.Succeeded
+    public static readonly PostV1BankFeedsAccountsLinkResponseSyncSchedule Daily = new(
+        Values.Daily
     );
 
-    public static readonly PostV1ReferenceEuVatRatesSyncResponseStatus Failed = new(Values.Failed);
+    public static readonly PostV1BankFeedsAccountsLinkResponseSyncSchedule Weekly = new(
+        Values.Weekly
+    );
 
-    public PostV1ReferenceEuVatRatesSyncResponseStatus(string value)
+    public static readonly PostV1BankFeedsAccountsLinkResponseSyncSchedule Monthly = new(
+        Values.Monthly
+    );
+
+    public PostV1BankFeedsAccountsLinkResponseSyncSchedule(string value)
     {
         Value = value;
     }
@@ -33,9 +39,9 @@ public readonly record struct PostV1ReferenceEuVatRatesSyncResponseStatus : IStr
     /// <summary>
     /// Create a string enum with the given value.
     /// </summary>
-    public static PostV1ReferenceEuVatRatesSyncResponseStatus FromCustom(string value)
+    public static PostV1BankFeedsAccountsLinkResponseSyncSchedule FromCustom(string value)
     {
-        return new PostV1ReferenceEuVatRatesSyncResponseStatus(value);
+        return new PostV1BankFeedsAccountsLinkResponseSyncSchedule(value);
     }
 
     public bool Equals(string? other)
@@ -52,25 +58,25 @@ public readonly record struct PostV1ReferenceEuVatRatesSyncResponseStatus : IStr
     }
 
     public static bool operator ==(
-        PostV1ReferenceEuVatRatesSyncResponseStatus value1,
+        PostV1BankFeedsAccountsLinkResponseSyncSchedule value1,
         string value2
     ) => value1.Value.Equals(value2);
 
     public static bool operator !=(
-        PostV1ReferenceEuVatRatesSyncResponseStatus value1,
+        PostV1BankFeedsAccountsLinkResponseSyncSchedule value1,
         string value2
     ) => !value1.Value.Equals(value2);
 
-    public static explicit operator string(PostV1ReferenceEuVatRatesSyncResponseStatus value) =>
+    public static explicit operator string(PostV1BankFeedsAccountsLinkResponseSyncSchedule value) =>
         value.Value;
 
-    public static explicit operator PostV1ReferenceEuVatRatesSyncResponseStatus(string value) =>
+    public static explicit operator PostV1BankFeedsAccountsLinkResponseSyncSchedule(string value) =>
         new(value);
 
-    internal class PostV1ReferenceEuVatRatesSyncResponseStatusSerializer
-        : JsonConverter<PostV1ReferenceEuVatRatesSyncResponseStatus>
+    internal class PostV1BankFeedsAccountsLinkResponseSyncScheduleSerializer
+        : JsonConverter<PostV1BankFeedsAccountsLinkResponseSyncSchedule>
     {
-        public override PostV1ReferenceEuVatRatesSyncResponseStatus Read(
+        public override PostV1BankFeedsAccountsLinkResponseSyncSchedule Read(
             ref Utf8JsonReader reader,
             Type typeToConvert,
             JsonSerializerOptions options
@@ -81,19 +87,19 @@ public readonly record struct PostV1ReferenceEuVatRatesSyncResponseStatus : IStr
                 ?? throw new global::System.Exception(
                     "The JSON value could not be read as a string."
                 );
-            return new PostV1ReferenceEuVatRatesSyncResponseStatus(stringValue);
+            return new PostV1BankFeedsAccountsLinkResponseSyncSchedule(stringValue);
         }
 
         public override void Write(
             Utf8JsonWriter writer,
-            PostV1ReferenceEuVatRatesSyncResponseStatus value,
+            PostV1BankFeedsAccountsLinkResponseSyncSchedule value,
             JsonSerializerOptions options
         )
         {
             writer.WriteStringValue(value.Value);
         }
 
-        public override PostV1ReferenceEuVatRatesSyncResponseStatus ReadAsPropertyName(
+        public override PostV1BankFeedsAccountsLinkResponseSyncSchedule ReadAsPropertyName(
             ref Utf8JsonReader reader,
             Type typeToConvert,
             JsonSerializerOptions options
@@ -104,12 +110,12 @@ public readonly record struct PostV1ReferenceEuVatRatesSyncResponseStatus : IStr
                 ?? throw new global::System.Exception(
                     "The JSON property name could not be read as a string."
                 );
-            return new PostV1ReferenceEuVatRatesSyncResponseStatus(stringValue);
+            return new PostV1BankFeedsAccountsLinkResponseSyncSchedule(stringValue);
         }
 
         public override void WriteAsPropertyName(
             Utf8JsonWriter writer,
-            PostV1ReferenceEuVatRatesSyncResponseStatus value,
+            PostV1BankFeedsAccountsLinkResponseSyncSchedule value,
             JsonSerializerOptions options
         )
         {
@@ -123,10 +129,12 @@ public readonly record struct PostV1ReferenceEuVatRatesSyncResponseStatus : IStr
     [Serializable]
     public static class Values
     {
-        public const string Running = "running";
+        public const string Manual = "manual";
 
-        public const string Succeeded = "succeeded";
+        public const string Daily = "daily";
 
-        public const string Failed = "failed";
+        public const string Weekly = "weekly";
+
+        public const string Monthly = "monthly";
     }
 }

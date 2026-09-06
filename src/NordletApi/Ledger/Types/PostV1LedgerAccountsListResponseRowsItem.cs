@@ -20,6 +20,9 @@ public record PostV1LedgerAccountsListResponseRowsItem : IJsonOnDeserialized
     [JsonPropertyName("name")]
     public required string Name { get; set; }
 
+    [JsonPropertyName("translations")]
+    public PostV1LedgerAccountsListResponseRowsItemTranslations? Translations { get; set; }
+
     [JsonPropertyName("type")]
     public required PostV1LedgerAccountsListResponseRowsItemType Type { get; set; }
 

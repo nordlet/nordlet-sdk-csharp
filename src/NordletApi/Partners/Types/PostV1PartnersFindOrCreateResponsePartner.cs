@@ -74,6 +74,9 @@ public record PostV1PartnersFindOrCreateResponsePartner : IJsonOnDeserialized
     [JsonPropertyName("notes")]
     public string? Notes { get; set; }
 
+    [JsonPropertyName("documentRef")]
+    public string? DocumentRef { get; set; }
+
     [JsonPropertyName("createdAt")]
     public required string CreatedAt { get; set; }
 

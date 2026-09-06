@@ -14,7 +14,6 @@ public class PostV1AgreementsAgreementsCreateTest : BaseMockServerTest
     {
         const string requestJson = """
             {
-              "partnerId": "x",
               "number": "x",
               "startDate": "startDate"
             }
@@ -24,7 +23,10 @@ public class PostV1AgreementsAgreementsCreateTest : BaseMockServerTest
             {
               "id": "x",
               "typeId": "x",
+              "kind": "customer",
               "partnerId": "x",
+              "employeeId": "x",
+              "bankAccountId": "x",
               "number": "number",
               "name": "name",
               "startDate": "startDate",
@@ -35,6 +37,7 @@ public class PostV1AgreementsAgreementsCreateTest : BaseMockServerTest
               "currency": "currency",
               "status": "draft",
               "notes": "notes",
+              "documentRef": "documentRef",
               "createdAt": "createdAt",
               "items": [
                 {
@@ -77,7 +80,10 @@ public class PostV1AgreementsAgreementsCreateTest : BaseMockServerTest
             new PostV1AgreementsAgreementsCreateRequest
             {
                 TypeId = null,
-                PartnerId = "x",
+                Kind = null,
+                PartnerId = null,
+                EmployeeId = null,
+                BankAccountId = null,
                 Number = "x",
                 Name = null,
                 StartDate = "startDate",
@@ -88,6 +94,7 @@ public class PostV1AgreementsAgreementsCreateTest : BaseMockServerTest
                 Currency = null,
                 Status = null,
                 Notes = null,
+                DocumentRef = null,
                 Items = null,
             }
         );
@@ -99,7 +106,6 @@ public class PostV1AgreementsAgreementsCreateTest : BaseMockServerTest
     {
         const string requestJson = """
             {
-              "partnerId": "partnerId",
               "number": "number",
               "startDate": "startDate"
             }
@@ -109,7 +115,10 @@ public class PostV1AgreementsAgreementsCreateTest : BaseMockServerTest
             {
               "id": "id",
               "typeId": "typeId",
+              "kind": "customer",
               "partnerId": "partnerId",
+              "employeeId": "employeeId",
+              "bankAccountId": "bankAccountId",
               "number": "number",
               "name": "name",
               "startDate": "startDate",
@@ -120,6 +129,7 @@ public class PostV1AgreementsAgreementsCreateTest : BaseMockServerTest
               "currency": "currency",
               "status": "draft",
               "notes": "notes",
+              "documentRef": "documentRef",
               "createdAt": "createdAt",
               "items": [
                 {
@@ -153,7 +163,6 @@ public class PostV1AgreementsAgreementsCreateTest : BaseMockServerTest
         var response = await Client.Agreements.PostV1AgreementsAgreementsCreateAsync(
             new PostV1AgreementsAgreementsCreateRequest
             {
-                PartnerId = "partnerId",
                 Number = "number",
                 StartDate = "startDate",
             }

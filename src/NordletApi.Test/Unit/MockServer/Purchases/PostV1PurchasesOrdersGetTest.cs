@@ -34,6 +34,7 @@ public class PostV1PurchasesOrdersGetTest : BaseMockServerTest
               "approvedBy": "approvedBy",
               "approvedAt": "approvedAt",
               "notes": "notes",
+              "documentRef": "documentRef",
               "createdAt": "createdAt",
               "updatedAt": "updatedAt",
               "lines": [
@@ -128,6 +129,7 @@ public class PostV1PurchasesOrdersGetTest : BaseMockServerTest
               "approvedBy": "approvedBy",
               "approvedAt": "approvedAt",
               "notes": "notes",
+              "documentRef": "documentRef",
               "createdAt": "createdAt",
               "updatedAt": "updatedAt",
               "lines": [

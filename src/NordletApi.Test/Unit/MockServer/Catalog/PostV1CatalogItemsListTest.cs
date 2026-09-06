@@ -41,6 +41,7 @@ public class PostV1CatalogItemsListTest : BaseMockServerTest
                   "attributes": {
                     "attributes": "attributes"
                   },
+                  "documentRef": "documentRef",
                   "translations": {
                     "translations": {
                       "name": "name",
@@ -84,6 +85,7 @@ public class PostV1CatalogItemsListTest : BaseMockServerTest
                   "attributes": {
                     "attributes": "attributes"
                   },
+                  "documentRef": "documentRef",
                   "translations": {
                     "translations": {
                       "name": "name",
@@ -170,6 +172,7 @@ public class PostV1CatalogItemsListTest : BaseMockServerTest
                   "description": "description",
                   "groupId": "groupId",
                   "attributes": {},
+                  "documentRef": "documentRef",
                   "translations": {},
                   "components": [
                     {

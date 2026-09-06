@@ -25,6 +25,17 @@ public class PostV1LedgerAccountsCreateTest : BaseMockServerTest
               "id": "x",
               "code": "code",
               "name": "name",
+              "translations": {
+                "lt": {
+                  "name": "x"
+                },
+                "en": {
+                  "name": "x"
+                },
+                "ru": {
+                  "name": "x"
+                }
+              },
               "type": "asset",
               "parentId": "x",
               "isPostable": true,
@@ -53,6 +64,7 @@ public class PostV1LedgerAccountsCreateTest : BaseMockServerTest
             {
                 Code = "x",
                 Name = "x",
+                Translations = null,
                 Type = PostV1LedgerAccountsCreateRequestType.Asset,
                 ParentId = null,
                 IsPostable = null,
@@ -77,6 +89,17 @@ public class PostV1LedgerAccountsCreateTest : BaseMockServerTest
               "id": "id",
               "code": "code",
               "name": "name",
+              "translations": {
+                "lt": {
+                  "name": "name"
+                },
+                "en": {
+                  "name": "name"
+                },
+                "ru": {
+                  "name": "name"
+                }
+              },
               "type": "asset",
               "parentId": "parentId",
               "isPostable": true,

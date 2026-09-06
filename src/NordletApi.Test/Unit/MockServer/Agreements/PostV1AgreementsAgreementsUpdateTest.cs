@@ -22,7 +22,10 @@ public class PostV1AgreementsAgreementsUpdateTest : BaseMockServerTest
             {
               "id": "x",
               "typeId": "x",
+              "kind": "customer",
               "partnerId": "x",
+              "employeeId": "x",
+              "bankAccountId": "x",
               "number": "number",
               "name": "name",
               "startDate": "startDate",
@@ -33,6 +36,7 @@ public class PostV1AgreementsAgreementsUpdateTest : BaseMockServerTest
               "currency": "currency",
               "status": "draft",
               "notes": "notes",
+              "documentRef": "documentRef",
               "createdAt": "createdAt",
               "items": [
                 {
@@ -76,6 +80,7 @@ public class PostV1AgreementsAgreementsUpdateTest : BaseMockServerTest
             {
                 Id = "x",
                 TypeId = null,
+                Kind = null,
                 Name = null,
                 EndDate = null,
                 AutoRenew = null,
@@ -83,6 +88,7 @@ public class PostV1AgreementsAgreementsUpdateTest : BaseMockServerTest
                 BillingPeriod = null,
                 Status = null,
                 Notes = null,
+                DocumentRef = null,
             }
         );
         JsonAssert.AreEqual(response, mockResponse);
@@ -101,7 +107,10 @@ public class PostV1AgreementsAgreementsUpdateTest : BaseMockServerTest
             {
               "id": "id",
               "typeId": "typeId",
+              "kind": "customer",
               "partnerId": "partnerId",
+              "employeeId": "employeeId",
+              "bankAccountId": "bankAccountId",
               "number": "number",
               "name": "name",
               "startDate": "startDate",
@@ -112,6 +121,7 @@ public class PostV1AgreementsAgreementsUpdateTest : BaseMockServerTest
               "currency": "currency",
               "status": "draft",
               "notes": "notes",
+              "documentRef": "documentRef",
               "createdAt": "createdAt",
               "items": [
                 {

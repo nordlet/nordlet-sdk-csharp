@@ -59,6 +59,9 @@ public record PostV1AssetsAssetsModernizeResponse : IJsonOnDeserialized
     [JsonPropertyName("notes")]
     public string? Notes { get; set; }
 
+    [JsonPropertyName("documents")]
+    public IEnumerable<PostV1AssetsAssetsModernizeResponseDocumentsItem>? Documents { get; set; }
+
     [JsonPropertyName("createdAt")]
     public required string CreatedAt { get; set; }
 

@@ -42,6 +42,9 @@ public record PostV1FleetVehiclesCreateRequest
     [JsonPropertyName("notes")]
     public string? Notes { get; set; }
 
+    [JsonPropertyName("documents")]
+    public IEnumerable<PostV1FleetVehiclesCreateRequestDocumentsItem>? Documents { get; set; }
+
     /// <inheritdoc />
     public override string ToString()
     {

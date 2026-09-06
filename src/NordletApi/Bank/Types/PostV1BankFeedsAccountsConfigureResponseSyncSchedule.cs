@@ -5,24 +5,28 @@ using NordletApi.Core;
 namespace NordletApi;
 
 [JsonConverter(
-    typeof(PostV1ReferenceEuVatRatesImportsListResponseRowsItemStatus.PostV1ReferenceEuVatRatesImportsListResponseRowsItemStatusSerializer)
+    typeof(PostV1BankFeedsAccountsConfigureResponseSyncSchedule.PostV1BankFeedsAccountsConfigureResponseSyncScheduleSerializer)
 )]
 [Serializable]
-public readonly record struct PostV1ReferenceEuVatRatesImportsListResponseRowsItemStatus
-    : IStringEnum
+public readonly record struct PostV1BankFeedsAccountsConfigureResponseSyncSchedule : IStringEnum
 {
-    public static readonly PostV1ReferenceEuVatRatesImportsListResponseRowsItemStatus Running = new(
-        Values.Running
+    public static readonly PostV1BankFeedsAccountsConfigureResponseSyncSchedule Manual = new(
+        Values.Manual
     );
 
-    public static readonly PostV1ReferenceEuVatRatesImportsListResponseRowsItemStatus Succeeded =
-        new(Values.Succeeded);
-
-    public static readonly PostV1ReferenceEuVatRatesImportsListResponseRowsItemStatus Failed = new(
-        Values.Failed
+    public static readonly PostV1BankFeedsAccountsConfigureResponseSyncSchedule Daily = new(
+        Values.Daily
     );
 
-    public PostV1ReferenceEuVatRatesImportsListResponseRowsItemStatus(string value)
+    public static readonly PostV1BankFeedsAccountsConfigureResponseSyncSchedule Weekly = new(
+        Values.Weekly
+    );
+
+    public static readonly PostV1BankFeedsAccountsConfigureResponseSyncSchedule Monthly = new(
+        Values.Monthly
+    );
+
+    public PostV1BankFeedsAccountsConfigureResponseSyncSchedule(string value)
     {
         Value = value;
     }
@@ -35,11 +39,9 @@ public readonly record struct PostV1ReferenceEuVatRatesImportsListResponseRowsIt
     /// <summary>
     /// Create a string enum with the given value.
     /// </summary>
-    public static PostV1ReferenceEuVatRatesImportsListResponseRowsItemStatus FromCustom(
-        string value
-    )
+    public static PostV1BankFeedsAccountsConfigureResponseSyncSchedule FromCustom(string value)
     {
-        return new PostV1ReferenceEuVatRatesImportsListResponseRowsItemStatus(value);
+        return new PostV1BankFeedsAccountsConfigureResponseSyncSchedule(value);
     }
 
     public bool Equals(string? other)
@@ -56,27 +58,27 @@ public readonly record struct PostV1ReferenceEuVatRatesImportsListResponseRowsIt
     }
 
     public static bool operator ==(
-        PostV1ReferenceEuVatRatesImportsListResponseRowsItemStatus value1,
+        PostV1BankFeedsAccountsConfigureResponseSyncSchedule value1,
         string value2
     ) => value1.Value.Equals(value2);
 
     public static bool operator !=(
-        PostV1ReferenceEuVatRatesImportsListResponseRowsItemStatus value1,
+        PostV1BankFeedsAccountsConfigureResponseSyncSchedule value1,
         string value2
     ) => !value1.Value.Equals(value2);
 
     public static explicit operator string(
-        PostV1ReferenceEuVatRatesImportsListResponseRowsItemStatus value
+        PostV1BankFeedsAccountsConfigureResponseSyncSchedule value
     ) => value.Value;
 
-    public static explicit operator PostV1ReferenceEuVatRatesImportsListResponseRowsItemStatus(
+    public static explicit operator PostV1BankFeedsAccountsConfigureResponseSyncSchedule(
         string value
     ) => new(value);
 
-    internal class PostV1ReferenceEuVatRatesImportsListResponseRowsItemStatusSerializer
-        : JsonConverter<PostV1ReferenceEuVatRatesImportsListResponseRowsItemStatus>
+    internal class PostV1BankFeedsAccountsConfigureResponseSyncScheduleSerializer
+        : JsonConverter<PostV1BankFeedsAccountsConfigureResponseSyncSchedule>
     {
-        public override PostV1ReferenceEuVatRatesImportsListResponseRowsItemStatus Read(
+        public override PostV1BankFeedsAccountsConfigureResponseSyncSchedule Read(
             ref Utf8JsonReader reader,
             Type typeToConvert,
             JsonSerializerOptions options
@@ -87,19 +89,19 @@ public readonly record struct PostV1ReferenceEuVatRatesImportsListResponseRowsIt
                 ?? throw new global::System.Exception(
                     "The JSON value could not be read as a string."
                 );
-            return new PostV1ReferenceEuVatRatesImportsListResponseRowsItemStatus(stringValue);
+            return new PostV1BankFeedsAccountsConfigureResponseSyncSchedule(stringValue);
         }
 
         public override void Write(
             Utf8JsonWriter writer,
-            PostV1ReferenceEuVatRatesImportsListResponseRowsItemStatus value,
+            PostV1BankFeedsAccountsConfigureResponseSyncSchedule value,
             JsonSerializerOptions options
         )
         {
             writer.WriteStringValue(value.Value);
         }
 
-        public override PostV1ReferenceEuVatRatesImportsListResponseRowsItemStatus ReadAsPropertyName(
+        public override PostV1BankFeedsAccountsConfigureResponseSyncSchedule ReadAsPropertyName(
             ref Utf8JsonReader reader,
             Type typeToConvert,
             JsonSerializerOptions options
@@ -110,12 +112,12 @@ public readonly record struct PostV1ReferenceEuVatRatesImportsListResponseRowsIt
                 ?? throw new global::System.Exception(
                     "The JSON property name could not be read as a string."
                 );
-            return new PostV1ReferenceEuVatRatesImportsListResponseRowsItemStatus(stringValue);
+            return new PostV1BankFeedsAccountsConfigureResponseSyncSchedule(stringValue);
         }
 
         public override void WriteAsPropertyName(
             Utf8JsonWriter writer,
-            PostV1ReferenceEuVatRatesImportsListResponseRowsItemStatus value,
+            PostV1BankFeedsAccountsConfigureResponseSyncSchedule value,
             JsonSerializerOptions options
         )
         {
@@ -129,10 +131,12 @@ public readonly record struct PostV1ReferenceEuVatRatesImportsListResponseRowsIt
     [Serializable]
     public static class Values
     {
-        public const string Running = "running";
+        public const string Manual = "manual";
 
-        public const string Succeeded = "succeeded";
+        public const string Daily = "daily";
 
-        public const string Failed = "failed";
+        public const string Weekly = "weekly";
+
+        public const string Monthly = "monthly";
     }
 }

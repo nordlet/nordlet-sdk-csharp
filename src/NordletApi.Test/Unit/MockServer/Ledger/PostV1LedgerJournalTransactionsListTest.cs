@@ -25,6 +25,7 @@ public class PostV1LedgerJournalTransactionsListTest : BaseMockServerTest
                   "description": "description",
                   "documentType": "documentType",
                   "documentId": "x",
+                  "partnerId": "x",
                   "status": "draft",
                   "createdAt": "createdAt",
                   "postedAt": "postedAt"
@@ -35,6 +36,7 @@ public class PostV1LedgerJournalTransactionsListTest : BaseMockServerTest
                   "description": "description",
                   "documentType": "documentType",
                   "documentId": "x",
+                  "partnerId": "x",
                   "status": "draft",
                   "createdAt": "createdAt",
                   "postedAt": "postedAt"
@@ -90,6 +92,7 @@ public class PostV1LedgerJournalTransactionsListTest : BaseMockServerTest
                   "description": "description",
                   "documentType": "documentType",
                   "documentId": "documentId",
+                  "partnerId": "partnerId",
                   "status": "draft",
                   "createdAt": "createdAt",
                   "postedAt": "postedAt"

@@ -47,6 +47,7 @@ public class PostV1SalesInvoicesCreateTest : BaseMockServerTest
               "vatCountryCode": "vatCountryCode",
               "deemedSupplier": true,
               "notes": "notes",
+              "documentRef": "documentRef",
               "createdAt": "createdAt",
               "updatedAt": "updatedAt",
               "lines": [
@@ -199,6 +200,7 @@ public class PostV1SalesInvoicesCreateTest : BaseMockServerTest
                 VatCountryCode = null,
                 DeemedSupplier = null,
                 Notes = null,
+                DocumentRef = null,
                 Lines = new List<PostV1SalesInvoicesCreateRequestLinesItem>()
                 {
                     new PostV1SalesInvoicesCreateRequestLinesItem
@@ -276,6 +278,7 @@ public class PostV1SalesInvoicesCreateTest : BaseMockServerTest
               "vatCountryCode": "vatCountryCode",
               "deemedSupplier": true,
               "notes": "notes",
+              "documentRef": "documentRef",
               "createdAt": "createdAt",
               "updatedAt": "updatedAt",
               "lines": [

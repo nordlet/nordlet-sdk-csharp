@@ -34,6 +34,7 @@ public class PostV1PurchasesOrdersListTest : BaseMockServerTest
                   "approvedBy": "approvedBy",
                   "approvedAt": "approvedAt",
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 },
@@ -52,6 +53,7 @@ public class PostV1PurchasesOrdersListTest : BaseMockServerTest
                   "approvedBy": "approvedBy",
                   "approvedAt": "approvedAt",
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 }
@@ -115,6 +117,7 @@ public class PostV1PurchasesOrdersListTest : BaseMockServerTest
                   "approvedBy": "approvedBy",
                   "approvedAt": "approvedAt",
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 }

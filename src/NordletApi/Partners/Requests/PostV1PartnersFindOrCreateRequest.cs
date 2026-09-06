@@ -60,6 +60,9 @@ public record PostV1PartnersFindOrCreateRequest
     [JsonPropertyName("notes")]
     public string? Notes { get; set; }
 
+    [JsonPropertyName("documentRef")]
+    public string? DocumentRef { get; set; }
+
     /// <inheritdoc />
     public override string ToString()
     {

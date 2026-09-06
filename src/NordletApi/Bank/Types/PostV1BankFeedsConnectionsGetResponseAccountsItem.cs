@@ -20,6 +20,12 @@ public record PostV1BankFeedsConnectionsGetResponseAccountsItem : IJsonOnDeseria
     [JsonPropertyName("bankAccountId")]
     public string? BankAccountId { get; set; }
 
+    [JsonPropertyName("importTemplateId")]
+    public string? ImportTemplateId { get; set; }
+
+    [JsonPropertyName("syncSchedule")]
+    public required PostV1BankFeedsConnectionsGetResponseAccountsItemSyncSchedule SyncSchedule { get; set; }
+
     [JsonPropertyName("externalId")]
     public required string ExternalId { get; set; }
 

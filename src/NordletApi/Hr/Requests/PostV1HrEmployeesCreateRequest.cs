@@ -54,6 +54,9 @@ public record PostV1HrEmployeesCreateRequest
     [JsonPropertyName("notes")]
     public string? Notes { get; set; }
 
+    [JsonPropertyName("attributes")]
+    public IEnumerable<PostV1HrEmployeesCreateRequestAttributesItem>? Attributes { get; set; }
+
     /// <inheritdoc />
     public override string ToString()
     {

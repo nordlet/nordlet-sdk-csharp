@@ -46,6 +46,7 @@ public class PostV1PartnersGetTest : BaseMockServerTest
                 "countryCode": "xy"
               },
               "notes": "notes",
+              "documentRef": "documentRef",
               "createdAt": "createdAt",
               "updatedAt": "updatedAt"
             }
@@ -110,6 +111,7 @@ public class PostV1PartnersGetTest : BaseMockServerTest
                 "countryCode": "countryCode"
               },
               "notes": "notes",
+              "documentRef": "documentRef",
               "createdAt": "createdAt",
               "updatedAt": "updatedAt"
             }

@@ -27,6 +27,9 @@ public record PostV1PurchasesOrdersCreateRequest
     [JsonPropertyName("notes")]
     public string? Notes { get; set; }
 
+    [JsonPropertyName("documentRef")]
+    public string? DocumentRef { get; set; }
+
     [JsonPropertyName("lines")]
     public IEnumerable<PostV1PurchasesOrdersCreateRequestLinesItem> Lines { get; set; } =
         new List<PostV1PurchasesOrdersCreateRequestLinesItem>();

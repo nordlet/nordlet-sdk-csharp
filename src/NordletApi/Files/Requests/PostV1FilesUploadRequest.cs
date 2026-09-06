@@ -10,7 +10,7 @@ public record PostV1FilesUploadRequest
     public required string Entity { get; set; }
 
     [JsonPropertyName("entityId")]
-    public required string EntityId { get; set; }
+    public string? EntityId { get; set; }
 
     [JsonPropertyName("fileName")]
     public required string FileName { get; set; }

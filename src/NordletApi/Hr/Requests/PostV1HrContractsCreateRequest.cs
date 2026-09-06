@@ -18,8 +18,11 @@ public record PostV1HrContractsCreateRequest
     [JsonPropertyName("scheduleId")]
     public string? ScheduleId { get; set; }
 
+    [JsonPropertyName("agreementId")]
+    public string? AgreementId { get; set; }
+
     [JsonPropertyName("contractNo")]
-    public required string ContractNo { get; set; }
+    public string? ContractNo { get; set; }
 
     [JsonPropertyName("type")]
     public PostV1HrContractsCreateRequestType? Type { get; set; }
@@ -36,8 +39,8 @@ public record PostV1HrContractsCreateRequest
     [JsonPropertyName("salaryType")]
     public PostV1HrContractsCreateRequestSalaryType? SalaryType { get; set; }
 
-    [JsonPropertyName("workHoursPerWeek")]
-    public string? WorkHoursPerWeek { get; set; }
+    [JsonPropertyName("workHours")]
+    public string? WorkHours { get; set; }
 
     [JsonPropertyName("notes")]
     public string? Notes { get; set; }

@@ -15,7 +15,6 @@ public class PostV1FilesUploadTest : BaseMockServerTest
         const string requestJson = """
             {
               "entity": "x",
-              "entityId": "x",
               "fileName": "x",
               "mimeType": "x",
               "content": "x"
@@ -31,6 +30,7 @@ public class PostV1FilesUploadTest : BaseMockServerTest
               "mimeType": "mimeType",
               "sizeBytes": 1000000,
               "sha256": "sha256",
+              "storageKey": "storageKey",
               "createdAt": "createdAt"
             }
             """;
@@ -55,7 +55,7 @@ public class PostV1FilesUploadTest : BaseMockServerTest
             new PostV1FilesUploadRequest
             {
                 Entity = "x",
-                EntityId = "x",
+                EntityId = null,
                 FileName = "x",
                 MimeType = "x",
                 Content = "x",
@@ -70,7 +70,6 @@ public class PostV1FilesUploadTest : BaseMockServerTest
         const string requestJson = """
             {
               "entity": "entity",
-              "entityId": "entityId",
               "fileName": "fileName",
               "mimeType": "mimeType",
               "content": "content"
@@ -86,6 +85,7 @@ public class PostV1FilesUploadTest : BaseMockServerTest
               "mimeType": "mimeType",
               "sizeBytes": 1000000,
               "sha256": "sha256",
+              "storageKey": "storageKey",
               "createdAt": "createdAt"
             }
             """;
@@ -110,7 +110,6 @@ public class PostV1FilesUploadTest : BaseMockServerTest
             new PostV1FilesUploadRequest
             {
                 Entity = "entity",
-                EntityId = "entityId",
                 FileName = "fileName",
                 MimeType = "mimeType",
                 Content = "content",

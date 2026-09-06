@@ -44,6 +44,7 @@ public class PostV1SalesInvoicesApplyAdvanceTest : BaseMockServerTest
               "vatCountryCode": "vatCountryCode",
               "deemedSupplier": true,
               "notes": "notes",
+              "documentRef": "documentRef",
               "createdAt": "createdAt",
               "updatedAt": "updatedAt",
               "lines": [
@@ -229,6 +230,7 @@ public class PostV1SalesInvoicesApplyAdvanceTest : BaseMockServerTest
               "vatCountryCode": "vatCountryCode",
               "deemedSupplier": true,
               "notes": "notes",
+              "documentRef": "documentRef",
               "createdAt": "createdAt",
               "updatedAt": "updatedAt",
               "lines": [

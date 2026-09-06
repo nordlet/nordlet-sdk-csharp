@@ -36,6 +36,16 @@ public class PostV1FleetVehiclesCreateTest : BaseMockServerTest
               "insuranceDue": "insuranceDue",
               "status": "active",
               "notes": "notes",
+              "documents": [
+                {
+                  "name": "x",
+                  "ref": "x"
+                },
+                {
+                  "name": "x",
+                  "ref": "x"
+                }
+              ],
               "currentAssignment": {
                 "id": "x",
                 "employeeId": "x",
@@ -79,6 +89,7 @@ public class PostV1FleetVehiclesCreateTest : BaseMockServerTest
                 TechnicalInspectionDue = null,
                 InsuranceDue = null,
                 Notes = null,
+                Documents = null,
             }
         );
         JsonAssert.AreEqual(response, mockResponse);
@@ -111,6 +122,12 @@ public class PostV1FleetVehiclesCreateTest : BaseMockServerTest
               "insuranceDue": "insuranceDue",
               "status": "active",
               "notes": "notes",
+              "documents": [
+                {
+                  "name": "name",
+                  "ref": "ref"
+                }
+              ],
               "currentAssignment": {
                 "id": "id",
                 "employeeId": "employeeId",

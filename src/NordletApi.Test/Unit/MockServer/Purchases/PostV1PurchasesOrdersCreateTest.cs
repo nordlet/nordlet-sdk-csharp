@@ -39,6 +39,7 @@ public class PostV1PurchasesOrdersCreateTest : BaseMockServerTest
               "approvedBy": "approvedBy",
               "approvedAt": "approvedAt",
               "notes": "notes",
+              "documentRef": "documentRef",
               "createdAt": "createdAt",
               "updatedAt": "updatedAt",
               "lines": [
@@ -112,6 +113,7 @@ public class PostV1PurchasesOrdersCreateTest : BaseMockServerTest
                 WarehouseId = null,
                 Currency = null,
                 Notes = null,
+                DocumentRef = null,
                 Lines = new List<PostV1PurchasesOrdersCreateRequestLinesItem>()
                 {
                     new PostV1PurchasesOrdersCreateRequestLinesItem
@@ -177,6 +179,7 @@ public class PostV1PurchasesOrdersCreateTest : BaseMockServerTest
               "approvedBy": "approvedBy",
               "approvedAt": "approvedAt",
               "notes": "notes",
+              "documentRef": "documentRef",
               "createdAt": "createdAt",
               "updatedAt": "updatedAt",
               "lines": [

@@ -5170,7 +5170,6 @@ public partial class HrClient : IHrClient
     ///     new PostV1HrContractsCreateRequest
     ///     {
     ///         EmployeeId = "employeeId",
-    ///         ContractNo = "contractNo",
     ///         StartDate = "startDate",
     ///         BaseSalary = "baseSalary",
     ///     }

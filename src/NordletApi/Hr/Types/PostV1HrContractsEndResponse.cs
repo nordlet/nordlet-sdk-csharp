@@ -26,6 +26,9 @@ public record PostV1HrContractsEndResponse : IJsonOnDeserialized
     [JsonPropertyName("scheduleId")]
     public string? ScheduleId { get; set; }
 
+    [JsonPropertyName("agreementId")]
+    public string? AgreementId { get; set; }
+
     [JsonPropertyName("contractNo")]
     public required string ContractNo { get; set; }
 
@@ -47,8 +50,11 @@ public record PostV1HrContractsEndResponse : IJsonOnDeserialized
     [JsonPropertyName("salaryType")]
     public required PostV1HrContractsEndResponseSalaryType SalaryType { get; set; }
 
-    [JsonPropertyName("workHoursPerWeek")]
-    public required string WorkHoursPerWeek { get; set; }
+    [JsonPropertyName("workHours")]
+    public required string WorkHours { get; set; }
+
+    [JsonPropertyName("workHoursUnit")]
+    public required PostV1HrContractsEndResponseWorkHoursUnit WorkHoursUnit { get; set; }
 
     [JsonPropertyName("status")]
     public required PostV1HrContractsEndResponseStatus Status { get; set; }

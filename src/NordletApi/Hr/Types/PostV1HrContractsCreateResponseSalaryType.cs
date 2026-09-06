@@ -14,6 +14,12 @@ public readonly record struct PostV1HrContractsCreateResponseSalaryType : IStrin
 
     public static readonly PostV1HrContractsCreateResponseSalaryType Hourly = new(Values.Hourly);
 
+    public static readonly PostV1HrContractsCreateResponseSalaryType Weekly = new(Values.Weekly);
+
+    public static readonly PostV1HrContractsCreateResponseSalaryType Daily = new(Values.Daily);
+
+    public static readonly PostV1HrContractsCreateResponseSalaryType Yearly = new(Values.Yearly);
+
     public PostV1HrContractsCreateResponseSalaryType(string value)
     {
         Value = value;
@@ -120,5 +126,11 @@ public readonly record struct PostV1HrContractsCreateResponseSalaryType : IStrin
         public const string Monthly = "monthly";
 
         public const string Hourly = "hourly";
+
+        public const string Weekly = "weekly";
+
+        public const string Daily = "daily";
+
+        public const string Yearly = "yearly";
     }
 }

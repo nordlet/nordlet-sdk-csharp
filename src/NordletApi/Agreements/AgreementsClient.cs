@@ -2365,12 +2365,7 @@ public partial class AgreementsClient : IAgreementsClient
 
     /// <example><code>
     /// await client.Agreements.PostV1AgreementsAgreementsCreateAsync(
-    ///     new PostV1AgreementsAgreementsCreateRequest
-    ///     {
-    ///         PartnerId = "partnerId",
-    ///         Number = "number",
-    ///         StartDate = "startDate",
-    ///     }
+    ///     new PostV1AgreementsAgreementsCreateRequest { Number = "number", StartDate = "startDate" }
     /// );
     /// </code></example>
     public WithRawResponseTask<PostV1AgreementsAgreementsCreateResponse> PostV1AgreementsAgreementsCreateAsync(

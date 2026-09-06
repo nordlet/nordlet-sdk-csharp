@@ -68,6 +68,9 @@ public record PostV1CatalogItemsCreateResponse : IJsonOnDeserialized
     [JsonPropertyName("attributes")]
     public Dictionary<string, string?>? Attributes { get; set; }
 
+    [JsonPropertyName("documentRef")]
+    public string? DocumentRef { get; set; }
+
     [JsonPropertyName("translations")]
     public Dictionary<
         string,

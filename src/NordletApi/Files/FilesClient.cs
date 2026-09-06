@@ -773,7 +773,6 @@ public partial class FilesClient : IFilesClient
     ///     new PostV1FilesUploadRequest
     ///     {
     ///         Entity = "entity",
-    ///         EntityId = "entityId",
     ///         FileName = "fileName",
     ///         MimeType = "mimeType",
     ///         Content = "content",

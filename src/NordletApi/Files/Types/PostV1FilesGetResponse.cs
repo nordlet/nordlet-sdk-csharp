@@ -18,7 +18,7 @@ public record PostV1FilesGetResponse : IJsonOnDeserialized
     public required string Entity { get; set; }
 
     [JsonPropertyName("entityId")]
-    public required string EntityId { get; set; }
+    public string? EntityId { get; set; }
 
     [JsonPropertyName("fileName")]
     public required string FileName { get; set; }
@@ -31,6 +31,9 @@ public record PostV1FilesGetResponse : IJsonOnDeserialized
 
     [JsonPropertyName("sha256")]
     public required string Sha256 { get; set; }
+
+    [JsonPropertyName("storageKey")]
+    public required string StorageKey { get; set; }
 
     [JsonPropertyName("createdAt")]
     public required string CreatedAt { get; set; }

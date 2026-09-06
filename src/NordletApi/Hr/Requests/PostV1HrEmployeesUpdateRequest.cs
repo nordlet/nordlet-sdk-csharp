@@ -54,6 +54,9 @@ public record PostV1HrEmployeesUpdateRequest
     [JsonPropertyName("notes")]
     public string? Notes { get; set; }
 
+    [JsonPropertyName("attributes")]
+    public IEnumerable<PostV1HrEmployeesUpdateRequestAttributesItem>? Attributes { get; set; }
+
     [JsonPropertyName("id")]
     public required string Id { get; set; }
 

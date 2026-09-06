@@ -40,6 +40,16 @@ public class PostV1AssetsAssetsCreateTest : BaseMockServerTest
               "totalLifeMonths": 1000000,
               "status": "active",
               "notes": "notes",
+              "documents": [
+                {
+                  "name": "x",
+                  "ref": "x"
+                },
+                {
+                  "name": "x",
+                  "ref": "x"
+                }
+              ],
               "createdAt": "createdAt"
             }
             """;
@@ -72,6 +82,7 @@ public class PostV1AssetsAssetsCreateTest : BaseMockServerTest
                 SalvageValue = null,
                 UsefulLifeMonths = null,
                 Notes = null,
+                Documents = null,
             }
         );
         JsonAssert.AreEqual(response, mockResponse);
@@ -108,6 +119,12 @@ public class PostV1AssetsAssetsCreateTest : BaseMockServerTest
               "totalLifeMonths": 1000000,
               "status": "active",
               "notes": "notes",
+              "documents": [
+                {
+                  "name": "name",
+                  "ref": "ref"
+                }
+              ],
               "createdAt": "createdAt"
             }
             """;

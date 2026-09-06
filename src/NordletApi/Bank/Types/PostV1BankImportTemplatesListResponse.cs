@@ -5,29 +5,24 @@ using NordletApi.Core;
 namespace NordletApi;
 
 [Serializable]
-public record PostV1ReferenceEuVatRatesSyncResponse : IJsonOnDeserialized
+public record PostV1BankImportTemplatesListResponse : IJsonOnDeserialized
 {
     [JsonExtensionData]
     private readonly IDictionary<string, JsonElement> _extensionData =
         new Dictionary<string, JsonElement>();
 
-    [JsonPropertyName("id")]
-    public required string Id { get; set; }
+    [JsonPropertyName("rows")]
+    public IEnumerable<PostV1BankImportTemplatesListResponseRowsItem> Rows { get; set; } =
+        new List<PostV1BankImportTemplatesListResponseRowsItem>();
 
-    [JsonPropertyName("situationOn")]
-    public required string SituationOn { get; set; }
+    [JsonPropertyName("page")]
+    public required long Page { get; set; }
 
-    [JsonPropertyName("status")]
-    public required PostV1ReferenceEuVatRatesSyncResponseStatus Status { get; set; }
+    [JsonPropertyName("pageSize")]
+    public required long PageSize { get; set; }
 
-    [JsonPropertyName("ratesFetched")]
-    public required long RatesFetched { get; set; }
-
-    [JsonPropertyName("ratesInserted")]
-    public required long RatesInserted { get; set; }
-
-    [JsonPropertyName("ratesClosed")]
-    public required long RatesClosed { get; set; }
+    [JsonPropertyName("total")]
+    public required long Total { get; set; }
 
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();

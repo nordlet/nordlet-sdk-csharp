@@ -9,6 +9,9 @@ public record PostV1BankStatementsImportRequest
     [JsonPropertyName("bankAccountId")]
     public required string BankAccountId { get; set; }
 
+    [JsonPropertyName("templateId")]
+    public string? TemplateId { get; set; }
+
     [JsonPropertyName("format")]
     public PostV1BankStatementsImportRequestFormat? Format { get; set; }
 

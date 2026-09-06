@@ -5,15 +5,17 @@ using NordletApi.Core;
 namespace NordletApi;
 
 [Serializable]
-public record PostV1ReferenceEuVatRatesImportsListResponse : IJsonOnDeserialized
+public record PostV1BankImportTemplatesDeleteResponse : IJsonOnDeserialized
 {
     [JsonExtensionData]
     private readonly IDictionary<string, JsonElement> _extensionData =
         new Dictionary<string, JsonElement>();
 
-    [JsonPropertyName("rows")]
-    public IEnumerable<PostV1ReferenceEuVatRatesImportsListResponseRowsItem> Rows { get; set; } =
-        new List<PostV1ReferenceEuVatRatesImportsListResponseRowsItem>();
+    [JsonPropertyName("id")]
+    public required string Id { get; set; }
+
+    [JsonPropertyName("deleted")]
+    public required bool Deleted { get; set; }
 
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();

@@ -53,6 +53,7 @@ public class PostV1BankAccountsCreateTest : BaseMockServerTest
                 Iban = null,
                 Currency = null,
                 AccountCode = null,
+                DocumentRef = null,
             }
         );
         JsonAssert.AreEqual(response, mockResponse);

@@ -4,10 +4,10 @@ using NordletApi.Core;
 namespace NordletApi;
 
 [Serializable]
-public record PostV1ReferenceEuVatRatesImportsListRequest
+public record PostV1BankImportTemplatesGetRequest
 {
-    [JsonPropertyName("limit")]
-    public long? Limit { get; set; }
+    [JsonPropertyName("id")]
+    public required string Id { get; set; }
 
     /// <inheritdoc />
     public override string ToString()

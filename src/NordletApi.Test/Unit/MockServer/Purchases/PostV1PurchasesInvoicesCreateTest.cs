@@ -44,6 +44,7 @@ public class PostV1PurchasesInvoicesCreateTest : BaseMockServerTest
               "creditedInvoiceId": "x",
               "purchaseOrderId": "x",
               "notes": "notes",
+              "documentRef": "documentRef",
               "createdAt": "createdAt",
               "updatedAt": "updatedAt",
               "lines": [
@@ -115,6 +116,7 @@ public class PostV1PurchasesInvoicesCreateTest : BaseMockServerTest
                 CreditedInvoiceId = null,
                 PurchaseOrderId = null,
                 Notes = null,
+                DocumentRef = null,
                 Lines = new List<PostV1PurchasesInvoicesCreateRequestLinesItem>()
                 {
                     new PostV1PurchasesInvoicesCreateRequestLinesItem
@@ -185,6 +187,7 @@ public class PostV1PurchasesInvoicesCreateTest : BaseMockServerTest
               "creditedInvoiceId": "creditedInvoiceId",
               "purchaseOrderId": "purchaseOrderId",
               "notes": "notes",
+              "documentRef": "documentRef",
               "createdAt": "createdAt",
               "updatedAt": "updatedAt",
               "lines": [

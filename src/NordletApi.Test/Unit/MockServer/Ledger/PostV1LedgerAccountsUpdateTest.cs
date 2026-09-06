@@ -23,6 +23,17 @@ public class PostV1LedgerAccountsUpdateTest : BaseMockServerTest
               "id": "x",
               "code": "code",
               "name": "name",
+              "translations": {
+                "lt": {
+                  "name": "x"
+                },
+                "en": {
+                  "name": "x"
+                },
+                "ru": {
+                  "name": "x"
+                }
+              },
               "type": "asset",
               "parentId": "x",
               "isPostable": true,
@@ -51,6 +62,7 @@ public class PostV1LedgerAccountsUpdateTest : BaseMockServerTest
             {
                 Id = "x",
                 Name = null,
+                Translations = null,
                 ParentId = null,
                 IsPostable = null,
             }
@@ -72,6 +84,17 @@ public class PostV1LedgerAccountsUpdateTest : BaseMockServerTest
               "id": "id",
               "code": "code",
               "name": "name",
+              "translations": {
+                "lt": {
+                  "name": "name"
+                },
+                "en": {
+                  "name": "name"
+                },
+                "ru": {
+                  "name": "name"
+                }
+              },
               "type": "asset",
               "parentId": "parentId",
               "isPostable": true,

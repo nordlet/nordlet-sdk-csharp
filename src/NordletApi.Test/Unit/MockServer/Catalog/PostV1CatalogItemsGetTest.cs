@@ -41,6 +41,7 @@ public class PostV1CatalogItemsGetTest : BaseMockServerTest
               "attributes": {
                 "attributes": "attributes"
               },
+              "documentRef": "documentRef",
               "translations": {
                 "translations": {
                   "name": "name",
@@ -118,6 +119,7 @@ public class PostV1CatalogItemsGetTest : BaseMockServerTest
               "attributes": {
                 "key": "value"
               },
+              "documentRef": "documentRef",
               "translations": {
                 "key": {
                   "name": "name",

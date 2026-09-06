@@ -68,6 +68,9 @@ public record PostV1HrEmployeesAnonymizeResponse : IJsonOnDeserialized
     [JsonPropertyName("notes")]
     public string? Notes { get; set; }
 
+    [JsonPropertyName("attributes")]
+    public IEnumerable<PostV1HrEmployeesAnonymizeResponseAttributesItem>? Attributes { get; set; }
+
     [JsonPropertyName("createdAt")]
     public required string CreatedAt { get; set; }
 

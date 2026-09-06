@@ -23,6 +23,16 @@ public class PostV1BankStatementsImportTest : BaseMockServerTest
             {
               "imported": 1000000,
               "skipped": 1000000,
+              "posted": 1000000,
+              "customersCreated": 1000000,
+              "invoicesCreated": 1000000,
+              "invoicesLinked": 1000000,
+              "creditNotesCreated": 1000000,
+              "paymentsMatched": 1000000,
+              "warnings": [
+                "warnings",
+                "warnings"
+              ],
               "statements": [
                 {
                   "statementId": "statementId",
@@ -66,6 +76,7 @@ public class PostV1BankStatementsImportTest : BaseMockServerTest
             new PostV1BankStatementsImportRequest
             {
                 BankAccountId = "x",
+                TemplateId = null,
                 Format = null,
                 Content = "x",
             }
@@ -87,6 +98,15 @@ public class PostV1BankStatementsImportTest : BaseMockServerTest
             {
               "imported": 1000000,
               "skipped": 1000000,
+              "posted": 1000000,
+              "customersCreated": 1000000,
+              "invoicesCreated": 1000000,
+              "invoicesLinked": 1000000,
+              "creditNotesCreated": 1000000,
+              "paymentsMatched": 1000000,
+              "warnings": [
+                "warnings"
+              ],
               "statements": [
                 {
                   "statementId": "statementId",

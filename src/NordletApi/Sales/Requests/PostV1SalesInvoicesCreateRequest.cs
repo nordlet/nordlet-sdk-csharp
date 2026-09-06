@@ -36,6 +36,9 @@ public record PostV1SalesInvoicesCreateRequest
     [JsonPropertyName("notes")]
     public string? Notes { get; set; }
 
+    [JsonPropertyName("documentRef")]
+    public string? DocumentRef { get; set; }
+
     [JsonPropertyName("lines")]
     public IEnumerable<PostV1SalesInvoicesCreateRequestLinesItem> Lines { get; set; } =
         new List<PostV1SalesInvoicesCreateRequestLinesItem>();

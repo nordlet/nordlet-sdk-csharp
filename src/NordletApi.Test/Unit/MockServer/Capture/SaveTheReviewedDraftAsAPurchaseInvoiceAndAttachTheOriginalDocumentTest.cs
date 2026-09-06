@@ -101,6 +101,7 @@ public class SaveTheReviewedDraftAsAPurchaseInvoiceAndAttachTheOriginalDocumentT
                 "creditedInvoiceId": "x",
                 "purchaseOrderId": "x",
                 "notes": "notes",
+                "documentRef": "documentRef",
                 "createdAt": "createdAt",
                 "updatedAt": "updatedAt",
                 "lines": [
@@ -277,6 +278,7 @@ public class SaveTheReviewedDraftAsAPurchaseInvoiceAndAttachTheOriginalDocumentT
                 "creditedInvoiceId": "creditedInvoiceId",
                 "purchaseOrderId": "purchaseOrderId",
                 "notes": "notes",
+                "documentRef": "documentRef",
                 "createdAt": "createdAt",
                 "updatedAt": "updatedAt",
                 "lines": [

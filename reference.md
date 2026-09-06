@@ -570,118 +570,6 @@ await client.Reference.PostV1ReferenceEuVatRatesListAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">PostV1ReferenceEuVatRatesImportsListAsync</a>(PostV1ReferenceEuVatRatesImportsListRequest { ... }) -> WithRawResponseTask&lt;PostV1ReferenceEuVatRatesImportsListResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-History of EU VAT rate imports from the EC TEDB VatRetrievalService: when rates were pulled, what changed, and whether the run succeeded. The initial seed run carries the built-in snapshot.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Reference.PostV1ReferenceEuVatRatesImportsListAsync(
-    new PostV1ReferenceEuVatRatesImportsListRequest()
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1ReferenceEuVatRatesImportsListRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">PostV1ReferenceEuVatRatesSyncAsync</a>(PostV1ReferenceEuVatRatesSyncRequest { ... }) -> WithRawResponseTask&lt;PostV1ReferenceEuVatRatesSyncResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Trigger an immediate pull of EU VAT rates from the EC TEDB VatRetrievalService. Rates are shared reference data: new rates open with today as their effective date, rates that disappeared are closed with a validity end date. Returns the finished import run.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Reference.PostV1ReferenceEuVatRatesSyncAsync(
-    new PostV1ReferenceEuVatRatesSyncRequest()
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1ReferenceEuVatRatesSyncRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
 <details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">PostV1ReferenceEuVatRatesSetOverridesAsync</a>(PostV1ReferenceEuVatRatesSetOverridesRequest { ... }) -> WithRawResponseTask&lt;PostV1ReferenceEuVatRatesSetOverridesResponse&gt;</code></summary>
 <dl>
 <dd>
@@ -8581,7 +8469,6 @@ await client.Hr.PostV1HrContractsCreateAsync(
     new PostV1HrContractsCreateRequest
     {
         EmployeeId = "employeeId",
-        ContractNo = "contractNo",
         StartDate = "startDate",
         BaseSalary = "baseSalary",
     }
@@ -10202,12 +10089,7 @@ await client.Agreements.PostV1AgreementsTypesListAsync(new PostV1AgreementsTypes
 
 ```csharp
 await client.Agreements.PostV1AgreementsAgreementsCreateAsync(
-    new PostV1AgreementsAgreementsCreateRequest
-    {
-        PartnerId = "partnerId",
-        Number = "number",
-        StartDate = "startDate",
-    }
+    new PostV1AgreementsAgreementsCreateRequest { Number = "number", StartDate = "startDate" }
 );
 ```
 </dd>
@@ -14533,6 +14415,55 @@ await client.Bank.PostV1BankTransactionsMatchAsync(
 </dl>
 </details>
 
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankTransactionsRecordAsync</a>(PostV1BankTransactionsRecordRequest { ... }) -> WithRawResponseTask&lt;PostV1BankTransactionsRecordResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Bank.PostV1BankTransactionsRecordAsync(
+    new PostV1BankTransactionsRecordRequest
+    {
+        BankAccountId = "bankAccountId",
+        Date = "date",
+        Amount = "amount",
+        DocumentType = PostV1BankTransactionsRecordRequestDocumentType.SaleInvoice,
+        DocumentId = "documentId",
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1BankTransactionsRecordRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankPaymentsExportAsync</a>(PostV1BankPaymentsExportRequest { ... }) -> WithRawResponseTask&lt;PostV1BankPaymentsExportResponse&gt;</code></summary>
 <dl>
 <dd>
@@ -14568,6 +14499,218 @@ await client.Bank.PostV1BankPaymentsExportAsync(
 <dd>
 
 **request:** `PostV1BankPaymentsExportRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">CreateABankImportTemplateFieldsDefaultToTheTypesStandardFieldListAsync</a>(PostV1BankImportTemplatesCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1BankImportTemplatesCreateResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Bank.CreateABankImportTemplateFieldsDefaultToTheTypesStandardFieldListAsync(
+    new PostV1BankImportTemplatesCreateRequest
+    {
+        Name = "name",
+        Type = PostV1BankImportTemplatesCreateRequestType.Stripe,
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1BankImportTemplatesCreateRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankImportTemplatesUpdateAsync</a>(PostV1BankImportTemplatesUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1BankImportTemplatesUpdateResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Bank.PostV1BankImportTemplatesUpdateAsync(
+    new PostV1BankImportTemplatesUpdateRequest { Id = "id" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1BankImportTemplatesUpdateRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankImportTemplatesDeleteAsync</a>(PostV1BankImportTemplatesDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1BankImportTemplatesDeleteResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Bank.PostV1BankImportTemplatesDeleteAsync(
+    new PostV1BankImportTemplatesDeleteRequest { Id = "id" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1BankImportTemplatesDeleteRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankImportTemplatesGetAsync</a>(PostV1BankImportTemplatesGetRequest { ... }) -> WithRawResponseTask&lt;PostV1BankImportTemplatesGetResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Bank.PostV1BankImportTemplatesGetAsync(
+    new PostV1BankImportTemplatesGetRequest { Id = "id" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1BankImportTemplatesGetRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankImportTemplatesListAsync</a>(PostV1BankImportTemplatesListRequest { ... }) -> WithRawResponseTask&lt;PostV1BankImportTemplatesListResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Bank.PostV1BankImportTemplatesListAsync(new PostV1BankImportTemplatesListRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1BankImportTemplatesListRequest` 
     
 </dd>
 </dl>
@@ -15376,6 +15519,48 @@ await client.Bank.PointABankFeedAccountAtALedgerBankAccountSoItsTransactionsCanB
 </dl>
 </details>
 
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">ChooseTheImportTemplateAppliedOnSyncAndHowOftenTheAccountIsSyncedAutomaticallyAsync</a>(PostV1BankFeedsAccountsConfigureRequest { ... }) -> WithRawResponseTask&lt;PostV1BankFeedsAccountsConfigureResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Bank.ChooseTheImportTemplateAppliedOnSyncAndHowOftenTheAccountIsSyncedAutomaticallyAsync(
+    new PostV1BankFeedsAccountsConfigureRequest { Id = "id" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1BankFeedsAccountsConfigureRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PullNewTransactionsFromTheBankIntoTheLedgerEmitsBankFeedSyncedAsync</a>(PostV1BankFeedsSyncRequest { ... }) -> WithRawResponseTask&lt;PostV1BankFeedsSyncResponse&gt;</code></summary>
 <dl>
 <dd>
@@ -15436,7 +15621,6 @@ await client.Files.PostV1FilesUploadAsync(
     new PostV1FilesUploadRequest
     {
         Entity = "entity",
-        EntityId = "entityId",
         FileName = "fileName",
         MimeType = "mimeType",
         Content = "content",

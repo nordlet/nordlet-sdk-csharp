@@ -18,6 +18,9 @@ public record PostV1BankAccountsCreateRequest
     [JsonPropertyName("accountCode")]
     public string? AccountCode { get; set; }
 
+    [JsonPropertyName("documentRef")]
+    public string? DocumentRef { get; set; }
+
     /// <inheritdoc />
     public override string ToString()
     {

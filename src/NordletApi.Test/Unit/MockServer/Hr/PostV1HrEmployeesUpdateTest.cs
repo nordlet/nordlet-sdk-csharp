@@ -44,6 +44,16 @@ public class PostV1HrEmployeesUpdateTest : BaseMockServerTest
               "pensionAccumulation": true,
               "status": "active",
               "notes": "notes",
+              "attributes": [
+                {
+                  "name": "x",
+                  "value": "value"
+                },
+                {
+                  "name": "x",
+                  "value": "value"
+                }
+              ],
               "createdAt": "createdAt"
             }
             """;
@@ -83,6 +93,7 @@ public class PostV1HrEmployeesUpdateTest : BaseMockServerTest
                 NpdOverride = null,
                 PensionAccumulation = null,
                 Notes = null,
+                Attributes = null,
                 Id = "x",
                 TerminationDate = null,
                 Status = null,
@@ -126,6 +137,12 @@ public class PostV1HrEmployeesUpdateTest : BaseMockServerTest
               "pensionAccumulation": true,
               "status": "active",
               "notes": "notes",
+              "attributes": [
+                {
+                  "name": "name",
+                  "value": "value"
+                }
+              ],
               "createdAt": "createdAt"
             }
             """;

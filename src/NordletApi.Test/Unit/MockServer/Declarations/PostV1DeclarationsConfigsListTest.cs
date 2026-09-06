@@ -18,6 +18,7 @@ public class PostV1DeclarationsConfigsListTest : BaseMockServerTest
 
         const string mockResponse = """
             {
+              "companyCountry": "companyCountry",
               "rows": [
                 {
                   "system": "system",
@@ -134,6 +135,7 @@ public class PostV1DeclarationsConfigsListTest : BaseMockServerTest
 
         const string mockResponse = """
             {
+              "companyCountry": "companyCountry",
               "rows": [
                 {
                   "system": "system",

@@ -38,6 +38,7 @@ public class PostV1PurchasesInvoicesListTest : BaseMockServerTest
                   "creditedInvoiceId": "x",
                   "purchaseOrderId": "x",
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 },
@@ -60,6 +61,7 @@ public class PostV1PurchasesInvoicesListTest : BaseMockServerTest
                   "creditedInvoiceId": "x",
                   "purchaseOrderId": "x",
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 }
@@ -127,6 +129,7 @@ public class PostV1PurchasesInvoicesListTest : BaseMockServerTest
                   "creditedInvoiceId": "creditedInvoiceId",
                   "purchaseOrderId": "purchaseOrderId",
                   "notes": "notes",
+                  "documentRef": "documentRef",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 }

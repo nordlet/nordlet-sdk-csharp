@@ -68,6 +68,9 @@ public record PostV1HrEmployeesListResponseRowsItem : IJsonOnDeserialized
     [JsonPropertyName("notes")]
     public string? Notes { get; set; }
 
+    [JsonPropertyName("attributes")]
+    public IEnumerable<PostV1HrEmployeesListResponseRowsItemAttributesItem>? Attributes { get; set; }
+
     [JsonPropertyName("createdAt")]
     public required string CreatedAt { get; set; }
 

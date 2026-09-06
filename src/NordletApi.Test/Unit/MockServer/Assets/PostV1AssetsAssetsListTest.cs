@@ -36,6 +36,16 @@ public class PostV1AssetsAssetsListTest : BaseMockServerTest
                   "totalLifeMonths": 1000000,
                   "status": "active",
                   "notes": "notes",
+                  "documents": [
+                    {
+                      "name": "x",
+                      "ref": "x"
+                    },
+                    {
+                      "name": "x",
+                      "ref": "x"
+                    }
+                  ],
                   "createdAt": "createdAt"
                 },
                 {
@@ -55,6 +65,16 @@ public class PostV1AssetsAssetsListTest : BaseMockServerTest
                   "totalLifeMonths": 1000000,
                   "status": "active",
                   "notes": "notes",
+                  "documents": [
+                    {
+                      "name": "x",
+                      "ref": "x"
+                    },
+                    {
+                      "name": "x",
+                      "ref": "x"
+                    }
+                  ],
                   "createdAt": "createdAt"
                 }
               ],
@@ -119,6 +139,12 @@ public class PostV1AssetsAssetsListTest : BaseMockServerTest
                   "totalLifeMonths": 1000000,
                   "status": "active",
                   "notes": "notes",
+                  "documents": [
+                    {
+                      "name": "name",
+                      "ref": "ref"
+                    }
+                  ],
                   "createdAt": "createdAt"
                 }
               ],

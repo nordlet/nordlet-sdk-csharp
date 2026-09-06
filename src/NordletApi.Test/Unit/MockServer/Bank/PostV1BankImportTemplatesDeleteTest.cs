@@ -3,27 +3,25 @@ using NordletApi.Test.Unit.MockServer;
 using NordletApi.Test.Utils;
 using NUnit.Framework;
 
-namespace NordletApi.Test.Unit.MockServer.Reference;
+namespace NordletApi.Test.Unit.MockServer.Bank;
 
 [TestFixture]
 [Parallelizable(ParallelScope.Self)]
-public class PostV1ReferenceEuVatRatesSyncTest : BaseMockServerTest
+public class PostV1BankImportTemplatesDeleteTest : BaseMockServerTest
 {
     [NUnit.Framework.Test]
     public async Task MockServerTest_1()
     {
         const string requestJson = """
-            {}
+            {
+              "id": "x"
+            }
             """;
 
         const string mockResponse = """
             {
               "id": "x",
-              "situationOn": "situationOn",
-              "status": "running",
-              "ratesFetched": 1000000,
-              "ratesInserted": 1000000,
-              "ratesClosed": 1000000
+              "deleted": true
             }
             """;
 
@@ -31,7 +29,7 @@ public class PostV1ReferenceEuVatRatesSyncTest : BaseMockServerTest
             .Given(
                 WireMock
                     .RequestBuilders.Request.Create()
-                    .WithPath("/v1/reference/eu-vat-rates/sync")
+                    .WithPath("/v1/bank/import-templates/delete")
                     .WithHeader("Content-Type", "application/json")
                     .UsingPost()
                     .WithBodyAsJson(requestJson)
@@ -43,8 +41,8 @@ public class PostV1ReferenceEuVatRatesSyncTest : BaseMockServerTest
                     .WithBody(mockResponse)
             );
 
-        var response = await Client.Reference.PostV1ReferenceEuVatRatesSyncAsync(
-            new PostV1ReferenceEuVatRatesSyncRequest()
+        var response = await Client.Bank.PostV1BankImportTemplatesDeleteAsync(
+            new PostV1BankImportTemplatesDeleteRequest { Id = "x" }
         );
         JsonAssert.AreEqual(response, mockResponse);
     }
@@ -53,17 +51,15 @@ public class PostV1ReferenceEuVatRatesSyncTest : BaseMockServerTest
     public async Task MockServerTest_2()
     {
         const string requestJson = """
-            {}
+            {
+              "id": "id"
+            }
             """;
 
         const string mockResponse = """
             {
               "id": "id",
-              "situationOn": "situationOn",
-              "status": "running",
-              "ratesFetched": 1000000,
-              "ratesInserted": 1000000,
-              "ratesClosed": 1000000
+              "deleted": true
             }
             """;
 
@@ -71,7 +67,7 @@ public class PostV1ReferenceEuVatRatesSyncTest : BaseMockServerTest
             .Given(
                 WireMock
                     .RequestBuilders.Request.Create()
-                    .WithPath("/v1/reference/eu-vat-rates/sync")
+                    .WithPath("/v1/bank/import-templates/delete")
                     .WithHeader("Content-Type", "application/json")
                     .UsingPost()
                     .WithBodyAsJson(requestJson)
@@ -83,8 +79,8 @@ public class PostV1ReferenceEuVatRatesSyncTest : BaseMockServerTest
                     .WithBody(mockResponse)
             );
 
-        var response = await Client.Reference.PostV1ReferenceEuVatRatesSyncAsync(
-            new PostV1ReferenceEuVatRatesSyncRequest()
+        var response = await Client.Bank.PostV1BankImportTemplatesDeleteAsync(
+            new PostV1BankImportTemplatesDeleteRequest { Id = "id" }
         );
         JsonAssert.AreEqual(response, mockResponse);
     }
