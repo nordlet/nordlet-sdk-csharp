@@ -39,6 +39,33 @@ public record PostV1SalesInvoicesCreateRequest
     [JsonPropertyName("documentRef")]
     public string? DocumentRef { get; set; }
 
+    [JsonPropertyName("operationTypeId")]
+    public string? OperationTypeId { get; set; }
+
+    [JsonPropertyName("documentSeriesId")]
+    public string? DocumentSeriesId { get; set; }
+
+    [JsonPropertyName("seriesLabel")]
+    public string? SeriesLabel { get; set; }
+
+    [JsonPropertyName("orderNumber")]
+    public string? OrderNumber { get; set; }
+
+    [JsonPropertyName("issuedByName")]
+    public string? IssuedByName { get; set; }
+
+    [JsonPropertyName("issuedByTitle")]
+    public string? IssuedByTitle { get; set; }
+
+    [JsonPropertyName("receivedByName")]
+    public string? ReceivedByName { get; set; }
+
+    [JsonPropertyName("receivedByTitle")]
+    public string? ReceivedByTitle { get; set; }
+
+    [JsonPropertyName("discountPercent")]
+    public string? DiscountPercent { get; set; }
+
     [JsonPropertyName("lines")]
     public IEnumerable<PostV1SalesInvoicesCreateRequestLinesItem> Lines { get; set; } =
         new List<PostV1SalesInvoicesCreateRequestLinesItem>();

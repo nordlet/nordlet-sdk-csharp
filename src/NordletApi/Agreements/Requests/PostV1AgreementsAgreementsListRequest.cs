@@ -18,6 +18,12 @@ public record PostV1AgreementsAgreementsListRequest
     [JsonPropertyName("filter")]
     public IEnumerable<PostV1AgreementsAgreementsListRequestFilterItem>? Filter { get; set; }
 
+    /// <summary>
+    /// Numeric fields to sum over every row matching the filter (not only the current page)
+    /// </summary>
+    [JsonPropertyName("totals")]
+    public IEnumerable<string>? Totals { get; set; }
+
     /// <inheritdoc />
     public override string ToString()
     {

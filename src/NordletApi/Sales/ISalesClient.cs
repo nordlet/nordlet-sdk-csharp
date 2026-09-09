@@ -74,6 +74,36 @@ public partial interface ISalesClient
         CancellationToken cancellationToken = default
     );
 
+    WithRawResponseTask<PostV1SalesInvoicesLockResponse> PostV1SalesInvoicesLockAsync(
+        PostV1SalesInvoicesLockRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1SalesInvoicesUnlockResponse> PostV1SalesInvoicesUnlockAsync(
+        PostV1SalesInvoicesUnlockRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1SalesInvoicesPaymentLinkResponse> PostV1SalesInvoicesPaymentLinkAsync(
+        PostV1SalesInvoicesPaymentLinkRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1SalesInvoicesPaymentSettingsGetResponse> PostV1SalesInvoicesPaymentSettingsGetAsync(
+        PostV1SalesInvoicesPaymentSettingsGetRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1SalesInvoicesPaymentSettingsUpdateResponse> PostV1SalesInvoicesPaymentSettingsUpdateAsync(
+        PostV1SalesInvoicesPaymentSettingsUpdateRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
     WithRawResponseTask<PostV1SalesRecognitionSchedulesListResponse> PostV1SalesRecognitionSchedulesListAsync(
         PostV1SalesRecognitionSchedulesListRequest request,
         RequestOptions? options = null,
@@ -130,6 +160,66 @@ public partial interface ISalesClient
 
     WithRawResponseTask<PostV1SalesActsPdfResponse> PostV1SalesActsPdfAsync(
         PostV1SalesActsPdfRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1OperationTypesCreateResponse> PostV1OperationTypesCreateAsync(
+        PostV1OperationTypesCreateRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1OperationTypesUpdateResponse> PostV1OperationTypesUpdateAsync(
+        PostV1OperationTypesUpdateRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1OperationTypesGetResponse> PostV1OperationTypesGetAsync(
+        PostV1OperationTypesGetRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1OperationTypesDeleteResponse> PostV1OperationTypesDeleteAsync(
+        PostV1OperationTypesDeleteRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1OperationTypesListResponse> PostV1OperationTypesListAsync(
+        PostV1OperationTypesListRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1DocumentSeriesCreateResponse> PostV1DocumentSeriesCreateAsync(
+        PostV1DocumentSeriesCreateRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1DocumentSeriesUpdateResponse> PostV1DocumentSeriesUpdateAsync(
+        PostV1DocumentSeriesUpdateRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1DocumentSeriesGetResponse> PostV1DocumentSeriesGetAsync(
+        PostV1DocumentSeriesGetRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1DocumentSeriesDeleteResponse> PostV1DocumentSeriesDeleteAsync(
+        PostV1DocumentSeriesDeleteRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1DocumentSeriesListResponse> PostV1DocumentSeriesListAsync(
+        PostV1DocumentSeriesListRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );

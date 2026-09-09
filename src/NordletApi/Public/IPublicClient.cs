@@ -7,4 +7,10 @@ public partial interface IPublicClient
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
+
+    WithRawResponseTask GetV1PublicPayTokenAsync(
+        GetV1PublicPayTokenRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
 }

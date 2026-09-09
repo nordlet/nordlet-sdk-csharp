@@ -30,6 +30,9 @@ public record PostV1PurchasesInvoicesCreateRequest
     [JsonPropertyName("purchaseOrderId")]
     public string? PurchaseOrderId { get; set; }
 
+    [JsonPropertyName("operationTypeId")]
+    public string? OperationTypeId { get; set; }
+
     [JsonPropertyName("notes")]
     public string? Notes { get; set; }
 

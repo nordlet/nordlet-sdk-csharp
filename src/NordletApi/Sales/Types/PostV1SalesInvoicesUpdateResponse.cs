@@ -83,6 +83,42 @@ public record PostV1SalesInvoicesUpdateResponse : IJsonOnDeserialized
     [JsonPropertyName("documentRef")]
     public string? DocumentRef { get; set; }
 
+    [JsonPropertyName("operationTypeId")]
+    public string? OperationTypeId { get; set; }
+
+    [JsonPropertyName("documentSeriesId")]
+    public string? DocumentSeriesId { get; set; }
+
+    [JsonPropertyName("seriesLabel")]
+    public string? SeriesLabel { get; set; }
+
+    [JsonPropertyName("discountPercent")]
+    public required string DiscountPercent { get; set; }
+
+    [JsonPropertyName("orderNumber")]
+    public string? OrderNumber { get; set; }
+
+    [JsonPropertyName("issuedByName")]
+    public string? IssuedByName { get; set; }
+
+    [JsonPropertyName("issuedByTitle")]
+    public string? IssuedByTitle { get; set; }
+
+    [JsonPropertyName("receivedByName")]
+    public string? ReceivedByName { get; set; }
+
+    [JsonPropertyName("receivedByTitle")]
+    public string? ReceivedByTitle { get; set; }
+
+    [JsonPropertyName("lockedAt")]
+    public string? LockedAt { get; set; }
+
+    [JsonPropertyName("lockedBy")]
+    public string? LockedBy { get; set; }
+
+    [JsonPropertyName("payToken")]
+    public string? PayToken { get; set; }
+
     [JsonPropertyName("createdAt")]
     public required string CreatedAt { get; set; }
 

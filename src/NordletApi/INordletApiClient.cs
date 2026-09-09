@@ -23,6 +23,7 @@ public partial interface INordletApiClient
     public IProjectsClient Projects { get; }
     public ITransportClient Transport { get; }
     public IPosClient Pos { get; }
+    public ICalendarClient Calendar { get; }
     public IAuditClient Audit { get; }
     public IWebhooksClient Webhooks { get; }
     public IBankClient Bank { get; }

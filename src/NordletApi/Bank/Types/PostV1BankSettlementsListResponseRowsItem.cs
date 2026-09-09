@@ -44,6 +44,9 @@ public record PostV1BankSettlementsListResponseRowsItem : IJsonOnDeserialized
     [JsonPropertyName("journalTransactionId")]
     public string? JournalTransactionId { get; set; }
 
+    [JsonPropertyName("bankTransactionId")]
+    public string? BankTransactionId { get; set; }
+
     [JsonPropertyName("lineCount")]
     public required long LineCount { get; set; }
 

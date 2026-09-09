@@ -25,6 +25,8 @@ public class PostV1BillingAccountGetTest : BaseMockServerTest
               "firstTopUpAt": "firstTopUpAt",
               "lastChargedDate": "lastChargedDate",
               "paymentsConfigured": true,
+              "hasPaymentAccount": true,
+              "hasSubscription": true,
               "monthToDate": {
                 "from": "from",
                 "to": "to",
@@ -90,6 +92,8 @@ public class PostV1BillingAccountGetTest : BaseMockServerTest
               "firstTopUpAt": "firstTopUpAt",
               "lastChargedDate": "lastChargedDate",
               "paymentsConfigured": true,
+              "hasPaymentAccount": true,
+              "hasSubscription": true,
               "monthToDate": {
                 "from": "from",
                 "to": "to",

@@ -190,4 +190,28 @@ public partial interface IAccountClient
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
+
+    WithRawResponseTask<PostV1AccountReferralGetResponse> PostV1AccountReferralGetAsync(
+        PostV1AccountReferralGetRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1AccountTableSettingsGetResponse> PostV1AccountTableSettingsGetAsync(
+        PostV1AccountTableSettingsGetRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1AccountTableSettingsSetResponse> PostV1AccountTableSettingsSetAsync(
+        PostV1AccountTableSettingsSetRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1AccountTableSettingsListResponse> PostV1AccountTableSettingsListAsync(
+        PostV1AccountTableSettingsListRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
 }

@@ -44,6 +44,12 @@ public class PostV1BankImportTemplatesGetTest : BaseMockServerTest
               "companyMetaField": "companyMetaField",
               "invoiceItemId": "x",
               "advanceInvoices": true,
+              "authorizationOperationTypeId": "x",
+              "payoutOperationTypeId": "x",
+              "commissionOperationTypeId": "x",
+              "lenderMetaField": "lenderMetaField",
+              "partialRefundLabel": "partialRefundLabel",
+              "fullRefundLabel": "fullRefundLabel",
               "createdAt": "createdAt",
               "updatedAt": "updatedAt"
             }
@@ -100,6 +106,12 @@ public class PostV1BankImportTemplatesGetTest : BaseMockServerTest
               "companyMetaField": "companyMetaField",
               "invoiceItemId": "invoiceItemId",
               "advanceInvoices": true,
+              "authorizationOperationTypeId": "authorizationOperationTypeId",
+              "payoutOperationTypeId": "payoutOperationTypeId",
+              "commissionOperationTypeId": "commissionOperationTypeId",
+              "lenderMetaField": "lenderMetaField",
+              "partialRefundLabel": "partialRefundLabel",
+              "fullRefundLabel": "fullRefundLabel",
               "createdAt": "createdAt",
               "updatedAt": "updatedAt"
             }

@@ -17,6 +17,12 @@ public record PostV1PartnersUpdateRequestAddress : IJsonOnDeserialized
     [JsonPropertyName("city")]
     public string? City { get; set; }
 
+    [JsonPropertyName("municipality")]
+    public string? Municipality { get; set; }
+
+    [JsonPropertyName("county")]
+    public string? County { get; set; }
+
     [JsonPropertyName("postalCode")]
     public string? PostalCode { get; set; }
 

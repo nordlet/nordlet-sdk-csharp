@@ -31,6 +31,7 @@ public class PostV1BankSettlementsListTest : BaseMockServerTest
                   "netTotal": "netTotal",
                   "status": "imported",
                   "journalTransactionId": "x",
+                  "bankTransactionId": "x",
                   "lineCount": 1000000,
                   "matchedCount": 1000000,
                   "unmatchedCount": 1000000,
@@ -49,6 +50,7 @@ public class PostV1BankSettlementsListTest : BaseMockServerTest
                   "netTotal": "netTotal",
                   "status": "imported",
                   "journalTransactionId": "x",
+                  "bankTransactionId": "x",
                   "lineCount": 1000000,
                   "matchedCount": 1000000,
                   "unmatchedCount": 1000000,
@@ -58,7 +60,10 @@ public class PostV1BankSettlementsListTest : BaseMockServerTest
               ],
               "page": 1000000,
               "pageSize": 1000000,
-              "total": 1000000
+              "total": 1000000,
+              "totals": {
+                "totals": "totals"
+              }
             }
             """;
 
@@ -85,6 +90,7 @@ public class PostV1BankSettlementsListTest : BaseMockServerTest
                 PageSize = null,
                 Sort = null,
                 Filter = null,
+                Totals = null,
             }
         );
         JsonAssert.AreEqual(response, mockResponse);
@@ -112,6 +118,7 @@ public class PostV1BankSettlementsListTest : BaseMockServerTest
                   "netTotal": "netTotal",
                   "status": "imported",
                   "journalTransactionId": "journalTransactionId",
+                  "bankTransactionId": "bankTransactionId",
                   "lineCount": 1000000,
                   "matchedCount": 1000000,
                   "unmatchedCount": 1000000,
@@ -121,7 +128,10 @@ public class PostV1BankSettlementsListTest : BaseMockServerTest
               ],
               "page": 1000000,
               "pageSize": 1000000,
-              "total": 1000000
+              "total": 1000000,
+              "totals": {
+                "key": "value"
+              }
             }
             """;
 

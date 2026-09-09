@@ -32,6 +32,66 @@ public partial interface ICatalogClient
         CancellationToken cancellationToken = default
     );
 
+    WithRawResponseTask<PostV1CatalogItemsFilesListResponse> PostV1CatalogItemsFilesListAsync(
+        PostV1CatalogItemsFilesListRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1CatalogItemsKindsCreateResponse> PostV1CatalogItemsKindsCreateAsync(
+        PostV1CatalogItemsKindsCreateRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1CatalogItemsKindsUpdateResponse> PostV1CatalogItemsKindsUpdateAsync(
+        PostV1CatalogItemsKindsUpdateRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1CatalogItemsKindsDeleteResponse> PostV1CatalogItemsKindsDeleteAsync(
+        PostV1CatalogItemsKindsDeleteRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1CatalogItemsKindsListResponse> PostV1CatalogItemsKindsListAsync(
+        PostV1CatalogItemsKindsListRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1CatalogUnitsCreateResponse> PostV1CatalogUnitsCreateAsync(
+        PostV1CatalogUnitsCreateRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1CatalogUnitsUpdateResponse> PostV1CatalogUnitsUpdateAsync(
+        PostV1CatalogUnitsUpdateRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1CatalogUnitsDeleteResponse> PostV1CatalogUnitsDeleteAsync(
+        PostV1CatalogUnitsDeleteRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1CatalogUnitsListResponse> PostV1CatalogUnitsListAsync(
+        PostV1CatalogUnitsListRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1CatalogUnitsOptionsResponse> PostV1CatalogUnitsOptionsAsync(
+        PostV1CatalogUnitsOptionsRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
     WithRawResponseTask<PostV1CatalogItemGroupsCreateResponse> PostV1CatalogItemGroupsCreateAsync(
         PostV1CatalogItemGroupsCreateRequest request,
         RequestOptions? options = null,

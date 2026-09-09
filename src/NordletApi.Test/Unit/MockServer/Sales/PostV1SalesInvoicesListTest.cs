@@ -44,6 +44,18 @@ public class PostV1SalesInvoicesListTest : BaseMockServerTest
                   "deemedSupplier": true,
                   "notes": "notes",
                   "documentRef": "documentRef",
+                  "operationTypeId": "x",
+                  "documentSeriesId": "x",
+                  "seriesLabel": "seriesLabel",
+                  "discountPercent": "discountPercent",
+                  "orderNumber": "orderNumber",
+                  "issuedByName": "issuedByName",
+                  "issuedByTitle": "issuedByTitle",
+                  "receivedByName": "receivedByName",
+                  "receivedByTitle": "receivedByTitle",
+                  "lockedAt": "lockedAt",
+                  "lockedBy": "lockedBy",
+                  "payToken": "payToken",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 },
@@ -72,13 +84,28 @@ public class PostV1SalesInvoicesListTest : BaseMockServerTest
                   "deemedSupplier": true,
                   "notes": "notes",
                   "documentRef": "documentRef",
+                  "operationTypeId": "x",
+                  "documentSeriesId": "x",
+                  "seriesLabel": "seriesLabel",
+                  "discountPercent": "discountPercent",
+                  "orderNumber": "orderNumber",
+                  "issuedByName": "issuedByName",
+                  "issuedByTitle": "issuedByTitle",
+                  "receivedByName": "receivedByName",
+                  "receivedByTitle": "receivedByTitle",
+                  "lockedAt": "lockedAt",
+                  "lockedBy": "lockedBy",
+                  "payToken": "payToken",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 }
               ],
               "page": 1000000,
               "pageSize": 1000000,
-              "total": 1000000
+              "total": 1000000,
+              "totals": {
+                "totals": "totals"
+              }
             }
             """;
 
@@ -105,6 +132,7 @@ public class PostV1SalesInvoicesListTest : BaseMockServerTest
                 PageSize = null,
                 Sort = null,
                 Filter = null,
+                Totals = null,
             }
         );
         JsonAssert.AreEqual(response, mockResponse);
@@ -145,13 +173,28 @@ public class PostV1SalesInvoicesListTest : BaseMockServerTest
                   "deemedSupplier": true,
                   "notes": "notes",
                   "documentRef": "documentRef",
+                  "operationTypeId": "operationTypeId",
+                  "documentSeriesId": "documentSeriesId",
+                  "seriesLabel": "seriesLabel",
+                  "discountPercent": "discountPercent",
+                  "orderNumber": "orderNumber",
+                  "issuedByName": "issuedByName",
+                  "issuedByTitle": "issuedByTitle",
+                  "receivedByName": "receivedByName",
+                  "receivedByTitle": "receivedByTitle",
+                  "lockedAt": "lockedAt",
+                  "lockedBy": "lockedBy",
+                  "payToken": "payToken",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 }
               ],
               "page": 1000000,
               "pageSize": 1000000,
-              "total": 1000000
+              "total": 1000000,
+              "totals": {
+                "key": "value"
+              }
             }
             """;
 

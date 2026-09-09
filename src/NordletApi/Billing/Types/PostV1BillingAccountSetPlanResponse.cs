@@ -32,6 +32,12 @@ public record PostV1BillingAccountSetPlanResponse : IJsonOnDeserialized
     [JsonPropertyName("paymentsConfigured")]
     public required bool PaymentsConfigured { get; set; }
 
+    [JsonPropertyName("hasPaymentAccount")]
+    public required bool HasPaymentAccount { get; set; }
+
+    [JsonPropertyName("hasSubscription")]
+    public required bool HasSubscription { get; set; }
+
     [JsonPropertyName("monthToDate")]
     public required PostV1BillingAccountSetPlanResponseMonthToDate MonthToDate { get; set; }
 

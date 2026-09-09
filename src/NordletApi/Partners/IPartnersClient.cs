@@ -74,6 +74,24 @@ public partial interface IPartnersClient
         CancellationToken cancellationToken = default
     );
 
+    WithRawResponseTask<PostV1PartnersFilesListResponse> PostV1PartnersFilesListAsync(
+        PostV1PartnersFilesListRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1PartnersDebtRemindersPreviewResponse> RemindersTheOvernightDebtReminderJobWouldSendTodayForThisCompanyAsync(
+        PostV1PartnersDebtRemindersPreviewRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1PartnersDebtRemindersListResponse> PostV1PartnersDebtRemindersListAsync(
+        PostV1PartnersDebtRemindersListRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
     WithRawResponseTask<PostV1PartnersValidateVatResponse> PostV1PartnersValidateVatAsync(
         PostV1PartnersValidateVatRequest request,
         RequestOptions? options = null,
@@ -211,6 +229,99 @@ public partial interface IPartnersClient
 
     WithRawResponseTask<PostV1PartnersCreditCheckResponse> PostV1PartnersCreditCheckAsync(
         PostV1PartnersCreditCheckRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1LeadsCreateResponse> PostV1LeadsCreateAsync(
+        PostV1LeadsCreateRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1LeadsGetResponse> PostV1LeadsGetAsync(
+        PostV1LeadsGetRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1LeadsUpdateResponse> PostV1LeadsUpdateAsync(
+        PostV1LeadsUpdateRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1LeadsDeleteResponse> PostV1LeadsDeleteAsync(
+        PostV1LeadsDeleteRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1LeadsListResponse> PostV1LeadsListAsync(
+        PostV1LeadsListRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1LeadsNotesCreateResponse> PostV1LeadsNotesCreateAsync(
+        PostV1LeadsNotesCreateRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1LeadsNotesDeleteResponse> PostV1LeadsNotesDeleteAsync(
+        PostV1LeadsNotesDeleteRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1LeadsNotesListResponse> PostV1LeadsNotesListAsync(
+        PostV1LeadsNotesListRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1LeadsFilesListResponse> PostV1LeadsFilesListAsync(
+        PostV1LeadsFilesListRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1LeadsSourcesCreateResponse> PostV1LeadsSourcesCreateAsync(
+        PostV1LeadsSourcesCreateRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1LeadsSourcesUpdateResponse> PostV1LeadsSourcesUpdateAsync(
+        PostV1LeadsSourcesUpdateRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1LeadsSourcesDeleteResponse> PostV1LeadsSourcesDeleteAsync(
+        PostV1LeadsSourcesDeleteRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1LeadsSourcesListResponse> PostV1LeadsSourcesListAsync(
+        PostV1LeadsSourcesListRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1LeadsSourcesOptionsResponse> PostV1LeadsSourcesOptionsAsync(
+        PostV1LeadsSourcesOptionsRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    /// <summary>
+    /// Create a customer partner from the lead, move the lead files to the partner, copy the lead notes into the partner notes and mark the lead as converted.
+    /// </summary>
+    WithRawResponseTask<PostV1LeadsConvertResponse> PostV1LeadsConvertAsync(
+        PostV1LeadsConvertRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );

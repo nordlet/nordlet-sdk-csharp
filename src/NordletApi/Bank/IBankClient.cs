@@ -86,6 +86,30 @@ public partial interface IBankClient
         CancellationToken cancellationToken = default
     );
 
+    WithRawResponseTask<PostV1BankMatchRulesCreateResponse> PostV1BankMatchRulesCreateAsync(
+        PostV1BankMatchRulesCreateRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1BankMatchRulesUpdateResponse> PostV1BankMatchRulesUpdateAsync(
+        PostV1BankMatchRulesUpdateRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1BankMatchRulesDeleteResponse> PostV1BankMatchRulesDeleteAsync(
+        PostV1BankMatchRulesDeleteRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1BankMatchRulesListResponse> PostV1BankMatchRulesListAsync(
+        PostV1BankMatchRulesListRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
     WithRawResponseTask<PostV1BankMandatesCreateResponse> PostV1BankMandatesCreateAsync(
         PostV1BankMandatesCreateRequest request,
         RequestOptions? options = null,
@@ -148,6 +172,24 @@ public partial interface IBankClient
 
     WithRawResponseTask<PostV1BankSettlementsMatchResponse> PostV1BankSettlementsMatchAsync(
         PostV1BankSettlementsMatchRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    /// <summary>
+    /// Attach the incoming bank-statement line that carries this payout to the settlement batch.
+    /// </summary>
+    WithRawResponseTask<PostV1BankSettlementsLinkResponse> PostV1BankSettlementsLinkAsync(
+        PostV1BankSettlementsLinkRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    /// <summary>
+    /// Detach the bank-statement line from the settlement batch and return the line to unmatched.
+    /// </summary>
+    WithRawResponseTask<PostV1BankSettlementsUnlinkResponse> PostV1BankSettlementsUnlinkAsync(
+        PostV1BankSettlementsUnlinkRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );

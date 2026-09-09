@@ -60,6 +60,35 @@ public class PostV1CatalogItemsGetTest : BaseMockServerTest
                   "quantity": "quantity"
                 }
               ],
+              "kindId": "x",
+              "saleAccountCode": "saleAccountCode",
+              "purchaseAccountCode": "purchaseAccountCode",
+              "expenseAccountCode": "expenseAccountCode",
+              "manufacturer": "manufacturer",
+              "grossMassKg": "grossMassKg",
+              "minQuantity": "minQuantity",
+              "costPrice": "costPrice",
+              "isFreePrice": true,
+              "externalId": "externalId",
+              "isReturnable": true,
+              "commentRequired": true,
+              "priceFrom": "priceFrom",
+              "priceTo": "priceTo",
+              "minPrice": "minPrice",
+              "discountPercent": "discountPercent",
+              "maxDiscountPercent": "maxDiscountPercent",
+              "loyaltyPoints": 1000000,
+              "department": "department",
+              "ageRestriction": 1000000,
+              "packageQuantity": "packageQuantity",
+              "taraCode": "taraCode",
+              "certificateNumber": "certificateNumber",
+              "certificateDate": "certificateDate",
+              "validFrom": "validFrom",
+              "validTo": "validTo",
+              "posFlags": {
+                "posFlags": true
+              },
               "createdAt": "createdAt",
               "updatedAt": "updatedAt"
             }
@@ -133,6 +162,35 @@ public class PostV1CatalogItemsGetTest : BaseMockServerTest
                   "quantity": "quantity"
                 }
               ],
+              "kindId": "kindId",
+              "saleAccountCode": "saleAccountCode",
+              "purchaseAccountCode": "purchaseAccountCode",
+              "expenseAccountCode": "expenseAccountCode",
+              "manufacturer": "manufacturer",
+              "grossMassKg": "grossMassKg",
+              "minQuantity": "minQuantity",
+              "costPrice": "costPrice",
+              "isFreePrice": true,
+              "externalId": "externalId",
+              "isReturnable": true,
+              "commentRequired": true,
+              "priceFrom": "priceFrom",
+              "priceTo": "priceTo",
+              "minPrice": "minPrice",
+              "discountPercent": "discountPercent",
+              "maxDiscountPercent": "maxDiscountPercent",
+              "loyaltyPoints": 1000000,
+              "department": "department",
+              "ageRestriction": 1000000,
+              "packageQuantity": "packageQuantity",
+              "taraCode": "taraCode",
+              "certificateNumber": "certificateNumber",
+              "certificateDate": "certificateDate",
+              "validFrom": "validFrom",
+              "validTo": "validTo",
+              "posFlags": {
+                "key": true
+              },
               "createdAt": "createdAt",
               "updatedAt": "updatedAt"
             }

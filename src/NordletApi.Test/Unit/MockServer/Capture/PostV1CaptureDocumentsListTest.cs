@@ -132,7 +132,10 @@ public class PostV1CaptureDocumentsListTest : BaseMockServerTest
               ],
               "page": 1000000,
               "pageSize": 1000000,
-              "total": 1000000
+              "total": 1000000,
+              "totals": {
+                "totals": "totals"
+              }
             }
             """;
 
@@ -159,6 +162,7 @@ public class PostV1CaptureDocumentsListTest : BaseMockServerTest
                 PageSize = null,
                 Sort = null,
                 Filter = null,
+                Totals = null,
             }
         );
         JsonAssert.AreEqual(response, mockResponse);
@@ -202,7 +206,10 @@ public class PostV1CaptureDocumentsListTest : BaseMockServerTest
               ],
               "page": 1000000,
               "pageSize": 1000000,
-              "total": 1000000
+              "total": 1000000,
+              "totals": {
+                "key": "value"
+              }
             }
             """;
 

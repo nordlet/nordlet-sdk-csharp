@@ -28,6 +28,9 @@ public class PostV1BankStatementsImportTest : BaseMockServerTest
               "invoicesCreated": 1000000,
               "invoicesLinked": 1000000,
               "creditNotesCreated": 1000000,
+              "authorizationsRecorded": 1000000,
+              "payoutsPosted": 1000000,
+              "commissionsPosted": 1000000,
               "paymentsMatched": 1000000,
               "warnings": [
                 "warnings",
@@ -79,6 +82,7 @@ public class PostV1BankStatementsImportTest : BaseMockServerTest
                 TemplateId = null,
                 Format = null,
                 Content = "x",
+                TransfersCsv = null,
             }
         );
         JsonAssert.AreEqual(response, mockResponse);
@@ -103,6 +107,9 @@ public class PostV1BankStatementsImportTest : BaseMockServerTest
               "invoicesCreated": 1000000,
               "invoicesLinked": 1000000,
               "creditNotesCreated": 1000000,
+              "authorizationsRecorded": 1000000,
+              "payoutsPosted": 1000000,
+              "commissionsPosted": 1000000,
               "paymentsMatched": 1000000,
               "warnings": [
                 "warnings"

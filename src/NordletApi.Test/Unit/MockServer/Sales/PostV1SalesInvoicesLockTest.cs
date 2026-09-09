@@ -1,0 +1,348 @@
+using NordletApi;
+using NordletApi.Test.Unit.MockServer;
+using NordletApi.Test.Utils;
+using NUnit.Framework;
+
+namespace NordletApi.Test.Unit.MockServer.Sales;
+
+[TestFixture]
+[Parallelizable(ParallelScope.Self)]
+public class PostV1SalesInvoicesLockTest : BaseMockServerTest
+{
+    [NUnit.Framework.Test]
+    public async Task MockServerTest_1()
+    {
+        const string requestJson = """
+            {
+              "id": "x"
+            }
+            """;
+
+        const string mockResponse = """
+            {
+              "id": "x",
+              "partnerId": "x",
+              "type": "invoice",
+              "status": "draft",
+              "paymentStatus": "unpaid",
+              "series": "series",
+              "number": 1000000,
+              "fullNumber": "fullNumber",
+              "issueDate": "issueDate",
+              "dueDate": "dueDate",
+              "currency": "currency",
+              "netTotal": "netTotal",
+              "vatTotal": "vatTotal",
+              "grossTotal": "grossTotal",
+              "paidAmount": "paidAmount",
+              "journalTransactionId": "x",
+              "appliedToInvoiceId": "x",
+              "creditedInvoiceId": "x",
+              "agreementId": "x",
+              "vatScheme": "domestic",
+              "vatCountryCode": "vatCountryCode",
+              "deemedSupplier": true,
+              "notes": "notes",
+              "documentRef": "documentRef",
+              "operationTypeId": "x",
+              "documentSeriesId": "x",
+              "seriesLabel": "seriesLabel",
+              "discountPercent": "discountPercent",
+              "orderNumber": "orderNumber",
+              "issuedByName": "issuedByName",
+              "issuedByTitle": "issuedByTitle",
+              "receivedByName": "receivedByName",
+              "receivedByTitle": "receivedByTitle",
+              "lockedAt": "lockedAt",
+              "lockedBy": "lockedBy",
+              "payToken": "payToken",
+              "createdAt": "createdAt",
+              "updatedAt": "updatedAt",
+              "lines": [
+                {
+                  "id": "x",
+                  "itemId": "x",
+                  "description": "description",
+                  "unit": "unit",
+                  "quantity": "quantity",
+                  "unitPriceExclVat": "unitPriceExclVat",
+                  "unitPriceInclVat": "unitPriceInclVat",
+                  "vatRatePercent": "vatRatePercent",
+                  "vatClassifierCode": "vatClassifierCode",
+                  "costCenterId": "x",
+                  "projectId": "x",
+                  "lineNet": "lineNet",
+                  "lineVat": "lineVat",
+                  "lineGross": "lineGross",
+                  "sortOrder": 1000000,
+                  "recognitionMethod": "point_in_time",
+                  "recognitionStartDate": "recognitionStartDate",
+                  "recognitionEndDate": "recognitionEndDate",
+                  "recognitionMilestones": [
+                    {
+                      "description": "description",
+                      "expectedDate": "expectedDate",
+                      "percent": "percent"
+                    },
+                    {
+                      "description": "description",
+                      "expectedDate": "expectedDate",
+                      "percent": "percent"
+                    }
+                  ],
+                  "standaloneSellingPrice": "standaloneSellingPrice",
+                  "allocatedNet": "allocatedNet",
+                  "refundEstimatePercent": "refundEstimatePercent"
+                },
+                {
+                  "id": "x",
+                  "itemId": "x",
+                  "description": "description",
+                  "unit": "unit",
+                  "quantity": "quantity",
+                  "unitPriceExclVat": "unitPriceExclVat",
+                  "unitPriceInclVat": "unitPriceInclVat",
+                  "vatRatePercent": "vatRatePercent",
+                  "vatClassifierCode": "vatClassifierCode",
+                  "costCenterId": "x",
+                  "projectId": "x",
+                  "lineNet": "lineNet",
+                  "lineVat": "lineVat",
+                  "lineGross": "lineGross",
+                  "sortOrder": 1000000,
+                  "recognitionMethod": "point_in_time",
+                  "recognitionStartDate": "recognitionStartDate",
+                  "recognitionEndDate": "recognitionEndDate",
+                  "recognitionMilestones": [
+                    {
+                      "description": "description",
+                      "expectedDate": "expectedDate",
+                      "percent": "percent"
+                    },
+                    {
+                      "description": "description",
+                      "expectedDate": "expectedDate",
+                      "percent": "percent"
+                    }
+                  ],
+                  "standaloneSellingPrice": "standaloneSellingPrice",
+                  "allocatedNet": "allocatedNet",
+                  "refundEstimatePercent": "refundEstimatePercent"
+                }
+              ],
+              "vatEvidence": {
+                "capturedAt": "capturedAt",
+                "issueDate": "issueDate",
+                "scheme": {
+                  "vatScheme": "vatScheme",
+                  "vatCountryCode": "vatCountryCode",
+                  "deemedSupplier": true
+                },
+                "partner": {
+                  "id": "x",
+                  "vatCode": "vatCode",
+                  "vatValid": true,
+                  "vatValidatedAt": "vatValidatedAt"
+                },
+                "vies": {
+                  "valid": true,
+                  "countryCode": "countryCode",
+                  "vatNumber": "vatNumber",
+                  "name": "name",
+                  "address": "address",
+                  "requestIdentifier": "requestIdentifier",
+                  "checkedAt": "checkedAt"
+                },
+                "location": {
+                  "billingCountryCode": "billingCountryCode",
+                  "source": "source"
+                },
+                "rateTable": {
+                  "importId": "x",
+                  "situationOn": "situationOn",
+                  "trigger": "trigger",
+                  "startedAt": "startedAt"
+                },
+                "rates": [
+                  {
+                    "ratePercent": "ratePercent",
+                    "country": "country",
+                    "category": "category"
+                  },
+                  {
+                    "ratePercent": "ratePercent",
+                    "country": "country",
+                    "category": "category"
+                  }
+                ]
+              }
+            }
+            """;
+
+        Server
+            .Given(
+                WireMock
+                    .RequestBuilders.Request.Create()
+                    .WithPath("/v1/sales/invoices/lock")
+                    .WithHeader("Content-Type", "application/json")
+                    .UsingPost()
+                    .WithBodyAsJson(requestJson)
+            )
+            .RespondWith(
+                WireMock
+                    .ResponseBuilders.Response.Create()
+                    .WithStatusCode(200)
+                    .WithBody(mockResponse)
+            );
+
+        var response = await Client.Sales.PostV1SalesInvoicesLockAsync(
+            new PostV1SalesInvoicesLockRequest { Id = "x" }
+        );
+        JsonAssert.AreEqual(response, mockResponse);
+    }
+
+    [NUnit.Framework.Test]
+    public async Task MockServerTest_2()
+    {
+        const string requestJson = """
+            {
+              "id": "id"
+            }
+            """;
+
+        const string mockResponse = """
+            {
+              "id": "id",
+              "partnerId": "partnerId",
+              "type": "invoice",
+              "status": "draft",
+              "paymentStatus": "unpaid",
+              "series": "series",
+              "number": 1000000,
+              "fullNumber": "fullNumber",
+              "issueDate": "issueDate",
+              "dueDate": "dueDate",
+              "currency": "currency",
+              "netTotal": "netTotal",
+              "vatTotal": "vatTotal",
+              "grossTotal": "grossTotal",
+              "paidAmount": "paidAmount",
+              "journalTransactionId": "journalTransactionId",
+              "appliedToInvoiceId": "appliedToInvoiceId",
+              "creditedInvoiceId": "creditedInvoiceId",
+              "agreementId": "agreementId",
+              "vatScheme": "domestic",
+              "vatCountryCode": "vatCountryCode",
+              "deemedSupplier": true,
+              "notes": "notes",
+              "documentRef": "documentRef",
+              "operationTypeId": "operationTypeId",
+              "documentSeriesId": "documentSeriesId",
+              "seriesLabel": "seriesLabel",
+              "discountPercent": "discountPercent",
+              "orderNumber": "orderNumber",
+              "issuedByName": "issuedByName",
+              "issuedByTitle": "issuedByTitle",
+              "receivedByName": "receivedByName",
+              "receivedByTitle": "receivedByTitle",
+              "lockedAt": "lockedAt",
+              "lockedBy": "lockedBy",
+              "payToken": "payToken",
+              "createdAt": "createdAt",
+              "updatedAt": "updatedAt",
+              "lines": [
+                {
+                  "id": "id",
+                  "itemId": "itemId",
+                  "description": "description",
+                  "unit": "unit",
+                  "quantity": "quantity",
+                  "unitPriceExclVat": "unitPriceExclVat",
+                  "unitPriceInclVat": "unitPriceInclVat",
+                  "vatRatePercent": "vatRatePercent",
+                  "vatClassifierCode": "vatClassifierCode",
+                  "costCenterId": "costCenterId",
+                  "projectId": "projectId",
+                  "lineNet": "lineNet",
+                  "lineVat": "lineVat",
+                  "lineGross": "lineGross",
+                  "sortOrder": 1000000,
+                  "recognitionMethod": "point_in_time",
+                  "recognitionStartDate": "recognitionStartDate",
+                  "recognitionEndDate": "recognitionEndDate",
+                  "recognitionMilestones": [
+                    {
+                      "description": "description",
+                      "percent": "percent"
+                    }
+                  ],
+                  "standaloneSellingPrice": "standaloneSellingPrice",
+                  "allocatedNet": "allocatedNet",
+                  "refundEstimatePercent": "refundEstimatePercent"
+                }
+              ],
+              "vatEvidence": {
+                "capturedAt": "capturedAt",
+                "issueDate": "issueDate",
+                "scheme": {
+                  "vatScheme": "vatScheme",
+                  "vatCountryCode": "vatCountryCode",
+                  "deemedSupplier": true
+                },
+                "partner": {
+                  "id": "id",
+                  "vatCode": "vatCode",
+                  "vatValid": true,
+                  "vatValidatedAt": "vatValidatedAt"
+                },
+                "vies": {
+                  "valid": true,
+                  "countryCode": "countryCode",
+                  "vatNumber": "vatNumber",
+                  "name": "name",
+                  "address": "address",
+                  "requestIdentifier": "requestIdentifier",
+                  "checkedAt": "checkedAt"
+                },
+                "location": {
+                  "billingCountryCode": "billingCountryCode",
+                  "source": "source"
+                },
+                "rateTable": {
+                  "importId": "importId",
+                  "situationOn": "situationOn",
+                  "trigger": "trigger",
+                  "startedAt": "startedAt"
+                },
+                "rates": [
+                  {
+                    "ratePercent": "ratePercent",
+                    "country": "country"
+                  }
+                ]
+              }
+            }
+            """;
+
+        Server
+            .Given(
+                WireMock
+                    .RequestBuilders.Request.Create()
+                    .WithPath("/v1/sales/invoices/lock")
+                    .WithHeader("Content-Type", "application/json")
+                    .UsingPost()
+                    .WithBodyAsJson(requestJson)
+            )
+            .RespondWith(
+                WireMock
+                    .ResponseBuilders.Response.Create()
+                    .WithStatusCode(200)
+                    .WithBody(mockResponse)
+            );
+
+        var response = await Client.Sales.PostV1SalesInvoicesLockAsync(
+            new PostV1SalesInvoicesLockRequest { Id = "id" }
+        );
+        JsonAssert.AreEqual(response, mockResponse);
+    }
+}

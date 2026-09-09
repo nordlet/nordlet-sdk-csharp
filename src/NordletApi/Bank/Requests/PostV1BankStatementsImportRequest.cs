@@ -18,6 +18,12 @@ public record PostV1BankStatementsImportRequest
     [JsonPropertyName("content")]
     public required string Content { get; set; }
 
+    /// <summary>
+    /// Stripe transfers export (plain CSV or base64) used to post lender payouts and commissions
+    /// </summary>
+    [JsonPropertyName("transfersCsv")]
+    public string? TransfersCsv { get; set; }
+
     /// <inheritdoc />
     public override string ToString()
     {

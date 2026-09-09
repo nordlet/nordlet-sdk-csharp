@@ -33,6 +33,33 @@ public record PostV1SalesInvoicesUpdateRequest
     [JsonPropertyName("notes")]
     public string? Notes { get; set; }
 
+    [JsonPropertyName("operationTypeId")]
+    public string? OperationTypeId { get; set; }
+
+    [JsonPropertyName("documentSeriesId")]
+    public string? DocumentSeriesId { get; set; }
+
+    [JsonPropertyName("seriesLabel")]
+    public string? SeriesLabel { get; set; }
+
+    [JsonPropertyName("discountPercent")]
+    public string? DiscountPercent { get; set; }
+
+    [JsonPropertyName("orderNumber")]
+    public string? OrderNumber { get; set; }
+
+    [JsonPropertyName("issuedByName")]
+    public string? IssuedByName { get; set; }
+
+    [JsonPropertyName("issuedByTitle")]
+    public string? IssuedByTitle { get; set; }
+
+    [JsonPropertyName("receivedByName")]
+    public string? ReceivedByName { get; set; }
+
+    [JsonPropertyName("receivedByTitle")]
+    public string? ReceivedByTitle { get; set; }
+
     [JsonPropertyName("lines")]
     public IEnumerable<PostV1SalesInvoicesUpdateRequestLinesItem>? Lines { get; set; }
 

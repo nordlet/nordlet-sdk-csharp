@@ -32,6 +32,15 @@ public record PostV1BankStatementsImportResponse : IJsonOnDeserialized
     [JsonPropertyName("creditNotesCreated")]
     public required long CreditNotesCreated { get; set; }
 
+    [JsonPropertyName("authorizationsRecorded")]
+    public required long AuthorizationsRecorded { get; set; }
+
+    [JsonPropertyName("payoutsPosted")]
+    public required long PayoutsPosted { get; set; }
+
+    [JsonPropertyName("commissionsPosted")]
+    public required long CommissionsPosted { get; set; }
+
     [JsonPropertyName("paymentsMatched")]
     public required long PaymentsMatched { get; set; }
 

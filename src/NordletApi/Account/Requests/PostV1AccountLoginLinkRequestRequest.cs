@@ -18,6 +18,9 @@ public record PostV1AccountLoginLinkRequestRequest
     [JsonPropertyName("acceptDpa")]
     public bool? AcceptDpa { get; set; }
 
+    [JsonPropertyName("referralCode")]
+    public string? ReferralCode { get; set; }
+
     /// <inheritdoc />
     public override string ToString()
     {

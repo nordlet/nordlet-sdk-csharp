@@ -47,6 +47,7 @@ public class PostV1AccountLoginLinkRequestTest : BaseMockServerTest
                 Locale = null,
                 AcceptTerms = null,
                 AcceptDpa = null,
+                ReferralCode = null,
             }
         );
         JsonAssert.AreEqual(response, mockResponse);

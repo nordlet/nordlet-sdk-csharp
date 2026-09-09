@@ -61,7 +61,7 @@ public record PostV1CatalogItemsUpdateRequest
     public string? GroupId { get; set; }
 
     [JsonPropertyName("attributes")]
-    public Dictionary<string, string>? Attributes { get; set; }
+    public Dictionary<string, string?>? Attributes { get; set; }
 
     [JsonPropertyName("documentRef")]
     public string? DocumentRef { get; set; }
@@ -69,11 +69,92 @@ public record PostV1CatalogItemsUpdateRequest
     [JsonPropertyName("translations")]
     public Dictionary<
         string,
-        PostV1CatalogItemsUpdateRequestTranslationsValue
+        PostV1CatalogItemsUpdateRequestTranslationsValue?
     >? Translations { get; set; }
 
     [JsonPropertyName("components")]
     public IEnumerable<PostV1CatalogItemsUpdateRequestComponentsItem>? Components { get; set; }
+
+    [JsonPropertyName("kindId")]
+    public string? KindId { get; set; }
+
+    [JsonPropertyName("saleAccountCode")]
+    public string? SaleAccountCode { get; set; }
+
+    [JsonPropertyName("purchaseAccountCode")]
+    public string? PurchaseAccountCode { get; set; }
+
+    [JsonPropertyName("expenseAccountCode")]
+    public string? ExpenseAccountCode { get; set; }
+
+    [JsonPropertyName("manufacturer")]
+    public string? Manufacturer { get; set; }
+
+    [JsonPropertyName("grossMassKg")]
+    public string? GrossMassKg { get; set; }
+
+    [JsonPropertyName("minQuantity")]
+    public string? MinQuantity { get; set; }
+
+    [JsonPropertyName("costPrice")]
+    public string? CostPrice { get; set; }
+
+    [JsonPropertyName("isFreePrice")]
+    public bool? IsFreePrice { get; set; }
+
+    [JsonPropertyName("externalId")]
+    public string? ExternalId { get; set; }
+
+    [JsonPropertyName("isReturnable")]
+    public bool? IsReturnable { get; set; }
+
+    [JsonPropertyName("commentRequired")]
+    public bool? CommentRequired { get; set; }
+
+    [JsonPropertyName("priceFrom")]
+    public string? PriceFrom { get; set; }
+
+    [JsonPropertyName("priceTo")]
+    public string? PriceTo { get; set; }
+
+    [JsonPropertyName("minPrice")]
+    public string? MinPrice { get; set; }
+
+    [JsonPropertyName("discountPercent")]
+    public string? DiscountPercent { get; set; }
+
+    [JsonPropertyName("maxDiscountPercent")]
+    public string? MaxDiscountPercent { get; set; }
+
+    [JsonPropertyName("loyaltyPoints")]
+    public long? LoyaltyPoints { get; set; }
+
+    [JsonPropertyName("department")]
+    public string? Department { get; set; }
+
+    [JsonPropertyName("ageRestriction")]
+    public long? AgeRestriction { get; set; }
+
+    [JsonPropertyName("packageQuantity")]
+    public string? PackageQuantity { get; set; }
+
+    [JsonPropertyName("taraCode")]
+    public string? TaraCode { get; set; }
+
+    [JsonPropertyName("certificateNumber")]
+    public string? CertificateNumber { get; set; }
+
+    [JsonPropertyName("certificateDate")]
+    public string? CertificateDate { get; set; }
+
+    [JsonPropertyName("validFrom")]
+    public string? ValidFrom { get; set; }
+
+    [JsonPropertyName("validTo")]
+    public string? ValidTo { get; set; }
+
+    [JsonPropertyName("posFlags")]
+    public Dictionary<string, bool?>? PosFlags { get; set; }
 
     /// <inheritdoc />
     public override string ToString()

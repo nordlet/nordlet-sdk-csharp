@@ -42,6 +42,24 @@ public record PostV1BankImportTemplatesListResponseRowsItem : IJsonOnDeserialize
     [JsonPropertyName("advanceInvoices")]
     public required bool AdvanceInvoices { get; set; }
 
+    [JsonPropertyName("authorizationOperationTypeId")]
+    public string? AuthorizationOperationTypeId { get; set; }
+
+    [JsonPropertyName("payoutOperationTypeId")]
+    public string? PayoutOperationTypeId { get; set; }
+
+    [JsonPropertyName("commissionOperationTypeId")]
+    public string? CommissionOperationTypeId { get; set; }
+
+    [JsonPropertyName("lenderMetaField")]
+    public string? LenderMetaField { get; set; }
+
+    [JsonPropertyName("partialRefundLabel")]
+    public string? PartialRefundLabel { get; set; }
+
+    [JsonPropertyName("fullRefundLabel")]
+    public string? FullRefundLabel { get; set; }
+
     [JsonPropertyName("createdAt")]
     public required string CreatedAt { get; set; }
 

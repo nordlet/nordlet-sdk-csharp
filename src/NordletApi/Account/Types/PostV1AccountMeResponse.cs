@@ -26,6 +26,9 @@ public record PostV1AccountMeResponse : IJsonOnDeserialized
     [JsonPropertyName("billing")]
     public required PostV1AccountMeResponseBilling Billing { get; set; }
 
+    [JsonPropertyName("referralPoints")]
+    public required long ReferralPoints { get; set; }
+
     [JsonPropertyName("consent")]
     public required PostV1AccountMeResponseConsent Consent { get; set; }
 

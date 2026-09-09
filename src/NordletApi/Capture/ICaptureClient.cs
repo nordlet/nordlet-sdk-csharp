@@ -2,6 +2,30 @@ namespace NordletApi;
 
 public partial interface ICaptureClient
 {
+    WithRawResponseTask<PostV1CaptureSettingsGetResponse> PostV1CaptureSettingsGetAsync(
+        PostV1CaptureSettingsGetRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1CaptureSettingsUpdateResponse> PostV1CaptureSettingsUpdateAsync(
+        PostV1CaptureSettingsUpdateRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1CaptureSettingsRegenerateIntakeResponse> PostV1CaptureSettingsRegenerateIntakeAsync(
+        PostV1CaptureSettingsRegenerateIntakeRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1CaptureInboundEmailResponse> ReceiveAnInboundEmailWithSupplierDocumentsAttachedPostmarkStyleOrGenericJsonAsync(
+        PostV1CaptureInboundEmailRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
     WithRawResponseTask<PostV1CaptureDocumentsUploadResponse> ReadAVendorBillOrReceiptAndReturnAnEditablePurchaseInvoiceDraftAsync(
         PostV1CaptureDocumentsUploadRequest request,
         RequestOptions? options = null,

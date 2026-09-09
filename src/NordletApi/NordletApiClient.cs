@@ -54,6 +54,7 @@ public partial class NordletApiClient : INordletApiClient
         Projects = new ProjectsClient(_client);
         Transport = new TransportClient(_client);
         Pos = new PosClient(_client);
+        Calendar = new CalendarClient(_client);
         Audit = new AuditClient(_client);
         Webhooks = new WebhooksClient(_client);
         Bank = new BankClient(_client);
@@ -106,6 +107,8 @@ public partial class NordletApiClient : INordletApiClient
     public ITransportClient Transport { get; }
 
     public IPosClient Pos { get; }
+
+    public ICalendarClient Calendar { get; }
 
     public IAuditClient Audit { get; }
 

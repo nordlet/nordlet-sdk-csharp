@@ -42,11 +42,37 @@ public class PostV1PartnersListTest : BaseMockServerTest
                   "address": {
                     "street": "street",
                     "city": "city",
+                    "municipality": "municipality",
+                    "county": "county",
+                    "postalCode": "postalCode",
+                    "countryCode": "xy"
+                  },
+                  "correspondenceAddress": {
+                    "street": "street",
+                    "city": "city",
+                    "municipality": "municipality",
+                    "county": "county",
                     "postalCode": "postalCode",
                     "countryCode": "xy"
                   },
                   "notes": "notes",
                   "documentRef": "documentRef",
+                  "shortName": "shortName",
+                  "website": "website",
+                  "fax": "fax",
+                  "eoriCode": "eoriCode",
+                  "otherCode": "otherCode",
+                  "foreignTaxNumber": "foreignTaxNumber",
+                  "autoDebtReminder": true,
+                  "lateInterestPercent": "lateInterestPercent",
+                  "firstCallDate": "firstCallDate",
+                  "lastCallDate": "lastCallDate",
+                  "nextCallDate": "nextCallDate",
+                  "rating": 1000000,
+                  "isEmployee": true,
+                  "isGroupMember": true,
+                  "isActive": true,
+                  "legalCountryClass": "lt",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 },
@@ -73,18 +99,47 @@ public class PostV1PartnersListTest : BaseMockServerTest
                   "address": {
                     "street": "street",
                     "city": "city",
+                    "municipality": "municipality",
+                    "county": "county",
+                    "postalCode": "postalCode",
+                    "countryCode": "xy"
+                  },
+                  "correspondenceAddress": {
+                    "street": "street",
+                    "city": "city",
+                    "municipality": "municipality",
+                    "county": "county",
                     "postalCode": "postalCode",
                     "countryCode": "xy"
                   },
                   "notes": "notes",
                   "documentRef": "documentRef",
+                  "shortName": "shortName",
+                  "website": "website",
+                  "fax": "fax",
+                  "eoriCode": "eoriCode",
+                  "otherCode": "otherCode",
+                  "foreignTaxNumber": "foreignTaxNumber",
+                  "autoDebtReminder": true,
+                  "lateInterestPercent": "lateInterestPercent",
+                  "firstCallDate": "firstCallDate",
+                  "lastCallDate": "lastCallDate",
+                  "nextCallDate": "nextCallDate",
+                  "rating": 1000000,
+                  "isEmployee": true,
+                  "isGroupMember": true,
+                  "isActive": true,
+                  "legalCountryClass": "lt",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 }
               ],
               "page": 1000000,
               "pageSize": 1000000,
-              "total": 1000000
+              "total": 1000000,
+              "totals": {
+                "totals": "totals"
+              }
             }
             """;
 
@@ -111,6 +166,7 @@ public class PostV1PartnersListTest : BaseMockServerTest
                 PageSize = null,
                 Sort = null,
                 Filter = null,
+                Totals = null,
             }
         );
         JsonAssert.AreEqual(response, mockResponse);
@@ -147,15 +203,35 @@ public class PostV1PartnersListTest : BaseMockServerTest
                   "vatValid": true,
                   "vatValidatedAt": "vatValidatedAt",
                   "address": {},
+                  "correspondenceAddress": {},
                   "notes": "notes",
                   "documentRef": "documentRef",
+                  "shortName": "shortName",
+                  "website": "website",
+                  "fax": "fax",
+                  "eoriCode": "eoriCode",
+                  "otherCode": "otherCode",
+                  "foreignTaxNumber": "foreignTaxNumber",
+                  "autoDebtReminder": true,
+                  "lateInterestPercent": "lateInterestPercent",
+                  "firstCallDate": "firstCallDate",
+                  "lastCallDate": "lastCallDate",
+                  "nextCallDate": "nextCallDate",
+                  "rating": 1000000,
+                  "isEmployee": true,
+                  "isGroupMember": true,
+                  "isActive": true,
+                  "legalCountryClass": "lt",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 }
               ],
               "page": 1000000,
               "pageSize": 1000000,
-              "total": 1000000
+              "total": 1000000,
+              "totals": {
+                "key": "value"
+              }
             }
             """;
 

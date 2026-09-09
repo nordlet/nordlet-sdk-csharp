@@ -37,6 +37,7 @@ public class PostV1PurchasesInvoicesUpdateTest : BaseMockServerTest
               "journalTransactionId": "x",
               "creditedInvoiceId": "x",
               "purchaseOrderId": "x",
+              "operationTypeId": "x",
               "notes": "notes",
               "documentRef": "documentRef",
               "createdAt": "createdAt",
@@ -108,6 +109,7 @@ public class PostV1PurchasesInvoicesUpdateTest : BaseMockServerTest
                 DueDate = null,
                 Currency = null,
                 PurchaseOrderId = null,
+                OperationTypeId = null,
                 Notes = null,
                 Lines = null,
             }
@@ -143,6 +145,7 @@ public class PostV1PurchasesInvoicesUpdateTest : BaseMockServerTest
               "journalTransactionId": "journalTransactionId",
               "creditedInvoiceId": "creditedInvoiceId",
               "purchaseOrderId": "purchaseOrderId",
+              "operationTypeId": "operationTypeId",
               "notes": "notes",
               "documentRef": "documentRef",
               "createdAt": "createdAt",

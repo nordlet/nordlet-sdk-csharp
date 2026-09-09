@@ -71,11 +71,62 @@ public record PostV1PartnersCreateResponse : IJsonOnDeserialized
     [JsonPropertyName("address")]
     public PostV1PartnersCreateResponseAddress? Address { get; set; }
 
+    [JsonPropertyName("correspondenceAddress")]
+    public PostV1PartnersCreateResponseCorrespondenceAddress? CorrespondenceAddress { get; set; }
+
     [JsonPropertyName("notes")]
     public string? Notes { get; set; }
 
     [JsonPropertyName("documentRef")]
     public string? DocumentRef { get; set; }
+
+    [JsonPropertyName("shortName")]
+    public string? ShortName { get; set; }
+
+    [JsonPropertyName("website")]
+    public string? Website { get; set; }
+
+    [JsonPropertyName("fax")]
+    public string? Fax { get; set; }
+
+    [JsonPropertyName("eoriCode")]
+    public string? EoriCode { get; set; }
+
+    [JsonPropertyName("otherCode")]
+    public string? OtherCode { get; set; }
+
+    [JsonPropertyName("foreignTaxNumber")]
+    public string? ForeignTaxNumber { get; set; }
+
+    [JsonPropertyName("autoDebtReminder")]
+    public required bool AutoDebtReminder { get; set; }
+
+    [JsonPropertyName("lateInterestPercent")]
+    public string? LateInterestPercent { get; set; }
+
+    [JsonPropertyName("firstCallDate")]
+    public string? FirstCallDate { get; set; }
+
+    [JsonPropertyName("lastCallDate")]
+    public string? LastCallDate { get; set; }
+
+    [JsonPropertyName("nextCallDate")]
+    public string? NextCallDate { get; set; }
+
+    [JsonPropertyName("rating")]
+    public long? Rating { get; set; }
+
+    [JsonPropertyName("isEmployee")]
+    public required bool IsEmployee { get; set; }
+
+    [JsonPropertyName("isGroupMember")]
+    public required bool IsGroupMember { get; set; }
+
+    [JsonPropertyName("isActive")]
+    public required bool IsActive { get; set; }
+
+    [JsonPropertyName("legalCountryClass")]
+    public PostV1PartnersCreateResponseLegalCountryClass? LegalCountryClass { get; set; }
 
     [JsonPropertyName("createdAt")]
     public required string CreatedAt { get; set; }

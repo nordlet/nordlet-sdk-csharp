@@ -24,6 +24,9 @@ public record PostV1CatalogItemsListResponse : IJsonOnDeserialized
     [JsonPropertyName("total")]
     public required long Total { get; set; }
 
+    [JsonPropertyName("totals")]
+    public Dictionary<string, string>? Totals { get; set; }
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

@@ -35,6 +35,7 @@ public class PostV1AccountMeTest : BaseMockServerTest
                 "balanceCents": 1000000,
                 "trialEndsAt": "trialEndsAt"
               },
+              "referralPoints": 1000000,
               "consent": {
                 "termsVersion": "termsVersion",
                 "termsAcceptedAt": "termsAcceptedAt",
@@ -115,6 +116,7 @@ public class PostV1AccountMeTest : BaseMockServerTest
                 "balanceCents": 1000000,
                 "trialEndsAt": "trialEndsAt"
               },
+              "referralPoints": 1000000,
               "consent": {
                 "termsVersion": "termsVersion",
                 "termsAcceptedAt": "termsAcceptedAt",

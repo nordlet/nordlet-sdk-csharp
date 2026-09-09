@@ -38,6 +38,24 @@ public partial interface IReferenceClient
         CancellationToken cancellationToken = default
     );
 
+    WithRawResponseTask<PostV1ReferenceLtCountiesListResponse> PostV1ReferenceLtCountiesListAsync(
+        PostV1ReferenceLtCountiesListRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1ReferenceLtMunicipalitiesListResponse> PostV1ReferenceLtMunicipalitiesListAsync(
+        PostV1ReferenceLtMunicipalitiesListRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1ReferenceLtCitiesListResponse> PostV1ReferenceLtCitiesListAsync(
+        PostV1ReferenceLtCitiesListRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
     WithRawResponseTask<PostV1ReferenceBanksListResponse> PostV1ReferenceBanksListAsync(
         PostV1ReferenceBanksListRequest request,
         RequestOptions? options = null,

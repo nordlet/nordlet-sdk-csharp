@@ -44,6 +44,12 @@ public class PostV1BankImportTemplatesListTest : BaseMockServerTest
                   "companyMetaField": "companyMetaField",
                   "invoiceItemId": "x",
                   "advanceInvoices": true,
+                  "authorizationOperationTypeId": "x",
+                  "payoutOperationTypeId": "x",
+                  "commissionOperationTypeId": "x",
+                  "lenderMetaField": "lenderMetaField",
+                  "partialRefundLabel": "partialRefundLabel",
+                  "fullRefundLabel": "fullRefundLabel",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 },
@@ -72,13 +78,22 @@ public class PostV1BankImportTemplatesListTest : BaseMockServerTest
                   "companyMetaField": "companyMetaField",
                   "invoiceItemId": "x",
                   "advanceInvoices": true,
+                  "authorizationOperationTypeId": "x",
+                  "payoutOperationTypeId": "x",
+                  "commissionOperationTypeId": "x",
+                  "lenderMetaField": "lenderMetaField",
+                  "partialRefundLabel": "partialRefundLabel",
+                  "fullRefundLabel": "fullRefundLabel",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 }
               ],
               "page": 1000000,
               "pageSize": 1000000,
-              "total": 1000000
+              "total": 1000000,
+              "totals": {
+                "totals": "totals"
+              }
             }
             """;
 
@@ -105,6 +120,7 @@ public class PostV1BankImportTemplatesListTest : BaseMockServerTest
                 PageSize = null,
                 Sort = null,
                 Filter = null,
+                Totals = null,
             }
         );
         JsonAssert.AreEqual(response, mockResponse);
@@ -138,13 +154,22 @@ public class PostV1BankImportTemplatesListTest : BaseMockServerTest
                   "companyMetaField": "companyMetaField",
                   "invoiceItemId": "invoiceItemId",
                   "advanceInvoices": true,
+                  "authorizationOperationTypeId": "authorizationOperationTypeId",
+                  "payoutOperationTypeId": "payoutOperationTypeId",
+                  "commissionOperationTypeId": "commissionOperationTypeId",
+                  "lenderMetaField": "lenderMetaField",
+                  "partialRefundLabel": "partialRefundLabel",
+                  "fullRefundLabel": "fullRefundLabel",
                   "createdAt": "createdAt",
                   "updatedAt": "updatedAt"
                 }
               ],
               "page": 1000000,
               "pageSize": 1000000,
-              "total": 1000000
+              "total": 1000000,
+              "totals": {
+                "key": "value"
+              }
             }
             """;
 

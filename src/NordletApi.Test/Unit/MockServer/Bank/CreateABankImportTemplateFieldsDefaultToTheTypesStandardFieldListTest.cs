@@ -46,6 +46,12 @@ public class CreateABankImportTemplateFieldsDefaultToTheTypesStandardFieldListTe
               "companyMetaField": "companyMetaField",
               "invoiceItemId": "x",
               "advanceInvoices": true,
+              "authorizationOperationTypeId": "x",
+              "payoutOperationTypeId": "x",
+              "commissionOperationTypeId": "x",
+              "lenderMetaField": "lenderMetaField",
+              "partialRefundLabel": "partialRefundLabel",
+              "fullRefundLabel": "fullRefundLabel",
               "createdAt": "createdAt",
               "updatedAt": "updatedAt"
             }
@@ -80,6 +86,12 @@ public class CreateABankImportTemplateFieldsDefaultToTheTypesStandardFieldListTe
                     CompanyMetaField = null,
                     InvoiceItemId = null,
                     AdvanceInvoices = null,
+                    AuthorizationOperationTypeId = null,
+                    PayoutOperationTypeId = null,
+                    CommissionOperationTypeId = null,
+                    LenderMetaField = null,
+                    PartialRefundLabel = null,
+                    FullRefundLabel = null,
                 }
             );
         JsonAssert.AreEqual(response, mockResponse);
@@ -115,6 +127,12 @@ public class CreateABankImportTemplateFieldsDefaultToTheTypesStandardFieldListTe
               "companyMetaField": "companyMetaField",
               "invoiceItemId": "invoiceItemId",
               "advanceInvoices": true,
+              "authorizationOperationTypeId": "authorizationOperationTypeId",
+              "payoutOperationTypeId": "payoutOperationTypeId",
+              "commissionOperationTypeId": "commissionOperationTypeId",
+              "lenderMetaField": "lenderMetaField",
+              "partialRefundLabel": "partialRefundLabel",
+              "fullRefundLabel": "fullRefundLabel",
               "createdAt": "createdAt",
               "updatedAt": "updatedAt"
             }
