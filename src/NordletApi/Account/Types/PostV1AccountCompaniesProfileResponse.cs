@@ -35,6 +35,18 @@ public record PostV1AccountCompaniesProfileResponse : IJsonOnDeserialized
     [JsonPropertyName("countryCode")]
     public required string CountryCode { get; set; }
 
+    /// <summary>
+    /// Chart of accounts template the company was seeded with
+    /// </summary>
+    [JsonPropertyName("chartTemplate")]
+    public required string ChartTemplate { get; set; }
+
+    /// <summary>
+    /// Chart of accounts template of the company country
+    /// </summary>
+    [JsonPropertyName("countryChartTemplate")]
+    public required string CountryChartTemplate { get; set; }
+
     [JsonPropertyName("baseCurrency")]
     public required string BaseCurrency { get; set; }
 
@@ -67,6 +79,45 @@ public record PostV1AccountCompaniesProfileResponse : IJsonOnDeserialized
 
     [JsonPropertyName("logoFileId")]
     public string? LogoFileId { get; set; }
+
+    [JsonPropertyName("legalForm")]
+    public string? LegalForm { get; set; }
+
+    [JsonPropertyName("registryName")]
+    public string? RegistryName { get; set; }
+
+    [JsonPropertyName("incorporatedOn")]
+    public string? IncorporatedOn { get; set; }
+
+    [JsonPropertyName("shareCapital")]
+    public string? ShareCapital { get; set; }
+
+    [JsonPropertyName("accountsKeptBy")]
+    public PostV1AccountCompaniesProfileResponseAccountsKeptBy? AccountsKeptBy { get; set; }
+
+    [JsonPropertyName("vatPeriod")]
+    public PostV1AccountCompaniesProfileResponseVatPeriod? VatPeriod { get; set; }
+
+    [JsonPropertyName("fiscalYearEndMonth")]
+    public long? FiscalYearEndMonth { get; set; }
+
+    [JsonPropertyName("timeZone")]
+    public required string TimeZone { get; set; }
+
+    [JsonPropertyName("filingOptions")]
+    public Dictionary<string, string?>? FilingOptions { get; set; }
+
+    [JsonPropertyName("bookkeeperName")]
+    public string? BookkeeperName { get; set; }
+
+    [JsonPropertyName("auditorName")]
+    public string? AuditorName { get; set; }
+
+    [JsonPropertyName("auditorRegistrationNumber")]
+    public string? AuditorRegistrationNumber { get; set; }
+
+    [JsonPropertyName("auditRequired")]
+    public required bool AuditRequired { get; set; }
 
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();

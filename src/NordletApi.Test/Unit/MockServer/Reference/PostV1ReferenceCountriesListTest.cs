@@ -24,9 +24,7 @@ public class PostV1ReferenceCountriesListTest : BaseMockServerTest
                   "isEu": true,
                   "isEea": true,
                   "names": {
-                    "lt": "lt",
-                    "en": "en",
-                    "ru": "ru"
+                    "names": "names"
                   }
                 },
                 {
@@ -34,9 +32,7 @@ public class PostV1ReferenceCountriesListTest : BaseMockServerTest
                   "isEu": true,
                   "isEea": true,
                   "names": {
-                    "lt": "lt",
-                    "en": "en",
-                    "ru": "ru"
+                    "names": "names"
                   }
                 }
               ]
@@ -80,9 +76,7 @@ public class PostV1ReferenceCountriesListTest : BaseMockServerTest
                   "isEu": true,
                   "isEea": true,
                   "names": {
-                    "lt": "lt",
-                    "en": "en",
-                    "ru": "ru"
+                    "key": "value"
                   }
                 }
               ]

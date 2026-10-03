@@ -23,6 +23,13 @@ public readonly record struct PostV1DeclarationsConfigsListResponseRowsItemField
         Values.Select
     );
 
+    public static readonly PostV1DeclarationsConfigsListResponseRowsItemFieldsItemKind Url = new(
+        Values.Url
+    );
+
+    public static readonly PostV1DeclarationsConfigsListResponseRowsItemFieldsItemKind Certificate =
+        new(Values.Certificate);
+
     public PostV1DeclarationsConfigsListResponseRowsItemFieldsItemKind(string value)
     {
         Value = value;
@@ -135,5 +142,9 @@ public readonly record struct PostV1DeclarationsConfigsListResponseRowsItemField
         public const string Secret = "secret";
 
         public const string Select = "select";
+
+        public const string Url = "url";
+
+        public const string Certificate = "certificate";
     }
 }

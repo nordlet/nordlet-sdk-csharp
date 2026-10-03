@@ -38,6 +38,9 @@ public record PostV1BankSettlementsImportResponseBatchesItem : IJsonOnDeserializ
     [JsonPropertyName("netTotal")]
     public required string NetTotal { get; set; }
 
+    [JsonPropertyName("fxRate")]
+    public string? FxRate { get; set; }
+
     [JsonPropertyName("status")]
     public required PostV1BankSettlementsImportResponseBatchesItemStatus Status { get; set; }
 

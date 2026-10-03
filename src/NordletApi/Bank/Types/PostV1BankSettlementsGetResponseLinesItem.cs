@@ -41,6 +41,12 @@ public record PostV1BankSettlementsGetResponseLinesItem : IJsonOnDeserialized
     [JsonPropertyName("chargeId")]
     public string? ChargeId { get; set; }
 
+    [JsonPropertyName("commissionPercent")]
+    public string? CommissionPercent { get; set; }
+
+    [JsonPropertyName("commissionAmount")]
+    public string? CommissionAmount { get; set; }
+
     [JsonPropertyName("reference")]
     public string? Reference { get; set; }
 

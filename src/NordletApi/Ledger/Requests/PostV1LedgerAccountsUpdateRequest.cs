@@ -13,7 +13,10 @@ public record PostV1LedgerAccountsUpdateRequest
     public string? Name { get; set; }
 
     [JsonPropertyName("translations")]
-    public PostV1LedgerAccountsUpdateRequestTranslations? Translations { get; set; }
+    public Dictionary<
+        string,
+        PostV1LedgerAccountsUpdateRequestTranslationsValue?
+    >? Translations { get; set; }
 
     [JsonPropertyName("parentId")]
     public string? ParentId { get; set; }

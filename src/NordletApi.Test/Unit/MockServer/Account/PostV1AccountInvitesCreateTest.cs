@@ -25,7 +25,6 @@ public class PostV1AccountInvitesCreateTest : BaseMockServerTest
               "email": "email",
               "role": "role",
               "expiresAt": "expiresAt",
-              "inviteUrl": "inviteUrl",
               "emailSent": true
             }
             """;
@@ -73,7 +72,6 @@ public class PostV1AccountInvitesCreateTest : BaseMockServerTest
               "email": "email",
               "role": "role",
               "expiresAt": "expiresAt",
-              "inviteUrl": "inviteUrl",
               "emailSent": true
             }
             """;

@@ -27,6 +27,8 @@ public class PostV1AccountApiKeysListTest : BaseMockServerTest
                     "scopes"
                   ],
                   "lastUsedAt": "lastUsedAt",
+                  "expiresAt": "expiresAt",
+                  "replacedByKeyId": "x",
                   "revokedAt": "revokedAt",
                   "createdAt": "createdAt"
                 },
@@ -38,6 +40,8 @@ public class PostV1AccountApiKeysListTest : BaseMockServerTest
                     "scopes"
                   ],
                   "lastUsedAt": "lastUsedAt",
+                  "expiresAt": "expiresAt",
+                  "replacedByKeyId": "x",
                   "revokedAt": "revokedAt",
                   "createdAt": "createdAt"
                 }
@@ -84,6 +88,8 @@ public class PostV1AccountApiKeysListTest : BaseMockServerTest
                     "scopes"
                   ],
                   "lastUsedAt": "lastUsedAt",
+                  "expiresAt": "expiresAt",
+                  "replacedByKeyId": "replacedByKeyId",
                   "revokedAt": "revokedAt",
                   "createdAt": "createdAt"
                 }

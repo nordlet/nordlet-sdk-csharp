@@ -21,6 +21,18 @@ public record PostV1AccountCompaniesUpdateRequest
     [JsonPropertyName("isVatPayer")]
     public bool? IsVatPayer { get; set; }
 
+    [JsonPropertyName("vatPeriod")]
+    public PostV1AccountCompaniesUpdateRequestVatPeriod? VatPeriod { get; set; }
+
+    [JsonPropertyName("fiscalYearEndMonth")]
+    public long? FiscalYearEndMonth { get; set; }
+
+    [JsonPropertyName("timeZone")]
+    public string? TimeZone { get; set; }
+
+    [JsonPropertyName("filingOptions")]
+    public Dictionary<string, string?>? FilingOptions { get; set; }
+
     [JsonPropertyName("address")]
     public PostV1AccountCompaniesUpdateRequestAddress? Address { get; set; }
 
@@ -44,6 +56,33 @@ public record PostV1AccountCompaniesUpdateRequest
 
     [JsonPropertyName("defaultInvoiceCurrency")]
     public string? DefaultInvoiceCurrency { get; set; }
+
+    [JsonPropertyName("legalForm")]
+    public string? LegalForm { get; set; }
+
+    [JsonPropertyName("registryName")]
+    public string? RegistryName { get; set; }
+
+    [JsonPropertyName("incorporatedOn")]
+    public string? IncorporatedOn { get; set; }
+
+    [JsonPropertyName("shareCapital")]
+    public string? ShareCapital { get; set; }
+
+    [JsonPropertyName("accountsKeptBy")]
+    public PostV1AccountCompaniesUpdateRequestAccountsKeptBy? AccountsKeptBy { get; set; }
+
+    [JsonPropertyName("bookkeeperName")]
+    public string? BookkeeperName { get; set; }
+
+    [JsonPropertyName("auditorName")]
+    public string? AuditorName { get; set; }
+
+    [JsonPropertyName("auditorRegistrationNumber")]
+    public string? AuditorRegistrationNumber { get; set; }
+
+    [JsonPropertyName("auditRequired")]
+    public bool? AuditRequired { get; set; }
 
     [JsonPropertyName("logo")]
     public PostV1AccountCompaniesUpdateRequestLogo? Logo { get; set; }

@@ -29,6 +29,7 @@ public class PostV1BankSettlementsPostTest : BaseMockServerTest
               "grossTotal": "grossTotal",
               "feeTotal": "feeTotal",
               "netTotal": "netTotal",
+              "fxRate": "fxRate",
               "status": "imported",
               "journalTransactionId": "x",
               "bankTransactionId": "x",
@@ -46,7 +47,9 @@ public class PostV1BankSettlementsPostTest : BaseMockServerTest
                 "commissionAmount": "commissionAmount",
                 "sellerAmount": "sellerAmount",
                 "feeAmount": "feeAmount",
-                "suspenseAmount": "suspenseAmount"
+                "suspenseAmount": "suspenseAmount",
+                "fxRate": "fxRate",
+                "exchangeDifference": "exchangeDifference"
               }
             }
             """;
@@ -98,6 +101,7 @@ public class PostV1BankSettlementsPostTest : BaseMockServerTest
               "grossTotal": "grossTotal",
               "feeTotal": "feeTotal",
               "netTotal": "netTotal",
+              "fxRate": "fxRate",
               "status": "imported",
               "journalTransactionId": "journalTransactionId",
               "bankTransactionId": "bankTransactionId",
@@ -114,7 +118,9 @@ public class PostV1BankSettlementsPostTest : BaseMockServerTest
                 "commissionAmount": "commissionAmount",
                 "sellerAmount": "sellerAmount",
                 "feeAmount": "feeAmount",
-                "suspenseAmount": "suspenseAmount"
+                "suspenseAmount": "suspenseAmount",
+                "fxRate": "fxRate",
+                "exchangeDifference": "exchangeDifference"
               }
             }
             """;

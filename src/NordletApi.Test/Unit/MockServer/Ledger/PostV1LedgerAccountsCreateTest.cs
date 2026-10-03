@@ -26,13 +26,7 @@ public class PostV1LedgerAccountsCreateTest : BaseMockServerTest
               "code": "code",
               "name": "name",
               "translations": {
-                "lt": {
-                  "name": "x"
-                },
-                "en": {
-                  "name": "x"
-                },
-                "ru": {
+                "translations": {
                   "name": "x"
                 }
               },
@@ -90,13 +84,7 @@ public class PostV1LedgerAccountsCreateTest : BaseMockServerTest
               "code": "code",
               "name": "name",
               "translations": {
-                "lt": {
-                  "name": "name"
-                },
-                "en": {
-                  "name": "name"
-                },
-                "ru": {
+                "key": {
                   "name": "name"
                 }
               },

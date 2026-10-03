@@ -48,6 +48,22 @@ public class PostV1AssetsAssetsModernizeTest : BaseMockServerTest
                   "ref": "x"
                 }
               ],
+              "inputVatAmount": "inputVatAmount",
+              "inputVatFirstUseDate": "inputVatFirstUseDate",
+              "inputVatDeductiblePercent": "inputVatDeductiblePercent",
+              "inputVatRealEstate": true,
+              "inputVatUseChanges": [
+                {
+                  "year": 1000000,
+                  "percent": "percent",
+                  "reason": "use_change"
+                },
+                {
+                  "year": 1000000,
+                  "percent": "percent",
+                  "reason": "use_change"
+                }
+              ],
               "createdAt": "createdAt"
             }
             """;
@@ -114,6 +130,17 @@ public class PostV1AssetsAssetsModernizeTest : BaseMockServerTest
                 {
                   "name": "name",
                   "ref": "ref"
+                }
+              ],
+              "inputVatAmount": "inputVatAmount",
+              "inputVatFirstUseDate": "inputVatFirstUseDate",
+              "inputVatDeductiblePercent": "inputVatDeductiblePercent",
+              "inputVatRealEstate": true,
+              "inputVatUseChanges": [
+                {
+                  "year": 1000000,
+                  "percent": "percent",
+                  "reason": "use_change"
                 }
               ],
               "createdAt": "createdAt"

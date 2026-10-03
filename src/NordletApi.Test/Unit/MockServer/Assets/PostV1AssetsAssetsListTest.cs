@@ -46,6 +46,22 @@ public class PostV1AssetsAssetsListTest : BaseMockServerTest
                       "ref": "x"
                     }
                   ],
+                  "inputVatAmount": "inputVatAmount",
+                  "inputVatFirstUseDate": "inputVatFirstUseDate",
+                  "inputVatDeductiblePercent": "inputVatDeductiblePercent",
+                  "inputVatRealEstate": true,
+                  "inputVatUseChanges": [
+                    {
+                      "year": 1000000,
+                      "percent": "percent",
+                      "reason": "use_change"
+                    },
+                    {
+                      "year": 1000000,
+                      "percent": "percent",
+                      "reason": "use_change"
+                    }
+                  ],
                   "createdAt": "createdAt"
                 },
                 {
@@ -73,6 +89,22 @@ public class PostV1AssetsAssetsListTest : BaseMockServerTest
                     {
                       "name": "x",
                       "ref": "x"
+                    }
+                  ],
+                  "inputVatAmount": "inputVatAmount",
+                  "inputVatFirstUseDate": "inputVatFirstUseDate",
+                  "inputVatDeductiblePercent": "inputVatDeductiblePercent",
+                  "inputVatRealEstate": true,
+                  "inputVatUseChanges": [
+                    {
+                      "year": 1000000,
+                      "percent": "percent",
+                      "reason": "use_change"
+                    },
+                    {
+                      "year": 1000000,
+                      "percent": "percent",
+                      "reason": "use_change"
                     }
                   ],
                   "createdAt": "createdAt"
@@ -147,6 +179,17 @@ public class PostV1AssetsAssetsListTest : BaseMockServerTest
                     {
                       "name": "name",
                       "ref": "ref"
+                    }
+                  ],
+                  "inputVatAmount": "inputVatAmount",
+                  "inputVatFirstUseDate": "inputVatFirstUseDate",
+                  "inputVatDeductiblePercent": "inputVatDeductiblePercent",
+                  "inputVatRealEstate": true,
+                  "inputVatUseChanges": [
+                    {
+                      "year": 1000000,
+                      "percent": "percent",
+                      "reason": "use_change"
                     }
                   ],
                   "createdAt": "createdAt"

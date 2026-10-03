@@ -35,6 +35,12 @@ public record PostV1DocumentSeriesCreateResponse : IJsonOnDeserialized
     [JsonPropertyName("nextNumber")]
     public required long NextNumber { get; set; }
 
+    [JsonPropertyName("allocatedFrom")]
+    public long? AllocatedFrom { get; set; }
+
+    [JsonPropertyName("allocatedTo")]
+    public long? AllocatedTo { get; set; }
+
     [JsonPropertyName("warehouseId")]
     public string? WarehouseId { get; set; }
 

@@ -30,6 +30,18 @@ public record PostV1LedgerOwnersUpdateRequest
     [JsonPropertyName("sharesAcquisitionDate")]
     public string? SharesAcquisitionDate { get; set; }
 
+    [JsonPropertyName("withholdingTaxPercent")]
+    public string? WithholdingTaxPercent { get; set; }
+
+    [JsonPropertyName("partnerLiability")]
+    public PostV1LedgerOwnersUpdateRequestPartnerLiability? PartnerLiability { get; set; }
+
+    [JsonPropertyName("specialBalanceRequired")]
+    public bool? SpecialBalanceRequired { get; set; }
+
+    [JsonPropertyName("supplementaryBalanceRequired")]
+    public bool? SupplementaryBalanceRequired { get; set; }
+
     [JsonPropertyName("address")]
     public PostV1LedgerOwnersUpdateRequestAddress? Address { get; set; }
 

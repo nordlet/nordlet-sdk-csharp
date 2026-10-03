@@ -12,6 +12,9 @@ public record PostV1SalesInvoicesUpdateRequest
     [JsonPropertyName("partnerId")]
     public string? PartnerId { get; set; }
 
+    [JsonPropertyName("agreementId")]
+    public string? AgreementId { get; set; }
+
     [JsonPropertyName("currency")]
     public string? Currency { get; set; }
 
@@ -23,6 +26,18 @@ public record PostV1SalesInvoicesUpdateRequest
 
     [JsonPropertyName("vatScheme")]
     public PostV1SalesInvoicesUpdateRequestVatScheme? VatScheme { get; set; }
+
+    [JsonPropertyName("intrastatTransportMode")]
+    public string? IntrastatTransportMode { get; set; }
+
+    [JsonPropertyName("intrastatDeliveryTerms")]
+    public string? IntrastatDeliveryTerms { get; set; }
+
+    [JsonPropertyName("intrastatRegion")]
+    public string? IntrastatRegion { get; set; }
+
+    [JsonPropertyName("intrastatNatureOfTransaction")]
+    public string? IntrastatNatureOfTransaction { get; set; }
 
     [JsonPropertyName("vatCountryCode")]
     public string? VatCountryCode { get; set; }

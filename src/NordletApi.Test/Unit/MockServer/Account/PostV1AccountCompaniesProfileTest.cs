@@ -26,6 +26,8 @@ public class PostV1AccountCompaniesProfileTest : BaseMockServerTest
               "isVatPayer": true,
               "isSandbox": true,
               "countryCode": "countryCode",
+              "chartTemplate": "chartTemplate",
+              "countryChartTemplate": "countryChartTemplate",
               "baseCurrency": "baseCurrency",
               "defaultInvoiceCurrency": "defaultInvoiceCurrency",
               "status": "active",
@@ -41,7 +43,22 @@ public class PostV1AccountCompaniesProfileTest : BaseMockServerTest
               "bankName": "bankName",
               "peppolId": "peppolId",
               "sepaCreditorId": "sepaCreditorId",
-              "logoFileId": "logoFileId"
+              "logoFileId": "logoFileId",
+              "legalForm": "legalForm",
+              "registryName": "registryName",
+              "incorporatedOn": "incorporatedOn",
+              "shareCapital": "shareCapital",
+              "accountsKeptBy": "company",
+              "vatPeriod": "monthly",
+              "fiscalYearEndMonth": 1000000,
+              "timeZone": "timeZone",
+              "filingOptions": {
+                "filingOptions": "filingOptions"
+              },
+              "bookkeeperName": "bookkeeperName",
+              "auditorName": "auditorName",
+              "auditorRegistrationNumber": "auditorRegistrationNumber",
+              "auditRequired": true
             }
             """;
 
@@ -84,6 +101,8 @@ public class PostV1AccountCompaniesProfileTest : BaseMockServerTest
               "isVatPayer": true,
               "isSandbox": true,
               "countryCode": "countryCode",
+              "chartTemplate": "chartTemplate",
+              "countryChartTemplate": "countryChartTemplate",
               "baseCurrency": "baseCurrency",
               "defaultInvoiceCurrency": "defaultInvoiceCurrency",
               "status": "active",
@@ -99,7 +118,22 @@ public class PostV1AccountCompaniesProfileTest : BaseMockServerTest
               "bankName": "bankName",
               "peppolId": "peppolId",
               "sepaCreditorId": "sepaCreditorId",
-              "logoFileId": "logoFileId"
+              "logoFileId": "logoFileId",
+              "legalForm": "legalForm",
+              "registryName": "registryName",
+              "incorporatedOn": "incorporatedOn",
+              "shareCapital": "shareCapital",
+              "accountsKeptBy": "company",
+              "vatPeriod": "monthly",
+              "fiscalYearEndMonth": 1000000,
+              "timeZone": "timeZone",
+              "filingOptions": {
+                "key": "value"
+              },
+              "bookkeeperName": "bookkeeperName",
+              "auditorName": "auditorName",
+              "auditorRegistrationNumber": "auditorRegistrationNumber",
+              "auditRequired": true
             }
             """;
 

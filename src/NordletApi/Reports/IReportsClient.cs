@@ -86,6 +86,33 @@ public partial interface IReportsClient
         CancellationToken cancellationToken = default
     );
 
+    /// <summary>
+    /// Export the ledger of one financial year as an SIE file (the Swedish standard accounting interchange format, specification 4B). The file carries the chart of accounts, the opening and closing balance of every balance sheet account and the turnover of every result account for the year and the year before it, and, when asked for, every posted voucher of the year with its lines. Cost centres travel as dimension 1 and projects as dimension 6. Services that build a Swedish annual report read this file.
+    /// </summary>
+    WithRawResponseTask<PostV1ReportsSieResponse> PostV1ReportsSieAsync(
+        PostV1ReportsSieRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    /// <summary>
+    /// Export the posted ledger of a period as a DATEV Buchungsstapel file (DATEV format, category 21, version 700). Every transaction becomes one or more bookings of an amount between an account and a contra account; a transaction with more than two lines is split into pairs whose totals match it. The file is semicolon separated and written in the Windows-1252 character set DATEV expects.
+    /// </summary>
+    WithRawResponseTask<PostV1ReportsDatevResponse> PostV1ReportsDatevAsync(
+        PostV1ReportsDatevRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    /// <summary>
+    /// Export the posted ledger of a period as a French FEC file (fichier des écritures comptables, order of 29 July 2013). One line per journal entry line, with the eighteen fields the order names, in their order, after a header line. Tab separated, UTF-8, comma as the decimal separator.
+    /// </summary>
+    WithRawResponseTask<PostV1ReportsFecResponse> PostV1ReportsFecAsync(
+        PostV1ReportsFecRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
     WithRawResponseTask<PostV1ReportsEuPurchasesResponse> PostV1ReportsEuPurchasesAsync(
         PostV1ReportsEuPurchasesRequest request,
         RequestOptions? options = null,

@@ -38,6 +38,12 @@ public record PostV1BillingAccountSetPlanResponse : IJsonOnDeserialized
     [JsonPropertyName("hasSubscription")]
     public required bool HasSubscription { get; set; }
 
+    [JsonPropertyName("paymentFailedAt")]
+    public string? PaymentFailedAt { get; set; }
+
+    [JsonPropertyName("paymentFailedInvoiceUrl")]
+    public string? PaymentFailedInvoiceUrl { get; set; }
+
     [JsonPropertyName("monthToDate")]
     public required PostV1BillingAccountSetPlanResponseMonthToDate MonthToDate { get; set; }
 

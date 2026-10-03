@@ -30,6 +30,9 @@ public record PostV1DeclarationsConfigsListResponseRowsItem : IJsonOnDeserialize
     [JsonPropertyName("values")]
     public Dictionary<string, string> Values { get; set; } = new Dictionary<string, string>();
 
+    [JsonPropertyName("acceptsCertificate")]
+    public required bool AcceptsCertificate { get; set; }
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

@@ -24,13 +24,7 @@ public class PostV1LedgerAccountsListTest : BaseMockServerTest
                   "code": "code",
                   "name": "name",
                   "translations": {
-                    "lt": {
-                      "name": "x"
-                    },
-                    "en": {
-                      "name": "x"
-                    },
-                    "ru": {
+                    "translations": {
                       "name": "x"
                     }
                   },
@@ -44,13 +38,7 @@ public class PostV1LedgerAccountsListTest : BaseMockServerTest
                   "code": "code",
                   "name": "name",
                   "translations": {
-                    "lt": {
-                      "name": "x"
-                    },
-                    "en": {
-                      "name": "x"
-                    },
-                    "ru": {
+                    "translations": {
                       "name": "x"
                     }
                   },

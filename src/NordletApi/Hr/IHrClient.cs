@@ -38,6 +38,15 @@ public partial interface IHrClient
         CancellationToken cancellationToken = default
     );
 
+    /// <summary>
+    /// Attributes a filing of the company country needs about a person that the shared employee record does not carry, such as the sex and place of birth an Italian income certificate asks for. Their values are kept in the payrollOptions of the employee.
+    /// </summary>
+    WithRawResponseTask<PostV1HrEmployeesFieldsResponse> ExtraEmployeeDetailsTheCountryOfTheCompanyAsksForAsync(
+        PostV1HrEmployeesFieldsRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
     WithRawResponseTask<PostV1HrEmployeesListResponse> PostV1HrEmployeesListAsync(
         PostV1HrEmployeesListRequest request,
         RequestOptions? options = null,

@@ -30,6 +30,8 @@ public class PostV1BankSettlementsMatchTest : BaseMockServerTest
               "description": "description",
               "sourceId": "sourceId",
               "chargeId": "chargeId",
+              "commissionPercent": "commissionPercent",
+              "commissionAmount": "commissionAmount",
               "reference": "reference",
               "matchedInvoiceId": "x",
               "matchStatus": "unmatched"
@@ -79,6 +81,8 @@ public class PostV1BankSettlementsMatchTest : BaseMockServerTest
               "description": "description",
               "sourceId": "sourceId",
               "chargeId": "chargeId",
+              "commissionPercent": "commissionPercent",
+              "commissionAmount": "commissionAmount",
               "reference": "reference",
               "matchedInvoiceId": "matchedInvoiceId",
               "matchStatus": "unmatched"

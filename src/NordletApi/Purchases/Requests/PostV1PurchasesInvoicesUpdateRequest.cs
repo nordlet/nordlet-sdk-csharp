@@ -33,6 +33,21 @@ public record PostV1PurchasesInvoicesUpdateRequest
     [JsonPropertyName("notes")]
     public string? Notes { get; set; }
 
+    [JsonPropertyName("intrastatTransportMode")]
+    public string? IntrastatTransportMode { get; set; }
+
+    [JsonPropertyName("intrastatDeliveryTerms")]
+    public string? IntrastatDeliveryTerms { get; set; }
+
+    [JsonPropertyName("intrastatRegion")]
+    public string? IntrastatRegion { get; set; }
+
+    [JsonPropertyName("intrastatNatureOfTransaction")]
+    public string? IntrastatNatureOfTransaction { get; set; }
+
+    [JsonPropertyName("einvoiceNumber")]
+    public string? EinvoiceNumber { get; set; }
+
     [JsonPropertyName("lines")]
     public IEnumerable<PostV1PurchasesInvoicesUpdateRequestLinesItem>? Lines { get; set; }
 

@@ -41,6 +41,54 @@ public record PostV1DeclarationsSubmissionsMarkResponse : IJsonOnDeserialized
     [JsonPropertyName("message")]
     public string? Message { get; set; }
 
+    [JsonPropertyName("ruleKey")]
+    public string? RuleKey { get; set; }
+
+    [JsonPropertyName("period")]
+    public string? Period { get; set; }
+
+    [JsonPropertyName("documentKey")]
+    public string? DocumentKey { get; set; }
+
+    [JsonPropertyName("origin")]
+    public required string Origin { get; set; }
+
+    [JsonPropertyName("transportSystem")]
+    public string? TransportSystem { get; set; }
+
+    [JsonPropertyName("submittedAt")]
+    public string? SubmittedAt { get; set; }
+
+    [JsonPropertyName("acceptedAt")]
+    public string? AcceptedAt { get; set; }
+
+    [JsonPropertyName("rejectedAt")]
+    public string? RejectedAt { get; set; }
+
+    [JsonPropertyName("checkedAt")]
+    public string? CheckedAt { get; set; }
+
+    [JsonPropertyName("nextCheckAt")]
+    public string? NextCheckAt { get; set; }
+
+    [JsonPropertyName("attempts")]
+    public required long Attempts { get; set; }
+
+    [JsonPropertyName("deliveryError")]
+    public string? DeliveryError { get; set; }
+
+    [JsonPropertyName("sentSha256")]
+    public string? SentSha256 { get; set; }
+
+    [JsonPropertyName("certificateFingerprint")]
+    public string? CertificateFingerprint { get; set; }
+
+    [JsonPropertyName("submittedByActorType")]
+    public string? SubmittedByActorType { get; set; }
+
+    [JsonPropertyName("submittedByActorId")]
+    public string? SubmittedByActorId { get; set; }
+
     [JsonPropertyName("createdAt")]
     public required string CreatedAt { get; set; }
 

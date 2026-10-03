@@ -14,7 +14,7 @@ public class PostV1AccountLocaleSetTest : BaseMockServerTest
     {
         const string requestJson = """
             {
-              "locale": "lt"
+              "locale": "en"
             }
             """;
 
@@ -42,7 +42,7 @@ public class PostV1AccountLocaleSetTest : BaseMockServerTest
             );
 
         var response = await Client.Account.PostV1AccountLocaleSetAsync(
-            new PostV1AccountLocaleSetRequest { Locale = PostV1AccountLocaleSetRequestLocale.Lt }
+            new PostV1AccountLocaleSetRequest { Locale = PostV1AccountLocaleSetRequestLocale.En }
         );
         JsonAssert.AreEqual(response, mockResponse);
     }
@@ -52,7 +52,7 @@ public class PostV1AccountLocaleSetTest : BaseMockServerTest
     {
         const string requestJson = """
             {
-              "locale": "lt"
+              "locale": "en"
             }
             """;
 
@@ -80,7 +80,7 @@ public class PostV1AccountLocaleSetTest : BaseMockServerTest
             );
 
         var response = await Client.Account.PostV1AccountLocaleSetAsync(
-            new PostV1AccountLocaleSetRequest { Locale = PostV1AccountLocaleSetRequestLocale.Lt }
+            new PostV1AccountLocaleSetRequest { Locale = PostV1AccountLocaleSetRequestLocale.En }
         );
         JsonAssert.AreEqual(response, mockResponse);
     }

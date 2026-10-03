@@ -23,6 +23,15 @@ public record PostV1AccountMeResponseBilling : IJsonOnDeserialized
     [JsonPropertyName("trialEndsAt")]
     public string? TrialEndsAt { get; set; }
 
+    [JsonPropertyName("payerUserId")]
+    public required string PayerUserId { get; set; }
+
+    [JsonPropertyName("payerEmail")]
+    public required string PayerEmail { get; set; }
+
+    [JsonPropertyName("isPayer")]
+    public required bool IsPayer { get; set; }
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

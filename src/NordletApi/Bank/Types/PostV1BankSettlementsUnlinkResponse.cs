@@ -38,6 +38,9 @@ public record PostV1BankSettlementsUnlinkResponse : IJsonOnDeserialized
     [JsonPropertyName("netTotal")]
     public required string NetTotal { get; set; }
 
+    [JsonPropertyName("fxRate")]
+    public string? FxRate { get; set; }
+
     [JsonPropertyName("status")]
     public required PostV1BankSettlementsUnlinkResponseStatus Status { get; set; }
 

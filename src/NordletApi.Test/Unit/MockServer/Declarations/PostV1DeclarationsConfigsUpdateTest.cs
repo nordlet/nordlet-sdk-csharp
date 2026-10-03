@@ -60,7 +60,8 @@ public class PostV1DeclarationsConfigsUpdateTest : BaseMockServerTest
               ],
               "values": {
                 "values": "values"
-              }
+              },
+              "acceptsCertificate": true
             }
             """;
 
@@ -126,7 +127,8 @@ public class PostV1DeclarationsConfigsUpdateTest : BaseMockServerTest
               ],
               "values": {
                 "key": "value"
-              }
+              },
+              "acceptsCertificate": true
             }
             """;
 

@@ -58,7 +58,8 @@ public class PostV1DeclarationsConfigsListTest : BaseMockServerTest
                   ],
                   "values": {
                     "values": "values"
-                  }
+                  },
+                  "acceptsCertificate": true
                 },
                 {
                   "system": "system",
@@ -98,7 +99,8 @@ public class PostV1DeclarationsConfigsListTest : BaseMockServerTest
                   ],
                   "values": {
                     "values": "values"
-                  }
+                  },
+                  "acceptsCertificate": true
                 }
               ]
             }
@@ -154,7 +156,8 @@ public class PostV1DeclarationsConfigsListTest : BaseMockServerTest
                   ],
                   "values": {
                     "key": "value"
-                  }
+                  },
+                  "acceptsCertificate": true
                 }
               ]
             }

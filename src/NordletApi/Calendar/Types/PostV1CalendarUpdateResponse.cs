@@ -41,6 +41,18 @@ public record PostV1CalendarUpdateResponse : IJsonOnDeserialized
     [JsonPropertyName("href")]
     public string? Href { get; set; }
 
+    [JsonPropertyName("submission")]
+    public PostV1CalendarUpdateResponseSubmission? Submission { get; set; }
+
+    [JsonPropertyName("canSubmit")]
+    public required bool CanSubmit { get; set; }
+
+    [JsonPropertyName("canDownload")]
+    public required bool CanDownload { get; set; }
+
+    [JsonPropertyName("automated")]
+    public required bool Automated { get; set; }
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

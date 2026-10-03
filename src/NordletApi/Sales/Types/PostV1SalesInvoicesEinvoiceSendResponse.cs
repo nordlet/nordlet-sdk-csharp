@@ -20,8 +20,20 @@ public record PostV1SalesInvoicesEinvoiceSendResponse : IJsonOnDeserialized
     [JsonPropertyName("format")]
     public required string Format { get; set; }
 
+    [JsonPropertyName("transport")]
+    public required PostV1SalesInvoicesEinvoiceSendResponseTransport Transport { get; set; }
+
     [JsonPropertyName("messageId")]
     public required string MessageId { get; set; }
+
+    [JsonPropertyName("nationalNumber")]
+    public string? NationalNumber { get; set; }
+
+    [JsonPropertyName("status")]
+    public required PostV1SalesInvoicesEinvoiceSendResponseStatus Status { get; set; }
+
+    [JsonPropertyName("detail")]
+    public string? Detail { get; set; }
 
     [JsonPropertyName("fileId")]
     public required string FileId { get; set; }

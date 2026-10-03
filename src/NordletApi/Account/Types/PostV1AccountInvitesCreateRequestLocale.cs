@@ -10,11 +10,11 @@ namespace NordletApi;
 [Serializable]
 public readonly record struct PostV1AccountInvitesCreateRequestLocale : IStringEnum
 {
-    public static readonly PostV1AccountInvitesCreateRequestLocale Lt = new(Values.Lt);
-
     public static readonly PostV1AccountInvitesCreateRequestLocale En = new(Values.En);
 
-    public static readonly PostV1AccountInvitesCreateRequestLocale Ru = new(Values.Ru);
+    public static readonly PostV1AccountInvitesCreateRequestLocale Lt = new(Values.Lt);
+
+    public static readonly PostV1AccountInvitesCreateRequestLocale De = new(Values.De);
 
     public PostV1AccountInvitesCreateRequestLocale(string value)
     {
@@ -115,10 +115,10 @@ public readonly record struct PostV1AccountInvitesCreateRequestLocale : IStringE
     [Serializable]
     public static class Values
     {
-        public const string Lt = "lt";
-
         public const string En = "en";
 
-        public const string Ru = "ru";
+        public const string Lt = "lt";
+
+        public const string De = "de";
     }
 }

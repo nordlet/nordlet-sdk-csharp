@@ -21,7 +21,7 @@ public record PostV1ReferenceCountriesListResponseRowsItem : IJsonOnDeserialized
     public required bool IsEea { get; set; }
 
     [JsonPropertyName("names")]
-    public required PostV1ReferenceCountriesListResponseRowsItemNames Names { get; set; }
+    public Dictionary<string, string> Names { get; set; } = new Dictionary<string, string>();
 
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();

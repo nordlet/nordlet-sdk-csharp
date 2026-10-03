@@ -22,6 +22,10 @@ public class PostV1AccountReferralGetTest : BaseMockServerTest
               "link": "link",
               "points": 1000000,
               "referredCount": 1000000,
+              "rates": {
+                "perEur": 1000000,
+                "pointCents": 1000000
+              },
               "history": [
                 {
                   "points": 1000000,
@@ -72,6 +76,10 @@ public class PostV1AccountReferralGetTest : BaseMockServerTest
               "link": "link",
               "points": 1000000,
               "referredCount": 1000000,
+              "rates": {
+                "perEur": 1000000,
+                "pointCents": 1000000
+              },
               "history": [
                 {
                   "points": 1000000,

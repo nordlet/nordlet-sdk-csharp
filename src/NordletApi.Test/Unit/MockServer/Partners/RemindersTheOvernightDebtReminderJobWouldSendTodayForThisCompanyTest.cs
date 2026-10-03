@@ -24,7 +24,7 @@ public class RemindersTheOvernightDebtReminderJobWouldSendTodayForThisCompanyTes
                   "partnerId": "x",
                   "partnerName": "partnerName",
                   "email": "email",
-                  "locale": "lt",
+                  "locale": "en",
                   "currency": "currency",
                   "invoices": [
                     {
@@ -53,7 +53,7 @@ public class RemindersTheOvernightDebtReminderJobWouldSendTodayForThisCompanyTes
                   "partnerId": "x",
                   "partnerName": "partnerName",
                   "email": "email",
-                  "locale": "lt",
+                  "locale": "en",
                   "currency": "currency",
                   "invoices": [
                     {
@@ -119,7 +119,7 @@ public class RemindersTheOvernightDebtReminderJobWouldSendTodayForThisCompanyTes
                   "partnerId": "partnerId",
                   "partnerName": "partnerName",
                   "email": "email",
-                  "locale": "lt",
+                  "locale": "en",
                   "currency": "currency",
                   "invoices": [
                     {

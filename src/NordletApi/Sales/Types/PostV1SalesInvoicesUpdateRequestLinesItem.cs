@@ -45,6 +45,9 @@ public record PostV1SalesInvoicesUpdateRequestLinesItem : IJsonOnDeserialized
     [JsonPropertyName("recognition")]
     public PostV1SalesInvoicesUpdateRequestLinesItemRecognition? Recognition { get; set; }
 
+    [JsonPropertyName("vatExemptionBasis")]
+    public string? VatExemptionBasis { get; set; }
+
     [JsonPropertyName("standaloneSellingPrice")]
     public string? StandaloneSellingPrice { get; set; }
 

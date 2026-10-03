@@ -29,6 +29,7 @@ public class PostV1BankSettlementsGetTest : BaseMockServerTest
               "grossTotal": "grossTotal",
               "feeTotal": "feeTotal",
               "netTotal": "netTotal",
+              "fxRate": "fxRate",
               "status": "imported",
               "journalTransactionId": "x",
               "bankTransactionId": "x",
@@ -49,6 +50,8 @@ public class PostV1BankSettlementsGetTest : BaseMockServerTest
                   "description": "description",
                   "sourceId": "sourceId",
                   "chargeId": "chargeId",
+                  "commissionPercent": "commissionPercent",
+                  "commissionAmount": "commissionAmount",
                   "reference": "reference",
                   "matchedInvoiceId": "x",
                   "matchStatus": "unmatched"
@@ -64,6 +67,8 @@ public class PostV1BankSettlementsGetTest : BaseMockServerTest
                   "description": "description",
                   "sourceId": "sourceId",
                   "chargeId": "chargeId",
+                  "commissionPercent": "commissionPercent",
+                  "commissionAmount": "commissionAmount",
                   "reference": "reference",
                   "matchedInvoiceId": "x",
                   "matchStatus": "unmatched"
@@ -114,6 +119,7 @@ public class PostV1BankSettlementsGetTest : BaseMockServerTest
               "grossTotal": "grossTotal",
               "feeTotal": "feeTotal",
               "netTotal": "netTotal",
+              "fxRate": "fxRate",
               "status": "imported",
               "journalTransactionId": "journalTransactionId",
               "bankTransactionId": "bankTransactionId",
@@ -134,6 +140,8 @@ public class PostV1BankSettlementsGetTest : BaseMockServerTest
                   "description": "description",
                   "sourceId": "sourceId",
                   "chargeId": "chargeId",
+                  "commissionPercent": "commissionPercent",
+                  "commissionAmount": "commissionAmount",
                   "reference": "reference",
                   "matchedInvoiceId": "matchedInvoiceId",
                   "matchStatus": "unmatched"

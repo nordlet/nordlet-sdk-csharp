@@ -42,14 +42,17 @@ public record PostV1HrEmployeesCreateRequest
     [JsonPropertyName("hireDate")]
     public string? HireDate { get; set; }
 
-    [JsonPropertyName("applyNpd")]
-    public bool? ApplyNpd { get; set; }
+    [JsonPropertyName("applyAllowance")]
+    public bool? ApplyAllowance { get; set; }
 
-    [JsonPropertyName("npdOverride")]
-    public string? NpdOverride { get; set; }
+    [JsonPropertyName("allowanceOverride")]
+    public string? AllowanceOverride { get; set; }
 
     [JsonPropertyName("pensionAccumulation")]
     public bool? PensionAccumulation { get; set; }
+
+    [JsonPropertyName("payrollOptions")]
+    public Dictionary<string, string>? PayrollOptions { get; set; }
 
     [JsonPropertyName("notes")]
     public string? Notes { get; set; }

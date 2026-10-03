@@ -22,6 +22,14 @@ public readonly record struct PostV1DeclarationsConfigsUpdateResponseFieldsItemK
         Values.Select
     );
 
+    public static readonly PostV1DeclarationsConfigsUpdateResponseFieldsItemKind Url = new(
+        Values.Url
+    );
+
+    public static readonly PostV1DeclarationsConfigsUpdateResponseFieldsItemKind Certificate = new(
+        Values.Certificate
+    );
+
     public PostV1DeclarationsConfigsUpdateResponseFieldsItemKind(string value)
     {
         Value = value;
@@ -132,5 +140,9 @@ public readonly record struct PostV1DeclarationsConfigsUpdateResponseFieldsItemK
         public const string Secret = "secret";
 
         public const string Select = "select";
+
+        public const string Url = "url";
+
+        public const string Certificate = "certificate";
     }
 }

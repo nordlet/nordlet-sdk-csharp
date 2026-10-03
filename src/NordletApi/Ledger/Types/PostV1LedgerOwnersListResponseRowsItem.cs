@@ -35,6 +35,18 @@ public record PostV1LedgerOwnersListResponseRowsItem : IJsonOnDeserialized
     [JsonPropertyName("sharesAcquisitionDate")]
     public string? SharesAcquisitionDate { get; set; }
 
+    [JsonPropertyName("withholdingTaxPercent")]
+    public string? WithholdingTaxPercent { get; set; }
+
+    [JsonPropertyName("partnerLiability")]
+    public PostV1LedgerOwnersListResponseRowsItemPartnerLiability? PartnerLiability { get; set; }
+
+    [JsonPropertyName("specialBalanceRequired")]
+    public bool? SpecialBalanceRequired { get; set; }
+
+    [JsonPropertyName("supplementaryBalanceRequired")]
+    public bool? SupplementaryBalanceRequired { get; set; }
+
     [JsonPropertyName("address")]
     public PostV1LedgerOwnersListResponseRowsItemAddress? Address { get; set; }
 

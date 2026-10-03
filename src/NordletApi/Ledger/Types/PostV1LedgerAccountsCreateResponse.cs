@@ -21,7 +21,10 @@ public record PostV1LedgerAccountsCreateResponse : IJsonOnDeserialized
     public required string Name { get; set; }
 
     [JsonPropertyName("translations")]
-    public PostV1LedgerAccountsCreateResponseTranslations? Translations { get; set; }
+    public Dictionary<
+        string,
+        PostV1LedgerAccountsCreateResponseTranslationsValue?
+    >? Translations { get; set; }
 
     [JsonPropertyName("type")]
     public required PostV1LedgerAccountsCreateResponseType Type { get; set; }

@@ -23,6 +23,9 @@ public record PostV1AccountReferralGetResponse : IJsonOnDeserialized
     [JsonPropertyName("referredCount")]
     public required long ReferredCount { get; set; }
 
+    [JsonPropertyName("rates")]
+    public required PostV1AccountReferralGetResponseRates Rates { get; set; }
+
     [JsonPropertyName("history")]
     public IEnumerable<PostV1AccountReferralGetResponseHistoryItem> History { get; set; } =
         new List<PostV1AccountReferralGetResponseHistoryItem>();

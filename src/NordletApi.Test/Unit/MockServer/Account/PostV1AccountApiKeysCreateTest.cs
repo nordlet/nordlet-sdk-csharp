@@ -26,7 +26,8 @@ public class PostV1AccountApiKeysCreateTest : BaseMockServerTest
                 "scopes",
                 "scopes"
               ],
-              "key": "key"
+              "key": "key",
+              "expiresAt": "expiresAt"
             }
             """;
 
@@ -47,7 +48,12 @@ public class PostV1AccountApiKeysCreateTest : BaseMockServerTest
             );
 
         var response = await Client.Account.PostV1AccountApiKeysCreateAsync(
-            new PostV1AccountApiKeysCreateRequest { Name = "x", Scopes = null }
+            new PostV1AccountApiKeysCreateRequest
+            {
+                Name = "x",
+                Scopes = null,
+                ExpiresInDays = null,
+            }
         );
         JsonAssert.AreEqual(response, mockResponse);
     }
@@ -68,7 +74,8 @@ public class PostV1AccountApiKeysCreateTest : BaseMockServerTest
               "scopes": [
                 "scopes"
               ],
-              "key": "key"
+              "key": "key",
+              "expiresAt": "expiresAt"
             }
             """;
 

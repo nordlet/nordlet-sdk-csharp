@@ -12,17 +12,23 @@ public record PostV1PayrollCalcRequest
     [JsonPropertyName("date")]
     public required string Date { get; set; }
 
-    [JsonPropertyName("applyNpd")]
-    public bool? ApplyNpd { get; set; }
+    [JsonPropertyName("applyAllowance")]
+    public bool? ApplyAllowance { get; set; }
 
-    [JsonPropertyName("npdOverride")]
-    public string? NpdOverride { get; set; }
+    [JsonPropertyName("allowanceOverride")]
+    public string? AllowanceOverride { get; set; }
 
     [JsonPropertyName("pensionAccumulation")]
     public bool? PensionAccumulation { get; set; }
 
     [JsonPropertyName("fixedTerm")]
     public bool? FixedTerm { get; set; }
+
+    [JsonPropertyName("benefitInKind")]
+    public string? BenefitInKind { get; set; }
+
+    [JsonPropertyName("options")]
+    public Dictionary<string, string>? Options { get; set; }
 
     /// <inheritdoc />
     public override string ToString()

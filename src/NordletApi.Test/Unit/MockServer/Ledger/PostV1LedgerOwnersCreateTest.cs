@@ -28,6 +28,10 @@ public class PostV1LedgerOwnersCreateTest : BaseMockServerTest
               "sharesAmount": "sharesAmount",
               "sharesType": "sharesType",
               "sharesAcquisitionDate": "sharesAcquisitionDate",
+              "withholdingTaxPercent": "withholdingTaxPercent",
+              "partnerLiability": "general",
+              "specialBalanceRequired": true,
+              "supplementaryBalanceRequired": true,
               "address": {
                 "street": "street",
                 "city": "city",
@@ -64,6 +68,10 @@ public class PostV1LedgerOwnersCreateTest : BaseMockServerTest
                 SharesAmount = null,
                 SharesType = null,
                 SharesAcquisitionDate = null,
+                WithholdingTaxPercent = null,
+                PartnerLiability = null,
+                SpecialBalanceRequired = null,
+                SupplementaryBalanceRequired = null,
                 Address = null,
             }
         );
@@ -89,6 +97,10 @@ public class PostV1LedgerOwnersCreateTest : BaseMockServerTest
               "sharesAmount": "sharesAmount",
               "sharesType": "sharesType",
               "sharesAcquisitionDate": "sharesAcquisitionDate",
+              "withholdingTaxPercent": "withholdingTaxPercent",
+              "partnerLiability": "general",
+              "specialBalanceRequired": true,
+              "supplementaryBalanceRequired": true,
               "address": {
                 "street": "street",
                 "city": "city",

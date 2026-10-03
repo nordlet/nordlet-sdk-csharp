@@ -39,9 +39,12 @@ public class BlankAnEmployeesPersonalDataAndHideTheRecordTest : BaseMockServerTe
               "socialInsuranceStart": "socialInsuranceStart",
               "hireDate": "hireDate",
               "terminationDate": "terminationDate",
-              "applyNpd": true,
-              "npdOverride": "npdOverride",
+              "applyAllowance": true,
+              "allowanceOverride": "allowanceOverride",
               "pensionAccumulation": true,
+              "payrollOptions": {
+                "payrollOptions": "payrollOptions"
+              },
               "status": "active",
               "notes": "notes",
               "attributes": [
@@ -110,9 +113,12 @@ public class BlankAnEmployeesPersonalDataAndHideTheRecordTest : BaseMockServerTe
               "socialInsuranceStart": "socialInsuranceStart",
               "hireDate": "hireDate",
               "terminationDate": "terminationDate",
-              "applyNpd": true,
-              "npdOverride": "npdOverride",
+              "applyAllowance": true,
+              "allowanceOverride": "allowanceOverride",
               "pensionAccumulation": true,
+              "payrollOptions": {
+                "key": "value"
+              },
               "status": "active",
               "notes": "notes",
               "attributes": [

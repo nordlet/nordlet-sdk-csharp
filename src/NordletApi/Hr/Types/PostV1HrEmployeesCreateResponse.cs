@@ -53,14 +53,18 @@ public record PostV1HrEmployeesCreateResponse : IJsonOnDeserialized
     [JsonPropertyName("terminationDate")]
     public string? TerminationDate { get; set; }
 
-    [JsonPropertyName("applyNpd")]
-    public required bool ApplyNpd { get; set; }
+    [JsonPropertyName("applyAllowance")]
+    public required bool ApplyAllowance { get; set; }
 
-    [JsonPropertyName("npdOverride")]
-    public string? NpdOverride { get; set; }
+    [JsonPropertyName("allowanceOverride")]
+    public string? AllowanceOverride { get; set; }
 
     [JsonPropertyName("pensionAccumulation")]
     public required bool PensionAccumulation { get; set; }
+
+    [JsonPropertyName("payrollOptions")]
+    public Dictionary<string, string> PayrollOptions { get; set; } =
+        new Dictionary<string, string>();
 
     [JsonPropertyName("status")]
     public required PostV1HrEmployeesCreateResponseStatus Status { get; set; }

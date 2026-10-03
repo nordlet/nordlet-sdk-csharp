@@ -62,6 +62,22 @@ public record PostV1AssetsAssetsModernizeResponse : IJsonOnDeserialized
     [JsonPropertyName("documents")]
     public IEnumerable<PostV1AssetsAssetsModernizeResponseDocumentsItem>? Documents { get; set; }
 
+    [JsonPropertyName("inputVatAmount")]
+    public string? InputVatAmount { get; set; }
+
+    [JsonPropertyName("inputVatFirstUseDate")]
+    public string? InputVatFirstUseDate { get; set; }
+
+    [JsonPropertyName("inputVatDeductiblePercent")]
+    public string? InputVatDeductiblePercent { get; set; }
+
+    [JsonPropertyName("inputVatRealEstate")]
+    public required bool InputVatRealEstate { get; set; }
+
+    [JsonPropertyName("inputVatUseChanges")]
+    public IEnumerable<PostV1AssetsAssetsModernizeResponseInputVatUseChangesItem> InputVatUseChanges { get; set; } =
+        new List<PostV1AssetsAssetsModernizeResponseInputVatUseChangesItem>();
+
     [JsonPropertyName("createdAt")]
     public required string CreatedAt { get; set; }
 

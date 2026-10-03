@@ -29,6 +29,9 @@ public record PostV1DeclarationsLtIntrastatComputeResponseRowsItem : IJsonOnDese
     [JsonPropertyName("transportMode")]
     public string? TransportMode { get; set; }
 
+    [JsonPropertyName("regionCode")]
+    public string? RegionCode { get; set; }
+
     [JsonPropertyName("country")]
     public required string Country { get; set; }
 

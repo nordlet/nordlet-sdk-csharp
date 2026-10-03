@@ -12,6 +12,9 @@ public record PostV1AccountApiKeysCreateRequest
     [JsonPropertyName("scopes")]
     public IEnumerable<string>? Scopes { get; set; }
 
+    [JsonPropertyName("expiresInDays")]
+    public long? ExpiresInDays { get; set; }
+
     /// <inheritdoc />
     public override string ToString()
     {

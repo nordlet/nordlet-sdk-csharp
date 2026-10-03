@@ -23,6 +23,12 @@ public record PostV1AccountApiKeysListResponseRowsItem : IJsonOnDeserialized
     [JsonPropertyName("lastUsedAt")]
     public string? LastUsedAt { get; set; }
 
+    [JsonPropertyName("expiresAt")]
+    public string? ExpiresAt { get; set; }
+
+    [JsonPropertyName("replacedByKeyId")]
+    public string? ReplacedByKeyId { get; set; }
+
     [JsonPropertyName("revokedAt")]
     public string? RevokedAt { get; set; }
 

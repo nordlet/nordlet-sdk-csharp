@@ -28,12 +28,16 @@ public class PostV1AccountMeTest : BaseMockServerTest
               },
               "locale": "locale",
               "activeCompanyId": "x",
+              "timeZone": "timeZone",
               "role": "role",
               "billing": {
                 "status": "trial",
                 "plan": "plan",
                 "balanceCents": 1000000,
-                "trialEndsAt": "trialEndsAt"
+                "trialEndsAt": "trialEndsAt",
+                "payerUserId": "x",
+                "payerEmail": "payerEmail",
+                "isPayer": true
               },
               "referralPoints": 1000000,
               "consent": {
@@ -109,12 +113,16 @@ public class PostV1AccountMeTest : BaseMockServerTest
               },
               "locale": "locale",
               "activeCompanyId": "activeCompanyId",
+              "timeZone": "timeZone",
               "role": "role",
               "billing": {
                 "status": "trial",
                 "plan": "plan",
                 "balanceCents": 1000000,
-                "trialEndsAt": "trialEndsAt"
+                "trialEndsAt": "trialEndsAt",
+                "payerUserId": "payerUserId",
+                "payerEmail": "payerEmail",
+                "isPayer": true
               },
               "referralPoints": 1000000,
               "consent": {

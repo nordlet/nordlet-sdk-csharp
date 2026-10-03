@@ -20,6 +20,9 @@ public record PostV1AccountMeResponse : IJsonOnDeserialized
     [JsonPropertyName("activeCompanyId")]
     public string? ActiveCompanyId { get; set; }
 
+    [JsonPropertyName("timeZone")]
+    public required string TimeZone { get; set; }
+
     [JsonPropertyName("role")]
     public string? Role { get; set; }
 

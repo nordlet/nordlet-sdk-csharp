@@ -27,6 +27,8 @@ public class PostV1BillingAccountGetTest : BaseMockServerTest
               "paymentsConfigured": true,
               "hasPaymentAccount": true,
               "hasSubscription": true,
+              "paymentFailedAt": "paymentFailedAt",
+              "paymentFailedInvoiceUrl": "paymentFailedInvoiceUrl",
               "monthToDate": {
                 "from": "from",
                 "to": "to",
@@ -94,6 +96,8 @@ public class PostV1BillingAccountGetTest : BaseMockServerTest
               "paymentsConfigured": true,
               "hasPaymentAccount": true,
               "hasSubscription": true,
+              "paymentFailedAt": "paymentFailedAt",
+              "paymentFailedInvoiceUrl": "paymentFailedInvoiceUrl",
               "monthToDate": {
                 "from": "from",
                 "to": "to",

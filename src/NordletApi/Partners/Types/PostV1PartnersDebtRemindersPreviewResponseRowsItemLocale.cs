@@ -10,16 +10,16 @@ namespace NordletApi;
 [Serializable]
 public readonly record struct PostV1PartnersDebtRemindersPreviewResponseRowsItemLocale : IStringEnum
 {
-    public static readonly PostV1PartnersDebtRemindersPreviewResponseRowsItemLocale Lt = new(
-        Values.Lt
-    );
-
     public static readonly PostV1PartnersDebtRemindersPreviewResponseRowsItemLocale En = new(
         Values.En
     );
 
-    public static readonly PostV1PartnersDebtRemindersPreviewResponseRowsItemLocale Ru = new(
-        Values.Ru
+    public static readonly PostV1PartnersDebtRemindersPreviewResponseRowsItemLocale Lt = new(
+        Values.Lt
+    );
+
+    public static readonly PostV1PartnersDebtRemindersPreviewResponseRowsItemLocale De = new(
+        Values.De
     );
 
     public PostV1PartnersDebtRemindersPreviewResponseRowsItemLocale(string value)
@@ -127,10 +127,10 @@ public readonly record struct PostV1PartnersDebtRemindersPreviewResponseRowsItem
     [Serializable]
     public static class Values
     {
-        public const string Lt = "lt";
-
         public const string En = "en";
 
-        public const string Ru = "ru";
+        public const string Lt = "lt";
+
+        public const string De = "de";
     }
 }

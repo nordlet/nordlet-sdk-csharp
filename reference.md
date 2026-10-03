@@ -4808,7 +4808,7 @@ await client.Sales.PostV1SalesInvoicesEinvoiceXmlAsync(
 <dl>
 <dd>
 
-Build the national e-invoicing payload and deliver it to the bridge endpoint configured for the country gateway in compliance settings. The bridge (an accredited intermediary or connector) handles the certified national channel - SdI accreditation, KSeF sessions or ANAF SPV OAuth.
+Build the national e-invoicing payload and deliver it over the transport configured for the country gateway in compliance settings. With transport=direct the request talks to the tax authority itself - SdICoop over 2-way TLS for Italy, a KSeF session for Poland, ANAF SPV OAuth for Romania - and returns the national number as soon as the channel assigns one. With transport=bridge the payload goes to the configured bridge endpoint (an accredited intermediary or connector) instead.
 </dd>
 </dl>
 </dd>
@@ -4841,6 +4841,62 @@ await client.Sales.PostV1SalesInvoicesEinvoiceSendAsync(
 <dd>
 
 **request:** `PostV1SalesInvoicesEinvoiceSendRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesInvoicesEinvoiceStatusAsync</a>(PostV1SalesInvoicesEinvoiceStatusRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesInvoicesEinvoiceStatusResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Ask the national e-invoicing channel what happened to an invoice that was already sent, and store the answer. Italy, Poland and Romania return the outcome only on request - none of them calls back - so this is the way the national number and any rejection reason reach the invoice.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Sales.PostV1SalesInvoicesEinvoiceStatusAsync(
+    new PostV1SalesInvoicesEinvoiceStatusRequest { Id = "id" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1SalesInvoicesEinvoiceStatusRequest` 
     
 </dd>
 </dl>
@@ -8036,6 +8092,226 @@ await client.Declarations.PostV1DeclarationsLtSaftGenerateAsync(
 </dl>
 </details>
 
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsLtIvazAmendAsync</a>(PostV1DeclarationsLtIvazAmendRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsLtIvazAmendResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsLtIvazAmendAsync(
+    new PostV1DeclarationsLtIvazAmendRequest { WaybillIds = new List<string>() { "waybillIds" } }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsLtIvazAmendRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsLtIvazCancelAsync</a>(PostV1DeclarationsLtIvazCancelRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsLtIvazCancelResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsLtIvazCancelAsync(
+    new PostV1DeclarationsLtIvazCancelRequest
+    {
+        Entries = new List<PostV1DeclarationsLtIvazCancelRequestEntriesItem>()
+        {
+            new PostV1DeclarationsLtIvazCancelRequestEntriesItem
+            {
+                WaybillId = "waybillId",
+                Reason = PostV1DeclarationsLtIvazCancelRequestEntriesItemReason.One,
+            },
+        },
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsLtIvazCancelRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsLtFr0564ComputeAsync</a>(PostV1DeclarationsLtFr0564ComputeRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsLtFr0564ComputeResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsLtFr0564ComputeAsync(
+    new PostV1DeclarationsLtFr0564ComputeRequest { Year = 1000000, Month = 1000000 }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsLtFr0564ComputeRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsLtGpm312ComputeAsync</a>(PostV1DeclarationsLtGpm312ComputeRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsLtGpm312ComputeResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsLtGpm312ComputeAsync(
+    new PostV1DeclarationsLtGpm312ComputeRequest { Year = 1000000 }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsLtGpm312ComputeRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsLtPln204ComputeAsync</a>(PostV1DeclarationsLtPln204ComputeRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsLtPln204ComputeResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsLtPln204ComputeAsync(
+    new PostV1DeclarationsLtPln204ComputeRequest { Year = 1000000 }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsLtPln204ComputeRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsEuOssComputeAsync</a>(PostV1DeclarationsEuOssComputeRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsEuOssComputeResponse&gt;</code></summary>
 <dl>
 <dd>
@@ -8481,6 +8757,2970 @@ await client.Declarations.PostV1DeclarationsPlJpkV7MGenerateAsync(
 </dl>
 </details>
 
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsPlVatUeGenerateAsync</a>(PostV1DeclarationsPlVatUeGenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsPlVatUeGenerateResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Build the rows of the Polish recapitulative statement VAT-UE for a month: section C intra-Community supplies of goods, section D intra-Community acquisitions, section E services taxed where the customer is established. Amounts are full złoty per counterparty. The VAT-UE(5) file itself goes out from the EU sales list deadline in the calendar.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsPlVatUeGenerateAsync(
+    new PostV1DeclarationsPlVatUeGenerateRequest { Year = 1000000, Month = 1000000 }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsPlVatUeGenerateRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsPlIntrastatGenerateAsync</a>(PostV1DeclarationsPlIntrastatGenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsPlIntrastatGenerateResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Build the rows of the Polish INTRASTAT declaration for a month, arrivals or dispatches, grouped by CN code, partner country, country of origin, partner VAT number, nature of transaction, transport and delivery terms. Values are whole złoty converted at the invoice rate; credit notes with goods lines are returns (code 21). Goods without a CN code are left out and named in the warnings. The IST message itself goes out from the Intrastat deadline in the calendar.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsPlIntrastatGenerateAsync(
+    new PostV1DeclarationsPlIntrastatGenerateRequest
+    {
+        Year = 1000000,
+        Month = 1000000,
+        Flow = PostV1DeclarationsPlIntrastatGenerateRequestFlow.Arrivals,
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsPlIntrastatGenerateRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsPlKsefReceivedListAsync</a>(PostV1DeclarationsPlKsefReceivedListRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsPlKsefReceivedListResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List the invoices KSeF holds for this company as the buyer, for a window of acquisition timestamps. Each row carries the KSeF number and, when the document number matches a registered purchase invoice, the invoice it belongs to.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsPlKsefReceivedListAsync(
+    new PostV1DeclarationsPlKsefReceivedListRequest
+    {
+        From = new DateTime(2024, 01, 15, 09, 30, 00, 000),
+        To = new DateTime(2024, 01, 15, 09, 30, 00, 000),
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsPlKsefReceivedListRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsPlKsefReceivedFetchAsync</a>(PostV1DeclarationsPlKsefReceivedFetchRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsPlKsefReceivedFetchResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Read one invoice out of KSeF by its national number. With a purchase invoice given, the KSeF number is written onto that invoice, which is what makes the purchase row of JPK_V7M carry NrKSeF instead of the BFK marker.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsPlKsefReceivedFetchAsync(
+    new PostV1DeclarationsPlKsefReceivedFetchRequest { KsefNumber = "ksefNumber" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsPlKsefReceivedFetchRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsPlKsefReceiptAsync</a>(PostV1DeclarationsPlKsefReceiptRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsPlKsefReceiptResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+The UPO for a KSeF session. KSeF issues one receipt per session rather than per invoice, so the session reference number from the send is what identifies it.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsPlKsefReceiptAsync(
+    new PostV1DeclarationsPlKsefReceiptRequest()
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsPlKsefReceiptRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">TaxAdjustmentsRecordedForATaxYearAsync</a>(PostV1DeclarationsTaxAdjustmentsListRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsTaxAdjustmentsListResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+The differences between the accounting result and the taxable profit: non-deductible expenses, income added to or left out of the tax base, extra deductible expenses, donations, losses carried forward, reliefs and tax credits. The annual corporate income tax return is built from them.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.TaxAdjustmentsRecordedForATaxYearAsync(
+    new PostV1DeclarationsTaxAdjustmentsListRequest { Year = 1000000 }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsTaxAdjustmentsListRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">RecordATaxAdjustmentForATaxYearAsync</a>(PostV1DeclarationsTaxAdjustmentsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsTaxAdjustmentsCreateResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.RecordATaxAdjustmentForATaxYearAsync(
+    new PostV1DeclarationsTaxAdjustmentsCreateRequest
+    {
+        Year = 1000000,
+        Kind = PostV1DeclarationsTaxAdjustmentsCreateRequestKind.NonDeductible,
+        Amount = "amount",
+        Description = "description",
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsTaxAdjustmentsCreateRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">ChangeARecordedTaxAdjustmentAsync</a>(PostV1DeclarationsTaxAdjustmentsUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsTaxAdjustmentsUpdateResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.ChangeARecordedTaxAdjustmentAsync(
+    new PostV1DeclarationsTaxAdjustmentsUpdateRequest { Id = "id" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsTaxAdjustmentsUpdateRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">RemoveARecordedTaxAdjustmentAsync</a>(PostV1DeclarationsTaxAdjustmentsDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsTaxAdjustmentsDeleteResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.RemoveARecordedTaxAdjustmentAsync(
+    new PostV1DeclarationsTaxAdjustmentsDeleteRequest { Id = "id" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsTaxAdjustmentsDeleteRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PaymentsAlreadyMadeTowardsATaxOfAYearAsync</a>(PostV1DeclarationsTaxPaymentsListRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsTaxPaymentsListResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+What the company has paid the administration towards a tax before the return is filed: payments on account, tax withheld at source by others, a final settlement, and a refund received. Returns report these on their own lines, so the amount they ask for is the balance.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PaymentsAlreadyMadeTowardsATaxOfAYearAsync(
+    new PostV1DeclarationsTaxPaymentsListRequest
+    {
+        Tax = PostV1DeclarationsTaxPaymentsListRequestTax.CorporateIncomeTax,
+        Year = 1000000,
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsTaxPaymentsListRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">RecordAPaymentMadeTowardsATaxAsync</a>(PostV1DeclarationsTaxPaymentsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsTaxPaymentsCreateResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.RecordAPaymentMadeTowardsATaxAsync(
+    new PostV1DeclarationsTaxPaymentsCreateRequest
+    {
+        Tax = PostV1DeclarationsTaxPaymentsCreateRequestTax.CorporateIncomeTax,
+        Year = 1000000,
+        Kind = PostV1DeclarationsTaxPaymentsCreateRequestKind.Advance,
+        Amount = "amount",
+        PaidOn = "paidOn",
+        Description = "description",
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsTaxPaymentsCreateRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">ChangeARecordedTaxPaymentAsync</a>(PostV1DeclarationsTaxPaymentsUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsTaxPaymentsUpdateResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.ChangeARecordedTaxPaymentAsync(
+    new PostV1DeclarationsTaxPaymentsUpdateRequest { Id = "id" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsTaxPaymentsUpdateRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">RemoveARecordedTaxPaymentAsync</a>(PostV1DeclarationsTaxPaymentsDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsTaxPaymentsDeleteResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.RemoveARecordedTaxPaymentAsync(
+    new PostV1DeclarationsTaxPaymentsDeleteRequest { Id = "id" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsTaxPaymentsDeleteRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">AdoptionAndSigningFactsOfTheAnnualAccountsOfAYearAsync</a>(PostV1DeclarationsAnnualAccountsGetRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsAnnualAccountsGetResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Whether the general meeting adopted the annual accounts and on which date, the date the accounts were prepared, and which directors signed them. The annual accounts filed with the trade register are built from these facts.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.AdoptionAndSigningFactsOfTheAnnualAccountsOfAYearAsync(
+    new PostV1DeclarationsAnnualAccountsGetRequest { Year = 1000000 }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsAnnualAccountsGetRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">RecordTheAdoptionAndPreparationOfTheAnnualAccountsOfAYearAsync</a>(PostV1DeclarationsAnnualAccountsSetRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsAnnualAccountsSetResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.RecordTheAdoptionAndPreparationOfTheAnnualAccountsOfAYearAsync(
+    new PostV1DeclarationsAnnualAccountsSetRequest
+    {
+        Year = 1000000,
+        Adopted = true,
+        DateOfPreparation = "dateOfPreparation",
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsAnnualAccountsSetRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">RecordWhetherADirectorSignedTheAnnualAccountsOfAYearAsync</a>(PostV1DeclarationsAnnualAccountsSignaturesCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsAnnualAccountsSignaturesCreateResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.RecordWhetherADirectorSignedTheAnnualAccountsOfAYearAsync(
+    new PostV1DeclarationsAnnualAccountsSignaturesCreateRequest
+    {
+        Year = 1000000,
+        DirectorName = "directorName",
+        DirectorType =
+            PostV1DeclarationsAnnualAccountsSignaturesCreateRequestDirectorType.ManagingCurrent,
+        Signed = true,
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsAnnualAccountsSignaturesCreateRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">ChangeARecordedDirectorSignatureAsync</a>(PostV1DeclarationsAnnualAccountsSignaturesUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsAnnualAccountsSignaturesUpdateResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.ChangeARecordedDirectorSignatureAsync(
+    new PostV1DeclarationsAnnualAccountsSignaturesUpdateRequest
+    {
+        Id = "id",
+        DirectorName = "directorName",
+        DirectorType =
+            PostV1DeclarationsAnnualAccountsSignaturesUpdateRequestDirectorType.ManagingCurrent,
+        Signed = true,
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsAnnualAccountsSignaturesUpdateRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">RemoveARecordedDirectorSignatureAsync</a>(PostV1DeclarationsAnnualAccountsSignaturesDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsAnnualAccountsSignaturesDeleteResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.RemoveARecordedDirectorSignatureAsync(
+    new PostV1DeclarationsAnnualAccountsSignaturesDeleteRequest { Id = "id" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsAnnualAccountsSignaturesDeleteRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">RecordADecisionToDistributeProfitADividendAnInterimDividendOrAPaymentTreatedAsOneAsync</a>(PostV1DeclarationsAnnualAccountsDistributionsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsAnnualAccountsDistributionsCreateResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.RecordADecisionToDistributeProfitADividendAnInterimDividendOrAPaymentTreatedAsOneAsync(
+    new PostV1DeclarationsAnnualAccountsDistributionsCreateRequest
+    {
+        Year = 1000000,
+        DecidedOn = "decidedOn",
+        Kind = PostV1DeclarationsAnnualAccountsDistributionsCreateRequestKind.Dividend,
+        Amount = "amount",
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsAnnualAccountsDistributionsCreateRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">ChangeARecordedProfitDistributionAsync</a>(PostV1DeclarationsAnnualAccountsDistributionsUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsAnnualAccountsDistributionsUpdateResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.ChangeARecordedProfitDistributionAsync(
+    new PostV1DeclarationsAnnualAccountsDistributionsUpdateRequest
+    {
+        Id = "id",
+        DecidedOn = "decidedOn",
+        Kind = PostV1DeclarationsAnnualAccountsDistributionsUpdateRequestKind.Dividend,
+        Amount = "amount",
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsAnnualAccountsDistributionsUpdateRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">RemoveARecordedProfitDistributionAsync</a>(PostV1DeclarationsAnnualAccountsDistributionsDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsAnnualAccountsDistributionsDeleteResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.RemoveARecordedProfitDistributionAsync(
+    new PostV1DeclarationsAnnualAccountsDistributionsDeleteRequest { Id = "id" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsAnnualAccountsDistributionsDeleteRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">AttachAnUploadedDocumentToTheAnnualAccountsOfAYearAsync</a>(PostV1DeclarationsAnnualAccountsAttachmentsAddRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsAnnualAccountsAttachmentsAddResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Links a file uploaded through files/upload (its storageKey) to the annual accounts of the year as the notes, the management report, the auditor statement, the profit appropriation resolution, the approval certificate, the general data sheet, the full report as a pdf, or another document. Deposits that must carry these documents take them from here.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.AttachAnUploadedDocumentToTheAnnualAccountsOfAYearAsync(
+    new PostV1DeclarationsAnnualAccountsAttachmentsAddRequest
+    {
+        Year = 1000000,
+        Kind = PostV1DeclarationsAnnualAccountsAttachmentsAddRequestKind.FullReport,
+        Ref = "ref",
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsAnnualAccountsAttachmentsAddRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">RemoveADocumentAttachedToTheAnnualAccountsAndDeleteItsFileAsync</a>(PostV1DeclarationsAnnualAccountsAttachmentsDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsAnnualAccountsAttachmentsDeleteResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.RemoveADocumentAttachedToTheAnnualAccountsAndDeleteItsFileAsync(
+    new PostV1DeclarationsAnnualAccountsAttachmentsDeleteRequest { Id = "id" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsAnnualAccountsAttachmentsDeleteRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsCyTd4GenerateAsync</a>(PostV1DeclarationsCyTd4GenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsCyTd4GenerateResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Compute the company income tax return TD4 of a tax year from the ledger and the recorded tax adjustments: the accounting profit, the add-backs, deductions, capital allowances and losses brought forward, the chargeable income, the corporation tax at the rate of the year and the double tax relief, as the fields the company keys into TAXISnet or Tax For All. The Tax Department publishes no upload layout for the TD4; the XML is a working file.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsCyTd4GenerateAsync(
+    new PostV1DeclarationsCyTd4GenerateRequest { Year = 1000000 }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsCyTd4GenerateRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsCyHe32GenerateAsync</a>(PostV1DeclarationsCyHe32GenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsCyHe32GenerateResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Build the annual return HE32 of a year: the figures the Registrar’s e-filing screens ask for (company number, registered office, made-up-to date, share capital, register of members, directors and secretary, annual general meeting date, the accounts summary), the working file, and the printed form HE32(I) filled in as a PDF for signing and for keying into the Registrar’s system, which takes the return only through its own screens.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsCyHe32GenerateAsync(
+    new PostV1DeclarationsCyHe32GenerateRequest { Year = 1000000 }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsCyHe32GenerateRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsDeReturnsGenerateAsync</a>(PostV1DeclarationsDeReturnsGenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsDeReturnsGenerateResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Build one of the German returns that ELSTER accepts only through a licensed ERiC transmission (E-Bilanz, Körperschaftsteuer, Gewerbesteuer with its Zerlegungserklärung, annual VAT return, Lohnsteuer-Anmeldung, Lohnsteuerbescheinigung) for the company to send through its own ELSTER-capable program. The period is the year, or YYYY-MM for the monthly Lohnsteuer-Anmeldung.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsDeReturnsGenerateAsync(
+    new PostV1DeclarationsDeReturnsGenerateRequest
+    {
+        RuleKey = PostV1DeclarationsDeReturnsGenerateRequestRuleKey.DeEBilanz,
+        Period = "period",
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsDeReturnsGenerateRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsDeReturnFactsGetAsync</a>(PostV1DeclarationsDeReturnFactsGetRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsDeReturnFactsGetResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+The facts of one year that the German annual returns (Körperschaftsteuer, Gewerbesteuer, Umsatzsteuererklärung) need and the ledger does not hold: changes of shareholders, contracts with shareholders, the tax contribution account, loss carry-back, the donation carry-forward, the business premises with the municipalities for the apportionment of the trade tax, the land values or property tax and the participations for the trade tax additions and reductions, the foreign income per country for the Anlage AESt, the date of leaving the small-business scheme and the Anlage UN answers of a company seated abroad. A key that is absent has not been answered.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsDeReturnFactsGetAsync(
+    new PostV1DeclarationsDeReturnFactsGetRequest { Year = 1000000 }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsDeReturnFactsGetRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsDeReturnFactsSetAsync</a>(PostV1DeclarationsDeReturnFactsSetRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsDeReturnFactsSetResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Replace the facts of one year for the German annual returns. The returns built afterwards read them; a key left out stays unanswered.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsDeReturnFactsSetAsync(
+    new PostV1DeclarationsDeReturnFactsSetRequest
+    {
+        Year = 1000000,
+        Facts = new PostV1DeclarationsDeReturnFactsSetRequestFacts(),
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsDeReturnFactsSetRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsDeDeuevGenerateAsync</a>(PostV1DeclarationsDeDeuevGenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsDeDeuevGenerateResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Build the DEÜV notifications of a month (Anmeldung for every start, Abmeldung for every leaving, in December the Jahresmeldung for everyone employed on 31 December) as DSME records with the DBME, DBNA, DBGB and DBAN blocks of Anlage 4 in force from 2026, from the approved payroll runs and the employee record, for the company's own transmission channel.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsDeDeuevGenerateAsync(
+    new PostV1DeclarationsDeDeuevGenerateRequest { Year = 1000000, Month = 1000000 }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsDeDeuevGenerateRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsDeBeitragsnachweisGenerateAsync</a>(PostV1DeclarationsDeBeitragsnachweisGenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsDeBeitragsnachweisGenerateResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Build the monthly contribution statement to the health insurers (Beitragsnachweis) from the payroll run: one fixed-length record BW02 per insurer, in the record layout in force from 2026, ready for the company's own transmission channel.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsDeBeitragsnachweisGenerateAsync(
+    new PostV1DeclarationsDeBeitragsnachweisGenerateRequest { Year = 1000000, Month = 1000000 }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsDeBeitragsnachweisGenerateRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsDkSelskabsskatGenerateAsync</a>(PostV1DeclarationsDkSelskabsskatGenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsDkSelskabsskatGenerateResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Compute the oplysningsskema for selskaber (selskabsselvangivelsen) of an income year from the ledger and the recorded tax adjustments: accounting result before tax, tax adjustments, losses carried forward, taxable income, the 22 % corporation tax, reliefs and the balance, as the rubrikker the company keys into TastSelv Selskabsskat (DIAS). Skatteforvaltningen publishes no file format for the return; the XML is a working file.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsDkSelskabsskatGenerateAsync(
+    new PostV1DeclarationsDkSelskabsskatGenerateRequest { Year = 1000000 }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsDkSelskabsskatGenerateRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsEeEmploymentRegisterSendAsync</a>(PostV1DeclarationsEeEmploymentRegisterSendRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsEeEmploymentRegisterSendResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Send one employment register (töötamise register) entry for an employment contract to e-MTA over X-tee: the start of work, or its end with the reason recorded on the contract.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsEeEmploymentRegisterSendAsync(
+    new PostV1DeclarationsEeEmploymentRegisterSendRequest
+    {
+        ContractId = "contractId",
+        Event = PostV1DeclarationsEeEmploymentRegisterSendRequestEvent.Start,
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsEeEmploymentRegisterSendRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsEsVerifactuDeclaracionResponsableAsync</a>(PostV1DeclarationsEsVerifactuDeclaracionResponsableRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsEsVerifactuDeclaracionResponsableResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Nordlet's declaración responsable for its VERI*FACTU invoicing system (Orden HAC/1177/2024, art. 15), as a PDF and as plain text.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsEsVerifactuDeclaracionResponsableAsync(
+    new PostV1DeclarationsEsVerifactuDeclaracionResponsableRequest()
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsEsVerifactuDeclaracionResponsableRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsIeCt1GenerateAsync</a>(PostV1DeclarationsIeCt1GenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsIeCt1GenerateResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Build the Form CT1 of an accounting year as the ROS version 26 XML and the accompanying financial statements as inline XBRL on the FRS 102 Irish Extension 2026 taxonomy Revenue accepts, both from the ledger, the recorded tax adjustments, the annual accounts record and the officers, for upload through the company’s own ROS account. Says whether the company is above the iXBRL deferral limits (balance sheet total €4.4 million, turnover €8.8 million, 50 employees).
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsIeCt1GenerateAsync(
+    new PostV1DeclarationsIeCt1GenerateRequest { Year = 1000000 }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsIeCt1GenerateRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsIeB1GenerateAsync</a>(PostV1DeclarationsIeB1GenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsIeB1GenerateResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Build the working paper for the Form B1 annual return of a financial year — company details, registered office, directors and secretary from Settings → Officers, the members from Settings → Shareholders, the issued share capital and the figures of the financial statements — in the order the CORE screens ask for them. The CRO publishes no file format for the B1, so it is keyed into CORE.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsIeB1GenerateAsync(
+    new PostV1DeclarationsIeB1GenerateRequest { Year = 1000000 }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsIeB1GenerateRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsItSdiPurchaseSendAsync</a>(PostV1DeclarationsItSdiPurchaseSendRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsItSdiPurchaseSendResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Build the TD16-TD19 integration document for a registered purchase invoice and send it to the Sistema di Interscambio. Since July 2022 a purchase from a supplier established abroad is reported this way instead of the esterometro. The Italian VAT rate to self-assess is a judgement about the supply: pass vatRatePercent unless the purchase lines already carry it, otherwise the request is refused rather than guessed.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsItSdiPurchaseSendAsync(
+    new PostV1DeclarationsItSdiPurchaseSendRequest { PurchaseInvoiceId = "purchaseInvoiceId" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsItSdiPurchaseSendRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsItSdiPurchasePreviewAsync</a>(PostV1DeclarationsItSdiPurchasePreviewRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsItSdiPurchasePreviewResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Render the TD16-TD19 integration document for a registered purchase invoice without sending it, so the rate and the document type can be checked first.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsItSdiPurchasePreviewAsync(
+    new PostV1DeclarationsItSdiPurchasePreviewRequest { PurchaseInvoiceId = "purchaseInvoiceId" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsItSdiPurchasePreviewRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsLtSaftSendAsync</a>(PostV1DeclarationsLtSaftSendRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsLtSaftSendResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Upload the SAF-T file to i.SAF-T over the iSAFTUploaderService web service and start its processing. The submission itself is confirmed separately, because after confirmation the file can no longer be corrected.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsLtSaftSendAsync(
+    new PostV1DeclarationsLtSaftSendRequest { FromDate = "fromDate", ToDate = "toDate" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsLtSaftSendRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsLtSdFfdataAsync</a>(PostV1DeclarationsLtSdFfdataRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsLtSdFfdataResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Render the Sodra 1-SD or 2-SD notice for the contracts starting or ending in the range as an .ffdata document for EDAS.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsLtSdFfdataAsync(
+    new PostV1DeclarationsLtSdFfdataRequest
+    {
+        Type = PostV1DeclarationsLtSdFfdataRequestType.OneSd,
+        FromDate = "fromDate",
+        ToDate = "toDate",
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsLtSdFfdataRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsLtPln204FfdataAsync</a>(PostV1DeclarationsLtPln204FfdataRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsLtPln204FfdataResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Render the annual corporate income tax return PLN204 as an .ffdata document, including the PLN204S and PLN204Z annexes, from the ledger and the tax adjustments recorded for that year.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsLtPln204FfdataAsync(
+    new PostV1DeclarationsLtPln204FfdataRequest { Year = 1000000 }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsLtPln204FfdataRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsMtCompanyTaxGenerateAsync</a>(PostV1DeclarationsMtCompanyTaxGenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsMtCompanyTaxGenerateResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Compute the company income tax return and self-assessment of a year of assessment from the ledger and the recorded tax adjustments: the accounting profit before tax, the add-backs and deductions, the approved donations, capital allowances and losses carried forward, the chargeable income, the 35 % charge, the relief against the tax and the allocation of the distributable profit to the five tax accounts. The Malta Tax and Customs Administration issues the return as a personalised spreadsheet to the registered tax practitioner and publishes no layout, so the XML is a working file and the figures are keyed into that spreadsheet.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsMtCompanyTaxGenerateAsync(
+    new PostV1DeclarationsMtCompanyTaxGenerateRequest { Year = 1000000 }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsMtCompanyTaxGenerateRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsMtAnnualReturnGenerateAsync</a>(PostV1DeclarationsMtAnnualReturnGenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsMtAnnualReturnGenerateResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Build the annual return of a year: the company number, registered office and made-up-to date, the share capital, the register of members, the directors and the company secretary and the accounts summary, as the figures the Malta Business Registry asks for on its own screens, plus the printed Annual Return Form of the Seventh Schedule filled in as a PDF for signing.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsMtAnnualReturnGenerateAsync(
+    new PostV1DeclarationsMtAnnualReturnGenerateRequest { Year = 1000000 }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsMtAnnualReturnGenerateRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsPlJpkFaGenerateAsync</a>(PostV1DeclarationsPlJpkFaGenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsPlJpkFaGenerateResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Generate JPK_FA(4), the on-demand structure with every sales invoice issued in a period, its VAT bases per rate and one row per invoice line. Filed only when the tax office asks for it.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsPlJpkFaGenerateAsync(
+    new PostV1DeclarationsPlJpkFaGenerateRequest { DateFrom = "dateFrom", DateTo = "dateTo" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsPlJpkFaGenerateRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsPlJpkKrGenerateAsync</a>(PostV1DeclarationsPlJpkKrGenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsPlJpkKrGenerateResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Generate JPK_KR(1), the on-demand structure with the chart of accounts and its opening balances and turnover, the journal and the double entries behind it. Filed only when the tax office asks for it.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsPlJpkKrGenerateAsync(
+    new PostV1DeclarationsPlJpkKrGenerateRequest { DateFrom = "dateFrom", DateTo = "dateTo" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsPlJpkKrGenerateRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsPlJpkMagGenerateAsync</a>(PostV1DeclarationsPlJpkMagGenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsPlJpkMagGenerateResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Generate JPK_MAG(2), the on-demand structure with the warehouse documents of one warehouse: goods received from outside (PZ) or internally (PW) and issued to a customer (WZ) or internally (RW). Filed only when the tax office asks for it.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsPlJpkMagGenerateAsync(
+    new PostV1DeclarationsPlJpkMagGenerateRequest { DateFrom = "dateFrom", DateTo = "dateTo" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsPlJpkMagGenerateRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsPlPit11GenerateAsync</a>(PostV1DeclarationsPlPit11GenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsPlPit11GenerateResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Generate PIT-11(29) for every person on the payroll of one year: the pay, the deductible costs, the advance withheld and the social and health contributions taken off it. One document per person, because that is how the form is filed.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsPlPit11GenerateAsync(
+    new PostV1DeclarationsPlPit11GenerateRequest { Year = 1000000 }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsPlPit11GenerateRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsPlCit8GenerateAsync</a>(PostV1DeclarationsPlCit8GenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsPlCit8GenerateResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Generate CIT-8(34), the annual corporate income tax return, from the ledger of the year and the recorded tax adjustments. The tax office code and the small-taxpayer setting come from the e-Deklaracje compliance settings, the seat address from the JPK gateway settings. Names the annexes the figures would need, which are not produced.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsPlCit8GenerateAsync(
+    new PostV1DeclarationsPlCit8GenerateRequest { Year = 1000000 }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsPlCit8GenerateRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsPlZusDraComputeAsync</a>(PostV1DeclarationsPlZusDraComputeRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsPlZusDraComputeResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Compute the monthly ZUS DRA settlement from the payroll run of one month: the pension, disability, sickness, accident and health insurance contributions and the Labour Fund, Solidarity Fund and guaranteed benefits fund charges, each split between the insured person and the payer. The amounts are carried into Płatnik or ePłatnik by hand.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsPlZusDraComputeAsync(
+    new PostV1DeclarationsPlZusDraComputeRequest { Year = 1000000, Month = 1000000 }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsPlZusDraComputeRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsPlZusDraKeduAsync</a>(PostV1DeclarationsPlZusDraKeduRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsPlZusDraKeduResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Build the KEDU file for one month: the ZUS DRA settlement and one ZUS RCA report per person on the payroll, in the schema kedu_5_4 that Płatnik and ePłatnik import. The payer REGON, short name and declaration deadline code come from the ZUS compliance settings; the insurance title code and working time of each person from the employee record.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsPlZusDraKeduAsync(
+    new PostV1DeclarationsPlZusDraKeduRequest { Year = 1000000, Month = 1000000 }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsPlZusDraKeduRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsPlZusDraPdfAsync</a>(PostV1DeclarationsPlZusDraPdfRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsPlZusDraPdfResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Fill the published ZUS DRA form for one month and return it as a PDF. The amounts, the payer identity and the deadline code are the same ones the KEDU file carries; blocks the payroll does not hold (paid benefits, bridging pensions, income declaration of a self-paying person) stay empty.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsPlZusDraPdfAsync(
+    new PostV1DeclarationsPlZusDraPdfRequest { Year = 1000000, Month = 1000000 }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsPlZusDraPdfRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsRoEtransportBuildAsync</a>(PostV1DeclarationsRoEtransportBuildRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsRoEtransportBuildResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Build the RO e-Transport declaration for an issued waybill: goods with their tariff codes and masses, the commercial partner, the route and the vehicle. The XML follows the ANAF eTransport v2 schema and is kept as a file on the waybill. Anything listed in blockers has to be filled in before /etransport/send will accept it.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsRoEtransportBuildAsync(
+    new PostV1DeclarationsRoEtransportBuildRequest { WaybillId = "waybillId" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsRoEtransportBuildRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsRoEtransportSubmitAsync</a>(PostV1DeclarationsRoEtransportSubmitRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsRoEtransportSubmitResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Hand the RO e-Transport declaration for an issued waybill to ANAF under the SPV OAuth token in compliance settings, and return the upload index the UIT is read back with. Answers 422 while any field the ANAF validator requires is still missing.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsRoEtransportSubmitAsync(
+    new PostV1DeclarationsRoEtransportSubmitRequest { WaybillId = "waybillId" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsRoEtransportSubmitRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsRoEtransportStatusAsync</a>(PostV1DeclarationsRoEtransportStatusRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsRoEtransportStatusResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Read the outcome of an e-Transport declaration from ANAF by its upload index, under the SPV OAuth token in compliance settings. Returns the UIT code once the declaration validates.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsRoEtransportStatusAsync(
+    new PostV1DeclarationsRoEtransportStatusRequest { Reference = "reference" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsRoEtransportStatusRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsLiLohndeklarationGenerateAsync</a>(PostV1DeclarationsLiLohndeklarationGenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsLiLohndeklarationGenerateResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Build the annual wage declaration (Lohndeklaration) to the AHV-IV-FAK from the approved payroll runs of the year as the CSV that AHVeasy imports under Lohndeklaration → CSV-Import der Lohndaten: one row per employee with the 18 columns of the AHVeasy template, the AHV-liable wage and the ALV wage.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsLiLohndeklarationGenerateAsync(
+    new PostV1DeclarationsLiLohndeklarationGenerateRequest { Year = 1000000 }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsLiLohndeklarationGenerateRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsLiLohnlistenGenerateAsync</a>(PostV1DeclarationsLiLohnlistenGenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsLiLohnlistenGenerateResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Build the annual wage list (Lohnliste) of a Liechtenstein employer from the approved payroll runs of the year as the XLSX file the tax administration's eLohnausweis / eLohnlisten application imports: one row per employee with PEID, name, birth date, address, gross wage, wage tax withheld and the settlement period.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsLiLohnlistenGenerateAsync(
+    new PostV1DeclarationsLiLohnlistenGenerateRequest { Year = 1000000 }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsLiLohnlistenGenerateRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsConfigsListAsync</a>(PostV1DeclarationsConfigsListRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsConfigsListResponse&gt;</code></summary>
 <dl>
 <dd>
@@ -8558,6 +11798,267 @@ await client.Declarations.PostV1DeclarationsConfigsUpdateAsync(
 <dd>
 
 **request:** `PostV1DeclarationsConfigsUpdateRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">StoreTheCertificateOrPrivateKeyAFilingSystemAuthenticatesWithAsync</a>(PostV1DeclarationsCertificatesUploadRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsCertificatesUploadResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.StoreTheCertificateOrPrivateKeyAFilingSystemAuthenticatesWithAsync(
+    new PostV1DeclarationsCertificatesUploadRequest
+    {
+        System = "system",
+        FileName = "fileName",
+        Content = "content",
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsCertificatesUploadRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsCertificatesListAsync</a>(PostV1DeclarationsCertificatesListRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsCertificatesListResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsCertificatesListAsync(
+    new PostV1DeclarationsCertificatesListRequest()
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsCertificatesListRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsCertificatesDeleteAsync</a>(PostV1DeclarationsCertificatesDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsCertificatesDeleteResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsCertificatesDeleteAsync(
+    new PostV1DeclarationsCertificatesDeleteRequest
+    {
+        System = "system",
+        FieldKey = PostV1DeclarationsCertificatesDeleteRequestFieldKey.Certificate,
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsCertificatesDeleteRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">WhichDeadlinesNordletCanFileByItselfForThisCompanyAndWhichAreSwitchedOnAsync</a>(PostV1DeclarationsAutomationListRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsAutomationListResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.WhichDeadlinesNordletCanFileByItselfForThisCompanyAndWhichAreSwitchedOnAsync(
+    new PostV1DeclarationsAutomationListRequest()
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsAutomationListRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsAutomationUpdateAsync</a>(PostV1DeclarationsAutomationUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsAutomationUpdateResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.PostV1DeclarationsAutomationUpdateAsync(
+    new PostV1DeclarationsAutomationUpdateRequest { RuleKey = "ruleKey", Enabled = true }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsAutomationUpdateRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">SendAFilingWhoseDeliveryFailedOnceMoreWithTheBytesThatWereGeneratedAsync</a>(PostV1DeclarationsSubmissionsRetryRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsSubmissionsRetryResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.SendAFilingWhoseDeliveryFailedOnceMoreWithTheBytesThatWereGeneratedAsync(
+    new PostV1DeclarationsSubmissionsRetryRequest { Id = "id" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1DeclarationsSubmissionsRetryRequest` 
     
 </dd>
 </dl>
@@ -8865,6 +12366,62 @@ await client.Ledger.PostV1LedgerAccountsApplyTemplateAsync(
 <dd>
 
 **request:** `PostV1LedgerAccountsApplyTemplateRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">MoveACompanyThatHasPostedNothingYetToTheChartOfAccountsOfItsCountryAsync</a>(PostV1LedgerAccountsSwitchChartRequest { ... }) -> WithRawResponseTask&lt;PostV1LedgerAccountsSwitchChartResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Replaces the seeded chart with the chart template of the company country (the Romanian general chart for a company registered in Romania, the Lithuanian standard chart otherwise) and switches the posting defaults with it. Answers 409 when the company already uses that chart, has journal entries, holds accounts created by hand, or has settings that name an account the new chart does not have.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Ledger.MoveACompanyThatHasPostedNothingYetToTheChartOfAccountsOfItsCountryAsync(
+    new PostV1LedgerAccountsSwitchChartRequest()
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1LedgerAccountsSwitchChartRequest` 
     
 </dd>
 </dl>
@@ -9685,6 +13242,347 @@ await client.Ledger.PostV1LedgerJournalTransactionsCreateAsync(
 </dl>
 </details>
 
+<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">NationalStatementLayoutsAvailableToTheCompanyAsync</a>(PostV1LedgerStatementRowsSchemesRequest { ... }) -> WithRawResponseTask&lt;PostV1LedgerStatementRowsSchemesResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+The rows or codes of each return or registry deposit of the company country that are filled from account balances. Accounts fall into a row by the layout defaults for the standard chart of accounts unless mapped under Settings → Statement rows.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Ledger.NationalStatementLayoutsAvailableToTheCompanyAsync(
+    new PostV1LedgerStatementRowsSchemesRequest()
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1LedgerStatementRowsSchemesRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">AccountsPlacedOnTheRowsOfAStatementLayoutWithTheRowTotalsOfAPeriodAsync</a>(PostV1LedgerStatementRowsListRequest { ... }) -> WithRawResponseTask&lt;PostV1LedgerStatementRowsListResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Ledger.AccountsPlacedOnTheRowsOfAStatementLayoutWithTheRowTotalsOfAPeriodAsync(
+    new PostV1LedgerStatementRowsListRequest { Scheme = "scheme" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1LedgerStatementRowsListRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">MapAnAccountOrAnAccountCodePrefixToARowOfAStatementLayoutAsync</a>(PostV1LedgerStatementRowsSetRequest { ... }) -> WithRawResponseTask&lt;PostV1LedgerStatementRowsSetResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+A mapping on a code prefix covers every account whose code starts with it; the longest matching prefix wins. An empty rowCode removes the mapping so the layout default applies again.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Ledger.MapAnAccountOrAnAccountCodePrefixToARowOfAStatementLayoutAsync(
+    new PostV1LedgerStatementRowsSetRequest { Scheme = "scheme", AccountCode = "accountCode" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1LedgerStatementRowsSetRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">OfficersOfTheCompanyAsync</a>(PostV1OfficersListRequest { ... }) -> WithRawResponseTask&lt;PostV1OfficersListResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Directors, board members, the company secretary, representatives and liquidators, with their personal identifier, appointment and resignation dates and whether they sign the annual accounts. Annual returns and registry deposits are built from this register.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Ledger.OfficersOfTheCompanyAsync(new PostV1OfficersListRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1OfficersListRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">RecordAnOfficerOfTheCompanyAsync</a>(PostV1OfficersCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1OfficersCreateResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Ledger.RecordAnOfficerOfTheCompanyAsync(
+    new PostV1OfficersCreateRequest
+    {
+        Name = "name",
+        Role = PostV1OfficersCreateRequestRole.Director,
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1OfficersCreateRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">ChangeARecordedOfficerAsync</a>(PostV1OfficersUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1OfficersUpdateResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Ledger.ChangeARecordedOfficerAsync(
+    new PostV1OfficersUpdateRequest
+    {
+        Id = "id",
+        Name = "name",
+        Role = PostV1OfficersUpdateRequestRole.Director,
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1OfficersUpdateRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">RemoveARecordedOfficerAsync</a>(PostV1OfficersDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1OfficersDeleteResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Ledger.RemoveARecordedOfficerAsync(new PostV1OfficersDeleteRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1OfficersDeleteRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 ## Migration
 <details><summary><code>client.Migration.<a href="/src/NordletApi/Migration/MigrationClient.cs">CheckAHistoricalBooksPackageWithoutWritingAnythingAsync</a>(PostV1MigrationBooksValidateRequest { ... }) -> WithRawResponseTask&lt;PostV1MigrationBooksValidateResponse&gt;</code></summary>
 <dl>
@@ -9925,6 +13823,117 @@ await client.Assets.PostV1AssetsAssetsCreateAsync(
 <dd>
 
 **request:** `PostV1AssetsAssetsCreateRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Assets.<a href="/src/NordletApi/Assets/AssetsClient.cs">PostV1AssetsAssetsUpdateAsync</a>(PostV1AssetsAssetsUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1AssetsAssetsUpdateResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Assets.PostV1AssetsAssetsUpdateAsync(
+    new PostV1AssetsAssetsUpdateRequest { Id = "id" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1AssetsAssetsUpdateRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Assets.<a href="/src/NordletApi/Assets/AssetsClient.cs">PostV1AssetsAssetsInputVatAsync</a>(PostV1AssetsAssetsInputVatRequest { ... }) -> WithRawResponseTask&lt;PostV1AssetsAssetsInputVatResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Record the input VAT facts of a capital good that the annual VAT return needs for the adjustment of the deduction over the adjustment period (Article 187 of the VAT Directive, § 15a UStG): the input VAT on the acquisition, the date of first use, the share of use for deductible turnover at first use, whether it is land or a building (ten-year period instead of five), and every later year in which the share changed or the good was sold or withdrawn. Allowed also after depreciation has been posted.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Assets.PostV1AssetsAssetsInputVatAsync(
+    new PostV1AssetsAssetsInputVatRequest
+    {
+        Id = "id",
+        InputVatRealEstate = true,
+        InputVatUseChanges = new List<PostV1AssetsAssetsInputVatRequestInputVatUseChangesItem>()
+        {
+            new PostV1AssetsAssetsInputVatRequestInputVatUseChangesItem
+            {
+                Year = 1000000,
+                Percent = "percent",
+                Reason = PostV1AssetsAssetsInputVatRequestInputVatUseChangesItemReason.UseChange,
+            },
+        },
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1AssetsAssetsInputVatRequest` 
     
 </dd>
 </dl>
@@ -10379,6 +14388,62 @@ await client.Hr.PostV1HrEmployeesGetAsync(new PostV1HrEmployeesGetRequest { Id =
 <dd>
 
 **request:** `PostV1HrEmployeesGetRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">ExtraEmployeeDetailsTheCountryOfTheCompanyAsksForAsync</a>(PostV1HrEmployeesFieldsRequest { ... }) -> WithRawResponseTask&lt;PostV1HrEmployeesFieldsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Attributes a filing of the company country needs about a person that the shared employee record does not carry, such as the sex and place of birth an Italian income certificate asks for. Their values are kept in the payrollOptions of the employee.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Hr.ExtraEmployeeDetailsTheCountryOfTheCompanyAsksForAsync(
+    new PostV1HrEmployeesFieldsRequest()
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1HrEmployeesFieldsRequest` 
     
 </dd>
 </dl>
@@ -11778,7 +15843,7 @@ await client.Payroll.PostV1PayrollSchedulesListAsync(new PostV1PayrollSchedulesL
 </dl>
 </details>
 
-<details><summary><code>client.Payroll.<a href="/src/NordletApi/Payroll/PayrollClient.cs">PostV1PayrollCalcAsync</a>(PostV1PayrollCalcRequest { ... }) -> WithRawResponseTask&lt;PostV1PayrollCalcResponse&gt;</code></summary>
+<details><summary><code>client.Payroll.<a href="/src/NordletApi/Payroll/PayrollClient.cs">CalculateOneEmployeePaymentUnderTheRulesOfTheCompanyCountryAsync</a>(PostV1PayrollCalcRequest { ... }) -> WithRawResponseTask&lt;PostV1PayrollCalcResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -11791,7 +15856,7 @@ await client.Payroll.PostV1PayrollSchedulesListAsync(new PostV1PayrollSchedulesL
 <dd>
 
 ```csharp
-await client.Payroll.PostV1PayrollCalcAsync(
+await client.Payroll.CalculateOneEmployeePaymentUnderTheRulesOfTheCompanyCountryAsync(
     new PostV1PayrollCalcRequest { TaxableBase = "taxableBase", Date = "date" }
 );
 ```
@@ -11931,6 +15996,62 @@ await client.Payroll.PostV1PayrollRunsListAsync(new PostV1PayrollRunsListRequest
 <dd>
 
 **request:** `PostV1PayrollRunsListRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Payroll.<a href="/src/NordletApi/Payroll/PayrollClient.cs">RecordTheTimeAPersonWorkedInAPayrollLineAsync</a>(PostV1PayrollLinesAttendanceRequest { ... }) -> WithRawResponseTask&lt;PostV1PayrollLinesAttendanceResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+The days and hours worked, the days on the register and the average hourly earnings that some countries report per employment. The Czech monthly employer report asks for all four. They can be set while the run is a draft.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Payroll.RecordTheTimeAPersonWorkedInAPayrollLineAsync(
+    new PostV1PayrollLinesAttendanceRequest { Id = "id" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1PayrollLinesAttendanceRequest` 
     
 </dd>
 </dl>
@@ -15969,6 +20090,104 @@ await client.Calendar.PostV1CalendarGetAsync(new PostV1CalendarGetRequest { Key 
 </dl>
 </details>
 
+<details><summary><code>client.Calendar.<a href="/src/NordletApi/Calendar/CalendarClient.cs">GenerateTheFilingForADeadlineAndSendItToTheAdministrationAsync</a>(PostV1CalendarSubmitRequest { ... }) -> WithRawResponseTask&lt;PostV1CalendarSubmitResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Calendar.GenerateTheFilingForADeadlineAndSendItToTheAdministrationAsync(
+    new PostV1CalendarSubmitRequest { Key = "key" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1CalendarSubmitRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Calendar.<a href="/src/NordletApi/Calendar/CalendarClient.cs">GenerateTheFileOfADeadlineForTheCompanyToSendItselfAsync</a>(PostV1CalendarDownloadRequest { ... }) -> WithRawResponseTask&lt;PostV1CalendarDownloadResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Builds the file of a deadline whose format Nordlet produces but whose administration takes it only through the company's own account or program. Nothing is sent and no filing is recorded.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Calendar.GenerateTheFileOfADeadlineForTheCompanyToSendItselfAsync(
+    new PostV1CalendarDownloadRequest { Key = "key" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1CalendarDownloadRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.Calendar.<a href="/src/NordletApi/Calendar/CalendarClient.cs">PostV1CalendarCreateAsync</a>(PostV1CalendarCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1CalendarCreateResponse&gt;</code></summary>
 <dl>
 <dd>
@@ -17624,6 +21843,62 @@ await client.Bank.PostV1BankSettlementsMatchAsync(
 </dl>
 </details>
 
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">SetWhatTheMarketplaceKeepsFromOneSettlementLineAsARateOrAsAnAmountAsync</a>(PostV1BankSettlementsCommissionRequest { ... }) -> WithRawResponseTask&lt;PostV1BankSettlementsCommissionResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+A line with its own rate or amount is split with that value when the batch is posted. A line without one falls back to the commissionPercent given to the posting call, and without that the amount goes to the suspense account. Send both fields as null to clear the line back to the fallback.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Bank.SetWhatTheMarketplaceKeepsFromOneSettlementLineAsARateOrAsAnAmountAsync(
+    new PostV1BankSettlementsCommissionRequest { LineId = "lineId" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1BankSettlementsCommissionRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankSettlementsLinkAsync</a>(PostV1BankSettlementsLinkRequest { ... }) -> WithRawResponseTask&lt;PostV1BankSettlementsLinkResponse&gt;</code></summary>
 <dl>
 <dd>
@@ -18902,6 +23177,174 @@ await client.Reports.PostV1ReportsStockShortageAsync(new PostV1ReportsStockShort
 <dd>
 
 **request:** `PostV1ReportsStockShortageRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">PostV1ReportsSieAsync</a>(PostV1ReportsSieRequest { ... }) -> WithRawResponseTask&lt;PostV1ReportsSieResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Export the ledger of one financial year as an SIE file (the Swedish standard accounting interchange format, specification 4B). The file carries the chart of accounts, the opening and closing balance of every balance sheet account and the turnover of every result account for the year and the year before it, and, when asked for, every posted voucher of the year with its lines. Cost centres travel as dimension 1 and projects as dimension 6. Services that build a Swedish annual report read this file.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Reports.PostV1ReportsSieAsync(
+    new PostV1ReportsSieRequest { FromDate = "fromDate", ToDate = "toDate" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1ReportsSieRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">PostV1ReportsDatevAsync</a>(PostV1ReportsDatevRequest { ... }) -> WithRawResponseTask&lt;PostV1ReportsDatevResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Export the posted ledger of a period as a DATEV Buchungsstapel file (DATEV format, category 21, version 700). Every transaction becomes one or more bookings of an amount between an account and a contra account; a transaction with more than two lines is split into pairs whose totals match it. The file is semicolon separated and written in the Windows-1252 character set DATEV expects.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Reports.PostV1ReportsDatevAsync(
+    new PostV1ReportsDatevRequest { FromDate = "fromDate", ToDate = "toDate" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1ReportsDatevRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">PostV1ReportsFecAsync</a>(PostV1ReportsFecRequest { ... }) -> WithRawResponseTask&lt;PostV1ReportsFecResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Export the posted ledger of a period as a French FEC file (fichier des écritures comptables, order of 29 July 2013). One line per journal entry line, with the eighteen fields the order names, in their order, after a header line. Tab separated, UTF-8, comma as the decimal separator.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Reports.PostV1ReportsFecAsync(
+    new PostV1ReportsFecRequest { FromDate = "fromDate", ToDate = "toDate" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1ReportsFecRequest` 
     
 </dd>
 </dl>
@@ -20658,6 +25101,48 @@ await client.Account.PostV1AccountMembersSetRoleAsync(
 </dl>
 </details>
 
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountMembersTransferOwnershipAsync</a>(PostV1AccountMembersTransferOwnershipRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountMembersTransferOwnershipResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Account.PostV1AccountMembersTransferOwnershipAsync(
+    new PostV1AccountMembersTransferOwnershipRequest { UserId = "userId" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1AccountMembersTransferOwnershipRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountMembersRemoveAsync</a>(PostV1AccountMembersRemoveRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountMembersRemoveResponse&gt;</code></summary>
 <dl>
 <dd>
@@ -20926,7 +25411,7 @@ await client.Account.PostV1AccountInvitesAcceptAsync(
 
 ```csharp
 await client.Account.PostV1AccountLocaleSetAsync(
-    new PostV1AccountLocaleSetRequest { Locale = PostV1AccountLocaleSetRequestLocale.Lt }
+    new PostV1AccountLocaleSetRequest { Locale = PostV1AccountLocaleSetRequestLocale.En }
 );
 ```
 </dd>
@@ -21315,6 +25800,48 @@ await client.Account.PostV1AccountApiKeysListAsync(new PostV1AccountApiKeysListR
 <dd>
 
 **request:** `PostV1AccountApiKeysListRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">IssueAReplacementForAnApiKeyAndSetTheOldOneToStopWorkingAfterAShortOverlapAsync</a>(PostV1AccountApiKeysRotateRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountApiKeysRotateResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Account.IssueAReplacementForAnApiKeyAndSetTheOldOneToStopWorkingAfterAShortOverlapAsync(
+    new PostV1AccountApiKeysRotateRequest { Id = "id" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1AccountApiKeysRotateRequest` 
     
 </dd>
 </dl>
@@ -21743,6 +26270,48 @@ await client.Account.PostV1AccountReferralGetAsync(new PostV1AccountReferralGetR
 <dd>
 
 **request:** `PostV1AccountReferralGetRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountReferralConvertAsync</a>(PostV1AccountReferralConvertRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountReferralConvertResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Account.PostV1AccountReferralConvertAsync(
+    new PostV1AccountReferralConvertRequest { Points = 1000000 }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PostV1AccountReferralConvertRequest` 
     
 </dd>
 </dl>

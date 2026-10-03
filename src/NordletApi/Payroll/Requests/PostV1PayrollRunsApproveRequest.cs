@@ -24,6 +24,9 @@ public record PostV1PayrollRunsApproveRequest
     [JsonPropertyName("sodraAccountCode")]
     public string? SodraAccountCode { get; set; }
 
+    [JsonPropertyName("employerSocialAccountCode")]
+    public string? EmployerSocialAccountCode { get; set; }
+
     [JsonPropertyName("deductionAccountCode")]
     public string? DeductionAccountCode { get; set; }
 

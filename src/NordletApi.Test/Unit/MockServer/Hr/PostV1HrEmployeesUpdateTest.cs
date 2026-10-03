@@ -39,9 +39,12 @@ public class PostV1HrEmployeesUpdateTest : BaseMockServerTest
               "socialInsuranceStart": "socialInsuranceStart",
               "hireDate": "hireDate",
               "terminationDate": "terminationDate",
-              "applyNpd": true,
-              "npdOverride": "npdOverride",
+              "applyAllowance": true,
+              "allowanceOverride": "allowanceOverride",
               "pensionAccumulation": true,
+              "payrollOptions": {
+                "payrollOptions": "payrollOptions"
+              },
               "status": "active",
               "notes": "notes",
               "attributes": [
@@ -89,9 +92,10 @@ public class PostV1HrEmployeesUpdateTest : BaseMockServerTest
                 SocialInsuranceNo = null,
                 SocialInsuranceStart = null,
                 HireDate = null,
-                ApplyNpd = null,
-                NpdOverride = null,
+                ApplyAllowance = null,
+                AllowanceOverride = null,
                 PensionAccumulation = null,
+                PayrollOptions = null,
                 Notes = null,
                 Attributes = null,
                 Id = "x",
@@ -132,9 +136,12 @@ public class PostV1HrEmployeesUpdateTest : BaseMockServerTest
               "socialInsuranceStart": "socialInsuranceStart",
               "hireDate": "hireDate",
               "terminationDate": "terminationDate",
-              "applyNpd": true,
-              "npdOverride": "npdOverride",
+              "applyAllowance": true,
+              "allowanceOverride": "allowanceOverride",
               "pensionAccumulation": true,
+              "payrollOptions": {
+                "key": "value"
+              },
               "status": "active",
               "notes": "notes",
               "attributes": [

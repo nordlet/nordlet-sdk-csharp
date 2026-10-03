@@ -26,7 +26,7 @@ public partial interface IPayrollClient
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1PayrollCalcResponse> PostV1PayrollCalcAsync(
+    WithRawResponseTask<PostV1PayrollCalcResponse> CalculateOneEmployeePaymentUnderTheRulesOfTheCompanyCountryAsync(
         PostV1PayrollCalcRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
@@ -46,6 +46,15 @@ public partial interface IPayrollClient
 
     WithRawResponseTask<PostV1PayrollRunsListResponse> PostV1PayrollRunsListAsync(
         PostV1PayrollRunsListRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    /// <summary>
+    /// The days and hours worked, the days on the register and the average hourly earnings that some countries report per employment. The Czech monthly employer report asks for all four. They can be set while the run is a draft.
+    /// </summary>
+    WithRawResponseTask<PostV1PayrollLinesAttendanceResponse> RecordTheTimeAPersonWorkedInAPayrollLineAsync(
+        PostV1PayrollLinesAttendanceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );

@@ -23,12 +23,29 @@ public class PostV1PayrollRunsListTest : BaseMockServerTest
                   "id": "x",
                   "year": 1000000,
                   "month": 1000000,
+                  "countryCode": "countryCode",
                   "status": "draft",
                   "grossTotal": "grossTotal",
-                  "npdTotal": "npdTotal",
-                  "gpmTotal": "gpmTotal",
-                  "sodraEmployeeTotal": "sodraEmployeeTotal",
-                  "sodraEmployerTotal": "sodraEmployerTotal",
+                  "taxAllowanceTotal": "taxAllowanceTotal",
+                  "incomeTaxTotal": "incomeTaxTotal",
+                  "employeeContributionsTotal": "employeeContributionsTotal",
+                  "employerContributionsTotal": "employerContributionsTotal",
+                  "componentTotals": [
+                    {
+                      "code": "code",
+                      "kind": "allowance",
+                      "amount": "amount",
+                      "rate": "rate",
+                      "base": "base"
+                    },
+                    {
+                      "code": "code",
+                      "kind": "allowance",
+                      "amount": "amount",
+                      "rate": "rate",
+                      "base": "base"
+                    }
+                  ],
                   "netTotal": "netTotal",
                   "journalTransactionId": "x",
                   "notes": "notes",
@@ -39,12 +56,29 @@ public class PostV1PayrollRunsListTest : BaseMockServerTest
                   "id": "x",
                   "year": 1000000,
                   "month": 1000000,
+                  "countryCode": "countryCode",
                   "status": "draft",
                   "grossTotal": "grossTotal",
-                  "npdTotal": "npdTotal",
-                  "gpmTotal": "gpmTotal",
-                  "sodraEmployeeTotal": "sodraEmployeeTotal",
-                  "sodraEmployerTotal": "sodraEmployerTotal",
+                  "taxAllowanceTotal": "taxAllowanceTotal",
+                  "incomeTaxTotal": "incomeTaxTotal",
+                  "employeeContributionsTotal": "employeeContributionsTotal",
+                  "employerContributionsTotal": "employerContributionsTotal",
+                  "componentTotals": [
+                    {
+                      "code": "code",
+                      "kind": "allowance",
+                      "amount": "amount",
+                      "rate": "rate",
+                      "base": "base"
+                    },
+                    {
+                      "code": "code",
+                      "kind": "allowance",
+                      "amount": "amount",
+                      "rate": "rate",
+                      "base": "base"
+                    }
+                  ],
                   "netTotal": "netTotal",
                   "journalTransactionId": "x",
                   "notes": "notes",
@@ -104,12 +138,20 @@ public class PostV1PayrollRunsListTest : BaseMockServerTest
                   "id": "id",
                   "year": 1000000,
                   "month": 1000000,
+                  "countryCode": "countryCode",
                   "status": "draft",
                   "grossTotal": "grossTotal",
-                  "npdTotal": "npdTotal",
-                  "gpmTotal": "gpmTotal",
-                  "sodraEmployeeTotal": "sodraEmployeeTotal",
-                  "sodraEmployerTotal": "sodraEmployerTotal",
+                  "taxAllowanceTotal": "taxAllowanceTotal",
+                  "incomeTaxTotal": "incomeTaxTotal",
+                  "employeeContributionsTotal": "employeeContributionsTotal",
+                  "employerContributionsTotal": "employerContributionsTotal",
+                  "componentTotals": [
+                    {
+                      "code": "code",
+                      "kind": "allowance",
+                      "amount": "amount"
+                    }
+                  ],
                   "netTotal": "netTotal",
                   "journalTransactionId": "journalTransactionId",
                   "notes": "notes",

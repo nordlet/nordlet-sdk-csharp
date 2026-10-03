@@ -23,6 +23,9 @@ public record PostV1AccountApiKeysCreateResponse : IJsonOnDeserialized
     [JsonPropertyName("key")]
     public required string Key { get; set; }
 
+    [JsonPropertyName("expiresAt")]
+    public string? ExpiresAt { get; set; }
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

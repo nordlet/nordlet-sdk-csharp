@@ -177,6 +177,15 @@ public partial interface IBankClient
     );
 
     /// <summary>
+    /// A line with its own rate or amount is split with that value when the batch is posted. A line without one falls back to the commissionPercent given to the posting call, and without that the amount goes to the suspense account. Send both fields as null to clear the line back to the fallback.
+    /// </summary>
+    WithRawResponseTask<PostV1BankSettlementsCommissionResponse> SetWhatTheMarketplaceKeepsFromOneSettlementLineAsARateOrAsAnAmountAsync(
+        PostV1BankSettlementsCommissionRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    /// <summary>
     /// Attach the incoming bank-statement line that carries this payout to the settlement batch.
     /// </summary>
     WithRawResponseTask<PostV1BankSettlementsLinkResponse> PostV1BankSettlementsLinkAsync(

@@ -22,6 +22,9 @@ public class PostV1AccountSessionsListTest : BaseMockServerTest
                 {
                   "id": "x",
                   "companyId": "x",
+                  "ipAddress": "ipAddress",
+                  "userAgent": "userAgent",
+                  "lastSeenAt": "lastSeenAt",
                   "createdAt": "createdAt",
                   "expiresAt": "expiresAt",
                   "current": true
@@ -29,6 +32,9 @@ public class PostV1AccountSessionsListTest : BaseMockServerTest
                 {
                   "id": "x",
                   "companyId": "x",
+                  "ipAddress": "ipAddress",
+                  "userAgent": "userAgent",
+                  "lastSeenAt": "lastSeenAt",
                   "createdAt": "createdAt",
                   "expiresAt": "expiresAt",
                   "current": true
@@ -72,6 +78,9 @@ public class PostV1AccountSessionsListTest : BaseMockServerTest
                 {
                   "id": "id",
                   "companyId": "companyId",
+                  "ipAddress": "ipAddress",
+                  "userAgent": "userAgent",
+                  "lastSeenAt": "lastSeenAt",
                   "createdAt": "createdAt",
                   "expiresAt": "expiresAt",
                   "current": true

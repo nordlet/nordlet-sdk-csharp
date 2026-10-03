@@ -38,6 +38,12 @@ public partial interface IAccountClient
         CancellationToken cancellationToken = default
     );
 
+    WithRawResponseTask<PostV1AccountMembersTransferOwnershipResponse> PostV1AccountMembersTransferOwnershipAsync(
+        PostV1AccountMembersTransferOwnershipRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
     WithRawResponseTask<PostV1AccountMembersRemoveResponse> PostV1AccountMembersRemoveAsync(
         PostV1AccountMembersRemoveRequest request,
         RequestOptions? options = null,
@@ -134,6 +140,12 @@ public partial interface IAccountClient
         CancellationToken cancellationToken = default
     );
 
+    WithRawResponseTask<PostV1AccountApiKeysRotateResponse> IssueAReplacementForAnApiKeyAndSetTheOldOneToStopWorkingAfterAShortOverlapAsync(
+        PostV1AccountApiKeysRotateRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
     WithRawResponseTask<PostV1AccountApiKeysRevokeResponse> PostV1AccountApiKeysRevokeAsync(
         PostV1AccountApiKeysRevokeRequest request,
         RequestOptions? options = null,
@@ -193,6 +205,12 @@ public partial interface IAccountClient
 
     WithRawResponseTask<PostV1AccountReferralGetResponse> PostV1AccountReferralGetAsync(
         PostV1AccountReferralGetRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PostV1AccountReferralConvertResponse> PostV1AccountReferralConvertAsync(
+        PostV1AccountReferralConvertRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );

@@ -1,0 +1,41 @@
+using global::System.Text.Json;
+using global::System.Text.Json.Serialization;
+using NordletApi.Core;
+
+namespace NordletApi;
+
+[Serializable]
+public record PostV1LedgerStatementRowsSchemesResponseRowsItem : IJsonOnDeserialized
+{
+    [JsonExtensionData]
+    private readonly IDictionary<string, JsonElement> _extensionData =
+        new Dictionary<string, JsonElement>();
+
+    [JsonPropertyName("key")]
+    public required string Key { get; set; }
+
+    [JsonPropertyName("country")]
+    public required string Country { get; set; }
+
+    [JsonPropertyName("title")]
+    public required string Title { get; set; }
+
+    [JsonPropertyName("source")]
+    public required string Source { get; set; }
+
+    [JsonPropertyName("rows")]
+    public IEnumerable<PostV1LedgerStatementRowsSchemesResponseRowsItemRowsItem> Rows { get; set; } =
+        new List<PostV1LedgerStatementRowsSchemesResponseRowsItemRowsItem>();
+
+    [JsonIgnore]
+    public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
+
+    void IJsonOnDeserialized.OnDeserialized() =>
+        AdditionalProperties.CopyFromExtensionData(_extensionData);
+
+    /// <inheritdoc />
+    public override string ToString()
+    {
+        return JsonUtils.Serialize(this);
+    }
+}

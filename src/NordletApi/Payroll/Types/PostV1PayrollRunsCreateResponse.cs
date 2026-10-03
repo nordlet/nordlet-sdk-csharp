@@ -20,23 +20,30 @@ public record PostV1PayrollRunsCreateResponse : IJsonOnDeserialized
     [JsonPropertyName("month")]
     public required long Month { get; set; }
 
+    [JsonPropertyName("countryCode")]
+    public required string CountryCode { get; set; }
+
     [JsonPropertyName("status")]
     public required PostV1PayrollRunsCreateResponseStatus Status { get; set; }
 
     [JsonPropertyName("grossTotal")]
     public required string GrossTotal { get; set; }
 
-    [JsonPropertyName("npdTotal")]
-    public required string NpdTotal { get; set; }
+    [JsonPropertyName("taxAllowanceTotal")]
+    public required string TaxAllowanceTotal { get; set; }
 
-    [JsonPropertyName("gpmTotal")]
-    public required string GpmTotal { get; set; }
+    [JsonPropertyName("incomeTaxTotal")]
+    public required string IncomeTaxTotal { get; set; }
 
-    [JsonPropertyName("sodraEmployeeTotal")]
-    public required string SodraEmployeeTotal { get; set; }
+    [JsonPropertyName("employeeContributionsTotal")]
+    public required string EmployeeContributionsTotal { get; set; }
 
-    [JsonPropertyName("sodraEmployerTotal")]
-    public required string SodraEmployerTotal { get; set; }
+    [JsonPropertyName("employerContributionsTotal")]
+    public required string EmployerContributionsTotal { get; set; }
+
+    [JsonPropertyName("componentTotals")]
+    public IEnumerable<PostV1PayrollRunsCreateResponseComponentTotalsItem> ComponentTotals { get; set; } =
+        new List<PostV1PayrollRunsCreateResponseComponentTotalsItem>();
 
     [JsonPropertyName("netTotal")]
     public required string NetTotal { get; set; }

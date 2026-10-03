@@ -26,6 +26,12 @@ public record PostV1BankSettlementsPostResponseSummary : IJsonOnDeserialized
     [JsonPropertyName("suspenseAmount")]
     public required string SuspenseAmount { get; set; }
 
+    [JsonPropertyName("fxRate")]
+    public required string FxRate { get; set; }
+
+    [JsonPropertyName("exchangeDifference")]
+    public required string ExchangeDifference { get; set; }
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

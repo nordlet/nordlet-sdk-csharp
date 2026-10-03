@@ -23,12 +23,29 @@ public class PostV1PayrollRunsGetTest : BaseMockServerTest
               "id": "x",
               "year": 1000000,
               "month": 1000000,
+              "countryCode": "countryCode",
               "status": "draft",
               "grossTotal": "grossTotal",
-              "npdTotal": "npdTotal",
-              "gpmTotal": "gpmTotal",
-              "sodraEmployeeTotal": "sodraEmployeeTotal",
-              "sodraEmployerTotal": "sodraEmployerTotal",
+              "taxAllowanceTotal": "taxAllowanceTotal",
+              "incomeTaxTotal": "incomeTaxTotal",
+              "employeeContributionsTotal": "employeeContributionsTotal",
+              "employerContributionsTotal": "employerContributionsTotal",
+              "componentTotals": [
+                {
+                  "code": "code",
+                  "kind": "allowance",
+                  "amount": "amount",
+                  "rate": "rate",
+                  "base": "base"
+                },
+                {
+                  "code": "code",
+                  "kind": "allowance",
+                  "amount": "amount",
+                  "rate": "rate",
+                  "base": "base"
+                }
+              ],
               "netTotal": "netTotal",
               "journalTransactionId": "x",
               "notes": "notes",
@@ -65,11 +82,31 @@ public class PostV1PayrollRunsGetTest : BaseMockServerTest
                     }
                   ],
                   "taxableBase": "taxableBase",
-                  "npd": "npd",
-                  "gpm": "gpm",
-                  "sodraEmployee": "sodraEmployee",
-                  "sodraEmployer": "sodraEmployer",
-                  "net": "net"
+                  "taxAllowance": "taxAllowance",
+                  "incomeTax": "incomeTax",
+                  "employeeContributions": "employeeContributions",
+                  "employerContributions": "employerContributions",
+                  "components": [
+                    {
+                      "code": "code",
+                      "kind": "allowance",
+                      "amount": "amount",
+                      "rate": "rate",
+                      "base": "base"
+                    },
+                    {
+                      "code": "code",
+                      "kind": "allowance",
+                      "amount": "amount",
+                      "rate": "rate",
+                      "base": "base"
+                    }
+                  ],
+                  "net": "net",
+                  "daysWorked": "daysWorked",
+                  "hoursWorked": "hoursWorked",
+                  "registeredDays": "registeredDays",
+                  "averageHourlyEarnings": "averageHourlyEarnings"
                 },
                 {
                   "id": "x",
@@ -101,11 +138,31 @@ public class PostV1PayrollRunsGetTest : BaseMockServerTest
                     }
                   ],
                   "taxableBase": "taxableBase",
-                  "npd": "npd",
-                  "gpm": "gpm",
-                  "sodraEmployee": "sodraEmployee",
-                  "sodraEmployer": "sodraEmployer",
-                  "net": "net"
+                  "taxAllowance": "taxAllowance",
+                  "incomeTax": "incomeTax",
+                  "employeeContributions": "employeeContributions",
+                  "employerContributions": "employerContributions",
+                  "components": [
+                    {
+                      "code": "code",
+                      "kind": "allowance",
+                      "amount": "amount",
+                      "rate": "rate",
+                      "base": "base"
+                    },
+                    {
+                      "code": "code",
+                      "kind": "allowance",
+                      "amount": "amount",
+                      "rate": "rate",
+                      "base": "base"
+                    }
+                  ],
+                  "net": "net",
+                  "daysWorked": "daysWorked",
+                  "hoursWorked": "hoursWorked",
+                  "registeredDays": "registeredDays",
+                  "averageHourlyEarnings": "averageHourlyEarnings"
                 }
               ]
             }
@@ -147,12 +204,22 @@ public class PostV1PayrollRunsGetTest : BaseMockServerTest
               "id": "id",
               "year": 1000000,
               "month": 1000000,
+              "countryCode": "countryCode",
               "status": "draft",
               "grossTotal": "grossTotal",
-              "npdTotal": "npdTotal",
-              "gpmTotal": "gpmTotal",
-              "sodraEmployeeTotal": "sodraEmployeeTotal",
-              "sodraEmployerTotal": "sodraEmployerTotal",
+              "taxAllowanceTotal": "taxAllowanceTotal",
+              "incomeTaxTotal": "incomeTaxTotal",
+              "employeeContributionsTotal": "employeeContributionsTotal",
+              "employerContributionsTotal": "employerContributionsTotal",
+              "componentTotals": [
+                {
+                  "code": "code",
+                  "kind": "allowance",
+                  "amount": "amount",
+                  "rate": "rate",
+                  "base": "base"
+                }
+              ],
               "netTotal": "netTotal",
               "journalTransactionId": "journalTransactionId",
               "notes": "notes",
@@ -180,11 +247,22 @@ public class PostV1PayrollRunsGetTest : BaseMockServerTest
                     }
                   ],
                   "taxableBase": "taxableBase",
-                  "npd": "npd",
-                  "gpm": "gpm",
-                  "sodraEmployee": "sodraEmployee",
-                  "sodraEmployer": "sodraEmployer",
-                  "net": "net"
+                  "taxAllowance": "taxAllowance",
+                  "incomeTax": "incomeTax",
+                  "employeeContributions": "employeeContributions",
+                  "employerContributions": "employerContributions",
+                  "components": [
+                    {
+                      "code": "code",
+                      "kind": "allowance",
+                      "amount": "amount"
+                    }
+                  ],
+                  "net": "net",
+                  "daysWorked": "daysWorked",
+                  "hoursWorked": "hoursWorked",
+                  "registeredDays": "registeredDays",
+                  "averageHourlyEarnings": "averageHourlyEarnings"
                 }
               ]
             }

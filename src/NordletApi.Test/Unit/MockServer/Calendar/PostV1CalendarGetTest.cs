@@ -29,7 +29,40 @@ public class PostV1CalendarGetTest : BaseMockServerTest
               "dueDate": "dueDate",
               "notes": "notes",
               "done": true,
-              "href": "href"
+              "href": "href",
+              "submission": {
+                "id": "x",
+                "obligation": "obligation",
+                "periodYear": 1000000,
+                "periodMonth": 1000000,
+                "variant": "variant",
+                "status": "generated",
+                "fileName": "fileName",
+                "fileId": "x",
+                "externalRef": "externalRef",
+                "message": "message",
+                "ruleKey": "ruleKey",
+                "period": "period",
+                "documentKey": "documentKey",
+                "origin": "origin",
+                "transportSystem": "transportSystem",
+                "submittedAt": "submittedAt",
+                "acceptedAt": "acceptedAt",
+                "rejectedAt": "rejectedAt",
+                "checkedAt": "checkedAt",
+                "nextCheckAt": "nextCheckAt",
+                "attempts": 1000000,
+                "deliveryError": "deliveryError",
+                "sentSha256": "sentSha256",
+                "certificateFingerprint": "certificateFingerprint",
+                "submittedByActorType": "submittedByActorType",
+                "submittedByActorId": "submittedByActorId",
+                "createdAt": "createdAt",
+                "updatedAt": "updatedAt"
+              },
+              "canSubmit": true,
+              "canDownload": true,
+              "automated": true
             }
             """;
 
@@ -75,7 +108,40 @@ public class PostV1CalendarGetTest : BaseMockServerTest
               "dueDate": "dueDate",
               "notes": "notes",
               "done": true,
-              "href": "href"
+              "href": "href",
+              "submission": {
+                "id": "id",
+                "obligation": "obligation",
+                "periodYear": 1000000,
+                "periodMonth": 1000000,
+                "variant": "variant",
+                "status": "generated",
+                "fileName": "fileName",
+                "fileId": "fileId",
+                "externalRef": "externalRef",
+                "message": "message",
+                "ruleKey": "ruleKey",
+                "period": "period",
+                "documentKey": "documentKey",
+                "origin": "origin",
+                "transportSystem": "transportSystem",
+                "submittedAt": "submittedAt",
+                "acceptedAt": "acceptedAt",
+                "rejectedAt": "rejectedAt",
+                "checkedAt": "checkedAt",
+                "nextCheckAt": "nextCheckAt",
+                "attempts": 1000000,
+                "deliveryError": "deliveryError",
+                "sentSha256": "sentSha256",
+                "certificateFingerprint": "certificateFingerprint",
+                "submittedByActorType": "submittedByActorType",
+                "submittedByActorId": "submittedByActorId",
+                "createdAt": "createdAt",
+                "updatedAt": "updatedAt"
+              },
+              "canSubmit": true,
+              "canDownload": true,
+              "automated": true
             }
             """;
 

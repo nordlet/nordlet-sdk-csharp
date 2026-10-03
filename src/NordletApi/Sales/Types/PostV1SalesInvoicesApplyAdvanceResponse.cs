@@ -44,6 +44,9 @@ public record PostV1SalesInvoicesApplyAdvanceResponse : IJsonOnDeserialized
     [JsonPropertyName("currency")]
     public required string Currency { get; set; }
 
+    [JsonPropertyName("fxRate")]
+    public string? FxRate { get; set; }
+
     [JsonPropertyName("netTotal")]
     public required string NetTotal { get; set; }
 
@@ -70,6 +73,18 @@ public record PostV1SalesInvoicesApplyAdvanceResponse : IJsonOnDeserialized
 
     [JsonPropertyName("vatScheme")]
     public PostV1SalesInvoicesApplyAdvanceResponseVatScheme? VatScheme { get; set; }
+
+    [JsonPropertyName("intrastatTransportMode")]
+    public string? IntrastatTransportMode { get; set; }
+
+    [JsonPropertyName("intrastatDeliveryTerms")]
+    public string? IntrastatDeliveryTerms { get; set; }
+
+    [JsonPropertyName("intrastatRegion")]
+    public string? IntrastatRegion { get; set; }
+
+    [JsonPropertyName("intrastatNatureOfTransaction")]
+    public string? IntrastatNatureOfTransaction { get; set; }
 
     [JsonPropertyName("vatCountryCode")]
     public string? VatCountryCode { get; set; }
@@ -118,6 +133,30 @@ public record PostV1SalesInvoicesApplyAdvanceResponse : IJsonOnDeserialized
 
     [JsonPropertyName("payToken")]
     public string? PayToken { get; set; }
+
+    [JsonPropertyName("einvoiceSystem")]
+    public string? EinvoiceSystem { get; set; }
+
+    [JsonPropertyName("einvoiceTransport")]
+    public string? EinvoiceTransport { get; set; }
+
+    [JsonPropertyName("einvoiceMessageId")]
+    public string? EinvoiceMessageId { get; set; }
+
+    [JsonPropertyName("einvoiceNumber")]
+    public string? EinvoiceNumber { get; set; }
+
+    [JsonPropertyName("einvoiceStatus")]
+    public string? EinvoiceStatus { get; set; }
+
+    [JsonPropertyName("einvoiceDetail")]
+    public string? EinvoiceDetail { get; set; }
+
+    [JsonPropertyName("einvoiceSentAt")]
+    public string? EinvoiceSentAt { get; set; }
+
+    [JsonPropertyName("einvoiceCheckedAt")]
+    public string? EinvoiceCheckedAt { get; set; }
 
     [JsonPropertyName("createdAt")]
     public required string CreatedAt { get; set; }

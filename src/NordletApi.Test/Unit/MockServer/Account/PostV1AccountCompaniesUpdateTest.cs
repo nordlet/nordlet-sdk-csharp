@@ -26,6 +26,8 @@ public class PostV1AccountCompaniesUpdateTest : BaseMockServerTest
               "isVatPayer": true,
               "isSandbox": true,
               "countryCode": "countryCode",
+              "chartTemplate": "chartTemplate",
+              "countryChartTemplate": "countryChartTemplate",
               "baseCurrency": "baseCurrency",
               "defaultInvoiceCurrency": "defaultInvoiceCurrency",
               "status": "active",
@@ -41,7 +43,22 @@ public class PostV1AccountCompaniesUpdateTest : BaseMockServerTest
               "bankName": "bankName",
               "peppolId": "peppolId",
               "sepaCreditorId": "sepaCreditorId",
-              "logoFileId": "logoFileId"
+              "logoFileId": "logoFileId",
+              "legalForm": "legalForm",
+              "registryName": "registryName",
+              "incorporatedOn": "incorporatedOn",
+              "shareCapital": "shareCapital",
+              "accountsKeptBy": "company",
+              "vatPeriod": "monthly",
+              "fiscalYearEndMonth": 1000000,
+              "timeZone": "timeZone",
+              "filingOptions": {
+                "filingOptions": "filingOptions"
+              },
+              "bookkeeperName": "bookkeeperName",
+              "auditorName": "auditorName",
+              "auditorRegistrationNumber": "auditorRegistrationNumber",
+              "auditRequired": true
             }
             """;
 
@@ -69,6 +86,10 @@ public class PostV1AccountCompaniesUpdateTest : BaseMockServerTest
                 VatCode = null,
                 SmeExemptionNumber = null,
                 IsVatPayer = null,
+                VatPeriod = null,
+                FiscalYearEndMonth = null,
+                TimeZone = null,
+                FilingOptions = null,
                 Address = null,
                 Email = null,
                 Phone = null,
@@ -77,6 +98,15 @@ public class PostV1AccountCompaniesUpdateTest : BaseMockServerTest
                 PeppolId = null,
                 SepaCreditorId = null,
                 DefaultInvoiceCurrency = null,
+                LegalForm = null,
+                RegistryName = null,
+                IncorporatedOn = null,
+                ShareCapital = null,
+                AccountsKeptBy = null,
+                BookkeeperName = null,
+                AuditorName = null,
+                AuditorRegistrationNumber = null,
+                AuditRequired = null,
                 Logo = null,
             }
         );
@@ -100,6 +130,8 @@ public class PostV1AccountCompaniesUpdateTest : BaseMockServerTest
               "isVatPayer": true,
               "isSandbox": true,
               "countryCode": "countryCode",
+              "chartTemplate": "chartTemplate",
+              "countryChartTemplate": "countryChartTemplate",
               "baseCurrency": "baseCurrency",
               "defaultInvoiceCurrency": "defaultInvoiceCurrency",
               "status": "active",
@@ -115,7 +147,22 @@ public class PostV1AccountCompaniesUpdateTest : BaseMockServerTest
               "bankName": "bankName",
               "peppolId": "peppolId",
               "sepaCreditorId": "sepaCreditorId",
-              "logoFileId": "logoFileId"
+              "logoFileId": "logoFileId",
+              "legalForm": "legalForm",
+              "registryName": "registryName",
+              "incorporatedOn": "incorporatedOn",
+              "shareCapital": "shareCapital",
+              "accountsKeptBy": "company",
+              "vatPeriod": "monthly",
+              "fiscalYearEndMonth": 1000000,
+              "timeZone": "timeZone",
+              "filingOptions": {
+                "key": "value"
+              },
+              "bookkeeperName": "bookkeeperName",
+              "auditorName": "auditorName",
+              "auditorRegistrationNumber": "auditorRegistrationNumber",
+              "auditRequired": true
             }
             """;
 

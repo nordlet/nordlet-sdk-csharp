@@ -24,6 +24,18 @@ public record PostV1DeclarationsLtIntrastatComputeRequest
     [JsonPropertyName("transportMode")]
     public PostV1DeclarationsLtIntrastatComputeRequestTransportMode? TransportMode { get; set; }
 
+    [JsonPropertyName("regionCode")]
+    public string? RegionCode { get; set; }
+
+    [JsonPropertyName("statisticalValueRequired")]
+    public bool? StatisticalValueRequired { get; set; }
+
+    [JsonPropertyName("preparationTimeHours")]
+    public long? PreparationTimeHours { get; set; }
+
+    [JsonPropertyName("preparationTimeMinutes")]
+    public long? PreparationTimeMinutes { get; set; }
+
     [JsonPropertyName("persist")]
     public bool? Persist { get; set; }
 

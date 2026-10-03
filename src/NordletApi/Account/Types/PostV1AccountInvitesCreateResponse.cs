@@ -23,9 +23,6 @@ public record PostV1AccountInvitesCreateResponse : IJsonOnDeserialized
     [JsonPropertyName("expiresAt")]
     public required string ExpiresAt { get; set; }
 
-    [JsonPropertyName("inviteUrl")]
-    public required string InviteUrl { get; set; }
-
     [JsonPropertyName("emailSent")]
     public required bool EmailSent { get; set; }
 

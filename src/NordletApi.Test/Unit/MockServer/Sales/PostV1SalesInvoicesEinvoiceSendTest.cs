@@ -23,7 +23,11 @@ public class PostV1SalesInvoicesEinvoiceSendTest : BaseMockServerTest
               "sent": true,
               "system": "system",
               "format": "format",
+              "transport": "bridge",
               "messageId": "messageId",
+              "nationalNumber": "nationalNumber",
+              "status": "sent",
+              "detail": "detail",
               "fileId": "x",
               "warnings": [
                 "warnings",
@@ -68,7 +72,11 @@ public class PostV1SalesInvoicesEinvoiceSendTest : BaseMockServerTest
               "sent": true,
               "system": "system",
               "format": "format",
+              "transport": "bridge",
               "messageId": "messageId",
+              "nationalNumber": "nationalNumber",
+              "status": "sent",
+              "detail": "detail",
               "fileId": "fileId",
               "warnings": [
                 "warnings"

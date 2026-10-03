@@ -25,7 +25,7 @@ public class PostV1AssetsGroupsListTest : BaseMockServerTest
                   "defaultUsefulLifeMonths": 1000000,
                   "assetAccountCode": "x",
                   "depreciationAccountCode": "x",
-                  "expenseAccountCode": "6206",
+                  "expenseAccountCode": "expenseAccountCode",
                   "id": "x",
                   "createdAt": "createdAt"
                 },
@@ -35,7 +35,7 @@ public class PostV1AssetsGroupsListTest : BaseMockServerTest
                   "defaultUsefulLifeMonths": 1000000,
                   "assetAccountCode": "x",
                   "depreciationAccountCode": "x",
-                  "expenseAccountCode": "6206",
+                  "expenseAccountCode": "expenseAccountCode",
                   "id": "x",
                   "createdAt": "createdAt"
                 }

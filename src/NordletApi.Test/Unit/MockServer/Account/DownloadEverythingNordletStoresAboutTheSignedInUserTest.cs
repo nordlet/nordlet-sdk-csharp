@@ -54,6 +54,9 @@ public class DownloadEverythingNordletStoresAboutTheSignedInUserTest : BaseMockS
                 {
                   "id": "x",
                   "companyId": "x",
+                  "ipAddress": "ipAddress",
+                  "userAgent": "userAgent",
+                  "lastSeenAt": "lastSeenAt",
                   "createdAt": "createdAt",
                   "expiresAt": "expiresAt",
                   "current": true
@@ -61,6 +64,9 @@ public class DownloadEverythingNordletStoresAboutTheSignedInUserTest : BaseMockS
                 {
                   "id": "x",
                   "companyId": "x",
+                  "ipAddress": "ipAddress",
+                  "userAgent": "userAgent",
+                  "lastSeenAt": "lastSeenAt",
                   "createdAt": "createdAt",
                   "expiresAt": "expiresAt",
                   "current": true
@@ -174,6 +180,9 @@ public class DownloadEverythingNordletStoresAboutTheSignedInUserTest : BaseMockS
                 {
                   "id": "id",
                   "companyId": "companyId",
+                  "ipAddress": "ipAddress",
+                  "userAgent": "userAgent",
+                  "lastSeenAt": "lastSeenAt",
                   "createdAt": "createdAt",
                   "expiresAt": "expiresAt",
                   "current": true

@@ -24,8 +24,23 @@ public record PostV1SalesInvoicesCreateRequest
     [JsonPropertyName("creditedInvoiceId")]
     public string? CreditedInvoiceId { get; set; }
 
+    [JsonPropertyName("agreementId")]
+    public string? AgreementId { get; set; }
+
     [JsonPropertyName("vatScheme")]
     public PostV1SalesInvoicesCreateRequestVatScheme? VatScheme { get; set; }
+
+    [JsonPropertyName("intrastatTransportMode")]
+    public string? IntrastatTransportMode { get; set; }
+
+    [JsonPropertyName("intrastatDeliveryTerms")]
+    public string? IntrastatDeliveryTerms { get; set; }
+
+    [JsonPropertyName("intrastatRegion")]
+    public string? IntrastatRegion { get; set; }
+
+    [JsonPropertyName("intrastatNatureOfTransaction")]
+    public string? IntrastatNatureOfTransaction { get; set; }
 
     [JsonPropertyName("vatCountryCode")]
     public string? VatCountryCode { get; set; }

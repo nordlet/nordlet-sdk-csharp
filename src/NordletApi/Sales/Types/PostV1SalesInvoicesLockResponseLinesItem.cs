@@ -38,6 +38,9 @@ public record PostV1SalesInvoicesLockResponseLinesItem : IJsonOnDeserialized
     [JsonPropertyName("vatClassifierCode")]
     public string? VatClassifierCode { get; set; }
 
+    [JsonPropertyName("vatExemptionBasis")]
+    public string? VatExemptionBasis { get; set; }
+
     [JsonPropertyName("costCenterId")]
     public string? CostCenterId { get; set; }
 
