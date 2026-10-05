@@ -2,62 +2,62 @@ namespace NordletApi;
 
 public partial interface IProjectsClient
 {
-    WithRawResponseTask<PostV1ProjectsCreateResponse> PostV1ProjectsCreateAsync(
-        PostV1ProjectsCreateRequest request,
+    WithRawResponseTask<CreateProjectsResponse> CreateAsync(
+        CreateProjectsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ProjectsUpdateResponse> PostV1ProjectsUpdateAsync(
-        PostV1ProjectsUpdateRequest request,
+    WithRawResponseTask<UpdateProjectsResponse> UpdateAsync(
+        UpdateProjectsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ProjectsGetResponse> PostV1ProjectsGetAsync(
-        PostV1ProjectsGetRequest request,
+    WithRawResponseTask<GetProjectsResponse> GetAsync(
+        GetProjectsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ProjectsListResponse> PostV1ProjectsListAsync(
-        PostV1ProjectsListRequest request,
+    WithRawResponseTask<ListProjectsResponse> ListAsync(
+        ListProjectsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ProjectsTimeEntriesCreateResponse> PostV1ProjectsTimeEntriesCreateAsync(
-        PostV1ProjectsTimeEntriesCreateRequest request,
+    WithRawResponseTask<TimeEntriesCreateProjectsResponse> TimeEntriesCreateAsync(
+        TimeEntriesCreateProjectsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ProjectsTimeEntriesUpdateResponse> PostV1ProjectsTimeEntriesUpdateAsync(
-        PostV1ProjectsTimeEntriesUpdateRequest request,
+    WithRawResponseTask<TimeEntriesUpdateProjectsResponse> TimeEntriesUpdateAsync(
+        TimeEntriesUpdateProjectsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ProjectsTimeEntriesDeleteResponse> PostV1ProjectsTimeEntriesDeleteAsync(
-        PostV1ProjectsTimeEntriesDeleteRequest request,
+    WithRawResponseTask<TimeEntriesDeleteProjectsResponse> TimeEntriesDeleteAsync(
+        TimeEntriesDeleteProjectsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ProjectsTimeEntriesListResponse> PostV1ProjectsTimeEntriesListAsync(
-        PostV1ProjectsTimeEntriesListRequest request,
+    WithRawResponseTask<TimeEntriesListProjectsResponse> TimeEntriesListAsync(
+        TimeEntriesListProjectsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ProjectsTimeEntriesBillResponse> PostV1ProjectsTimeEntriesBillAsync(
-        PostV1ProjectsTimeEntriesBillRequest request,
+    WithRawResponseTask<TimeEntriesBillProjectsResponse> TimeEntriesBillAsync(
+        TimeEntriesBillProjectsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ProjectsReportResponse> PostV1ProjectsReportAsync(
-        PostV1ProjectsReportRequest request,
+    WithRawResponseTask<ReportProjectsResponse> ReportAsync(
+        ReportProjectsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );

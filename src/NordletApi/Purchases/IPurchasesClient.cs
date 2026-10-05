@@ -2,122 +2,122 @@ namespace NordletApi;
 
 public partial interface IPurchasesClient
 {
-    WithRawResponseTask<PostV1PurchasesInvoicesCreateResponse> PostV1PurchasesInvoicesCreateAsync(
-        PostV1PurchasesInvoicesCreateRequest request,
+    WithRawResponseTask<InvoicesCreatePurchasesResponse> InvoicesCreateAsync(
+        InvoicesCreatePurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1PurchasesInvoicesGetResponse> PostV1PurchasesInvoicesGetAsync(
-        PostV1PurchasesInvoicesGetRequest request,
+    WithRawResponseTask<InvoicesGetPurchasesResponse> InvoicesGetAsync(
+        InvoicesGetPurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1PurchasesInvoicesUpdateResponse> PostV1PurchasesInvoicesUpdateAsync(
-        PostV1PurchasesInvoicesUpdateRequest request,
+    WithRawResponseTask<InvoicesUpdatePurchasesResponse> InvoicesUpdateAsync(
+        InvoicesUpdatePurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1PurchasesInvoicesDeleteResponse> PostV1PurchasesInvoicesDeleteAsync(
-        PostV1PurchasesInvoicesDeleteRequest request,
+    WithRawResponseTask<InvoicesDeletePurchasesResponse> InvoicesDeleteAsync(
+        InvoicesDeletePurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1PurchasesInvoicesRegisterResponse> PostV1PurchasesInvoicesRegisterAsync(
-        PostV1PurchasesInvoicesRegisterRequest request,
+    WithRawResponseTask<InvoicesRegisterPurchasesResponse> InvoicesRegisterAsync(
+        InvoicesRegisterPurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1PurchasesInvoicesListResponse> PostV1PurchasesInvoicesListAsync(
-        PostV1PurchasesInvoicesListRequest request,
+    WithRawResponseTask<InvoicesListPurchasesResponse> InvoicesListAsync(
+        InvoicesListPurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1PurchasesOrdersCreateResponse> PostV1PurchasesOrdersCreateAsync(
-        PostV1PurchasesOrdersCreateRequest request,
+    WithRawResponseTask<OrdersCreatePurchasesResponse> OrdersCreateAsync(
+        OrdersCreatePurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1PurchasesOrdersUpdateResponse> PostV1PurchasesOrdersUpdateAsync(
-        PostV1PurchasesOrdersUpdateRequest request,
+    WithRawResponseTask<OrdersUpdatePurchasesResponse> OrdersUpdateAsync(
+        OrdersUpdatePurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1PurchasesOrdersGetResponse> PostV1PurchasesOrdersGetAsync(
-        PostV1PurchasesOrdersGetRequest request,
+    WithRawResponseTask<OrdersGetPurchasesResponse> OrdersGetAsync(
+        OrdersGetPurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1PurchasesOrdersListResponse> PostV1PurchasesOrdersListAsync(
-        PostV1PurchasesOrdersListRequest request,
+    WithRawResponseTask<OrdersListPurchasesResponse> OrdersListAsync(
+        OrdersListPurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1PurchasesOrdersSubmitResponse> PostV1PurchasesOrdersSubmitAsync(
-        PostV1PurchasesOrdersSubmitRequest request,
+    WithRawResponseTask<OrdersSubmitPurchasesResponse> OrdersSubmitAsync(
+        OrdersSubmitPurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1PurchasesOrdersApproveResponse> PostV1PurchasesOrdersApproveAsync(
-        PostV1PurchasesOrdersApproveRequest request,
+    WithRawResponseTask<OrdersApprovePurchasesResponse> OrdersApproveAsync(
+        OrdersApprovePurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1PurchasesOrdersRejectResponse> PostV1PurchasesOrdersRejectAsync(
-        PostV1PurchasesOrdersRejectRequest request,
+    WithRawResponseTask<OrdersRejectPurchasesResponse> OrdersRejectAsync(
+        OrdersRejectPurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1PurchasesOrdersCancelResponse> PostV1PurchasesOrdersCancelAsync(
-        PostV1PurchasesOrdersCancelRequest request,
+    WithRawResponseTask<OrdersCancelPurchasesResponse> OrdersCancelAsync(
+        OrdersCancelPurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1PurchasesOrdersCloseResponse> PostV1PurchasesOrdersCloseAsync(
-        PostV1PurchasesOrdersCloseRequest request,
+    WithRawResponseTask<OrdersClosePurchasesResponse> OrdersCloseAsync(
+        OrdersClosePurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1PurchasesOrdersDeleteResponse> PostV1PurchasesOrdersDeleteAsync(
-        PostV1PurchasesOrdersDeleteRequest request,
+    WithRawResponseTask<OrdersDeletePurchasesResponse> OrdersDeleteAsync(
+        OrdersDeletePurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1PurchasesReceiptsCreateResponse> PostV1PurchasesReceiptsCreateAsync(
-        PostV1PurchasesReceiptsCreateRequest request,
+    WithRawResponseTask<ReceiptsCreatePurchasesResponse> ReceiptsCreateAsync(
+        ReceiptsCreatePurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1PurchasesReceiptsGetResponse> PostV1PurchasesReceiptsGetAsync(
-        PostV1PurchasesReceiptsGetRequest request,
+    WithRawResponseTask<ReceiptsGetPurchasesResponse> ReceiptsGetAsync(
+        ReceiptsGetPurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1PurchasesReceiptsListResponse> PostV1PurchasesReceiptsListAsync(
-        PostV1PurchasesReceiptsListRequest request,
+    WithRawResponseTask<ReceiptsListPurchasesResponse> ReceiptsListAsync(
+        ReceiptsListPurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1PurchasesInvoicesMatchResponse> PostV1PurchasesInvoicesMatchAsync(
-        PostV1PurchasesInvoicesMatchRequest request,
+    WithRawResponseTask<InvoicesMatchPurchasesResponse> InvoicesMatchAsync(
+        InvoicesMatchPurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );

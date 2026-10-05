@@ -12,10 +12,8 @@ public partial class PurchasesClient : IPurchasesClient
         _client = client;
     }
 
-    private async Task<
-        WithRawResponse<PostV1PurchasesInvoicesCreateResponse>
-    > PostV1PurchasesInvoicesCreateAsyncCore(
-        PostV1PurchasesInvoicesCreateRequest request,
+    private async Task<WithRawResponse<InvoicesCreatePurchasesResponse>> InvoicesCreateAsyncCore(
+        InvoicesCreatePurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -51,10 +49,10 @@ public partial class PurchasesClient : IPurchasesClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PurchasesInvoicesCreateResponse>(
+                var responseData = JsonUtils.Deserialize<InvoicesCreatePurchasesResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PurchasesInvoicesCreateResponse>()
+                return new WithRawResponse<InvoicesCreatePurchasesResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -113,6 +111,18 @@ public partial class PurchasesClient : IPurchasesClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -139,6 +149,18 @@ public partial class PurchasesClient : IPurchasesClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -205,10 +227,8 @@ public partial class PurchasesClient : IPurchasesClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PurchasesInvoicesGetResponse>
-    > PostV1PurchasesInvoicesGetAsyncCore(
-        PostV1PurchasesInvoicesGetRequest request,
+    private async Task<WithRawResponse<InvoicesGetPurchasesResponse>> InvoicesGetAsyncCore(
+        InvoicesGetPurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -244,10 +264,10 @@ public partial class PurchasesClient : IPurchasesClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PurchasesInvoicesGetResponse>(
+                var responseData = JsonUtils.Deserialize<InvoicesGetPurchasesResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PurchasesInvoicesGetResponse>()
+                return new WithRawResponse<InvoicesGetPurchasesResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -306,6 +326,18 @@ public partial class PurchasesClient : IPurchasesClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -332,6 +364,18 @@ public partial class PurchasesClient : IPurchasesClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -398,10 +442,8 @@ public partial class PurchasesClient : IPurchasesClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PurchasesInvoicesUpdateResponse>
-    > PostV1PurchasesInvoicesUpdateAsyncCore(
-        PostV1PurchasesInvoicesUpdateRequest request,
+    private async Task<WithRawResponse<InvoicesUpdatePurchasesResponse>> InvoicesUpdateAsyncCore(
+        InvoicesUpdatePurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -437,10 +479,10 @@ public partial class PurchasesClient : IPurchasesClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PurchasesInvoicesUpdateResponse>(
+                var responseData = JsonUtils.Deserialize<InvoicesUpdatePurchasesResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PurchasesInvoicesUpdateResponse>()
+                return new WithRawResponse<InvoicesUpdatePurchasesResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -499,6 +541,18 @@ public partial class PurchasesClient : IPurchasesClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -525,6 +579,18 @@ public partial class PurchasesClient : IPurchasesClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -591,10 +657,8 @@ public partial class PurchasesClient : IPurchasesClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PurchasesInvoicesDeleteResponse>
-    > PostV1PurchasesInvoicesDeleteAsyncCore(
-        PostV1PurchasesInvoicesDeleteRequest request,
+    private async Task<WithRawResponse<InvoicesDeletePurchasesResponse>> InvoicesDeleteAsyncCore(
+        InvoicesDeletePurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -630,10 +694,10 @@ public partial class PurchasesClient : IPurchasesClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PurchasesInvoicesDeleteResponse>(
+                var responseData = JsonUtils.Deserialize<InvoicesDeletePurchasesResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PurchasesInvoicesDeleteResponse>()
+                return new WithRawResponse<InvoicesDeletePurchasesResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -692,6 +756,18 @@ public partial class PurchasesClient : IPurchasesClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -718,6 +794,18 @@ public partial class PurchasesClient : IPurchasesClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -785,9 +873,9 @@ public partial class PurchasesClient : IPurchasesClient
     }
 
     private async Task<
-        WithRawResponse<PostV1PurchasesInvoicesRegisterResponse>
-    > PostV1PurchasesInvoicesRegisterAsyncCore(
-        PostV1PurchasesInvoicesRegisterRequest request,
+        WithRawResponse<InvoicesRegisterPurchasesResponse>
+    > InvoicesRegisterAsyncCore(
+        InvoicesRegisterPurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -823,10 +911,10 @@ public partial class PurchasesClient : IPurchasesClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PurchasesInvoicesRegisterResponse>(
+                var responseData = JsonUtils.Deserialize<InvoicesRegisterPurchasesResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PurchasesInvoicesRegisterResponse>()
+                return new WithRawResponse<InvoicesRegisterPurchasesResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -885,6 +973,18 @@ public partial class PurchasesClient : IPurchasesClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -911,6 +1011,18 @@ public partial class PurchasesClient : IPurchasesClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -977,10 +1089,8 @@ public partial class PurchasesClient : IPurchasesClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PurchasesInvoicesListResponse>
-    > PostV1PurchasesInvoicesListAsyncCore(
-        PostV1PurchasesInvoicesListRequest request,
+    private async Task<WithRawResponse<InvoicesListPurchasesResponse>> InvoicesListAsyncCore(
+        InvoicesListPurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1016,10 +1126,10 @@ public partial class PurchasesClient : IPurchasesClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PurchasesInvoicesListResponse>(
+                var responseData = JsonUtils.Deserialize<InvoicesListPurchasesResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PurchasesInvoicesListResponse>()
+                return new WithRawResponse<InvoicesListPurchasesResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1078,6 +1188,18 @@ public partial class PurchasesClient : IPurchasesClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1104,6 +1226,18 @@ public partial class PurchasesClient : IPurchasesClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1170,10 +1304,8 @@ public partial class PurchasesClient : IPurchasesClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PurchasesOrdersCreateResponse>
-    > PostV1PurchasesOrdersCreateAsyncCore(
-        PostV1PurchasesOrdersCreateRequest request,
+    private async Task<WithRawResponse<OrdersCreatePurchasesResponse>> OrdersCreateAsyncCore(
+        OrdersCreatePurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1209,10 +1341,10 @@ public partial class PurchasesClient : IPurchasesClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PurchasesOrdersCreateResponse>(
+                var responseData = JsonUtils.Deserialize<OrdersCreatePurchasesResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PurchasesOrdersCreateResponse>()
+                return new WithRawResponse<OrdersCreatePurchasesResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1271,6 +1403,18 @@ public partial class PurchasesClient : IPurchasesClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1297,6 +1441,18 @@ public partial class PurchasesClient : IPurchasesClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1363,10 +1519,8 @@ public partial class PurchasesClient : IPurchasesClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PurchasesOrdersUpdateResponse>
-    > PostV1PurchasesOrdersUpdateAsyncCore(
-        PostV1PurchasesOrdersUpdateRequest request,
+    private async Task<WithRawResponse<OrdersUpdatePurchasesResponse>> OrdersUpdateAsyncCore(
+        OrdersUpdatePurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1402,10 +1556,10 @@ public partial class PurchasesClient : IPurchasesClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PurchasesOrdersUpdateResponse>(
+                var responseData = JsonUtils.Deserialize<OrdersUpdatePurchasesResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PurchasesOrdersUpdateResponse>()
+                return new WithRawResponse<OrdersUpdatePurchasesResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1464,6 +1618,18 @@ public partial class PurchasesClient : IPurchasesClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1490,6 +1656,18 @@ public partial class PurchasesClient : IPurchasesClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1556,10 +1734,8 @@ public partial class PurchasesClient : IPurchasesClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PurchasesOrdersGetResponse>
-    > PostV1PurchasesOrdersGetAsyncCore(
-        PostV1PurchasesOrdersGetRequest request,
+    private async Task<WithRawResponse<OrdersGetPurchasesResponse>> OrdersGetAsyncCore(
+        OrdersGetPurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1595,10 +1771,8 @@ public partial class PurchasesClient : IPurchasesClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PurchasesOrdersGetResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1PurchasesOrdersGetResponse>()
+                var responseData = JsonUtils.Deserialize<OrdersGetPurchasesResponse>(responseBody)!;
+                return new WithRawResponse<OrdersGetPurchasesResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1657,6 +1831,18 @@ public partial class PurchasesClient : IPurchasesClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1683,6 +1869,18 @@ public partial class PurchasesClient : IPurchasesClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1749,10 +1947,8 @@ public partial class PurchasesClient : IPurchasesClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PurchasesOrdersListResponse>
-    > PostV1PurchasesOrdersListAsyncCore(
-        PostV1PurchasesOrdersListRequest request,
+    private async Task<WithRawResponse<OrdersListPurchasesResponse>> OrdersListAsyncCore(
+        OrdersListPurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1788,10 +1984,10 @@ public partial class PurchasesClient : IPurchasesClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PurchasesOrdersListResponse>(
+                var responseData = JsonUtils.Deserialize<OrdersListPurchasesResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PurchasesOrdersListResponse>()
+                return new WithRawResponse<OrdersListPurchasesResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1850,6 +2046,18 @@ public partial class PurchasesClient : IPurchasesClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1876,6 +2084,18 @@ public partial class PurchasesClient : IPurchasesClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1942,10 +2162,8 @@ public partial class PurchasesClient : IPurchasesClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PurchasesOrdersSubmitResponse>
-    > PostV1PurchasesOrdersSubmitAsyncCore(
-        PostV1PurchasesOrdersSubmitRequest request,
+    private async Task<WithRawResponse<OrdersSubmitPurchasesResponse>> OrdersSubmitAsyncCore(
+        OrdersSubmitPurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1981,10 +2199,10 @@ public partial class PurchasesClient : IPurchasesClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PurchasesOrdersSubmitResponse>(
+                var responseData = JsonUtils.Deserialize<OrdersSubmitPurchasesResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PurchasesOrdersSubmitResponse>()
+                return new WithRawResponse<OrdersSubmitPurchasesResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2043,6 +2261,18 @@ public partial class PurchasesClient : IPurchasesClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2069,6 +2299,18 @@ public partial class PurchasesClient : IPurchasesClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2135,10 +2377,8 @@ public partial class PurchasesClient : IPurchasesClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PurchasesOrdersApproveResponse>
-    > PostV1PurchasesOrdersApproveAsyncCore(
-        PostV1PurchasesOrdersApproveRequest request,
+    private async Task<WithRawResponse<OrdersApprovePurchasesResponse>> OrdersApproveAsyncCore(
+        OrdersApprovePurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2174,10 +2414,10 @@ public partial class PurchasesClient : IPurchasesClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PurchasesOrdersApproveResponse>(
+                var responseData = JsonUtils.Deserialize<OrdersApprovePurchasesResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PurchasesOrdersApproveResponse>()
+                return new WithRawResponse<OrdersApprovePurchasesResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2236,6 +2476,18 @@ public partial class PurchasesClient : IPurchasesClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2262,6 +2514,18 @@ public partial class PurchasesClient : IPurchasesClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2328,10 +2592,8 @@ public partial class PurchasesClient : IPurchasesClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PurchasesOrdersRejectResponse>
-    > PostV1PurchasesOrdersRejectAsyncCore(
-        PostV1PurchasesOrdersRejectRequest request,
+    private async Task<WithRawResponse<OrdersRejectPurchasesResponse>> OrdersRejectAsyncCore(
+        OrdersRejectPurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2367,10 +2629,10 @@ public partial class PurchasesClient : IPurchasesClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PurchasesOrdersRejectResponse>(
+                var responseData = JsonUtils.Deserialize<OrdersRejectPurchasesResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PurchasesOrdersRejectResponse>()
+                return new WithRawResponse<OrdersRejectPurchasesResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2429,6 +2691,18 @@ public partial class PurchasesClient : IPurchasesClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2455,6 +2729,18 @@ public partial class PurchasesClient : IPurchasesClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2521,10 +2807,8 @@ public partial class PurchasesClient : IPurchasesClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PurchasesOrdersCancelResponse>
-    > PostV1PurchasesOrdersCancelAsyncCore(
-        PostV1PurchasesOrdersCancelRequest request,
+    private async Task<WithRawResponse<OrdersCancelPurchasesResponse>> OrdersCancelAsyncCore(
+        OrdersCancelPurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2560,10 +2844,10 @@ public partial class PurchasesClient : IPurchasesClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PurchasesOrdersCancelResponse>(
+                var responseData = JsonUtils.Deserialize<OrdersCancelPurchasesResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PurchasesOrdersCancelResponse>()
+                return new WithRawResponse<OrdersCancelPurchasesResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2622,6 +2906,18 @@ public partial class PurchasesClient : IPurchasesClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2648,6 +2944,18 @@ public partial class PurchasesClient : IPurchasesClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2714,10 +3022,8 @@ public partial class PurchasesClient : IPurchasesClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PurchasesOrdersCloseResponse>
-    > PostV1PurchasesOrdersCloseAsyncCore(
-        PostV1PurchasesOrdersCloseRequest request,
+    private async Task<WithRawResponse<OrdersClosePurchasesResponse>> OrdersCloseAsyncCore(
+        OrdersClosePurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2753,10 +3059,10 @@ public partial class PurchasesClient : IPurchasesClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PurchasesOrdersCloseResponse>(
+                var responseData = JsonUtils.Deserialize<OrdersClosePurchasesResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PurchasesOrdersCloseResponse>()
+                return new WithRawResponse<OrdersClosePurchasesResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2815,6 +3121,18 @@ public partial class PurchasesClient : IPurchasesClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2841,6 +3159,18 @@ public partial class PurchasesClient : IPurchasesClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2907,10 +3237,8 @@ public partial class PurchasesClient : IPurchasesClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PurchasesOrdersDeleteResponse>
-    > PostV1PurchasesOrdersDeleteAsyncCore(
-        PostV1PurchasesOrdersDeleteRequest request,
+    private async Task<WithRawResponse<OrdersDeletePurchasesResponse>> OrdersDeleteAsyncCore(
+        OrdersDeletePurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2946,10 +3274,10 @@ public partial class PurchasesClient : IPurchasesClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PurchasesOrdersDeleteResponse>(
+                var responseData = JsonUtils.Deserialize<OrdersDeletePurchasesResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PurchasesOrdersDeleteResponse>()
+                return new WithRawResponse<OrdersDeletePurchasesResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3008,6 +3336,18 @@ public partial class PurchasesClient : IPurchasesClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3034,6 +3374,18 @@ public partial class PurchasesClient : IPurchasesClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3100,10 +3452,8 @@ public partial class PurchasesClient : IPurchasesClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PurchasesReceiptsCreateResponse>
-    > PostV1PurchasesReceiptsCreateAsyncCore(
-        PostV1PurchasesReceiptsCreateRequest request,
+    private async Task<WithRawResponse<ReceiptsCreatePurchasesResponse>> ReceiptsCreateAsyncCore(
+        ReceiptsCreatePurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3139,10 +3489,10 @@ public partial class PurchasesClient : IPurchasesClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PurchasesReceiptsCreateResponse>(
+                var responseData = JsonUtils.Deserialize<ReceiptsCreatePurchasesResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PurchasesReceiptsCreateResponse>()
+                return new WithRawResponse<ReceiptsCreatePurchasesResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3201,6 +3551,18 @@ public partial class PurchasesClient : IPurchasesClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3227,6 +3589,18 @@ public partial class PurchasesClient : IPurchasesClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3293,10 +3667,8 @@ public partial class PurchasesClient : IPurchasesClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PurchasesReceiptsGetResponse>
-    > PostV1PurchasesReceiptsGetAsyncCore(
-        PostV1PurchasesReceiptsGetRequest request,
+    private async Task<WithRawResponse<ReceiptsGetPurchasesResponse>> ReceiptsGetAsyncCore(
+        ReceiptsGetPurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3332,10 +3704,10 @@ public partial class PurchasesClient : IPurchasesClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PurchasesReceiptsGetResponse>(
+                var responseData = JsonUtils.Deserialize<ReceiptsGetPurchasesResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PurchasesReceiptsGetResponse>()
+                return new WithRawResponse<ReceiptsGetPurchasesResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3394,6 +3766,18 @@ public partial class PurchasesClient : IPurchasesClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3420,6 +3804,18 @@ public partial class PurchasesClient : IPurchasesClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3486,10 +3882,8 @@ public partial class PurchasesClient : IPurchasesClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PurchasesReceiptsListResponse>
-    > PostV1PurchasesReceiptsListAsyncCore(
-        PostV1PurchasesReceiptsListRequest request,
+    private async Task<WithRawResponse<ReceiptsListPurchasesResponse>> ReceiptsListAsyncCore(
+        ReceiptsListPurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3525,10 +3919,10 @@ public partial class PurchasesClient : IPurchasesClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PurchasesReceiptsListResponse>(
+                var responseData = JsonUtils.Deserialize<ReceiptsListPurchasesResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PurchasesReceiptsListResponse>()
+                return new WithRawResponse<ReceiptsListPurchasesResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3587,6 +3981,18 @@ public partial class PurchasesClient : IPurchasesClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3613,6 +4019,18 @@ public partial class PurchasesClient : IPurchasesClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3679,10 +4097,8 @@ public partial class PurchasesClient : IPurchasesClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PurchasesInvoicesMatchResponse>
-    > PostV1PurchasesInvoicesMatchAsyncCore(
-        PostV1PurchasesInvoicesMatchRequest request,
+    private async Task<WithRawResponse<InvoicesMatchPurchasesResponse>> InvoicesMatchAsyncCore(
+        InvoicesMatchPurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3718,10 +4134,10 @@ public partial class PurchasesClient : IPurchasesClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PurchasesInvoicesMatchResponse>(
+                var responseData = JsonUtils.Deserialize<InvoicesMatchPurchasesResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PurchasesInvoicesMatchResponse>()
+                return new WithRawResponse<InvoicesMatchPurchasesResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3780,6 +4196,18 @@ public partial class PurchasesClient : IPurchasesClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3806,6 +4234,18 @@ public partial class PurchasesClient : IPurchasesClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3873,345 +4313,319 @@ public partial class PurchasesClient : IPurchasesClient
     }
 
     /// <example><code>
-    /// await client.Purchases.PostV1PurchasesInvoicesCreateAsync(
-    ///     new PostV1PurchasesInvoicesCreateRequest
+    /// await client.Purchases.InvoicesCreateAsync(
+    ///     new InvoicesCreatePurchasesRequest
     ///     {
     ///         PartnerId = "partnerId",
     ///         DocumentNumber = "documentNumber",
-    ///         DocumentDate = "documentDate",
-    ///         Lines = new List&lt;PostV1PurchasesInvoicesCreateRequestLinesItem&gt;()
+    ///         DocumentDate = new DateOnly(2026, 7, 1),
+    ///         Lines = new List&lt;InvoicesCreatePurchasesRequestLinesItem&gt;()
     ///         {
-    ///             new PostV1PurchasesInvoicesCreateRequestLinesItem(),
+    ///             new InvoicesCreatePurchasesRequestLinesItem(),
     ///         },
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1PurchasesInvoicesCreateResponse> PostV1PurchasesInvoicesCreateAsync(
-        PostV1PurchasesInvoicesCreateRequest request,
+    public WithRawResponseTask<InvoicesCreatePurchasesResponse> InvoicesCreateAsync(
+        InvoicesCreatePurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PurchasesInvoicesCreateResponse>(
-            PostV1PurchasesInvoicesCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<InvoicesCreatePurchasesResponse>(
+            InvoicesCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Purchases.PostV1PurchasesInvoicesGetAsync(
-    ///     new PostV1PurchasesInvoicesGetRequest { Id = "id" }
-    /// );
+    /// await client.Purchases.InvoicesGetAsync(new InvoicesGetPurchasesRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1PurchasesInvoicesGetResponse> PostV1PurchasesInvoicesGetAsync(
-        PostV1PurchasesInvoicesGetRequest request,
+    public WithRawResponseTask<InvoicesGetPurchasesResponse> InvoicesGetAsync(
+        InvoicesGetPurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PurchasesInvoicesGetResponse>(
-            PostV1PurchasesInvoicesGetAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<InvoicesGetPurchasesResponse>(
+            InvoicesGetAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Purchases.PostV1PurchasesInvoicesUpdateAsync(
-    ///     new PostV1PurchasesInvoicesUpdateRequest { Id = "id" }
-    /// );
+    /// await client.Purchases.InvoicesUpdateAsync(new InvoicesUpdatePurchasesRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1PurchasesInvoicesUpdateResponse> PostV1PurchasesInvoicesUpdateAsync(
-        PostV1PurchasesInvoicesUpdateRequest request,
+    public WithRawResponseTask<InvoicesUpdatePurchasesResponse> InvoicesUpdateAsync(
+        InvoicesUpdatePurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PurchasesInvoicesUpdateResponse>(
-            PostV1PurchasesInvoicesUpdateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<InvoicesUpdatePurchasesResponse>(
+            InvoicesUpdateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Purchases.PostV1PurchasesInvoicesDeleteAsync(
-    ///     new PostV1PurchasesInvoicesDeleteRequest { Id = "id" }
-    /// );
+    /// await client.Purchases.InvoicesDeleteAsync(new InvoicesDeletePurchasesRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1PurchasesInvoicesDeleteResponse> PostV1PurchasesInvoicesDeleteAsync(
-        PostV1PurchasesInvoicesDeleteRequest request,
+    public WithRawResponseTask<InvoicesDeletePurchasesResponse> InvoicesDeleteAsync(
+        InvoicesDeletePurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PurchasesInvoicesDeleteResponse>(
-            PostV1PurchasesInvoicesDeleteAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<InvoicesDeletePurchasesResponse>(
+            InvoicesDeleteAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Purchases.PostV1PurchasesInvoicesRegisterAsync(
-    ///     new PostV1PurchasesInvoicesRegisterRequest { Id = "id" }
-    /// );
+    /// await client.Purchases.InvoicesRegisterAsync(new InvoicesRegisterPurchasesRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1PurchasesInvoicesRegisterResponse> PostV1PurchasesInvoicesRegisterAsync(
-        PostV1PurchasesInvoicesRegisterRequest request,
+    public WithRawResponseTask<InvoicesRegisterPurchasesResponse> InvoicesRegisterAsync(
+        InvoicesRegisterPurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PurchasesInvoicesRegisterResponse>(
-            PostV1PurchasesInvoicesRegisterAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<InvoicesRegisterPurchasesResponse>(
+            InvoicesRegisterAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Purchases.PostV1PurchasesInvoicesListAsync(new PostV1PurchasesInvoicesListRequest());
+    /// await client.Purchases.InvoicesListAsync(new InvoicesListPurchasesRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1PurchasesInvoicesListResponse> PostV1PurchasesInvoicesListAsync(
-        PostV1PurchasesInvoicesListRequest request,
+    public WithRawResponseTask<InvoicesListPurchasesResponse> InvoicesListAsync(
+        InvoicesListPurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PurchasesInvoicesListResponse>(
-            PostV1PurchasesInvoicesListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<InvoicesListPurchasesResponse>(
+            InvoicesListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Purchases.PostV1PurchasesOrdersCreateAsync(
-    ///     new PostV1PurchasesOrdersCreateRequest
+    /// await client.Purchases.OrdersCreateAsync(
+    ///     new OrdersCreatePurchasesRequest
     ///     {
     ///         PartnerId = "partnerId",
-    ///         OrderDate = "orderDate",
-    ///         Lines = new List&lt;PostV1PurchasesOrdersCreateRequestLinesItem&gt;()
+    ///         OrderDate = new DateOnly(2026, 7, 1),
+    ///         Lines = new List&lt;OrdersCreatePurchasesRequestLinesItem&gt;()
     ///         {
-    ///             new PostV1PurchasesOrdersCreateRequestLinesItem(),
+    ///             new OrdersCreatePurchasesRequestLinesItem(),
     ///         },
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1PurchasesOrdersCreateResponse> PostV1PurchasesOrdersCreateAsync(
-        PostV1PurchasesOrdersCreateRequest request,
+    public WithRawResponseTask<OrdersCreatePurchasesResponse> OrdersCreateAsync(
+        OrdersCreatePurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PurchasesOrdersCreateResponse>(
-            PostV1PurchasesOrdersCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<OrdersCreatePurchasesResponse>(
+            OrdersCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Purchases.PostV1PurchasesOrdersUpdateAsync(
-    ///     new PostV1PurchasesOrdersUpdateRequest { Id = "id" }
-    /// );
+    /// await client.Purchases.OrdersUpdateAsync(new OrdersUpdatePurchasesRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1PurchasesOrdersUpdateResponse> PostV1PurchasesOrdersUpdateAsync(
-        PostV1PurchasesOrdersUpdateRequest request,
+    public WithRawResponseTask<OrdersUpdatePurchasesResponse> OrdersUpdateAsync(
+        OrdersUpdatePurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PurchasesOrdersUpdateResponse>(
-            PostV1PurchasesOrdersUpdateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<OrdersUpdatePurchasesResponse>(
+            OrdersUpdateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Purchases.PostV1PurchasesOrdersGetAsync(
-    ///     new PostV1PurchasesOrdersGetRequest { Id = "id" }
-    /// );
+    /// await client.Purchases.OrdersGetAsync(new OrdersGetPurchasesRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1PurchasesOrdersGetResponse> PostV1PurchasesOrdersGetAsync(
-        PostV1PurchasesOrdersGetRequest request,
+    public WithRawResponseTask<OrdersGetPurchasesResponse> OrdersGetAsync(
+        OrdersGetPurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PurchasesOrdersGetResponse>(
-            PostV1PurchasesOrdersGetAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<OrdersGetPurchasesResponse>(
+            OrdersGetAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Purchases.PostV1PurchasesOrdersListAsync(new PostV1PurchasesOrdersListRequest());
+    /// await client.Purchases.OrdersListAsync(new OrdersListPurchasesRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1PurchasesOrdersListResponse> PostV1PurchasesOrdersListAsync(
-        PostV1PurchasesOrdersListRequest request,
+    public WithRawResponseTask<OrdersListPurchasesResponse> OrdersListAsync(
+        OrdersListPurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PurchasesOrdersListResponse>(
-            PostV1PurchasesOrdersListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<OrdersListPurchasesResponse>(
+            OrdersListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Purchases.PostV1PurchasesOrdersSubmitAsync(
-    ///     new PostV1PurchasesOrdersSubmitRequest { Id = "id" }
-    /// );
+    /// await client.Purchases.OrdersSubmitAsync(new OrdersSubmitPurchasesRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1PurchasesOrdersSubmitResponse> PostV1PurchasesOrdersSubmitAsync(
-        PostV1PurchasesOrdersSubmitRequest request,
+    public WithRawResponseTask<OrdersSubmitPurchasesResponse> OrdersSubmitAsync(
+        OrdersSubmitPurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PurchasesOrdersSubmitResponse>(
-            PostV1PurchasesOrdersSubmitAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<OrdersSubmitPurchasesResponse>(
+            OrdersSubmitAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Purchases.PostV1PurchasesOrdersApproveAsync(
-    ///     new PostV1PurchasesOrdersApproveRequest { Id = "id" }
-    /// );
+    /// await client.Purchases.OrdersApproveAsync(new OrdersApprovePurchasesRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1PurchasesOrdersApproveResponse> PostV1PurchasesOrdersApproveAsync(
-        PostV1PurchasesOrdersApproveRequest request,
+    public WithRawResponseTask<OrdersApprovePurchasesResponse> OrdersApproveAsync(
+        OrdersApprovePurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PurchasesOrdersApproveResponse>(
-            PostV1PurchasesOrdersApproveAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<OrdersApprovePurchasesResponse>(
+            OrdersApproveAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Purchases.PostV1PurchasesOrdersRejectAsync(
-    ///     new PostV1PurchasesOrdersRejectRequest { Id = "id" }
-    /// );
+    /// await client.Purchases.OrdersRejectAsync(new OrdersRejectPurchasesRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1PurchasesOrdersRejectResponse> PostV1PurchasesOrdersRejectAsync(
-        PostV1PurchasesOrdersRejectRequest request,
+    public WithRawResponseTask<OrdersRejectPurchasesResponse> OrdersRejectAsync(
+        OrdersRejectPurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PurchasesOrdersRejectResponse>(
-            PostV1PurchasesOrdersRejectAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<OrdersRejectPurchasesResponse>(
+            OrdersRejectAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Purchases.PostV1PurchasesOrdersCancelAsync(
-    ///     new PostV1PurchasesOrdersCancelRequest { Id = "id" }
-    /// );
+    /// await client.Purchases.OrdersCancelAsync(new OrdersCancelPurchasesRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1PurchasesOrdersCancelResponse> PostV1PurchasesOrdersCancelAsync(
-        PostV1PurchasesOrdersCancelRequest request,
+    public WithRawResponseTask<OrdersCancelPurchasesResponse> OrdersCancelAsync(
+        OrdersCancelPurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PurchasesOrdersCancelResponse>(
-            PostV1PurchasesOrdersCancelAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<OrdersCancelPurchasesResponse>(
+            OrdersCancelAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Purchases.PostV1PurchasesOrdersCloseAsync(
-    ///     new PostV1PurchasesOrdersCloseRequest { Id = "id" }
-    /// );
+    /// await client.Purchases.OrdersCloseAsync(new OrdersClosePurchasesRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1PurchasesOrdersCloseResponse> PostV1PurchasesOrdersCloseAsync(
-        PostV1PurchasesOrdersCloseRequest request,
+    public WithRawResponseTask<OrdersClosePurchasesResponse> OrdersCloseAsync(
+        OrdersClosePurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PurchasesOrdersCloseResponse>(
-            PostV1PurchasesOrdersCloseAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<OrdersClosePurchasesResponse>(
+            OrdersCloseAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Purchases.PostV1PurchasesOrdersDeleteAsync(
-    ///     new PostV1PurchasesOrdersDeleteRequest { Id = "id" }
-    /// );
+    /// await client.Purchases.OrdersDeleteAsync(new OrdersDeletePurchasesRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1PurchasesOrdersDeleteResponse> PostV1PurchasesOrdersDeleteAsync(
-        PostV1PurchasesOrdersDeleteRequest request,
+    public WithRawResponseTask<OrdersDeletePurchasesResponse> OrdersDeleteAsync(
+        OrdersDeletePurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PurchasesOrdersDeleteResponse>(
-            PostV1PurchasesOrdersDeleteAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<OrdersDeletePurchasesResponse>(
+            OrdersDeleteAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Purchases.PostV1PurchasesReceiptsCreateAsync(
-    ///     new PostV1PurchasesReceiptsCreateRequest
+    /// await client.Purchases.ReceiptsCreateAsync(
+    ///     new ReceiptsCreatePurchasesRequest
     ///     {
     ///         OrderId = "orderId",
-    ///         ReceiptDate = "receiptDate",
-    ///         Lines = new List&lt;PostV1PurchasesReceiptsCreateRequestLinesItem&gt;()
+    ///         ReceiptDate = new DateOnly(2026, 7, 1),
+    ///         Lines = new List&lt;ReceiptsCreatePurchasesRequestLinesItem&gt;()
     ///         {
-    ///             new PostV1PurchasesReceiptsCreateRequestLinesItem
+    ///             new ReceiptsCreatePurchasesRequestLinesItem
     ///             {
     ///                 OrderLineId = "orderLineId",
-    ///                 Quantity = "quantity",
+    ///                 Quantity = "121.0000",
     ///             },
     ///         },
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1PurchasesReceiptsCreateResponse> PostV1PurchasesReceiptsCreateAsync(
-        PostV1PurchasesReceiptsCreateRequest request,
+    public WithRawResponseTask<ReceiptsCreatePurchasesResponse> ReceiptsCreateAsync(
+        ReceiptsCreatePurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PurchasesReceiptsCreateResponse>(
-            PostV1PurchasesReceiptsCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<ReceiptsCreatePurchasesResponse>(
+            ReceiptsCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Purchases.PostV1PurchasesReceiptsGetAsync(
-    ///     new PostV1PurchasesReceiptsGetRequest { Id = "id" }
+    /// await client.Purchases.ReceiptsGetAsync(new ReceiptsGetPurchasesRequest { Id = "id" });
+    /// </code></example>
+    public WithRawResponseTask<ReceiptsGetPurchasesResponse> ReceiptsGetAsync(
+        ReceiptsGetPurchasesRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<ReceiptsGetPurchasesResponse>(
+            ReceiptsGetAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Purchases.ReceiptsListAsync(new ReceiptsListPurchasesRequest());
+    /// </code></example>
+    public WithRawResponseTask<ReceiptsListPurchasesResponse> ReceiptsListAsync(
+        ReceiptsListPurchasesRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<ReceiptsListPurchasesResponse>(
+            ReceiptsListAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Purchases.InvoicesMatchAsync(
+    ///     new InvoicesMatchPurchasesRequest { InvoiceId = "invoiceId" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1PurchasesReceiptsGetResponse> PostV1PurchasesReceiptsGetAsync(
-        PostV1PurchasesReceiptsGetRequest request,
+    public WithRawResponseTask<InvoicesMatchPurchasesResponse> InvoicesMatchAsync(
+        InvoicesMatchPurchasesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PurchasesReceiptsGetResponse>(
-            PostV1PurchasesReceiptsGetAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Purchases.PostV1PurchasesReceiptsListAsync(new PostV1PurchasesReceiptsListRequest());
-    /// </code></example>
-    public WithRawResponseTask<PostV1PurchasesReceiptsListResponse> PostV1PurchasesReceiptsListAsync(
-        PostV1PurchasesReceiptsListRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1PurchasesReceiptsListResponse>(
-            PostV1PurchasesReceiptsListAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Purchases.PostV1PurchasesInvoicesMatchAsync(
-    ///     new PostV1PurchasesInvoicesMatchRequest { InvoiceId = "invoiceId" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1PurchasesInvoicesMatchResponse> PostV1PurchasesInvoicesMatchAsync(
-        PostV1PurchasesInvoicesMatchRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1PurchasesInvoicesMatchResponse>(
-            PostV1PurchasesInvoicesMatchAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<InvoicesMatchPurchasesResponse>(
+            InvoicesMatchAsyncCore(request, options, cancellationToken)
         );
     }
 }

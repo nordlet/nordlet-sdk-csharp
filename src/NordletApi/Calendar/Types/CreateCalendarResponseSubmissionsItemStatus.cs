@@ -1,0 +1,140 @@
+using global::System.Text.Json;
+using global::System.Text.Json.Serialization;
+using NordletApi.Core;
+
+namespace NordletApi;
+
+[JsonConverter(
+    typeof(CreateCalendarResponseSubmissionsItemStatus.CreateCalendarResponseSubmissionsItemStatusSerializer)
+)]
+[Serializable]
+public readonly record struct CreateCalendarResponseSubmissionsItemStatus : IStringEnum
+{
+    public static readonly CreateCalendarResponseSubmissionsItemStatus Generated = new(
+        Values.Generated
+    );
+
+    public static readonly CreateCalendarResponseSubmissionsItemStatus Submitted = new(
+        Values.Submitted
+    );
+
+    public static readonly CreateCalendarResponseSubmissionsItemStatus Accepted = new(
+        Values.Accepted
+    );
+
+    public static readonly CreateCalendarResponseSubmissionsItemStatus Rejected = new(
+        Values.Rejected
+    );
+
+    public CreateCalendarResponseSubmissionsItemStatus(string value)
+    {
+        Value = value;
+    }
+
+    /// <summary>
+    /// The string value of the enum.
+    /// </summary>
+    public string Value { get; }
+
+    /// <summary>
+    /// Create a string enum with the given value.
+    /// </summary>
+    public static CreateCalendarResponseSubmissionsItemStatus FromCustom(string value)
+    {
+        return new CreateCalendarResponseSubmissionsItemStatus(value);
+    }
+
+    public bool Equals(string? other)
+    {
+        return Value.Equals(other);
+    }
+
+    /// <summary>
+    /// Returns the string value of the enum.
+    /// </summary>
+    public override string ToString()
+    {
+        return Value;
+    }
+
+    public static bool operator ==(
+        CreateCalendarResponseSubmissionsItemStatus value1,
+        string value2
+    ) => value1.Value.Equals(value2);
+
+    public static bool operator !=(
+        CreateCalendarResponseSubmissionsItemStatus value1,
+        string value2
+    ) => !value1.Value.Equals(value2);
+
+    public static explicit operator string(CreateCalendarResponseSubmissionsItemStatus value) =>
+        value.Value;
+
+    public static explicit operator CreateCalendarResponseSubmissionsItemStatus(string value) =>
+        new(value);
+
+    internal class CreateCalendarResponseSubmissionsItemStatusSerializer
+        : JsonConverter<CreateCalendarResponseSubmissionsItemStatus>
+    {
+        public override CreateCalendarResponseSubmissionsItemStatus Read(
+            ref Utf8JsonReader reader,
+            Type typeToConvert,
+            JsonSerializerOptions options
+        )
+        {
+            var stringValue =
+                reader.GetString()
+                ?? throw new global::System.Exception(
+                    "The JSON value could not be read as a string."
+                );
+            return new CreateCalendarResponseSubmissionsItemStatus(stringValue);
+        }
+
+        public override void Write(
+            Utf8JsonWriter writer,
+            CreateCalendarResponseSubmissionsItemStatus value,
+            JsonSerializerOptions options
+        )
+        {
+            writer.WriteStringValue(value.Value);
+        }
+
+        public override CreateCalendarResponseSubmissionsItemStatus ReadAsPropertyName(
+            ref Utf8JsonReader reader,
+            Type typeToConvert,
+            JsonSerializerOptions options
+        )
+        {
+            var stringValue =
+                reader.GetString()
+                ?? throw new global::System.Exception(
+                    "The JSON property name could not be read as a string."
+                );
+            return new CreateCalendarResponseSubmissionsItemStatus(stringValue);
+        }
+
+        public override void WriteAsPropertyName(
+            Utf8JsonWriter writer,
+            CreateCalendarResponseSubmissionsItemStatus value,
+            JsonSerializerOptions options
+        )
+        {
+            writer.WritePropertyName(value.Value);
+        }
+    }
+
+    /// <summary>
+    /// Constant strings for enum values
+    /// </summary>
+    [Serializable]
+    public static class Values
+    {
+        public const string Generated = "generated";
+
+        public const string Submitted = "submitted";
+
+        public const string Accepted = "accepted";
+
+        public const string Rejected = "rejected";
+    }
+}

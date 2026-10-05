@@ -28,6 +28,8 @@ public readonly record struct ErrorResponseErrorCode : IStringEnum
 
     public static readonly ErrorResponseErrorCode RateLimited = new(Values.RateLimited);
 
+    public static readonly ErrorResponseErrorCode PaymentRequired = new(Values.PaymentRequired);
+
     public static readonly ErrorResponseErrorCode Internal = new(Values.Internal);
 
     public ErrorResponseErrorCode(string value)
@@ -141,6 +143,8 @@ public readonly record struct ErrorResponseErrorCode : IStringEnum
         public const string IdempotencyInProgress = "idempotency_in_progress";
 
         public const string RateLimited = "rate_limited";
+
+        public const string PaymentRequired = "payment_required";
 
         public const string Internal = "internal";
     }

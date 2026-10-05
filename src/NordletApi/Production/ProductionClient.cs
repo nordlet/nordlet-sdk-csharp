@@ -13,9 +13,9 @@ public partial class ProductionClient : IProductionClient
     }
 
     private async Task<
-        WithRawResponse<PostV1ProductionWorkCentersCreateResponse>
-    > PostV1ProductionWorkCentersCreateAsyncCore(
-        PostV1ProductionWorkCentersCreateRequest request,
+        WithRawResponse<WorkCentersCreateProductionResponse>
+    > WorkCentersCreateAsyncCore(
+        WorkCentersCreateProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -51,10 +51,10 @@ public partial class ProductionClient : IProductionClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1ProductionWorkCentersCreateResponse>(
+                var responseData = JsonUtils.Deserialize<WorkCentersCreateProductionResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1ProductionWorkCentersCreateResponse>()
+                return new WithRawResponse<WorkCentersCreateProductionResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -113,6 +113,18 @@ public partial class ProductionClient : IProductionClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -139,6 +151,18 @@ public partial class ProductionClient : IProductionClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -206,9 +230,9 @@ public partial class ProductionClient : IProductionClient
     }
 
     private async Task<
-        WithRawResponse<PostV1ProductionWorkCentersUpdateResponse>
-    > PostV1ProductionWorkCentersUpdateAsyncCore(
-        PostV1ProductionWorkCentersUpdateRequest request,
+        WithRawResponse<WorkCentersUpdateProductionResponse>
+    > WorkCentersUpdateAsyncCore(
+        WorkCentersUpdateProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -244,10 +268,10 @@ public partial class ProductionClient : IProductionClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1ProductionWorkCentersUpdateResponse>(
+                var responseData = JsonUtils.Deserialize<WorkCentersUpdateProductionResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1ProductionWorkCentersUpdateResponse>()
+                return new WithRawResponse<WorkCentersUpdateProductionResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -306,6 +330,18 @@ public partial class ProductionClient : IProductionClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -332,6 +368,18 @@ public partial class ProductionClient : IProductionClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -398,10 +446,8 @@ public partial class ProductionClient : IProductionClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1ProductionWorkCentersListResponse>
-    > PostV1ProductionWorkCentersListAsyncCore(
-        PostV1ProductionWorkCentersListRequest request,
+    private async Task<WithRawResponse<WorkCentersListProductionResponse>> WorkCentersListAsyncCore(
+        WorkCentersListProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -437,10 +483,10 @@ public partial class ProductionClient : IProductionClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1ProductionWorkCentersListResponse>(
+                var responseData = JsonUtils.Deserialize<WorkCentersListProductionResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1ProductionWorkCentersListResponse>()
+                return new WithRawResponse<WorkCentersListProductionResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -499,6 +545,18 @@ public partial class ProductionClient : IProductionClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -525,6 +583,18 @@ public partial class ProductionClient : IProductionClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -591,10 +661,8 @@ public partial class ProductionClient : IProductionClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1ProductionRoutingsCreateResponse>
-    > PostV1ProductionRoutingsCreateAsyncCore(
-        PostV1ProductionRoutingsCreateRequest request,
+    private async Task<WithRawResponse<RoutingsCreateProductionResponse>> RoutingsCreateAsyncCore(
+        RoutingsCreateProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -630,10 +698,10 @@ public partial class ProductionClient : IProductionClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1ProductionRoutingsCreateResponse>(
+                var responseData = JsonUtils.Deserialize<RoutingsCreateProductionResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1ProductionRoutingsCreateResponse>()
+                return new WithRawResponse<RoutingsCreateProductionResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -692,6 +760,18 @@ public partial class ProductionClient : IProductionClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -718,6 +798,18 @@ public partial class ProductionClient : IProductionClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -784,10 +876,8 @@ public partial class ProductionClient : IProductionClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1ProductionRoutingsGetResponse>
-    > PostV1ProductionRoutingsGetAsyncCore(
-        PostV1ProductionRoutingsGetRequest request,
+    private async Task<WithRawResponse<RoutingsGetProductionResponse>> RoutingsGetAsyncCore(
+        RoutingsGetProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -823,10 +913,10 @@ public partial class ProductionClient : IProductionClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1ProductionRoutingsGetResponse>(
+                var responseData = JsonUtils.Deserialize<RoutingsGetProductionResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1ProductionRoutingsGetResponse>()
+                return new WithRawResponse<RoutingsGetProductionResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -885,6 +975,18 @@ public partial class ProductionClient : IProductionClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -911,6 +1013,18 @@ public partial class ProductionClient : IProductionClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -977,10 +1091,8 @@ public partial class ProductionClient : IProductionClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1ProductionRoutingsListResponse>
-    > PostV1ProductionRoutingsListAsyncCore(
-        PostV1ProductionRoutingsListRequest request,
+    private async Task<WithRawResponse<RoutingsListProductionResponse>> RoutingsListAsyncCore(
+        RoutingsListProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1016,10 +1128,10 @@ public partial class ProductionClient : IProductionClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1ProductionRoutingsListResponse>(
+                var responseData = JsonUtils.Deserialize<RoutingsListProductionResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1ProductionRoutingsListResponse>()
+                return new WithRawResponse<RoutingsListProductionResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1078,6 +1190,18 @@ public partial class ProductionClient : IProductionClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1104,6 +1228,18 @@ public partial class ProductionClient : IProductionClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1171,9 +1307,9 @@ public partial class ProductionClient : IProductionClient
     }
 
     private async Task<
-        WithRawResponse<PostV1ProductionMaintenanceCreateResponse>
-    > PostV1ProductionMaintenanceCreateAsyncCore(
-        PostV1ProductionMaintenanceCreateRequest request,
+        WithRawResponse<MaintenanceCreateProductionResponse>
+    > MaintenanceCreateAsyncCore(
+        MaintenanceCreateProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1209,10 +1345,10 @@ public partial class ProductionClient : IProductionClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1ProductionMaintenanceCreateResponse>(
+                var responseData = JsonUtils.Deserialize<MaintenanceCreateProductionResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1ProductionMaintenanceCreateResponse>()
+                return new WithRawResponse<MaintenanceCreateProductionResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1271,6 +1407,18 @@ public partial class ProductionClient : IProductionClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1297,6 +1445,18 @@ public partial class ProductionClient : IProductionClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1364,9 +1524,9 @@ public partial class ProductionClient : IProductionClient
     }
 
     private async Task<
-        WithRawResponse<PostV1ProductionMaintenanceCompleteResponse>
-    > PostV1ProductionMaintenanceCompleteAsyncCore(
-        PostV1ProductionMaintenanceCompleteRequest request,
+        WithRawResponse<MaintenanceCompleteProductionResponse>
+    > MaintenanceCompleteAsyncCore(
+        MaintenanceCompleteProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1402,11 +1562,10 @@ public partial class ProductionClient : IProductionClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1ProductionMaintenanceCompleteResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1ProductionMaintenanceCompleteResponse>()
+                var responseData = JsonUtils.Deserialize<MaintenanceCompleteProductionResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<MaintenanceCompleteProductionResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1465,6 +1624,18 @@ public partial class ProductionClient : IProductionClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1491,6 +1662,18 @@ public partial class ProductionClient : IProductionClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1558,9 +1741,9 @@ public partial class ProductionClient : IProductionClient
     }
 
     private async Task<
-        WithRawResponse<PostV1ProductionMaintenanceCancelResponse>
-    > PostV1ProductionMaintenanceCancelAsyncCore(
-        PostV1ProductionMaintenanceCancelRequest request,
+        WithRawResponse<MaintenanceCancelProductionResponse>
+    > MaintenanceCancelAsyncCore(
+        MaintenanceCancelProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1596,10 +1779,10 @@ public partial class ProductionClient : IProductionClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1ProductionMaintenanceCancelResponse>(
+                var responseData = JsonUtils.Deserialize<MaintenanceCancelProductionResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1ProductionMaintenanceCancelResponse>()
+                return new WithRawResponse<MaintenanceCancelProductionResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1658,6 +1841,18 @@ public partial class ProductionClient : IProductionClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1684,6 +1879,18 @@ public partial class ProductionClient : IProductionClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1750,10 +1957,8 @@ public partial class ProductionClient : IProductionClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1ProductionMaintenanceListResponse>
-    > PostV1ProductionMaintenanceListAsyncCore(
-        PostV1ProductionMaintenanceListRequest request,
+    private async Task<WithRawResponse<MaintenanceListProductionResponse>> MaintenanceListAsyncCore(
+        MaintenanceListProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1789,10 +1994,10 @@ public partial class ProductionClient : IProductionClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1ProductionMaintenanceListResponse>(
+                var responseData = JsonUtils.Deserialize<MaintenanceListProductionResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1ProductionMaintenanceListResponse>()
+                return new WithRawResponse<MaintenanceListProductionResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1851,6 +2056,18 @@ public partial class ProductionClient : IProductionClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1877,6 +2094,18 @@ public partial class ProductionClient : IProductionClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1943,10 +2172,8 @@ public partial class ProductionClient : IProductionClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1ProductionBomsCreateResponse>
-    > PostV1ProductionBomsCreateAsyncCore(
-        PostV1ProductionBomsCreateRequest request,
+    private async Task<WithRawResponse<BomsCreateProductionResponse>> BomsCreateAsyncCore(
+        BomsCreateProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1982,10 +2209,10 @@ public partial class ProductionClient : IProductionClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1ProductionBomsCreateResponse>(
+                var responseData = JsonUtils.Deserialize<BomsCreateProductionResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1ProductionBomsCreateResponse>()
+                return new WithRawResponse<BomsCreateProductionResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2044,6 +2271,18 @@ public partial class ProductionClient : IProductionClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2070,6 +2309,18 @@ public partial class ProductionClient : IProductionClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2136,10 +2387,8 @@ public partial class ProductionClient : IProductionClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1ProductionBomsGetResponse>
-    > PostV1ProductionBomsGetAsyncCore(
-        PostV1ProductionBomsGetRequest request,
+    private async Task<WithRawResponse<BomsGetProductionResponse>> BomsGetAsyncCore(
+        BomsGetProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2175,10 +2424,8 @@ public partial class ProductionClient : IProductionClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1ProductionBomsGetResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1ProductionBomsGetResponse>()
+                var responseData = JsonUtils.Deserialize<BomsGetProductionResponse>(responseBody)!;
+                return new WithRawResponse<BomsGetProductionResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2237,6 +2484,18 @@ public partial class ProductionClient : IProductionClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2263,6 +2522,18 @@ public partial class ProductionClient : IProductionClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2329,10 +2600,8 @@ public partial class ProductionClient : IProductionClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1ProductionBomsListResponse>
-    > PostV1ProductionBomsListAsyncCore(
-        PostV1ProductionBomsListRequest request,
+    private async Task<WithRawResponse<BomsListProductionResponse>> BomsListAsyncCore(
+        BomsListProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2368,10 +2637,8 @@ public partial class ProductionClient : IProductionClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1ProductionBomsListResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1ProductionBomsListResponse>()
+                var responseData = JsonUtils.Deserialize<BomsListProductionResponse>(responseBody)!;
+                return new WithRawResponse<BomsListProductionResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2430,6 +2697,18 @@ public partial class ProductionClient : IProductionClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2456,6 +2735,18 @@ public partial class ProductionClient : IProductionClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2522,10 +2813,8 @@ public partial class ProductionClient : IProductionClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1ProductionOrdersCreateResponse>
-    > PostV1ProductionOrdersCreateAsyncCore(
-        PostV1ProductionOrdersCreateRequest request,
+    private async Task<WithRawResponse<OrdersCreateProductionResponse>> OrdersCreateAsyncCore(
+        OrdersCreateProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2561,10 +2850,10 @@ public partial class ProductionClient : IProductionClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1ProductionOrdersCreateResponse>(
+                var responseData = JsonUtils.Deserialize<OrdersCreateProductionResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1ProductionOrdersCreateResponse>()
+                return new WithRawResponse<OrdersCreateProductionResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2623,6 +2912,18 @@ public partial class ProductionClient : IProductionClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2649,6 +2950,18 @@ public partial class ProductionClient : IProductionClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2716,9 +3029,9 @@ public partial class ProductionClient : IProductionClient
     }
 
     private async Task<
-        WithRawResponse<PostV1ProductionOrdersRecordOperationResponse>
-    > PostV1ProductionOrdersRecordOperationAsyncCore(
-        PostV1ProductionOrdersRecordOperationRequest request,
+        WithRawResponse<OrdersRecordOperationProductionResponse>
+    > OrdersRecordOperationAsyncCore(
+        OrdersRecordOperationProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2754,11 +3067,10 @@ public partial class ProductionClient : IProductionClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1ProductionOrdersRecordOperationResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1ProductionOrdersRecordOperationResponse>()
+                var responseData = JsonUtils.Deserialize<OrdersRecordOperationProductionResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<OrdersRecordOperationProductionResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2817,6 +3129,18 @@ public partial class ProductionClient : IProductionClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2843,6 +3167,18 @@ public partial class ProductionClient : IProductionClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2910,9 +3246,9 @@ public partial class ProductionClient : IProductionClient
     }
 
     private async Task<
-        WithRawResponse<PostV1ProductionQualityChecksAddResponse>
-    > PostV1ProductionQualityChecksAddAsyncCore(
-        PostV1ProductionQualityChecksAddRequest request,
+        WithRawResponse<QualityChecksAddProductionResponse>
+    > QualityChecksAddAsyncCore(
+        QualityChecksAddProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2948,10 +3284,10 @@ public partial class ProductionClient : IProductionClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1ProductionQualityChecksAddResponse>(
+                var responseData = JsonUtils.Deserialize<QualityChecksAddProductionResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1ProductionQualityChecksAddResponse>()
+                return new WithRawResponse<QualityChecksAddProductionResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3010,6 +3346,18 @@ public partial class ProductionClient : IProductionClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3036,6 +3384,18 @@ public partial class ProductionClient : IProductionClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3103,9 +3463,9 @@ public partial class ProductionClient : IProductionClient
     }
 
     private async Task<
-        WithRawResponse<PostV1ProductionQualityChecksRecordResponse>
-    > PostV1ProductionQualityChecksRecordAsyncCore(
-        PostV1ProductionQualityChecksRecordRequest request,
+        WithRawResponse<QualityChecksRecordProductionResponse>
+    > QualityChecksRecordAsyncCore(
+        QualityChecksRecordProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3141,11 +3501,10 @@ public partial class ProductionClient : IProductionClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1ProductionQualityChecksRecordResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1ProductionQualityChecksRecordResponse>()
+                var responseData = JsonUtils.Deserialize<QualityChecksRecordProductionResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<QualityChecksRecordProductionResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3204,6 +3563,18 @@ public partial class ProductionClient : IProductionClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3230,6 +3601,18 @@ public partial class ProductionClient : IProductionClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3297,9 +3680,9 @@ public partial class ProductionClient : IProductionClient
     }
 
     private async Task<
-        WithRawResponse<PostV1ProductionQualityChecksListResponse>
-    > PostV1ProductionQualityChecksListAsyncCore(
-        PostV1ProductionQualityChecksListRequest request,
+        WithRawResponse<QualityChecksListProductionResponse>
+    > QualityChecksListAsyncCore(
+        QualityChecksListProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3335,10 +3718,10 @@ public partial class ProductionClient : IProductionClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1ProductionQualityChecksListResponse>(
+                var responseData = JsonUtils.Deserialize<QualityChecksListProductionResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1ProductionQualityChecksListResponse>()
+                return new WithRawResponse<QualityChecksListProductionResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3397,6 +3780,18 @@ public partial class ProductionClient : IProductionClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3423,6 +3818,18 @@ public partial class ProductionClient : IProductionClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3489,10 +3896,8 @@ public partial class ProductionClient : IProductionClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1ProductionOrdersCompleteResponse>
-    > PostV1ProductionOrdersCompleteAsyncCore(
-        PostV1ProductionOrdersCompleteRequest request,
+    private async Task<WithRawResponse<OrdersCompleteProductionResponse>> OrdersCompleteAsyncCore(
+        OrdersCompleteProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3528,10 +3933,10 @@ public partial class ProductionClient : IProductionClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1ProductionOrdersCompleteResponse>(
+                var responseData = JsonUtils.Deserialize<OrdersCompleteProductionResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1ProductionOrdersCompleteResponse>()
+                return new WithRawResponse<OrdersCompleteProductionResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3590,6 +3995,18 @@ public partial class ProductionClient : IProductionClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3616,6 +4033,18 @@ public partial class ProductionClient : IProductionClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3682,10 +4111,8 @@ public partial class ProductionClient : IProductionClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1ProductionOrdersGetResponse>
-    > PostV1ProductionOrdersGetAsyncCore(
-        PostV1ProductionOrdersGetRequest request,
+    private async Task<WithRawResponse<OrdersGetProductionResponse>> OrdersGetAsyncCore(
+        OrdersGetProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3721,10 +4148,10 @@ public partial class ProductionClient : IProductionClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1ProductionOrdersGetResponse>(
+                var responseData = JsonUtils.Deserialize<OrdersGetProductionResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1ProductionOrdersGetResponse>()
+                return new WithRawResponse<OrdersGetProductionResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3783,6 +4210,18 @@ public partial class ProductionClient : IProductionClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3809,6 +4248,18 @@ public partial class ProductionClient : IProductionClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3875,10 +4326,8 @@ public partial class ProductionClient : IProductionClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1ProductionOrdersListResponse>
-    > PostV1ProductionOrdersListAsyncCore(
-        PostV1ProductionOrdersListRequest request,
+    private async Task<WithRawResponse<OrdersListProductionResponse>> OrdersListAsyncCore(
+        OrdersListProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3914,10 +4363,10 @@ public partial class ProductionClient : IProductionClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1ProductionOrdersListResponse>(
+                var responseData = JsonUtils.Deserialize<OrdersListProductionResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1ProductionOrdersListResponse>()
+                return new WithRawResponse<OrdersListProductionResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3976,6 +4425,18 @@ public partial class ProductionClient : IProductionClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -4002,6 +4463,18 @@ public partial class ProductionClient : IProductionClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -4069,62 +4542,60 @@ public partial class ProductionClient : IProductionClient
     }
 
     /// <example><code>
-    /// await client.Production.PostV1ProductionWorkCentersCreateAsync(
-    ///     new PostV1ProductionWorkCentersCreateRequest { Code = "code", Name = "name" }
+    /// await client.Production.WorkCentersCreateAsync(
+    ///     new WorkCentersCreateProductionRequest { Code = "code", Name = "name" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1ProductionWorkCentersCreateResponse> PostV1ProductionWorkCentersCreateAsync(
-        PostV1ProductionWorkCentersCreateRequest request,
+    public WithRawResponseTask<WorkCentersCreateProductionResponse> WorkCentersCreateAsync(
+        WorkCentersCreateProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ProductionWorkCentersCreateResponse>(
-            PostV1ProductionWorkCentersCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<WorkCentersCreateProductionResponse>(
+            WorkCentersCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Production.PostV1ProductionWorkCentersUpdateAsync(
-    ///     new PostV1ProductionWorkCentersUpdateRequest { Id = "id" }
+    /// await client.Production.WorkCentersUpdateAsync(
+    ///     new WorkCentersUpdateProductionRequest { Id = "id" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1ProductionWorkCentersUpdateResponse> PostV1ProductionWorkCentersUpdateAsync(
-        PostV1ProductionWorkCentersUpdateRequest request,
+    public WithRawResponseTask<WorkCentersUpdateProductionResponse> WorkCentersUpdateAsync(
+        WorkCentersUpdateProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ProductionWorkCentersUpdateResponse>(
-            PostV1ProductionWorkCentersUpdateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<WorkCentersUpdateProductionResponse>(
+            WorkCentersUpdateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Production.PostV1ProductionWorkCentersListAsync(
-    ///     new PostV1ProductionWorkCentersListRequest()
-    /// );
+    /// await client.Production.WorkCentersListAsync(new WorkCentersListProductionRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1ProductionWorkCentersListResponse> PostV1ProductionWorkCentersListAsync(
-        PostV1ProductionWorkCentersListRequest request,
+    public WithRawResponseTask<WorkCentersListProductionResponse> WorkCentersListAsync(
+        WorkCentersListProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ProductionWorkCentersListResponse>(
-            PostV1ProductionWorkCentersListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<WorkCentersListProductionResponse>(
+            WorkCentersListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Production.PostV1ProductionRoutingsCreateAsync(
-    ///     new PostV1ProductionRoutingsCreateRequest
+    /// await client.Production.RoutingsCreateAsync(
+    ///     new RoutingsCreateProductionRequest
     ///     {
     ///         Code = "code",
     ///         Name = "name",
-    ///         Operations = new List&lt;PostV1ProductionRoutingsCreateRequestOperationsItem&gt;()
+    ///         Operations = new List&lt;RoutingsCreateProductionRequestOperationsItem&gt;()
     ///         {
-    ///             new PostV1ProductionRoutingsCreateRequestOperationsItem
+    ///             new RoutingsCreateProductionRequestOperationsItem
     ///             {
     ///                 Sequence = 1000000,
     ///                 Name = "name",
@@ -4134,310 +4605,296 @@ public partial class ProductionClient : IProductionClient
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1ProductionRoutingsCreateResponse> PostV1ProductionRoutingsCreateAsync(
-        PostV1ProductionRoutingsCreateRequest request,
+    public WithRawResponseTask<RoutingsCreateProductionResponse> RoutingsCreateAsync(
+        RoutingsCreateProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ProductionRoutingsCreateResponse>(
-            PostV1ProductionRoutingsCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<RoutingsCreateProductionResponse>(
+            RoutingsCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Production.PostV1ProductionRoutingsGetAsync(
-    ///     new PostV1ProductionRoutingsGetRequest { Id = "id" }
-    /// );
+    /// await client.Production.RoutingsGetAsync(new RoutingsGetProductionRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1ProductionRoutingsGetResponse> PostV1ProductionRoutingsGetAsync(
-        PostV1ProductionRoutingsGetRequest request,
+    public WithRawResponseTask<RoutingsGetProductionResponse> RoutingsGetAsync(
+        RoutingsGetProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ProductionRoutingsGetResponse>(
-            PostV1ProductionRoutingsGetAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<RoutingsGetProductionResponse>(
+            RoutingsGetAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Production.PostV1ProductionRoutingsListAsync(
-    ///     new PostV1ProductionRoutingsListRequest()
-    /// );
+    /// await client.Production.RoutingsListAsync(new RoutingsListProductionRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1ProductionRoutingsListResponse> PostV1ProductionRoutingsListAsync(
-        PostV1ProductionRoutingsListRequest request,
+    public WithRawResponseTask<RoutingsListProductionResponse> RoutingsListAsync(
+        RoutingsListProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ProductionRoutingsListResponse>(
-            PostV1ProductionRoutingsListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<RoutingsListProductionResponse>(
+            RoutingsListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Production.PostV1ProductionMaintenanceCreateAsync(
-    ///     new PostV1ProductionMaintenanceCreateRequest
+    /// await client.Production.MaintenanceCreateAsync(
+    ///     new MaintenanceCreateProductionRequest
     ///     {
     ///         WorkCenterId = "workCenterId",
-    ///         Type = PostV1ProductionMaintenanceCreateRequestType.Preventive,
-    ///         PlannedDate = "plannedDate",
+    ///         Type = MaintenanceCreateProductionRequestType.Preventive,
+    ///         PlannedDate = new DateOnly(2026, 7, 1),
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1ProductionMaintenanceCreateResponse> PostV1ProductionMaintenanceCreateAsync(
-        PostV1ProductionMaintenanceCreateRequest request,
+    public WithRawResponseTask<MaintenanceCreateProductionResponse> MaintenanceCreateAsync(
+        MaintenanceCreateProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ProductionMaintenanceCreateResponse>(
-            PostV1ProductionMaintenanceCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<MaintenanceCreateProductionResponse>(
+            MaintenanceCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Production.PostV1ProductionMaintenanceCompleteAsync(
-    ///     new PostV1ProductionMaintenanceCompleteRequest { Id = "id", CompletedDate = "completedDate" }
+    /// await client.Production.MaintenanceCompleteAsync(
+    ///     new MaintenanceCompleteProductionRequest { Id = "id", CompletedDate = new DateOnly(2026, 7, 1) }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1ProductionMaintenanceCompleteResponse> PostV1ProductionMaintenanceCompleteAsync(
-        PostV1ProductionMaintenanceCompleteRequest request,
+    public WithRawResponseTask<MaintenanceCompleteProductionResponse> MaintenanceCompleteAsync(
+        MaintenanceCompleteProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ProductionMaintenanceCompleteResponse>(
-            PostV1ProductionMaintenanceCompleteAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<MaintenanceCompleteProductionResponse>(
+            MaintenanceCompleteAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Production.PostV1ProductionMaintenanceCancelAsync(
-    ///     new PostV1ProductionMaintenanceCancelRequest { Id = "id" }
+    /// await client.Production.MaintenanceCancelAsync(
+    ///     new MaintenanceCancelProductionRequest { Id = "id" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1ProductionMaintenanceCancelResponse> PostV1ProductionMaintenanceCancelAsync(
-        PostV1ProductionMaintenanceCancelRequest request,
+    public WithRawResponseTask<MaintenanceCancelProductionResponse> MaintenanceCancelAsync(
+        MaintenanceCancelProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ProductionMaintenanceCancelResponse>(
-            PostV1ProductionMaintenanceCancelAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<MaintenanceCancelProductionResponse>(
+            MaintenanceCancelAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Production.PostV1ProductionMaintenanceListAsync(
-    ///     new PostV1ProductionMaintenanceListRequest()
-    /// );
+    /// await client.Production.MaintenanceListAsync(new MaintenanceListProductionRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1ProductionMaintenanceListResponse> PostV1ProductionMaintenanceListAsync(
-        PostV1ProductionMaintenanceListRequest request,
+    public WithRawResponseTask<MaintenanceListProductionResponse> MaintenanceListAsync(
+        MaintenanceListProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ProductionMaintenanceListResponse>(
-            PostV1ProductionMaintenanceListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<MaintenanceListProductionResponse>(
+            MaintenanceListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Production.PostV1ProductionBomsCreateAsync(
-    ///     new PostV1ProductionBomsCreateRequest
+    /// await client.Production.BomsCreateAsync(
+    ///     new BomsCreateProductionRequest
     ///     {
     ///         Code = "code",
     ///         Name = "name",
     ///         FinishedItemId = "finishedItemId",
-    ///         Lines = new List&lt;PostV1ProductionBomsCreateRequestLinesItem&gt;()
+    ///         Lines = new List&lt;BomsCreateProductionRequestLinesItem&gt;()
     ///         {
-    ///             new PostV1ProductionBomsCreateRequestLinesItem
+    ///             new BomsCreateProductionRequestLinesItem
     ///             {
     ///                 ComponentItemId = "componentItemId",
-    ///                 Quantity = "quantity",
+    ///                 Quantity = "121.0000",
     ///             },
     ///         },
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1ProductionBomsCreateResponse> PostV1ProductionBomsCreateAsync(
-        PostV1ProductionBomsCreateRequest request,
+    public WithRawResponseTask<BomsCreateProductionResponse> BomsCreateAsync(
+        BomsCreateProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ProductionBomsCreateResponse>(
-            PostV1ProductionBomsCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<BomsCreateProductionResponse>(
+            BomsCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Production.PostV1ProductionBomsGetAsync(
-    ///     new PostV1ProductionBomsGetRequest { Id = "id" }
-    /// );
+    /// await client.Production.BomsGetAsync(new BomsGetProductionRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1ProductionBomsGetResponse> PostV1ProductionBomsGetAsync(
-        PostV1ProductionBomsGetRequest request,
+    public WithRawResponseTask<BomsGetProductionResponse> BomsGetAsync(
+        BomsGetProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ProductionBomsGetResponse>(
-            PostV1ProductionBomsGetAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<BomsGetProductionResponse>(
+            BomsGetAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Production.PostV1ProductionBomsListAsync(new PostV1ProductionBomsListRequest());
+    /// await client.Production.BomsListAsync(new BomsListProductionRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1ProductionBomsListResponse> PostV1ProductionBomsListAsync(
-        PostV1ProductionBomsListRequest request,
+    public WithRawResponseTask<BomsListProductionResponse> BomsListAsync(
+        BomsListProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ProductionBomsListResponse>(
-            PostV1ProductionBomsListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<BomsListProductionResponse>(
+            BomsListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Production.PostV1ProductionOrdersCreateAsync(
-    ///     new PostV1ProductionOrdersCreateRequest
+    /// await client.Production.OrdersCreateAsync(
+    ///     new OrdersCreateProductionRequest
     ///     {
     ///         BomId = "bomId",
     ///         WarehouseId = "warehouseId",
-    ///         Quantity = "quantity",
-    ///         Date = "date",
+    ///         Quantity = "121.0000",
+    ///         Date = new DateOnly(2026, 7, 1),
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1ProductionOrdersCreateResponse> PostV1ProductionOrdersCreateAsync(
-        PostV1ProductionOrdersCreateRequest request,
+    public WithRawResponseTask<OrdersCreateProductionResponse> OrdersCreateAsync(
+        OrdersCreateProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ProductionOrdersCreateResponse>(
-            PostV1ProductionOrdersCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<OrdersCreateProductionResponse>(
+            OrdersCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Production.PostV1ProductionOrdersRecordOperationAsync(
-    ///     new PostV1ProductionOrdersRecordOperationRequest { Id = "id", ActualMinutes = "actualMinutes" }
+    /// await client.Production.OrdersRecordOperationAsync(
+    ///     new OrdersRecordOperationProductionRequest { Id = "id", ActualMinutes = "121.00" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1ProductionOrdersRecordOperationResponse> PostV1ProductionOrdersRecordOperationAsync(
-        PostV1ProductionOrdersRecordOperationRequest request,
+    public WithRawResponseTask<OrdersRecordOperationProductionResponse> OrdersRecordOperationAsync(
+        OrdersRecordOperationProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ProductionOrdersRecordOperationResponse>(
-            PostV1ProductionOrdersRecordOperationAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<OrdersRecordOperationProductionResponse>(
+            OrdersRecordOperationAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Production.PostV1ProductionQualityChecksAddAsync(
-    ///     new PostV1ProductionQualityChecksAddRequest { OrderId = "orderId", Name = "name" }
+    /// await client.Production.QualityChecksAddAsync(
+    ///     new QualityChecksAddProductionRequest { OrderId = "orderId", Name = "name" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1ProductionQualityChecksAddResponse> PostV1ProductionQualityChecksAddAsync(
-        PostV1ProductionQualityChecksAddRequest request,
+    public WithRawResponseTask<QualityChecksAddProductionResponse> QualityChecksAddAsync(
+        QualityChecksAddProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ProductionQualityChecksAddResponse>(
-            PostV1ProductionQualityChecksAddAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<QualityChecksAddProductionResponse>(
+            QualityChecksAddAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Production.PostV1ProductionQualityChecksRecordAsync(
-    ///     new PostV1ProductionQualityChecksRecordRequest
+    /// await client.Production.QualityChecksRecordAsync(
+    ///     new QualityChecksRecordProductionRequest
     ///     {
     ///         Id = "id",
-    ///         Result = PostV1ProductionQualityChecksRecordRequestResult.Passed,
+    ///         Result = QualityChecksRecordProductionRequestResult.Passed,
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1ProductionQualityChecksRecordResponse> PostV1ProductionQualityChecksRecordAsync(
-        PostV1ProductionQualityChecksRecordRequest request,
+    public WithRawResponseTask<QualityChecksRecordProductionResponse> QualityChecksRecordAsync(
+        QualityChecksRecordProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ProductionQualityChecksRecordResponse>(
-            PostV1ProductionQualityChecksRecordAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<QualityChecksRecordProductionResponse>(
+            QualityChecksRecordAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Production.PostV1ProductionQualityChecksListAsync(
-    ///     new PostV1ProductionQualityChecksListRequest()
-    /// );
+    /// await client.Production.QualityChecksListAsync(new QualityChecksListProductionRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1ProductionQualityChecksListResponse> PostV1ProductionQualityChecksListAsync(
-        PostV1ProductionQualityChecksListRequest request,
+    public WithRawResponseTask<QualityChecksListProductionResponse> QualityChecksListAsync(
+        QualityChecksListProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ProductionQualityChecksListResponse>(
-            PostV1ProductionQualityChecksListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<QualityChecksListProductionResponse>(
+            QualityChecksListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Production.PostV1ProductionOrdersCompleteAsync(
-    ///     new PostV1ProductionOrdersCompleteRequest { Id = "id" }
-    /// );
+    /// await client.Production.OrdersCompleteAsync(new OrdersCompleteProductionRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1ProductionOrdersCompleteResponse> PostV1ProductionOrdersCompleteAsync(
-        PostV1ProductionOrdersCompleteRequest request,
+    public WithRawResponseTask<OrdersCompleteProductionResponse> OrdersCompleteAsync(
+        OrdersCompleteProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ProductionOrdersCompleteResponse>(
-            PostV1ProductionOrdersCompleteAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<OrdersCompleteProductionResponse>(
+            OrdersCompleteAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Production.PostV1ProductionOrdersGetAsync(
-    ///     new PostV1ProductionOrdersGetRequest { Id = "id" }
-    /// );
+    /// await client.Production.OrdersGetAsync(new OrdersGetProductionRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1ProductionOrdersGetResponse> PostV1ProductionOrdersGetAsync(
-        PostV1ProductionOrdersGetRequest request,
+    public WithRawResponseTask<OrdersGetProductionResponse> OrdersGetAsync(
+        OrdersGetProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ProductionOrdersGetResponse>(
-            PostV1ProductionOrdersGetAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<OrdersGetProductionResponse>(
+            OrdersGetAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Production.PostV1ProductionOrdersListAsync(new PostV1ProductionOrdersListRequest());
+    /// await client.Production.OrdersListAsync(new OrdersListProductionRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1ProductionOrdersListResponse> PostV1ProductionOrdersListAsync(
-        PostV1ProductionOrdersListRequest request,
+    public WithRawResponseTask<OrdersListProductionResponse> OrdersListAsync(
+        OrdersListProductionRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ProductionOrdersListResponse>(
-            PostV1ProductionOrdersListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<OrdersListProductionResponse>(
+            OrdersListAsyncCore(request, options, cancellationToken)
         );
     }
 }

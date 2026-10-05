@@ -12,10 +12,8 @@ public partial class AgreementsClient : IAgreementsClient
         _client = client;
     }
 
-    private async Task<
-        WithRawResponse<PostV1AgreementsTypesCreateResponse>
-    > PostV1AgreementsTypesCreateAsyncCore(
-        PostV1AgreementsTypesCreateRequest request,
+    private async Task<WithRawResponse<TypesCreateAgreementsResponse>> TypesCreateAsyncCore(
+        TypesCreateAgreementsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -51,10 +49,10 @@ public partial class AgreementsClient : IAgreementsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AgreementsTypesCreateResponse>(
+                var responseData = JsonUtils.Deserialize<TypesCreateAgreementsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1AgreementsTypesCreateResponse>()
+                return new WithRawResponse<TypesCreateAgreementsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -113,6 +111,18 @@ public partial class AgreementsClient : IAgreementsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -139,6 +149,18 @@ public partial class AgreementsClient : IAgreementsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -205,10 +227,8 @@ public partial class AgreementsClient : IAgreementsClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1AgreementsTypesListResponse>
-    > PostV1AgreementsTypesListAsyncCore(
-        PostV1AgreementsTypesListRequest request,
+    private async Task<WithRawResponse<TypesListAgreementsResponse>> TypesListAsyncCore(
+        TypesListAgreementsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -244,10 +264,10 @@ public partial class AgreementsClient : IAgreementsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AgreementsTypesListResponse>(
+                var responseData = JsonUtils.Deserialize<TypesListAgreementsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1AgreementsTypesListResponse>()
+                return new WithRawResponse<TypesListAgreementsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -306,6 +326,18 @@ public partial class AgreementsClient : IAgreementsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -332,6 +364,18 @@ public partial class AgreementsClient : IAgreementsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -399,9 +443,9 @@ public partial class AgreementsClient : IAgreementsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1AgreementsAgreementsCreateResponse>
-    > PostV1AgreementsAgreementsCreateAsyncCore(
-        PostV1AgreementsAgreementsCreateRequest request,
+        WithRawResponse<AgreementsCreateAgreementsResponse>
+    > AgreementsCreateAsyncCore(
+        AgreementsCreateAgreementsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -437,10 +481,10 @@ public partial class AgreementsClient : IAgreementsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AgreementsAgreementsCreateResponse>(
+                var responseData = JsonUtils.Deserialize<AgreementsCreateAgreementsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1AgreementsAgreementsCreateResponse>()
+                return new WithRawResponse<AgreementsCreateAgreementsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -499,6 +543,18 @@ public partial class AgreementsClient : IAgreementsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -525,6 +581,18 @@ public partial class AgreementsClient : IAgreementsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -591,10 +659,8 @@ public partial class AgreementsClient : IAgreementsClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1AgreementsAgreementsGetResponse>
-    > PostV1AgreementsAgreementsGetAsyncCore(
-        PostV1AgreementsAgreementsGetRequest request,
+    private async Task<WithRawResponse<AgreementsGetAgreementsResponse>> AgreementsGetAsyncCore(
+        AgreementsGetAgreementsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -630,10 +696,10 @@ public partial class AgreementsClient : IAgreementsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AgreementsAgreementsGetResponse>(
+                var responseData = JsonUtils.Deserialize<AgreementsGetAgreementsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1AgreementsAgreementsGetResponse>()
+                return new WithRawResponse<AgreementsGetAgreementsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -692,6 +758,18 @@ public partial class AgreementsClient : IAgreementsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -718,6 +796,18 @@ public partial class AgreementsClient : IAgreementsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -785,9 +875,9 @@ public partial class AgreementsClient : IAgreementsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1AgreementsAgreementsUpdateResponse>
-    > PostV1AgreementsAgreementsUpdateAsyncCore(
-        PostV1AgreementsAgreementsUpdateRequest request,
+        WithRawResponse<AgreementsUpdateAgreementsResponse>
+    > AgreementsUpdateAsyncCore(
+        AgreementsUpdateAgreementsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -823,10 +913,10 @@ public partial class AgreementsClient : IAgreementsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AgreementsAgreementsUpdateResponse>(
+                var responseData = JsonUtils.Deserialize<AgreementsUpdateAgreementsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1AgreementsAgreementsUpdateResponse>()
+                return new WithRawResponse<AgreementsUpdateAgreementsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -885,6 +975,18 @@ public partial class AgreementsClient : IAgreementsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -911,6 +1013,18 @@ public partial class AgreementsClient : IAgreementsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -978,9 +1092,9 @@ public partial class AgreementsClient : IAgreementsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1AgreementsAgreementsDeleteResponse>
-    > PostV1AgreementsAgreementsDeleteAsyncCore(
-        PostV1AgreementsAgreementsDeleteRequest request,
+        WithRawResponse<AgreementsDeleteAgreementsResponse>
+    > AgreementsDeleteAsyncCore(
+        AgreementsDeleteAgreementsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1016,10 +1130,10 @@ public partial class AgreementsClient : IAgreementsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AgreementsAgreementsDeleteResponse>(
+                var responseData = JsonUtils.Deserialize<AgreementsDeleteAgreementsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1AgreementsAgreementsDeleteResponse>()
+                return new WithRawResponse<AgreementsDeleteAgreementsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1078,6 +1192,18 @@ public partial class AgreementsClient : IAgreementsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1104,6 +1230,18 @@ public partial class AgreementsClient : IAgreementsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1170,10 +1308,8 @@ public partial class AgreementsClient : IAgreementsClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1AgreementsAgreementsListResponse>
-    > PostV1AgreementsAgreementsListAsyncCore(
-        PostV1AgreementsAgreementsListRequest request,
+    private async Task<WithRawResponse<AgreementsListAgreementsResponse>> AgreementsListAsyncCore(
+        AgreementsListAgreementsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1209,10 +1345,10 @@ public partial class AgreementsClient : IAgreementsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AgreementsAgreementsListResponse>(
+                var responseData = JsonUtils.Deserialize<AgreementsListAgreementsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1AgreementsAgreementsListResponse>()
+                return new WithRawResponse<AgreementsListAgreementsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1271,6 +1407,18 @@ public partial class AgreementsClient : IAgreementsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1297,6 +1445,18 @@ public partial class AgreementsClient : IAgreementsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1364,9 +1524,9 @@ public partial class AgreementsClient : IAgreementsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1AgreementsAgreementsGenerateInvoiceResponse>
-    > PostV1AgreementsAgreementsGenerateInvoiceAsyncCore(
-        PostV1AgreementsAgreementsGenerateInvoiceRequest request,
+        WithRawResponse<AgreementsGenerateInvoiceAgreementsResponse>
+    > AgreementsGenerateInvoiceAsyncCore(
+        AgreementsGenerateInvoiceAgreementsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1403,10 +1563,10 @@ public partial class AgreementsClient : IAgreementsClient
             try
             {
                 var responseData =
-                    JsonUtils.Deserialize<PostV1AgreementsAgreementsGenerateInvoiceResponse>(
+                    JsonUtils.Deserialize<AgreementsGenerateInvoiceAgreementsResponse>(
                         responseBody
                     )!;
-                return new WithRawResponse<PostV1AgreementsAgreementsGenerateInvoiceResponse>()
+                return new WithRawResponse<AgreementsGenerateInvoiceAgreementsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1465,6 +1625,18 @@ public partial class AgreementsClient : IAgreementsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1491,6 +1663,18 @@ public partial class AgreementsClient : IAgreementsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1558,9 +1742,9 @@ public partial class AgreementsClient : IAgreementsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1AgreementsAgreementsBillingRunResponse>
-    > PostV1AgreementsAgreementsBillingRunAsyncCore(
-        PostV1AgreementsAgreementsBillingRunRequest request,
+        WithRawResponse<AgreementsBillingRunAgreementsResponse>
+    > AgreementsBillingRunAsyncCore(
+        AgreementsBillingRunAgreementsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1596,11 +1780,10 @@ public partial class AgreementsClient : IAgreementsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1AgreementsAgreementsBillingRunResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1AgreementsAgreementsBillingRunResponse>()
+                var responseData = JsonUtils.Deserialize<AgreementsBillingRunAgreementsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<AgreementsBillingRunAgreementsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1659,6 +1842,18 @@ public partial class AgreementsClient : IAgreementsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1685,6 +1880,18 @@ public partial class AgreementsClient : IAgreementsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1752,9 +1959,9 @@ public partial class AgreementsClient : IAgreementsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1AgreementsInsurancePoliciesCreateResponse>
-    > PostV1AgreementsInsurancePoliciesCreateAsyncCore(
-        PostV1AgreementsInsurancePoliciesCreateRequest request,
+        WithRawResponse<InsurancePoliciesCreateAgreementsResponse>
+    > InsurancePoliciesCreateAsyncCore(
+        InsurancePoliciesCreateAgreementsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1790,11 +1997,10 @@ public partial class AgreementsClient : IAgreementsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1AgreementsInsurancePoliciesCreateResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1AgreementsInsurancePoliciesCreateResponse>()
+                var responseData = JsonUtils.Deserialize<InsurancePoliciesCreateAgreementsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<InsurancePoliciesCreateAgreementsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1853,6 +2059,18 @@ public partial class AgreementsClient : IAgreementsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1879,6 +2097,18 @@ public partial class AgreementsClient : IAgreementsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1946,9 +2176,9 @@ public partial class AgreementsClient : IAgreementsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1AgreementsInsurancePoliciesListResponse>
-    > PostV1AgreementsInsurancePoliciesListAsyncCore(
-        PostV1AgreementsInsurancePoliciesListRequest request,
+        WithRawResponse<InsurancePoliciesListAgreementsResponse>
+    > InsurancePoliciesListAsyncCore(
+        InsurancePoliciesListAgreementsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1984,11 +2214,10 @@ public partial class AgreementsClient : IAgreementsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1AgreementsInsurancePoliciesListResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1AgreementsInsurancePoliciesListResponse>()
+                var responseData = JsonUtils.Deserialize<InsurancePoliciesListAgreementsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<InsurancePoliciesListAgreementsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2047,6 +2276,18 @@ public partial class AgreementsClient : IAgreementsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2073,6 +2314,18 @@ public partial class AgreementsClient : IAgreementsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2140,9 +2393,9 @@ public partial class AgreementsClient : IAgreementsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1AgreementsInsurancePoliciesDeleteResponse>
-    > PostV1AgreementsInsurancePoliciesDeleteAsyncCore(
-        PostV1AgreementsInsurancePoliciesDeleteRequest request,
+        WithRawResponse<InsurancePoliciesDeleteAgreementsResponse>
+    > InsurancePoliciesDeleteAsyncCore(
+        InsurancePoliciesDeleteAgreementsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2178,11 +2431,10 @@ public partial class AgreementsClient : IAgreementsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1AgreementsInsurancePoliciesDeleteResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1AgreementsInsurancePoliciesDeleteResponse>()
+                var responseData = JsonUtils.Deserialize<InsurancePoliciesDeleteAgreementsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<InsurancePoliciesDeleteAgreementsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2241,6 +2493,18 @@ public partial class AgreementsClient : IAgreementsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2267,6 +2531,18 @@ public partial class AgreementsClient : IAgreementsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2334,198 +2610,190 @@ public partial class AgreementsClient : IAgreementsClient
     }
 
     /// <example><code>
-    /// await client.Agreements.PostV1AgreementsTypesCreateAsync(
-    ///     new PostV1AgreementsTypesCreateRequest { Code = "code", Name = "name" }
+    /// await client.Agreements.TypesCreateAsync(
+    ///     new TypesCreateAgreementsRequest { Code = "code", Name = "name" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1AgreementsTypesCreateResponse> PostV1AgreementsTypesCreateAsync(
-        PostV1AgreementsTypesCreateRequest request,
+    public WithRawResponseTask<TypesCreateAgreementsResponse> TypesCreateAsync(
+        TypesCreateAgreementsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1AgreementsTypesCreateResponse>(
-            PostV1AgreementsTypesCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<TypesCreateAgreementsResponse>(
+            TypesCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Agreements.PostV1AgreementsTypesListAsync(new PostV1AgreementsTypesListRequest());
+    /// await client.Agreements.TypesListAsync(new TypesListAgreementsRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1AgreementsTypesListResponse> PostV1AgreementsTypesListAsync(
-        PostV1AgreementsTypesListRequest request,
+    public WithRawResponseTask<TypesListAgreementsResponse> TypesListAsync(
+        TypesListAgreementsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1AgreementsTypesListResponse>(
-            PostV1AgreementsTypesListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<TypesListAgreementsResponse>(
+            TypesListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Agreements.PostV1AgreementsAgreementsCreateAsync(
-    ///     new PostV1AgreementsAgreementsCreateRequest { Number = "number", StartDate = "startDate" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1AgreementsAgreementsCreateResponse> PostV1AgreementsAgreementsCreateAsync(
-        PostV1AgreementsAgreementsCreateRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1AgreementsAgreementsCreateResponse>(
-            PostV1AgreementsAgreementsCreateAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Agreements.PostV1AgreementsAgreementsGetAsync(
-    ///     new PostV1AgreementsAgreementsGetRequest { Id = "id" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1AgreementsAgreementsGetResponse> PostV1AgreementsAgreementsGetAsync(
-        PostV1AgreementsAgreementsGetRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1AgreementsAgreementsGetResponse>(
-            PostV1AgreementsAgreementsGetAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Agreements.PostV1AgreementsAgreementsUpdateAsync(
-    ///     new PostV1AgreementsAgreementsUpdateRequest { Id = "id" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1AgreementsAgreementsUpdateResponse> PostV1AgreementsAgreementsUpdateAsync(
-        PostV1AgreementsAgreementsUpdateRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1AgreementsAgreementsUpdateResponse>(
-            PostV1AgreementsAgreementsUpdateAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Agreements.PostV1AgreementsAgreementsDeleteAsync(
-    ///     new PostV1AgreementsAgreementsDeleteRequest { Id = "id" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1AgreementsAgreementsDeleteResponse> PostV1AgreementsAgreementsDeleteAsync(
-        PostV1AgreementsAgreementsDeleteRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1AgreementsAgreementsDeleteResponse>(
-            PostV1AgreementsAgreementsDeleteAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Agreements.PostV1AgreementsAgreementsListAsync(
-    ///     new PostV1AgreementsAgreementsListRequest()
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1AgreementsAgreementsListResponse> PostV1AgreementsAgreementsListAsync(
-        PostV1AgreementsAgreementsListRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1AgreementsAgreementsListResponse>(
-            PostV1AgreementsAgreementsListAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Agreements.PostV1AgreementsAgreementsGenerateInvoiceAsync(
-    ///     new PostV1AgreementsAgreementsGenerateInvoiceRequest { Id = "id" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1AgreementsAgreementsGenerateInvoiceResponse> PostV1AgreementsAgreementsGenerateInvoiceAsync(
-        PostV1AgreementsAgreementsGenerateInvoiceRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1AgreementsAgreementsGenerateInvoiceResponse>(
-            PostV1AgreementsAgreementsGenerateInvoiceAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Agreements.PostV1AgreementsAgreementsBillingRunAsync(
-    ///     new PostV1AgreementsAgreementsBillingRunRequest()
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1AgreementsAgreementsBillingRunResponse> PostV1AgreementsAgreementsBillingRunAsync(
-        PostV1AgreementsAgreementsBillingRunRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1AgreementsAgreementsBillingRunResponse>(
-            PostV1AgreementsAgreementsBillingRunAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Agreements.PostV1AgreementsInsurancePoliciesCreateAsync(
-    ///     new PostV1AgreementsInsurancePoliciesCreateRequest
+    /// await client.Agreements.AgreementsCreateAsync(
+    ///     new AgreementsCreateAgreementsRequest
     ///     {
-    ///         PolicyNumber = "policyNumber",
-    ///         InsuredObject = "insuredObject",
-    ///         FromDate = "fromDate",
-    ///         ToDate = "toDate",
+    ///         Number = "number",
+    ///         StartDate = new DateOnly(2026, 7, 1),
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1AgreementsInsurancePoliciesCreateResponse> PostV1AgreementsInsurancePoliciesCreateAsync(
-        PostV1AgreementsInsurancePoliciesCreateRequest request,
+    public WithRawResponseTask<AgreementsCreateAgreementsResponse> AgreementsCreateAsync(
+        AgreementsCreateAgreementsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1AgreementsInsurancePoliciesCreateResponse>(
-            PostV1AgreementsInsurancePoliciesCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<AgreementsCreateAgreementsResponse>(
+            AgreementsCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Agreements.PostV1AgreementsInsurancePoliciesListAsync(
-    ///     new PostV1AgreementsInsurancePoliciesListRequest()
-    /// );
+    /// await client.Agreements.AgreementsGetAsync(new AgreementsGetAgreementsRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1AgreementsInsurancePoliciesListResponse> PostV1AgreementsInsurancePoliciesListAsync(
-        PostV1AgreementsInsurancePoliciesListRequest request,
+    public WithRawResponseTask<AgreementsGetAgreementsResponse> AgreementsGetAsync(
+        AgreementsGetAgreementsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1AgreementsInsurancePoliciesListResponse>(
-            PostV1AgreementsInsurancePoliciesListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<AgreementsGetAgreementsResponse>(
+            AgreementsGetAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Agreements.PostV1AgreementsInsurancePoliciesDeleteAsync(
-    ///     new PostV1AgreementsInsurancePoliciesDeleteRequest { Id = "id" }
-    /// );
+    /// await client.Agreements.AgreementsUpdateAsync(new AgreementsUpdateAgreementsRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1AgreementsInsurancePoliciesDeleteResponse> PostV1AgreementsInsurancePoliciesDeleteAsync(
-        PostV1AgreementsInsurancePoliciesDeleteRequest request,
+    public WithRawResponseTask<AgreementsUpdateAgreementsResponse> AgreementsUpdateAsync(
+        AgreementsUpdateAgreementsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1AgreementsInsurancePoliciesDeleteResponse>(
-            PostV1AgreementsInsurancePoliciesDeleteAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<AgreementsUpdateAgreementsResponse>(
+            AgreementsUpdateAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Agreements.AgreementsDeleteAsync(new AgreementsDeleteAgreementsRequest { Id = "id" });
+    /// </code></example>
+    public WithRawResponseTask<AgreementsDeleteAgreementsResponse> AgreementsDeleteAsync(
+        AgreementsDeleteAgreementsRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<AgreementsDeleteAgreementsResponse>(
+            AgreementsDeleteAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Agreements.AgreementsListAsync(new AgreementsListAgreementsRequest());
+    /// </code></example>
+    public WithRawResponseTask<AgreementsListAgreementsResponse> AgreementsListAsync(
+        AgreementsListAgreementsRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<AgreementsListAgreementsResponse>(
+            AgreementsListAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Agreements.AgreementsGenerateInvoiceAsync(
+    ///     new AgreementsGenerateInvoiceAgreementsRequest { Id = "id" }
+    /// );
+    /// </code></example>
+    public WithRawResponseTask<AgreementsGenerateInvoiceAgreementsResponse> AgreementsGenerateInvoiceAsync(
+        AgreementsGenerateInvoiceAgreementsRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<AgreementsGenerateInvoiceAgreementsResponse>(
+            AgreementsGenerateInvoiceAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Agreements.AgreementsBillingRunAsync(new AgreementsBillingRunAgreementsRequest());
+    /// </code></example>
+    public WithRawResponseTask<AgreementsBillingRunAgreementsResponse> AgreementsBillingRunAsync(
+        AgreementsBillingRunAgreementsRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<AgreementsBillingRunAgreementsResponse>(
+            AgreementsBillingRunAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Agreements.InsurancePoliciesCreateAsync(
+    ///     new InsurancePoliciesCreateAgreementsRequest
+    ///     {
+    ///         PolicyNumber = "policyNumber",
+    ///         InsuredObject = "insuredObject",
+    ///         FromDate = new DateOnly(2026, 7, 1),
+    ///         ToDate = new DateOnly(2026, 7, 1),
+    ///     }
+    /// );
+    /// </code></example>
+    public WithRawResponseTask<InsurancePoliciesCreateAgreementsResponse> InsurancePoliciesCreateAsync(
+        InsurancePoliciesCreateAgreementsRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<InsurancePoliciesCreateAgreementsResponse>(
+            InsurancePoliciesCreateAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Agreements.InsurancePoliciesListAsync(new InsurancePoliciesListAgreementsRequest());
+    /// </code></example>
+    public WithRawResponseTask<InsurancePoliciesListAgreementsResponse> InsurancePoliciesListAsync(
+        InsurancePoliciesListAgreementsRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<InsurancePoliciesListAgreementsResponse>(
+            InsurancePoliciesListAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Agreements.InsurancePoliciesDeleteAsync(
+    ///     new InsurancePoliciesDeleteAgreementsRequest { Id = "id" }
+    /// );
+    /// </code></example>
+    public WithRawResponseTask<InsurancePoliciesDeleteAgreementsResponse> InsurancePoliciesDeleteAsync(
+        InsurancePoliciesDeleteAgreementsRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<InsurancePoliciesDeleteAgreementsResponse>(
+            InsurancePoliciesDeleteAsyncCore(request, options, cancellationToken)
         );
     }
 }

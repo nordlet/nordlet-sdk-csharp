@@ -2,38 +2,38 @@ namespace NordletApi;
 
 public partial interface IHrClient
 {
-    WithRawResponseTask<PostV1HrPositionsCreateResponse> PostV1HrPositionsCreateAsync(
-        PostV1HrPositionsCreateRequest request,
+    WithRawResponseTask<PositionsCreateHrResponse> PositionsCreateAsync(
+        PositionsCreateHrRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1HrPositionsUpdateResponse> PostV1HrPositionsUpdateAsync(
-        PostV1HrPositionsUpdateRequest request,
+    WithRawResponseTask<PositionsUpdateHrResponse> PositionsUpdateAsync(
+        PositionsUpdateHrRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1HrPositionsListResponse> PostV1HrPositionsListAsync(
-        PostV1HrPositionsListRequest request,
+    WithRawResponseTask<PositionsListHrResponse> PositionsListAsync(
+        PositionsListHrRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1HrEmployeesCreateResponse> PostV1HrEmployeesCreateAsync(
-        PostV1HrEmployeesCreateRequest request,
+    WithRawResponseTask<EmployeesCreateHrResponse> EmployeesCreateAsync(
+        EmployeesCreateHrRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1HrEmployeesUpdateResponse> PostV1HrEmployeesUpdateAsync(
-        PostV1HrEmployeesUpdateRequest request,
+    WithRawResponseTask<EmployeesUpdateHrResponse> EmployeesUpdateAsync(
+        EmployeesUpdateHrRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1HrEmployeesGetResponse> PostV1HrEmployeesGetAsync(
-        PostV1HrEmployeesGetRequest request,
+    WithRawResponseTask<EmployeesGetHrResponse> EmployeesGetAsync(
+        EmployeesGetHrRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
@@ -41,20 +41,20 @@ public partial interface IHrClient
     /// <summary>
     /// Attributes a filing of the company country needs about a person that the shared employee record does not carry, such as the sex and place of birth an Italian income certificate asks for. Their values are kept in the payrollOptions of the employee.
     /// </summary>
-    WithRawResponseTask<PostV1HrEmployeesFieldsResponse> ExtraEmployeeDetailsTheCountryOfTheCompanyAsksForAsync(
-        PostV1HrEmployeesFieldsRequest request,
+    WithRawResponseTask<EmployeesFieldsHrResponse> EmployeesFieldsAsync(
+        EmployeesFieldsHrRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1HrEmployeesListResponse> PostV1HrEmployeesListAsync(
-        PostV1HrEmployeesListRequest request,
+    WithRawResponseTask<EmployeesListHrResponse> EmployeesListAsync(
+        EmployeesListHrRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1HrEmployeesDeleteResponse> PostV1HrEmployeesDeleteAsync(
-        PostV1HrEmployeesDeleteRequest request,
+    WithRawResponseTask<EmployeesDeleteHrResponse> EmployeesDeleteAsync(
+        EmployeesDeleteHrRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
@@ -62,110 +62,110 @@ public partial interface IHrClient
     /// <summary>
     /// Replaces the name with a placeholder and removes personal code, birth date, contact details, address, bank account, social-insurance number, notes and sick-leave reasons. Payroll and contract rows stay linked to the record for the statutory retention period.
     /// </summary>
-    WithRawResponseTask<PostV1HrEmployeesAnonymizeResponse> BlankAnEmployeesPersonalDataAndHideTheRecordAsync(
-        PostV1HrEmployeesAnonymizeRequest request,
+    WithRawResponseTask<EmployeesAnonymizeHrResponse> EmployeesAnonymizeAsync(
+        EmployeesAnonymizeHrRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1HrContractsCreateResponse> PostV1HrContractsCreateAsync(
-        PostV1HrContractsCreateRequest request,
+    WithRawResponseTask<ContractsCreateHrResponse> ContractsCreateAsync(
+        ContractsCreateHrRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1HrContractsEndResponse> PostV1HrContractsEndAsync(
-        PostV1HrContractsEndRequest request,
+    WithRawResponseTask<ContractsEndHrResponse> ContractsEndAsync(
+        ContractsEndHrRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1HrContractsListResponse> PostV1HrContractsListAsync(
-        PostV1HrContractsListRequest request,
+    WithRawResponseTask<ContractsListHrResponse> ContractsListAsync(
+        ContractsListHrRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1HrLeaveBalancesSetResponse> PostV1HrLeaveBalancesSetAsync(
-        PostV1HrLeaveBalancesSetRequest request,
+    WithRawResponseTask<LeaveBalancesSetHrResponse> LeaveBalancesSetAsync(
+        LeaveBalancesSetHrRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1HrLeaveBalancesListResponse> PostV1HrLeaveBalancesListAsync(
-        PostV1HrLeaveBalancesListRequest request,
+    WithRawResponseTask<LeaveBalancesListHrResponse> LeaveBalancesListAsync(
+        LeaveBalancesListHrRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1HrIncapacityCertificatesCreateResponse> PostV1HrIncapacityCertificatesCreateAsync(
-        PostV1HrIncapacityCertificatesCreateRequest request,
+    WithRawResponseTask<IncapacityCertificatesCreateHrResponse> IncapacityCertificatesCreateAsync(
+        IncapacityCertificatesCreateHrRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1HrIncapacityCertificatesListResponse> PostV1HrIncapacityCertificatesListAsync(
-        PostV1HrIncapacityCertificatesListRequest request,
+    WithRawResponseTask<IncapacityCertificatesListHrResponse> IncapacityCertificatesListAsync(
+        IncapacityCertificatesListHrRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1HrEmployeesRecordsCreateResponse> PostV1HrEmployeesRecordsCreateAsync(
-        PostV1HrEmployeesRecordsCreateRequest request,
+    WithRawResponseTask<EmployeesRecordsCreateHrResponse> EmployeesRecordsCreateAsync(
+        EmployeesRecordsCreateHrRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1HrEmployeesRecordsUpdateResponse> PostV1HrEmployeesRecordsUpdateAsync(
-        PostV1HrEmployeesRecordsUpdateRequest request,
+    WithRawResponseTask<EmployeesRecordsUpdateHrResponse> EmployeesRecordsUpdateAsync(
+        EmployeesRecordsUpdateHrRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1HrEmployeesRecordsDeleteResponse> PostV1HrEmployeesRecordsDeleteAsync(
-        PostV1HrEmployeesRecordsDeleteRequest request,
+    WithRawResponseTask<EmployeesRecordsDeleteHrResponse> EmployeesRecordsDeleteAsync(
+        EmployeesRecordsDeleteHrRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1HrEmployeesRecordsListResponse> PostV1HrEmployeesRecordsListAsync(
-        PostV1HrEmployeesRecordsListRequest request,
+    WithRawResponseTask<EmployeesRecordsListHrResponse> EmployeesRecordsListAsync(
+        EmployeesRecordsListHrRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1HrEmployeesAttachmentsListResponse> PostV1HrEmployeesAttachmentsListAsync(
-        PostV1HrEmployeesAttachmentsListRequest request,
+    WithRawResponseTask<EmployeesAttachmentsListHrResponse> EmployeesAttachmentsListAsync(
+        EmployeesAttachmentsListHrRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1HrTimesheetsGenerateResponse> PostV1HrTimesheetsGenerateAsync(
-        PostV1HrTimesheetsGenerateRequest request,
+    WithRawResponseTask<TimesheetsGenerateHrResponse> TimesheetsGenerateAsync(
+        TimesheetsGenerateHrRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1HrTimesheetsUpsertResponse> PostV1HrTimesheetsUpsertAsync(
-        PostV1HrTimesheetsUpsertRequest request,
+    WithRawResponseTask<TimesheetsUpsertHrResponse> TimesheetsUpsertAsync(
+        TimesheetsUpsertHrRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1HrTimesheetsGetResponse> PostV1HrTimesheetsGetAsync(
-        PostV1HrTimesheetsGetRequest request,
+    WithRawResponseTask<TimesheetsGetHrResponse> TimesheetsGetAsync(
+        TimesheetsGetHrRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1HrTimesheetsListResponse> PostV1HrTimesheetsListAsync(
-        PostV1HrTimesheetsListRequest request,
+    WithRawResponseTask<TimesheetsListHrResponse> TimesheetsListAsync(
+        TimesheetsListHrRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1HrTimesheetsDeleteResponse> PostV1HrTimesheetsDeleteAsync(
-        PostV1HrTimesheetsDeleteRequest request,
+    WithRawResponseTask<TimesheetsDeleteHrResponse> TimesheetsDeleteAsync(
+        TimesheetsDeleteHrRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );

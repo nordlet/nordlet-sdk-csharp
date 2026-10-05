@@ -12,10 +12,8 @@ public partial class AccountClient : IAccountClient
         _client = client;
     }
 
-    private async Task<
-        WithRawResponse<PostV1AccountLoginLinkRequestResponse>
-    > PostV1AccountLoginLinkRequestAsyncCore(
-        PostV1AccountLoginLinkRequestRequest request,
+    private async Task<WithRawResponse<LoginLinkRequestAccountResponse>> LoginLinkRequestAsyncCore(
+        LoginLinkRequestAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -51,10 +49,10 @@ public partial class AccountClient : IAccountClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AccountLoginLinkRequestResponse>(
+                var responseData = JsonUtils.Deserialize<LoginLinkRequestAccountResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1AccountLoginLinkRequestResponse>()
+                return new WithRawResponse<LoginLinkRequestAccountResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -113,6 +111,18 @@ public partial class AccountClient : IAccountClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -139,6 +149,18 @@ public partial class AccountClient : IAccountClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -205,10 +227,8 @@ public partial class AccountClient : IAccountClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1AccountLoginLinkConsumeResponse>
-    > PostV1AccountLoginLinkConsumeAsyncCore(
-        PostV1AccountLoginLinkConsumeRequest request,
+    private async Task<WithRawResponse<LoginLinkConsumeAccountResponse>> LoginLinkConsumeAsyncCore(
+        LoginLinkConsumeAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -244,10 +264,10 @@ public partial class AccountClient : IAccountClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AccountLoginLinkConsumeResponse>(
+                var responseData = JsonUtils.Deserialize<LoginLinkConsumeAccountResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1AccountLoginLinkConsumeResponse>()
+                return new WithRawResponse<LoginLinkConsumeAccountResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -306,6 +326,18 @@ public partial class AccountClient : IAccountClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -332,6 +364,18 @@ public partial class AccountClient : IAccountClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -398,8 +442,8 @@ public partial class AccountClient : IAccountClient
         }
     }
 
-    private async Task<WithRawResponse<PostV1AccountLogoutResponse>> PostV1AccountLogoutAsyncCore(
-        PostV1AccountLogoutRequest request,
+    private async Task<WithRawResponse<LogoutAccountResponse>> LogoutAsyncCore(
+        LogoutAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -435,10 +479,8 @@ public partial class AccountClient : IAccountClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AccountLogoutResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1AccountLogoutResponse>()
+                var responseData = JsonUtils.Deserialize<LogoutAccountResponse>(responseBody)!;
+                return new WithRawResponse<LogoutAccountResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -497,6 +539,18 @@ public partial class AccountClient : IAccountClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -523,6 +577,18 @@ public partial class AccountClient : IAccountClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -589,8 +655,8 @@ public partial class AccountClient : IAccountClient
         }
     }
 
-    private async Task<WithRawResponse<PostV1AccountMeResponse>> PostV1AccountMeAsyncCore(
-        PostV1AccountMeRequest request,
+    private async Task<WithRawResponse<MeAccountResponse>> MeAsyncCore(
+        MeAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -626,8 +692,8 @@ public partial class AccountClient : IAccountClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AccountMeResponse>(responseBody)!;
-                return new WithRawResponse<PostV1AccountMeResponse>()
+                var responseData = JsonUtils.Deserialize<MeAccountResponse>(responseBody)!;
+                return new WithRawResponse<MeAccountResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -686,6 +752,18 @@ public partial class AccountClient : IAccountClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -712,6 +790,18 @@ public partial class AccountClient : IAccountClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -778,10 +868,8 @@ public partial class AccountClient : IAccountClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1AccountMembersListResponse>
-    > PostV1AccountMembersListAsyncCore(
-        PostV1AccountMembersListRequest request,
+    private async Task<WithRawResponse<MembersListAccountResponse>> MembersListAsyncCore(
+        MembersListAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -817,10 +905,8 @@ public partial class AccountClient : IAccountClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AccountMembersListResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1AccountMembersListResponse>()
+                var responseData = JsonUtils.Deserialize<MembersListAccountResponse>(responseBody)!;
+                return new WithRawResponse<MembersListAccountResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -879,6 +965,18 @@ public partial class AccountClient : IAccountClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -905,6 +1003,18 @@ public partial class AccountClient : IAccountClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -971,10 +1081,8 @@ public partial class AccountClient : IAccountClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1AccountMembersSetRoleResponse>
-    > PostV1AccountMembersSetRoleAsyncCore(
-        PostV1AccountMembersSetRoleRequest request,
+    private async Task<WithRawResponse<MembersSetRoleAccountResponse>> MembersSetRoleAsyncCore(
+        MembersSetRoleAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1010,10 +1118,10 @@ public partial class AccountClient : IAccountClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AccountMembersSetRoleResponse>(
+                var responseData = JsonUtils.Deserialize<MembersSetRoleAccountResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1AccountMembersSetRoleResponse>()
+                return new WithRawResponse<MembersSetRoleAccountResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1072,6 +1180,18 @@ public partial class AccountClient : IAccountClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1098,6 +1218,18 @@ public partial class AccountClient : IAccountClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1165,9 +1297,9 @@ public partial class AccountClient : IAccountClient
     }
 
     private async Task<
-        WithRawResponse<PostV1AccountMembersTransferOwnershipResponse>
-    > PostV1AccountMembersTransferOwnershipAsyncCore(
-        PostV1AccountMembersTransferOwnershipRequest request,
+        WithRawResponse<MembersTransferOwnershipAccountResponse>
+    > MembersTransferOwnershipAsyncCore(
+        MembersTransferOwnershipAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1203,11 +1335,10 @@ public partial class AccountClient : IAccountClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1AccountMembersTransferOwnershipResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1AccountMembersTransferOwnershipResponse>()
+                var responseData = JsonUtils.Deserialize<MembersTransferOwnershipAccountResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<MembersTransferOwnershipAccountResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1266,6 +1397,18 @@ public partial class AccountClient : IAccountClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1292,6 +1435,18 @@ public partial class AccountClient : IAccountClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1358,10 +1513,8 @@ public partial class AccountClient : IAccountClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1AccountMembersRemoveResponse>
-    > PostV1AccountMembersRemoveAsyncCore(
-        PostV1AccountMembersRemoveRequest request,
+    private async Task<WithRawResponse<MembersRemoveAccountResponse>> MembersRemoveAsyncCore(
+        MembersRemoveAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1397,10 +1550,10 @@ public partial class AccountClient : IAccountClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AccountMembersRemoveResponse>(
+                var responseData = JsonUtils.Deserialize<MembersRemoveAccountResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1AccountMembersRemoveResponse>()
+                return new WithRawResponse<MembersRemoveAccountResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1459,6 +1612,18 @@ public partial class AccountClient : IAccountClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1485,6 +1650,18 @@ public partial class AccountClient : IAccountClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1551,10 +1728,8 @@ public partial class AccountClient : IAccountClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1AccountInvitesCreateResponse>
-    > PostV1AccountInvitesCreateAsyncCore(
-        PostV1AccountInvitesCreateRequest request,
+    private async Task<WithRawResponse<InvitesCreateAccountResponse>> InvitesCreateAsyncCore(
+        InvitesCreateAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1590,10 +1765,10 @@ public partial class AccountClient : IAccountClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AccountInvitesCreateResponse>(
+                var responseData = JsonUtils.Deserialize<InvitesCreateAccountResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1AccountInvitesCreateResponse>()
+                return new WithRawResponse<InvitesCreateAccountResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1652,6 +1827,18 @@ public partial class AccountClient : IAccountClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1678,6 +1865,18 @@ public partial class AccountClient : IAccountClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1744,10 +1943,8 @@ public partial class AccountClient : IAccountClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1AccountInvitesListResponse>
-    > PostV1AccountInvitesListAsyncCore(
-        PostV1AccountInvitesListRequest request,
+    private async Task<WithRawResponse<InvitesListAccountResponse>> InvitesListAsyncCore(
+        InvitesListAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1783,10 +1980,8 @@ public partial class AccountClient : IAccountClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AccountInvitesListResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1AccountInvitesListResponse>()
+                var responseData = JsonUtils.Deserialize<InvitesListAccountResponse>(responseBody)!;
+                return new WithRawResponse<InvitesListAccountResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1845,6 +2040,18 @@ public partial class AccountClient : IAccountClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1871,6 +2078,18 @@ public partial class AccountClient : IAccountClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1937,10 +2156,8 @@ public partial class AccountClient : IAccountClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1AccountInvitesRevokeResponse>
-    > PostV1AccountInvitesRevokeAsyncCore(
-        PostV1AccountInvitesRevokeRequest request,
+    private async Task<WithRawResponse<InvitesRevokeAccountResponse>> InvitesRevokeAsyncCore(
+        InvitesRevokeAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1976,10 +2193,10 @@ public partial class AccountClient : IAccountClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AccountInvitesRevokeResponse>(
+                var responseData = JsonUtils.Deserialize<InvitesRevokeAccountResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1AccountInvitesRevokeResponse>()
+                return new WithRawResponse<InvitesRevokeAccountResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2038,6 +2255,18 @@ public partial class AccountClient : IAccountClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2064,6 +2293,18 @@ public partial class AccountClient : IAccountClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2130,10 +2371,8 @@ public partial class AccountClient : IAccountClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1AccountInvitesGetResponse>
-    > PostV1AccountInvitesGetAsyncCore(
-        PostV1AccountInvitesGetRequest request,
+    private async Task<WithRawResponse<InvitesGetAccountResponse>> InvitesGetAsyncCore(
+        InvitesGetAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2169,10 +2408,8 @@ public partial class AccountClient : IAccountClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AccountInvitesGetResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1AccountInvitesGetResponse>()
+                var responseData = JsonUtils.Deserialize<InvitesGetAccountResponse>(responseBody)!;
+                return new WithRawResponse<InvitesGetAccountResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2231,6 +2468,18 @@ public partial class AccountClient : IAccountClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2257,6 +2506,18 @@ public partial class AccountClient : IAccountClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2323,10 +2584,8 @@ public partial class AccountClient : IAccountClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1AccountInvitesAcceptResponse>
-    > PostV1AccountInvitesAcceptAsyncCore(
-        PostV1AccountInvitesAcceptRequest request,
+    private async Task<WithRawResponse<InvitesAcceptAccountResponse>> InvitesAcceptAsyncCore(
+        InvitesAcceptAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2362,10 +2621,10 @@ public partial class AccountClient : IAccountClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AccountInvitesAcceptResponse>(
+                var responseData = JsonUtils.Deserialize<InvitesAcceptAccountResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1AccountInvitesAcceptResponse>()
+                return new WithRawResponse<InvitesAcceptAccountResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2424,6 +2683,18 @@ public partial class AccountClient : IAccountClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2450,6 +2721,18 @@ public partial class AccountClient : IAccountClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2516,10 +2799,8 @@ public partial class AccountClient : IAccountClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1AccountLocaleSetResponse>
-    > PostV1AccountLocaleSetAsyncCore(
-        PostV1AccountLocaleSetRequest request,
+    private async Task<WithRawResponse<LocaleSetAccountResponse>> LocaleSetAsyncCore(
+        LocaleSetAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2555,10 +2836,8 @@ public partial class AccountClient : IAccountClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AccountLocaleSetResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1AccountLocaleSetResponse>()
+                var responseData = JsonUtils.Deserialize<LocaleSetAccountResponse>(responseBody)!;
+                return new WithRawResponse<LocaleSetAccountResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2617,6 +2896,18 @@ public partial class AccountClient : IAccountClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2643,6 +2934,18 @@ public partial class AccountClient : IAccountClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2709,10 +3012,8 @@ public partial class AccountClient : IAccountClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1AccountCompaniesCreateResponse>
-    > PostV1AccountCompaniesCreateAsyncCore(
-        PostV1AccountCompaniesCreateRequest request,
+    private async Task<WithRawResponse<CompaniesCreateAccountResponse>> CompaniesCreateAsyncCore(
+        CompaniesCreateAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2748,10 +3049,10 @@ public partial class AccountClient : IAccountClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AccountCompaniesCreateResponse>(
+                var responseData = JsonUtils.Deserialize<CompaniesCreateAccountResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1AccountCompaniesCreateResponse>()
+                return new WithRawResponse<CompaniesCreateAccountResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2810,6 +3111,18 @@ public partial class AccountClient : IAccountClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2836,6 +3149,18 @@ public partial class AccountClient : IAccountClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2902,10 +3227,8 @@ public partial class AccountClient : IAccountClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1AccountCompaniesSelectResponse>
-    > PostV1AccountCompaniesSelectAsyncCore(
-        PostV1AccountCompaniesSelectRequest request,
+    private async Task<WithRawResponse<CompaniesSelectAccountResponse>> CompaniesSelectAsyncCore(
+        CompaniesSelectAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2941,10 +3264,10 @@ public partial class AccountClient : IAccountClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AccountCompaniesSelectResponse>(
+                var responseData = JsonUtils.Deserialize<CompaniesSelectAccountResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1AccountCompaniesSelectResponse>()
+                return new WithRawResponse<CompaniesSelectAccountResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3003,6 +3326,18 @@ public partial class AccountClient : IAccountClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3029,6 +3364,18 @@ public partial class AccountClient : IAccountClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3095,10 +3442,8 @@ public partial class AccountClient : IAccountClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1AccountCompaniesProfileResponse>
-    > PostV1AccountCompaniesProfileAsyncCore(
-        PostV1AccountCompaniesProfileRequest request,
+    private async Task<WithRawResponse<CompaniesProfileAccountResponse>> CompaniesProfileAsyncCore(
+        CompaniesProfileAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3134,10 +3479,10 @@ public partial class AccountClient : IAccountClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AccountCompaniesProfileResponse>(
+                var responseData = JsonUtils.Deserialize<CompaniesProfileAccountResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1AccountCompaniesProfileResponse>()
+                return new WithRawResponse<CompaniesProfileAccountResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3196,6 +3541,18 @@ public partial class AccountClient : IAccountClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3222,6 +3579,18 @@ public partial class AccountClient : IAccountClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3288,10 +3657,8 @@ public partial class AccountClient : IAccountClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1AccountCompaniesUpdateResponse>
-    > PostV1AccountCompaniesUpdateAsyncCore(
-        PostV1AccountCompaniesUpdateRequest request,
+    private async Task<WithRawResponse<CompaniesUpdateAccountResponse>> CompaniesUpdateAsyncCore(
+        CompaniesUpdateAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3327,10 +3694,10 @@ public partial class AccountClient : IAccountClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AccountCompaniesUpdateResponse>(
+                var responseData = JsonUtils.Deserialize<CompaniesUpdateAccountResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1AccountCompaniesUpdateResponse>()
+                return new WithRawResponse<CompaniesUpdateAccountResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3389,6 +3756,18 @@ public partial class AccountClient : IAccountClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3415,6 +3794,18 @@ public partial class AccountClient : IAccountClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3481,10 +3872,8 @@ public partial class AccountClient : IAccountClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1AccountCompaniesArchiveResponse>
-    > PostV1AccountCompaniesArchiveAsyncCore(
-        PostV1AccountCompaniesArchiveRequest request,
+    private async Task<WithRawResponse<CompaniesArchiveAccountResponse>> CompaniesArchiveAsyncCore(
+        CompaniesArchiveAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3520,10 +3909,10 @@ public partial class AccountClient : IAccountClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AccountCompaniesArchiveResponse>(
+                var responseData = JsonUtils.Deserialize<CompaniesArchiveAccountResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1AccountCompaniesArchiveResponse>()
+                return new WithRawResponse<CompaniesArchiveAccountResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3582,6 +3971,18 @@ public partial class AccountClient : IAccountClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3608,6 +4009,18 @@ public partial class AccountClient : IAccountClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3674,10 +4087,8 @@ public partial class AccountClient : IAccountClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1AccountCompaniesDeleteResponse>
-    > PostV1AccountCompaniesDeleteAsyncCore(
-        PostV1AccountCompaniesDeleteRequest request,
+    private async Task<WithRawResponse<CompaniesDeleteAccountResponse>> CompaniesDeleteAsyncCore(
+        CompaniesDeleteAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3713,10 +4124,10 @@ public partial class AccountClient : IAccountClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AccountCompaniesDeleteResponse>(
+                var responseData = JsonUtils.Deserialize<CompaniesDeleteAccountResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1AccountCompaniesDeleteResponse>()
+                return new WithRawResponse<CompaniesDeleteAccountResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3775,6 +4186,18 @@ public partial class AccountClient : IAccountClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3801,6 +4224,18 @@ public partial class AccountClient : IAccountClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3868,9 +4303,9 @@ public partial class AccountClient : IAccountClient
     }
 
     private async Task<
-        WithRawResponse<PostV1AccountCompaniesActivateResponse>
-    > PostV1AccountCompaniesActivateAsyncCore(
-        PostV1AccountCompaniesActivateRequest request,
+        WithRawResponse<CompaniesActivateAccountResponse>
+    > CompaniesActivateAsyncCore(
+        CompaniesActivateAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3906,10 +4341,10 @@ public partial class AccountClient : IAccountClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AccountCompaniesActivateResponse>(
+                var responseData = JsonUtils.Deserialize<CompaniesActivateAccountResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1AccountCompaniesActivateResponse>()
+                return new WithRawResponse<CompaniesActivateAccountResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3968,6 +4403,18 @@ public partial class AccountClient : IAccountClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3994,6 +4441,18 @@ public partial class AccountClient : IAccountClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -4060,10 +4519,8 @@ public partial class AccountClient : IAccountClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1AccountApiKeysCreateResponse>
-    > PostV1AccountApiKeysCreateAsyncCore(
-        PostV1AccountApiKeysCreateRequest request,
+    private async Task<WithRawResponse<ApiKeysCreateAccountResponse>> ApiKeysCreateAsyncCore(
+        ApiKeysCreateAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -4099,10 +4556,10 @@ public partial class AccountClient : IAccountClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AccountApiKeysCreateResponse>(
+                var responseData = JsonUtils.Deserialize<ApiKeysCreateAccountResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1AccountApiKeysCreateResponse>()
+                return new WithRawResponse<ApiKeysCreateAccountResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -4161,6 +4618,18 @@ public partial class AccountClient : IAccountClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -4187,6 +4656,18 @@ public partial class AccountClient : IAccountClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -4253,10 +4734,8 @@ public partial class AccountClient : IAccountClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1AccountApiKeysListResponse>
-    > PostV1AccountApiKeysListAsyncCore(
-        PostV1AccountApiKeysListRequest request,
+    private async Task<WithRawResponse<ApiKeysListAccountResponse>> ApiKeysListAsyncCore(
+        ApiKeysListAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -4292,10 +4771,8 @@ public partial class AccountClient : IAccountClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AccountApiKeysListResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1AccountApiKeysListResponse>()
+                var responseData = JsonUtils.Deserialize<ApiKeysListAccountResponse>(responseBody)!;
+                return new WithRawResponse<ApiKeysListAccountResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -4354,6 +4831,18 @@ public partial class AccountClient : IAccountClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -4380,6 +4869,18 @@ public partial class AccountClient : IAccountClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -4446,10 +4947,8 @@ public partial class AccountClient : IAccountClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1AccountApiKeysRotateResponse>
-    > IssueAReplacementForAnApiKeyAndSetTheOldOneToStopWorkingAfterAShortOverlapAsyncCore(
-        PostV1AccountApiKeysRotateRequest request,
+    private async Task<WithRawResponse<ApiKeysRotateAccountResponse>> ApiKeysRotateAsyncCore(
+        ApiKeysRotateAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -4485,10 +4984,10 @@ public partial class AccountClient : IAccountClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AccountApiKeysRotateResponse>(
+                var responseData = JsonUtils.Deserialize<ApiKeysRotateAccountResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1AccountApiKeysRotateResponse>()
+                return new WithRawResponse<ApiKeysRotateAccountResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -4547,6 +5046,18 @@ public partial class AccountClient : IAccountClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -4573,6 +5084,18 @@ public partial class AccountClient : IAccountClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -4639,10 +5162,8 @@ public partial class AccountClient : IAccountClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1AccountApiKeysRevokeResponse>
-    > PostV1AccountApiKeysRevokeAsyncCore(
-        PostV1AccountApiKeysRevokeRequest request,
+    private async Task<WithRawResponse<ApiKeysRevokeAccountResponse>> ApiKeysRevokeAsyncCore(
+        ApiKeysRevokeAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -4678,10 +5199,10 @@ public partial class AccountClient : IAccountClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AccountApiKeysRevokeResponse>(
+                var responseData = JsonUtils.Deserialize<ApiKeysRevokeAccountResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1AccountApiKeysRevokeResponse>()
+                return new WithRawResponse<ApiKeysRevokeAccountResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -4740,6 +5261,18 @@ public partial class AccountClient : IAccountClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -4766,6 +5299,18 @@ public partial class AccountClient : IAccountClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -4832,10 +5377,8 @@ public partial class AccountClient : IAccountClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1AccountConsentAcceptResponse>
-    > PostV1AccountConsentAcceptAsyncCore(
-        PostV1AccountConsentAcceptRequest request,
+    private async Task<WithRawResponse<ConsentAcceptAccountResponse>> ConsentAcceptAsyncCore(
+        ConsentAcceptAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -4871,10 +5414,10 @@ public partial class AccountClient : IAccountClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AccountConsentAcceptResponse>(
+                var responseData = JsonUtils.Deserialize<ConsentAcceptAccountResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1AccountConsentAcceptResponse>()
+                return new WithRawResponse<ConsentAcceptAccountResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -4933,6 +5476,18 @@ public partial class AccountClient : IAccountClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -4959,6 +5514,18 @@ public partial class AccountClient : IAccountClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -5025,10 +5592,8 @@ public partial class AccountClient : IAccountClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1AccountProfileUpdateResponse>
-    > PostV1AccountProfileUpdateAsyncCore(
-        PostV1AccountProfileUpdateRequest request,
+    private async Task<WithRawResponse<ProfileUpdateAccountResponse>> ProfileUpdateAsyncCore(
+        ProfileUpdateAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -5064,10 +5629,10 @@ public partial class AccountClient : IAccountClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AccountProfileUpdateResponse>(
+                var responseData = JsonUtils.Deserialize<ProfileUpdateAccountResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1AccountProfileUpdateResponse>()
+                return new WithRawResponse<ProfileUpdateAccountResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -5126,6 +5691,18 @@ public partial class AccountClient : IAccountClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -5152,6 +5729,18 @@ public partial class AccountClient : IAccountClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -5219,9 +5808,9 @@ public partial class AccountClient : IAccountClient
     }
 
     private async Task<
-        WithRawResponse<PostV1AccountEmailChangeRequestResponse>
-    > PostV1AccountEmailChangeRequestAsyncCore(
-        PostV1AccountEmailChangeRequestRequest request,
+        WithRawResponse<EmailChangeRequestAccountResponse>
+    > EmailChangeRequestAsyncCore(
+        EmailChangeRequestAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -5257,10 +5846,10 @@ public partial class AccountClient : IAccountClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AccountEmailChangeRequestResponse>(
+                var responseData = JsonUtils.Deserialize<EmailChangeRequestAccountResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1AccountEmailChangeRequestResponse>()
+                return new WithRawResponse<EmailChangeRequestAccountResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -5319,6 +5908,18 @@ public partial class AccountClient : IAccountClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -5345,6 +5946,18 @@ public partial class AccountClient : IAccountClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -5411,10 +6024,8 @@ public partial class AccountClient : IAccountClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1AccountSessionsListResponse>
-    > PostV1AccountSessionsListAsyncCore(
-        PostV1AccountSessionsListRequest request,
+    private async Task<WithRawResponse<SessionsListAccountResponse>> SessionsListAsyncCore(
+        SessionsListAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -5450,10 +6061,10 @@ public partial class AccountClient : IAccountClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AccountSessionsListResponse>(
+                var responseData = JsonUtils.Deserialize<SessionsListAccountResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1AccountSessionsListResponse>()
+                return new WithRawResponse<SessionsListAccountResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -5512,6 +6123,18 @@ public partial class AccountClient : IAccountClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -5538,6 +6161,18 @@ public partial class AccountClient : IAccountClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -5604,10 +6239,8 @@ public partial class AccountClient : IAccountClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1AccountSessionsRevokeResponse>
-    > PostV1AccountSessionsRevokeAsyncCore(
-        PostV1AccountSessionsRevokeRequest request,
+    private async Task<WithRawResponse<SessionsRevokeAccountResponse>> SessionsRevokeAsyncCore(
+        SessionsRevokeAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -5643,10 +6276,10 @@ public partial class AccountClient : IAccountClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AccountSessionsRevokeResponse>(
+                var responseData = JsonUtils.Deserialize<SessionsRevokeAccountResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1AccountSessionsRevokeResponse>()
+                return new WithRawResponse<SessionsRevokeAccountResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -5705,6 +6338,18 @@ public partial class AccountClient : IAccountClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -5731,6 +6376,18 @@ public partial class AccountClient : IAccountClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -5798,9 +6455,9 @@ public partial class AccountClient : IAccountClient
     }
 
     private async Task<
-        WithRawResponse<PostV1AccountSessionsRevokeOthersResponse>
-    > PostV1AccountSessionsRevokeOthersAsyncCore(
-        PostV1AccountSessionsRevokeOthersRequest request,
+        WithRawResponse<SessionsRevokeOthersAccountResponse>
+    > SessionsRevokeOthersAsyncCore(
+        SessionsRevokeOthersAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -5836,10 +6493,10 @@ public partial class AccountClient : IAccountClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AccountSessionsRevokeOthersResponse>(
+                var responseData = JsonUtils.Deserialize<SessionsRevokeOthersAccountResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1AccountSessionsRevokeOthersResponse>()
+                return new WithRawResponse<SessionsRevokeOthersAccountResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -5898,6 +6555,18 @@ public partial class AccountClient : IAccountClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -5924,6 +6593,18 @@ public partial class AccountClient : IAccountClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -5990,10 +6671,8 @@ public partial class AccountClient : IAccountClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1AccountExportResponse>
-    > DownloadEverythingNordletStoresAboutTheSignedInUserAsyncCore(
-        PostV1AccountExportRequest request,
+    private async Task<WithRawResponse<ExportAccountResponse>> ExportAsyncCore(
+        ExportAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -6029,10 +6708,8 @@ public partial class AccountClient : IAccountClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AccountExportResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1AccountExportResponse>()
+                var responseData = JsonUtils.Deserialize<ExportAccountResponse>(responseBody)!;
+                return new WithRawResponse<ExportAccountResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -6091,6 +6768,18 @@ public partial class AccountClient : IAccountClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -6117,6 +6806,18 @@ public partial class AccountClient : IAccountClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -6183,10 +6884,8 @@ public partial class AccountClient : IAccountClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1AccountDeleteResponse>
-    > DeleteTheSignedInUserAccountAsyncCore(
-        PostV1AccountDeleteRequest request,
+    private async Task<WithRawResponse<DeleteAccountResponse>> DeleteAsyncCore(
+        DeleteAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -6222,10 +6921,8 @@ public partial class AccountClient : IAccountClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AccountDeleteResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1AccountDeleteResponse>()
+                var responseData = JsonUtils.Deserialize<DeleteAccountResponse>(responseBody)!;
+                return new WithRawResponse<DeleteAccountResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -6284,6 +6981,18 @@ public partial class AccountClient : IAccountClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -6310,6 +7019,18 @@ public partial class AccountClient : IAccountClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -6376,10 +7097,8 @@ public partial class AccountClient : IAccountClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1AccountReferralGetResponse>
-    > PostV1AccountReferralGetAsyncCore(
-        PostV1AccountReferralGetRequest request,
+    private async Task<WithRawResponse<ReferralGetAccountResponse>> ReferralGetAsyncCore(
+        ReferralGetAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -6415,10 +7134,8 @@ public partial class AccountClient : IAccountClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AccountReferralGetResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1AccountReferralGetResponse>()
+                var responseData = JsonUtils.Deserialize<ReferralGetAccountResponse>(responseBody)!;
+                return new WithRawResponse<ReferralGetAccountResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -6477,6 +7194,18 @@ public partial class AccountClient : IAccountClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -6503,6 +7232,18 @@ public partial class AccountClient : IAccountClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -6569,10 +7310,8 @@ public partial class AccountClient : IAccountClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1AccountReferralConvertResponse>
-    > PostV1AccountReferralConvertAsyncCore(
-        PostV1AccountReferralConvertRequest request,
+    private async Task<WithRawResponse<ReferralConvertAccountResponse>> ReferralConvertAsyncCore(
+        ReferralConvertAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -6608,10 +7347,10 @@ public partial class AccountClient : IAccountClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AccountReferralConvertResponse>(
+                var responseData = JsonUtils.Deserialize<ReferralConvertAccountResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1AccountReferralConvertResponse>()
+                return new WithRawResponse<ReferralConvertAccountResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -6670,6 +7409,18 @@ public partial class AccountClient : IAccountClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -6696,6 +7447,18 @@ public partial class AccountClient : IAccountClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -6762,10 +7525,8 @@ public partial class AccountClient : IAccountClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1AccountTableSettingsGetResponse>
-    > PostV1AccountTableSettingsGetAsyncCore(
-        PostV1AccountTableSettingsGetRequest request,
+    private async Task<WithRawResponse<TableSettingsGetAccountResponse>> TableSettingsGetAsyncCore(
+        TableSettingsGetAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -6801,10 +7562,10 @@ public partial class AccountClient : IAccountClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AccountTableSettingsGetResponse>(
+                var responseData = JsonUtils.Deserialize<TableSettingsGetAccountResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1AccountTableSettingsGetResponse>()
+                return new WithRawResponse<TableSettingsGetAccountResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -6863,6 +7624,18 @@ public partial class AccountClient : IAccountClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -6889,6 +7662,18 @@ public partial class AccountClient : IAccountClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -6955,10 +7740,8 @@ public partial class AccountClient : IAccountClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1AccountTableSettingsSetResponse>
-    > PostV1AccountTableSettingsSetAsyncCore(
-        PostV1AccountTableSettingsSetRequest request,
+    private async Task<WithRawResponse<TableSettingsSetAccountResponse>> TableSettingsSetAsyncCore(
+        TableSettingsSetAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -6994,10 +7777,10 @@ public partial class AccountClient : IAccountClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AccountTableSettingsSetResponse>(
+                var responseData = JsonUtils.Deserialize<TableSettingsSetAccountResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1AccountTableSettingsSetResponse>()
+                return new WithRawResponse<TableSettingsSetAccountResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -7056,6 +7839,18 @@ public partial class AccountClient : IAccountClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -7082,6 +7877,18 @@ public partial class AccountClient : IAccountClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -7149,9 +7956,9 @@ public partial class AccountClient : IAccountClient
     }
 
     private async Task<
-        WithRawResponse<PostV1AccountTableSettingsListResponse>
-    > PostV1AccountTableSettingsListAsyncCore(
-        PostV1AccountTableSettingsListRequest request,
+        WithRawResponse<TableSettingsListAccountResponse>
+    > TableSettingsListAsyncCore(
+        TableSettingsListAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -7187,10 +7994,10 @@ public partial class AccountClient : IAccountClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AccountTableSettingsListResponse>(
+                var responseData = JsonUtils.Deserialize<TableSettingsListAccountResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1AccountTableSettingsListResponse>()
+                return new WithRawResponse<TableSettingsListAccountResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -7249,6 +8056,18 @@ public partial class AccountClient : IAccountClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -7275,6 +8094,18 @@ public partial class AccountClient : IAccountClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -7342,512 +8173,478 @@ public partial class AccountClient : IAccountClient
     }
 
     /// <example><code>
-    /// await client.Account.PostV1AccountLoginLinkRequestAsync(
-    ///     new PostV1AccountLoginLinkRequestRequest { Email = "email" }
-    /// );
+    /// await client.Account.LoginLinkRequestAsync(new LoginLinkRequestAccountRequest { Email = "email" });
     /// </code></example>
-    public WithRawResponseTask<PostV1AccountLoginLinkRequestResponse> PostV1AccountLoginLinkRequestAsync(
-        PostV1AccountLoginLinkRequestRequest request,
+    public WithRawResponseTask<LoginLinkRequestAccountResponse> LoginLinkRequestAsync(
+        LoginLinkRequestAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1AccountLoginLinkRequestResponse>(
-            PostV1AccountLoginLinkRequestAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<LoginLinkRequestAccountResponse>(
+            LoginLinkRequestAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Account.PostV1AccountLoginLinkConsumeAsync(
-    ///     new PostV1AccountLoginLinkConsumeRequest { Token = "token" }
-    /// );
+    /// await client.Account.LoginLinkConsumeAsync(new LoginLinkConsumeAccountRequest { Token = "token" });
     /// </code></example>
-    public WithRawResponseTask<PostV1AccountLoginLinkConsumeResponse> PostV1AccountLoginLinkConsumeAsync(
-        PostV1AccountLoginLinkConsumeRequest request,
+    public WithRawResponseTask<LoginLinkConsumeAccountResponse> LoginLinkConsumeAsync(
+        LoginLinkConsumeAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1AccountLoginLinkConsumeResponse>(
-            PostV1AccountLoginLinkConsumeAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<LoginLinkConsumeAccountResponse>(
+            LoginLinkConsumeAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Account.PostV1AccountLogoutAsync(new PostV1AccountLogoutRequest());
+    /// await client.Account.LogoutAsync(new LogoutAccountRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1AccountLogoutResponse> PostV1AccountLogoutAsync(
-        PostV1AccountLogoutRequest request,
+    public WithRawResponseTask<LogoutAccountResponse> LogoutAsync(
+        LogoutAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1AccountLogoutResponse>(
-            PostV1AccountLogoutAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<LogoutAccountResponse>(
+            LogoutAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Account.PostV1AccountMeAsync(new PostV1AccountMeRequest());
+    /// await client.Account.MeAsync(new MeAccountRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1AccountMeResponse> PostV1AccountMeAsync(
-        PostV1AccountMeRequest request,
+    public WithRawResponseTask<MeAccountResponse> MeAsync(
+        MeAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1AccountMeResponse>(
-            PostV1AccountMeAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<MeAccountResponse>(
+            MeAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Account.PostV1AccountMembersListAsync(new PostV1AccountMembersListRequest());
+    /// await client.Account.MembersListAsync(new MembersListAccountRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1AccountMembersListResponse> PostV1AccountMembersListAsync(
-        PostV1AccountMembersListRequest request,
+    public WithRawResponseTask<MembersListAccountResponse> MembersListAsync(
+        MembersListAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1AccountMembersListResponse>(
-            PostV1AccountMembersListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<MembersListAccountResponse>(
+            MembersListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Account.PostV1AccountMembersSetRoleAsync(
-    ///     new PostV1AccountMembersSetRoleRequest
+    /// await client.Account.MembersSetRoleAsync(
+    ///     new MembersSetRoleAccountRequest
     ///     {
     ///         UserId = "userId",
-    ///         Role = PostV1AccountMembersSetRoleRequestRole.Admin,
+    ///         Role = MembersSetRoleAccountRequestRole.Admin,
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1AccountMembersSetRoleResponse> PostV1AccountMembersSetRoleAsync(
-        PostV1AccountMembersSetRoleRequest request,
+    public WithRawResponseTask<MembersSetRoleAccountResponse> MembersSetRoleAsync(
+        MembersSetRoleAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1AccountMembersSetRoleResponse>(
-            PostV1AccountMembersSetRoleAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<MembersSetRoleAccountResponse>(
+            MembersSetRoleAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Account.PostV1AccountMembersTransferOwnershipAsync(
-    ///     new PostV1AccountMembersTransferOwnershipRequest { UserId = "userId" }
+    /// await client.Account.MembersTransferOwnershipAsync(
+    ///     new MembersTransferOwnershipAccountRequest { UserId = "userId" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1AccountMembersTransferOwnershipResponse> PostV1AccountMembersTransferOwnershipAsync(
-        PostV1AccountMembersTransferOwnershipRequest request,
+    public WithRawResponseTask<MembersTransferOwnershipAccountResponse> MembersTransferOwnershipAsync(
+        MembersTransferOwnershipAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1AccountMembersTransferOwnershipResponse>(
-            PostV1AccountMembersTransferOwnershipAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<MembersTransferOwnershipAccountResponse>(
+            MembersTransferOwnershipAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Account.PostV1AccountMembersRemoveAsync(
-    ///     new PostV1AccountMembersRemoveRequest { UserId = "userId" }
-    /// );
+    /// await client.Account.MembersRemoveAsync(new MembersRemoveAccountRequest { UserId = "userId" });
     /// </code></example>
-    public WithRawResponseTask<PostV1AccountMembersRemoveResponse> PostV1AccountMembersRemoveAsync(
-        PostV1AccountMembersRemoveRequest request,
+    public WithRawResponseTask<MembersRemoveAccountResponse> MembersRemoveAsync(
+        MembersRemoveAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1AccountMembersRemoveResponse>(
-            PostV1AccountMembersRemoveAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<MembersRemoveAccountResponse>(
+            MembersRemoveAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Account.PostV1AccountInvitesCreateAsync(
-    ///     new PostV1AccountInvitesCreateRequest
+    /// await client.Account.InvitesCreateAsync(
+    ///     new InvitesCreateAccountRequest
     ///     {
     ///         Email = "email",
-    ///         Role = PostV1AccountInvitesCreateRequestRole.Admin,
+    ///         Role = InvitesCreateAccountRequestRole.Admin,
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1AccountInvitesCreateResponse> PostV1AccountInvitesCreateAsync(
-        PostV1AccountInvitesCreateRequest request,
+    public WithRawResponseTask<InvitesCreateAccountResponse> InvitesCreateAsync(
+        InvitesCreateAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1AccountInvitesCreateResponse>(
-            PostV1AccountInvitesCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<InvitesCreateAccountResponse>(
+            InvitesCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Account.PostV1AccountInvitesListAsync(new PostV1AccountInvitesListRequest());
+    /// await client.Account.InvitesListAsync(new InvitesListAccountRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1AccountInvitesListResponse> PostV1AccountInvitesListAsync(
-        PostV1AccountInvitesListRequest request,
+    public WithRawResponseTask<InvitesListAccountResponse> InvitesListAsync(
+        InvitesListAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1AccountInvitesListResponse>(
-            PostV1AccountInvitesListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<InvitesListAccountResponse>(
+            InvitesListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Account.PostV1AccountInvitesRevokeAsync(
-    ///     new PostV1AccountInvitesRevokeRequest { Id = "id" }
+    /// await client.Account.InvitesRevokeAsync(new InvitesRevokeAccountRequest { Id = "id" });
+    /// </code></example>
+    public WithRawResponseTask<InvitesRevokeAccountResponse> InvitesRevokeAsync(
+        InvitesRevokeAccountRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<InvitesRevokeAccountResponse>(
+            InvitesRevokeAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Account.InvitesGetAsync(new InvitesGetAccountRequest { Token = "token" });
+    /// </code></example>
+    public WithRawResponseTask<InvitesGetAccountResponse> InvitesGetAsync(
+        InvitesGetAccountRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<InvitesGetAccountResponse>(
+            InvitesGetAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Account.InvitesAcceptAsync(new InvitesAcceptAccountRequest { Token = "token" });
+    /// </code></example>
+    public WithRawResponseTask<InvitesAcceptAccountResponse> InvitesAcceptAsync(
+        InvitesAcceptAccountRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<InvitesAcceptAccountResponse>(
+            InvitesAcceptAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Account.LocaleSetAsync(
+    ///     new LocaleSetAccountRequest { Locale = LocaleSetAccountRequestLocale.En }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1AccountInvitesRevokeResponse> PostV1AccountInvitesRevokeAsync(
-        PostV1AccountInvitesRevokeRequest request,
+    public WithRawResponseTask<LocaleSetAccountResponse> LocaleSetAsync(
+        LocaleSetAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1AccountInvitesRevokeResponse>(
-            PostV1AccountInvitesRevokeAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<LocaleSetAccountResponse>(
+            LocaleSetAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Account.PostV1AccountInvitesGetAsync(
-    ///     new PostV1AccountInvitesGetRequest { Token = "token" }
+    /// await client.Account.CompaniesCreateAsync(new CompaniesCreateAccountRequest { Name = "name" });
+    /// </code></example>
+    public WithRawResponseTask<CompaniesCreateAccountResponse> CompaniesCreateAsync(
+        CompaniesCreateAccountRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<CompaniesCreateAccountResponse>(
+            CompaniesCreateAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Account.CompaniesSelectAsync(
+    ///     new CompaniesSelectAccountRequest { CompanyId = "companyId" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1AccountInvitesGetResponse> PostV1AccountInvitesGetAsync(
-        PostV1AccountInvitesGetRequest request,
+    public WithRawResponseTask<CompaniesSelectAccountResponse> CompaniesSelectAsync(
+        CompaniesSelectAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1AccountInvitesGetResponse>(
-            PostV1AccountInvitesGetAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<CompaniesSelectAccountResponse>(
+            CompaniesSelectAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Account.PostV1AccountInvitesAcceptAsync(
-    ///     new PostV1AccountInvitesAcceptRequest { Token = "token" }
+    /// await client.Account.CompaniesProfileAsync(new CompaniesProfileAccountRequest());
+    /// </code></example>
+    public WithRawResponseTask<CompaniesProfileAccountResponse> CompaniesProfileAsync(
+        CompaniesProfileAccountRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<CompaniesProfileAccountResponse>(
+            CompaniesProfileAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Account.CompaniesUpdateAsync(new CompaniesUpdateAccountRequest());
+    /// </code></example>
+    public WithRawResponseTask<CompaniesUpdateAccountResponse> CompaniesUpdateAsync(
+        CompaniesUpdateAccountRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<CompaniesUpdateAccountResponse>(
+            CompaniesUpdateAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Account.CompaniesArchiveAsync(
+    ///     new CompaniesArchiveAccountRequest { CompanyId = "companyId" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1AccountInvitesAcceptResponse> PostV1AccountInvitesAcceptAsync(
-        PostV1AccountInvitesAcceptRequest request,
+    public WithRawResponseTask<CompaniesArchiveAccountResponse> CompaniesArchiveAsync(
+        CompaniesArchiveAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1AccountInvitesAcceptResponse>(
-            PostV1AccountInvitesAcceptAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<CompaniesArchiveAccountResponse>(
+            CompaniesArchiveAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Account.PostV1AccountLocaleSetAsync(
-    ///     new PostV1AccountLocaleSetRequest { Locale = PostV1AccountLocaleSetRequestLocale.En }
+    /// await client.Account.CompaniesDeleteAsync(
+    ///     new CompaniesDeleteAccountRequest { CompanyId = "companyId" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1AccountLocaleSetResponse> PostV1AccountLocaleSetAsync(
-        PostV1AccountLocaleSetRequest request,
+    public WithRawResponseTask<CompaniesDeleteAccountResponse> CompaniesDeleteAsync(
+        CompaniesDeleteAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1AccountLocaleSetResponse>(
-            PostV1AccountLocaleSetAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<CompaniesDeleteAccountResponse>(
+            CompaniesDeleteAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Account.PostV1AccountCompaniesCreateAsync(
-    ///     new PostV1AccountCompaniesCreateRequest { Name = "name" }
+    /// await client.Account.CompaniesActivateAsync(
+    ///     new CompaniesActivateAccountRequest { CompanyId = "companyId" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1AccountCompaniesCreateResponse> PostV1AccountCompaniesCreateAsync(
-        PostV1AccountCompaniesCreateRequest request,
+    public WithRawResponseTask<CompaniesActivateAccountResponse> CompaniesActivateAsync(
+        CompaniesActivateAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1AccountCompaniesCreateResponse>(
-            PostV1AccountCompaniesCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<CompaniesActivateAccountResponse>(
+            CompaniesActivateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Account.PostV1AccountCompaniesSelectAsync(
-    ///     new PostV1AccountCompaniesSelectRequest { CompanyId = "companyId" }
+    /// await client.Account.ApiKeysCreateAsync(new ApiKeysCreateAccountRequest { Name = "name" });
+    /// </code></example>
+    public WithRawResponseTask<ApiKeysCreateAccountResponse> ApiKeysCreateAsync(
+        ApiKeysCreateAccountRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<ApiKeysCreateAccountResponse>(
+            ApiKeysCreateAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Account.ApiKeysListAsync(new ApiKeysListAccountRequest());
+    /// </code></example>
+    public WithRawResponseTask<ApiKeysListAccountResponse> ApiKeysListAsync(
+        ApiKeysListAccountRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<ApiKeysListAccountResponse>(
+            ApiKeysListAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Account.ApiKeysRotateAsync(new ApiKeysRotateAccountRequest { Id = "id" });
+    /// </code></example>
+    public WithRawResponseTask<ApiKeysRotateAccountResponse> ApiKeysRotateAsync(
+        ApiKeysRotateAccountRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<ApiKeysRotateAccountResponse>(
+            ApiKeysRotateAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Account.ApiKeysRevokeAsync(new ApiKeysRevokeAccountRequest { Id = "id" });
+    /// </code></example>
+    public WithRawResponseTask<ApiKeysRevokeAccountResponse> ApiKeysRevokeAsync(
+        ApiKeysRevokeAccountRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<ApiKeysRevokeAccountResponse>(
+            ApiKeysRevokeAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Account.ConsentAcceptAsync(
+    ///     new ConsentAcceptAccountRequest { AcceptTerms = true, AcceptDpa = true }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1AccountCompaniesSelectResponse> PostV1AccountCompaniesSelectAsync(
-        PostV1AccountCompaniesSelectRequest request,
+    public WithRawResponseTask<ConsentAcceptAccountResponse> ConsentAcceptAsync(
+        ConsentAcceptAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1AccountCompaniesSelectResponse>(
-            PostV1AccountCompaniesSelectAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<ConsentAcceptAccountResponse>(
+            ConsentAcceptAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Account.PostV1AccountCompaniesProfileAsync(new PostV1AccountCompaniesProfileRequest());
+    /// await client.Account.ProfileUpdateAsync(new ProfileUpdateAccountRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1AccountCompaniesProfileResponse> PostV1AccountCompaniesProfileAsync(
-        PostV1AccountCompaniesProfileRequest request,
+    public WithRawResponseTask<ProfileUpdateAccountResponse> ProfileUpdateAsync(
+        ProfileUpdateAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1AccountCompaniesProfileResponse>(
-            PostV1AccountCompaniesProfileAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<ProfileUpdateAccountResponse>(
+            ProfileUpdateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Account.PostV1AccountCompaniesUpdateAsync(new PostV1AccountCompaniesUpdateRequest());
-    /// </code></example>
-    public WithRawResponseTask<PostV1AccountCompaniesUpdateResponse> PostV1AccountCompaniesUpdateAsync(
-        PostV1AccountCompaniesUpdateRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1AccountCompaniesUpdateResponse>(
-            PostV1AccountCompaniesUpdateAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Account.PostV1AccountCompaniesArchiveAsync(
-    ///     new PostV1AccountCompaniesArchiveRequest { CompanyId = "companyId" }
+    /// await client.Account.EmailChangeRequestAsync(
+    ///     new EmailChangeRequestAccountRequest { NewEmail = "newEmail" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1AccountCompaniesArchiveResponse> PostV1AccountCompaniesArchiveAsync(
-        PostV1AccountCompaniesArchiveRequest request,
+    public WithRawResponseTask<EmailChangeRequestAccountResponse> EmailChangeRequestAsync(
+        EmailChangeRequestAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1AccountCompaniesArchiveResponse>(
-            PostV1AccountCompaniesArchiveAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<EmailChangeRequestAccountResponse>(
+            EmailChangeRequestAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Account.PostV1AccountCompaniesDeleteAsync(
-    ///     new PostV1AccountCompaniesDeleteRequest { CompanyId = "companyId" }
-    /// );
+    /// await client.Account.SessionsListAsync(new SessionsListAccountRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1AccountCompaniesDeleteResponse> PostV1AccountCompaniesDeleteAsync(
-        PostV1AccountCompaniesDeleteRequest request,
+    public WithRawResponseTask<SessionsListAccountResponse> SessionsListAsync(
+        SessionsListAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1AccountCompaniesDeleteResponse>(
-            PostV1AccountCompaniesDeleteAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<SessionsListAccountResponse>(
+            SessionsListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Account.PostV1AccountCompaniesActivateAsync(
-    ///     new PostV1AccountCompaniesActivateRequest { CompanyId = "companyId" }
-    /// );
+    /// await client.Account.SessionsRevokeAsync(new SessionsRevokeAccountRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1AccountCompaniesActivateResponse> PostV1AccountCompaniesActivateAsync(
-        PostV1AccountCompaniesActivateRequest request,
+    public WithRawResponseTask<SessionsRevokeAccountResponse> SessionsRevokeAsync(
+        SessionsRevokeAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1AccountCompaniesActivateResponse>(
-            PostV1AccountCompaniesActivateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<SessionsRevokeAccountResponse>(
+            SessionsRevokeAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Account.PostV1AccountApiKeysCreateAsync(
-    ///     new PostV1AccountApiKeysCreateRequest { Name = "name" }
-    /// );
+    /// await client.Account.SessionsRevokeOthersAsync(new SessionsRevokeOthersAccountRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1AccountApiKeysCreateResponse> PostV1AccountApiKeysCreateAsync(
-        PostV1AccountApiKeysCreateRequest request,
+    public WithRawResponseTask<SessionsRevokeOthersAccountResponse> SessionsRevokeOthersAsync(
+        SessionsRevokeOthersAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1AccountApiKeysCreateResponse>(
-            PostV1AccountApiKeysCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<SessionsRevokeOthersAccountResponse>(
+            SessionsRevokeOthersAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Account.PostV1AccountApiKeysListAsync(new PostV1AccountApiKeysListRequest());
+    /// await client.Account.ExportAsync(new ExportAccountRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1AccountApiKeysListResponse> PostV1AccountApiKeysListAsync(
-        PostV1AccountApiKeysListRequest request,
+    public WithRawResponseTask<ExportAccountResponse> ExportAsync(
+        ExportAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1AccountApiKeysListResponse>(
-            PostV1AccountApiKeysListAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Account.IssueAReplacementForAnApiKeyAndSetTheOldOneToStopWorkingAfterAShortOverlapAsync(
-    ///     new PostV1AccountApiKeysRotateRequest { Id = "id" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1AccountApiKeysRotateResponse> IssueAReplacementForAnApiKeyAndSetTheOldOneToStopWorkingAfterAShortOverlapAsync(
-        PostV1AccountApiKeysRotateRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1AccountApiKeysRotateResponse>(
-            IssueAReplacementForAnApiKeyAndSetTheOldOneToStopWorkingAfterAShortOverlapAsyncCore(
-                request,
-                options,
-                cancellationToken
-            )
-        );
-    }
-
-    /// <example><code>
-    /// await client.Account.PostV1AccountApiKeysRevokeAsync(
-    ///     new PostV1AccountApiKeysRevokeRequest { Id = "id" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1AccountApiKeysRevokeResponse> PostV1AccountApiKeysRevokeAsync(
-        PostV1AccountApiKeysRevokeRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1AccountApiKeysRevokeResponse>(
-            PostV1AccountApiKeysRevokeAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Account.PostV1AccountConsentAcceptAsync(
-    ///     new PostV1AccountConsentAcceptRequest { AcceptTerms = true, AcceptDpa = true }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1AccountConsentAcceptResponse> PostV1AccountConsentAcceptAsync(
-        PostV1AccountConsentAcceptRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1AccountConsentAcceptResponse>(
-            PostV1AccountConsentAcceptAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Account.PostV1AccountProfileUpdateAsync(new PostV1AccountProfileUpdateRequest());
-    /// </code></example>
-    public WithRawResponseTask<PostV1AccountProfileUpdateResponse> PostV1AccountProfileUpdateAsync(
-        PostV1AccountProfileUpdateRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1AccountProfileUpdateResponse>(
-            PostV1AccountProfileUpdateAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Account.PostV1AccountEmailChangeRequestAsync(
-    ///     new PostV1AccountEmailChangeRequestRequest { NewEmail = "newEmail" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1AccountEmailChangeRequestResponse> PostV1AccountEmailChangeRequestAsync(
-        PostV1AccountEmailChangeRequestRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1AccountEmailChangeRequestResponse>(
-            PostV1AccountEmailChangeRequestAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Account.PostV1AccountSessionsListAsync(new PostV1AccountSessionsListRequest());
-    /// </code></example>
-    public WithRawResponseTask<PostV1AccountSessionsListResponse> PostV1AccountSessionsListAsync(
-        PostV1AccountSessionsListRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1AccountSessionsListResponse>(
-            PostV1AccountSessionsListAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Account.PostV1AccountSessionsRevokeAsync(
-    ///     new PostV1AccountSessionsRevokeRequest { Id = "id" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1AccountSessionsRevokeResponse> PostV1AccountSessionsRevokeAsync(
-        PostV1AccountSessionsRevokeRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1AccountSessionsRevokeResponse>(
-            PostV1AccountSessionsRevokeAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Account.PostV1AccountSessionsRevokeOthersAsync(
-    ///     new PostV1AccountSessionsRevokeOthersRequest()
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1AccountSessionsRevokeOthersResponse> PostV1AccountSessionsRevokeOthersAsync(
-        PostV1AccountSessionsRevokeOthersRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1AccountSessionsRevokeOthersResponse>(
-            PostV1AccountSessionsRevokeOthersAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Account.DownloadEverythingNordletStoresAboutTheSignedInUserAsync(
-    ///     new PostV1AccountExportRequest()
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1AccountExportResponse> DownloadEverythingNordletStoresAboutTheSignedInUserAsync(
-        PostV1AccountExportRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1AccountExportResponse>(
-            DownloadEverythingNordletStoresAboutTheSignedInUserAsyncCore(
-                request,
-                options,
-                cancellationToken
-            )
+        return new WithRawResponseTask<ExportAccountResponse>(
+            ExportAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -7855,96 +8652,90 @@ public partial class AccountClient : IAccountClient
     /// Removes the user: sessions, sign-in links, memberships and pending invitations are deleted at once; the email and name are replaced by an anonymous placeholder immediately and the remaining row is removed after 30 days. Refused while the user still owns or pays for a company that is not deleted.
     /// </summary>
     /// <example><code>
-    /// await client.Account.DeleteTheSignedInUserAccountAsync(
-    ///     new PostV1AccountDeleteRequest { ConfirmEmail = "confirmEmail" }
-    /// );
+    /// await client.Account.DeleteAsync(new DeleteAccountRequest { ConfirmEmail = "confirmEmail" });
     /// </code></example>
-    public WithRawResponseTask<PostV1AccountDeleteResponse> DeleteTheSignedInUserAccountAsync(
-        PostV1AccountDeleteRequest request,
+    public WithRawResponseTask<DeleteAccountResponse> DeleteAsync(
+        DeleteAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1AccountDeleteResponse>(
-            DeleteTheSignedInUserAccountAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<DeleteAccountResponse>(
+            DeleteAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Account.PostV1AccountReferralGetAsync(new PostV1AccountReferralGetRequest());
+    /// await client.Account.ReferralGetAsync(new ReferralGetAccountRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1AccountReferralGetResponse> PostV1AccountReferralGetAsync(
-        PostV1AccountReferralGetRequest request,
+    public WithRawResponseTask<ReferralGetAccountResponse> ReferralGetAsync(
+        ReferralGetAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1AccountReferralGetResponse>(
-            PostV1AccountReferralGetAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<ReferralGetAccountResponse>(
+            ReferralGetAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Account.PostV1AccountReferralConvertAsync(
-    ///     new PostV1AccountReferralConvertRequest { Points = 1000000 }
-    /// );
+    /// await client.Account.ReferralConvertAsync(new ReferralConvertAccountRequest { Points = 1000000 });
     /// </code></example>
-    public WithRawResponseTask<PostV1AccountReferralConvertResponse> PostV1AccountReferralConvertAsync(
-        PostV1AccountReferralConvertRequest request,
+    public WithRawResponseTask<ReferralConvertAccountResponse> ReferralConvertAsync(
+        ReferralConvertAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1AccountReferralConvertResponse>(
-            PostV1AccountReferralConvertAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<ReferralConvertAccountResponse>(
+            ReferralConvertAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Account.PostV1AccountTableSettingsGetAsync(
-    ///     new PostV1AccountTableSettingsGetRequest { TableKey = "tableKey" }
+    /// await client.Account.TableSettingsGetAsync(
+    ///     new TableSettingsGetAccountRequest { TableKey = "tableKey" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1AccountTableSettingsGetResponse> PostV1AccountTableSettingsGetAsync(
-        PostV1AccountTableSettingsGetRequest request,
+    public WithRawResponseTask<TableSettingsGetAccountResponse> TableSettingsGetAsync(
+        TableSettingsGetAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1AccountTableSettingsGetResponse>(
-            PostV1AccountTableSettingsGetAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<TableSettingsGetAccountResponse>(
+            TableSettingsGetAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Account.PostV1AccountTableSettingsSetAsync(
-    ///     new PostV1AccountTableSettingsSetRequest { TableKey = "tableKey" }
+    /// await client.Account.TableSettingsSetAsync(
+    ///     new TableSettingsSetAccountRequest { TableKey = "tableKey" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1AccountTableSettingsSetResponse> PostV1AccountTableSettingsSetAsync(
-        PostV1AccountTableSettingsSetRequest request,
+    public WithRawResponseTask<TableSettingsSetAccountResponse> TableSettingsSetAsync(
+        TableSettingsSetAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1AccountTableSettingsSetResponse>(
-            PostV1AccountTableSettingsSetAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<TableSettingsSetAccountResponse>(
+            TableSettingsSetAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Account.PostV1AccountTableSettingsListAsync(
-    ///     new PostV1AccountTableSettingsListRequest()
-    /// );
+    /// await client.Account.TableSettingsListAsync(new TableSettingsListAccountRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1AccountTableSettingsListResponse> PostV1AccountTableSettingsListAsync(
-        PostV1AccountTableSettingsListRequest request,
+    public WithRawResponseTask<TableSettingsListAccountResponse> TableSettingsListAsync(
+        TableSettingsListAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1AccountTableSettingsListResponse>(
-            PostV1AccountTableSettingsListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<TableSettingsListAccountResponse>(
+            TableSettingsListAsyncCore(request, options, cancellationToken)
         );
     }
 }

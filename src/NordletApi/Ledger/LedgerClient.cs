@@ -12,10 +12,8 @@ public partial class LedgerClient : ILedgerClient
         _client = client;
     }
 
-    private async Task<
-        WithRawResponse<PostV1LedgerAccountsListResponse>
-    > PostV1LedgerAccountsListAsyncCore(
-        PostV1LedgerAccountsListRequest request,
+    private async Task<WithRawResponse<AccountsListLedgerResponse>> AccountsListAsyncCore(
+        AccountsListLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -51,10 +49,8 @@ public partial class LedgerClient : ILedgerClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1LedgerAccountsListResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1LedgerAccountsListResponse>()
+                var responseData = JsonUtils.Deserialize<AccountsListLedgerResponse>(responseBody)!;
+                return new WithRawResponse<AccountsListLedgerResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -113,6 +109,18 @@ public partial class LedgerClient : ILedgerClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -139,6 +147,18 @@ public partial class LedgerClient : ILedgerClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -205,10 +225,8 @@ public partial class LedgerClient : ILedgerClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1LedgerAccountsCreateResponse>
-    > PostV1LedgerAccountsCreateAsyncCore(
-        PostV1LedgerAccountsCreateRequest request,
+    private async Task<WithRawResponse<AccountsCreateLedgerResponse>> AccountsCreateAsyncCore(
+        AccountsCreateLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -244,10 +262,10 @@ public partial class LedgerClient : ILedgerClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1LedgerAccountsCreateResponse>(
+                var responseData = JsonUtils.Deserialize<AccountsCreateLedgerResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1LedgerAccountsCreateResponse>()
+                return new WithRawResponse<AccountsCreateLedgerResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -306,6 +324,18 @@ public partial class LedgerClient : ILedgerClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -332,6 +362,18 @@ public partial class LedgerClient : ILedgerClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -398,10 +440,8 @@ public partial class LedgerClient : ILedgerClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1LedgerAccountsUpdateResponse>
-    > PostV1LedgerAccountsUpdateAsyncCore(
-        PostV1LedgerAccountsUpdateRequest request,
+    private async Task<WithRawResponse<AccountsUpdateLedgerResponse>> AccountsUpdateAsyncCore(
+        AccountsUpdateLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -437,10 +477,10 @@ public partial class LedgerClient : ILedgerClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1LedgerAccountsUpdateResponse>(
+                var responseData = JsonUtils.Deserialize<AccountsUpdateLedgerResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1LedgerAccountsUpdateResponse>()
+                return new WithRawResponse<AccountsUpdateLedgerResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -499,6 +539,18 @@ public partial class LedgerClient : ILedgerClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -525,6 +577,18 @@ public partial class LedgerClient : ILedgerClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -592,9 +656,9 @@ public partial class LedgerClient : ILedgerClient
     }
 
     private async Task<
-        WithRawResponse<PostV1LedgerAccountsApplyTemplateResponse>
-    > PostV1LedgerAccountsApplyTemplateAsyncCore(
-        PostV1LedgerAccountsApplyTemplateRequest request,
+        WithRawResponse<AccountsApplyTemplateLedgerResponse>
+    > AccountsApplyTemplateAsyncCore(
+        AccountsApplyTemplateLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -630,10 +694,10 @@ public partial class LedgerClient : ILedgerClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1LedgerAccountsApplyTemplateResponse>(
+                var responseData = JsonUtils.Deserialize<AccountsApplyTemplateLedgerResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1LedgerAccountsApplyTemplateResponse>()
+                return new WithRawResponse<AccountsApplyTemplateLedgerResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -692,6 +756,18 @@ public partial class LedgerClient : ILedgerClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -718,6 +794,18 @@ public partial class LedgerClient : ILedgerClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -785,9 +873,9 @@ public partial class LedgerClient : ILedgerClient
     }
 
     private async Task<
-        WithRawResponse<PostV1LedgerAccountsSwitchChartResponse>
-    > MoveACompanyThatHasPostedNothingYetToTheChartOfAccountsOfItsCountryAsyncCore(
-        PostV1LedgerAccountsSwitchChartRequest request,
+        WithRawResponse<AccountsSwitchChartLedgerResponse>
+    > AccountsSwitchChartAsyncCore(
+        AccountsSwitchChartLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -823,10 +911,10 @@ public partial class LedgerClient : ILedgerClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1LedgerAccountsSwitchChartResponse>(
+                var responseData = JsonUtils.Deserialize<AccountsSwitchChartLedgerResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1LedgerAccountsSwitchChartResponse>()
+                return new WithRawResponse<AccountsSwitchChartLedgerResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -885,6 +973,18 @@ public partial class LedgerClient : ILedgerClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -911,6 +1011,18 @@ public partial class LedgerClient : ILedgerClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -977,10 +1089,8 @@ public partial class LedgerClient : ILedgerClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1LedgerPeriodsListResponse>
-    > PostV1LedgerPeriodsListAsyncCore(
-        PostV1LedgerPeriodsListRequest request,
+    private async Task<WithRawResponse<PeriodsListLedgerResponse>> PeriodsListAsyncCore(
+        PeriodsListLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1016,10 +1126,8 @@ public partial class LedgerClient : ILedgerClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1LedgerPeriodsListResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1LedgerPeriodsListResponse>()
+                var responseData = JsonUtils.Deserialize<PeriodsListLedgerResponse>(responseBody)!;
+                return new WithRawResponse<PeriodsListLedgerResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1078,6 +1186,18 @@ public partial class LedgerClient : ILedgerClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1104,6 +1224,18 @@ public partial class LedgerClient : ILedgerClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1170,10 +1302,8 @@ public partial class LedgerClient : ILedgerClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1LedgerPeriodsLockResponse>
-    > PostV1LedgerPeriodsLockAsyncCore(
-        PostV1LedgerPeriodsLockRequest request,
+    private async Task<WithRawResponse<PeriodsLockLedgerResponse>> PeriodsLockAsyncCore(
+        PeriodsLockLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1209,10 +1339,8 @@ public partial class LedgerClient : ILedgerClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1LedgerPeriodsLockResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1LedgerPeriodsLockResponse>()
+                var responseData = JsonUtils.Deserialize<PeriodsLockLedgerResponse>(responseBody)!;
+                return new WithRawResponse<PeriodsLockLedgerResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1271,6 +1399,18 @@ public partial class LedgerClient : ILedgerClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1297,6 +1437,18 @@ public partial class LedgerClient : ILedgerClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1363,10 +1515,8 @@ public partial class LedgerClient : ILedgerClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1LedgerPeriodsUnlockResponse>
-    > PostV1LedgerPeriodsUnlockAsyncCore(
-        PostV1LedgerPeriodsUnlockRequest request,
+    private async Task<WithRawResponse<PeriodsUnlockLedgerResponse>> PeriodsUnlockAsyncCore(
+        PeriodsUnlockLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1402,10 +1552,10 @@ public partial class LedgerClient : ILedgerClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1LedgerPeriodsUnlockResponse>(
+                var responseData = JsonUtils.Deserialize<PeriodsUnlockLedgerResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1LedgerPeriodsUnlockResponse>()
+                return new WithRawResponse<PeriodsUnlockLedgerResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1464,6 +1614,18 @@ public partial class LedgerClient : ILedgerClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1490,6 +1652,18 @@ public partial class LedgerClient : ILedgerClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1557,9 +1731,9 @@ public partial class LedgerClient : ILedgerClient
     }
 
     private async Task<
-        WithRawResponse<PostV1LedgerJournalTransactionsListResponse>
-    > PostV1LedgerJournalTransactionsListAsyncCore(
-        PostV1LedgerJournalTransactionsListRequest request,
+        WithRawResponse<JournalTransactionsListLedgerResponse>
+    > JournalTransactionsListAsyncCore(
+        JournalTransactionsListLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1595,11 +1769,10 @@ public partial class LedgerClient : ILedgerClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1LedgerJournalTransactionsListResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1LedgerJournalTransactionsListResponse>()
+                var responseData = JsonUtils.Deserialize<JournalTransactionsListLedgerResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<JournalTransactionsListLedgerResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1658,6 +1831,18 @@ public partial class LedgerClient : ILedgerClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1684,6 +1869,18 @@ public partial class LedgerClient : ILedgerClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1750,10 +1947,8 @@ public partial class LedgerClient : ILedgerClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1LedgerCostCentersCreateResponse>
-    > PostV1LedgerCostCentersCreateAsyncCore(
-        PostV1LedgerCostCentersCreateRequest request,
+    private async Task<WithRawResponse<CostCentersCreateLedgerResponse>> CostCentersCreateAsyncCore(
+        CostCentersCreateLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1789,10 +1984,10 @@ public partial class LedgerClient : ILedgerClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1LedgerCostCentersCreateResponse>(
+                var responseData = JsonUtils.Deserialize<CostCentersCreateLedgerResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1LedgerCostCentersCreateResponse>()
+                return new WithRawResponse<CostCentersCreateLedgerResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1851,6 +2046,18 @@ public partial class LedgerClient : ILedgerClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1877,6 +2084,18 @@ public partial class LedgerClient : ILedgerClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1943,10 +2162,8 @@ public partial class LedgerClient : ILedgerClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1LedgerCostCentersUpdateResponse>
-    > PostV1LedgerCostCentersUpdateAsyncCore(
-        PostV1LedgerCostCentersUpdateRequest request,
+    private async Task<WithRawResponse<CostCentersUpdateLedgerResponse>> CostCentersUpdateAsyncCore(
+        CostCentersUpdateLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1982,10 +2199,10 @@ public partial class LedgerClient : ILedgerClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1LedgerCostCentersUpdateResponse>(
+                var responseData = JsonUtils.Deserialize<CostCentersUpdateLedgerResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1LedgerCostCentersUpdateResponse>()
+                return new WithRawResponse<CostCentersUpdateLedgerResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2044,6 +2261,18 @@ public partial class LedgerClient : ILedgerClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2070,6 +2299,18 @@ public partial class LedgerClient : ILedgerClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2136,10 +2377,8 @@ public partial class LedgerClient : ILedgerClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1LedgerCostCentersListResponse>
-    > PostV1LedgerCostCentersListAsyncCore(
-        PostV1LedgerCostCentersListRequest request,
+    private async Task<WithRawResponse<CostCentersListLedgerResponse>> CostCentersListAsyncCore(
+        CostCentersListLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2175,10 +2414,10 @@ public partial class LedgerClient : ILedgerClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1LedgerCostCentersListResponse>(
+                var responseData = JsonUtils.Deserialize<CostCentersListLedgerResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1LedgerCostCentersListResponse>()
+                return new WithRawResponse<CostCentersListLedgerResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2237,6 +2476,18 @@ public partial class LedgerClient : ILedgerClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2263,6 +2514,18 @@ public partial class LedgerClient : ILedgerClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2330,9 +2593,9 @@ public partial class LedgerClient : ILedgerClient
     }
 
     private async Task<
-        WithRawResponse<PostV1LedgerCostCenterGroupsCreateResponse>
-    > PostV1LedgerCostCenterGroupsCreateAsyncCore(
-        PostV1LedgerCostCenterGroupsCreateRequest request,
+        WithRawResponse<CostCenterGroupsCreateLedgerResponse>
+    > CostCenterGroupsCreateAsyncCore(
+        CostCenterGroupsCreateLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2368,11 +2631,10 @@ public partial class LedgerClient : ILedgerClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1LedgerCostCenterGroupsCreateResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1LedgerCostCenterGroupsCreateResponse>()
+                var responseData = JsonUtils.Deserialize<CostCenterGroupsCreateLedgerResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<CostCenterGroupsCreateLedgerResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2431,6 +2693,18 @@ public partial class LedgerClient : ILedgerClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2457,6 +2731,18 @@ public partial class LedgerClient : ILedgerClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2524,9 +2810,9 @@ public partial class LedgerClient : ILedgerClient
     }
 
     private async Task<
-        WithRawResponse<PostV1LedgerCostCenterGroupsUpdateResponse>
-    > PostV1LedgerCostCenterGroupsUpdateAsyncCore(
-        PostV1LedgerCostCenterGroupsUpdateRequest request,
+        WithRawResponse<CostCenterGroupsUpdateLedgerResponse>
+    > CostCenterGroupsUpdateAsyncCore(
+        CostCenterGroupsUpdateLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2562,11 +2848,10 @@ public partial class LedgerClient : ILedgerClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1LedgerCostCenterGroupsUpdateResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1LedgerCostCenterGroupsUpdateResponse>()
+                var responseData = JsonUtils.Deserialize<CostCenterGroupsUpdateLedgerResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<CostCenterGroupsUpdateLedgerResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2625,6 +2910,18 @@ public partial class LedgerClient : ILedgerClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2651,6 +2948,18 @@ public partial class LedgerClient : ILedgerClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2718,9 +3027,9 @@ public partial class LedgerClient : ILedgerClient
     }
 
     private async Task<
-        WithRawResponse<PostV1LedgerCostCenterGroupsDeleteResponse>
-    > PostV1LedgerCostCenterGroupsDeleteAsyncCore(
-        PostV1LedgerCostCenterGroupsDeleteRequest request,
+        WithRawResponse<CostCenterGroupsDeleteLedgerResponse>
+    > CostCenterGroupsDeleteAsyncCore(
+        CostCenterGroupsDeleteLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2756,11 +3065,10 @@ public partial class LedgerClient : ILedgerClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1LedgerCostCenterGroupsDeleteResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1LedgerCostCenterGroupsDeleteResponse>()
+                var responseData = JsonUtils.Deserialize<CostCenterGroupsDeleteLedgerResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<CostCenterGroupsDeleteLedgerResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2819,6 +3127,18 @@ public partial class LedgerClient : ILedgerClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2845,6 +3165,18 @@ public partial class LedgerClient : ILedgerClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2912,9 +3244,9 @@ public partial class LedgerClient : ILedgerClient
     }
 
     private async Task<
-        WithRawResponse<PostV1LedgerCostCenterGroupsListResponse>
-    > PostV1LedgerCostCenterGroupsListAsyncCore(
-        PostV1LedgerCostCenterGroupsListRequest request,
+        WithRawResponse<CostCenterGroupsListLedgerResponse>
+    > CostCenterGroupsListAsyncCore(
+        CostCenterGroupsListLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2950,10 +3282,10 @@ public partial class LedgerClient : ILedgerClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1LedgerCostCenterGroupsListResponse>(
+                var responseData = JsonUtils.Deserialize<CostCenterGroupsListLedgerResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1LedgerCostCenterGroupsListResponse>()
+                return new WithRawResponse<CostCenterGroupsListLedgerResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3012,6 +3344,18 @@ public partial class LedgerClient : ILedgerClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3038,6 +3382,18 @@ public partial class LedgerClient : ILedgerClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3104,10 +3460,8 @@ public partial class LedgerClient : ILedgerClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1LedgerPostingRulesListResponse>
-    > PostV1LedgerPostingRulesListAsyncCore(
-        PostV1LedgerPostingRulesListRequest request,
+    private async Task<WithRawResponse<PostingRulesListLedgerResponse>> PostingRulesListAsyncCore(
+        PostingRulesListLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3143,10 +3497,10 @@ public partial class LedgerClient : ILedgerClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1LedgerPostingRulesListResponse>(
+                var responseData = JsonUtils.Deserialize<PostingRulesListLedgerResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1LedgerPostingRulesListResponse>()
+                return new WithRawResponse<PostingRulesListLedgerResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3205,6 +3559,18 @@ public partial class LedgerClient : ILedgerClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3231,6 +3597,18 @@ public partial class LedgerClient : ILedgerClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3298,9 +3676,9 @@ public partial class LedgerClient : ILedgerClient
     }
 
     private async Task<
-        WithRawResponse<PostV1LedgerPostingRulesUpdateResponse>
-    > PostV1LedgerPostingRulesUpdateAsyncCore(
-        PostV1LedgerPostingRulesUpdateRequest request,
+        WithRawResponse<PostingRulesUpdateLedgerResponse>
+    > PostingRulesUpdateAsyncCore(
+        PostingRulesUpdateLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3336,10 +3714,10 @@ public partial class LedgerClient : ILedgerClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1LedgerPostingRulesUpdateResponse>(
+                var responseData = JsonUtils.Deserialize<PostingRulesUpdateLedgerResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1LedgerPostingRulesUpdateResponse>()
+                return new WithRawResponse<PostingRulesUpdateLedgerResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3398,6 +3776,18 @@ public partial class LedgerClient : ILedgerClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3424,6 +3814,18 @@ public partial class LedgerClient : ILedgerClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3490,10 +3892,8 @@ public partial class LedgerClient : ILedgerClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1LedgerOwnersCreateResponse>
-    > PostV1LedgerOwnersCreateAsyncCore(
-        PostV1LedgerOwnersCreateRequest request,
+    private async Task<WithRawResponse<OwnersCreateLedgerResponse>> OwnersCreateAsyncCore(
+        OwnersCreateLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3529,10 +3929,8 @@ public partial class LedgerClient : ILedgerClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1LedgerOwnersCreateResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1LedgerOwnersCreateResponse>()
+                var responseData = JsonUtils.Deserialize<OwnersCreateLedgerResponse>(responseBody)!;
+                return new WithRawResponse<OwnersCreateLedgerResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3591,6 +3989,18 @@ public partial class LedgerClient : ILedgerClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3617,6 +4027,18 @@ public partial class LedgerClient : ILedgerClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3683,10 +4105,8 @@ public partial class LedgerClient : ILedgerClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1LedgerOwnersUpdateResponse>
-    > PostV1LedgerOwnersUpdateAsyncCore(
-        PostV1LedgerOwnersUpdateRequest request,
+    private async Task<WithRawResponse<OwnersUpdateLedgerResponse>> OwnersUpdateAsyncCore(
+        OwnersUpdateLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3722,10 +4142,8 @@ public partial class LedgerClient : ILedgerClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1LedgerOwnersUpdateResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1LedgerOwnersUpdateResponse>()
+                var responseData = JsonUtils.Deserialize<OwnersUpdateLedgerResponse>(responseBody)!;
+                return new WithRawResponse<OwnersUpdateLedgerResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3784,6 +4202,18 @@ public partial class LedgerClient : ILedgerClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3810,6 +4240,18 @@ public partial class LedgerClient : ILedgerClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3876,10 +4318,8 @@ public partial class LedgerClient : ILedgerClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1LedgerOwnersDeleteResponse>
-    > PostV1LedgerOwnersDeleteAsyncCore(
-        PostV1LedgerOwnersDeleteRequest request,
+    private async Task<WithRawResponse<OwnersDeleteLedgerResponse>> OwnersDeleteAsyncCore(
+        OwnersDeleteLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3915,10 +4355,8 @@ public partial class LedgerClient : ILedgerClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1LedgerOwnersDeleteResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1LedgerOwnersDeleteResponse>()
+                var responseData = JsonUtils.Deserialize<OwnersDeleteLedgerResponse>(responseBody)!;
+                return new WithRawResponse<OwnersDeleteLedgerResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3977,6 +4415,18 @@ public partial class LedgerClient : ILedgerClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -4003,6 +4453,18 @@ public partial class LedgerClient : ILedgerClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -4069,10 +4531,8 @@ public partial class LedgerClient : ILedgerClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1LedgerOwnersListResponse>
-    > PostV1LedgerOwnersListAsyncCore(
-        PostV1LedgerOwnersListRequest request,
+    private async Task<WithRawResponse<OwnersListLedgerResponse>> OwnersListAsyncCore(
+        OwnersListLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -4108,10 +4568,8 @@ public partial class LedgerClient : ILedgerClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1LedgerOwnersListResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1LedgerOwnersListResponse>()
+                var responseData = JsonUtils.Deserialize<OwnersListLedgerResponse>(responseBody)!;
+                return new WithRawResponse<OwnersListLedgerResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -4170,6 +4628,18 @@ public partial class LedgerClient : ILedgerClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -4196,6 +4666,18 @@ public partial class LedgerClient : ILedgerClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -4263,9 +4745,9 @@ public partial class LedgerClient : ILedgerClient
     }
 
     private async Task<
-        WithRawResponse<PostV1LedgerJournalTransactionsGetResponse>
-    > PostV1LedgerJournalTransactionsGetAsyncCore(
-        PostV1LedgerJournalTransactionsGetRequest request,
+        WithRawResponse<JournalTransactionsGetLedgerResponse>
+    > JournalTransactionsGetAsyncCore(
+        JournalTransactionsGetLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -4301,11 +4783,10 @@ public partial class LedgerClient : ILedgerClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1LedgerJournalTransactionsGetResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1LedgerJournalTransactionsGetResponse>()
+                var responseData = JsonUtils.Deserialize<JournalTransactionsGetLedgerResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<JournalTransactionsGetLedgerResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -4364,6 +4845,18 @@ public partial class LedgerClient : ILedgerClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -4390,6 +4883,18 @@ public partial class LedgerClient : ILedgerClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -4457,9 +4962,9 @@ public partial class LedgerClient : ILedgerClient
     }
 
     private async Task<
-        WithRawResponse<PostV1LedgerJournalTransactionsCreateResponse>
-    > PostV1LedgerJournalTransactionsCreateAsyncCore(
-        PostV1LedgerJournalTransactionsCreateRequest request,
+        WithRawResponse<JournalTransactionsCreateLedgerResponse>
+    > JournalTransactionsCreateAsyncCore(
+        JournalTransactionsCreateLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -4495,11 +5000,10 @@ public partial class LedgerClient : ILedgerClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1LedgerJournalTransactionsCreateResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1LedgerJournalTransactionsCreateResponse>()
+                var responseData = JsonUtils.Deserialize<JournalTransactionsCreateLedgerResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<JournalTransactionsCreateLedgerResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -4558,6 +5062,18 @@ public partial class LedgerClient : ILedgerClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -4584,6 +5100,18 @@ public partial class LedgerClient : ILedgerClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -4651,9 +5179,9 @@ public partial class LedgerClient : ILedgerClient
     }
 
     private async Task<
-        WithRawResponse<PostV1LedgerStatementRowsSchemesResponse>
-    > NationalStatementLayoutsAvailableToTheCompanyAsyncCore(
-        PostV1LedgerStatementRowsSchemesRequest request,
+        WithRawResponse<StatementRowsSchemesLedgerResponse>
+    > StatementRowsSchemesAsyncCore(
+        StatementRowsSchemesLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -4689,10 +5217,10 @@ public partial class LedgerClient : ILedgerClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1LedgerStatementRowsSchemesResponse>(
+                var responseData = JsonUtils.Deserialize<StatementRowsSchemesLedgerResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1LedgerStatementRowsSchemesResponse>()
+                return new WithRawResponse<StatementRowsSchemesLedgerResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -4751,6 +5279,18 @@ public partial class LedgerClient : ILedgerClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -4777,6 +5317,18 @@ public partial class LedgerClient : ILedgerClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -4843,10 +5395,8 @@ public partial class LedgerClient : ILedgerClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1LedgerStatementRowsListResponse>
-    > AccountsPlacedOnTheRowsOfAStatementLayoutWithTheRowTotalsOfAPeriodAsyncCore(
-        PostV1LedgerStatementRowsListRequest request,
+    private async Task<WithRawResponse<StatementRowsListLedgerResponse>> StatementRowsListAsyncCore(
+        StatementRowsListLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -4882,10 +5432,10 @@ public partial class LedgerClient : ILedgerClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1LedgerStatementRowsListResponse>(
+                var responseData = JsonUtils.Deserialize<StatementRowsListLedgerResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1LedgerStatementRowsListResponse>()
+                return new WithRawResponse<StatementRowsListLedgerResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -4944,6 +5494,18 @@ public partial class LedgerClient : ILedgerClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -4970,6 +5532,18 @@ public partial class LedgerClient : ILedgerClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -5036,10 +5610,8 @@ public partial class LedgerClient : ILedgerClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1LedgerStatementRowsSetResponse>
-    > MapAnAccountOrAnAccountCodePrefixToARowOfAStatementLayoutAsyncCore(
-        PostV1LedgerStatementRowsSetRequest request,
+    private async Task<WithRawResponse<StatementRowsSetLedgerResponse>> StatementRowsSetAsyncCore(
+        StatementRowsSetLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -5075,10 +5647,10 @@ public partial class LedgerClient : ILedgerClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1LedgerStatementRowsSetResponse>(
+                var responseData = JsonUtils.Deserialize<StatementRowsSetLedgerResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1LedgerStatementRowsSetResponse>()
+                return new WithRawResponse<StatementRowsSetLedgerResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -5137,185 +5709,8 @@ public partial class LedgerClient : ILedgerClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
-                    case 403:
-                        throw new ForbiddenError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 404:
-                        throw new NotFoundError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 409:
-                        throw new ConflictError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 422:
-                        throw new UnprocessableEntityError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 429:
-                        throw new TooManyRequestsError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 500:
-                        throw new InternalServerError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                }
-            }
-            catch (JsonException)
-            {
-                // unable to map error response, throwing generic error
-            }
-            throw new NordletApiApiException(
-                $"Error with status code {response.StatusCode}",
-                response.StatusCode,
-                responseBody,
-                rawResponse: new NordletApi.RawResponse()
-                {
-                    StatusCode = response.Raw.StatusCode,
-                    Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                    Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                }
-            );
-        }
-    }
-
-    private async Task<WithRawResponse<PostV1OfficersListResponse>> OfficersOfTheCompanyAsyncCore(
-        PostV1OfficersListRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        var _queryString = new NordletApi.Core.QueryStringBuilder.Builder(capacity: 0)
-            .MergeAdditional(options?.AdditionalQueryParameters)
-            .Build();
-        var _headers = await new NordletApi.Core.HeadersBuilder.Builder()
-            .Add(_client.Options.Headers)
-            .Add(_client.Options.AdditionalHeaders)
-            .Add(options?.AdditionalHeaders)
-            .BuildAsync()
-            .ConfigureAwait(false);
-        var response = await _client
-            .SendRequestAsync(
-                new JsonRequest
-                {
-                    Method = HttpMethod.Post,
-                    Path = "v1/officers/list",
-                    Body = request,
-                    QueryString = _queryString,
-                    Headers = _headers,
-                    ContentType = "application/json",
-                    Options = options,
-                },
-                cancellationToken
-            )
-            .ConfigureAwait(false);
-        if (response.StatusCode is >= 200 and < 400)
-        {
-            var responseBody = await response
-                .Raw.Content.ReadAsStringAsync(cancellationToken)
-                .ConfigureAwait(false);
-            try
-            {
-                var responseData = JsonUtils.Deserialize<PostV1OfficersListResponse>(responseBody)!;
-                return new WithRawResponse<PostV1OfficersListResponse>()
-                {
-                    Data = responseData,
-                    RawResponse = new NordletApi.RawResponse()
-                    {
-                        StatusCode = response.Raw.StatusCode,
-                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                    },
-                };
-            }
-            catch (JsonException e)
-            {
-                throw new NordletApiApiException(
-                    "Failed to deserialize response",
-                    response.StatusCode,
-                    responseBody,
-                    e,
-                    rawResponse: new NordletApi.RawResponse()
-                    {
-                        StatusCode = response.Raw.StatusCode,
-                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                    }
-                );
-            }
-        }
-        {
-            var responseBody = await response
-                .Raw.Content.ReadAsStringAsync(cancellationToken)
-                .ConfigureAwait(false);
-            try
-            {
-                switch (response.StatusCode)
-                {
-                    case 400:
-                        throw new BadRequestError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 401:
-                        throw new UnauthorizedError(
+                    case 402:
+                        throw new PaymentRequiredError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -5362,575 +5757,8 @@ public partial class LedgerClient : ILedgerClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
-                    case 422:
-                        throw new UnprocessableEntityError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 429:
-                        throw new TooManyRequestsError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 500:
-                        throw new InternalServerError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                }
-            }
-            catch (JsonException)
-            {
-                // unable to map error response, throwing generic error
-            }
-            throw new NordletApiApiException(
-                $"Error with status code {response.StatusCode}",
-                response.StatusCode,
-                responseBody,
-                rawResponse: new NordletApi.RawResponse()
-                {
-                    StatusCode = response.Raw.StatusCode,
-                    Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                    Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                }
-            );
-        }
-    }
-
-    private async Task<
-        WithRawResponse<PostV1OfficersCreateResponse>
-    > RecordAnOfficerOfTheCompanyAsyncCore(
-        PostV1OfficersCreateRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        var _queryString = new NordletApi.Core.QueryStringBuilder.Builder(capacity: 0)
-            .MergeAdditional(options?.AdditionalQueryParameters)
-            .Build();
-        var _headers = await new NordletApi.Core.HeadersBuilder.Builder()
-            .Add(_client.Options.Headers)
-            .Add(_client.Options.AdditionalHeaders)
-            .Add(options?.AdditionalHeaders)
-            .BuildAsync()
-            .ConfigureAwait(false);
-        var response = await _client
-            .SendRequestAsync(
-                new JsonRequest
-                {
-                    Method = HttpMethod.Post,
-                    Path = "v1/officers/create",
-                    Body = request,
-                    QueryString = _queryString,
-                    Headers = _headers,
-                    ContentType = "application/json",
-                    Options = options,
-                },
-                cancellationToken
-            )
-            .ConfigureAwait(false);
-        if (response.StatusCode is >= 200 and < 400)
-        {
-            var responseBody = await response
-                .Raw.Content.ReadAsStringAsync(cancellationToken)
-                .ConfigureAwait(false);
-            try
-            {
-                var responseData = JsonUtils.Deserialize<PostV1OfficersCreateResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1OfficersCreateResponse>()
-                {
-                    Data = responseData,
-                    RawResponse = new NordletApi.RawResponse()
-                    {
-                        StatusCode = response.Raw.StatusCode,
-                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                    },
-                };
-            }
-            catch (JsonException e)
-            {
-                throw new NordletApiApiException(
-                    "Failed to deserialize response",
-                    response.StatusCode,
-                    responseBody,
-                    e,
-                    rawResponse: new NordletApi.RawResponse()
-                    {
-                        StatusCode = response.Raw.StatusCode,
-                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                    }
-                );
-            }
-        }
-        {
-            var responseBody = await response
-                .Raw.Content.ReadAsStringAsync(cancellationToken)
-                .ConfigureAwait(false);
-            try
-            {
-                switch (response.StatusCode)
-                {
-                    case 400:
-                        throw new BadRequestError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 401:
-                        throw new UnauthorizedError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 403:
-                        throw new ForbiddenError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 404:
-                        throw new NotFoundError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 409:
-                        throw new ConflictError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 422:
-                        throw new UnprocessableEntityError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 429:
-                        throw new TooManyRequestsError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 500:
-                        throw new InternalServerError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                }
-            }
-            catch (JsonException)
-            {
-                // unable to map error response, throwing generic error
-            }
-            throw new NordletApiApiException(
-                $"Error with status code {response.StatusCode}",
-                response.StatusCode,
-                responseBody,
-                rawResponse: new NordletApi.RawResponse()
-                {
-                    StatusCode = response.Raw.StatusCode,
-                    Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                    Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                }
-            );
-        }
-    }
-
-    private async Task<
-        WithRawResponse<PostV1OfficersUpdateResponse>
-    > ChangeARecordedOfficerAsyncCore(
-        PostV1OfficersUpdateRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        var _queryString = new NordletApi.Core.QueryStringBuilder.Builder(capacity: 0)
-            .MergeAdditional(options?.AdditionalQueryParameters)
-            .Build();
-        var _headers = await new NordletApi.Core.HeadersBuilder.Builder()
-            .Add(_client.Options.Headers)
-            .Add(_client.Options.AdditionalHeaders)
-            .Add(options?.AdditionalHeaders)
-            .BuildAsync()
-            .ConfigureAwait(false);
-        var response = await _client
-            .SendRequestAsync(
-                new JsonRequest
-                {
-                    Method = HttpMethod.Post,
-                    Path = "v1/officers/update",
-                    Body = request,
-                    QueryString = _queryString,
-                    Headers = _headers,
-                    ContentType = "application/json",
-                    Options = options,
-                },
-                cancellationToken
-            )
-            .ConfigureAwait(false);
-        if (response.StatusCode is >= 200 and < 400)
-        {
-            var responseBody = await response
-                .Raw.Content.ReadAsStringAsync(cancellationToken)
-                .ConfigureAwait(false);
-            try
-            {
-                var responseData = JsonUtils.Deserialize<PostV1OfficersUpdateResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1OfficersUpdateResponse>()
-                {
-                    Data = responseData,
-                    RawResponse = new NordletApi.RawResponse()
-                    {
-                        StatusCode = response.Raw.StatusCode,
-                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                    },
-                };
-            }
-            catch (JsonException e)
-            {
-                throw new NordletApiApiException(
-                    "Failed to deserialize response",
-                    response.StatusCode,
-                    responseBody,
-                    e,
-                    rawResponse: new NordletApi.RawResponse()
-                    {
-                        StatusCode = response.Raw.StatusCode,
-                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                    }
-                );
-            }
-        }
-        {
-            var responseBody = await response
-                .Raw.Content.ReadAsStringAsync(cancellationToken)
-                .ConfigureAwait(false);
-            try
-            {
-                switch (response.StatusCode)
-                {
-                    case 400:
-                        throw new BadRequestError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 401:
-                        throw new UnauthorizedError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 403:
-                        throw new ForbiddenError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 404:
-                        throw new NotFoundError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 409:
-                        throw new ConflictError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 422:
-                        throw new UnprocessableEntityError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 429:
-                        throw new TooManyRequestsError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 500:
-                        throw new InternalServerError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                }
-            }
-            catch (JsonException)
-            {
-                // unable to map error response, throwing generic error
-            }
-            throw new NordletApiApiException(
-                $"Error with status code {response.StatusCode}",
-                response.StatusCode,
-                responseBody,
-                rawResponse: new NordletApi.RawResponse()
-                {
-                    StatusCode = response.Raw.StatusCode,
-                    Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                    Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                }
-            );
-        }
-    }
-
-    private async Task<
-        WithRawResponse<PostV1OfficersDeleteResponse>
-    > RemoveARecordedOfficerAsyncCore(
-        PostV1OfficersDeleteRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        var _queryString = new NordletApi.Core.QueryStringBuilder.Builder(capacity: 0)
-            .MergeAdditional(options?.AdditionalQueryParameters)
-            .Build();
-        var _headers = await new NordletApi.Core.HeadersBuilder.Builder()
-            .Add(_client.Options.Headers)
-            .Add(_client.Options.AdditionalHeaders)
-            .Add(options?.AdditionalHeaders)
-            .BuildAsync()
-            .ConfigureAwait(false);
-        var response = await _client
-            .SendRequestAsync(
-                new JsonRequest
-                {
-                    Method = HttpMethod.Post,
-                    Path = "v1/officers/delete",
-                    Body = request,
-                    QueryString = _queryString,
-                    Headers = _headers,
-                    ContentType = "application/json",
-                    Options = options,
-                },
-                cancellationToken
-            )
-            .ConfigureAwait(false);
-        if (response.StatusCode is >= 200 and < 400)
-        {
-            var responseBody = await response
-                .Raw.Content.ReadAsStringAsync(cancellationToken)
-                .ConfigureAwait(false);
-            try
-            {
-                var responseData = JsonUtils.Deserialize<PostV1OfficersDeleteResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1OfficersDeleteResponse>()
-                {
-                    Data = responseData,
-                    RawResponse = new NordletApi.RawResponse()
-                    {
-                        StatusCode = response.Raw.StatusCode,
-                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                    },
-                };
-            }
-            catch (JsonException e)
-            {
-                throw new NordletApiApiException(
-                    "Failed to deserialize response",
-                    response.StatusCode,
-                    responseBody,
-                    e,
-                    rawResponse: new NordletApi.RawResponse()
-                    {
-                        StatusCode = response.Raw.StatusCode,
-                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                    }
-                );
-            }
-        }
-        {
-            var responseBody = await response
-                .Raw.Content.ReadAsStringAsync(cancellationToken)
-                .ConfigureAwait(false);
-            try
-            {
-                switch (response.StatusCode)
-                {
-                    case 400:
-                        throw new BadRequestError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 401:
-                        throw new UnauthorizedError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 403:
-                        throw new ForbiddenError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 404:
-                        throw new NotFoundError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 409:
-                        throw new ConflictError(
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -5998,69 +5826,65 @@ public partial class LedgerClient : ILedgerClient
     }
 
     /// <example><code>
-    /// await client.Ledger.PostV1LedgerAccountsListAsync(new PostV1LedgerAccountsListRequest());
+    /// await client.Ledger.AccountsListAsync(new AccountsListLedgerRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1LedgerAccountsListResponse> PostV1LedgerAccountsListAsync(
-        PostV1LedgerAccountsListRequest request,
+    public WithRawResponseTask<AccountsListLedgerResponse> AccountsListAsync(
+        AccountsListLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1LedgerAccountsListResponse>(
-            PostV1LedgerAccountsListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<AccountsListLedgerResponse>(
+            AccountsListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Ledger.PostV1LedgerAccountsCreateAsync(
-    ///     new PostV1LedgerAccountsCreateRequest
+    /// await client.Ledger.AccountsCreateAsync(
+    ///     new AccountsCreateLedgerRequest
     ///     {
     ///         Code = "code",
     ///         Name = "name",
-    ///         Type = PostV1LedgerAccountsCreateRequestType.Asset,
+    ///         Type = AccountsCreateLedgerRequestType.Asset,
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1LedgerAccountsCreateResponse> PostV1LedgerAccountsCreateAsync(
-        PostV1LedgerAccountsCreateRequest request,
+    public WithRawResponseTask<AccountsCreateLedgerResponse> AccountsCreateAsync(
+        AccountsCreateLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1LedgerAccountsCreateResponse>(
-            PostV1LedgerAccountsCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<AccountsCreateLedgerResponse>(
+            AccountsCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Ledger.PostV1LedgerAccountsUpdateAsync(
-    ///     new PostV1LedgerAccountsUpdateRequest { Id = "id" }
-    /// );
+    /// await client.Ledger.AccountsUpdateAsync(new AccountsUpdateLedgerRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1LedgerAccountsUpdateResponse> PostV1LedgerAccountsUpdateAsync(
-        PostV1LedgerAccountsUpdateRequest request,
+    public WithRawResponseTask<AccountsUpdateLedgerResponse> AccountsUpdateAsync(
+        AccountsUpdateLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1LedgerAccountsUpdateResponse>(
-            PostV1LedgerAccountsUpdateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<AccountsUpdateLedgerResponse>(
+            AccountsUpdateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Ledger.PostV1LedgerAccountsApplyTemplateAsync(
-    ///     new PostV1LedgerAccountsApplyTemplateRequest()
-    /// );
+    /// await client.Ledger.AccountsApplyTemplateAsync(new AccountsApplyTemplateLedgerRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1LedgerAccountsApplyTemplateResponse> PostV1LedgerAccountsApplyTemplateAsync(
-        PostV1LedgerAccountsApplyTemplateRequest request,
+    public WithRawResponseTask<AccountsApplyTemplateLedgerResponse> AccountsApplyTemplateAsync(
+        AccountsApplyTemplateLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1LedgerAccountsApplyTemplateResponse>(
-            PostV1LedgerAccountsApplyTemplateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<AccountsApplyTemplateLedgerResponse>(
+            AccountsApplyTemplateAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -6068,337 +5892,316 @@ public partial class LedgerClient : ILedgerClient
     /// Replaces the seeded chart with the chart template of the company country (the Romanian general chart for a company registered in Romania, the Lithuanian standard chart otherwise) and switches the posting defaults with it. Answers 409 when the company already uses that chart, has journal entries, holds accounts created by hand, or has settings that name an account the new chart does not have.
     /// </summary>
     /// <example><code>
-    /// await client.Ledger.MoveACompanyThatHasPostedNothingYetToTheChartOfAccountsOfItsCountryAsync(
-    ///     new PostV1LedgerAccountsSwitchChartRequest()
+    /// await client.Ledger.AccountsSwitchChartAsync(new AccountsSwitchChartLedgerRequest());
+    /// </code></example>
+    public WithRawResponseTask<AccountsSwitchChartLedgerResponse> AccountsSwitchChartAsync(
+        AccountsSwitchChartLedgerRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<AccountsSwitchChartLedgerResponse>(
+            AccountsSwitchChartAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Ledger.PeriodsListAsync(new PeriodsListLedgerRequest());
+    /// </code></example>
+    public WithRawResponseTask<PeriodsListLedgerResponse> PeriodsListAsync(
+        PeriodsListLedgerRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<PeriodsListLedgerResponse>(
+            PeriodsListAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Ledger.PeriodsLockAsync(
+    ///     new PeriodsLockLedgerRequest { Year = 1000000, Month = 1000000 }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1LedgerAccountsSwitchChartResponse> MoveACompanyThatHasPostedNothingYetToTheChartOfAccountsOfItsCountryAsync(
-        PostV1LedgerAccountsSwitchChartRequest request,
+    public WithRawResponseTask<PeriodsLockLedgerResponse> PeriodsLockAsync(
+        PeriodsLockLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1LedgerAccountsSwitchChartResponse>(
-            MoveACompanyThatHasPostedNothingYetToTheChartOfAccountsOfItsCountryAsyncCore(
-                request,
-                options,
-                cancellationToken
-            )
+        return new WithRawResponseTask<PeriodsLockLedgerResponse>(
+            PeriodsLockAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Ledger.PostV1LedgerPeriodsListAsync(new PostV1LedgerPeriodsListRequest());
-    /// </code></example>
-    public WithRawResponseTask<PostV1LedgerPeriodsListResponse> PostV1LedgerPeriodsListAsync(
-        PostV1LedgerPeriodsListRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1LedgerPeriodsListResponse>(
-            PostV1LedgerPeriodsListAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Ledger.PostV1LedgerPeriodsLockAsync(
-    ///     new PostV1LedgerPeriodsLockRequest { Year = 1000000, Month = 1000000 }
+    /// await client.Ledger.PeriodsUnlockAsync(
+    ///     new PeriodsUnlockLedgerRequest { Year = 1000000, Month = 1000000 }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1LedgerPeriodsLockResponse> PostV1LedgerPeriodsLockAsync(
-        PostV1LedgerPeriodsLockRequest request,
+    public WithRawResponseTask<PeriodsUnlockLedgerResponse> PeriodsUnlockAsync(
+        PeriodsUnlockLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1LedgerPeriodsLockResponse>(
-            PostV1LedgerPeriodsLockAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<PeriodsUnlockLedgerResponse>(
+            PeriodsUnlockAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Ledger.PostV1LedgerPeriodsUnlockAsync(
-    ///     new PostV1LedgerPeriodsUnlockRequest { Year = 1000000, Month = 1000000 }
+    /// await client.Ledger.JournalTransactionsListAsync(new JournalTransactionsListLedgerRequest());
+    /// </code></example>
+    public WithRawResponseTask<JournalTransactionsListLedgerResponse> JournalTransactionsListAsync(
+        JournalTransactionsListLedgerRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<JournalTransactionsListLedgerResponse>(
+            JournalTransactionsListAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Ledger.CostCentersCreateAsync(
+    ///     new CostCentersCreateLedgerRequest { Code = "code", Name = "name" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1LedgerPeriodsUnlockResponse> PostV1LedgerPeriodsUnlockAsync(
-        PostV1LedgerPeriodsUnlockRequest request,
+    public WithRawResponseTask<CostCentersCreateLedgerResponse> CostCentersCreateAsync(
+        CostCentersCreateLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1LedgerPeriodsUnlockResponse>(
-            PostV1LedgerPeriodsUnlockAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<CostCentersCreateLedgerResponse>(
+            CostCentersCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Ledger.PostV1LedgerJournalTransactionsListAsync(
-    ///     new PostV1LedgerJournalTransactionsListRequest()
+    /// await client.Ledger.CostCentersUpdateAsync(new CostCentersUpdateLedgerRequest { Id = "id" });
+    /// </code></example>
+    public WithRawResponseTask<CostCentersUpdateLedgerResponse> CostCentersUpdateAsync(
+        CostCentersUpdateLedgerRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<CostCentersUpdateLedgerResponse>(
+            CostCentersUpdateAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Ledger.CostCentersListAsync(new CostCentersListLedgerRequest());
+    /// </code></example>
+    public WithRawResponseTask<CostCentersListLedgerResponse> CostCentersListAsync(
+        CostCentersListLedgerRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<CostCentersListLedgerResponse>(
+            CostCentersListAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Ledger.CostCenterGroupsCreateAsync(
+    ///     new CostCenterGroupsCreateLedgerRequest { Code = "code", Name = "name" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1LedgerJournalTransactionsListResponse> PostV1LedgerJournalTransactionsListAsync(
-        PostV1LedgerJournalTransactionsListRequest request,
+    public WithRawResponseTask<CostCenterGroupsCreateLedgerResponse> CostCenterGroupsCreateAsync(
+        CostCenterGroupsCreateLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1LedgerJournalTransactionsListResponse>(
-            PostV1LedgerJournalTransactionsListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<CostCenterGroupsCreateLedgerResponse>(
+            CostCenterGroupsCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Ledger.PostV1LedgerCostCentersCreateAsync(
-    ///     new PostV1LedgerCostCentersCreateRequest { Code = "code", Name = "name" }
+    /// await client.Ledger.CostCenterGroupsUpdateAsync(
+    ///     new CostCenterGroupsUpdateLedgerRequest { Id = "id" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1LedgerCostCentersCreateResponse> PostV1LedgerCostCentersCreateAsync(
-        PostV1LedgerCostCentersCreateRequest request,
+    public WithRawResponseTask<CostCenterGroupsUpdateLedgerResponse> CostCenterGroupsUpdateAsync(
+        CostCenterGroupsUpdateLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1LedgerCostCentersCreateResponse>(
-            PostV1LedgerCostCentersCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<CostCenterGroupsUpdateLedgerResponse>(
+            CostCenterGroupsUpdateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Ledger.PostV1LedgerCostCentersUpdateAsync(
-    ///     new PostV1LedgerCostCentersUpdateRequest { Id = "id" }
+    /// await client.Ledger.CostCenterGroupsDeleteAsync(
+    ///     new CostCenterGroupsDeleteLedgerRequest { Id = "id" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1LedgerCostCentersUpdateResponse> PostV1LedgerCostCentersUpdateAsync(
-        PostV1LedgerCostCentersUpdateRequest request,
+    public WithRawResponseTask<CostCenterGroupsDeleteLedgerResponse> CostCenterGroupsDeleteAsync(
+        CostCenterGroupsDeleteLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1LedgerCostCentersUpdateResponse>(
-            PostV1LedgerCostCentersUpdateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<CostCenterGroupsDeleteLedgerResponse>(
+            CostCenterGroupsDeleteAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Ledger.PostV1LedgerCostCentersListAsync(new PostV1LedgerCostCentersListRequest());
+    /// await client.Ledger.CostCenterGroupsListAsync(new CostCenterGroupsListLedgerRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1LedgerCostCentersListResponse> PostV1LedgerCostCentersListAsync(
-        PostV1LedgerCostCentersListRequest request,
+    public WithRawResponseTask<CostCenterGroupsListLedgerResponse> CostCenterGroupsListAsync(
+        CostCenterGroupsListLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1LedgerCostCentersListResponse>(
-            PostV1LedgerCostCentersListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<CostCenterGroupsListLedgerResponse>(
+            CostCenterGroupsListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Ledger.PostV1LedgerCostCenterGroupsCreateAsync(
-    ///     new PostV1LedgerCostCenterGroupsCreateRequest { Code = "code", Name = "name" }
-    /// );
+    /// await client.Ledger.PostingRulesListAsync(new PostingRulesListLedgerRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1LedgerCostCenterGroupsCreateResponse> PostV1LedgerCostCenterGroupsCreateAsync(
-        PostV1LedgerCostCenterGroupsCreateRequest request,
+    public WithRawResponseTask<PostingRulesListLedgerResponse> PostingRulesListAsync(
+        PostingRulesListLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1LedgerCostCenterGroupsCreateResponse>(
-            PostV1LedgerCostCenterGroupsCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<PostingRulesListLedgerResponse>(
+            PostingRulesListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Ledger.PostV1LedgerCostCenterGroupsUpdateAsync(
-    ///     new PostV1LedgerCostCenterGroupsUpdateRequest { Id = "id" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1LedgerCostCenterGroupsUpdateResponse> PostV1LedgerCostCenterGroupsUpdateAsync(
-        PostV1LedgerCostCenterGroupsUpdateRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1LedgerCostCenterGroupsUpdateResponse>(
-            PostV1LedgerCostCenterGroupsUpdateAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Ledger.PostV1LedgerCostCenterGroupsDeleteAsync(
-    ///     new PostV1LedgerCostCenterGroupsDeleteRequest { Id = "id" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1LedgerCostCenterGroupsDeleteResponse> PostV1LedgerCostCenterGroupsDeleteAsync(
-        PostV1LedgerCostCenterGroupsDeleteRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1LedgerCostCenterGroupsDeleteResponse>(
-            PostV1LedgerCostCenterGroupsDeleteAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Ledger.PostV1LedgerCostCenterGroupsListAsync(
-    ///     new PostV1LedgerCostCenterGroupsListRequest()
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1LedgerCostCenterGroupsListResponse> PostV1LedgerCostCenterGroupsListAsync(
-        PostV1LedgerCostCenterGroupsListRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1LedgerCostCenterGroupsListResponse>(
-            PostV1LedgerCostCenterGroupsListAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Ledger.PostV1LedgerPostingRulesListAsync(new PostV1LedgerPostingRulesListRequest());
-    /// </code></example>
-    public WithRawResponseTask<PostV1LedgerPostingRulesListResponse> PostV1LedgerPostingRulesListAsync(
-        PostV1LedgerPostingRulesListRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1LedgerPostingRulesListResponse>(
-            PostV1LedgerPostingRulesListAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Ledger.PostV1LedgerPostingRulesUpdateAsync(
-    ///     new PostV1LedgerPostingRulesUpdateRequest
+    /// await client.Ledger.PostingRulesUpdateAsync(
+    ///     new PostingRulesUpdateLedgerRequest
     ///     {
-    ///         Rules = new List&lt;PostV1LedgerPostingRulesUpdateRequestRulesItem&gt;()
+    ///         Rules = new List&lt;PostingRulesUpdateLedgerRequestRulesItem&gt;()
     ///         {
-    ///             new PostV1LedgerPostingRulesUpdateRequestRulesItem
+    ///             new PostingRulesUpdateLedgerRequestRulesItem
     ///             {
-    ///                 Key = PostV1LedgerPostingRulesUpdateRequestRulesItemKey.SalesReceivable,
+    ///                 Key = PostingRulesUpdateLedgerRequestRulesItemKey.SalesReceivable,
     ///             },
     ///         },
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1LedgerPostingRulesUpdateResponse> PostV1LedgerPostingRulesUpdateAsync(
-        PostV1LedgerPostingRulesUpdateRequest request,
+    public WithRawResponseTask<PostingRulesUpdateLedgerResponse> PostingRulesUpdateAsync(
+        PostingRulesUpdateLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1LedgerPostingRulesUpdateResponse>(
-            PostV1LedgerPostingRulesUpdateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<PostingRulesUpdateLedgerResponse>(
+            PostingRulesUpdateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Ledger.PostV1LedgerOwnersCreateAsync(
-    ///     new PostV1LedgerOwnersCreateRequest { Name = "name" }
+    /// await client.Ledger.OwnersCreateAsync(new OwnersCreateLedgerRequest { Name = "name" });
+    /// </code></example>
+    public WithRawResponseTask<OwnersCreateLedgerResponse> OwnersCreateAsync(
+        OwnersCreateLedgerRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<OwnersCreateLedgerResponse>(
+            OwnersCreateAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Ledger.OwnersUpdateAsync(new OwnersUpdateLedgerRequest { Id = "id" });
+    /// </code></example>
+    public WithRawResponseTask<OwnersUpdateLedgerResponse> OwnersUpdateAsync(
+        OwnersUpdateLedgerRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<OwnersUpdateLedgerResponse>(
+            OwnersUpdateAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Ledger.OwnersDeleteAsync(new OwnersDeleteLedgerRequest { Id = "id" });
+    /// </code></example>
+    public WithRawResponseTask<OwnersDeleteLedgerResponse> OwnersDeleteAsync(
+        OwnersDeleteLedgerRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<OwnersDeleteLedgerResponse>(
+            OwnersDeleteAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Ledger.OwnersListAsync(new OwnersListLedgerRequest());
+    /// </code></example>
+    public WithRawResponseTask<OwnersListLedgerResponse> OwnersListAsync(
+        OwnersListLedgerRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<OwnersListLedgerResponse>(
+            OwnersListAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Ledger.JournalTransactionsGetAsync(
+    ///     new JournalTransactionsGetLedgerRequest { Id = "id" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1LedgerOwnersCreateResponse> PostV1LedgerOwnersCreateAsync(
-        PostV1LedgerOwnersCreateRequest request,
+    public WithRawResponseTask<JournalTransactionsGetLedgerResponse> JournalTransactionsGetAsync(
+        JournalTransactionsGetLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1LedgerOwnersCreateResponse>(
-            PostV1LedgerOwnersCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<JournalTransactionsGetLedgerResponse>(
+            JournalTransactionsGetAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Ledger.PostV1LedgerOwnersUpdateAsync(
-    ///     new PostV1LedgerOwnersUpdateRequest { Id = "id" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1LedgerOwnersUpdateResponse> PostV1LedgerOwnersUpdateAsync(
-        PostV1LedgerOwnersUpdateRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1LedgerOwnersUpdateResponse>(
-            PostV1LedgerOwnersUpdateAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Ledger.PostV1LedgerOwnersDeleteAsync(
-    ///     new PostV1LedgerOwnersDeleteRequest { Id = "id" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1LedgerOwnersDeleteResponse> PostV1LedgerOwnersDeleteAsync(
-        PostV1LedgerOwnersDeleteRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1LedgerOwnersDeleteResponse>(
-            PostV1LedgerOwnersDeleteAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Ledger.PostV1LedgerOwnersListAsync(new PostV1LedgerOwnersListRequest());
-    /// </code></example>
-    public WithRawResponseTask<PostV1LedgerOwnersListResponse> PostV1LedgerOwnersListAsync(
-        PostV1LedgerOwnersListRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1LedgerOwnersListResponse>(
-            PostV1LedgerOwnersListAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Ledger.PostV1LedgerJournalTransactionsGetAsync(
-    ///     new PostV1LedgerJournalTransactionsGetRequest { Id = "id" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1LedgerJournalTransactionsGetResponse> PostV1LedgerJournalTransactionsGetAsync(
-        PostV1LedgerJournalTransactionsGetRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1LedgerJournalTransactionsGetResponse>(
-            PostV1LedgerJournalTransactionsGetAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Ledger.PostV1LedgerJournalTransactionsCreateAsync(
-    ///     new PostV1LedgerJournalTransactionsCreateRequest
+    /// await client.Ledger.JournalTransactionsCreateAsync(
+    ///     new JournalTransactionsCreateLedgerRequest
     ///     {
-    ///         Date = "date",
-    ///         Entries = new List&lt;PostV1LedgerJournalTransactionsCreateRequestEntriesItem&gt;()
+    ///         Date = new DateOnly(2026, 7, 1),
+    ///         Entries = new List&lt;JournalTransactionsCreateLedgerRequestEntriesItem&gt;()
     ///         {
-    ///             new PostV1LedgerJournalTransactionsCreateRequestEntriesItem
-    ///             {
-    ///                 AccountCode = "accountCode",
-    ///             },
+    ///             new JournalTransactionsCreateLedgerRequestEntriesItem { AccountCode = "accountCode" },
     ///         },
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1LedgerJournalTransactionsCreateResponse> PostV1LedgerJournalTransactionsCreateAsync(
-        PostV1LedgerJournalTransactionsCreateRequest request,
+    public WithRawResponseTask<JournalTransactionsCreateLedgerResponse> JournalTransactionsCreateAsync(
+        JournalTransactionsCreateLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1LedgerJournalTransactionsCreateResponse>(
-            PostV1LedgerJournalTransactionsCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<JournalTransactionsCreateLedgerResponse>(
+            JournalTransactionsCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -6406,42 +6209,32 @@ public partial class LedgerClient : ILedgerClient
     /// The rows or codes of each return or registry deposit of the company country that are filled from account balances. Accounts fall into a row by the layout defaults for the standard chart of accounts unless mapped under Settings → Statement rows.
     /// </summary>
     /// <example><code>
-    /// await client.Ledger.NationalStatementLayoutsAvailableToTheCompanyAsync(
-    ///     new PostV1LedgerStatementRowsSchemesRequest()
-    /// );
+    /// await client.Ledger.StatementRowsSchemesAsync(new StatementRowsSchemesLedgerRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1LedgerStatementRowsSchemesResponse> NationalStatementLayoutsAvailableToTheCompanyAsync(
-        PostV1LedgerStatementRowsSchemesRequest request,
+    public WithRawResponseTask<StatementRowsSchemesLedgerResponse> StatementRowsSchemesAsync(
+        StatementRowsSchemesLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1LedgerStatementRowsSchemesResponse>(
-            NationalStatementLayoutsAvailableToTheCompanyAsyncCore(
-                request,
-                options,
-                cancellationToken
-            )
+        return new WithRawResponseTask<StatementRowsSchemesLedgerResponse>(
+            StatementRowsSchemesAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Ledger.AccountsPlacedOnTheRowsOfAStatementLayoutWithTheRowTotalsOfAPeriodAsync(
-    ///     new PostV1LedgerStatementRowsListRequest { Scheme = "scheme" }
+    /// await client.Ledger.StatementRowsListAsync(
+    ///     new StatementRowsListLedgerRequest { Scheme = "scheme" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1LedgerStatementRowsListResponse> AccountsPlacedOnTheRowsOfAStatementLayoutWithTheRowTotalsOfAPeriodAsync(
-        PostV1LedgerStatementRowsListRequest request,
+    public WithRawResponseTask<StatementRowsListLedgerResponse> StatementRowsListAsync(
+        StatementRowsListLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1LedgerStatementRowsListResponse>(
-            AccountsPlacedOnTheRowsOfAStatementLayoutWithTheRowTotalsOfAPeriodAsyncCore(
-                request,
-                options,
-                cancellationToken
-            )
+        return new WithRawResponseTask<StatementRowsListLedgerResponse>(
+            StatementRowsListAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -6449,94 +6242,18 @@ public partial class LedgerClient : ILedgerClient
     /// A mapping on a code prefix covers every account whose code starts with it; the longest matching prefix wins. An empty rowCode removes the mapping so the layout default applies again.
     /// </summary>
     /// <example><code>
-    /// await client.Ledger.MapAnAccountOrAnAccountCodePrefixToARowOfAStatementLayoutAsync(
-    ///     new PostV1LedgerStatementRowsSetRequest { Scheme = "scheme", AccountCode = "accountCode" }
+    /// await client.Ledger.StatementRowsSetAsync(
+    ///     new StatementRowsSetLedgerRequest { Scheme = "scheme", AccountCode = "accountCode" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1LedgerStatementRowsSetResponse> MapAnAccountOrAnAccountCodePrefixToARowOfAStatementLayoutAsync(
-        PostV1LedgerStatementRowsSetRequest request,
+    public WithRawResponseTask<StatementRowsSetLedgerResponse> StatementRowsSetAsync(
+        StatementRowsSetLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1LedgerStatementRowsSetResponse>(
-            MapAnAccountOrAnAccountCodePrefixToARowOfAStatementLayoutAsyncCore(
-                request,
-                options,
-                cancellationToken
-            )
-        );
-    }
-
-    /// <summary>
-    /// Directors, board members, the company secretary, representatives and liquidators, with their personal identifier, appointment and resignation dates and whether they sign the annual accounts. Annual returns and registry deposits are built from this register.
-    /// </summary>
-    /// <example><code>
-    /// await client.Ledger.OfficersOfTheCompanyAsync(new PostV1OfficersListRequest());
-    /// </code></example>
-    public WithRawResponseTask<PostV1OfficersListResponse> OfficersOfTheCompanyAsync(
-        PostV1OfficersListRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1OfficersListResponse>(
-            OfficersOfTheCompanyAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Ledger.RecordAnOfficerOfTheCompanyAsync(
-    ///     new PostV1OfficersCreateRequest
-    ///     {
-    ///         Name = "name",
-    ///         Role = PostV1OfficersCreateRequestRole.Director,
-    ///     }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1OfficersCreateResponse> RecordAnOfficerOfTheCompanyAsync(
-        PostV1OfficersCreateRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1OfficersCreateResponse>(
-            RecordAnOfficerOfTheCompanyAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Ledger.ChangeARecordedOfficerAsync(
-    ///     new PostV1OfficersUpdateRequest
-    ///     {
-    ///         Id = "id",
-    ///         Name = "name",
-    ///         Role = PostV1OfficersUpdateRequestRole.Director,
-    ///     }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1OfficersUpdateResponse> ChangeARecordedOfficerAsync(
-        PostV1OfficersUpdateRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1OfficersUpdateResponse>(
-            ChangeARecordedOfficerAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Ledger.RemoveARecordedOfficerAsync(new PostV1OfficersDeleteRequest { Id = "id" });
-    /// </code></example>
-    public WithRawResponseTask<PostV1OfficersDeleteResponse> RemoveARecordedOfficerAsync(
-        PostV1OfficersDeleteRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1OfficersDeleteResponse>(
-            RemoveARecordedOfficerAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<StatementRowsSetLedgerResponse>(
+            StatementRowsSetAsyncCore(request, options, cancellationToken)
         );
     }
 }

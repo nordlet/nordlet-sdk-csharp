@@ -4,12 +4,16 @@ public partial interface INordletApiClient
 {
     public IReferenceClient Reference { get; }
     public IPartnersClient Partners { get; }
+    public ILeadsClient Leads { get; }
     public ICatalogClient Catalog { get; }
     public ISalesClient Sales { get; }
+    public IOperationTypesClient OperationTypes { get; }
+    public IDocumentSeriesClient DocumentSeries { get; }
     public IPurchasesClient Purchases { get; }
     public ICaptureClient Capture { get; }
     public IDeclarationsClient Declarations { get; }
     public ILedgerClient Ledger { get; }
+    public IOfficersClient Officers { get; }
     public IMigrationClient Migration { get; }
     public IAssetsClient Assets { get; }
     public IHrClient Hr { get; }

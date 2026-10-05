@@ -1,0 +1,73 @@
+using global::System.Text.Json;
+using global::System.Text.Json.Serialization;
+using NordletApi.Core;
+
+namespace NordletApi;
+
+[Serializable]
+public record MandatesGetBankResponse : IJsonOnDeserialized
+{
+    [JsonExtensionData]
+    private readonly IDictionary<string, JsonElement> _extensionData =
+        new Dictionary<string, JsonElement>();
+
+    [JsonPropertyName("id")]
+    public required string Id { get; set; }
+
+    [JsonPropertyName("partnerId")]
+    public required string PartnerId { get; set; }
+
+    [JsonPropertyName("reference")]
+    public required string Reference { get; set; }
+
+    [JsonPropertyName("scheme")]
+    public required MandatesGetBankResponseScheme Scheme { get; set; }
+
+    [JsonPropertyName("sequenceType")]
+    public required MandatesGetBankResponseSequenceType SequenceType { get; set; }
+
+    [JsonPropertyName("status")]
+    public required MandatesGetBankResponseStatus Status { get; set; }
+
+    [JsonPropertyName("debtorName")]
+    public required string DebtorName { get; set; }
+
+    [JsonPropertyName("iban")]
+    public required string Iban { get; set; }
+
+    [JsonPropertyName("bic")]
+    public string? Bic { get; set; }
+
+    [JsonPropertyName("signatureDate")]
+    public required DateOnly SignatureDate { get; set; }
+
+    [JsonPropertyName("collectionsCount")]
+    public required long CollectionsCount { get; set; }
+
+    [JsonPropertyName("lastCollectionDate")]
+    public DateOnly? LastCollectionDate { get; set; }
+
+    [JsonPropertyName("expiresOn")]
+    public required string ExpiresOn { get; set; }
+
+    [JsonPropertyName("cancelledAt")]
+    public DateTime? CancelledAt { get; set; }
+
+    [JsonPropertyName("notes")]
+    public string? Notes { get; set; }
+
+    [JsonPropertyName("createdAt")]
+    public required DateTime CreatedAt { get; set; }
+
+    [JsonIgnore]
+    public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
+
+    void IJsonOnDeserialized.OnDeserialized() =>
+        AdditionalProperties.CopyFromExtensionData(_extensionData);
+
+    /// <inheritdoc />
+    public override string ToString()
+    {
+        return JsonUtils.Serialize(this);
+    }
+}

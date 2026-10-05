@@ -2,38 +2,38 @@ namespace NordletApi;
 
 public partial interface IWebhooksClient
 {
-    WithRawResponseTask<PostV1WebhooksSubscriptionsCreateResponse> PostV1WebhooksSubscriptionsCreateAsync(
-        PostV1WebhooksSubscriptionsCreateRequest request,
+    WithRawResponseTask<SubscriptionsCreateWebhooksResponse> SubscriptionsCreateAsync(
+        SubscriptionsCreateWebhooksRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1WebhooksSubscriptionsListResponse> PostV1WebhooksSubscriptionsListAsync(
-        PostV1WebhooksSubscriptionsListRequest request,
+    WithRawResponseTask<SubscriptionsListWebhooksResponse> SubscriptionsListAsync(
+        SubscriptionsListWebhooksRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1WebhooksSubscriptionsUpdateResponse> PostV1WebhooksSubscriptionsUpdateAsync(
-        PostV1WebhooksSubscriptionsUpdateRequest request,
+    WithRawResponseTask<SubscriptionsUpdateWebhooksResponse> SubscriptionsUpdateAsync(
+        SubscriptionsUpdateWebhooksRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1WebhooksSubscriptionsDeleteResponse> PostV1WebhooksSubscriptionsDeleteAsync(
-        PostV1WebhooksSubscriptionsDeleteRequest request,
+    WithRawResponseTask<SubscriptionsDeleteWebhooksResponse> SubscriptionsDeleteAsync(
+        SubscriptionsDeleteWebhooksRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1WebhooksDeliveriesListResponse> PostV1WebhooksDeliveriesListAsync(
-        PostV1WebhooksDeliveriesListRequest request,
+    WithRawResponseTask<DeliveriesListWebhooksResponse> DeliveriesListAsync(
+        DeliveriesListWebhooksRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1WebhooksDeliveriesRedeliverResponse> PostV1WebhooksDeliveriesRedeliverAsync(
-        PostV1WebhooksDeliveriesRedeliverRequest request,
+    WithRawResponseTask<DeliveriesRedeliverWebhooksResponse> DeliveriesRedeliverAsync(
+        DeliveriesRedeliverWebhooksRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );

@@ -2,20 +2,23 @@ namespace NordletApi;
 
 public partial interface ICalendarClient
 {
-    WithRawResponseTask<PostV1CalendarListResponse> PostV1CalendarListAsync(
-        PostV1CalendarListRequest request,
+    WithRawResponseTask<ListCalendarResponse> ListAsync(
+        ListCalendarRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CalendarGetResponse> PostV1CalendarGetAsync(
-        PostV1CalendarGetRequest request,
+    WithRawResponseTask<GetCalendarResponse> GetAsync(
+        GetCalendarRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CalendarSubmitResponse> GenerateTheFilingForADeadlineAndSendItToTheAdministrationAsync(
-        PostV1CalendarSubmitRequest request,
+    /// <summary>
+    /// With amend: true the return is filed again as a correction of the one already submitted or accepted for the period; only returns whose format has a correction mark accept it.
+    /// </summary>
+    WithRawResponseTask<SubmitCalendarResponse> SubmitAsync(
+        SubmitCalendarRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
@@ -23,26 +26,26 @@ public partial interface ICalendarClient
     /// <summary>
     /// Builds the file of a deadline whose format Nordlet produces but whose administration takes it only through the company's own account or program. Nothing is sent and no filing is recorded.
     /// </summary>
-    WithRawResponseTask<PostV1CalendarDownloadResponse> GenerateTheFileOfADeadlineForTheCompanyToSendItselfAsync(
-        PostV1CalendarDownloadRequest request,
+    WithRawResponseTask<DownloadCalendarResponse> DownloadAsync(
+        DownloadCalendarRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CalendarCreateResponse> PostV1CalendarCreateAsync(
-        PostV1CalendarCreateRequest request,
+    WithRawResponseTask<CreateCalendarResponse> CreateAsync(
+        CreateCalendarRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CalendarUpdateResponse> PostV1CalendarUpdateAsync(
-        PostV1CalendarUpdateRequest request,
+    WithRawResponseTask<UpdateCalendarResponse> UpdateAsync(
+        UpdateCalendarRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CalendarDeleteResponse> PostV1CalendarDeleteAsync(
-        PostV1CalendarDeleteRequest request,
+    WithRawResponseTask<DeleteCalendarResponse> DeleteAsync(
+        DeleteCalendarRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );

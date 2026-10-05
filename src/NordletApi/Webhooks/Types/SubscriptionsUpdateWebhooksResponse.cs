@@ -1,0 +1,52 @@
+using global::System.Text.Json;
+using global::System.Text.Json.Serialization;
+using NordletApi.Core;
+
+namespace NordletApi;
+
+[Serializable]
+public record SubscriptionsUpdateWebhooksResponse : IJsonOnDeserialized
+{
+    [JsonExtensionData]
+    private readonly IDictionary<string, JsonElement> _extensionData =
+        new Dictionary<string, JsonElement>();
+
+    [JsonPropertyName("id")]
+    public required string Id { get; set; }
+
+    [JsonPropertyName("url")]
+    public required string Url { get; set; }
+
+    [JsonPropertyName("events")]
+    public IEnumerable<string> Events { get; set; } = new List<string>();
+
+    [JsonPropertyName("isActive")]
+    public required bool IsActive { get; set; }
+
+    [JsonPropertyName("consecutiveFailures")]
+    public required long ConsecutiveFailures { get; set; }
+
+    [JsonPropertyName("lastDeliveryStatus")]
+    public SubscriptionsUpdateWebhooksResponseLastDeliveryStatus? LastDeliveryStatus { get; set; }
+
+    [JsonPropertyName("lastDeliveryAt")]
+    public DateTime? LastDeliveryAt { get; set; }
+
+    [JsonPropertyName("pausedAt")]
+    public DateTime? PausedAt { get; set; }
+
+    [JsonPropertyName("createdAt")]
+    public required DateTime CreatedAt { get; set; }
+
+    [JsonIgnore]
+    public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
+
+    void IJsonOnDeserialized.OnDeserialized() =>
+        AdditionalProperties.CopyFromExtensionData(_extensionData);
+
+    /// <inheritdoc />
+    public override string ToString()
+    {
+        return JsonUtils.Serialize(this);
+    }
+}

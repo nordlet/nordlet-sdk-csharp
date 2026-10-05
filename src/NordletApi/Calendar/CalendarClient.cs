@@ -12,8 +12,8 @@ public partial class CalendarClient : ICalendarClient
         _client = client;
     }
 
-    private async Task<WithRawResponse<PostV1CalendarListResponse>> PostV1CalendarListAsyncCore(
-        PostV1CalendarListRequest request,
+    private async Task<WithRawResponse<ListCalendarResponse>> ListAsyncCore(
+        ListCalendarRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -49,8 +49,8 @@ public partial class CalendarClient : ICalendarClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CalendarListResponse>(responseBody)!;
-                return new WithRawResponse<PostV1CalendarListResponse>()
+                var responseData = JsonUtils.Deserialize<ListCalendarResponse>(responseBody)!;
+                return new WithRawResponse<ListCalendarResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -109,6 +109,18 @@ public partial class CalendarClient : ICalendarClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -135,6 +147,18 @@ public partial class CalendarClient : ICalendarClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -201,8 +225,8 @@ public partial class CalendarClient : ICalendarClient
         }
     }
 
-    private async Task<WithRawResponse<PostV1CalendarGetResponse>> PostV1CalendarGetAsyncCore(
-        PostV1CalendarGetRequest request,
+    private async Task<WithRawResponse<GetCalendarResponse>> GetAsyncCore(
+        GetCalendarRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -238,8 +262,8 @@ public partial class CalendarClient : ICalendarClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CalendarGetResponse>(responseBody)!;
-                return new WithRawResponse<PostV1CalendarGetResponse>()
+                var responseData = JsonUtils.Deserialize<GetCalendarResponse>(responseBody)!;
+                return new WithRawResponse<GetCalendarResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -298,6 +322,18 @@ public partial class CalendarClient : ICalendarClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -324,6 +360,18 @@ public partial class CalendarClient : ICalendarClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -390,10 +438,8 @@ public partial class CalendarClient : ICalendarClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1CalendarSubmitResponse>
-    > GenerateTheFilingForADeadlineAndSendItToTheAdministrationAsyncCore(
-        PostV1CalendarSubmitRequest request,
+    private async Task<WithRawResponse<SubmitCalendarResponse>> SubmitAsyncCore(
+        SubmitCalendarRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -429,10 +475,8 @@ public partial class CalendarClient : ICalendarClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CalendarSubmitResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1CalendarSubmitResponse>()
+                var responseData = JsonUtils.Deserialize<SubmitCalendarResponse>(responseBody)!;
+                return new WithRawResponse<SubmitCalendarResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -491,6 +535,18 @@ public partial class CalendarClient : ICalendarClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -517,6 +573,18 @@ public partial class CalendarClient : ICalendarClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -583,10 +651,8 @@ public partial class CalendarClient : ICalendarClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1CalendarDownloadResponse>
-    > GenerateTheFileOfADeadlineForTheCompanyToSendItselfAsyncCore(
-        PostV1CalendarDownloadRequest request,
+    private async Task<WithRawResponse<DownloadCalendarResponse>> DownloadAsyncCore(
+        DownloadCalendarRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -622,10 +688,8 @@ public partial class CalendarClient : ICalendarClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CalendarDownloadResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1CalendarDownloadResponse>()
+                var responseData = JsonUtils.Deserialize<DownloadCalendarResponse>(responseBody)!;
+                return new WithRawResponse<DownloadCalendarResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -684,6 +748,18 @@ public partial class CalendarClient : ICalendarClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -710,6 +786,18 @@ public partial class CalendarClient : ICalendarClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -776,8 +864,8 @@ public partial class CalendarClient : ICalendarClient
         }
     }
 
-    private async Task<WithRawResponse<PostV1CalendarCreateResponse>> PostV1CalendarCreateAsyncCore(
-        PostV1CalendarCreateRequest request,
+    private async Task<WithRawResponse<CreateCalendarResponse>> CreateAsyncCore(
+        CreateCalendarRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -813,10 +901,8 @@ public partial class CalendarClient : ICalendarClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CalendarCreateResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1CalendarCreateResponse>()
+                var responseData = JsonUtils.Deserialize<CreateCalendarResponse>(responseBody)!;
+                return new WithRawResponse<CreateCalendarResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -875,6 +961,18 @@ public partial class CalendarClient : ICalendarClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -901,6 +999,18 @@ public partial class CalendarClient : ICalendarClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -967,8 +1077,8 @@ public partial class CalendarClient : ICalendarClient
         }
     }
 
-    private async Task<WithRawResponse<PostV1CalendarUpdateResponse>> PostV1CalendarUpdateAsyncCore(
-        PostV1CalendarUpdateRequest request,
+    private async Task<WithRawResponse<UpdateCalendarResponse>> UpdateAsyncCore(
+        UpdateCalendarRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1004,10 +1114,8 @@ public partial class CalendarClient : ICalendarClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CalendarUpdateResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1CalendarUpdateResponse>()
+                var responseData = JsonUtils.Deserialize<UpdateCalendarResponse>(responseBody)!;
+                return new WithRawResponse<UpdateCalendarResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1066,6 +1174,18 @@ public partial class CalendarClient : ICalendarClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1092,6 +1212,18 @@ public partial class CalendarClient : ICalendarClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1158,8 +1290,8 @@ public partial class CalendarClient : ICalendarClient
         }
     }
 
-    private async Task<WithRawResponse<PostV1CalendarDeleteResponse>> PostV1CalendarDeleteAsyncCore(
-        PostV1CalendarDeleteRequest request,
+    private async Task<WithRawResponse<DeleteCalendarResponse>> DeleteAsyncCore(
+        DeleteCalendarRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1195,10 +1327,8 @@ public partial class CalendarClient : ICalendarClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CalendarDeleteResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1CalendarDeleteResponse>()
+                var responseData = JsonUtils.Deserialize<DeleteCalendarResponse>(responseBody)!;
+                return new WithRawResponse<DeleteCalendarResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1257,6 +1387,18 @@ public partial class CalendarClient : ICalendarClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1283,6 +1425,18 @@ public partial class CalendarClient : ICalendarClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1350,50 +1504,47 @@ public partial class CalendarClient : ICalendarClient
     }
 
     /// <example><code>
-    /// await client.Calendar.PostV1CalendarListAsync(new PostV1CalendarListRequest());
+    /// await client.Calendar.ListAsync(new ListCalendarRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1CalendarListResponse> PostV1CalendarListAsync(
-        PostV1CalendarListRequest request,
+    public WithRawResponseTask<ListCalendarResponse> ListAsync(
+        ListCalendarRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1CalendarListResponse>(
-            PostV1CalendarListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<ListCalendarResponse>(
+            ListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Calendar.PostV1CalendarGetAsync(new PostV1CalendarGetRequest { Key = "key" });
+    /// await client.Calendar.GetAsync(new GetCalendarRequest { Key = "key" });
     /// </code></example>
-    public WithRawResponseTask<PostV1CalendarGetResponse> PostV1CalendarGetAsync(
-        PostV1CalendarGetRequest request,
+    public WithRawResponseTask<GetCalendarResponse> GetAsync(
+        GetCalendarRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1CalendarGetResponse>(
-            PostV1CalendarGetAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<GetCalendarResponse>(
+            GetAsyncCore(request, options, cancellationToken)
         );
     }
 
+    /// <summary>
+    /// With amend: true the return is filed again as a correction of the one already submitted or accepted for the period; only returns whose format has a correction mark accept it.
+    /// </summary>
     /// <example><code>
-    /// await client.Calendar.GenerateTheFilingForADeadlineAndSendItToTheAdministrationAsync(
-    ///     new PostV1CalendarSubmitRequest { Key = "key" }
-    /// );
+    /// await client.Calendar.SubmitAsync(new SubmitCalendarRequest { Key = "key" });
     /// </code></example>
-    public WithRawResponseTask<PostV1CalendarSubmitResponse> GenerateTheFilingForADeadlineAndSendItToTheAdministrationAsync(
-        PostV1CalendarSubmitRequest request,
+    public WithRawResponseTask<SubmitCalendarResponse> SubmitAsync(
+        SubmitCalendarRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1CalendarSubmitResponse>(
-            GenerateTheFilingForADeadlineAndSendItToTheAdministrationAsyncCore(
-                request,
-                options,
-                cancellationToken
-            )
+        return new WithRawResponseTask<SubmitCalendarResponse>(
+            SubmitAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -1401,66 +1552,60 @@ public partial class CalendarClient : ICalendarClient
     /// Builds the file of a deadline whose format Nordlet produces but whose administration takes it only through the company's own account or program. Nothing is sent and no filing is recorded.
     /// </summary>
     /// <example><code>
-    /// await client.Calendar.GenerateTheFileOfADeadlineForTheCompanyToSendItselfAsync(
-    ///     new PostV1CalendarDownloadRequest { Key = "key" }
+    /// await client.Calendar.DownloadAsync(new DownloadCalendarRequest { Key = "key" });
+    /// </code></example>
+    public WithRawResponseTask<DownloadCalendarResponse> DownloadAsync(
+        DownloadCalendarRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<DownloadCalendarResponse>(
+            DownloadAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Calendar.CreateAsync(
+    ///     new CreateCalendarRequest { Title = "title", DueDate = new DateOnly(2026, 7, 1) }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1CalendarDownloadResponse> GenerateTheFileOfADeadlineForTheCompanyToSendItselfAsync(
-        PostV1CalendarDownloadRequest request,
+    public WithRawResponseTask<CreateCalendarResponse> CreateAsync(
+        CreateCalendarRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1CalendarDownloadResponse>(
-            GenerateTheFileOfADeadlineForTheCompanyToSendItselfAsyncCore(
-                request,
-                options,
-                cancellationToken
-            )
+        return new WithRawResponseTask<CreateCalendarResponse>(
+            CreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Calendar.PostV1CalendarCreateAsync(
-    ///     new PostV1CalendarCreateRequest { Title = "title", DueDate = "dueDate" }
-    /// );
+    /// await client.Calendar.UpdateAsync(new UpdateCalendarRequest { Key = "key" });
     /// </code></example>
-    public WithRawResponseTask<PostV1CalendarCreateResponse> PostV1CalendarCreateAsync(
-        PostV1CalendarCreateRequest request,
+    public WithRawResponseTask<UpdateCalendarResponse> UpdateAsync(
+        UpdateCalendarRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1CalendarCreateResponse>(
-            PostV1CalendarCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<UpdateCalendarResponse>(
+            UpdateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Calendar.PostV1CalendarUpdateAsync(new PostV1CalendarUpdateRequest { Key = "key" });
+    /// await client.Calendar.DeleteAsync(new DeleteCalendarRequest { Key = "key" });
     /// </code></example>
-    public WithRawResponseTask<PostV1CalendarUpdateResponse> PostV1CalendarUpdateAsync(
-        PostV1CalendarUpdateRequest request,
+    public WithRawResponseTask<DeleteCalendarResponse> DeleteAsync(
+        DeleteCalendarRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1CalendarUpdateResponse>(
-            PostV1CalendarUpdateAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Calendar.PostV1CalendarDeleteAsync(new PostV1CalendarDeleteRequest { Key = "key" });
-    /// </code></example>
-    public WithRawResponseTask<PostV1CalendarDeleteResponse> PostV1CalendarDeleteAsync(
-        PostV1CalendarDeleteRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1CalendarDeleteResponse>(
-            PostV1CalendarDeleteAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<DeleteCalendarResponse>(
+            DeleteAsyncCore(request, options, cancellationToken)
         );
     }
 }

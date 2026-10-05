@@ -12,10 +12,8 @@ public partial class CaptureClient : ICaptureClient
         _client = client;
     }
 
-    private async Task<
-        WithRawResponse<PostV1CaptureSettingsGetResponse>
-    > PostV1CaptureSettingsGetAsyncCore(
-        PostV1CaptureSettingsGetRequest request,
+    private async Task<WithRawResponse<SettingsGetCaptureResponse>> SettingsGetAsyncCore(
+        SettingsGetCaptureRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -51,10 +49,8 @@ public partial class CaptureClient : ICaptureClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CaptureSettingsGetResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1CaptureSettingsGetResponse>()
+                var responseData = JsonUtils.Deserialize<SettingsGetCaptureResponse>(responseBody)!;
+                return new WithRawResponse<SettingsGetCaptureResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -113,6 +109,18 @@ public partial class CaptureClient : ICaptureClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -139,6 +147,18 @@ public partial class CaptureClient : ICaptureClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -205,10 +225,8 @@ public partial class CaptureClient : ICaptureClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1CaptureSettingsUpdateResponse>
-    > PostV1CaptureSettingsUpdateAsyncCore(
-        PostV1CaptureSettingsUpdateRequest request,
+    private async Task<WithRawResponse<SettingsUpdateCaptureResponse>> SettingsUpdateAsyncCore(
+        SettingsUpdateCaptureRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -244,10 +262,10 @@ public partial class CaptureClient : ICaptureClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CaptureSettingsUpdateResponse>(
+                var responseData = JsonUtils.Deserialize<SettingsUpdateCaptureResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1CaptureSettingsUpdateResponse>()
+                return new WithRawResponse<SettingsUpdateCaptureResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -306,6 +324,18 @@ public partial class CaptureClient : ICaptureClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -332,6 +362,18 @@ public partial class CaptureClient : ICaptureClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -399,9 +441,9 @@ public partial class CaptureClient : ICaptureClient
     }
 
     private async Task<
-        WithRawResponse<PostV1CaptureSettingsRegenerateIntakeResponse>
-    > PostV1CaptureSettingsRegenerateIntakeAsyncCore(
-        PostV1CaptureSettingsRegenerateIntakeRequest request,
+        WithRawResponse<SettingsRegenerateIntakeCaptureResponse>
+    > SettingsRegenerateIntakeAsyncCore(
+        SettingsRegenerateIntakeCaptureRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -437,11 +479,10 @@ public partial class CaptureClient : ICaptureClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1CaptureSettingsRegenerateIntakeResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1CaptureSettingsRegenerateIntakeResponse>()
+                var responseData = JsonUtils.Deserialize<SettingsRegenerateIntakeCaptureResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<SettingsRegenerateIntakeCaptureResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -500,6 +541,18 @@ public partial class CaptureClient : ICaptureClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -526,6 +579,18 @@ public partial class CaptureClient : ICaptureClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -592,10 +657,8 @@ public partial class CaptureClient : ICaptureClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1CaptureInboundEmailResponse>
-    > ReceiveAnInboundEmailWithSupplierDocumentsAttachedPostmarkStyleOrGenericJsonAsyncCore(
-        PostV1CaptureInboundEmailRequest request,
+    private async Task<WithRawResponse<InboundEmailCaptureResponse>> InboundEmailAsyncCore(
+        InboundEmailCaptureRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -631,10 +694,10 @@ public partial class CaptureClient : ICaptureClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CaptureInboundEmailResponse>(
+                var responseData = JsonUtils.Deserialize<InboundEmailCaptureResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1CaptureInboundEmailResponse>()
+                return new WithRawResponse<InboundEmailCaptureResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -693,6 +756,18 @@ public partial class CaptureClient : ICaptureClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -719,6 +794,18 @@ public partial class CaptureClient : ICaptureClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -785,10 +872,8 @@ public partial class CaptureClient : ICaptureClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1CaptureDocumentsUploadResponse>
-    > ReadAVendorBillOrReceiptAndReturnAnEditablePurchaseInvoiceDraftAsyncCore(
-        PostV1CaptureDocumentsUploadRequest request,
+    private async Task<WithRawResponse<DocumentsUploadCaptureResponse>> DocumentsUploadAsyncCore(
+        DocumentsUploadCaptureRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -824,10 +909,10 @@ public partial class CaptureClient : ICaptureClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CaptureDocumentsUploadResponse>(
+                var responseData = JsonUtils.Deserialize<DocumentsUploadCaptureResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1CaptureDocumentsUploadResponse>()
+                return new WithRawResponse<DocumentsUploadCaptureResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -886,6 +971,18 @@ public partial class CaptureClient : ICaptureClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -912,6 +1009,18 @@ public partial class CaptureClient : ICaptureClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -978,10 +1087,8 @@ public partial class CaptureClient : ICaptureClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1CaptureDocumentsExtractResponse>
-    > ReReadAStoredCaptureReplacingThePreviousDraftAsyncCore(
-        PostV1CaptureDocumentsExtractRequest request,
+    private async Task<WithRawResponse<DocumentsExtractCaptureResponse>> DocumentsExtractAsyncCore(
+        DocumentsExtractCaptureRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1017,10 +1124,10 @@ public partial class CaptureClient : ICaptureClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CaptureDocumentsExtractResponse>(
+                var responseData = JsonUtils.Deserialize<DocumentsExtractCaptureResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1CaptureDocumentsExtractResponse>()
+                return new WithRawResponse<DocumentsExtractCaptureResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1079,6 +1186,18 @@ public partial class CaptureClient : ICaptureClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1105,6 +1224,18 @@ public partial class CaptureClient : ICaptureClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1171,10 +1302,8 @@ public partial class CaptureClient : ICaptureClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1CaptureDocumentsGetResponse>
-    > PostV1CaptureDocumentsGetAsyncCore(
-        PostV1CaptureDocumentsGetRequest request,
+    private async Task<WithRawResponse<DocumentsGetCaptureResponse>> DocumentsGetAsyncCore(
+        DocumentsGetCaptureRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1210,10 +1339,10 @@ public partial class CaptureClient : ICaptureClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CaptureDocumentsGetResponse>(
+                var responseData = JsonUtils.Deserialize<DocumentsGetCaptureResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1CaptureDocumentsGetResponse>()
+                return new WithRawResponse<DocumentsGetCaptureResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1272,6 +1401,18 @@ public partial class CaptureClient : ICaptureClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1298,6 +1439,18 @@ public partial class CaptureClient : ICaptureClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1364,10 +1517,8 @@ public partial class CaptureClient : ICaptureClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1CaptureDocumentsListResponse>
-    > PostV1CaptureDocumentsListAsyncCore(
-        PostV1CaptureDocumentsListRequest request,
+    private async Task<WithRawResponse<DocumentsListCaptureResponse>> DocumentsListAsyncCore(
+        DocumentsListCaptureRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1403,10 +1554,10 @@ public partial class CaptureClient : ICaptureClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CaptureDocumentsListResponse>(
+                var responseData = JsonUtils.Deserialize<DocumentsListCaptureResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1CaptureDocumentsListResponse>()
+                return new WithRawResponse<DocumentsListCaptureResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1465,6 +1616,18 @@ public partial class CaptureClient : ICaptureClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1491,6 +1654,18 @@ public partial class CaptureClient : ICaptureClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1557,10 +1732,8 @@ public partial class CaptureClient : ICaptureClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1CaptureDocumentsDeleteResponse>
-    > PostV1CaptureDocumentsDeleteAsyncCore(
-        PostV1CaptureDocumentsDeleteRequest request,
+    private async Task<WithRawResponse<DocumentsDeleteCaptureResponse>> DocumentsDeleteAsyncCore(
+        DocumentsDeleteCaptureRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1596,10 +1769,10 @@ public partial class CaptureClient : ICaptureClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CaptureDocumentsDeleteResponse>(
+                var responseData = JsonUtils.Deserialize<DocumentsDeleteCaptureResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1CaptureDocumentsDeleteResponse>()
+                return new WithRawResponse<DocumentsDeleteCaptureResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1658,6 +1831,18 @@ public partial class CaptureClient : ICaptureClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1684,6 +1869,18 @@ public partial class CaptureClient : ICaptureClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1750,10 +1947,8 @@ public partial class CaptureClient : ICaptureClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1CaptureDocumentsConfirmResponse>
-    > SaveTheReviewedDraftAsAPurchaseInvoiceAndAttachTheOriginalDocumentAsyncCore(
-        PostV1CaptureDocumentsConfirmRequest request,
+    private async Task<WithRawResponse<DocumentsConfirmCaptureResponse>> DocumentsConfirmAsyncCore(
+        DocumentsConfirmCaptureRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1789,10 +1984,10 @@ public partial class CaptureClient : ICaptureClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CaptureDocumentsConfirmResponse>(
+                var responseData = JsonUtils.Deserialize<DocumentsConfirmCaptureResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1CaptureDocumentsConfirmResponse>()
+                return new WithRawResponse<DocumentsConfirmCaptureResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1851,6 +2046,18 @@ public partial class CaptureClient : ICaptureClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1877,6 +2084,18 @@ public partial class CaptureClient : ICaptureClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1944,72 +2163,64 @@ public partial class CaptureClient : ICaptureClient
     }
 
     /// <example><code>
-    /// await client.Capture.PostV1CaptureSettingsGetAsync(new PostV1CaptureSettingsGetRequest());
+    /// await client.Capture.SettingsGetAsync(new SettingsGetCaptureRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1CaptureSettingsGetResponse> PostV1CaptureSettingsGetAsync(
-        PostV1CaptureSettingsGetRequest request,
+    public WithRawResponseTask<SettingsGetCaptureResponse> SettingsGetAsync(
+        SettingsGetCaptureRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1CaptureSettingsGetResponse>(
-            PostV1CaptureSettingsGetAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<SettingsGetCaptureResponse>(
+            SettingsGetAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Capture.PostV1CaptureSettingsUpdateAsync(new PostV1CaptureSettingsUpdateRequest());
+    /// await client.Capture.SettingsUpdateAsync(new SettingsUpdateCaptureRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1CaptureSettingsUpdateResponse> PostV1CaptureSettingsUpdateAsync(
-        PostV1CaptureSettingsUpdateRequest request,
+    public WithRawResponseTask<SettingsUpdateCaptureResponse> SettingsUpdateAsync(
+        SettingsUpdateCaptureRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1CaptureSettingsUpdateResponse>(
-            PostV1CaptureSettingsUpdateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<SettingsUpdateCaptureResponse>(
+            SettingsUpdateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Capture.PostV1CaptureSettingsRegenerateIntakeAsync(
-    ///     new PostV1CaptureSettingsRegenerateIntakeRequest()
-    /// );
+    /// await client.Capture.SettingsRegenerateIntakeAsync(new SettingsRegenerateIntakeCaptureRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1CaptureSettingsRegenerateIntakeResponse> PostV1CaptureSettingsRegenerateIntakeAsync(
-        PostV1CaptureSettingsRegenerateIntakeRequest request,
+    public WithRawResponseTask<SettingsRegenerateIntakeCaptureResponse> SettingsRegenerateIntakeAsync(
+        SettingsRegenerateIntakeCaptureRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1CaptureSettingsRegenerateIntakeResponse>(
-            PostV1CaptureSettingsRegenerateIntakeAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<SettingsRegenerateIntakeCaptureResponse>(
+            SettingsRegenerateIntakeAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Capture.ReceiveAnInboundEmailWithSupplierDocumentsAttachedPostmarkStyleOrGenericJsonAsync(
-    ///     new PostV1CaptureInboundEmailRequest()
-    /// );
+    /// await client.Capture.InboundEmailAsync(new InboundEmailCaptureRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1CaptureInboundEmailResponse> ReceiveAnInboundEmailWithSupplierDocumentsAttachedPostmarkStyleOrGenericJsonAsync(
-        PostV1CaptureInboundEmailRequest request,
+    public WithRawResponseTask<InboundEmailCaptureResponse> InboundEmailAsync(
+        InboundEmailCaptureRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1CaptureInboundEmailResponse>(
-            ReceiveAnInboundEmailWithSupplierDocumentsAttachedPostmarkStyleOrGenericJsonAsyncCore(
-                request,
-                options,
-                cancellationToken
-            )
+        return new WithRawResponseTask<InboundEmailCaptureResponse>(
+            InboundEmailAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Capture.ReadAVendorBillOrReceiptAndReturnAnEditablePurchaseInvoiceDraftAsync(
-    ///     new PostV1CaptureDocumentsUploadRequest
+    /// await client.Capture.DocumentsUploadAsync(
+    ///     new DocumentsUploadCaptureRequest
     ///     {
     ///         FileName = "fileName",
     ///         MimeType = "mimeType",
@@ -2017,113 +2228,95 @@ public partial class CaptureClient : ICaptureClient
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1CaptureDocumentsUploadResponse> ReadAVendorBillOrReceiptAndReturnAnEditablePurchaseInvoiceDraftAsync(
-        PostV1CaptureDocumentsUploadRequest request,
+    public WithRawResponseTask<DocumentsUploadCaptureResponse> DocumentsUploadAsync(
+        DocumentsUploadCaptureRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1CaptureDocumentsUploadResponse>(
-            ReadAVendorBillOrReceiptAndReturnAnEditablePurchaseInvoiceDraftAsyncCore(
-                request,
-                options,
-                cancellationToken
-            )
+        return new WithRawResponseTask<DocumentsUploadCaptureResponse>(
+            DocumentsUploadAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Capture.ReReadAStoredCaptureReplacingThePreviousDraftAsync(
-    ///     new PostV1CaptureDocumentsExtractRequest { Id = "id" }
-    /// );
+    /// await client.Capture.DocumentsExtractAsync(new DocumentsExtractCaptureRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1CaptureDocumentsExtractResponse> ReReadAStoredCaptureReplacingThePreviousDraftAsync(
-        PostV1CaptureDocumentsExtractRequest request,
+    public WithRawResponseTask<DocumentsExtractCaptureResponse> DocumentsExtractAsync(
+        DocumentsExtractCaptureRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1CaptureDocumentsExtractResponse>(
-            ReReadAStoredCaptureReplacingThePreviousDraftAsyncCore(
-                request,
-                options,
-                cancellationToken
-            )
+        return new WithRawResponseTask<DocumentsExtractCaptureResponse>(
+            DocumentsExtractAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Capture.PostV1CaptureDocumentsGetAsync(
-    ///     new PostV1CaptureDocumentsGetRequest { Id = "id" }
-    /// );
+    /// await client.Capture.DocumentsGetAsync(new DocumentsGetCaptureRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1CaptureDocumentsGetResponse> PostV1CaptureDocumentsGetAsync(
-        PostV1CaptureDocumentsGetRequest request,
+    public WithRawResponseTask<DocumentsGetCaptureResponse> DocumentsGetAsync(
+        DocumentsGetCaptureRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1CaptureDocumentsGetResponse>(
-            PostV1CaptureDocumentsGetAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<DocumentsGetCaptureResponse>(
+            DocumentsGetAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Capture.PostV1CaptureDocumentsListAsync(new PostV1CaptureDocumentsListRequest());
+    /// await client.Capture.DocumentsListAsync(new DocumentsListCaptureRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1CaptureDocumentsListResponse> PostV1CaptureDocumentsListAsync(
-        PostV1CaptureDocumentsListRequest request,
+    public WithRawResponseTask<DocumentsListCaptureResponse> DocumentsListAsync(
+        DocumentsListCaptureRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1CaptureDocumentsListResponse>(
-            PostV1CaptureDocumentsListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<DocumentsListCaptureResponse>(
+            DocumentsListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Capture.PostV1CaptureDocumentsDeleteAsync(
-    ///     new PostV1CaptureDocumentsDeleteRequest { Id = "id" }
-    /// );
+    /// await client.Capture.DocumentsDeleteAsync(new DocumentsDeleteCaptureRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1CaptureDocumentsDeleteResponse> PostV1CaptureDocumentsDeleteAsync(
-        PostV1CaptureDocumentsDeleteRequest request,
+    public WithRawResponseTask<DocumentsDeleteCaptureResponse> DocumentsDeleteAsync(
+        DocumentsDeleteCaptureRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1CaptureDocumentsDeleteResponse>(
-            PostV1CaptureDocumentsDeleteAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<DocumentsDeleteCaptureResponse>(
+            DocumentsDeleteAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Capture.SaveTheReviewedDraftAsAPurchaseInvoiceAndAttachTheOriginalDocumentAsync(
-    ///     new PostV1CaptureDocumentsConfirmRequest
+    /// await client.Capture.DocumentsConfirmAsync(
+    ///     new DocumentsConfirmCaptureRequest
     ///     {
     ///         Id = "id",
     ///         DocumentNumber = "documentNumber",
-    ///         DocumentDate = "documentDate",
-    ///         Lines = new List&lt;PostV1CaptureDocumentsConfirmRequestLinesItem&gt;()
+    ///         DocumentDate = new DateOnly(2026, 7, 1),
+    ///         Lines = new List&lt;DocumentsConfirmCaptureRequestLinesItem&gt;()
     ///         {
-    ///             new PostV1CaptureDocumentsConfirmRequestLinesItem(),
+    ///             new DocumentsConfirmCaptureRequestLinesItem(),
     ///         },
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1CaptureDocumentsConfirmResponse> SaveTheReviewedDraftAsAPurchaseInvoiceAndAttachTheOriginalDocumentAsync(
-        PostV1CaptureDocumentsConfirmRequest request,
+    public WithRawResponseTask<DocumentsConfirmCaptureResponse> DocumentsConfirmAsync(
+        DocumentsConfirmCaptureRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1CaptureDocumentsConfirmResponse>(
-            SaveTheReviewedDraftAsAPurchaseInvoiceAndAttachTheOriginalDocumentAsyncCore(
-                request,
-                options,
-                cancellationToken
-            )
+        return new WithRawResponseTask<DocumentsConfirmCaptureResponse>(
+            DocumentsConfirmAsyncCore(request, options, cancellationToken)
         );
     }
 }

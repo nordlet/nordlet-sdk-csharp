@@ -12,8 +12,8 @@ public partial class ProjectsClient : IProjectsClient
         _client = client;
     }
 
-    private async Task<WithRawResponse<PostV1ProjectsCreateResponse>> PostV1ProjectsCreateAsyncCore(
-        PostV1ProjectsCreateRequest request,
+    private async Task<WithRawResponse<CreateProjectsResponse>> CreateAsyncCore(
+        CreateProjectsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -49,10 +49,8 @@ public partial class ProjectsClient : IProjectsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1ProjectsCreateResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1ProjectsCreateResponse>()
+                var responseData = JsonUtils.Deserialize<CreateProjectsResponse>(responseBody)!;
+                return new WithRawResponse<CreateProjectsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -111,6 +109,18 @@ public partial class ProjectsClient : IProjectsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -137,6 +147,18 @@ public partial class ProjectsClient : IProjectsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -203,8 +225,8 @@ public partial class ProjectsClient : IProjectsClient
         }
     }
 
-    private async Task<WithRawResponse<PostV1ProjectsUpdateResponse>> PostV1ProjectsUpdateAsyncCore(
-        PostV1ProjectsUpdateRequest request,
+    private async Task<WithRawResponse<UpdateProjectsResponse>> UpdateAsyncCore(
+        UpdateProjectsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -240,10 +262,8 @@ public partial class ProjectsClient : IProjectsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1ProjectsUpdateResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1ProjectsUpdateResponse>()
+                var responseData = JsonUtils.Deserialize<UpdateProjectsResponse>(responseBody)!;
+                return new WithRawResponse<UpdateProjectsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -302,6 +322,18 @@ public partial class ProjectsClient : IProjectsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -328,6 +360,18 @@ public partial class ProjectsClient : IProjectsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -394,8 +438,8 @@ public partial class ProjectsClient : IProjectsClient
         }
     }
 
-    private async Task<WithRawResponse<PostV1ProjectsGetResponse>> PostV1ProjectsGetAsyncCore(
-        PostV1ProjectsGetRequest request,
+    private async Task<WithRawResponse<GetProjectsResponse>> GetAsyncCore(
+        GetProjectsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -431,8 +475,8 @@ public partial class ProjectsClient : IProjectsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1ProjectsGetResponse>(responseBody)!;
-                return new WithRawResponse<PostV1ProjectsGetResponse>()
+                var responseData = JsonUtils.Deserialize<GetProjectsResponse>(responseBody)!;
+                return new WithRawResponse<GetProjectsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -491,6 +535,18 @@ public partial class ProjectsClient : IProjectsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -517,6 +573,18 @@ public partial class ProjectsClient : IProjectsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -583,8 +651,8 @@ public partial class ProjectsClient : IProjectsClient
         }
     }
 
-    private async Task<WithRawResponse<PostV1ProjectsListResponse>> PostV1ProjectsListAsyncCore(
-        PostV1ProjectsListRequest request,
+    private async Task<WithRawResponse<ListProjectsResponse>> ListAsyncCore(
+        ListProjectsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -620,8 +688,8 @@ public partial class ProjectsClient : IProjectsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1ProjectsListResponse>(responseBody)!;
-                return new WithRawResponse<PostV1ProjectsListResponse>()
+                var responseData = JsonUtils.Deserialize<ListProjectsResponse>(responseBody)!;
+                return new WithRawResponse<ListProjectsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -680,6 +748,18 @@ public partial class ProjectsClient : IProjectsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -706,6 +786,18 @@ public partial class ProjectsClient : IProjectsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -773,9 +865,9 @@ public partial class ProjectsClient : IProjectsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1ProjectsTimeEntriesCreateResponse>
-    > PostV1ProjectsTimeEntriesCreateAsyncCore(
-        PostV1ProjectsTimeEntriesCreateRequest request,
+        WithRawResponse<TimeEntriesCreateProjectsResponse>
+    > TimeEntriesCreateAsyncCore(
+        TimeEntriesCreateProjectsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -811,10 +903,10 @@ public partial class ProjectsClient : IProjectsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1ProjectsTimeEntriesCreateResponse>(
+                var responseData = JsonUtils.Deserialize<TimeEntriesCreateProjectsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1ProjectsTimeEntriesCreateResponse>()
+                return new WithRawResponse<TimeEntriesCreateProjectsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -873,6 +965,18 @@ public partial class ProjectsClient : IProjectsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -899,6 +1003,18 @@ public partial class ProjectsClient : IProjectsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -966,9 +1082,9 @@ public partial class ProjectsClient : IProjectsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1ProjectsTimeEntriesUpdateResponse>
-    > PostV1ProjectsTimeEntriesUpdateAsyncCore(
-        PostV1ProjectsTimeEntriesUpdateRequest request,
+        WithRawResponse<TimeEntriesUpdateProjectsResponse>
+    > TimeEntriesUpdateAsyncCore(
+        TimeEntriesUpdateProjectsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1004,10 +1120,10 @@ public partial class ProjectsClient : IProjectsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1ProjectsTimeEntriesUpdateResponse>(
+                var responseData = JsonUtils.Deserialize<TimeEntriesUpdateProjectsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1ProjectsTimeEntriesUpdateResponse>()
+                return new WithRawResponse<TimeEntriesUpdateProjectsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1066,6 +1182,18 @@ public partial class ProjectsClient : IProjectsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1092,6 +1220,18 @@ public partial class ProjectsClient : IProjectsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1159,9 +1299,9 @@ public partial class ProjectsClient : IProjectsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1ProjectsTimeEntriesDeleteResponse>
-    > PostV1ProjectsTimeEntriesDeleteAsyncCore(
-        PostV1ProjectsTimeEntriesDeleteRequest request,
+        WithRawResponse<TimeEntriesDeleteProjectsResponse>
+    > TimeEntriesDeleteAsyncCore(
+        TimeEntriesDeleteProjectsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1197,10 +1337,10 @@ public partial class ProjectsClient : IProjectsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1ProjectsTimeEntriesDeleteResponse>(
+                var responseData = JsonUtils.Deserialize<TimeEntriesDeleteProjectsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1ProjectsTimeEntriesDeleteResponse>()
+                return new WithRawResponse<TimeEntriesDeleteProjectsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1259,6 +1399,18 @@ public partial class ProjectsClient : IProjectsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1285,6 +1437,18 @@ public partial class ProjectsClient : IProjectsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1351,10 +1515,8 @@ public partial class ProjectsClient : IProjectsClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1ProjectsTimeEntriesListResponse>
-    > PostV1ProjectsTimeEntriesListAsyncCore(
-        PostV1ProjectsTimeEntriesListRequest request,
+    private async Task<WithRawResponse<TimeEntriesListProjectsResponse>> TimeEntriesListAsyncCore(
+        TimeEntriesListProjectsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1390,10 +1552,10 @@ public partial class ProjectsClient : IProjectsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1ProjectsTimeEntriesListResponse>(
+                var responseData = JsonUtils.Deserialize<TimeEntriesListProjectsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1ProjectsTimeEntriesListResponse>()
+                return new WithRawResponse<TimeEntriesListProjectsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1452,6 +1614,18 @@ public partial class ProjectsClient : IProjectsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1478,6 +1652,18 @@ public partial class ProjectsClient : IProjectsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1544,10 +1730,8 @@ public partial class ProjectsClient : IProjectsClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1ProjectsTimeEntriesBillResponse>
-    > PostV1ProjectsTimeEntriesBillAsyncCore(
-        PostV1ProjectsTimeEntriesBillRequest request,
+    private async Task<WithRawResponse<TimeEntriesBillProjectsResponse>> TimeEntriesBillAsyncCore(
+        TimeEntriesBillProjectsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1583,10 +1767,10 @@ public partial class ProjectsClient : IProjectsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1ProjectsTimeEntriesBillResponse>(
+                var responseData = JsonUtils.Deserialize<TimeEntriesBillProjectsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1ProjectsTimeEntriesBillResponse>()
+                return new WithRawResponse<TimeEntriesBillProjectsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1645,6 +1829,18 @@ public partial class ProjectsClient : IProjectsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1671,6 +1867,18 @@ public partial class ProjectsClient : IProjectsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1737,8 +1945,8 @@ public partial class ProjectsClient : IProjectsClient
         }
     }
 
-    private async Task<WithRawResponse<PostV1ProjectsReportResponse>> PostV1ProjectsReportAsyncCore(
-        PostV1ProjectsReportRequest request,
+    private async Task<WithRawResponse<ReportProjectsResponse>> ReportAsyncCore(
+        ReportProjectsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1774,10 +1982,8 @@ public partial class ProjectsClient : IProjectsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1ProjectsReportResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1ProjectsReportResponse>()
+                var responseData = JsonUtils.Deserialize<ReportProjectsResponse>(responseBody)!;
+                return new WithRawResponse<ReportProjectsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1836,6 +2042,18 @@ public partial class ProjectsClient : IProjectsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1862,6 +2080,18 @@ public partial class ProjectsClient : IProjectsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1929,159 +2159,151 @@ public partial class ProjectsClient : IProjectsClient
     }
 
     /// <example><code>
-    /// await client.Projects.PostV1ProjectsCreateAsync(
-    ///     new PostV1ProjectsCreateRequest { Code = "code", Name = "name" }
-    /// );
+    /// await client.Projects.CreateAsync(new CreateProjectsRequest { Code = "code", Name = "name" });
     /// </code></example>
-    public WithRawResponseTask<PostV1ProjectsCreateResponse> PostV1ProjectsCreateAsync(
-        PostV1ProjectsCreateRequest request,
+    public WithRawResponseTask<CreateProjectsResponse> CreateAsync(
+        CreateProjectsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ProjectsCreateResponse>(
-            PostV1ProjectsCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<CreateProjectsResponse>(
+            CreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Projects.PostV1ProjectsUpdateAsync(new PostV1ProjectsUpdateRequest { Id = "id" });
+    /// await client.Projects.UpdateAsync(new UpdateProjectsRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1ProjectsUpdateResponse> PostV1ProjectsUpdateAsync(
-        PostV1ProjectsUpdateRequest request,
+    public WithRawResponseTask<UpdateProjectsResponse> UpdateAsync(
+        UpdateProjectsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ProjectsUpdateResponse>(
-            PostV1ProjectsUpdateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<UpdateProjectsResponse>(
+            UpdateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Projects.PostV1ProjectsGetAsync(new PostV1ProjectsGetRequest { Id = "id" });
+    /// await client.Projects.GetAsync(new GetProjectsRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1ProjectsGetResponse> PostV1ProjectsGetAsync(
-        PostV1ProjectsGetRequest request,
+    public WithRawResponseTask<GetProjectsResponse> GetAsync(
+        GetProjectsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ProjectsGetResponse>(
-            PostV1ProjectsGetAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<GetProjectsResponse>(
+            GetAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Projects.PostV1ProjectsListAsync(new PostV1ProjectsListRequest());
+    /// await client.Projects.ListAsync(new ListProjectsRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1ProjectsListResponse> PostV1ProjectsListAsync(
-        PostV1ProjectsListRequest request,
+    public WithRawResponseTask<ListProjectsResponse> ListAsync(
+        ListProjectsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ProjectsListResponse>(
-            PostV1ProjectsListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<ListProjectsResponse>(
+            ListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Projects.PostV1ProjectsTimeEntriesCreateAsync(
-    ///     new PostV1ProjectsTimeEntriesCreateRequest
+    /// await client.Projects.TimeEntriesCreateAsync(
+    ///     new TimeEntriesCreateProjectsRequest
     ///     {
     ///         ProjectId = "projectId",
-    ///         Date = "date",
-    ///         Hours = "hours",
+    ///         Date = new DateOnly(2026, 7, 1),
+    ///         Hours = "121.00",
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1ProjectsTimeEntriesCreateResponse> PostV1ProjectsTimeEntriesCreateAsync(
-        PostV1ProjectsTimeEntriesCreateRequest request,
+    public WithRawResponseTask<TimeEntriesCreateProjectsResponse> TimeEntriesCreateAsync(
+        TimeEntriesCreateProjectsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ProjectsTimeEntriesCreateResponse>(
-            PostV1ProjectsTimeEntriesCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<TimeEntriesCreateProjectsResponse>(
+            TimeEntriesCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Projects.PostV1ProjectsTimeEntriesUpdateAsync(
-    ///     new PostV1ProjectsTimeEntriesUpdateRequest { Id = "id" }
+    /// await client.Projects.TimeEntriesUpdateAsync(new TimeEntriesUpdateProjectsRequest { Id = "id" });
+    /// </code></example>
+    public WithRawResponseTask<TimeEntriesUpdateProjectsResponse> TimeEntriesUpdateAsync(
+        TimeEntriesUpdateProjectsRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<TimeEntriesUpdateProjectsResponse>(
+            TimeEntriesUpdateAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Projects.TimeEntriesDeleteAsync(new TimeEntriesDeleteProjectsRequest { Id = "id" });
+    /// </code></example>
+    public WithRawResponseTask<TimeEntriesDeleteProjectsResponse> TimeEntriesDeleteAsync(
+        TimeEntriesDeleteProjectsRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<TimeEntriesDeleteProjectsResponse>(
+            TimeEntriesDeleteAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Projects.TimeEntriesListAsync(new TimeEntriesListProjectsRequest());
+    /// </code></example>
+    public WithRawResponseTask<TimeEntriesListProjectsResponse> TimeEntriesListAsync(
+        TimeEntriesListProjectsRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<TimeEntriesListProjectsResponse>(
+            TimeEntriesListAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Projects.TimeEntriesBillAsync(
+    ///     new TimeEntriesBillProjectsRequest { ProjectId = "projectId" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1ProjectsTimeEntriesUpdateResponse> PostV1ProjectsTimeEntriesUpdateAsync(
-        PostV1ProjectsTimeEntriesUpdateRequest request,
+    public WithRawResponseTask<TimeEntriesBillProjectsResponse> TimeEntriesBillAsync(
+        TimeEntriesBillProjectsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ProjectsTimeEntriesUpdateResponse>(
-            PostV1ProjectsTimeEntriesUpdateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<TimeEntriesBillProjectsResponse>(
+            TimeEntriesBillAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Projects.PostV1ProjectsTimeEntriesDeleteAsync(
-    ///     new PostV1ProjectsTimeEntriesDeleteRequest { Id = "id" }
-    /// );
+    /// await client.Projects.ReportAsync(new ReportProjectsRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1ProjectsTimeEntriesDeleteResponse> PostV1ProjectsTimeEntriesDeleteAsync(
-        PostV1ProjectsTimeEntriesDeleteRequest request,
+    public WithRawResponseTask<ReportProjectsResponse> ReportAsync(
+        ReportProjectsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ProjectsTimeEntriesDeleteResponse>(
-            PostV1ProjectsTimeEntriesDeleteAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Projects.PostV1ProjectsTimeEntriesListAsync(
-    ///     new PostV1ProjectsTimeEntriesListRequest()
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1ProjectsTimeEntriesListResponse> PostV1ProjectsTimeEntriesListAsync(
-        PostV1ProjectsTimeEntriesListRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1ProjectsTimeEntriesListResponse>(
-            PostV1ProjectsTimeEntriesListAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Projects.PostV1ProjectsTimeEntriesBillAsync(
-    ///     new PostV1ProjectsTimeEntriesBillRequest { ProjectId = "projectId" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1ProjectsTimeEntriesBillResponse> PostV1ProjectsTimeEntriesBillAsync(
-        PostV1ProjectsTimeEntriesBillRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1ProjectsTimeEntriesBillResponse>(
-            PostV1ProjectsTimeEntriesBillAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Projects.PostV1ProjectsReportAsync(new PostV1ProjectsReportRequest());
-    /// </code></example>
-    public WithRawResponseTask<PostV1ProjectsReportResponse> PostV1ProjectsReportAsync(
-        PostV1ProjectsReportRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1ProjectsReportResponse>(
-            PostV1ProjectsReportAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<ReportProjectsResponse>(
+            ReportAsyncCore(request, options, cancellationToken)
         );
     }
 }

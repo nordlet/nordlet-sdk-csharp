@@ -12,10 +12,8 @@ public partial class EcommerceClient : IEcommerceClient
         _client = client;
     }
 
-    private async Task<
-        WithRawResponse<PostV1EcommerceOrdersCreateResponse>
-    > PostV1EcommerceOrdersCreateAsyncCore(
-        PostV1EcommerceOrdersCreateRequest request,
+    private async Task<WithRawResponse<OrdersCreateEcommerceResponse>> OrdersCreateAsyncCore(
+        OrdersCreateEcommerceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -51,10 +49,10 @@ public partial class EcommerceClient : IEcommerceClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1EcommerceOrdersCreateResponse>(
+                var responseData = JsonUtils.Deserialize<OrdersCreateEcommerceResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1EcommerceOrdersCreateResponse>()
+                return new WithRawResponse<OrdersCreateEcommerceResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -113,6 +111,18 @@ public partial class EcommerceClient : IEcommerceClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -139,6 +149,18 @@ public partial class EcommerceClient : IEcommerceClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -205,10 +227,8 @@ public partial class EcommerceClient : IEcommerceClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1EcommerceOrdersGetResponse>
-    > PostV1EcommerceOrdersGetAsyncCore(
-        PostV1EcommerceOrdersGetRequest request,
+    private async Task<WithRawResponse<OrdersGetEcommerceResponse>> OrdersGetAsyncCore(
+        OrdersGetEcommerceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -244,10 +264,8 @@ public partial class EcommerceClient : IEcommerceClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1EcommerceOrdersGetResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1EcommerceOrdersGetResponse>()
+                var responseData = JsonUtils.Deserialize<OrdersGetEcommerceResponse>(responseBody)!;
+                return new WithRawResponse<OrdersGetEcommerceResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -306,6 +324,18 @@ public partial class EcommerceClient : IEcommerceClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -332,6 +362,18 @@ public partial class EcommerceClient : IEcommerceClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -398,10 +440,8 @@ public partial class EcommerceClient : IEcommerceClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1EcommerceOrdersListResponse>
-    > PostV1EcommerceOrdersListAsyncCore(
-        PostV1EcommerceOrdersListRequest request,
+    private async Task<WithRawResponse<OrdersListEcommerceResponse>> OrdersListAsyncCore(
+        OrdersListEcommerceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -437,10 +477,10 @@ public partial class EcommerceClient : IEcommerceClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1EcommerceOrdersListResponse>(
+                var responseData = JsonUtils.Deserialize<OrdersListEcommerceResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1EcommerceOrdersListResponse>()
+                return new WithRawResponse<OrdersListEcommerceResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -499,6 +539,18 @@ public partial class EcommerceClient : IEcommerceClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -525,6 +577,18 @@ public partial class EcommerceClient : IEcommerceClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -591,10 +655,8 @@ public partial class EcommerceClient : IEcommerceClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1EcommerceOrdersReserveResponse>
-    > PostV1EcommerceOrdersReserveAsyncCore(
-        PostV1EcommerceOrdersReserveRequest request,
+    private async Task<WithRawResponse<OrdersReserveEcommerceResponse>> OrdersReserveAsyncCore(
+        OrdersReserveEcommerceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -630,10 +692,10 @@ public partial class EcommerceClient : IEcommerceClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1EcommerceOrdersReserveResponse>(
+                var responseData = JsonUtils.Deserialize<OrdersReserveEcommerceResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1EcommerceOrdersReserveResponse>()
+                return new WithRawResponse<OrdersReserveEcommerceResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -692,6 +754,18 @@ public partial class EcommerceClient : IEcommerceClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -718,6 +792,18 @@ public partial class EcommerceClient : IEcommerceClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -784,10 +870,8 @@ public partial class EcommerceClient : IEcommerceClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1EcommerceOrdersFulfillResponse>
-    > PostV1EcommerceOrdersFulfillAsyncCore(
-        PostV1EcommerceOrdersFulfillRequest request,
+    private async Task<WithRawResponse<OrdersFulfillEcommerceResponse>> OrdersFulfillAsyncCore(
+        OrdersFulfillEcommerceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -823,10 +907,10 @@ public partial class EcommerceClient : IEcommerceClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1EcommerceOrdersFulfillResponse>(
+                var responseData = JsonUtils.Deserialize<OrdersFulfillEcommerceResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1EcommerceOrdersFulfillResponse>()
+                return new WithRawResponse<OrdersFulfillEcommerceResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -885,6 +969,18 @@ public partial class EcommerceClient : IEcommerceClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -911,6 +1007,18 @@ public partial class EcommerceClient : IEcommerceClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -977,10 +1085,8 @@ public partial class EcommerceClient : IEcommerceClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1EcommerceOrdersCancelResponse>
-    > PostV1EcommerceOrdersCancelAsyncCore(
-        PostV1EcommerceOrdersCancelRequest request,
+    private async Task<WithRawResponse<OrdersCancelEcommerceResponse>> OrdersCancelAsyncCore(
+        OrdersCancelEcommerceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1016,10 +1122,10 @@ public partial class EcommerceClient : IEcommerceClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1EcommerceOrdersCancelResponse>(
+                var responseData = JsonUtils.Deserialize<OrdersCancelEcommerceResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1EcommerceOrdersCancelResponse>()
+                return new WithRawResponse<OrdersCancelEcommerceResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1078,6 +1184,18 @@ public partial class EcommerceClient : IEcommerceClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1104,6 +1222,18 @@ public partial class EcommerceClient : IEcommerceClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1170,10 +1300,8 @@ public partial class EcommerceClient : IEcommerceClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1EcommerceProductsListResponse>
-    > PostV1EcommerceProductsListAsyncCore(
-        PostV1EcommerceProductsListRequest request,
+    private async Task<WithRawResponse<ProductsListEcommerceResponse>> ProductsListAsyncCore(
+        ProductsListEcommerceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1209,10 +1337,10 @@ public partial class EcommerceClient : IEcommerceClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1EcommerceProductsListResponse>(
+                var responseData = JsonUtils.Deserialize<ProductsListEcommerceResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1EcommerceProductsListResponse>()
+                return new WithRawResponse<ProductsListEcommerceResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1271,6 +1399,18 @@ public partial class EcommerceClient : IEcommerceClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1297,6 +1437,18 @@ public partial class EcommerceClient : IEcommerceClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1363,10 +1515,8 @@ public partial class EcommerceClient : IEcommerceClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1EcommerceStockListResponse>
-    > PostV1EcommerceStockListAsyncCore(
-        PostV1EcommerceStockListRequest request,
+    private async Task<WithRawResponse<StockListEcommerceResponse>> StockListAsyncCore(
+        StockListEcommerceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1402,10 +1552,8 @@ public partial class EcommerceClient : IEcommerceClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1EcommerceStockListResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1EcommerceStockListResponse>()
+                var responseData = JsonUtils.Deserialize<StockListEcommerceResponse>(responseBody)!;
+                return new WithRawResponse<StockListEcommerceResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1464,6 +1612,18 @@ public partial class EcommerceClient : IEcommerceClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1490,6 +1650,18 @@ public partial class EcommerceClient : IEcommerceClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1557,135 +1729,127 @@ public partial class EcommerceClient : IEcommerceClient
     }
 
     /// <example><code>
-    /// await client.Ecommerce.PostV1EcommerceOrdersCreateAsync(
-    ///     new PostV1EcommerceOrdersCreateRequest
+    /// await client.Ecommerce.OrdersCreateAsync(
+    ///     new OrdersCreateEcommerceRequest
     ///     {
-    ///         Lines = new List&lt;PostV1EcommerceOrdersCreateRequestLinesItem&gt;()
+    ///         Lines = new List&lt;OrdersCreateEcommerceRequestLinesItem&gt;()
     ///         {
-    ///             new PostV1EcommerceOrdersCreateRequestLinesItem
+    ///             new OrdersCreateEcommerceRequestLinesItem
     ///             {
     ///                 Description = "description",
-    ///                 Quantity = "quantity",
-    ///                 UnitPriceExclVat = "unitPriceExclVat",
+    ///                 Quantity = "121.0000",
+    ///                 UnitPriceExclVat = "121.0000",
     ///             },
     ///         },
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1EcommerceOrdersCreateResponse> PostV1EcommerceOrdersCreateAsync(
-        PostV1EcommerceOrdersCreateRequest request,
+    public WithRawResponseTask<OrdersCreateEcommerceResponse> OrdersCreateAsync(
+        OrdersCreateEcommerceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1EcommerceOrdersCreateResponse>(
-            PostV1EcommerceOrdersCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<OrdersCreateEcommerceResponse>(
+            OrdersCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Ecommerce.PostV1EcommerceOrdersGetAsync(
-    ///     new PostV1EcommerceOrdersGetRequest { Id = "id" }
-    /// );
+    /// await client.Ecommerce.OrdersGetAsync(new OrdersGetEcommerceRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1EcommerceOrdersGetResponse> PostV1EcommerceOrdersGetAsync(
-        PostV1EcommerceOrdersGetRequest request,
+    public WithRawResponseTask<OrdersGetEcommerceResponse> OrdersGetAsync(
+        OrdersGetEcommerceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1EcommerceOrdersGetResponse>(
-            PostV1EcommerceOrdersGetAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<OrdersGetEcommerceResponse>(
+            OrdersGetAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Ecommerce.PostV1EcommerceOrdersListAsync(new PostV1EcommerceOrdersListRequest());
+    /// await client.Ecommerce.OrdersListAsync(new OrdersListEcommerceRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1EcommerceOrdersListResponse> PostV1EcommerceOrdersListAsync(
-        PostV1EcommerceOrdersListRequest request,
+    public WithRawResponseTask<OrdersListEcommerceResponse> OrdersListAsync(
+        OrdersListEcommerceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1EcommerceOrdersListResponse>(
-            PostV1EcommerceOrdersListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<OrdersListEcommerceResponse>(
+            OrdersListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Ecommerce.PostV1EcommerceOrdersReserveAsync(
-    ///     new PostV1EcommerceOrdersReserveRequest { Id = "id" }
-    /// );
+    /// await client.Ecommerce.OrdersReserveAsync(new OrdersReserveEcommerceRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1EcommerceOrdersReserveResponse> PostV1EcommerceOrdersReserveAsync(
-        PostV1EcommerceOrdersReserveRequest request,
+    public WithRawResponseTask<OrdersReserveEcommerceResponse> OrdersReserveAsync(
+        OrdersReserveEcommerceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1EcommerceOrdersReserveResponse>(
-            PostV1EcommerceOrdersReserveAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<OrdersReserveEcommerceResponse>(
+            OrdersReserveAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Ecommerce.PostV1EcommerceOrdersFulfillAsync(
-    ///     new PostV1EcommerceOrdersFulfillRequest { Id = "id" }
-    /// );
+    /// await client.Ecommerce.OrdersFulfillAsync(new OrdersFulfillEcommerceRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1EcommerceOrdersFulfillResponse> PostV1EcommerceOrdersFulfillAsync(
-        PostV1EcommerceOrdersFulfillRequest request,
+    public WithRawResponseTask<OrdersFulfillEcommerceResponse> OrdersFulfillAsync(
+        OrdersFulfillEcommerceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1EcommerceOrdersFulfillResponse>(
-            PostV1EcommerceOrdersFulfillAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<OrdersFulfillEcommerceResponse>(
+            OrdersFulfillAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Ecommerce.PostV1EcommerceOrdersCancelAsync(
-    ///     new PostV1EcommerceOrdersCancelRequest { Id = "id" }
-    /// );
+    /// await client.Ecommerce.OrdersCancelAsync(new OrdersCancelEcommerceRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1EcommerceOrdersCancelResponse> PostV1EcommerceOrdersCancelAsync(
-        PostV1EcommerceOrdersCancelRequest request,
+    public WithRawResponseTask<OrdersCancelEcommerceResponse> OrdersCancelAsync(
+        OrdersCancelEcommerceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1EcommerceOrdersCancelResponse>(
-            PostV1EcommerceOrdersCancelAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<OrdersCancelEcommerceResponse>(
+            OrdersCancelAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Ecommerce.PostV1EcommerceProductsListAsync(new PostV1EcommerceProductsListRequest());
+    /// await client.Ecommerce.ProductsListAsync(new ProductsListEcommerceRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1EcommerceProductsListResponse> PostV1EcommerceProductsListAsync(
-        PostV1EcommerceProductsListRequest request,
+    public WithRawResponseTask<ProductsListEcommerceResponse> ProductsListAsync(
+        ProductsListEcommerceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1EcommerceProductsListResponse>(
-            PostV1EcommerceProductsListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<ProductsListEcommerceResponse>(
+            ProductsListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Ecommerce.PostV1EcommerceStockListAsync(new PostV1EcommerceStockListRequest());
+    /// await client.Ecommerce.StockListAsync(new StockListEcommerceRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1EcommerceStockListResponse> PostV1EcommerceStockListAsync(
-        PostV1EcommerceStockListRequest request,
+    public WithRawResponseTask<StockListEcommerceResponse> StockListAsync(
+        StockListEcommerceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1EcommerceStockListResponse>(
-            PostV1EcommerceStockListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<StockListEcommerceResponse>(
+            StockListAsyncCore(request, options, cancellationToken)
         );
     }
 }

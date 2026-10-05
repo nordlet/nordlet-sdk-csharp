@@ -12,10 +12,8 @@ public partial class MigrationClient : IMigrationClient
         _client = client;
     }
 
-    private async Task<
-        WithRawResponse<PostV1MigrationBooksValidateResponse>
-    > CheckAHistoricalBooksPackageWithoutWritingAnythingAsyncCore(
-        PostV1MigrationBooksValidateRequest request,
+    private async Task<WithRawResponse<BooksValidateMigrationResponse>> BooksValidateAsyncCore(
+        BooksValidateMigrationRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -51,10 +49,10 @@ public partial class MigrationClient : IMigrationClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1MigrationBooksValidateResponse>(
+                var responseData = JsonUtils.Deserialize<BooksValidateMigrationResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1MigrationBooksValidateResponse>()
+                return new WithRawResponse<BooksValidateMigrationResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -113,6 +111,18 @@ public partial class MigrationClient : IMigrationClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -139,6 +149,18 @@ public partial class MigrationClient : IMigrationClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -205,10 +227,8 @@ public partial class MigrationClient : IMigrationClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1MigrationBooksImportResponse>
-    > ImportHistoricalBooksFromAPreviousAccountingSystemAsyncCore(
-        PostV1MigrationBooksImportRequest request,
+    private async Task<WithRawResponse<BooksImportMigrationResponse>> BooksImportAsyncCore(
+        BooksImportMigrationRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -244,10 +264,10 @@ public partial class MigrationClient : IMigrationClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1MigrationBooksImportResponse>(
+                var responseData = JsonUtils.Deserialize<BooksImportMigrationResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1MigrationBooksImportResponse>()
+                return new WithRawResponse<BooksImportMigrationResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -306,6 +326,18 @@ public partial class MigrationClient : IMigrationClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -332,6 +364,18 @@ public partial class MigrationClient : IMigrationClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -402,22 +446,18 @@ public partial class MigrationClient : IMigrationClient
     /// Runs every check the import runs (accounts, partners, balances, open invoices, assets, stock) and returns the same summary and warnings, then rolls everything back. Nothing is stored.
     /// </summary>
     /// <example><code>
-    /// await client.Migration.CheckAHistoricalBooksPackageWithoutWritingAnythingAsync(
-    ///     new PostV1MigrationBooksValidateRequest { CutoverDate = "cutoverDate" }
+    /// await client.Migration.BooksValidateAsync(
+    ///     new BooksValidateMigrationRequest { CutoverDate = new DateOnly(2026, 7, 1) }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1MigrationBooksValidateResponse> CheckAHistoricalBooksPackageWithoutWritingAnythingAsync(
-        PostV1MigrationBooksValidateRequest request,
+    public WithRawResponseTask<BooksValidateMigrationResponse> BooksValidateAsync(
+        BooksValidateMigrationRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1MigrationBooksValidateResponse>(
-            CheckAHistoricalBooksPackageWithoutWritingAnythingAsyncCore(
-                request,
-                options,
-                cancellationToken
-            )
+        return new WithRawResponseTask<BooksValidateMigrationResponse>(
+            BooksValidateAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -425,22 +465,18 @@ public partial class MigrationClient : IMigrationClient
     /// Brings a company over from another system in one call: chart of accounts, partners, items, opening balances (or the full journal history), open customer and supplier invoices, fixed assets with their accumulated depreciation, and stock on hand. The whole package is written in one database transaction — if any row fails, nothing is stored.
     /// </summary>
     /// <example><code>
-    /// await client.Migration.ImportHistoricalBooksFromAPreviousAccountingSystemAsync(
-    ///     new PostV1MigrationBooksImportRequest { CutoverDate = "cutoverDate" }
+    /// await client.Migration.BooksImportAsync(
+    ///     new BooksImportMigrationRequest { CutoverDate = new DateOnly(2026, 7, 1) }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1MigrationBooksImportResponse> ImportHistoricalBooksFromAPreviousAccountingSystemAsync(
-        PostV1MigrationBooksImportRequest request,
+    public WithRawResponseTask<BooksImportMigrationResponse> BooksImportAsync(
+        BooksImportMigrationRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1MigrationBooksImportResponse>(
-            ImportHistoricalBooksFromAPreviousAccountingSystemAsyncCore(
-                request,
-                options,
-                cancellationToken
-            )
+        return new WithRawResponseTask<BooksImportMigrationResponse>(
+            BooksImportAsyncCore(request, options, cancellationToken)
         );
     }
 }

@@ -2,86 +2,86 @@ namespace NordletApi;
 
 public partial interface IReportsClient
 {
-    WithRawResponseTask<PostV1ReportsTrialBalanceResponse> PostV1ReportsTrialBalanceAsync(
-        PostV1ReportsTrialBalanceRequest request,
+    WithRawResponseTask<TrialBalanceReportsResponse> TrialBalanceAsync(
+        TrialBalanceReportsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReportsSizeCategoryResponse> PostV1ReportsSizeCategoryAsync(
-        PostV1ReportsSizeCategoryRequest request,
+    WithRawResponseTask<SizeCategoryReportsResponse> SizeCategoryAsync(
+        SizeCategoryReportsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReportsFinancialStatementsResponse> PostV1ReportsFinancialStatementsAsync(
-        PostV1ReportsFinancialStatementsRequest request,
+    WithRawResponseTask<FinancialStatementsReportsResponse> FinancialStatementsAsync(
+        FinancialStatementsReportsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReportsGeneralJournalResponse> PostV1ReportsGeneralJournalAsync(
-        PostV1ReportsGeneralJournalRequest request,
+    WithRawResponseTask<GeneralJournalReportsResponse> GeneralJournalAsync(
+        GeneralJournalReportsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReportsGlDetailResponse> PostV1ReportsGlDetailAsync(
-        PostV1ReportsGlDetailRequest request,
+    WithRawResponseTask<GlDetailReportsResponse> GlDetailAsync(
+        GlDetailReportsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReportsPartnerBalancesResponse> PostV1ReportsPartnerBalancesAsync(
-        PostV1ReportsPartnerBalancesRequest request,
+    WithRawResponseTask<PartnerBalancesReportsResponse> PartnerBalancesAsync(
+        PartnerBalancesReportsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReportsDebtAgingResponse> PostV1ReportsDebtAgingAsync(
-        PostV1ReportsDebtAgingRequest request,
+    WithRawResponseTask<DebtAgingReportsResponse> DebtAgingAsync(
+        DebtAgingReportsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReportsMonthlySummaryResponse> PostV1ReportsMonthlySummaryAsync(
-        PostV1ReportsMonthlySummaryRequest request,
+    WithRawResponseTask<MonthlySummaryReportsResponse> MonthlySummaryAsync(
+        MonthlySummaryReportsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReportsStockBalanceResponse> PostV1ReportsStockBalanceAsync(
-        PostV1ReportsStockBalanceRequest request,
+    WithRawResponseTask<StockBalanceReportsResponse> StockBalanceAsync(
+        StockBalanceReportsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReportsStockMovementResponse> PostV1ReportsStockMovementAsync(
-        PostV1ReportsStockMovementRequest request,
+    WithRawResponseTask<StockMovementReportsResponse> StockMovementAsync(
+        StockMovementReportsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReportsVatSummaryResponse> PostV1ReportsVatSummaryAsync(
-        PostV1ReportsVatSummaryRequest request,
+    WithRawResponseTask<VatSummaryReportsResponse> VatSummaryAsync(
+        VatSummaryReportsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReportsCashFlowResponse> PostV1ReportsCashFlowAsync(
-        PostV1ReportsCashFlowRequest request,
+    WithRawResponseTask<CashFlowReportsResponse> CashFlowAsync(
+        CashFlowReportsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReportsStockAgingResponse> PostV1ReportsStockAgingAsync(
-        PostV1ReportsStockAgingRequest request,
+    WithRawResponseTask<StockAgingReportsResponse> StockAgingAsync(
+        StockAgingReportsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReportsStockShortageResponse> PostV1ReportsStockShortageAsync(
-        PostV1ReportsStockShortageRequest request,
+    WithRawResponseTask<StockShortageReportsResponse> StockShortageAsync(
+        StockShortageReportsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
@@ -89,8 +89,8 @@ public partial interface IReportsClient
     /// <summary>
     /// Export the ledger of one financial year as an SIE file (the Swedish standard accounting interchange format, specification 4B). The file carries the chart of accounts, the opening and closing balance of every balance sheet account and the turnover of every result account for the year and the year before it, and, when asked for, every posted voucher of the year with its lines. Cost centres travel as dimension 1 and projects as dimension 6. Services that build a Swedish annual report read this file.
     /// </summary>
-    WithRawResponseTask<PostV1ReportsSieResponse> PostV1ReportsSieAsync(
-        PostV1ReportsSieRequest request,
+    WithRawResponseTask<SieReportsResponse> SieAsync(
+        SieReportsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
@@ -98,8 +98,8 @@ public partial interface IReportsClient
     /// <summary>
     /// Export the posted ledger of a period as a DATEV Buchungsstapel file (DATEV format, category 21, version 700). Every transaction becomes one or more bookings of an amount between an account and a contra account; a transaction with more than two lines is split into pairs whose totals match it. The file is semicolon separated and written in the Windows-1252 character set DATEV expects.
     /// </summary>
-    WithRawResponseTask<PostV1ReportsDatevResponse> PostV1ReportsDatevAsync(
-        PostV1ReportsDatevRequest request,
+    WithRawResponseTask<DatevReportsResponse> DatevAsync(
+        DatevReportsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
@@ -107,86 +107,86 @@ public partial interface IReportsClient
     /// <summary>
     /// Export the posted ledger of a period as a French FEC file (fichier des écritures comptables, order of 29 July 2013). One line per journal entry line, with the eighteen fields the order names, in their order, after a header line. Tab separated, UTF-8, comma as the decimal separator.
     /// </summary>
-    WithRawResponseTask<PostV1ReportsFecResponse> PostV1ReportsFecAsync(
-        PostV1ReportsFecRequest request,
+    WithRawResponseTask<FecReportsResponse> FecAsync(
+        FecReportsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReportsEuPurchasesResponse> PostV1ReportsEuPurchasesAsync(
-        PostV1ReportsEuPurchasesRequest request,
+    WithRawResponseTask<EuPurchasesReportsResponse> EuPurchasesAsync(
+        EuPurchasesReportsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReportsVatDetailResponse> PostV1ReportsVatDetailAsync(
-        PostV1ReportsVatDetailRequest request,
+    WithRawResponseTask<VatDetailReportsResponse> VatDetailAsync(
+        VatDetailReportsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReportsPosSalesResponse> PostV1ReportsPosSalesAsync(
-        PostV1ReportsPosSalesRequest request,
+    WithRawResponseTask<PosSalesReportsResponse> PosSalesAsync(
+        PosSalesReportsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReportsOnlineSalesResponse> PostV1ReportsOnlineSalesAsync(
-        PostV1ReportsOnlineSalesRequest request,
+    WithRawResponseTask<OnlineSalesReportsResponse> OnlineSalesAsync(
+        OnlineSalesReportsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReportsOssResponse> PostV1ReportsOssAsync(
-        PostV1ReportsOssRequest request,
+    WithRawResponseTask<OssReportsResponse> OssAsync(
+        OssReportsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReportsAdvanceReconciliationResponse> PostV1ReportsAdvanceReconciliationAsync(
-        PostV1ReportsAdvanceReconciliationRequest request,
+    WithRawResponseTask<AdvanceReconciliationReportsResponse> AdvanceReconciliationAsync(
+        AdvanceReconciliationReportsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReportsWriteOffActsResponse> PostV1ReportsWriteOffActsAsync(
-        PostV1ReportsWriteOffActsRequest request,
+    WithRawResponseTask<WriteOffActsReportsResponse> WriteOffActsAsync(
+        WriteOffActsReportsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReportsCostCentersResponse> PostV1ReportsCostCentersAsync(
-        PostV1ReportsCostCentersRequest request,
+    WithRawResponseTask<CostCentersReportsResponse> CostCentersAsync(
+        CostCentersReportsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReportsCostCenterActivityResponse> PostV1ReportsCostCenterActivityAsync(
-        PostV1ReportsCostCenterActivityRequest request,
+    WithRawResponseTask<CostCenterActivityReportsResponse> CostCenterActivityAsync(
+        CostCenterActivityReportsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReportsCostCenterItemsResponse> PostV1ReportsCostCenterItemsAsync(
-        PostV1ReportsCostCenterItemsRequest request,
+    WithRawResponseTask<CostCenterItemsReportsResponse> CostCenterItemsAsync(
+        CostCenterItemsReportsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReportsJobsCreateResponse> PostV1ReportsJobsCreateAsync(
-        PostV1ReportsJobsCreateRequest request,
+    WithRawResponseTask<JobsCreateReportsResponse> JobsCreateAsync(
+        JobsCreateReportsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReportsJobsGetResponse> PostV1ReportsJobsGetAsync(
-        PostV1ReportsJobsGetRequest request,
+    WithRawResponseTask<JobsGetReportsResponse> JobsGetAsync(
+        JobsGetReportsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReportsJobsListResponse> PostV1ReportsJobsListAsync(
-        PostV1ReportsJobsListRequest request,
+    WithRawResponseTask<JobsListReportsResponse> JobsListAsync(
+        JobsListReportsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );

@@ -2,26 +2,26 @@ namespace NordletApi;
 
 public partial interface IAssetsClient
 {
-    WithRawResponseTask<PostV1AssetsGroupsCreateResponse> PostV1AssetsGroupsCreateAsync(
-        PostV1AssetsGroupsCreateRequest request,
+    WithRawResponseTask<GroupsCreateAssetsResponse> GroupsCreateAsync(
+        GroupsCreateAssetsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AssetsGroupsListResponse> PostV1AssetsGroupsListAsync(
-        PostV1AssetsGroupsListRequest request,
+    WithRawResponseTask<GroupsListAssetsResponse> GroupsListAsync(
+        GroupsListAssetsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AssetsAssetsCreateResponse> PostV1AssetsAssetsCreateAsync(
-        PostV1AssetsAssetsCreateRequest request,
+    WithRawResponseTask<AssetsCreateAssetsResponse> AssetsCreateAsync(
+        AssetsCreateAssetsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AssetsAssetsUpdateResponse> PostV1AssetsAssetsUpdateAsync(
-        PostV1AssetsAssetsUpdateRequest request,
+    WithRawResponseTask<AssetsUpdateAssetsResponse> AssetsUpdateAsync(
+        AssetsUpdateAssetsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
@@ -29,38 +29,47 @@ public partial interface IAssetsClient
     /// <summary>
     /// Record the input VAT facts of a capital good that the annual VAT return needs for the adjustment of the deduction over the adjustment period (Article 187 of the VAT Directive, § 15a UStG): the input VAT on the acquisition, the date of first use, the share of use for deductible turnover at first use, whether it is land or a building (ten-year period instead of five), and every later year in which the share changed or the good was sold or withdrawn. Allowed also after depreciation has been posted.
     /// </summary>
-    WithRawResponseTask<PostV1AssetsAssetsInputVatResponse> PostV1AssetsAssetsInputVatAsync(
-        PostV1AssetsAssetsInputVatRequest request,
+    WithRawResponseTask<AssetsInputVatAssetsResponse> AssetsInputVatAsync(
+        AssetsInputVatAssetsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AssetsAssetsGetResponse> PostV1AssetsAssetsGetAsync(
-        PostV1AssetsAssetsGetRequest request,
+    WithRawResponseTask<AssetsGetAssetsResponse> AssetsGetAsync(
+        AssetsGetAssetsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AssetsAssetsListResponse> PostV1AssetsAssetsListAsync(
-        PostV1AssetsAssetsListRequest request,
+    WithRawResponseTask<AssetsListAssetsResponse> AssetsListAsync(
+        AssetsListAssetsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AssetsAssetsModernizeResponse> PostV1AssetsAssetsModernizeAsync(
-        PostV1AssetsAssetsModernizeRequest request,
+    WithRawResponseTask<AssetsModernizeAssetsResponse> AssetsModernizeAsync(
+        AssetsModernizeAssetsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AssetsDepreciationPreviewResponse> PostV1AssetsDepreciationPreviewAsync(
-        PostV1AssetsDepreciationPreviewRequest request,
+    /// <summary>
+    /// Dispose of a fixed asset (sold, scrapped or written off). Removes its cost and accumulated depreciation, books the net book value as a disposal loss and the proceeds as a disposal gain (posting rules assets.disposalLoss, assets.disposalGain, assets.disposalProceeds), and stops its depreciation. Depreciation must be posted for every month before the disposal month.
+    /// </summary>
+    WithRawResponseTask<AssetsDisposeAssetsResponse> AssetsDisposeAsync(
+        AssetsDisposeAssetsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AssetsDepreciationPostResponse> PostV1AssetsDepreciationPostAsync(
-        PostV1AssetsDepreciationPostRequest request,
+    WithRawResponseTask<DepreciationPreviewAssetsResponse> DepreciationPreviewAsync(
+        DepreciationPreviewAssetsRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<DepreciationPostAssetsResponse> DepreciationPostAsync(
+        DepreciationPostAssetsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );

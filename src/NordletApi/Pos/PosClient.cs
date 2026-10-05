@@ -12,10 +12,8 @@ public partial class PosClient : IPosClient
         _client = client;
     }
 
-    private async Task<
-        WithRawResponse<PostV1PosDevicesCreateResponse>
-    > PostV1PosDevicesCreateAsyncCore(
-        PostV1PosDevicesCreateRequest request,
+    private async Task<WithRawResponse<DevicesCreatePosResponse>> DevicesCreateAsyncCore(
+        DevicesCreatePosRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -51,10 +49,8 @@ public partial class PosClient : IPosClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PosDevicesCreateResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1PosDevicesCreateResponse>()
+                var responseData = JsonUtils.Deserialize<DevicesCreatePosResponse>(responseBody)!;
+                return new WithRawResponse<DevicesCreatePosResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -113,6 +109,18 @@ public partial class PosClient : IPosClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -139,6 +147,18 @@ public partial class PosClient : IPosClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -205,10 +225,8 @@ public partial class PosClient : IPosClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PosDevicesUpdateResponse>
-    > PostV1PosDevicesUpdateAsyncCore(
-        PostV1PosDevicesUpdateRequest request,
+    private async Task<WithRawResponse<DevicesUpdatePosResponse>> DevicesUpdateAsyncCore(
+        DevicesUpdatePosRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -244,10 +262,8 @@ public partial class PosClient : IPosClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PosDevicesUpdateResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1PosDevicesUpdateResponse>()
+                var responseData = JsonUtils.Deserialize<DevicesUpdatePosResponse>(responseBody)!;
+                return new WithRawResponse<DevicesUpdatePosResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -306,6 +322,18 @@ public partial class PosClient : IPosClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -332,6 +360,18 @@ public partial class PosClient : IPosClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -398,8 +438,8 @@ public partial class PosClient : IPosClient
         }
     }
 
-    private async Task<WithRawResponse<PostV1PosDevicesListResponse>> PostV1PosDevicesListAsyncCore(
-        PostV1PosDevicesListRequest request,
+    private async Task<WithRawResponse<DevicesListPosResponse>> DevicesListAsyncCore(
+        DevicesListPosRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -435,10 +475,8 @@ public partial class PosClient : IPosClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PosDevicesListResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1PosDevicesListResponse>()
+                var responseData = JsonUtils.Deserialize<DevicesListPosResponse>(responseBody)!;
+                return new WithRawResponse<DevicesListPosResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -497,6 +535,18 @@ public partial class PosClient : IPosClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -523,6 +573,18 @@ public partial class PosClient : IPosClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -589,10 +651,8 @@ public partial class PosClient : IPosClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PosReportsCreateResponse>
-    > PostV1PosReportsCreateAsyncCore(
-        PostV1PosReportsCreateRequest request,
+    private async Task<WithRawResponse<ReportsCreatePosResponse>> ReportsCreateAsyncCore(
+        ReportsCreatePosRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -628,10 +688,8 @@ public partial class PosClient : IPosClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PosReportsCreateResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1PosReportsCreateResponse>()
+                var responseData = JsonUtils.Deserialize<ReportsCreatePosResponse>(responseBody)!;
+                return new WithRawResponse<ReportsCreatePosResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -690,6 +748,18 @@ public partial class PosClient : IPosClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -716,6 +786,18 @@ public partial class PosClient : IPosClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -782,8 +864,8 @@ public partial class PosClient : IPosClient
         }
     }
 
-    private async Task<WithRawResponse<PostV1PosReportsGetResponse>> PostV1PosReportsGetAsyncCore(
-        PostV1PosReportsGetRequest request,
+    private async Task<WithRawResponse<ReportsGetPosResponse>> ReportsGetAsyncCore(
+        ReportsGetPosRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -819,10 +901,8 @@ public partial class PosClient : IPosClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PosReportsGetResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1PosReportsGetResponse>()
+                var responseData = JsonUtils.Deserialize<ReportsGetPosResponse>(responseBody)!;
+                return new WithRawResponse<ReportsGetPosResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -881,6 +961,18 @@ public partial class PosClient : IPosClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -907,6 +999,18 @@ public partial class PosClient : IPosClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -973,8 +1077,8 @@ public partial class PosClient : IPosClient
         }
     }
 
-    private async Task<WithRawResponse<PostV1PosReportsListResponse>> PostV1PosReportsListAsyncCore(
-        PostV1PosReportsListRequest request,
+    private async Task<WithRawResponse<ReportsListPosResponse>> ReportsListAsyncCore(
+        ReportsListPosRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1010,10 +1114,8 @@ public partial class PosClient : IPosClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PosReportsListResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1PosReportsListResponse>()
+                var responseData = JsonUtils.Deserialize<ReportsListPosResponse>(responseBody)!;
+                return new WithRawResponse<ReportsListPosResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1072,6 +1174,18 @@ public partial class PosClient : IPosClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1098,6 +1212,18 @@ public partial class PosClient : IPosClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1165,103 +1291,103 @@ public partial class PosClient : IPosClient
     }
 
     /// <example><code>
-    /// await client.Pos.PostV1PosDevicesCreateAsync(
-    ///     new PostV1PosDevicesCreateRequest { Name = "name", SerialNumber = "serialNumber" }
+    /// await client.Pos.DevicesCreateAsync(
+    ///     new DevicesCreatePosRequest { Name = "name", SerialNumber = "serialNumber" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1PosDevicesCreateResponse> PostV1PosDevicesCreateAsync(
-        PostV1PosDevicesCreateRequest request,
+    public WithRawResponseTask<DevicesCreatePosResponse> DevicesCreateAsync(
+        DevicesCreatePosRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PosDevicesCreateResponse>(
-            PostV1PosDevicesCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<DevicesCreatePosResponse>(
+            DevicesCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Pos.PostV1PosDevicesUpdateAsync(new PostV1PosDevicesUpdateRequest { Id = "id" });
+    /// await client.Pos.DevicesUpdateAsync(new DevicesUpdatePosRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1PosDevicesUpdateResponse> PostV1PosDevicesUpdateAsync(
-        PostV1PosDevicesUpdateRequest request,
+    public WithRawResponseTask<DevicesUpdatePosResponse> DevicesUpdateAsync(
+        DevicesUpdatePosRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PosDevicesUpdateResponse>(
-            PostV1PosDevicesUpdateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<DevicesUpdatePosResponse>(
+            DevicesUpdateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Pos.PostV1PosDevicesListAsync(new PostV1PosDevicesListRequest());
+    /// await client.Pos.DevicesListAsync(new DevicesListPosRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1PosDevicesListResponse> PostV1PosDevicesListAsync(
-        PostV1PosDevicesListRequest request,
+    public WithRawResponseTask<DevicesListPosResponse> DevicesListAsync(
+        DevicesListPosRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PosDevicesListResponse>(
-            PostV1PosDevicesListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<DevicesListPosResponse>(
+            DevicesListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Pos.PostV1PosReportsCreateAsync(
-    ///     new PostV1PosReportsCreateRequest
+    /// await client.Pos.ReportsCreateAsync(
+    ///     new ReportsCreatePosRequest
     ///     {
     ///         ReportNumber = "reportNumber",
-    ///         Date = "date",
-    ///         VatLines = new List&lt;PostV1PosReportsCreateRequestVatLinesItem&gt;()
+    ///         Date = new DateOnly(2026, 7, 1),
+    ///         VatLines = new List&lt;ReportsCreatePosRequestVatLinesItem&gt;()
     ///         {
-    ///             new PostV1PosReportsCreateRequestVatLinesItem
+    ///             new ReportsCreatePosRequestVatLinesItem
     ///             {
-    ///                 VatRatePercent = "vatRatePercent",
-    ///                 NetAmount = "netAmount",
-    ///                 VatAmount = "vatAmount",
+    ///                 VatRatePercent = "121.00",
+    ///                 NetAmount = "121.0000",
+    ///                 VatAmount = "121.0000",
     ///             },
     ///         },
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1PosReportsCreateResponse> PostV1PosReportsCreateAsync(
-        PostV1PosReportsCreateRequest request,
+    public WithRawResponseTask<ReportsCreatePosResponse> ReportsCreateAsync(
+        ReportsCreatePosRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PosReportsCreateResponse>(
-            PostV1PosReportsCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<ReportsCreatePosResponse>(
+            ReportsCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Pos.PostV1PosReportsGetAsync(new PostV1PosReportsGetRequest { Id = "id" });
+    /// await client.Pos.ReportsGetAsync(new ReportsGetPosRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1PosReportsGetResponse> PostV1PosReportsGetAsync(
-        PostV1PosReportsGetRequest request,
+    public WithRawResponseTask<ReportsGetPosResponse> ReportsGetAsync(
+        ReportsGetPosRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PosReportsGetResponse>(
-            PostV1PosReportsGetAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<ReportsGetPosResponse>(
+            ReportsGetAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Pos.PostV1PosReportsListAsync(new PostV1PosReportsListRequest());
+    /// await client.Pos.ReportsListAsync(new ReportsListPosRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1PosReportsListResponse> PostV1PosReportsListAsync(
-        PostV1PosReportsListRequest request,
+    public WithRawResponseTask<ReportsListPosResponse> ReportsListAsync(
+        ReportsListPosRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PosReportsListResponse>(
-            PostV1PosReportsListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<ReportsListPosResponse>(
+            ReportsListAsyncCore(request, options, cancellationToken)
         );
     }
 }

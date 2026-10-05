@@ -12,10 +12,8 @@ public partial class FleetClient : IFleetClient
         _client = client;
     }
 
-    private async Task<
-        WithRawResponse<PostV1FleetVehiclesCreateResponse>
-    > PostV1FleetVehiclesCreateAsyncCore(
-        PostV1FleetVehiclesCreateRequest request,
+    private async Task<WithRawResponse<VehiclesCreateFleetResponse>> VehiclesCreateAsyncCore(
+        VehiclesCreateFleetRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -51,10 +49,10 @@ public partial class FleetClient : IFleetClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1FleetVehiclesCreateResponse>(
+                var responseData = JsonUtils.Deserialize<VehiclesCreateFleetResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1FleetVehiclesCreateResponse>()
+                return new WithRawResponse<VehiclesCreateFleetResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -113,6 +111,18 @@ public partial class FleetClient : IFleetClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -139,6 +149,18 @@ public partial class FleetClient : IFleetClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -205,10 +227,8 @@ public partial class FleetClient : IFleetClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1FleetVehiclesUpdateResponse>
-    > PostV1FleetVehiclesUpdateAsyncCore(
-        PostV1FleetVehiclesUpdateRequest request,
+    private async Task<WithRawResponse<VehiclesUpdateFleetResponse>> VehiclesUpdateAsyncCore(
+        VehiclesUpdateFleetRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -244,10 +264,10 @@ public partial class FleetClient : IFleetClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1FleetVehiclesUpdateResponse>(
+                var responseData = JsonUtils.Deserialize<VehiclesUpdateFleetResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1FleetVehiclesUpdateResponse>()
+                return new WithRawResponse<VehiclesUpdateFleetResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -306,6 +326,18 @@ public partial class FleetClient : IFleetClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -332,6 +364,18 @@ public partial class FleetClient : IFleetClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -398,10 +442,8 @@ public partial class FleetClient : IFleetClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1FleetVehiclesGetResponse>
-    > PostV1FleetVehiclesGetAsyncCore(
-        PostV1FleetVehiclesGetRequest request,
+    private async Task<WithRawResponse<VehiclesGetFleetResponse>> VehiclesGetAsyncCore(
+        VehiclesGetFleetRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -437,10 +479,8 @@ public partial class FleetClient : IFleetClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1FleetVehiclesGetResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1FleetVehiclesGetResponse>()
+                var responseData = JsonUtils.Deserialize<VehiclesGetFleetResponse>(responseBody)!;
+                return new WithRawResponse<VehiclesGetFleetResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -499,6 +539,18 @@ public partial class FleetClient : IFleetClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -525,6 +577,18 @@ public partial class FleetClient : IFleetClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -591,10 +655,8 @@ public partial class FleetClient : IFleetClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1FleetVehiclesListResponse>
-    > PostV1FleetVehiclesListAsyncCore(
-        PostV1FleetVehiclesListRequest request,
+    private async Task<WithRawResponse<VehiclesListFleetResponse>> VehiclesListAsyncCore(
+        VehiclesListFleetRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -630,10 +692,8 @@ public partial class FleetClient : IFleetClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1FleetVehiclesListResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1FleetVehiclesListResponse>()
+                var responseData = JsonUtils.Deserialize<VehiclesListFleetResponse>(responseBody)!;
+                return new WithRawResponse<VehiclesListFleetResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -692,6 +752,18 @@ public partial class FleetClient : IFleetClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -718,6 +790,18 @@ public partial class FleetClient : IFleetClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -784,10 +868,8 @@ public partial class FleetClient : IFleetClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1FleetAssignmentsCreateResponse>
-    > PostV1FleetAssignmentsCreateAsyncCore(
-        PostV1FleetAssignmentsCreateRequest request,
+    private async Task<WithRawResponse<AssignmentsCreateFleetResponse>> AssignmentsCreateAsyncCore(
+        AssignmentsCreateFleetRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -823,10 +905,10 @@ public partial class FleetClient : IFleetClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1FleetAssignmentsCreateResponse>(
+                var responseData = JsonUtils.Deserialize<AssignmentsCreateFleetResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1FleetAssignmentsCreateResponse>()
+                return new WithRawResponse<AssignmentsCreateFleetResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -885,6 +967,18 @@ public partial class FleetClient : IFleetClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -911,6 +1005,18 @@ public partial class FleetClient : IFleetClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -977,10 +1083,8 @@ public partial class FleetClient : IFleetClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1FleetAssignmentsEndResponse>
-    > PostV1FleetAssignmentsEndAsyncCore(
-        PostV1FleetAssignmentsEndRequest request,
+    private async Task<WithRawResponse<AssignmentsEndFleetResponse>> AssignmentsEndAsyncCore(
+        AssignmentsEndFleetRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1016,10 +1120,10 @@ public partial class FleetClient : IFleetClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1FleetAssignmentsEndResponse>(
+                var responseData = JsonUtils.Deserialize<AssignmentsEndFleetResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1FleetAssignmentsEndResponse>()
+                return new WithRawResponse<AssignmentsEndFleetResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1078,6 +1182,18 @@ public partial class FleetClient : IFleetClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1104,6 +1220,18 @@ public partial class FleetClient : IFleetClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1170,10 +1298,8 @@ public partial class FleetClient : IFleetClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1FleetAssignmentsListResponse>
-    > PostV1FleetAssignmentsListAsyncCore(
-        PostV1FleetAssignmentsListRequest request,
+    private async Task<WithRawResponse<AssignmentsListFleetResponse>> AssignmentsListAsyncCore(
+        AssignmentsListFleetRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1209,10 +1335,10 @@ public partial class FleetClient : IFleetClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1FleetAssignmentsListResponse>(
+                var responseData = JsonUtils.Deserialize<AssignmentsListFleetResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1FleetAssignmentsListResponse>()
+                return new WithRawResponse<AssignmentsListFleetResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1271,6 +1397,18 @@ public partial class FleetClient : IFleetClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1297,6 +1435,18 @@ public partial class FleetClient : IFleetClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1363,10 +1513,8 @@ public partial class FleetClient : IFleetClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1FleetNaturaPreviewResponse>
-    > PostV1FleetNaturaPreviewAsyncCore(
-        PostV1FleetNaturaPreviewRequest request,
+    private async Task<WithRawResponse<NaturaPreviewFleetResponse>> NaturaPreviewAsyncCore(
+        NaturaPreviewFleetRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1402,10 +1550,8 @@ public partial class FleetClient : IFleetClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1FleetNaturaPreviewResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1FleetNaturaPreviewResponse>()
+                var responseData = JsonUtils.Deserialize<NaturaPreviewFleetResponse>(responseBody)!;
+                return new WithRawResponse<NaturaPreviewFleetResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1464,6 +1610,18 @@ public partial class FleetClient : IFleetClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1490,6 +1648,18 @@ public partial class FleetClient : IFleetClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1557,8 +1727,8 @@ public partial class FleetClient : IFleetClient
     }
 
     /// <example><code>
-    /// await client.Fleet.PostV1FleetVehiclesCreateAsync(
-    ///     new PostV1FleetVehiclesCreateRequest
+    /// await client.Fleet.VehiclesCreateAsync(
+    ///     new VehiclesCreateFleetRequest
     ///     {
     ///         PlateNumber = "plateNumber",
     ///         Make = "make",
@@ -1566,125 +1736,123 @@ public partial class FleetClient : IFleetClient
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1FleetVehiclesCreateResponse> PostV1FleetVehiclesCreateAsync(
-        PostV1FleetVehiclesCreateRequest request,
+    public WithRawResponseTask<VehiclesCreateFleetResponse> VehiclesCreateAsync(
+        VehiclesCreateFleetRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1FleetVehiclesCreateResponse>(
-            PostV1FleetVehiclesCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<VehiclesCreateFleetResponse>(
+            VehiclesCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Fleet.PostV1FleetVehiclesUpdateAsync(
-    ///     new PostV1FleetVehiclesUpdateRequest { Id = "id" }
-    /// );
+    /// await client.Fleet.VehiclesUpdateAsync(new VehiclesUpdateFleetRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1FleetVehiclesUpdateResponse> PostV1FleetVehiclesUpdateAsync(
-        PostV1FleetVehiclesUpdateRequest request,
+    public WithRawResponseTask<VehiclesUpdateFleetResponse> VehiclesUpdateAsync(
+        VehiclesUpdateFleetRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1FleetVehiclesUpdateResponse>(
-            PostV1FleetVehiclesUpdateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<VehiclesUpdateFleetResponse>(
+            VehiclesUpdateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Fleet.PostV1FleetVehiclesGetAsync(new PostV1FleetVehiclesGetRequest { Id = "id" });
+    /// await client.Fleet.VehiclesGetAsync(new VehiclesGetFleetRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1FleetVehiclesGetResponse> PostV1FleetVehiclesGetAsync(
-        PostV1FleetVehiclesGetRequest request,
+    public WithRawResponseTask<VehiclesGetFleetResponse> VehiclesGetAsync(
+        VehiclesGetFleetRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1FleetVehiclesGetResponse>(
-            PostV1FleetVehiclesGetAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<VehiclesGetFleetResponse>(
+            VehiclesGetAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Fleet.PostV1FleetVehiclesListAsync(new PostV1FleetVehiclesListRequest());
+    /// await client.Fleet.VehiclesListAsync(new VehiclesListFleetRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1FleetVehiclesListResponse> PostV1FleetVehiclesListAsync(
-        PostV1FleetVehiclesListRequest request,
+    public WithRawResponseTask<VehiclesListFleetResponse> VehiclesListAsync(
+        VehiclesListFleetRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1FleetVehiclesListResponse>(
-            PostV1FleetVehiclesListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<VehiclesListFleetResponse>(
+            VehiclesListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Fleet.PostV1FleetAssignmentsCreateAsync(
-    ///     new PostV1FleetAssignmentsCreateRequest
+    /// await client.Fleet.AssignmentsCreateAsync(
+    ///     new AssignmentsCreateFleetRequest
     ///     {
     ///         VehicleId = "vehicleId",
     ///         EmployeeId = "employeeId",
-    ///         FromDate = "fromDate",
+    ///         FromDate = new DateOnly(2026, 7, 1),
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1FleetAssignmentsCreateResponse> PostV1FleetAssignmentsCreateAsync(
-        PostV1FleetAssignmentsCreateRequest request,
+    public WithRawResponseTask<AssignmentsCreateFleetResponse> AssignmentsCreateAsync(
+        AssignmentsCreateFleetRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1FleetAssignmentsCreateResponse>(
-            PostV1FleetAssignmentsCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<AssignmentsCreateFleetResponse>(
+            AssignmentsCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Fleet.PostV1FleetAssignmentsEndAsync(
-    ///     new PostV1FleetAssignmentsEndRequest { Id = "id", ToDate = "toDate" }
+    /// await client.Fleet.AssignmentsEndAsync(
+    ///     new AssignmentsEndFleetRequest { Id = "id", ToDate = new DateOnly(2026, 7, 1) }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1FleetAssignmentsEndResponse> PostV1FleetAssignmentsEndAsync(
-        PostV1FleetAssignmentsEndRequest request,
+    public WithRawResponseTask<AssignmentsEndFleetResponse> AssignmentsEndAsync(
+        AssignmentsEndFleetRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1FleetAssignmentsEndResponse>(
-            PostV1FleetAssignmentsEndAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<AssignmentsEndFleetResponse>(
+            AssignmentsEndAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Fleet.PostV1FleetAssignmentsListAsync(new PostV1FleetAssignmentsListRequest());
+    /// await client.Fleet.AssignmentsListAsync(new AssignmentsListFleetRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1FleetAssignmentsListResponse> PostV1FleetAssignmentsListAsync(
-        PostV1FleetAssignmentsListRequest request,
+    public WithRawResponseTask<AssignmentsListFleetResponse> AssignmentsListAsync(
+        AssignmentsListFleetRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1FleetAssignmentsListResponse>(
-            PostV1FleetAssignmentsListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<AssignmentsListFleetResponse>(
+            AssignmentsListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Fleet.PostV1FleetNaturaPreviewAsync(
-    ///     new PostV1FleetNaturaPreviewRequest { Year = 1000000, Month = 1000000 }
+    /// await client.Fleet.NaturaPreviewAsync(
+    ///     new NaturaPreviewFleetRequest { Year = 1000000, Month = 1000000 }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1FleetNaturaPreviewResponse> PostV1FleetNaturaPreviewAsync(
-        PostV1FleetNaturaPreviewRequest request,
+    public WithRawResponseTask<NaturaPreviewFleetResponse> NaturaPreviewAsync(
+        NaturaPreviewFleetRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1FleetNaturaPreviewResponse>(
-            PostV1FleetNaturaPreviewAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<NaturaPreviewFleetResponse>(
+            NaturaPreviewAsyncCore(request, options, cancellationToken)
         );
     }
 }

@@ -2,8 +2,8 @@ namespace NordletApi;
 
 public partial interface IAuditClient
 {
-    WithRawResponseTask<PostV1AuditListResponse> PostV1AuditListAsync(
-        PostV1AuditListRequest request,
+    WithRawResponseTask<ListAuditResponse> ListAsync(
+        ListAuditRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );

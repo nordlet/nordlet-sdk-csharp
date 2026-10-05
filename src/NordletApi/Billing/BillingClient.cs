@@ -12,10 +12,8 @@ public partial class BillingClient : IBillingClient
         _client = client;
     }
 
-    private async Task<
-        WithRawResponse<PostV1BillingAccountGetResponse>
-    > PostV1BillingAccountGetAsyncCore(
-        PostV1BillingAccountGetRequest request,
+    private async Task<WithRawResponse<AccountGetBillingResponse>> AccountGetAsyncCore(
+        AccountGetBillingRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -51,10 +49,8 @@ public partial class BillingClient : IBillingClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BillingAccountGetResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1BillingAccountGetResponse>()
+                var responseData = JsonUtils.Deserialize<AccountGetBillingResponse>(responseBody)!;
+                return new WithRawResponse<AccountGetBillingResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -113,6 +109,18 @@ public partial class BillingClient : IBillingClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -139,6 +147,18 @@ public partial class BillingClient : IBillingClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -205,10 +225,8 @@ public partial class BillingClient : IBillingClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1BillingAccountSetPlanResponse>
-    > PostV1BillingAccountSetPlanAsyncCore(
-        PostV1BillingAccountSetPlanRequest request,
+    private async Task<WithRawResponse<AccountSetPlanBillingResponse>> AccountSetPlanAsyncCore(
+        AccountSetPlanBillingRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -244,10 +262,10 @@ public partial class BillingClient : IBillingClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BillingAccountSetPlanResponse>(
+                var responseData = JsonUtils.Deserialize<AccountSetPlanBillingResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1BillingAccountSetPlanResponse>()
+                return new WithRawResponse<AccountSetPlanBillingResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -306,6 +324,18 @@ public partial class BillingClient : IBillingClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -332,6 +362,18 @@ public partial class BillingClient : IBillingClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -398,10 +440,8 @@ public partial class BillingClient : IBillingClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1BillingTopupCreateResponse>
-    > PostV1BillingTopupCreateAsyncCore(
-        PostV1BillingTopupCreateRequest request,
+    private async Task<WithRawResponse<TopupCreateBillingResponse>> TopupCreateAsyncCore(
+        TopupCreateBillingRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -437,10 +477,8 @@ public partial class BillingClient : IBillingClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BillingTopupCreateResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1BillingTopupCreateResponse>()
+                var responseData = JsonUtils.Deserialize<TopupCreateBillingResponse>(responseBody)!;
+                return new WithRawResponse<TopupCreateBillingResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -499,6 +537,18 @@ public partial class BillingClient : IBillingClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -525,6 +575,18 @@ public partial class BillingClient : IBillingClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -591,10 +653,8 @@ public partial class BillingClient : IBillingClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1BillingPortalCreateResponse>
-    > PostV1BillingPortalCreateAsyncCore(
-        PostV1BillingPortalCreateRequest request,
+    private async Task<WithRawResponse<PortalCreateBillingResponse>> PortalCreateAsyncCore(
+        PortalCreateBillingRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -630,10 +690,10 @@ public partial class BillingClient : IBillingClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BillingPortalCreateResponse>(
+                var responseData = JsonUtils.Deserialize<PortalCreateBillingResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1BillingPortalCreateResponse>()
+                return new WithRawResponse<PortalCreateBillingResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -692,6 +752,18 @@ public partial class BillingClient : IBillingClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -718,6 +790,18 @@ public partial class BillingClient : IBillingClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -784,10 +868,8 @@ public partial class BillingClient : IBillingClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1BillingTransactionsListResponse>
-    > PostV1BillingTransactionsListAsyncCore(
-        PostV1BillingTransactionsListRequest request,
+    private async Task<WithRawResponse<TransactionsListBillingResponse>> TransactionsListAsyncCore(
+        TransactionsListBillingRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -823,10 +905,10 @@ public partial class BillingClient : IBillingClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BillingTransactionsListResponse>(
+                var responseData = JsonUtils.Deserialize<TransactionsListBillingResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1BillingTransactionsListResponse>()
+                return new WithRawResponse<TransactionsListBillingResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -885,6 +967,18 @@ public partial class BillingClient : IBillingClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -911,6 +1005,18 @@ public partial class BillingClient : IBillingClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -977,10 +1083,8 @@ public partial class BillingClient : IBillingClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1BillingUsageListResponse>
-    > PostV1BillingUsageListAsyncCore(
-        PostV1BillingUsageListRequest request,
+    private async Task<WithRawResponse<UsageListBillingResponse>> UsageListAsyncCore(
+        UsageListBillingRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1016,10 +1120,8 @@ public partial class BillingClient : IBillingClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BillingUsageListResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1BillingUsageListResponse>()
+                var responseData = JsonUtils.Deserialize<UsageListBillingResponse>(responseBody)!;
+                return new WithRawResponse<UsageListBillingResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1078,6 +1180,18 @@ public partial class BillingClient : IBillingClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1104,6 +1218,18 @@ public partial class BillingClient : IBillingClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1171,92 +1297,90 @@ public partial class BillingClient : IBillingClient
     }
 
     /// <example><code>
-    /// await client.Billing.PostV1BillingAccountGetAsync(new PostV1BillingAccountGetRequest());
+    /// await client.Billing.AccountGetAsync(new AccountGetBillingRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1BillingAccountGetResponse> PostV1BillingAccountGetAsync(
-        PostV1BillingAccountGetRequest request,
+    public WithRawResponseTask<AccountGetBillingResponse> AccountGetAsync(
+        AccountGetBillingRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BillingAccountGetResponse>(
-            PostV1BillingAccountGetAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<AccountGetBillingResponse>(
+            AccountGetAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Billing.PostV1BillingAccountSetPlanAsync(
-    ///     new PostV1BillingAccountSetPlanRequest { Plan = PostV1BillingAccountSetPlanRequestPlan.Starter }
+    /// await client.Billing.AccountSetPlanAsync(
+    ///     new AccountSetPlanBillingRequest { Plan = AccountSetPlanBillingRequestPlan.Starter }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1BillingAccountSetPlanResponse> PostV1BillingAccountSetPlanAsync(
-        PostV1BillingAccountSetPlanRequest request,
+    public WithRawResponseTask<AccountSetPlanBillingResponse> AccountSetPlanAsync(
+        AccountSetPlanBillingRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BillingAccountSetPlanResponse>(
-            PostV1BillingAccountSetPlanAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<AccountSetPlanBillingResponse>(
+            AccountSetPlanAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Billing.PostV1BillingTopupCreateAsync(
-    ///     new PostV1BillingTopupCreateRequest { AmountCents = 1000000 }
+    /// await client.Billing.TopupCreateAsync(new TopupCreateBillingRequest { AmountCents = 1000000 });
+    /// </code></example>
+    public WithRawResponseTask<TopupCreateBillingResponse> TopupCreateAsync(
+        TopupCreateBillingRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<TopupCreateBillingResponse>(
+            TopupCreateAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Billing.PortalCreateAsync(new PortalCreateBillingRequest());
+    /// </code></example>
+    public WithRawResponseTask<PortalCreateBillingResponse> PortalCreateAsync(
+        PortalCreateBillingRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<PortalCreateBillingResponse>(
+            PortalCreateAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Billing.TransactionsListAsync(new TransactionsListBillingRequest());
+    /// </code></example>
+    public WithRawResponseTask<TransactionsListBillingResponse> TransactionsListAsync(
+        TransactionsListBillingRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<TransactionsListBillingResponse>(
+            TransactionsListAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Billing.UsageListAsync(
+    ///     new UsageListBillingRequest { From = new DateOnly(2026, 7, 1), To = new DateOnly(2026, 7, 1) }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1BillingTopupCreateResponse> PostV1BillingTopupCreateAsync(
-        PostV1BillingTopupCreateRequest request,
+    public WithRawResponseTask<UsageListBillingResponse> UsageListAsync(
+        UsageListBillingRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BillingTopupCreateResponse>(
-            PostV1BillingTopupCreateAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Billing.PostV1BillingPortalCreateAsync(new PostV1BillingPortalCreateRequest());
-    /// </code></example>
-    public WithRawResponseTask<PostV1BillingPortalCreateResponse> PostV1BillingPortalCreateAsync(
-        PostV1BillingPortalCreateRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1BillingPortalCreateResponse>(
-            PostV1BillingPortalCreateAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Billing.PostV1BillingTransactionsListAsync(new PostV1BillingTransactionsListRequest());
-    /// </code></example>
-    public WithRawResponseTask<PostV1BillingTransactionsListResponse> PostV1BillingTransactionsListAsync(
-        PostV1BillingTransactionsListRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1BillingTransactionsListResponse>(
-            PostV1BillingTransactionsListAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Billing.PostV1BillingUsageListAsync(
-    ///     new PostV1BillingUsageListRequest { From = "from", To = "to" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1BillingUsageListResponse> PostV1BillingUsageListAsync(
-        PostV1BillingUsageListRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1BillingUsageListResponse>(
-            PostV1BillingUsageListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<UsageListBillingResponse>(
+            UsageListAsyncCore(request, options, cancellationToken)
         );
     }
 }

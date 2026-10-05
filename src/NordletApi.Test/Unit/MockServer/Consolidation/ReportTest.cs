@@ -1,0 +1,493 @@
+using NordletApi;
+using NordletApi.Test.Unit.MockServer;
+using NordletApi.Test.Utils;
+using NUnit.Framework;
+
+namespace NordletApi.Test.Unit.MockServer.Consolidation;
+
+[TestFixture]
+[Parallelizable(ParallelScope.Self)]
+public class ReportTest : BaseMockServerTest
+{
+    [NUnit.Framework.Test]
+    public async Task MockServerTest_1()
+    {
+        const string requestJson = """
+            {
+              "groupId": "x",
+              "fromDate": "2023-01-15",
+              "toDate": "2023-01-15"
+            }
+            """;
+
+        const string mockResponse = """
+            {
+              "presentationCurrency": "presentationCurrency",
+              "fromDate": "2023-01-15",
+              "toDate": "2023-01-15",
+              "category": "micro",
+              "statements": {
+                "category": "micro",
+                "layout": "layout",
+                "requiredStatements": [
+                  "requiredStatements",
+                  "requiredStatements"
+                ],
+                "asOf": "asOf",
+                "balanceSheet": {
+                  "nonCurrentAssets": "nonCurrentAssets",
+                  "currentAssets": "currentAssets",
+                  "totalAssets": "totalAssets",
+                  "equity": "equity",
+                  "ofWhichResult": "ofWhichResult",
+                  "liabilities": "liabilities",
+                  "totalEquityAndLiabilities": "totalEquityAndLiabilities",
+                  "balanced": true
+                },
+                "profitLoss": {
+                  "fromDate": "2023-01-15",
+                  "toDate": "2023-01-15",
+                  "revenue": "revenue",
+                  "expenses": "expenses",
+                  "netResult": "netResult"
+                },
+                "balanceSheetDetail": {
+                  "nonCurrentAssets": {
+                    "intangible": "intangible",
+                    "tangible": "tangible",
+                    "financial": "financial",
+                    "other": "other",
+                    "total": "total"
+                  },
+                  "currentAssets": {
+                    "inventories": "inventories",
+                    "receivables": "receivables",
+                    "otherCurrent": "otherCurrent",
+                    "cash": "cash",
+                    "total": "total"
+                  },
+                  "equity": {
+                    "capital": "capital",
+                    "reserves": "reserves",
+                    "retainedEarnings": "retainedEarnings",
+                    "otherEquity": "otherEquity",
+                    "periodResult": "periodResult",
+                    "total": "total"
+                  },
+                  "liabilities": {
+                    "nonCurrent": "nonCurrent",
+                    "current": "current",
+                    "other": "other",
+                    "total": "total"
+                  }
+                },
+                "profitLossDetail": {
+                  "salesRevenue": "salesRevenue",
+                  "costOfSales": "costOfSales",
+                  "grossProfit": "grossProfit",
+                  "sellingExpenses": "sellingExpenses",
+                  "adminExpenses": "adminExpenses",
+                  "operatingProfit": "operatingProfit",
+                  "otherActivityResult": "otherActivityResult",
+                  "financialActivityResult": "financialActivityResult",
+                  "profitBeforeTax": "profitBeforeTax",
+                  "incomeTax": "incomeTax",
+                  "netProfit": "netProfit"
+                }
+              },
+              "trialBalance": [
+                {
+                  "code": "code",
+                  "type": "type",
+                  "closing": "closing",
+                  "period": "period"
+                },
+                {
+                  "code": "code",
+                  "type": "type",
+                  "closing": "closing",
+                  "period": "period"
+                }
+              ],
+              "nonControllingInterest": {
+                "equity": "equity",
+                "result": "result"
+              },
+              "equityMethod": {
+                "investmentsInAssociates": "investmentsInAssociates",
+                "shareOfAssociatesResult": "shareOfAssociatesResult"
+              },
+              "members": [
+                {
+                  "companyId": "x",
+                  "name": "name",
+                  "baseCurrency": "baseCurrency",
+                  "ownershipPercent": "ownershipPercent",
+                  "method": "full",
+                  "fxFactor": "fxFactor",
+                  "rateFrom": "rateFrom",
+                  "rateTo": "rateTo",
+                  "totalAssets": "totalAssets",
+                  "netEquity": "netEquity",
+                  "periodResult": "periodResult"
+                },
+                {
+                  "companyId": "x",
+                  "name": "name",
+                  "baseCurrency": "baseCurrency",
+                  "ownershipPercent": "ownershipPercent",
+                  "method": "full",
+                  "fxFactor": "fxFactor",
+                  "rateFrom": "rateFrom",
+                  "rateTo": "rateTo",
+                  "totalAssets": "totalAssets",
+                  "netEquity": "netEquity",
+                  "periodResult": "periodResult"
+                }
+              ],
+              "eliminations": {
+                "applied": [
+                  {
+                    "code": "code",
+                    "amount": "amount",
+                    "note": "note"
+                  },
+                  {
+                    "code": "code",
+                    "amount": "amount",
+                    "note": "note"
+                  }
+                ],
+                "balanced": true,
+                "net": "net"
+              },
+              "cashFlow": {
+                "openingCash": "openingCash",
+                "closingCash": "closingCash",
+                "netChange": "netChange",
+                "operating": {
+                  "inflow": "inflow",
+                  "outflow": "outflow",
+                  "net": "net",
+                  "rows": [
+                    {
+                      "code": "code",
+                      "name": "name",
+                      "inflow": "inflow",
+                      "outflow": "outflow"
+                    },
+                    {
+                      "code": "code",
+                      "name": "name",
+                      "inflow": "inflow",
+                      "outflow": "outflow"
+                    }
+                  ]
+                },
+                "investing": {
+                  "inflow": "inflow",
+                  "outflow": "outflow",
+                  "net": "net",
+                  "rows": [
+                    {
+                      "code": "code",
+                      "name": "name",
+                      "inflow": "inflow",
+                      "outflow": "outflow"
+                    },
+                    {
+                      "code": "code",
+                      "name": "name",
+                      "inflow": "inflow",
+                      "outflow": "outflow"
+                    }
+                  ]
+                },
+                "financing": {
+                  "inflow": "inflow",
+                  "outflow": "outflow",
+                  "net": "net",
+                  "rows": [
+                    {
+                      "code": "code",
+                      "name": "name",
+                      "inflow": "inflow",
+                      "outflow": "outflow"
+                    },
+                    {
+                      "code": "code",
+                      "name": "name",
+                      "inflow": "inflow",
+                      "outflow": "outflow"
+                    }
+                  ]
+                },
+                "balanced": true
+              },
+              "intercompanyCandidates": [
+                {
+                  "memberCompanyId": "x",
+                  "memberName": "memberName",
+                  "partnerId": "x",
+                  "partnerName": "partnerName",
+                  "partnerCode": "partnerCode",
+                  "matchesCompanyId": "x",
+                  "matchesCompanyName": "matchesCompanyName",
+                  "matchedOn": "code"
+                },
+                {
+                  "memberCompanyId": "x",
+                  "memberName": "memberName",
+                  "partnerId": "x",
+                  "partnerName": "partnerName",
+                  "partnerCode": "partnerCode",
+                  "matchesCompanyId": "x",
+                  "matchesCompanyName": "matchesCompanyName",
+                  "matchedOn": "code"
+                }
+              ]
+            }
+            """;
+
+        Server
+            .Given(
+                WireMock
+                    .RequestBuilders.Request.Create()
+                    .WithPath("/v1/consolidation/report")
+                    .WithHeader("Content-Type", "application/json")
+                    .UsingPost()
+                    .WithBodyAsJson(requestJson)
+            )
+            .RespondWith(
+                WireMock
+                    .ResponseBuilders.Response.Create()
+                    .WithStatusCode(200)
+                    .WithBody(mockResponse)
+            );
+
+        var response = await Client.Consolidation.ReportAsync(
+            new ReportConsolidationRequest
+            {
+                GroupId = "x",
+                FromDate = new DateOnly(2023, 1, 15),
+                ToDate = new DateOnly(2023, 1, 15),
+                Category = null,
+                Eliminations = null,
+            }
+        );
+        JsonAssert.AreEqual(response, mockResponse);
+    }
+
+    [NUnit.Framework.Test]
+    public async Task MockServerTest_2()
+    {
+        const string requestJson = """
+            {
+              "groupId": "groupId",
+              "fromDate": "2026-07-01",
+              "toDate": "2026-07-01"
+            }
+            """;
+
+        const string mockResponse = """
+            {
+              "presentationCurrency": "presentationCurrency",
+              "fromDate": "2026-07-01",
+              "toDate": "2026-07-01",
+              "category": "micro",
+              "statements": {
+                "category": "micro",
+                "layout": "layout",
+                "requiredStatements": [
+                  "requiredStatements"
+                ],
+                "asOf": "asOf",
+                "balanceSheet": {
+                  "nonCurrentAssets": "nonCurrentAssets",
+                  "currentAssets": "currentAssets",
+                  "totalAssets": "totalAssets",
+                  "equity": "equity",
+                  "ofWhichResult": "ofWhichResult",
+                  "liabilities": "liabilities",
+                  "totalEquityAndLiabilities": "totalEquityAndLiabilities",
+                  "balanced": true
+                },
+                "profitLoss": {
+                  "fromDate": "2026-07-01",
+                  "toDate": "2026-07-01",
+                  "revenue": "revenue",
+                  "expenses": "expenses",
+                  "netResult": "netResult"
+                },
+                "balanceSheetDetail": {
+                  "nonCurrentAssets": {
+                    "intangible": "intangible",
+                    "tangible": "tangible",
+                    "financial": "financial",
+                    "other": "other",
+                    "total": "total"
+                  },
+                  "currentAssets": {
+                    "inventories": "inventories",
+                    "receivables": "receivables",
+                    "otherCurrent": "otherCurrent",
+                    "cash": "cash",
+                    "total": "total"
+                  },
+                  "equity": {
+                    "capital": "capital",
+                    "reserves": "reserves",
+                    "retainedEarnings": "retainedEarnings",
+                    "otherEquity": "otherEquity",
+                    "periodResult": "periodResult",
+                    "total": "total"
+                  },
+                  "liabilities": {
+                    "nonCurrent": "nonCurrent",
+                    "current": "current",
+                    "other": "other",
+                    "total": "total"
+                  }
+                },
+                "profitLossDetail": {
+                  "salesRevenue": "salesRevenue",
+                  "costOfSales": "costOfSales",
+                  "grossProfit": "grossProfit",
+                  "sellingExpenses": "sellingExpenses",
+                  "adminExpenses": "adminExpenses",
+                  "operatingProfit": "operatingProfit",
+                  "otherActivityResult": "otherActivityResult",
+                  "financialActivityResult": "financialActivityResult",
+                  "profitBeforeTax": "profitBeforeTax",
+                  "incomeTax": "incomeTax",
+                  "netProfit": "netProfit"
+                }
+              },
+              "trialBalance": [
+                {
+                  "code": "code",
+                  "type": "type",
+                  "closing": "closing",
+                  "period": "period"
+                }
+              ],
+              "nonControllingInterest": {
+                "equity": "equity",
+                "result": "result"
+              },
+              "equityMethod": {
+                "investmentsInAssociates": "investmentsInAssociates",
+                "shareOfAssociatesResult": "shareOfAssociatesResult"
+              },
+              "members": [
+                {
+                  "companyId": "companyId",
+                  "name": "name",
+                  "baseCurrency": "baseCurrency",
+                  "ownershipPercent": "ownershipPercent",
+                  "method": "full",
+                  "fxFactor": "fxFactor",
+                  "rateFrom": "rateFrom",
+                  "rateTo": "rateTo",
+                  "totalAssets": "totalAssets",
+                  "netEquity": "netEquity",
+                  "periodResult": "periodResult"
+                }
+              ],
+              "eliminations": {
+                "applied": [
+                  {
+                    "code": "code",
+                    "amount": "amount"
+                  }
+                ],
+                "balanced": true,
+                "net": "net"
+              },
+              "cashFlow": {
+                "openingCash": "openingCash",
+                "closingCash": "closingCash",
+                "netChange": "netChange",
+                "operating": {
+                  "inflow": "inflow",
+                  "outflow": "outflow",
+                  "net": "net",
+                  "rows": [
+                    {
+                      "code": "code",
+                      "name": "name",
+                      "inflow": "inflow",
+                      "outflow": "outflow"
+                    }
+                  ]
+                },
+                "investing": {
+                  "inflow": "inflow",
+                  "outflow": "outflow",
+                  "net": "net",
+                  "rows": [
+                    {
+                      "code": "code",
+                      "name": "name",
+                      "inflow": "inflow",
+                      "outflow": "outflow"
+                    }
+                  ]
+                },
+                "financing": {
+                  "inflow": "inflow",
+                  "outflow": "outflow",
+                  "net": "net",
+                  "rows": [
+                    {
+                      "code": "code",
+                      "name": "name",
+                      "inflow": "inflow",
+                      "outflow": "outflow"
+                    }
+                  ]
+                },
+                "balanced": true
+              },
+              "intercompanyCandidates": [
+                {
+                  "memberCompanyId": "memberCompanyId",
+                  "memberName": "memberName",
+                  "partnerId": "partnerId",
+                  "partnerName": "partnerName",
+                  "partnerCode": "partnerCode",
+                  "matchesCompanyId": "matchesCompanyId",
+                  "matchesCompanyName": "matchesCompanyName",
+                  "matchedOn": "code"
+                }
+              ]
+            }
+            """;
+
+        Server
+            .Given(
+                WireMock
+                    .RequestBuilders.Request.Create()
+                    .WithPath("/v1/consolidation/report")
+                    .WithHeader("Content-Type", "application/json")
+                    .UsingPost()
+                    .WithBodyAsJson(requestJson)
+            )
+            .RespondWith(
+                WireMock
+                    .ResponseBuilders.Response.Create()
+                    .WithStatusCode(200)
+                    .WithBody(mockResponse)
+            );
+
+        var response = await Client.Consolidation.ReportAsync(
+            new ReportConsolidationRequest
+            {
+                GroupId = "groupId",
+                FromDate = new DateOnly(2026, 7, 1),
+                ToDate = new DateOnly(2026, 7, 1),
+            }
+        );
+        JsonAssert.AreEqual(response, mockResponse);
+    }
+}

@@ -12,10 +12,8 @@ public partial class BankClient : IBankClient
         _client = client;
     }
 
-    private async Task<
-        WithRawResponse<PostV1BankAccountsCreateResponse>
-    > PostV1BankAccountsCreateAsyncCore(
-        PostV1BankAccountsCreateRequest request,
+    private async Task<WithRawResponse<AccountsCreateBankResponse>> AccountsCreateAsyncCore(
+        AccountsCreateBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -51,10 +49,8 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankAccountsCreateResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1BankAccountsCreateResponse>()
+                var responseData = JsonUtils.Deserialize<AccountsCreateBankResponse>(responseBody)!;
+                return new WithRawResponse<AccountsCreateBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -113,6 +109,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -139,6 +147,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -205,10 +225,8 @@ public partial class BankClient : IBankClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1BankAccountsListResponse>
-    > PostV1BankAccountsListAsyncCore(
-        PostV1BankAccountsListRequest request,
+    private async Task<WithRawResponse<AccountsListBankResponse>> AccountsListAsyncCore(
+        AccountsListBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -244,10 +262,8 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankAccountsListResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1BankAccountsListResponse>()
+                var responseData = JsonUtils.Deserialize<AccountsListBankResponse>(responseBody)!;
+                return new WithRawResponse<AccountsListBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -306,6 +322,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -332,6 +360,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -398,10 +438,8 @@ public partial class BankClient : IBankClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1BankAccountsUpdateResponse>
-    > PostV1BankAccountsUpdateAsyncCore(
-        PostV1BankAccountsUpdateRequest request,
+    private async Task<WithRawResponse<AccountsUpdateBankResponse>> AccountsUpdateAsyncCore(
+        AccountsUpdateBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -437,10 +475,8 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankAccountsUpdateResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1BankAccountsUpdateResponse>()
+                var responseData = JsonUtils.Deserialize<AccountsUpdateBankResponse>(responseBody)!;
+                return new WithRawResponse<AccountsUpdateBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -499,6 +535,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -525,6 +573,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -591,10 +651,8 @@ public partial class BankClient : IBankClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1BankTransactionsImportResponse>
-    > PostV1BankTransactionsImportAsyncCore(
-        PostV1BankTransactionsImportRequest request,
+    private async Task<WithRawResponse<TransactionsImportBankResponse>> TransactionsImportAsyncCore(
+        TransactionsImportBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -630,10 +688,10 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankTransactionsImportResponse>(
+                var responseData = JsonUtils.Deserialize<TransactionsImportBankResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1BankTransactionsImportResponse>()
+                return new WithRawResponse<TransactionsImportBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -692,6 +750,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -718,6 +788,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -784,10 +866,8 @@ public partial class BankClient : IBankClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1BankStatementsImportResponse>
-    > PostV1BankStatementsImportAsyncCore(
-        PostV1BankStatementsImportRequest request,
+    private async Task<WithRawResponse<StatementsImportBankResponse>> StatementsImportAsyncCore(
+        StatementsImportBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -823,10 +903,10 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankStatementsImportResponse>(
+                var responseData = JsonUtils.Deserialize<StatementsImportBankResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1BankStatementsImportResponse>()
+                return new WithRawResponse<StatementsImportBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -885,6 +965,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -911,6 +1003,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -977,10 +1081,8 @@ public partial class BankClient : IBankClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1BankTransactionsListResponse>
-    > PostV1BankTransactionsListAsyncCore(
-        PostV1BankTransactionsListRequest request,
+    private async Task<WithRawResponse<TransactionsListBankResponse>> TransactionsListAsyncCore(
+        TransactionsListBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1016,10 +1118,10 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankTransactionsListResponse>(
+                var responseData = JsonUtils.Deserialize<TransactionsListBankResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1BankTransactionsListResponse>()
+                return new WithRawResponse<TransactionsListBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1078,6 +1180,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1104,6 +1218,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1170,10 +1296,8 @@ public partial class BankClient : IBankClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1BankTransactionsMatchResponse>
-    > PostV1BankTransactionsMatchAsyncCore(
-        PostV1BankTransactionsMatchRequest request,
+    private async Task<WithRawResponse<TransactionsMatchBankResponse>> TransactionsMatchAsyncCore(
+        TransactionsMatchBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1209,10 +1333,10 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankTransactionsMatchResponse>(
+                var responseData = JsonUtils.Deserialize<TransactionsMatchBankResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1BankTransactionsMatchResponse>()
+                return new WithRawResponse<TransactionsMatchBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1271,6 +1395,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1297,6 +1433,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1364,9 +1512,224 @@ public partial class BankClient : IBankClient
     }
 
     private async Task<
-        WithRawResponse<PostV1BankTransactionsRecordResponse>
-    > PostV1BankTransactionsRecordAsyncCore(
-        PostV1BankTransactionsRecordRequest request,
+        WithRawResponse<TransactionsUnmatchBankResponse>
+    > TransactionsUnmatchAsyncCore(
+        TransactionsUnmatchBankRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        var _queryString = new NordletApi.Core.QueryStringBuilder.Builder(capacity: 0)
+            .MergeAdditional(options?.AdditionalQueryParameters)
+            .Build();
+        var _headers = await new NordletApi.Core.HeadersBuilder.Builder()
+            .Add(_client.Options.Headers)
+            .Add(_client.Options.AdditionalHeaders)
+            .Add(options?.AdditionalHeaders)
+            .BuildAsync()
+            .ConfigureAwait(false);
+        var response = await _client
+            .SendRequestAsync(
+                new JsonRequest
+                {
+                    Method = HttpMethod.Post,
+                    Path = "v1/bank/transactions/unmatch",
+                    Body = request,
+                    QueryString = _queryString,
+                    Headers = _headers,
+                    ContentType = "application/json",
+                    Options = options,
+                },
+                cancellationToken
+            )
+            .ConfigureAwait(false);
+        if (response.StatusCode is >= 200 and < 400)
+        {
+            var responseBody = await response
+                .Raw.Content.ReadAsStringAsync(cancellationToken)
+                .ConfigureAwait(false);
+            try
+            {
+                var responseData = JsonUtils.Deserialize<TransactionsUnmatchBankResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<TransactionsUnmatchBankResponse>()
+                {
+                    Data = responseData,
+                    RawResponse = new NordletApi.RawResponse()
+                    {
+                        StatusCode = response.Raw.StatusCode,
+                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
+                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                    },
+                };
+            }
+            catch (JsonException e)
+            {
+                throw new NordletApiApiException(
+                    "Failed to deserialize response",
+                    response.StatusCode,
+                    responseBody,
+                    e,
+                    rawResponse: new NordletApi.RawResponse()
+                    {
+                        StatusCode = response.Raw.StatusCode,
+                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
+                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                    }
+                );
+            }
+        }
+        {
+            var responseBody = await response
+                .Raw.Content.ReadAsStringAsync(cancellationToken)
+                .ConfigureAwait(false);
+            try
+            {
+                switch (response.StatusCode)
+                {
+                    case 400:
+                        throw new BadRequestError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 401:
+                        throw new UnauthorizedError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 403:
+                        throw new ForbiddenError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 404:
+                        throw new NotFoundError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 409:
+                        throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 422:
+                        throw new UnprocessableEntityError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 429:
+                        throw new TooManyRequestsError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 500:
+                        throw new InternalServerError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                }
+            }
+            catch (JsonException)
+            {
+                // unable to map error response, throwing generic error
+            }
+            throw new NordletApiApiException(
+                $"Error with status code {response.StatusCode}",
+                response.StatusCode,
+                responseBody,
+                rawResponse: new NordletApi.RawResponse()
+                {
+                    StatusCode = response.Raw.StatusCode,
+                    Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
+                    Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                }
+            );
+        }
+    }
+
+    private async Task<WithRawResponse<TransactionsRecordBankResponse>> TransactionsRecordAsyncCore(
+        TransactionsRecordBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1402,10 +1765,10 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankTransactionsRecordResponse>(
+                var responseData = JsonUtils.Deserialize<TransactionsRecordBankResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1BankTransactionsRecordResponse>()
+                return new WithRawResponse<TransactionsRecordBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1464,6 +1827,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1490,6 +1865,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1556,10 +1943,8 @@ public partial class BankClient : IBankClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1BankPaymentsExportResponse>
-    > PostV1BankPaymentsExportAsyncCore(
-        PostV1BankPaymentsExportRequest request,
+    private async Task<WithRawResponse<PaymentsExportBankResponse>> PaymentsExportAsyncCore(
+        PaymentsExportBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1595,10 +1980,8 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankPaymentsExportResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1BankPaymentsExportResponse>()
+                var responseData = JsonUtils.Deserialize<PaymentsExportBankResponse>(responseBody)!;
+                return new WithRawResponse<PaymentsExportBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1657,6 +2040,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1683,6 +2078,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1750,9 +2157,9 @@ public partial class BankClient : IBankClient
     }
 
     private async Task<
-        WithRawResponse<PostV1BankImportTemplatesCreateResponse>
-    > CreateABankImportTemplateFieldsDefaultToTheTypesStandardFieldListAsyncCore(
-        PostV1BankImportTemplatesCreateRequest request,
+        WithRawResponse<ImportTemplatesCreateBankResponse>
+    > ImportTemplatesCreateAsyncCore(
+        ImportTemplatesCreateBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1788,10 +2195,10 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankImportTemplatesCreateResponse>(
+                var responseData = JsonUtils.Deserialize<ImportTemplatesCreateBankResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1BankImportTemplatesCreateResponse>()
+                return new WithRawResponse<ImportTemplatesCreateBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1850,6 +2257,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1876,6 +2295,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1943,9 +2374,9 @@ public partial class BankClient : IBankClient
     }
 
     private async Task<
-        WithRawResponse<PostV1BankImportTemplatesUpdateResponse>
-    > PostV1BankImportTemplatesUpdateAsyncCore(
-        PostV1BankImportTemplatesUpdateRequest request,
+        WithRawResponse<ImportTemplatesUpdateBankResponse>
+    > ImportTemplatesUpdateAsyncCore(
+        ImportTemplatesUpdateBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1981,10 +2412,10 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankImportTemplatesUpdateResponse>(
+                var responseData = JsonUtils.Deserialize<ImportTemplatesUpdateBankResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1BankImportTemplatesUpdateResponse>()
+                return new WithRawResponse<ImportTemplatesUpdateBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2043,6 +2474,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2069,6 +2512,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2136,9 +2591,9 @@ public partial class BankClient : IBankClient
     }
 
     private async Task<
-        WithRawResponse<PostV1BankImportTemplatesDeleteResponse>
-    > PostV1BankImportTemplatesDeleteAsyncCore(
-        PostV1BankImportTemplatesDeleteRequest request,
+        WithRawResponse<ImportTemplatesDeleteBankResponse>
+    > ImportTemplatesDeleteAsyncCore(
+        ImportTemplatesDeleteBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2174,10 +2629,10 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankImportTemplatesDeleteResponse>(
+                var responseData = JsonUtils.Deserialize<ImportTemplatesDeleteBankResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1BankImportTemplatesDeleteResponse>()
+                return new WithRawResponse<ImportTemplatesDeleteBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2236,6 +2691,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2262,6 +2729,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2328,10 +2807,8 @@ public partial class BankClient : IBankClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1BankImportTemplatesGetResponse>
-    > PostV1BankImportTemplatesGetAsyncCore(
-        PostV1BankImportTemplatesGetRequest request,
+    private async Task<WithRawResponse<ImportTemplatesGetBankResponse>> ImportTemplatesGetAsyncCore(
+        ImportTemplatesGetBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2367,10 +2844,10 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankImportTemplatesGetResponse>(
+                var responseData = JsonUtils.Deserialize<ImportTemplatesGetBankResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1BankImportTemplatesGetResponse>()
+                return new WithRawResponse<ImportTemplatesGetBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2429,6 +2906,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2455,6 +2944,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2522,9 +3023,9 @@ public partial class BankClient : IBankClient
     }
 
     private async Task<
-        WithRawResponse<PostV1BankImportTemplatesListResponse>
-    > PostV1BankImportTemplatesListAsyncCore(
-        PostV1BankImportTemplatesListRequest request,
+        WithRawResponse<ImportTemplatesListBankResponse>
+    > ImportTemplatesListAsyncCore(
+        ImportTemplatesListBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2560,10 +3061,10 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankImportTemplatesListResponse>(
+                var responseData = JsonUtils.Deserialize<ImportTemplatesListBankResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1BankImportTemplatesListResponse>()
+                return new WithRawResponse<ImportTemplatesListBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2622,6 +3123,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2648,6 +3161,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2714,10 +3239,8 @@ public partial class BankClient : IBankClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1BankMatchRulesCreateResponse>
-    > PostV1BankMatchRulesCreateAsyncCore(
-        PostV1BankMatchRulesCreateRequest request,
+    private async Task<WithRawResponse<MatchRulesCreateBankResponse>> MatchRulesCreateAsyncCore(
+        MatchRulesCreateBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2753,10 +3276,10 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankMatchRulesCreateResponse>(
+                var responseData = JsonUtils.Deserialize<MatchRulesCreateBankResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1BankMatchRulesCreateResponse>()
+                return new WithRawResponse<MatchRulesCreateBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2815,6 +3338,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2841,6 +3376,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2907,10 +3454,8 @@ public partial class BankClient : IBankClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1BankMatchRulesUpdateResponse>
-    > PostV1BankMatchRulesUpdateAsyncCore(
-        PostV1BankMatchRulesUpdateRequest request,
+    private async Task<WithRawResponse<MatchRulesUpdateBankResponse>> MatchRulesUpdateAsyncCore(
+        MatchRulesUpdateBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2946,10 +3491,10 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankMatchRulesUpdateResponse>(
+                var responseData = JsonUtils.Deserialize<MatchRulesUpdateBankResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1BankMatchRulesUpdateResponse>()
+                return new WithRawResponse<MatchRulesUpdateBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3008,6 +3553,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3034,6 +3591,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3100,10 +3669,8 @@ public partial class BankClient : IBankClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1BankMatchRulesDeleteResponse>
-    > PostV1BankMatchRulesDeleteAsyncCore(
-        PostV1BankMatchRulesDeleteRequest request,
+    private async Task<WithRawResponse<MatchRulesDeleteBankResponse>> MatchRulesDeleteAsyncCore(
+        MatchRulesDeleteBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3139,10 +3706,10 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankMatchRulesDeleteResponse>(
+                var responseData = JsonUtils.Deserialize<MatchRulesDeleteBankResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1BankMatchRulesDeleteResponse>()
+                return new WithRawResponse<MatchRulesDeleteBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3201,6 +3768,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3227,6 +3806,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3293,10 +3884,8 @@ public partial class BankClient : IBankClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1BankMatchRulesListResponse>
-    > PostV1BankMatchRulesListAsyncCore(
-        PostV1BankMatchRulesListRequest request,
+    private async Task<WithRawResponse<MatchRulesListBankResponse>> MatchRulesListAsyncCore(
+        MatchRulesListBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3332,10 +3921,8 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankMatchRulesListResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1BankMatchRulesListResponse>()
+                var responseData = JsonUtils.Deserialize<MatchRulesListBankResponse>(responseBody)!;
+                return new WithRawResponse<MatchRulesListBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3394,6 +3981,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3420,6 +4019,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3486,10 +4097,8 @@ public partial class BankClient : IBankClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1BankMandatesCreateResponse>
-    > PostV1BankMandatesCreateAsyncCore(
-        PostV1BankMandatesCreateRequest request,
+    private async Task<WithRawResponse<MandatesCreateBankResponse>> MandatesCreateAsyncCore(
+        MandatesCreateBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3525,10 +4134,8 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankMandatesCreateResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1BankMandatesCreateResponse>()
+                var responseData = JsonUtils.Deserialize<MandatesCreateBankResponse>(responseBody)!;
+                return new WithRawResponse<MandatesCreateBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3587,6 +4194,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3613,6 +4232,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3679,10 +4310,8 @@ public partial class BankClient : IBankClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1BankMandatesUpdateResponse>
-    > PostV1BankMandatesUpdateAsyncCore(
-        PostV1BankMandatesUpdateRequest request,
+    private async Task<WithRawResponse<MandatesUpdateBankResponse>> MandatesUpdateAsyncCore(
+        MandatesUpdateBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3718,10 +4347,8 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankMandatesUpdateResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1BankMandatesUpdateResponse>()
+                var responseData = JsonUtils.Deserialize<MandatesUpdateBankResponse>(responseBody)!;
+                return new WithRawResponse<MandatesUpdateBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3780,6 +4407,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3806,6 +4445,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3872,10 +4523,8 @@ public partial class BankClient : IBankClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1BankMandatesCancelResponse>
-    > PostV1BankMandatesCancelAsyncCore(
-        PostV1BankMandatesCancelRequest request,
+    private async Task<WithRawResponse<MandatesCancelBankResponse>> MandatesCancelAsyncCore(
+        MandatesCancelBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3911,10 +4560,8 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankMandatesCancelResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1BankMandatesCancelResponse>()
+                var responseData = JsonUtils.Deserialize<MandatesCancelBankResponse>(responseBody)!;
+                return new WithRawResponse<MandatesCancelBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3973,6 +4620,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3999,6 +4658,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -4065,10 +4736,8 @@ public partial class BankClient : IBankClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1BankMandatesGetResponse>
-    > PostV1BankMandatesGetAsyncCore(
-        PostV1BankMandatesGetRequest request,
+    private async Task<WithRawResponse<MandatesGetBankResponse>> MandatesGetAsyncCore(
+        MandatesGetBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -4104,10 +4773,8 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankMandatesGetResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1BankMandatesGetResponse>()
+                var responseData = JsonUtils.Deserialize<MandatesGetBankResponse>(responseBody)!;
+                return new WithRawResponse<MandatesGetBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -4166,6 +4833,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -4192,6 +4871,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -4258,10 +4949,8 @@ public partial class BankClient : IBankClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1BankMandatesListResponse>
-    > PostV1BankMandatesListAsyncCore(
-        PostV1BankMandatesListRequest request,
+    private async Task<WithRawResponse<MandatesListBankResponse>> MandatesListAsyncCore(
+        MandatesListBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -4297,10 +4986,8 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankMandatesListResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1BankMandatesListResponse>()
+                var responseData = JsonUtils.Deserialize<MandatesListBankResponse>(responseBody)!;
+                return new WithRawResponse<MandatesListBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -4359,6 +5046,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -4385,6 +5084,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -4451,10 +5162,8 @@ public partial class BankClient : IBankClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1BankDirectDebitsExportResponse>
-    > PostV1BankDirectDebitsExportAsyncCore(
-        PostV1BankDirectDebitsExportRequest request,
+    private async Task<WithRawResponse<DirectDebitsExportBankResponse>> DirectDebitsExportAsyncCore(
+        DirectDebitsExportBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -4490,10 +5199,10 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankDirectDebitsExportResponse>(
+                var responseData = JsonUtils.Deserialize<DirectDebitsExportBankResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1BankDirectDebitsExportResponse>()
+                return new WithRawResponse<DirectDebitsExportBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -4552,6 +5261,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -4578,6 +5299,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -4645,9 +5378,9 @@ public partial class BankClient : IBankClient
     }
 
     private async Task<
-        WithRawResponse<PostV1BankTransactionsSuggestMatchesResponse>
-    > PostV1BankTransactionsSuggestMatchesAsyncCore(
-        PostV1BankTransactionsSuggestMatchesRequest request,
+        WithRawResponse<TransactionsSuggestMatchesBankResponse>
+    > TransactionsSuggestMatchesAsyncCore(
+        TransactionsSuggestMatchesBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -4683,11 +5416,10 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1BankTransactionsSuggestMatchesResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1BankTransactionsSuggestMatchesResponse>()
+                var responseData = JsonUtils.Deserialize<TransactionsSuggestMatchesBankResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<TransactionsSuggestMatchesBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -4746,6 +5478,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -4772,6 +5516,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -4838,10 +5594,8 @@ public partial class BankClient : IBankClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1BankSettlementsImportResponse>
-    > PostV1BankSettlementsImportAsyncCore(
-        PostV1BankSettlementsImportRequest request,
+    private async Task<WithRawResponse<SettlementsImportBankResponse>> SettlementsImportAsyncCore(
+        SettlementsImportBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -4877,10 +5631,10 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankSettlementsImportResponse>(
+                var responseData = JsonUtils.Deserialize<SettlementsImportBankResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1BankSettlementsImportResponse>()
+                return new WithRawResponse<SettlementsImportBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -4939,6 +5693,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -4965,6 +5731,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -5031,10 +5809,8 @@ public partial class BankClient : IBankClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1BankSettlementsListResponse>
-    > PostV1BankSettlementsListAsyncCore(
-        PostV1BankSettlementsListRequest request,
+    private async Task<WithRawResponse<SettlementsListBankResponse>> SettlementsListAsyncCore(
+        SettlementsListBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -5070,10 +5846,10 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankSettlementsListResponse>(
+                var responseData = JsonUtils.Deserialize<SettlementsListBankResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1BankSettlementsListResponse>()
+                return new WithRawResponse<SettlementsListBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -5132,6 +5908,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -5158,6 +5946,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -5224,10 +6024,8 @@ public partial class BankClient : IBankClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1BankSettlementsGetResponse>
-    > PostV1BankSettlementsGetAsyncCore(
-        PostV1BankSettlementsGetRequest request,
+    private async Task<WithRawResponse<SettlementsGetBankResponse>> SettlementsGetAsyncCore(
+        SettlementsGetBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -5263,10 +6061,8 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankSettlementsGetResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1BankSettlementsGetResponse>()
+                var responseData = JsonUtils.Deserialize<SettlementsGetBankResponse>(responseBody)!;
+                return new WithRawResponse<SettlementsGetBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -5325,6 +6121,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -5351,6 +6159,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -5417,10 +6237,8 @@ public partial class BankClient : IBankClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1BankSettlementsMatchResponse>
-    > PostV1BankSettlementsMatchAsyncCore(
-        PostV1BankSettlementsMatchRequest request,
+    private async Task<WithRawResponse<SettlementsMatchBankResponse>> SettlementsMatchAsyncCore(
+        SettlementsMatchBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -5456,10 +6274,10 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankSettlementsMatchResponse>(
+                var responseData = JsonUtils.Deserialize<SettlementsMatchBankResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1BankSettlementsMatchResponse>()
+                return new WithRawResponse<SettlementsMatchBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -5518,6 +6336,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -5544,6 +6374,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -5611,9 +6453,9 @@ public partial class BankClient : IBankClient
     }
 
     private async Task<
-        WithRawResponse<PostV1BankSettlementsCommissionResponse>
-    > SetWhatTheMarketplaceKeepsFromOneSettlementLineAsARateOrAsAnAmountAsyncCore(
-        PostV1BankSettlementsCommissionRequest request,
+        WithRawResponse<SettlementsCommissionBankResponse>
+    > SettlementsCommissionAsyncCore(
+        SettlementsCommissionBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -5649,10 +6491,10 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankSettlementsCommissionResponse>(
+                var responseData = JsonUtils.Deserialize<SettlementsCommissionBankResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1BankSettlementsCommissionResponse>()
+                return new WithRawResponse<SettlementsCommissionBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -5711,6 +6553,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -5737,6 +6591,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -5803,10 +6669,8 @@ public partial class BankClient : IBankClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1BankSettlementsLinkResponse>
-    > PostV1BankSettlementsLinkAsyncCore(
-        PostV1BankSettlementsLinkRequest request,
+    private async Task<WithRawResponse<SettlementsLinkBankResponse>> SettlementsLinkAsyncCore(
+        SettlementsLinkBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -5842,10 +6706,10 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankSettlementsLinkResponse>(
+                var responseData = JsonUtils.Deserialize<SettlementsLinkBankResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1BankSettlementsLinkResponse>()
+                return new WithRawResponse<SettlementsLinkBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -5904,6 +6768,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -5930,6 +6806,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -5996,10 +6884,8 @@ public partial class BankClient : IBankClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1BankSettlementsUnlinkResponse>
-    > PostV1BankSettlementsUnlinkAsyncCore(
-        PostV1BankSettlementsUnlinkRequest request,
+    private async Task<WithRawResponse<SettlementsUnlinkBankResponse>> SettlementsUnlinkAsyncCore(
+        SettlementsUnlinkBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -6035,10 +6921,10 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankSettlementsUnlinkResponse>(
+                var responseData = JsonUtils.Deserialize<SettlementsUnlinkBankResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1BankSettlementsUnlinkResponse>()
+                return new WithRawResponse<SettlementsUnlinkBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -6097,6 +6983,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -6123,6 +7021,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -6189,10 +7099,8 @@ public partial class BankClient : IBankClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1BankSettlementsPostResponse>
-    > PostV1BankSettlementsPostAsyncCore(
-        PostV1BankSettlementsPostRequest request,
+    private async Task<WithRawResponse<SettlementsPostBankResponse>> SettlementsPostAsyncCore(
+        SettlementsPostBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -6228,10 +7136,10 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankSettlementsPostResponse>(
+                var responseData = JsonUtils.Deserialize<SettlementsPostBankResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1BankSettlementsPostResponse>()
+                return new WithRawResponse<SettlementsPostBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -6290,6 +7198,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -6316,6 +7236,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -6382,10 +7314,8 @@ public partial class BankClient : IBankClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1BankFeedsBanksListResponse>
-    > ListThePsd2BanksAspsPsAvailableToConnectAsyncCore(
-        PostV1BankFeedsBanksListRequest request,
+    private async Task<WithRawResponse<FeedsBanksListBankResponse>> FeedsBanksListAsyncCore(
+        FeedsBanksListBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -6421,10 +7351,8 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankFeedsBanksListResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1BankFeedsBanksListResponse>()
+                var responseData = JsonUtils.Deserialize<FeedsBanksListBankResponse>(responseBody)!;
+                return new WithRawResponse<FeedsBanksListBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -6483,6 +7411,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -6509,6 +7449,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -6576,9 +7528,9 @@ public partial class BankClient : IBankClient
     }
 
     private async Task<
-        WithRawResponse<PostV1BankFeedsConnectionsStartResponse>
-    > BeginBankAuthorizationRedirectTheUserToTheReturnedUrlAsyncCore(
-        PostV1BankFeedsConnectionsStartRequest request,
+        WithRawResponse<FeedsConnectionsStartBankResponse>
+    > FeedsConnectionsStartAsyncCore(
+        FeedsConnectionsStartBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -6614,10 +7566,10 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankFeedsConnectionsStartResponse>(
+                var responseData = JsonUtils.Deserialize<FeedsConnectionsStartBankResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1BankFeedsConnectionsStartResponse>()
+                return new WithRawResponse<FeedsConnectionsStartBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -6676,6 +7628,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -6702,6 +7666,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -6769,9 +7745,9 @@ public partial class BankClient : IBankClient
     }
 
     private async Task<
-        WithRawResponse<PostV1BankFeedsConnectionsCompleteResponse>
-    > ExchangeTheRedirectCodeForASessionAndStoreTheBankAccountsItExposesAsyncCore(
-        PostV1BankFeedsConnectionsCompleteRequest request,
+        WithRawResponse<FeedsConnectionsCompleteBankResponse>
+    > FeedsConnectionsCompleteAsyncCore(
+        FeedsConnectionsCompleteBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -6807,11 +7783,10 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1BankFeedsConnectionsCompleteResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1BankFeedsConnectionsCompleteResponse>()
+                var responseData = JsonUtils.Deserialize<FeedsConnectionsCompleteBankResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<FeedsConnectionsCompleteBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -6870,6 +7845,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -6896,6 +7883,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -6963,9 +7962,9 @@ public partial class BankClient : IBankClient
     }
 
     private async Task<
-        WithRawResponse<PostV1BankFeedsConnectionsGetResponse>
-    > PostV1BankFeedsConnectionsGetAsyncCore(
-        PostV1BankFeedsConnectionsGetRequest request,
+        WithRawResponse<FeedsConnectionsGetBankResponse>
+    > FeedsConnectionsGetAsyncCore(
+        FeedsConnectionsGetBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -7001,10 +8000,10 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankFeedsConnectionsGetResponse>(
+                var responseData = JsonUtils.Deserialize<FeedsConnectionsGetBankResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1BankFeedsConnectionsGetResponse>()
+                return new WithRawResponse<FeedsConnectionsGetBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -7063,6 +8062,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -7089,6 +8100,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -7156,9 +8179,9 @@ public partial class BankClient : IBankClient
     }
 
     private async Task<
-        WithRawResponse<PostV1BankFeedsConnectionsListResponse>
-    > PostV1BankFeedsConnectionsListAsyncCore(
-        PostV1BankFeedsConnectionsListRequest request,
+        WithRawResponse<FeedsConnectionsListBankResponse>
+    > FeedsConnectionsListAsyncCore(
+        FeedsConnectionsListBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -7194,10 +8217,10 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankFeedsConnectionsListResponse>(
+                var responseData = JsonUtils.Deserialize<FeedsConnectionsListBankResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1BankFeedsConnectionsListResponse>()
+                return new WithRawResponse<FeedsConnectionsListBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -7256,6 +8279,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -7282,6 +8317,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -7349,9 +8396,9 @@ public partial class BankClient : IBankClient
     }
 
     private async Task<
-        WithRawResponse<PostV1BankFeedsConnectionsDeleteResponse>
-    > RevokeTheConsentAtTheBankAndDropTheStoredConnectionAsyncCore(
-        PostV1BankFeedsConnectionsDeleteRequest request,
+        WithRawResponse<FeedsConnectionsDeleteBankResponse>
+    > FeedsConnectionsDeleteAsyncCore(
+        FeedsConnectionsDeleteBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -7387,10 +8434,10 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankFeedsConnectionsDeleteResponse>(
+                var responseData = JsonUtils.Deserialize<FeedsConnectionsDeleteBankResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1BankFeedsConnectionsDeleteResponse>()
+                return new WithRawResponse<FeedsConnectionsDeleteBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -7449,6 +8496,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -7475,6 +8534,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -7541,10 +8612,8 @@ public partial class BankClient : IBankClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1BankFeedsAccountsLinkResponse>
-    > PointABankFeedAccountAtALedgerBankAccountSoItsTransactionsCanBeSyncedAsyncCore(
-        PostV1BankFeedsAccountsLinkRequest request,
+    private async Task<WithRawResponse<FeedsAccountsLinkBankResponse>> FeedsAccountsLinkAsyncCore(
+        FeedsAccountsLinkBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -7580,10 +8649,10 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankFeedsAccountsLinkResponse>(
+                var responseData = JsonUtils.Deserialize<FeedsAccountsLinkBankResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1BankFeedsAccountsLinkResponse>()
+                return new WithRawResponse<FeedsAccountsLinkBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -7642,6 +8711,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -7668,6 +8749,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -7735,9 +8828,9 @@ public partial class BankClient : IBankClient
     }
 
     private async Task<
-        WithRawResponse<PostV1BankFeedsAccountsConfigureResponse>
-    > ChooseTheImportTemplateAppliedOnSyncAndHowOftenTheAccountIsSyncedAutomaticallyAsyncCore(
-        PostV1BankFeedsAccountsConfigureRequest request,
+        WithRawResponse<FeedsAccountsConfigureBankResponse>
+    > FeedsAccountsConfigureAsyncCore(
+        FeedsAccountsConfigureBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -7773,10 +8866,10 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankFeedsAccountsConfigureResponse>(
+                var responseData = JsonUtils.Deserialize<FeedsAccountsConfigureBankResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1BankFeedsAccountsConfigureResponse>()
+                return new WithRawResponse<FeedsAccountsConfigureBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -7835,6 +8928,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -7861,6 +8966,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -7927,10 +9044,8 @@ public partial class BankClient : IBankClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1BankFeedsSyncResponse>
-    > PullNewTransactionsFromTheBankIntoTheLedgerEmitsBankFeedSyncedAsyncCore(
-        PostV1BankFeedsSyncRequest request,
+    private async Task<WithRawResponse<FeedsSyncBankResponse>> FeedsSyncAsyncCore(
+        FeedsSyncBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -7966,10 +9081,8 @@ public partial class BankClient : IBankClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1BankFeedsSyncResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1BankFeedsSyncResponse>()
+                var responseData = JsonUtils.Deserialize<FeedsSyncBankResponse>(responseBody)!;
+                return new WithRawResponse<FeedsSyncBankResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -8028,6 +9141,18 @@ public partial class BankClient : IBankClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -8054,6 +9179,18 @@ public partial class BankClient : IBankClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -8121,488 +9258,489 @@ public partial class BankClient : IBankClient
     }
 
     /// <example><code>
-    /// await client.Bank.PostV1BankAccountsCreateAsync(
-    ///     new PostV1BankAccountsCreateRequest { Name = "name" }
-    /// );
+    /// await client.Bank.AccountsCreateAsync(new AccountsCreateBankRequest { Name = "name" });
     /// </code></example>
-    public WithRawResponseTask<PostV1BankAccountsCreateResponse> PostV1BankAccountsCreateAsync(
-        PostV1BankAccountsCreateRequest request,
+    public WithRawResponseTask<AccountsCreateBankResponse> AccountsCreateAsync(
+        AccountsCreateBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BankAccountsCreateResponse>(
-            PostV1BankAccountsCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<AccountsCreateBankResponse>(
+            AccountsCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Bank.PostV1BankAccountsListAsync(new PostV1BankAccountsListRequest());
+    /// await client.Bank.AccountsListAsync(new AccountsListBankRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1BankAccountsListResponse> PostV1BankAccountsListAsync(
-        PostV1BankAccountsListRequest request,
+    public WithRawResponseTask<AccountsListBankResponse> AccountsListAsync(
+        AccountsListBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BankAccountsListResponse>(
-            PostV1BankAccountsListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<AccountsListBankResponse>(
+            AccountsListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Bank.PostV1BankAccountsUpdateAsync(new PostV1BankAccountsUpdateRequest { Id = "id" });
+    /// await client.Bank.AccountsUpdateAsync(new AccountsUpdateBankRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1BankAccountsUpdateResponse> PostV1BankAccountsUpdateAsync(
-        PostV1BankAccountsUpdateRequest request,
+    public WithRawResponseTask<AccountsUpdateBankResponse> AccountsUpdateAsync(
+        AccountsUpdateBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BankAccountsUpdateResponse>(
-            PostV1BankAccountsUpdateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<AccountsUpdateBankResponse>(
+            AccountsUpdateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Bank.PostV1BankTransactionsImportAsync(
-    ///     new PostV1BankTransactionsImportRequest
+    /// await client.Bank.TransactionsImportAsync(
+    ///     new TransactionsImportBankRequest
     ///     {
     ///         BankAccountId = "bankAccountId",
-    ///         Transactions = new List&lt;PostV1BankTransactionsImportRequestTransactionsItem&gt;()
+    ///         Transactions = new List&lt;TransactionsImportBankRequestTransactionsItem&gt;()
     ///         {
-    ///             new PostV1BankTransactionsImportRequestTransactionsItem
+    ///             new TransactionsImportBankRequestTransactionsItem
     ///             {
-    ///                 Date = "date",
-    ///                 Amount = "amount",
+    ///                 Date = new DateOnly(2026, 7, 1),
+    ///                 Amount = "-121.0000",
     ///             },
     ///         },
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1BankTransactionsImportResponse> PostV1BankTransactionsImportAsync(
-        PostV1BankTransactionsImportRequest request,
+    public WithRawResponseTask<TransactionsImportBankResponse> TransactionsImportAsync(
+        TransactionsImportBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BankTransactionsImportResponse>(
-            PostV1BankTransactionsImportAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<TransactionsImportBankResponse>(
+            TransactionsImportAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Bank.PostV1BankStatementsImportAsync(
-    ///     new PostV1BankStatementsImportRequest { BankAccountId = "bankAccountId", Content = "content" }
+    /// await client.Bank.StatementsImportAsync(
+    ///     new StatementsImportBankRequest { BankAccountId = "bankAccountId", Content = "content" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1BankStatementsImportResponse> PostV1BankStatementsImportAsync(
-        PostV1BankStatementsImportRequest request,
+    public WithRawResponseTask<StatementsImportBankResponse> StatementsImportAsync(
+        StatementsImportBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BankStatementsImportResponse>(
-            PostV1BankStatementsImportAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<StatementsImportBankResponse>(
+            StatementsImportAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Bank.PostV1BankTransactionsListAsync(new PostV1BankTransactionsListRequest());
+    /// await client.Bank.TransactionsListAsync(new TransactionsListBankRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1BankTransactionsListResponse> PostV1BankTransactionsListAsync(
-        PostV1BankTransactionsListRequest request,
+    public WithRawResponseTask<TransactionsListBankResponse> TransactionsListAsync(
+        TransactionsListBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BankTransactionsListResponse>(
-            PostV1BankTransactionsListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<TransactionsListBankResponse>(
+            TransactionsListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Bank.PostV1BankTransactionsMatchAsync(
-    ///     new PostV1BankTransactionsMatchRequest
+    /// await client.Bank.TransactionsMatchAsync(
+    ///     new TransactionsMatchBankRequest
     ///     {
     ///         TransactionId = "transactionId",
-    ///         DocumentType = PostV1BankTransactionsMatchRequestDocumentType.SaleInvoice,
+    ///         DocumentType = TransactionsMatchBankRequestDocumentType.SaleInvoice,
     ///         DocumentId = "documentId",
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1BankTransactionsMatchResponse> PostV1BankTransactionsMatchAsync(
-        PostV1BankTransactionsMatchRequest request,
+    public WithRawResponseTask<TransactionsMatchBankResponse> TransactionsMatchAsync(
+        TransactionsMatchBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BankTransactionsMatchResponse>(
-            PostV1BankTransactionsMatchAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<TransactionsMatchBankResponse>(
+            TransactionsMatchAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <summary>
+    /// Undo a match. A payment matched to an invoice, or a line posted by an import template, gets a reversing journal transaction dated date (default: today) and the invoice paid amount and payment status are restored; a line linked to a payment-provider settlement is only unlinked. The line returns to status new.
+    /// </summary>
+    /// <example><code>
+    /// await client.Bank.TransactionsUnmatchAsync(
+    ///     new TransactionsUnmatchBankRequest { TransactionId = "transactionId" }
+    /// );
+    /// </code></example>
+    public WithRawResponseTask<TransactionsUnmatchBankResponse> TransactionsUnmatchAsync(
+        TransactionsUnmatchBankRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<TransactionsUnmatchBankResponse>(
+            TransactionsUnmatchAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Bank.PostV1BankTransactionsRecordAsync(
-    ///     new PostV1BankTransactionsRecordRequest
+    /// await client.Bank.TransactionsRecordAsync(
+    ///     new TransactionsRecordBankRequest
     ///     {
     ///         BankAccountId = "bankAccountId",
-    ///         Date = "date",
-    ///         Amount = "amount",
-    ///         DocumentType = PostV1BankTransactionsRecordRequestDocumentType.SaleInvoice,
+    ///         Date = new DateOnly(2026, 7, 1),
+    ///         Amount = "121.0000",
+    ///         DocumentType = TransactionsRecordBankRequestDocumentType.SaleInvoice,
     ///         DocumentId = "documentId",
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1BankTransactionsRecordResponse> PostV1BankTransactionsRecordAsync(
-        PostV1BankTransactionsRecordRequest request,
+    public WithRawResponseTask<TransactionsRecordBankResponse> TransactionsRecordAsync(
+        TransactionsRecordBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BankTransactionsRecordResponse>(
-            PostV1BankTransactionsRecordAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<TransactionsRecordBankResponse>(
+            TransactionsRecordAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Bank.PostV1BankPaymentsExportAsync(
-    ///     new PostV1BankPaymentsExportRequest
+    /// await client.Bank.PaymentsExportAsync(
+    ///     new PaymentsExportBankRequest
     ///     {
     ///         BankAccountId = "bankAccountId",
     ///         PurchaseInvoiceIds = new List&lt;string&gt;() { "purchaseInvoiceIds" },
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1BankPaymentsExportResponse> PostV1BankPaymentsExportAsync(
-        PostV1BankPaymentsExportRequest request,
+    public WithRawResponseTask<PaymentsExportBankResponse> PaymentsExportAsync(
+        PaymentsExportBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BankPaymentsExportResponse>(
-            PostV1BankPaymentsExportAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<PaymentsExportBankResponse>(
+            PaymentsExportAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Bank.CreateABankImportTemplateFieldsDefaultToTheTypesStandardFieldListAsync(
-    ///     new PostV1BankImportTemplatesCreateRequest
+    /// await client.Bank.ImportTemplatesCreateAsync(
+    ///     new ImportTemplatesCreateBankRequest
     ///     {
     ///         Name = "name",
-    ///         Type = PostV1BankImportTemplatesCreateRequestType.Stripe,
+    ///         Type = ImportTemplatesCreateBankRequestType.Stripe,
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1BankImportTemplatesCreateResponse> CreateABankImportTemplateFieldsDefaultToTheTypesStandardFieldListAsync(
-        PostV1BankImportTemplatesCreateRequest request,
+    public WithRawResponseTask<ImportTemplatesCreateBankResponse> ImportTemplatesCreateAsync(
+        ImportTemplatesCreateBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BankImportTemplatesCreateResponse>(
-            CreateABankImportTemplateFieldsDefaultToTheTypesStandardFieldListAsyncCore(
-                request,
-                options,
-                cancellationToken
-            )
+        return new WithRawResponseTask<ImportTemplatesCreateBankResponse>(
+            ImportTemplatesCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Bank.PostV1BankImportTemplatesUpdateAsync(
-    ///     new PostV1BankImportTemplatesUpdateRequest { Id = "id" }
+    /// await client.Bank.ImportTemplatesUpdateAsync(new ImportTemplatesUpdateBankRequest { Id = "id" });
+    /// </code></example>
+    public WithRawResponseTask<ImportTemplatesUpdateBankResponse> ImportTemplatesUpdateAsync(
+        ImportTemplatesUpdateBankRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<ImportTemplatesUpdateBankResponse>(
+            ImportTemplatesUpdateAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Bank.ImportTemplatesDeleteAsync(new ImportTemplatesDeleteBankRequest { Id = "id" });
+    /// </code></example>
+    public WithRawResponseTask<ImportTemplatesDeleteBankResponse> ImportTemplatesDeleteAsync(
+        ImportTemplatesDeleteBankRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<ImportTemplatesDeleteBankResponse>(
+            ImportTemplatesDeleteAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Bank.ImportTemplatesGetAsync(new ImportTemplatesGetBankRequest { Id = "id" });
+    /// </code></example>
+    public WithRawResponseTask<ImportTemplatesGetBankResponse> ImportTemplatesGetAsync(
+        ImportTemplatesGetBankRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<ImportTemplatesGetBankResponse>(
+            ImportTemplatesGetAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Bank.ImportTemplatesListAsync(new ImportTemplatesListBankRequest());
+    /// </code></example>
+    public WithRawResponseTask<ImportTemplatesListBankResponse> ImportTemplatesListAsync(
+        ImportTemplatesListBankRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<ImportTemplatesListBankResponse>(
+            ImportTemplatesListAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Bank.MatchRulesCreateAsync(
+    ///     new MatchRulesCreateBankRequest { Name = "name", Pattern = "pattern" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1BankImportTemplatesUpdateResponse> PostV1BankImportTemplatesUpdateAsync(
-        PostV1BankImportTemplatesUpdateRequest request,
+    public WithRawResponseTask<MatchRulesCreateBankResponse> MatchRulesCreateAsync(
+        MatchRulesCreateBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BankImportTemplatesUpdateResponse>(
-            PostV1BankImportTemplatesUpdateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<MatchRulesCreateBankResponse>(
+            MatchRulesCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Bank.PostV1BankImportTemplatesDeleteAsync(
-    ///     new PostV1BankImportTemplatesDeleteRequest { Id = "id" }
-    /// );
+    /// await client.Bank.MatchRulesUpdateAsync(new MatchRulesUpdateBankRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1BankImportTemplatesDeleteResponse> PostV1BankImportTemplatesDeleteAsync(
-        PostV1BankImportTemplatesDeleteRequest request,
+    public WithRawResponseTask<MatchRulesUpdateBankResponse> MatchRulesUpdateAsync(
+        MatchRulesUpdateBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BankImportTemplatesDeleteResponse>(
-            PostV1BankImportTemplatesDeleteAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<MatchRulesUpdateBankResponse>(
+            MatchRulesUpdateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Bank.PostV1BankImportTemplatesGetAsync(
-    ///     new PostV1BankImportTemplatesGetRequest { Id = "id" }
-    /// );
+    /// await client.Bank.MatchRulesDeleteAsync(new MatchRulesDeleteBankRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1BankImportTemplatesGetResponse> PostV1BankImportTemplatesGetAsync(
-        PostV1BankImportTemplatesGetRequest request,
+    public WithRawResponseTask<MatchRulesDeleteBankResponse> MatchRulesDeleteAsync(
+        MatchRulesDeleteBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BankImportTemplatesGetResponse>(
-            PostV1BankImportTemplatesGetAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<MatchRulesDeleteBankResponse>(
+            MatchRulesDeleteAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Bank.PostV1BankImportTemplatesListAsync(new PostV1BankImportTemplatesListRequest());
+    /// await client.Bank.MatchRulesListAsync(new MatchRulesListBankRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1BankImportTemplatesListResponse> PostV1BankImportTemplatesListAsync(
-        PostV1BankImportTemplatesListRequest request,
+    public WithRawResponseTask<MatchRulesListBankResponse> MatchRulesListAsync(
+        MatchRulesListBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BankImportTemplatesListResponse>(
-            PostV1BankImportTemplatesListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<MatchRulesListBankResponse>(
+            MatchRulesListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Bank.PostV1BankMatchRulesCreateAsync(
-    ///     new PostV1BankMatchRulesCreateRequest { Name = "name", Pattern = "pattern" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1BankMatchRulesCreateResponse> PostV1BankMatchRulesCreateAsync(
-        PostV1BankMatchRulesCreateRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1BankMatchRulesCreateResponse>(
-            PostV1BankMatchRulesCreateAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Bank.PostV1BankMatchRulesUpdateAsync(
-    ///     new PostV1BankMatchRulesUpdateRequest { Id = "id" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1BankMatchRulesUpdateResponse> PostV1BankMatchRulesUpdateAsync(
-        PostV1BankMatchRulesUpdateRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1BankMatchRulesUpdateResponse>(
-            PostV1BankMatchRulesUpdateAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Bank.PostV1BankMatchRulesDeleteAsync(
-    ///     new PostV1BankMatchRulesDeleteRequest { Id = "id" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1BankMatchRulesDeleteResponse> PostV1BankMatchRulesDeleteAsync(
-        PostV1BankMatchRulesDeleteRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1BankMatchRulesDeleteResponse>(
-            PostV1BankMatchRulesDeleteAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Bank.PostV1BankMatchRulesListAsync(new PostV1BankMatchRulesListRequest());
-    /// </code></example>
-    public WithRawResponseTask<PostV1BankMatchRulesListResponse> PostV1BankMatchRulesListAsync(
-        PostV1BankMatchRulesListRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1BankMatchRulesListResponse>(
-            PostV1BankMatchRulesListAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Bank.PostV1BankMandatesCreateAsync(
-    ///     new PostV1BankMandatesCreateRequest
+    /// await client.Bank.MandatesCreateAsync(
+    ///     new MandatesCreateBankRequest
     ///     {
     ///         PartnerId = "partnerId",
     ///         Iban = "iban",
-    ///         SignatureDate = "signatureDate",
+    ///         SignatureDate = new DateOnly(2026, 7, 1),
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1BankMandatesCreateResponse> PostV1BankMandatesCreateAsync(
-        PostV1BankMandatesCreateRequest request,
+    public WithRawResponseTask<MandatesCreateBankResponse> MandatesCreateAsync(
+        MandatesCreateBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BankMandatesCreateResponse>(
-            PostV1BankMandatesCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<MandatesCreateBankResponse>(
+            MandatesCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Bank.PostV1BankMandatesUpdateAsync(new PostV1BankMandatesUpdateRequest { Id = "id" });
+    /// await client.Bank.MandatesUpdateAsync(new MandatesUpdateBankRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1BankMandatesUpdateResponse> PostV1BankMandatesUpdateAsync(
-        PostV1BankMandatesUpdateRequest request,
+    public WithRawResponseTask<MandatesUpdateBankResponse> MandatesUpdateAsync(
+        MandatesUpdateBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BankMandatesUpdateResponse>(
-            PostV1BankMandatesUpdateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<MandatesUpdateBankResponse>(
+            MandatesUpdateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Bank.PostV1BankMandatesCancelAsync(new PostV1BankMandatesCancelRequest { Id = "id" });
+    /// await client.Bank.MandatesCancelAsync(new MandatesCancelBankRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1BankMandatesCancelResponse> PostV1BankMandatesCancelAsync(
-        PostV1BankMandatesCancelRequest request,
+    public WithRawResponseTask<MandatesCancelBankResponse> MandatesCancelAsync(
+        MandatesCancelBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BankMandatesCancelResponse>(
-            PostV1BankMandatesCancelAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<MandatesCancelBankResponse>(
+            MandatesCancelAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Bank.PostV1BankMandatesGetAsync(new PostV1BankMandatesGetRequest { Id = "id" });
+    /// await client.Bank.MandatesGetAsync(new MandatesGetBankRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1BankMandatesGetResponse> PostV1BankMandatesGetAsync(
-        PostV1BankMandatesGetRequest request,
+    public WithRawResponseTask<MandatesGetBankResponse> MandatesGetAsync(
+        MandatesGetBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BankMandatesGetResponse>(
-            PostV1BankMandatesGetAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<MandatesGetBankResponse>(
+            MandatesGetAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Bank.PostV1BankMandatesListAsync(new PostV1BankMandatesListRequest());
+    /// await client.Bank.MandatesListAsync(new MandatesListBankRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1BankMandatesListResponse> PostV1BankMandatesListAsync(
-        PostV1BankMandatesListRequest request,
+    public WithRawResponseTask<MandatesListBankResponse> MandatesListAsync(
+        MandatesListBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BankMandatesListResponse>(
-            PostV1BankMandatesListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<MandatesListBankResponse>(
+            MandatesListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Bank.PostV1BankDirectDebitsExportAsync(
-    ///     new PostV1BankDirectDebitsExportRequest
+    /// await client.Bank.DirectDebitsExportAsync(
+    ///     new DirectDebitsExportBankRequest
     ///     {
     ///         BankAccountId = "bankAccountId",
     ///         SaleInvoiceIds = new List&lt;string&gt;() { "saleInvoiceIds" },
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1BankDirectDebitsExportResponse> PostV1BankDirectDebitsExportAsync(
-        PostV1BankDirectDebitsExportRequest request,
+    public WithRawResponseTask<DirectDebitsExportBankResponse> DirectDebitsExportAsync(
+        DirectDebitsExportBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BankDirectDebitsExportResponse>(
-            PostV1BankDirectDebitsExportAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<DirectDebitsExportBankResponse>(
+            DirectDebitsExportAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Bank.PostV1BankTransactionsSuggestMatchesAsync(
-    ///     new PostV1BankTransactionsSuggestMatchesRequest { TransactionId = "transactionId" }
+    /// await client.Bank.TransactionsSuggestMatchesAsync(
+    ///     new TransactionsSuggestMatchesBankRequest { TransactionId = "transactionId" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1BankTransactionsSuggestMatchesResponse> PostV1BankTransactionsSuggestMatchesAsync(
-        PostV1BankTransactionsSuggestMatchesRequest request,
+    public WithRawResponseTask<TransactionsSuggestMatchesBankResponse> TransactionsSuggestMatchesAsync(
+        TransactionsSuggestMatchesBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BankTransactionsSuggestMatchesResponse>(
-            PostV1BankTransactionsSuggestMatchesAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<TransactionsSuggestMatchesBankResponse>(
+            TransactionsSuggestMatchesAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Bank.PostV1BankSettlementsImportAsync(
-    ///     new PostV1BankSettlementsImportRequest { BankAccountId = "bankAccountId", Content = "content" }
+    /// await client.Bank.SettlementsImportAsync(
+    ///     new SettlementsImportBankRequest { BankAccountId = "bankAccountId", Content = "content" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1BankSettlementsImportResponse> PostV1BankSettlementsImportAsync(
-        PostV1BankSettlementsImportRequest request,
+    public WithRawResponseTask<SettlementsImportBankResponse> SettlementsImportAsync(
+        SettlementsImportBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BankSettlementsImportResponse>(
-            PostV1BankSettlementsImportAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<SettlementsImportBankResponse>(
+            SettlementsImportAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Bank.PostV1BankSettlementsListAsync(new PostV1BankSettlementsListRequest());
+    /// await client.Bank.SettlementsListAsync(new SettlementsListBankRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1BankSettlementsListResponse> PostV1BankSettlementsListAsync(
-        PostV1BankSettlementsListRequest request,
+    public WithRawResponseTask<SettlementsListBankResponse> SettlementsListAsync(
+        SettlementsListBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BankSettlementsListResponse>(
-            PostV1BankSettlementsListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<SettlementsListBankResponse>(
+            SettlementsListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Bank.PostV1BankSettlementsGetAsync(new PostV1BankSettlementsGetRequest { Id = "id" });
+    /// await client.Bank.SettlementsGetAsync(new SettlementsGetBankRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1BankSettlementsGetResponse> PostV1BankSettlementsGetAsync(
-        PostV1BankSettlementsGetRequest request,
+    public WithRawResponseTask<SettlementsGetBankResponse> SettlementsGetAsync(
+        SettlementsGetBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BankSettlementsGetResponse>(
-            PostV1BankSettlementsGetAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<SettlementsGetBankResponse>(
+            SettlementsGetAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Bank.PostV1BankSettlementsMatchAsync(
-    ///     new PostV1BankSettlementsMatchRequest { LineId = "lineId" }
-    /// );
+    /// await client.Bank.SettlementsMatchAsync(new SettlementsMatchBankRequest { LineId = "lineId" });
     /// </code></example>
-    public WithRawResponseTask<PostV1BankSettlementsMatchResponse> PostV1BankSettlementsMatchAsync(
-        PostV1BankSettlementsMatchRequest request,
+    public WithRawResponseTask<SettlementsMatchBankResponse> SettlementsMatchAsync(
+        SettlementsMatchBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BankSettlementsMatchResponse>(
-            PostV1BankSettlementsMatchAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<SettlementsMatchBankResponse>(
+            SettlementsMatchAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -8610,22 +9748,18 @@ public partial class BankClient : IBankClient
     /// A line with its own rate or amount is split with that value when the batch is posted. A line without one falls back to the commissionPercent given to the posting call, and without that the amount goes to the suspense account. Send both fields as null to clear the line back to the fallback.
     /// </summary>
     /// <example><code>
-    /// await client.Bank.SetWhatTheMarketplaceKeepsFromOneSettlementLineAsARateOrAsAnAmountAsync(
-    ///     new PostV1BankSettlementsCommissionRequest { LineId = "lineId" }
+    /// await client.Bank.SettlementsCommissionAsync(
+    ///     new SettlementsCommissionBankRequest { LineId = "lineId" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1BankSettlementsCommissionResponse> SetWhatTheMarketplaceKeepsFromOneSettlementLineAsARateOrAsAnAmountAsync(
-        PostV1BankSettlementsCommissionRequest request,
+    public WithRawResponseTask<SettlementsCommissionBankResponse> SettlementsCommissionAsync(
+        SettlementsCommissionBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BankSettlementsCommissionResponse>(
-            SetWhatTheMarketplaceKeepsFromOneSettlementLineAsARateOrAsAnAmountAsyncCore(
-                request,
-                options,
-                cancellationToken
-            )
+        return new WithRawResponseTask<SettlementsCommissionBankResponse>(
+            SettlementsCommissionAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -8633,18 +9767,18 @@ public partial class BankClient : IBankClient
     /// Attach the incoming bank-statement line that carries this payout to the settlement batch.
     /// </summary>
     /// <example><code>
-    /// await client.Bank.PostV1BankSettlementsLinkAsync(
-    ///     new PostV1BankSettlementsLinkRequest { Id = "id", BankTransactionId = "bankTransactionId" }
+    /// await client.Bank.SettlementsLinkAsync(
+    ///     new SettlementsLinkBankRequest { Id = "id", BankTransactionId = "bankTransactionId" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1BankSettlementsLinkResponse> PostV1BankSettlementsLinkAsync(
-        PostV1BankSettlementsLinkRequest request,
+    public WithRawResponseTask<SettlementsLinkBankResponse> SettlementsLinkAsync(
+        SettlementsLinkBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BankSettlementsLinkResponse>(
-            PostV1BankSettlementsLinkAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<SettlementsLinkBankResponse>(
+            SettlementsLinkAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -8652,204 +9786,160 @@ public partial class BankClient : IBankClient
     /// Detach the bank-statement line from the settlement batch and return the line to unmatched.
     /// </summary>
     /// <example><code>
-    /// await client.Bank.PostV1BankSettlementsUnlinkAsync(
-    ///     new PostV1BankSettlementsUnlinkRequest { Id = "id" }
-    /// );
+    /// await client.Bank.SettlementsUnlinkAsync(new SettlementsUnlinkBankRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1BankSettlementsUnlinkResponse> PostV1BankSettlementsUnlinkAsync(
-        PostV1BankSettlementsUnlinkRequest request,
+    public WithRawResponseTask<SettlementsUnlinkBankResponse> SettlementsUnlinkAsync(
+        SettlementsUnlinkBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BankSettlementsUnlinkResponse>(
-            PostV1BankSettlementsUnlinkAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<SettlementsUnlinkBankResponse>(
+            SettlementsUnlinkAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Bank.PostV1BankSettlementsPostAsync(
-    ///     new PostV1BankSettlementsPostRequest { Id = "id" }
-    /// );
+    /// await client.Bank.SettlementsPostAsync(new SettlementsPostBankRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1BankSettlementsPostResponse> PostV1BankSettlementsPostAsync(
-        PostV1BankSettlementsPostRequest request,
+    public WithRawResponseTask<SettlementsPostBankResponse> SettlementsPostAsync(
+        SettlementsPostBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BankSettlementsPostResponse>(
-            PostV1BankSettlementsPostAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<SettlementsPostBankResponse>(
+            SettlementsPostAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Bank.ListThePsd2BanksAspsPsAvailableToConnectAsync(
-    ///     new PostV1BankFeedsBanksListRequest()
-    /// );
+    /// await client.Bank.FeedsBanksListAsync(new FeedsBanksListBankRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1BankFeedsBanksListResponse> ListThePsd2BanksAspsPsAvailableToConnectAsync(
-        PostV1BankFeedsBanksListRequest request,
+    public WithRawResponseTask<FeedsBanksListBankResponse> FeedsBanksListAsync(
+        FeedsBanksListBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BankFeedsBanksListResponse>(
-            ListThePsd2BanksAspsPsAvailableToConnectAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<FeedsBanksListBankResponse>(
+            FeedsBanksListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Bank.BeginBankAuthorizationRedirectTheUserToTheReturnedUrlAsync(
-    ///     new PostV1BankFeedsConnectionsStartRequest
-    ///     {
-    ///         AspspName = "aspspName",
-    ///         AspspCountry = "aspspCountry",
-    ///     }
+    /// await client.Bank.FeedsConnectionsStartAsync(
+    ///     new FeedsConnectionsStartBankRequest { AspspName = "aspspName", AspspCountry = "aspspCountry" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1BankFeedsConnectionsStartResponse> BeginBankAuthorizationRedirectTheUserToTheReturnedUrlAsync(
-        PostV1BankFeedsConnectionsStartRequest request,
+    public WithRawResponseTask<FeedsConnectionsStartBankResponse> FeedsConnectionsStartAsync(
+        FeedsConnectionsStartBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BankFeedsConnectionsStartResponse>(
-            BeginBankAuthorizationRedirectTheUserToTheReturnedUrlAsyncCore(
-                request,
-                options,
-                cancellationToken
-            )
+        return new WithRawResponseTask<FeedsConnectionsStartBankResponse>(
+            FeedsConnectionsStartAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Bank.ExchangeTheRedirectCodeForASessionAndStoreTheBankAccountsItExposesAsync(
-    ///     new PostV1BankFeedsConnectionsCompleteRequest { Reference = "reference", Code = "code" }
+    /// await client.Bank.FeedsConnectionsCompleteAsync(
+    ///     new FeedsConnectionsCompleteBankRequest { Reference = "reference", Code = "code" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1BankFeedsConnectionsCompleteResponse> ExchangeTheRedirectCodeForASessionAndStoreTheBankAccountsItExposesAsync(
-        PostV1BankFeedsConnectionsCompleteRequest request,
+    public WithRawResponseTask<FeedsConnectionsCompleteBankResponse> FeedsConnectionsCompleteAsync(
+        FeedsConnectionsCompleteBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BankFeedsConnectionsCompleteResponse>(
-            ExchangeTheRedirectCodeForASessionAndStoreTheBankAccountsItExposesAsyncCore(
-                request,
-                options,
-                cancellationToken
-            )
+        return new WithRawResponseTask<FeedsConnectionsCompleteBankResponse>(
+            FeedsConnectionsCompleteAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Bank.PostV1BankFeedsConnectionsGetAsync(
-    ///     new PostV1BankFeedsConnectionsGetRequest { Id = "id" }
-    /// );
+    /// await client.Bank.FeedsConnectionsGetAsync(new FeedsConnectionsGetBankRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1BankFeedsConnectionsGetResponse> PostV1BankFeedsConnectionsGetAsync(
-        PostV1BankFeedsConnectionsGetRequest request,
+    public WithRawResponseTask<FeedsConnectionsGetBankResponse> FeedsConnectionsGetAsync(
+        FeedsConnectionsGetBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BankFeedsConnectionsGetResponse>(
-            PostV1BankFeedsConnectionsGetAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<FeedsConnectionsGetBankResponse>(
+            FeedsConnectionsGetAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Bank.PostV1BankFeedsConnectionsListAsync(new PostV1BankFeedsConnectionsListRequest());
+    /// await client.Bank.FeedsConnectionsListAsync(new FeedsConnectionsListBankRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1BankFeedsConnectionsListResponse> PostV1BankFeedsConnectionsListAsync(
-        PostV1BankFeedsConnectionsListRequest request,
+    public WithRawResponseTask<FeedsConnectionsListBankResponse> FeedsConnectionsListAsync(
+        FeedsConnectionsListBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BankFeedsConnectionsListResponse>(
-            PostV1BankFeedsConnectionsListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<FeedsConnectionsListBankResponse>(
+            FeedsConnectionsListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Bank.RevokeTheConsentAtTheBankAndDropTheStoredConnectionAsync(
-    ///     new PostV1BankFeedsConnectionsDeleteRequest { Id = "id" }
-    /// );
+    /// await client.Bank.FeedsConnectionsDeleteAsync(new FeedsConnectionsDeleteBankRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1BankFeedsConnectionsDeleteResponse> RevokeTheConsentAtTheBankAndDropTheStoredConnectionAsync(
-        PostV1BankFeedsConnectionsDeleteRequest request,
+    public WithRawResponseTask<FeedsConnectionsDeleteBankResponse> FeedsConnectionsDeleteAsync(
+        FeedsConnectionsDeleteBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BankFeedsConnectionsDeleteResponse>(
-            RevokeTheConsentAtTheBankAndDropTheStoredConnectionAsyncCore(
-                request,
-                options,
-                cancellationToken
-            )
+        return new WithRawResponseTask<FeedsConnectionsDeleteBankResponse>(
+            FeedsConnectionsDeleteAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Bank.PointABankFeedAccountAtALedgerBankAccountSoItsTransactionsCanBeSyncedAsync(
-    ///     new PostV1BankFeedsAccountsLinkRequest { Id = "id" }
-    /// );
+    /// await client.Bank.FeedsAccountsLinkAsync(new FeedsAccountsLinkBankRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1BankFeedsAccountsLinkResponse> PointABankFeedAccountAtALedgerBankAccountSoItsTransactionsCanBeSyncedAsync(
-        PostV1BankFeedsAccountsLinkRequest request,
+    public WithRawResponseTask<FeedsAccountsLinkBankResponse> FeedsAccountsLinkAsync(
+        FeedsAccountsLinkBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BankFeedsAccountsLinkResponse>(
-            PointABankFeedAccountAtALedgerBankAccountSoItsTransactionsCanBeSyncedAsyncCore(
-                request,
-                options,
-                cancellationToken
-            )
+        return new WithRawResponseTask<FeedsAccountsLinkBankResponse>(
+            FeedsAccountsLinkAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Bank.ChooseTheImportTemplateAppliedOnSyncAndHowOftenTheAccountIsSyncedAutomaticallyAsync(
-    ///     new PostV1BankFeedsAccountsConfigureRequest { Id = "id" }
-    /// );
+    /// await client.Bank.FeedsAccountsConfigureAsync(new FeedsAccountsConfigureBankRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1BankFeedsAccountsConfigureResponse> ChooseTheImportTemplateAppliedOnSyncAndHowOftenTheAccountIsSyncedAutomaticallyAsync(
-        PostV1BankFeedsAccountsConfigureRequest request,
+    public WithRawResponseTask<FeedsAccountsConfigureBankResponse> FeedsAccountsConfigureAsync(
+        FeedsAccountsConfigureBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BankFeedsAccountsConfigureResponse>(
-            ChooseTheImportTemplateAppliedOnSyncAndHowOftenTheAccountIsSyncedAutomaticallyAsyncCore(
-                request,
-                options,
-                cancellationToken
-            )
+        return new WithRawResponseTask<FeedsAccountsConfigureBankResponse>(
+            FeedsAccountsConfigureAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Bank.PullNewTransactionsFromTheBankIntoTheLedgerEmitsBankFeedSyncedAsync(
-    ///     new PostV1BankFeedsSyncRequest { ConnectionId = "connectionId" }
-    /// );
+    /// await client.Bank.FeedsSyncAsync(new FeedsSyncBankRequest { ConnectionId = "connectionId" });
     /// </code></example>
-    public WithRawResponseTask<PostV1BankFeedsSyncResponse> PullNewTransactionsFromTheBankIntoTheLedgerEmitsBankFeedSyncedAsync(
-        PostV1BankFeedsSyncRequest request,
+    public WithRawResponseTask<FeedsSyncBankResponse> FeedsSyncAsync(
+        FeedsSyncBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1BankFeedsSyncResponse>(
-            PullNewTransactionsFromTheBankIntoTheLedgerEmitsBankFeedSyncedAsyncCore(
-                request,
-                options,
-                cancellationToken
-            )
+        return new WithRawResponseTask<FeedsSyncBankResponse>(
+            FeedsSyncAsyncCore(request, options, cancellationToken)
         );
     }
 }

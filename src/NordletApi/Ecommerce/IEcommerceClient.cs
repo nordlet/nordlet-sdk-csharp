@@ -2,50 +2,50 @@ namespace NordletApi;
 
 public partial interface IEcommerceClient
 {
-    WithRawResponseTask<PostV1EcommerceOrdersCreateResponse> PostV1EcommerceOrdersCreateAsync(
-        PostV1EcommerceOrdersCreateRequest request,
+    WithRawResponseTask<OrdersCreateEcommerceResponse> OrdersCreateAsync(
+        OrdersCreateEcommerceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1EcommerceOrdersGetResponse> PostV1EcommerceOrdersGetAsync(
-        PostV1EcommerceOrdersGetRequest request,
+    WithRawResponseTask<OrdersGetEcommerceResponse> OrdersGetAsync(
+        OrdersGetEcommerceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1EcommerceOrdersListResponse> PostV1EcommerceOrdersListAsync(
-        PostV1EcommerceOrdersListRequest request,
+    WithRawResponseTask<OrdersListEcommerceResponse> OrdersListAsync(
+        OrdersListEcommerceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1EcommerceOrdersReserveResponse> PostV1EcommerceOrdersReserveAsync(
-        PostV1EcommerceOrdersReserveRequest request,
+    WithRawResponseTask<OrdersReserveEcommerceResponse> OrdersReserveAsync(
+        OrdersReserveEcommerceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1EcommerceOrdersFulfillResponse> PostV1EcommerceOrdersFulfillAsync(
-        PostV1EcommerceOrdersFulfillRequest request,
+    WithRawResponseTask<OrdersFulfillEcommerceResponse> OrdersFulfillAsync(
+        OrdersFulfillEcommerceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1EcommerceOrdersCancelResponse> PostV1EcommerceOrdersCancelAsync(
-        PostV1EcommerceOrdersCancelRequest request,
+    WithRawResponseTask<OrdersCancelEcommerceResponse> OrdersCancelAsync(
+        OrdersCancelEcommerceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1EcommerceProductsListResponse> PostV1EcommerceProductsListAsync(
-        PostV1EcommerceProductsListRequest request,
+    WithRawResponseTask<ProductsListEcommerceResponse> ProductsListAsync(
+        ProductsListEcommerceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1EcommerceStockListResponse> PostV1EcommerceStockListAsync(
-        PostV1EcommerceStockListRequest request,
+    WithRawResponseTask<StockListEcommerceResponse> StockListAsync(
+        StockListEcommerceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );

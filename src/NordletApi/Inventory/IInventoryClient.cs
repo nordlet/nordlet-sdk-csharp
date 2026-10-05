@@ -2,128 +2,128 @@ namespace NordletApi;
 
 public partial interface IInventoryClient
 {
-    WithRawResponseTask<PostV1InventorySettingsGetResponse> PostV1InventorySettingsGetAsync(
-        PostV1InventorySettingsGetRequest request,
+    WithRawResponseTask<SettingsGetInventoryResponse> SettingsGetAsync(
+        SettingsGetInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1InventorySettingsUpdateResponse> PostV1InventorySettingsUpdateAsync(
-        PostV1InventorySettingsUpdateRequest request,
+    WithRawResponseTask<SettingsUpdateInventoryResponse> SettingsUpdateAsync(
+        SettingsUpdateInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1InventoryWarehousesCreateResponse> PostV1InventoryWarehousesCreateAsync(
-        PostV1InventoryWarehousesCreateRequest request,
+    WithRawResponseTask<WarehousesCreateInventoryResponse> WarehousesCreateAsync(
+        WarehousesCreateInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1InventoryWarehousesListResponse> PostV1InventoryWarehousesListAsync(
-        PostV1InventoryWarehousesListRequest request,
+    WithRawResponseTask<WarehousesListInventoryResponse> WarehousesListAsync(
+        WarehousesListInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1InventoryStockReceiveResponse> PostV1InventoryStockReceiveAsync(
-        PostV1InventoryStockReceiveRequest request,
+    WithRawResponseTask<StockReceiveInventoryResponse> StockReceiveAsync(
+        StockReceiveInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1InventoryStockWriteOffResponse> PostV1InventoryStockWriteOffAsync(
-        PostV1InventoryStockWriteOffRequest request,
+    WithRawResponseTask<StockWriteOffInventoryResponse> StockWriteOffAsync(
+        StockWriteOffInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1InventoryStockTransferResponse> PostV1InventoryStockTransferAsync(
-        PostV1InventoryStockTransferRequest request,
+    WithRawResponseTask<StockTransferInventoryResponse> StockTransferAsync(
+        StockTransferInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1InventoryStockTakeResponse> PostV1InventoryStockTakeAsync(
-        PostV1InventoryStockTakeRequest request,
+    WithRawResponseTask<StockTakeInventoryResponse> StockTakeAsync(
+        StockTakeInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1InventoryStockLevelsResponse> PostV1InventoryStockLevelsAsync(
-        PostV1InventoryStockLevelsRequest request,
+    WithRawResponseTask<StockLevelsInventoryResponse> StockLevelsAsync(
+        StockLevelsInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1InventoryStockMovementsListResponse> PostV1InventoryStockMovementsListAsync(
-        PostV1InventoryStockMovementsListRequest request,
+    WithRawResponseTask<StockMovementsListInventoryResponse> StockMovementsListAsync(
+        StockMovementsListInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1InventoryLotsListResponse> PostV1InventoryLotsListAsync(
-        PostV1InventoryLotsListRequest request,
+    WithRawResponseTask<LotsListInventoryResponse> LotsListAsync(
+        LotsListInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1InventoryLotsGetResponse> PostV1InventoryLotsGetAsync(
-        PostV1InventoryLotsGetRequest request,
+    WithRawResponseTask<LotsGetInventoryResponse> LotsGetAsync(
+        LotsGetInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1InventoryLotsUpdateResponse> PostV1InventoryLotsUpdateAsync(
-        PostV1InventoryLotsUpdateRequest request,
+    WithRawResponseTask<LotsUpdateInventoryResponse> LotsUpdateAsync(
+        LotsUpdateInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1InventoryLandedCostsCreateResponse> PostV1InventoryLandedCostsCreateAsync(
-        PostV1InventoryLandedCostsCreateRequest request,
+    WithRawResponseTask<LandedCostsCreateInventoryResponse> LandedCostsCreateAsync(
+        LandedCostsCreateInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1InventoryLandedCostsGetResponse> PostV1InventoryLandedCostsGetAsync(
-        PostV1InventoryLandedCostsGetRequest request,
+    WithRawResponseTask<LandedCostsGetInventoryResponse> LandedCostsGetAsync(
+        LandedCostsGetInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1InventoryLandedCostsListResponse> PostV1InventoryLandedCostsListAsync(
-        PostV1InventoryLandedCostsListRequest request,
+    WithRawResponseTask<LandedCostsListInventoryResponse> LandedCostsListAsync(
+        LandedCostsListInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1InventoryReorderRulesCreateResponse> PostV1InventoryReorderRulesCreateAsync(
-        PostV1InventoryReorderRulesCreateRequest request,
+    WithRawResponseTask<ReorderRulesCreateInventoryResponse> ReorderRulesCreateAsync(
+        ReorderRulesCreateInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1InventoryReorderRulesUpdateResponse> PostV1InventoryReorderRulesUpdateAsync(
-        PostV1InventoryReorderRulesUpdateRequest request,
+    WithRawResponseTask<ReorderRulesUpdateInventoryResponse> ReorderRulesUpdateAsync(
+        ReorderRulesUpdateInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1InventoryReorderRulesDeleteResponse> PostV1InventoryReorderRulesDeleteAsync(
-        PostV1InventoryReorderRulesDeleteRequest request,
+    WithRawResponseTask<ReorderRulesDeleteInventoryResponse> ReorderRulesDeleteAsync(
+        ReorderRulesDeleteInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1InventoryReorderRulesListResponse> PostV1InventoryReorderRulesListAsync(
-        PostV1InventoryReorderRulesListRequest request,
+    WithRawResponseTask<ReorderRulesListInventoryResponse> ReorderRulesListAsync(
+        ReorderRulesListInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1InventoryReorderRulesCheckResponse> PostV1InventoryReorderRulesCheckAsync(
-        PostV1InventoryReorderRulesCheckRequest request,
+    WithRawResponseTask<ReorderRulesCheckInventoryResponse> ReorderRulesCheckAsync(
+        ReorderRulesCheckInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );

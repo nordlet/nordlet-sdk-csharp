@@ -13,9 +13,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsLtIntrastatComputeResponse>
-    > PostV1DeclarationsLtIntrastatComputeAsyncCore(
-        PostV1DeclarationsLtIntrastatComputeRequest request,
+        WithRawResponse<LtIntrastatComputeDeclarationsResponse>
+    > LtIntrastatComputeAsyncCore(
+        LtIntrastatComputeDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -51,11 +51,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsLtIntrastatComputeResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1DeclarationsLtIntrastatComputeResponse>()
+                var responseData = JsonUtils.Deserialize<LtIntrastatComputeDeclarationsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<LtIntrastatComputeDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -114,6 +113,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -140,6 +151,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -206,10 +229,8 @@ public partial class DeclarationsClient : IDeclarationsClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1DeclarationsLtIvazGenerateResponse>
-    > PostV1DeclarationsLtIvazGenerateAsyncCore(
-        PostV1DeclarationsLtIvazGenerateRequest request,
+    private async Task<WithRawResponse<LtIvazGenerateDeclarationsResponse>> LtIvazGenerateAsyncCore(
+        LtIvazGenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -245,10 +266,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1DeclarationsLtIvazGenerateResponse>(
+                var responseData = JsonUtils.Deserialize<LtIvazGenerateDeclarationsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1DeclarationsLtIvazGenerateResponse>()
+                return new WithRawResponse<LtIvazGenerateDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -307,6 +328,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -333,6 +366,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -400,9 +445,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsLtIntrastatObligationResponse>
-    > PostV1DeclarationsLtIntrastatObligationAsyncCore(
-        PostV1DeclarationsLtIntrastatObligationRequest request,
+        WithRawResponse<LtIntrastatObligationDeclarationsResponse>
+    > LtIntrastatObligationAsyncCore(
+        LtIntrastatObligationDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -438,11 +483,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsLtIntrastatObligationResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1DeclarationsLtIntrastatObligationResponse>()
+                var responseData = JsonUtils.Deserialize<LtIntrastatObligationDeclarationsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<LtIntrastatObligationDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -501,6 +545,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -527,6 +583,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -593,10 +661,8 @@ public partial class DeclarationsClient : IDeclarationsClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1DeclarationsLtIsafGenerateResponse>
-    > PostV1DeclarationsLtIsafGenerateAsyncCore(
-        PostV1DeclarationsLtIsafGenerateRequest request,
+    private async Task<WithRawResponse<LtIsafGenerateDeclarationsResponse>> LtIsafGenerateAsyncCore(
+        LtIsafGenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -632,10 +698,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1DeclarationsLtIsafGenerateResponse>(
+                var responseData = JsonUtils.Deserialize<LtIsafGenerateDeclarationsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1DeclarationsLtIsafGenerateResponse>()
+                return new WithRawResponse<LtIsafGenerateDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -694,6 +760,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -720,6 +798,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -787,9 +877,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsLtFr0600ComputeResponse>
-    > PostV1DeclarationsLtFr0600ComputeAsyncCore(
-        PostV1DeclarationsLtFr0600ComputeRequest request,
+        WithRawResponse<LtFr0600ComputeDeclarationsResponse>
+    > LtFr0600ComputeAsyncCore(
+        LtFr0600ComputeDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -825,10 +915,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1DeclarationsLtFr0600ComputeResponse>(
+                var responseData = JsonUtils.Deserialize<LtFr0600ComputeDeclarationsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1DeclarationsLtFr0600ComputeResponse>()
+                return new WithRawResponse<LtFr0600ComputeDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -887,6 +977,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -913,6 +1015,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -980,9 +1094,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsLtGpm313ComputeResponse>
-    > PostV1DeclarationsLtGpm313ComputeAsyncCore(
-        PostV1DeclarationsLtGpm313ComputeRequest request,
+        WithRawResponse<LtGpm313ComputeDeclarationsResponse>
+    > LtGpm313ComputeAsyncCore(
+        LtGpm313ComputeDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1018,10 +1132,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1DeclarationsLtGpm313ComputeResponse>(
+                var responseData = JsonUtils.Deserialize<LtGpm313ComputeDeclarationsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1DeclarationsLtGpm313ComputeResponse>()
+                return new WithRawResponse<LtGpm313ComputeDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1080,6 +1194,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1106,6 +1232,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1172,10 +1310,8 @@ public partial class DeclarationsClient : IDeclarationsClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1DeclarationsLtSamComputeResponse>
-    > PostV1DeclarationsLtSamComputeAsyncCore(
-        PostV1DeclarationsLtSamComputeRequest request,
+    private async Task<WithRawResponse<LtSamComputeDeclarationsResponse>> LtSamComputeAsyncCore(
+        LtSamComputeDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1211,10 +1347,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1DeclarationsLtSamComputeResponse>(
+                var responseData = JsonUtils.Deserialize<LtSamComputeDeclarationsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1DeclarationsLtSamComputeResponse>()
+                return new WithRawResponse<LtSamComputeDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1273,6 +1409,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1299,6 +1447,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1365,10 +1525,8 @@ public partial class DeclarationsClient : IDeclarationsClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1DeclarationsLtSdGenerateResponse>
-    > PostV1DeclarationsLtSdGenerateAsyncCore(
-        PostV1DeclarationsLtSdGenerateRequest request,
+    private async Task<WithRawResponse<LtSdGenerateDeclarationsResponse>> LtSdGenerateAsyncCore(
+        LtSdGenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1404,10 +1562,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1DeclarationsLtSdGenerateResponse>(
+                var responseData = JsonUtils.Deserialize<LtSdGenerateDeclarationsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1DeclarationsLtSdGenerateResponse>()
+                return new WithRawResponse<LtSdGenerateDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1466,6 +1624,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1492,6 +1662,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1558,10 +1740,8 @@ public partial class DeclarationsClient : IDeclarationsClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1DeclarationsLtSaftGenerateResponse>
-    > PostV1DeclarationsLtSaftGenerateAsyncCore(
-        PostV1DeclarationsLtSaftGenerateRequest request,
+    private async Task<WithRawResponse<LtSaftGenerateDeclarationsResponse>> LtSaftGenerateAsyncCore(
+        LtSaftGenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1597,10 +1777,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1DeclarationsLtSaftGenerateResponse>(
+                var responseData = JsonUtils.Deserialize<LtSaftGenerateDeclarationsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1DeclarationsLtSaftGenerateResponse>()
+                return new WithRawResponse<LtSaftGenerateDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1659,6 +1839,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1685,6 +1877,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1751,10 +1955,8 @@ public partial class DeclarationsClient : IDeclarationsClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1DeclarationsLtIvazAmendResponse>
-    > PostV1DeclarationsLtIvazAmendAsyncCore(
-        PostV1DeclarationsLtIvazAmendRequest request,
+    private async Task<WithRawResponse<LtIvazAmendDeclarationsResponse>> LtIvazAmendAsyncCore(
+        LtIvazAmendDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1790,10 +1992,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1DeclarationsLtIvazAmendResponse>(
+                var responseData = JsonUtils.Deserialize<LtIvazAmendDeclarationsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1DeclarationsLtIvazAmendResponse>()
+                return new WithRawResponse<LtIvazAmendDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1852,6 +2054,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1878,6 +2092,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1944,10 +2170,8 @@ public partial class DeclarationsClient : IDeclarationsClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1DeclarationsLtIvazCancelResponse>
-    > PostV1DeclarationsLtIvazCancelAsyncCore(
-        PostV1DeclarationsLtIvazCancelRequest request,
+    private async Task<WithRawResponse<LtIvazCancelDeclarationsResponse>> LtIvazCancelAsyncCore(
+        LtIvazCancelDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1983,10 +2207,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1DeclarationsLtIvazCancelResponse>(
+                var responseData = JsonUtils.Deserialize<LtIvazCancelDeclarationsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1DeclarationsLtIvazCancelResponse>()
+                return new WithRawResponse<LtIvazCancelDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2045,6 +2269,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2071,6 +2307,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2138,9 +2386,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsLtFr0564ComputeResponse>
-    > PostV1DeclarationsLtFr0564ComputeAsyncCore(
-        PostV1DeclarationsLtFr0564ComputeRequest request,
+        WithRawResponse<LtFr0564ComputeDeclarationsResponse>
+    > LtFr0564ComputeAsyncCore(
+        LtFr0564ComputeDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2176,10 +2424,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1DeclarationsLtFr0564ComputeResponse>(
+                var responseData = JsonUtils.Deserialize<LtFr0564ComputeDeclarationsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1DeclarationsLtFr0564ComputeResponse>()
+                return new WithRawResponse<LtFr0564ComputeDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2238,6 +2486,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2264,6 +2524,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2331,9 +2603,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsLtGpm312ComputeResponse>
-    > PostV1DeclarationsLtGpm312ComputeAsyncCore(
-        PostV1DeclarationsLtGpm312ComputeRequest request,
+        WithRawResponse<LtGpm312ComputeDeclarationsResponse>
+    > LtGpm312ComputeAsyncCore(
+        LtGpm312ComputeDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2369,10 +2641,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1DeclarationsLtGpm312ComputeResponse>(
+                var responseData = JsonUtils.Deserialize<LtGpm312ComputeDeclarationsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1DeclarationsLtGpm312ComputeResponse>()
+                return new WithRawResponse<LtGpm312ComputeDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2431,6 +2703,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2457,6 +2741,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2524,9 +2820,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsLtPln204ComputeResponse>
-    > PostV1DeclarationsLtPln204ComputeAsyncCore(
-        PostV1DeclarationsLtPln204ComputeRequest request,
+        WithRawResponse<LtPln204ComputeDeclarationsResponse>
+    > LtPln204ComputeAsyncCore(
+        LtPln204ComputeDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2562,10 +2858,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1DeclarationsLtPln204ComputeResponse>(
+                var responseData = JsonUtils.Deserialize<LtPln204ComputeDeclarationsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1DeclarationsLtPln204ComputeResponse>()
+                return new WithRawResponse<LtPln204ComputeDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2624,6 +2920,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2650,6 +2958,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2716,10 +3036,8 @@ public partial class DeclarationsClient : IDeclarationsClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1DeclarationsEuOssComputeResponse>
-    > PostV1DeclarationsEuOssComputeAsyncCore(
-        PostV1DeclarationsEuOssComputeRequest request,
+    private async Task<WithRawResponse<EuOssComputeDeclarationsResponse>> EuOssComputeAsyncCore(
+        EuOssComputeDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2755,10 +3073,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1DeclarationsEuOssComputeResponse>(
+                var responseData = JsonUtils.Deserialize<EuOssComputeDeclarationsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1DeclarationsEuOssComputeResponse>()
+                return new WithRawResponse<EuOssComputeDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2817,6 +3135,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2843,6 +3173,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2909,10 +3251,8 @@ public partial class DeclarationsClient : IDeclarationsClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1DeclarationsEuIossComputeResponse>
-    > PostV1DeclarationsEuIossComputeAsyncCore(
-        PostV1DeclarationsEuIossComputeRequest request,
+    private async Task<WithRawResponse<EuIossComputeDeclarationsResponse>> EuIossComputeAsyncCore(
+        EuIossComputeDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2948,10 +3288,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1DeclarationsEuIossComputeResponse>(
+                var responseData = JsonUtils.Deserialize<EuIossComputeDeclarationsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1DeclarationsEuIossComputeResponse>()
+                return new WithRawResponse<EuIossComputeDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3010,6 +3350,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3036,6 +3388,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3103,9 +3467,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsEuDistanceSalesThresholdGetResponse>
-    > PostV1DeclarationsEuDistanceSalesThresholdGetAsyncCore(
-        PostV1DeclarationsEuDistanceSalesThresholdGetRequest request,
+        WithRawResponse<EuDistanceSalesThresholdGetDeclarationsResponse>
+    > EuDistanceSalesThresholdGetAsyncCore(
+        EuDistanceSalesThresholdGetDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3142,10 +3506,10 @@ public partial class DeclarationsClient : IDeclarationsClient
             try
             {
                 var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsEuDistanceSalesThresholdGetResponse>(
+                    JsonUtils.Deserialize<EuDistanceSalesThresholdGetDeclarationsResponse>(
                         responseBody
                     )!;
-                return new WithRawResponse<PostV1DeclarationsEuDistanceSalesThresholdGetResponse>()
+                return new WithRawResponse<EuDistanceSalesThresholdGetDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3204,6 +3568,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3230,6 +3606,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3297,9 +3685,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsEuUnionTurnoverGetResponse>
-    > PostV1DeclarationsEuUnionTurnoverGetAsyncCore(
-        PostV1DeclarationsEuUnionTurnoverGetRequest request,
+        WithRawResponse<EuUnionTurnoverGetDeclarationsResponse>
+    > EuUnionTurnoverGetAsyncCore(
+        EuUnionTurnoverGetDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3335,11 +3723,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsEuUnionTurnoverGetResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1DeclarationsEuUnionTurnoverGetResponse>()
+                var responseData = JsonUtils.Deserialize<EuUnionTurnoverGetDeclarationsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<EuUnionTurnoverGetDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3398,6 +3785,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3424,6 +3823,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3491,9 +3902,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsEuSmeCrossBorderReportComputeResponse>
-    > PostV1DeclarationsEuSmeCrossBorderReportComputeAsyncCore(
-        PostV1DeclarationsEuSmeCrossBorderReportComputeRequest request,
+        WithRawResponse<EuSmeCrossBorderReportComputeDeclarationsResponse>
+    > EuSmeCrossBorderReportComputeAsyncCore(
+        EuSmeCrossBorderReportComputeDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3530,10 +3941,10 @@ public partial class DeclarationsClient : IDeclarationsClient
             try
             {
                 var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsEuSmeCrossBorderReportComputeResponse>(
+                    JsonUtils.Deserialize<EuSmeCrossBorderReportComputeDeclarationsResponse>(
                         responseBody
                     )!;
-                return new WithRawResponse<PostV1DeclarationsEuSmeCrossBorderReportComputeResponse>()
+                return new WithRawResponse<EuSmeCrossBorderReportComputeDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3592,6 +4003,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3618,6 +4041,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3685,9 +4120,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsEuSmeThresholdsListResponse>
-    > PostV1DeclarationsEuSmeThresholdsListAsyncCore(
-        PostV1DeclarationsEuSmeThresholdsListRequest request,
+        WithRawResponse<EuSmeThresholdsListDeclarationsResponse>
+    > EuSmeThresholdsListAsyncCore(
+        EuSmeThresholdsListDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3723,11 +4158,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsEuSmeThresholdsListResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1DeclarationsEuSmeThresholdsListResponse>()
+                var responseData = JsonUtils.Deserialize<EuSmeThresholdsListDeclarationsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<EuSmeThresholdsListDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3786,6 +4220,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3812,6 +4258,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3879,9 +4337,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsEuSmeThresholdGetResponse>
-    > PostV1DeclarationsEuSmeThresholdGetAsyncCore(
-        PostV1DeclarationsEuSmeThresholdGetRequest request,
+        WithRawResponse<EuSmeThresholdGetDeclarationsResponse>
+    > EuSmeThresholdGetAsyncCore(
+        EuSmeThresholdGetDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3917,11 +4375,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsEuSmeThresholdGetResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1DeclarationsEuSmeThresholdGetResponse>()
+                var responseData = JsonUtils.Deserialize<EuSmeThresholdGetDeclarationsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<EuSmeThresholdGetDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3980,6 +4437,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -4006,6 +4475,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -4073,9 +4554,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsEuVatReturnPacksListResponse>
-    > PostV1DeclarationsEuVatReturnPacksListAsyncCore(
-        PostV1DeclarationsEuVatReturnPacksListRequest request,
+        WithRawResponse<EuVatReturnPacksListDeclarationsResponse>
+    > EuVatReturnPacksListAsyncCore(
+        EuVatReturnPacksListDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -4111,11 +4592,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsEuVatReturnPacksListResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1DeclarationsEuVatReturnPacksListResponse>()
+                var responseData = JsonUtils.Deserialize<EuVatReturnPacksListDeclarationsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<EuVatReturnPacksListDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -4174,6 +4654,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -4200,6 +4692,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -4267,9 +4771,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsEuVatReturnComputeResponse>
-    > PostV1DeclarationsEuVatReturnComputeAsyncCore(
-        PostV1DeclarationsEuVatReturnComputeRequest request,
+        WithRawResponse<EuVatReturnComputeDeclarationsResponse>
+    > EuVatReturnComputeAsyncCore(
+        EuVatReturnComputeDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -4305,11 +4809,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsEuVatReturnComputeResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1DeclarationsEuVatReturnComputeResponse>()
+                var responseData = JsonUtils.Deserialize<EuVatReturnComputeDeclarationsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<EuVatReturnComputeDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -4368,6 +4871,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -4394,6 +4909,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -4461,9 +4988,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsPlJpkV7MGenerateResponse>
-    > PostV1DeclarationsPlJpkV7MGenerateAsyncCore(
-        PostV1DeclarationsPlJpkV7MGenerateRequest request,
+        WithRawResponse<PlJpkV7MGenerateDeclarationsResponse>
+    > PlJpkV7MGenerateAsyncCore(
+        PlJpkV7MGenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -4499,11 +5026,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsPlJpkV7MGenerateResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1DeclarationsPlJpkV7MGenerateResponse>()
+                var responseData = JsonUtils.Deserialize<PlJpkV7MGenerateDeclarationsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<PlJpkV7MGenerateDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -4562,6 +5088,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -4588,6 +5126,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -4655,9 +5205,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsPlVatUeGenerateResponse>
-    > PostV1DeclarationsPlVatUeGenerateAsyncCore(
-        PostV1DeclarationsPlVatUeGenerateRequest request,
+        WithRawResponse<PlVatUeGenerateDeclarationsResponse>
+    > PlVatUeGenerateAsyncCore(
+        PlVatUeGenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -4693,10 +5243,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1DeclarationsPlVatUeGenerateResponse>(
+                var responseData = JsonUtils.Deserialize<PlVatUeGenerateDeclarationsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1DeclarationsPlVatUeGenerateResponse>()
+                return new WithRawResponse<PlVatUeGenerateDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -4755,6 +5305,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -4781,6 +5343,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -4848,9 +5422,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsPlIntrastatGenerateResponse>
-    > PostV1DeclarationsPlIntrastatGenerateAsyncCore(
-        PostV1DeclarationsPlIntrastatGenerateRequest request,
+        WithRawResponse<PlIntrastatGenerateDeclarationsResponse>
+    > PlIntrastatGenerateAsyncCore(
+        PlIntrastatGenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -4886,11 +5460,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsPlIntrastatGenerateResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1DeclarationsPlIntrastatGenerateResponse>()
+                var responseData = JsonUtils.Deserialize<PlIntrastatGenerateDeclarationsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<PlIntrastatGenerateDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -4949,6 +5522,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -4975,6 +5560,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -5042,9 +5639,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsPlKsefReceivedListResponse>
-    > PostV1DeclarationsPlKsefReceivedListAsyncCore(
-        PostV1DeclarationsPlKsefReceivedListRequest request,
+        WithRawResponse<PlKsefReceivedListDeclarationsResponse>
+    > PlKsefReceivedListAsyncCore(
+        PlKsefReceivedListDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -5080,11 +5677,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsPlKsefReceivedListResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1DeclarationsPlKsefReceivedListResponse>()
+                var responseData = JsonUtils.Deserialize<PlKsefReceivedListDeclarationsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<PlKsefReceivedListDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -5143,6 +5739,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -5169,6 +5777,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -5236,9 +5856,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsPlKsefReceivedFetchResponse>
-    > PostV1DeclarationsPlKsefReceivedFetchAsyncCore(
-        PostV1DeclarationsPlKsefReceivedFetchRequest request,
+        WithRawResponse<PlKsefReceivedFetchDeclarationsResponse>
+    > PlKsefReceivedFetchAsyncCore(
+        PlKsefReceivedFetchDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -5274,11 +5894,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsPlKsefReceivedFetchResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1DeclarationsPlKsefReceivedFetchResponse>()
+                var responseData = JsonUtils.Deserialize<PlKsefReceivedFetchDeclarationsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<PlKsefReceivedFetchDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -5337,6 +5956,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -5363,6 +5994,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -5429,10 +6072,8 @@ public partial class DeclarationsClient : IDeclarationsClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1DeclarationsPlKsefReceiptResponse>
-    > PostV1DeclarationsPlKsefReceiptAsyncCore(
-        PostV1DeclarationsPlKsefReceiptRequest request,
+    private async Task<WithRawResponse<PlKsefReceiptDeclarationsResponse>> PlKsefReceiptAsyncCore(
+        PlKsefReceiptDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -5468,10 +6109,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1DeclarationsPlKsefReceiptResponse>(
+                var responseData = JsonUtils.Deserialize<PlKsefReceiptDeclarationsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1DeclarationsPlKsefReceiptResponse>()
+                return new WithRawResponse<PlKsefReceiptDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -5530,6 +6171,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -5556,6 +6209,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -5623,9 +6288,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsTaxAdjustmentsListResponse>
-    > TaxAdjustmentsRecordedForATaxYearAsyncCore(
-        PostV1DeclarationsTaxAdjustmentsListRequest request,
+        WithRawResponse<TaxAdjustmentsListDeclarationsResponse>
+    > TaxAdjustmentsListAsyncCore(
+        TaxAdjustmentsListDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -5661,11 +6326,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsTaxAdjustmentsListResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1DeclarationsTaxAdjustmentsListResponse>()
+                var responseData = JsonUtils.Deserialize<TaxAdjustmentsListDeclarationsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<TaxAdjustmentsListDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -5724,6 +6388,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -5750,6 +6426,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -5817,9 +6505,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsTaxAdjustmentsCreateResponse>
-    > RecordATaxAdjustmentForATaxYearAsyncCore(
-        PostV1DeclarationsTaxAdjustmentsCreateRequest request,
+        WithRawResponse<TaxAdjustmentsCreateDeclarationsResponse>
+    > TaxAdjustmentsCreateAsyncCore(
+        TaxAdjustmentsCreateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -5855,11 +6543,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsTaxAdjustmentsCreateResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1DeclarationsTaxAdjustmentsCreateResponse>()
+                var responseData = JsonUtils.Deserialize<TaxAdjustmentsCreateDeclarationsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<TaxAdjustmentsCreateDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -5918,6 +6605,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -5944,6 +6643,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -6011,9 +6722,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsTaxAdjustmentsUpdateResponse>
-    > ChangeARecordedTaxAdjustmentAsyncCore(
-        PostV1DeclarationsTaxAdjustmentsUpdateRequest request,
+        WithRawResponse<TaxAdjustmentsUpdateDeclarationsResponse>
+    > TaxAdjustmentsUpdateAsyncCore(
+        TaxAdjustmentsUpdateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -6049,11 +6760,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsTaxAdjustmentsUpdateResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1DeclarationsTaxAdjustmentsUpdateResponse>()
+                var responseData = JsonUtils.Deserialize<TaxAdjustmentsUpdateDeclarationsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<TaxAdjustmentsUpdateDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -6112,6 +6822,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -6138,6 +6860,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -6205,9 +6939,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsTaxAdjustmentsDeleteResponse>
-    > RemoveARecordedTaxAdjustmentAsyncCore(
-        PostV1DeclarationsTaxAdjustmentsDeleteRequest request,
+        WithRawResponse<TaxAdjustmentsDeleteDeclarationsResponse>
+    > TaxAdjustmentsDeleteAsyncCore(
+        TaxAdjustmentsDeleteDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -6243,11 +6977,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsTaxAdjustmentsDeleteResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1DeclarationsTaxAdjustmentsDeleteResponse>()
+                var responseData = JsonUtils.Deserialize<TaxAdjustmentsDeleteDeclarationsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<TaxAdjustmentsDeleteDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -6306,6 +7039,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -6332,6 +7077,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -6399,9 +7156,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsTaxPaymentsListResponse>
-    > PaymentsAlreadyMadeTowardsATaxOfAYearAsyncCore(
-        PostV1DeclarationsTaxPaymentsListRequest request,
+        WithRawResponse<TaxPaymentsListDeclarationsResponse>
+    > TaxPaymentsListAsyncCore(
+        TaxPaymentsListDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -6437,10 +7194,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1DeclarationsTaxPaymentsListResponse>(
+                var responseData = JsonUtils.Deserialize<TaxPaymentsListDeclarationsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1DeclarationsTaxPaymentsListResponse>()
+                return new WithRawResponse<TaxPaymentsListDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -6499,6 +7256,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -6525,6 +7294,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -6592,9 +7373,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsTaxPaymentsCreateResponse>
-    > RecordAPaymentMadeTowardsATaxAsyncCore(
-        PostV1DeclarationsTaxPaymentsCreateRequest request,
+        WithRawResponse<TaxPaymentsCreateDeclarationsResponse>
+    > TaxPaymentsCreateAsyncCore(
+        TaxPaymentsCreateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -6630,11 +7411,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsTaxPaymentsCreateResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1DeclarationsTaxPaymentsCreateResponse>()
+                var responseData = JsonUtils.Deserialize<TaxPaymentsCreateDeclarationsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<TaxPaymentsCreateDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -6693,6 +7473,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -6719,6 +7511,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -6786,9 +7590,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsTaxPaymentsUpdateResponse>
-    > ChangeARecordedTaxPaymentAsyncCore(
-        PostV1DeclarationsTaxPaymentsUpdateRequest request,
+        WithRawResponse<TaxPaymentsUpdateDeclarationsResponse>
+    > TaxPaymentsUpdateAsyncCore(
+        TaxPaymentsUpdateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -6824,11 +7628,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsTaxPaymentsUpdateResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1DeclarationsTaxPaymentsUpdateResponse>()
+                var responseData = JsonUtils.Deserialize<TaxPaymentsUpdateDeclarationsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<TaxPaymentsUpdateDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -6887,6 +7690,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -6913,6 +7728,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -6980,9 +7807,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsTaxPaymentsDeleteResponse>
-    > RemoveARecordedTaxPaymentAsyncCore(
-        PostV1DeclarationsTaxPaymentsDeleteRequest request,
+        WithRawResponse<TaxPaymentsDeleteDeclarationsResponse>
+    > TaxPaymentsDeleteAsyncCore(
+        TaxPaymentsDeleteDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -7018,11 +7845,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsTaxPaymentsDeleteResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1DeclarationsTaxPaymentsDeleteResponse>()
+                var responseData = JsonUtils.Deserialize<TaxPaymentsDeleteDeclarationsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<TaxPaymentsDeleteDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -7081,6 +7907,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -7107,6 +7945,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -7174,9 +8024,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsAnnualAccountsGetResponse>
-    > AdoptionAndSigningFactsOfTheAnnualAccountsOfAYearAsyncCore(
-        PostV1DeclarationsAnnualAccountsGetRequest request,
+        WithRawResponse<AnnualAccountsGetDeclarationsResponse>
+    > AnnualAccountsGetAsyncCore(
+        AnnualAccountsGetDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -7212,11 +8062,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsAnnualAccountsGetResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1DeclarationsAnnualAccountsGetResponse>()
+                var responseData = JsonUtils.Deserialize<AnnualAccountsGetDeclarationsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<AnnualAccountsGetDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -7275,6 +8124,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -7301,6 +8162,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -7368,9 +8241,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsAnnualAccountsSetResponse>
-    > RecordTheAdoptionAndPreparationOfTheAnnualAccountsOfAYearAsyncCore(
-        PostV1DeclarationsAnnualAccountsSetRequest request,
+        WithRawResponse<AnnualAccountsSetDeclarationsResponse>
+    > AnnualAccountsSetAsyncCore(
+        AnnualAccountsSetDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -7406,11 +8279,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsAnnualAccountsSetResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1DeclarationsAnnualAccountsSetResponse>()
+                var responseData = JsonUtils.Deserialize<AnnualAccountsSetDeclarationsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<AnnualAccountsSetDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -7469,6 +8341,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -7495,6 +8379,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -7562,9 +8458,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsAnnualAccountsSignaturesCreateResponse>
-    > RecordWhetherADirectorSignedTheAnnualAccountsOfAYearAsyncCore(
-        PostV1DeclarationsAnnualAccountsSignaturesCreateRequest request,
+        WithRawResponse<AnnualAccountsSignaturesCreateDeclarationsResponse>
+    > AnnualAccountsSignaturesCreateAsyncCore(
+        AnnualAccountsSignaturesCreateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -7601,10 +8497,10 @@ public partial class DeclarationsClient : IDeclarationsClient
             try
             {
                 var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsAnnualAccountsSignaturesCreateResponse>(
+                    JsonUtils.Deserialize<AnnualAccountsSignaturesCreateDeclarationsResponse>(
                         responseBody
                     )!;
-                return new WithRawResponse<PostV1DeclarationsAnnualAccountsSignaturesCreateResponse>()
+                return new WithRawResponse<AnnualAccountsSignaturesCreateDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -7663,6 +8559,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -7689,6 +8597,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -7756,9 +8676,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsAnnualAccountsSignaturesUpdateResponse>
-    > ChangeARecordedDirectorSignatureAsyncCore(
-        PostV1DeclarationsAnnualAccountsSignaturesUpdateRequest request,
+        WithRawResponse<AnnualAccountsSignaturesUpdateDeclarationsResponse>
+    > AnnualAccountsSignaturesUpdateAsyncCore(
+        AnnualAccountsSignaturesUpdateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -7795,10 +8715,10 @@ public partial class DeclarationsClient : IDeclarationsClient
             try
             {
                 var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsAnnualAccountsSignaturesUpdateResponse>(
+                    JsonUtils.Deserialize<AnnualAccountsSignaturesUpdateDeclarationsResponse>(
                         responseBody
                     )!;
-                return new WithRawResponse<PostV1DeclarationsAnnualAccountsSignaturesUpdateResponse>()
+                return new WithRawResponse<AnnualAccountsSignaturesUpdateDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -7857,6 +8777,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -7883,6 +8815,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -7950,9 +8894,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsAnnualAccountsSignaturesDeleteResponse>
-    > RemoveARecordedDirectorSignatureAsyncCore(
-        PostV1DeclarationsAnnualAccountsSignaturesDeleteRequest request,
+        WithRawResponse<AnnualAccountsSignaturesDeleteDeclarationsResponse>
+    > AnnualAccountsSignaturesDeleteAsyncCore(
+        AnnualAccountsSignaturesDeleteDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -7989,10 +8933,10 @@ public partial class DeclarationsClient : IDeclarationsClient
             try
             {
                 var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsAnnualAccountsSignaturesDeleteResponse>(
+                    JsonUtils.Deserialize<AnnualAccountsSignaturesDeleteDeclarationsResponse>(
                         responseBody
                     )!;
-                return new WithRawResponse<PostV1DeclarationsAnnualAccountsSignaturesDeleteResponse>()
+                return new WithRawResponse<AnnualAccountsSignaturesDeleteDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -8051,6 +8995,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -8077,6 +9033,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -8144,9 +9112,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsAnnualAccountsDistributionsCreateResponse>
-    > RecordADecisionToDistributeProfitADividendAnInterimDividendOrAPaymentTreatedAsOneAsyncCore(
-        PostV1DeclarationsAnnualAccountsDistributionsCreateRequest request,
+        WithRawResponse<AnnualAccountsDistributionsCreateDeclarationsResponse>
+    > AnnualAccountsDistributionsCreateAsyncCore(
+        AnnualAccountsDistributionsCreateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -8183,10 +9151,10 @@ public partial class DeclarationsClient : IDeclarationsClient
             try
             {
                 var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsAnnualAccountsDistributionsCreateResponse>(
+                    JsonUtils.Deserialize<AnnualAccountsDistributionsCreateDeclarationsResponse>(
                         responseBody
                     )!;
-                return new WithRawResponse<PostV1DeclarationsAnnualAccountsDistributionsCreateResponse>()
+                return new WithRawResponse<AnnualAccountsDistributionsCreateDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -8245,6 +9213,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -8271,6 +9251,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -8338,9 +9330,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsAnnualAccountsDistributionsUpdateResponse>
-    > ChangeARecordedProfitDistributionAsyncCore(
-        PostV1DeclarationsAnnualAccountsDistributionsUpdateRequest request,
+        WithRawResponse<AnnualAccountsDistributionsUpdateDeclarationsResponse>
+    > AnnualAccountsDistributionsUpdateAsyncCore(
+        AnnualAccountsDistributionsUpdateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -8377,10 +9369,10 @@ public partial class DeclarationsClient : IDeclarationsClient
             try
             {
                 var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsAnnualAccountsDistributionsUpdateResponse>(
+                    JsonUtils.Deserialize<AnnualAccountsDistributionsUpdateDeclarationsResponse>(
                         responseBody
                     )!;
-                return new WithRawResponse<PostV1DeclarationsAnnualAccountsDistributionsUpdateResponse>()
+                return new WithRawResponse<AnnualAccountsDistributionsUpdateDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -8439,6 +9431,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -8465,6 +9469,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -8532,9 +9548,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsAnnualAccountsDistributionsDeleteResponse>
-    > RemoveARecordedProfitDistributionAsyncCore(
-        PostV1DeclarationsAnnualAccountsDistributionsDeleteRequest request,
+        WithRawResponse<AnnualAccountsDistributionsDeleteDeclarationsResponse>
+    > AnnualAccountsDistributionsDeleteAsyncCore(
+        AnnualAccountsDistributionsDeleteDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -8571,10 +9587,10 @@ public partial class DeclarationsClient : IDeclarationsClient
             try
             {
                 var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsAnnualAccountsDistributionsDeleteResponse>(
+                    JsonUtils.Deserialize<AnnualAccountsDistributionsDeleteDeclarationsResponse>(
                         responseBody
                     )!;
-                return new WithRawResponse<PostV1DeclarationsAnnualAccountsDistributionsDeleteResponse>()
+                return new WithRawResponse<AnnualAccountsDistributionsDeleteDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -8633,6 +9649,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -8659,6 +9687,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -8726,9 +9766,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsAnnualAccountsAttachmentsAddResponse>
-    > AttachAnUploadedDocumentToTheAnnualAccountsOfAYearAsyncCore(
-        PostV1DeclarationsAnnualAccountsAttachmentsAddRequest request,
+        WithRawResponse<AnnualAccountsAttachmentsAddDeclarationsResponse>
+    > AnnualAccountsAttachmentsAddAsyncCore(
+        AnnualAccountsAttachmentsAddDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -8765,10 +9805,10 @@ public partial class DeclarationsClient : IDeclarationsClient
             try
             {
                 var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsAnnualAccountsAttachmentsAddResponse>(
+                    JsonUtils.Deserialize<AnnualAccountsAttachmentsAddDeclarationsResponse>(
                         responseBody
                     )!;
-                return new WithRawResponse<PostV1DeclarationsAnnualAccountsAttachmentsAddResponse>()
+                return new WithRawResponse<AnnualAccountsAttachmentsAddDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -8827,6 +9867,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -8853,6 +9905,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -8920,9 +9984,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsAnnualAccountsAttachmentsDeleteResponse>
-    > RemoveADocumentAttachedToTheAnnualAccountsAndDeleteItsFileAsyncCore(
-        PostV1DeclarationsAnnualAccountsAttachmentsDeleteRequest request,
+        WithRawResponse<AnnualAccountsAttachmentsDeleteDeclarationsResponse>
+    > AnnualAccountsAttachmentsDeleteAsyncCore(
+        AnnualAccountsAttachmentsDeleteDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -8959,10 +10023,10 @@ public partial class DeclarationsClient : IDeclarationsClient
             try
             {
                 var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsAnnualAccountsAttachmentsDeleteResponse>(
+                    JsonUtils.Deserialize<AnnualAccountsAttachmentsDeleteDeclarationsResponse>(
                         responseBody
                     )!;
-                return new WithRawResponse<PostV1DeclarationsAnnualAccountsAttachmentsDeleteResponse>()
+                return new WithRawResponse<AnnualAccountsAttachmentsDeleteDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -9021,6 +10085,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -9047,6 +10123,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -9113,10 +10201,8 @@ public partial class DeclarationsClient : IDeclarationsClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1DeclarationsCyTd4GenerateResponse>
-    > PostV1DeclarationsCyTd4GenerateAsyncCore(
-        PostV1DeclarationsCyTd4GenerateRequest request,
+    private async Task<WithRawResponse<CyTd4GenerateDeclarationsResponse>> CyTd4GenerateAsyncCore(
+        CyTd4GenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -9152,10 +10238,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1DeclarationsCyTd4GenerateResponse>(
+                var responseData = JsonUtils.Deserialize<CyTd4GenerateDeclarationsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1DeclarationsCyTd4GenerateResponse>()
+                return new WithRawResponse<CyTd4GenerateDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -9214,6 +10300,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -9240,6 +10338,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -9306,10 +10416,8 @@ public partial class DeclarationsClient : IDeclarationsClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1DeclarationsCyHe32GenerateResponse>
-    > PostV1DeclarationsCyHe32GenerateAsyncCore(
-        PostV1DeclarationsCyHe32GenerateRequest request,
+    private async Task<WithRawResponse<CyHe32GenerateDeclarationsResponse>> CyHe32GenerateAsyncCore(
+        CyHe32GenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -9345,10 +10453,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1DeclarationsCyHe32GenerateResponse>(
+                var responseData = JsonUtils.Deserialize<CyHe32GenerateDeclarationsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1DeclarationsCyHe32GenerateResponse>()
+                return new WithRawResponse<CyHe32GenerateDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -9407,6 +10515,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -9433,6 +10553,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -9500,9 +10632,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsDeReturnsGenerateResponse>
-    > PostV1DeclarationsDeReturnsGenerateAsyncCore(
-        PostV1DeclarationsDeReturnsGenerateRequest request,
+        WithRawResponse<DeReturnsGenerateDeclarationsResponse>
+    > DeReturnsGenerateAsyncCore(
+        DeReturnsGenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -9538,11 +10670,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsDeReturnsGenerateResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1DeclarationsDeReturnsGenerateResponse>()
+                var responseData = JsonUtils.Deserialize<DeReturnsGenerateDeclarationsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<DeReturnsGenerateDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -9601,6 +10732,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -9627,6 +10770,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -9694,9 +10849,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsDeReturnFactsGetResponse>
-    > PostV1DeclarationsDeReturnFactsGetAsyncCore(
-        PostV1DeclarationsDeReturnFactsGetRequest request,
+        WithRawResponse<DeReturnFactsGetDeclarationsResponse>
+    > DeReturnFactsGetAsyncCore(
+        DeReturnFactsGetDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -9732,11 +10887,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsDeReturnFactsGetResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1DeclarationsDeReturnFactsGetResponse>()
+                var responseData = JsonUtils.Deserialize<DeReturnFactsGetDeclarationsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<DeReturnFactsGetDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -9795,6 +10949,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -9821,6 +10987,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -9888,9 +11066,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsDeReturnFactsSetResponse>
-    > PostV1DeclarationsDeReturnFactsSetAsyncCore(
-        PostV1DeclarationsDeReturnFactsSetRequest request,
+        WithRawResponse<DeReturnFactsSetDeclarationsResponse>
+    > DeReturnFactsSetAsyncCore(
+        DeReturnFactsSetDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -9926,11 +11104,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsDeReturnFactsSetResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1DeclarationsDeReturnFactsSetResponse>()
+                var responseData = JsonUtils.Deserialize<DeReturnFactsSetDeclarationsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<DeReturnFactsSetDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -9989,6 +11166,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -10015,6 +11204,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -10082,9 +11283,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsDeDeuevGenerateResponse>
-    > PostV1DeclarationsDeDeuevGenerateAsyncCore(
-        PostV1DeclarationsDeDeuevGenerateRequest request,
+        WithRawResponse<DeDeuevGenerateDeclarationsResponse>
+    > DeDeuevGenerateAsyncCore(
+        DeDeuevGenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -10120,10 +11321,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1DeclarationsDeDeuevGenerateResponse>(
+                var responseData = JsonUtils.Deserialize<DeDeuevGenerateDeclarationsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1DeclarationsDeDeuevGenerateResponse>()
+                return new WithRawResponse<DeDeuevGenerateDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -10182,6 +11383,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -10208,6 +11421,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -10275,9 +11500,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsDeBeitragsnachweisGenerateResponse>
-    > PostV1DeclarationsDeBeitragsnachweisGenerateAsyncCore(
-        PostV1DeclarationsDeBeitragsnachweisGenerateRequest request,
+        WithRawResponse<DeBeitragsnachweisGenerateDeclarationsResponse>
+    > DeBeitragsnachweisGenerateAsyncCore(
+        DeBeitragsnachweisGenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -10314,10 +11539,10 @@ public partial class DeclarationsClient : IDeclarationsClient
             try
             {
                 var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsDeBeitragsnachweisGenerateResponse>(
+                    JsonUtils.Deserialize<DeBeitragsnachweisGenerateDeclarationsResponse>(
                         responseBody
                     )!;
-                return new WithRawResponse<PostV1DeclarationsDeBeitragsnachweisGenerateResponse>()
+                return new WithRawResponse<DeBeitragsnachweisGenerateDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -10376,6 +11601,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -10402,6 +11639,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -10469,9 +11718,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsDkSelskabsskatGenerateResponse>
-    > PostV1DeclarationsDkSelskabsskatGenerateAsyncCore(
-        PostV1DeclarationsDkSelskabsskatGenerateRequest request,
+        WithRawResponse<DkSelskabsskatGenerateDeclarationsResponse>
+    > DkSelskabsskatGenerateAsyncCore(
+        DkSelskabsskatGenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -10508,10 +11757,10 @@ public partial class DeclarationsClient : IDeclarationsClient
             try
             {
                 var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsDkSelskabsskatGenerateResponse>(
+                    JsonUtils.Deserialize<DkSelskabsskatGenerateDeclarationsResponse>(
                         responseBody
                     )!;
-                return new WithRawResponse<PostV1DeclarationsDkSelskabsskatGenerateResponse>()
+                return new WithRawResponse<DkSelskabsskatGenerateDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -10570,6 +11819,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -10596,6 +11857,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -10663,9 +11936,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsEeEmploymentRegisterSendResponse>
-    > PostV1DeclarationsEeEmploymentRegisterSendAsyncCore(
-        PostV1DeclarationsEeEmploymentRegisterSendRequest request,
+        WithRawResponse<EeEmploymentRegisterSendDeclarationsResponse>
+    > EeEmploymentRegisterSendAsyncCore(
+        EeEmploymentRegisterSendDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -10702,10 +11975,10 @@ public partial class DeclarationsClient : IDeclarationsClient
             try
             {
                 var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsEeEmploymentRegisterSendResponse>(
+                    JsonUtils.Deserialize<EeEmploymentRegisterSendDeclarationsResponse>(
                         responseBody
                     )!;
-                return new WithRawResponse<PostV1DeclarationsEeEmploymentRegisterSendResponse>()
+                return new WithRawResponse<EeEmploymentRegisterSendDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -10764,6 +12037,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -10790,6 +12075,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -10857,9 +12154,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsEsVerifactuDeclaracionResponsableResponse>
-    > PostV1DeclarationsEsVerifactuDeclaracionResponsableAsyncCore(
-        PostV1DeclarationsEsVerifactuDeclaracionResponsableRequest request,
+        WithRawResponse<EsVerifactuDeclaracionResponsableDeclarationsResponse>
+    > EsVerifactuDeclaracionResponsableAsyncCore(
+        EsVerifactuDeclaracionResponsableDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -10896,10 +12193,10 @@ public partial class DeclarationsClient : IDeclarationsClient
             try
             {
                 var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsEsVerifactuDeclaracionResponsableResponse>(
+                    JsonUtils.Deserialize<EsVerifactuDeclaracionResponsableDeclarationsResponse>(
                         responseBody
                     )!;
-                return new WithRawResponse<PostV1DeclarationsEsVerifactuDeclaracionResponsableResponse>()
+                return new WithRawResponse<EsVerifactuDeclaracionResponsableDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -10958,6 +12255,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -10984,6 +12293,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -11050,10 +12371,8 @@ public partial class DeclarationsClient : IDeclarationsClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1DeclarationsIeCt1GenerateResponse>
-    > PostV1DeclarationsIeCt1GenerateAsyncCore(
-        PostV1DeclarationsIeCt1GenerateRequest request,
+    private async Task<WithRawResponse<IeCt1GenerateDeclarationsResponse>> IeCt1GenerateAsyncCore(
+        IeCt1GenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -11089,10 +12408,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1DeclarationsIeCt1GenerateResponse>(
+                var responseData = JsonUtils.Deserialize<IeCt1GenerateDeclarationsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1DeclarationsIeCt1GenerateResponse>()
+                return new WithRawResponse<IeCt1GenerateDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -11151,6 +12470,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -11177,6 +12508,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -11243,10 +12586,8 @@ public partial class DeclarationsClient : IDeclarationsClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1DeclarationsIeB1GenerateResponse>
-    > PostV1DeclarationsIeB1GenerateAsyncCore(
-        PostV1DeclarationsIeB1GenerateRequest request,
+    private async Task<WithRawResponse<IeB1GenerateDeclarationsResponse>> IeB1GenerateAsyncCore(
+        IeB1GenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -11282,10 +12623,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1DeclarationsIeB1GenerateResponse>(
+                var responseData = JsonUtils.Deserialize<IeB1GenerateDeclarationsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1DeclarationsIeB1GenerateResponse>()
+                return new WithRawResponse<IeB1GenerateDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -11344,6 +12685,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -11370,6 +12723,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -11437,9 +12802,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsItSdiPurchaseSendResponse>
-    > PostV1DeclarationsItSdiPurchaseSendAsyncCore(
-        PostV1DeclarationsItSdiPurchaseSendRequest request,
+        WithRawResponse<ItSdiPurchaseSendDeclarationsResponse>
+    > ItSdiPurchaseSendAsyncCore(
+        ItSdiPurchaseSendDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -11475,11 +12840,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsItSdiPurchaseSendResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1DeclarationsItSdiPurchaseSendResponse>()
+                var responseData = JsonUtils.Deserialize<ItSdiPurchaseSendDeclarationsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<ItSdiPurchaseSendDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -11538,6 +12902,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -11564,6 +12940,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -11631,9 +13019,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsItSdiPurchasePreviewResponse>
-    > PostV1DeclarationsItSdiPurchasePreviewAsyncCore(
-        PostV1DeclarationsItSdiPurchasePreviewRequest request,
+        WithRawResponse<ItSdiPurchasePreviewDeclarationsResponse>
+    > ItSdiPurchasePreviewAsyncCore(
+        ItSdiPurchasePreviewDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -11669,11 +13057,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsItSdiPurchasePreviewResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1DeclarationsItSdiPurchasePreviewResponse>()
+                var responseData = JsonUtils.Deserialize<ItSdiPurchasePreviewDeclarationsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<ItSdiPurchasePreviewDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -11732,6 +13119,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -11758,6 +13157,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -11824,10 +13235,8 @@ public partial class DeclarationsClient : IDeclarationsClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1DeclarationsLtSaftSendResponse>
-    > PostV1DeclarationsLtSaftSendAsyncCore(
-        PostV1DeclarationsLtSaftSendRequest request,
+    private async Task<WithRawResponse<LtSaftSendDeclarationsResponse>> LtSaftSendAsyncCore(
+        LtSaftSendDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -11863,10 +13272,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1DeclarationsLtSaftSendResponse>(
+                var responseData = JsonUtils.Deserialize<LtSaftSendDeclarationsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1DeclarationsLtSaftSendResponse>()
+                return new WithRawResponse<LtSaftSendDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -11925,6 +13334,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -11951,6 +13372,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -12017,10 +13450,8 @@ public partial class DeclarationsClient : IDeclarationsClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1DeclarationsLtSdFfdataResponse>
-    > PostV1DeclarationsLtSdFfdataAsyncCore(
-        PostV1DeclarationsLtSdFfdataRequest request,
+    private async Task<WithRawResponse<LtSdFfdataDeclarationsResponse>> LtSdFfdataAsyncCore(
+        LtSdFfdataDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -12056,10 +13487,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1DeclarationsLtSdFfdataResponse>(
+                var responseData = JsonUtils.Deserialize<LtSdFfdataDeclarationsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1DeclarationsLtSdFfdataResponse>()
+                return new WithRawResponse<LtSdFfdataDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -12118,6 +13549,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -12144,6 +13587,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -12210,10 +13665,8 @@ public partial class DeclarationsClient : IDeclarationsClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1DeclarationsLtPln204FfdataResponse>
-    > PostV1DeclarationsLtPln204FfdataAsyncCore(
-        PostV1DeclarationsLtPln204FfdataRequest request,
+    private async Task<WithRawResponse<LtPln204FfdataDeclarationsResponse>> LtPln204FfdataAsyncCore(
+        LtPln204FfdataDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -12249,10 +13702,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1DeclarationsLtPln204FfdataResponse>(
+                var responseData = JsonUtils.Deserialize<LtPln204FfdataDeclarationsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1DeclarationsLtPln204FfdataResponse>()
+                return new WithRawResponse<LtPln204FfdataDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -12311,6 +13764,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -12337,6 +13802,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -12404,9 +13881,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsMtCompanyTaxGenerateResponse>
-    > PostV1DeclarationsMtCompanyTaxGenerateAsyncCore(
-        PostV1DeclarationsMtCompanyTaxGenerateRequest request,
+        WithRawResponse<MtCompanyTaxGenerateDeclarationsResponse>
+    > MtCompanyTaxGenerateAsyncCore(
+        MtCompanyTaxGenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -12442,11 +13919,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsMtCompanyTaxGenerateResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1DeclarationsMtCompanyTaxGenerateResponse>()
+                var responseData = JsonUtils.Deserialize<MtCompanyTaxGenerateDeclarationsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<MtCompanyTaxGenerateDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -12505,6 +13981,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -12531,6 +14019,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -12598,9 +14098,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsMtAnnualReturnGenerateResponse>
-    > PostV1DeclarationsMtAnnualReturnGenerateAsyncCore(
-        PostV1DeclarationsMtAnnualReturnGenerateRequest request,
+        WithRawResponse<MtAnnualReturnGenerateDeclarationsResponse>
+    > MtAnnualReturnGenerateAsyncCore(
+        MtAnnualReturnGenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -12637,10 +14137,10 @@ public partial class DeclarationsClient : IDeclarationsClient
             try
             {
                 var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsMtAnnualReturnGenerateResponse>(
+                    JsonUtils.Deserialize<MtAnnualReturnGenerateDeclarationsResponse>(
                         responseBody
                     )!;
-                return new WithRawResponse<PostV1DeclarationsMtAnnualReturnGenerateResponse>()
+                return new WithRawResponse<MtAnnualReturnGenerateDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -12699,6 +14199,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -12725,6 +14237,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -12792,9 +14316,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsPlJpkFaGenerateResponse>
-    > PostV1DeclarationsPlJpkFaGenerateAsyncCore(
-        PostV1DeclarationsPlJpkFaGenerateRequest request,
+        WithRawResponse<PlJpkFaGenerateDeclarationsResponse>
+    > PlJpkFaGenerateAsyncCore(
+        PlJpkFaGenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -12830,10 +14354,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1DeclarationsPlJpkFaGenerateResponse>(
+                var responseData = JsonUtils.Deserialize<PlJpkFaGenerateDeclarationsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1DeclarationsPlJpkFaGenerateResponse>()
+                return new WithRawResponse<PlJpkFaGenerateDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -12892,6 +14416,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -12918,6 +14454,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -12985,9 +14533,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsPlJpkKrGenerateResponse>
-    > PostV1DeclarationsPlJpkKrGenerateAsyncCore(
-        PostV1DeclarationsPlJpkKrGenerateRequest request,
+        WithRawResponse<PlJpkKrGenerateDeclarationsResponse>
+    > PlJpkKrGenerateAsyncCore(
+        PlJpkKrGenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -13023,10 +14571,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1DeclarationsPlJpkKrGenerateResponse>(
+                var responseData = JsonUtils.Deserialize<PlJpkKrGenerateDeclarationsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1DeclarationsPlJpkKrGenerateResponse>()
+                return new WithRawResponse<PlJpkKrGenerateDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -13085,6 +14633,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -13111,6 +14671,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -13178,9 +14750,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsPlJpkMagGenerateResponse>
-    > PostV1DeclarationsPlJpkMagGenerateAsyncCore(
-        PostV1DeclarationsPlJpkMagGenerateRequest request,
+        WithRawResponse<PlJpkMagGenerateDeclarationsResponse>
+    > PlJpkMagGenerateAsyncCore(
+        PlJpkMagGenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -13216,11 +14788,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsPlJpkMagGenerateResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1DeclarationsPlJpkMagGenerateResponse>()
+                var responseData = JsonUtils.Deserialize<PlJpkMagGenerateDeclarationsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<PlJpkMagGenerateDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -13279,6 +14850,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -13305,6 +14888,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -13372,9 +14967,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsPlPit11GenerateResponse>
-    > PostV1DeclarationsPlPit11GenerateAsyncCore(
-        PostV1DeclarationsPlPit11GenerateRequest request,
+        WithRawResponse<PlPit11GenerateDeclarationsResponse>
+    > PlPit11GenerateAsyncCore(
+        PlPit11GenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -13410,10 +15005,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1DeclarationsPlPit11GenerateResponse>(
+                var responseData = JsonUtils.Deserialize<PlPit11GenerateDeclarationsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1DeclarationsPlPit11GenerateResponse>()
+                return new WithRawResponse<PlPit11GenerateDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -13472,6 +15067,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -13498,6 +15105,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -13564,10 +15183,8 @@ public partial class DeclarationsClient : IDeclarationsClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1DeclarationsPlCit8GenerateResponse>
-    > PostV1DeclarationsPlCit8GenerateAsyncCore(
-        PostV1DeclarationsPlCit8GenerateRequest request,
+    private async Task<WithRawResponse<PlCit8GenerateDeclarationsResponse>> PlCit8GenerateAsyncCore(
+        PlCit8GenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -13603,10 +15220,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1DeclarationsPlCit8GenerateResponse>(
+                var responseData = JsonUtils.Deserialize<PlCit8GenerateDeclarationsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1DeclarationsPlCit8GenerateResponse>()
+                return new WithRawResponse<PlCit8GenerateDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -13665,6 +15282,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -13691,6 +15320,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -13758,9 +15399,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsPlZusDraComputeResponse>
-    > PostV1DeclarationsPlZusDraComputeAsyncCore(
-        PostV1DeclarationsPlZusDraComputeRequest request,
+        WithRawResponse<PlZusDraComputeDeclarationsResponse>
+    > PlZusDraComputeAsyncCore(
+        PlZusDraComputeDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -13796,10 +15437,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1DeclarationsPlZusDraComputeResponse>(
+                var responseData = JsonUtils.Deserialize<PlZusDraComputeDeclarationsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1DeclarationsPlZusDraComputeResponse>()
+                return new WithRawResponse<PlZusDraComputeDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -13858,6 +15499,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -13884,6 +15537,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -13950,10 +15615,8 @@ public partial class DeclarationsClient : IDeclarationsClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1DeclarationsPlZusDraKeduResponse>
-    > PostV1DeclarationsPlZusDraKeduAsyncCore(
-        PostV1DeclarationsPlZusDraKeduRequest request,
+    private async Task<WithRawResponse<PlZusDraKeduDeclarationsResponse>> PlZusDraKeduAsyncCore(
+        PlZusDraKeduDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -13989,10 +15652,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1DeclarationsPlZusDraKeduResponse>(
+                var responseData = JsonUtils.Deserialize<PlZusDraKeduDeclarationsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1DeclarationsPlZusDraKeduResponse>()
+                return new WithRawResponse<PlZusDraKeduDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -14051,6 +15714,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -14077,6 +15752,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -14143,10 +15830,8 @@ public partial class DeclarationsClient : IDeclarationsClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1DeclarationsPlZusDraPdfResponse>
-    > PostV1DeclarationsPlZusDraPdfAsyncCore(
-        PostV1DeclarationsPlZusDraPdfRequest request,
+    private async Task<WithRawResponse<PlZusDraPdfDeclarationsResponse>> PlZusDraPdfAsyncCore(
+        PlZusDraPdfDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -14182,10 +15867,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1DeclarationsPlZusDraPdfResponse>(
+                var responseData = JsonUtils.Deserialize<PlZusDraPdfDeclarationsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1DeclarationsPlZusDraPdfResponse>()
+                return new WithRawResponse<PlZusDraPdfDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -14244,6 +15929,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -14270,6 +15967,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -14337,9 +16046,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsRoEtransportBuildResponse>
-    > PostV1DeclarationsRoEtransportBuildAsyncCore(
-        PostV1DeclarationsRoEtransportBuildRequest request,
+        WithRawResponse<RoEtransportBuildDeclarationsResponse>
+    > RoEtransportBuildAsyncCore(
+        RoEtransportBuildDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -14375,11 +16084,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsRoEtransportBuildResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1DeclarationsRoEtransportBuildResponse>()
+                var responseData = JsonUtils.Deserialize<RoEtransportBuildDeclarationsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<RoEtransportBuildDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -14438,6 +16146,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -14464,6 +16184,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -14531,9 +16263,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsRoEtransportSubmitResponse>
-    > PostV1DeclarationsRoEtransportSubmitAsyncCore(
-        PostV1DeclarationsRoEtransportSubmitRequest request,
+        WithRawResponse<RoEtransportSubmitDeclarationsResponse>
+    > RoEtransportSubmitAsyncCore(
+        RoEtransportSubmitDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -14569,11 +16301,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsRoEtransportSubmitResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1DeclarationsRoEtransportSubmitResponse>()
+                var responseData = JsonUtils.Deserialize<RoEtransportSubmitDeclarationsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<RoEtransportSubmitDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -14632,6 +16363,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -14658,6 +16401,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -14725,9 +16480,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsRoEtransportStatusResponse>
-    > PostV1DeclarationsRoEtransportStatusAsyncCore(
-        PostV1DeclarationsRoEtransportStatusRequest request,
+        WithRawResponse<RoEtransportStatusDeclarationsResponse>
+    > RoEtransportStatusAsyncCore(
+        RoEtransportStatusDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -14763,11 +16518,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsRoEtransportStatusResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1DeclarationsRoEtransportStatusResponse>()
+                var responseData = JsonUtils.Deserialize<RoEtransportStatusDeclarationsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<RoEtransportStatusDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -14826,6 +16580,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -14852,6 +16618,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -14919,9 +16697,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsLiLohndeklarationGenerateResponse>
-    > PostV1DeclarationsLiLohndeklarationGenerateAsyncCore(
-        PostV1DeclarationsLiLohndeklarationGenerateRequest request,
+        WithRawResponse<LiLohndeklarationGenerateDeclarationsResponse>
+    > LiLohndeklarationGenerateAsyncCore(
+        LiLohndeklarationGenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -14958,10 +16736,10 @@ public partial class DeclarationsClient : IDeclarationsClient
             try
             {
                 var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsLiLohndeklarationGenerateResponse>(
+                    JsonUtils.Deserialize<LiLohndeklarationGenerateDeclarationsResponse>(
                         responseBody
                     )!;
-                return new WithRawResponse<PostV1DeclarationsLiLohndeklarationGenerateResponse>()
+                return new WithRawResponse<LiLohndeklarationGenerateDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -15020,6 +16798,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -15046,6 +16836,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -15113,9 +16915,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsLiLohnlistenGenerateResponse>
-    > PostV1DeclarationsLiLohnlistenGenerateAsyncCore(
-        PostV1DeclarationsLiLohnlistenGenerateRequest request,
+        WithRawResponse<LiLohnlistenGenerateDeclarationsResponse>
+    > LiLohnlistenGenerateAsyncCore(
+        LiLohnlistenGenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -15151,11 +16953,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsLiLohnlistenGenerateResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1DeclarationsLiLohnlistenGenerateResponse>()
+                var responseData = JsonUtils.Deserialize<LiLohnlistenGenerateDeclarationsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<LiLohnlistenGenerateDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -15214,6 +17015,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -15240,6 +17053,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -15306,10 +17131,8 @@ public partial class DeclarationsClient : IDeclarationsClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1DeclarationsConfigsListResponse>
-    > PostV1DeclarationsConfigsListAsyncCore(
-        PostV1DeclarationsConfigsListRequest request,
+    private async Task<WithRawResponse<ConfigsListDeclarationsResponse>> ConfigsListAsyncCore(
+        ConfigsListDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -15345,10 +17168,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1DeclarationsConfigsListResponse>(
+                var responseData = JsonUtils.Deserialize<ConfigsListDeclarationsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1DeclarationsConfigsListResponse>()
+                return new WithRawResponse<ConfigsListDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -15407,6 +17230,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -15433,6 +17268,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -15499,10 +17346,8 @@ public partial class DeclarationsClient : IDeclarationsClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1DeclarationsConfigsUpdateResponse>
-    > PostV1DeclarationsConfigsUpdateAsyncCore(
-        PostV1DeclarationsConfigsUpdateRequest request,
+    private async Task<WithRawResponse<ConfigsUpdateDeclarationsResponse>> ConfigsUpdateAsyncCore(
+        ConfigsUpdateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -15538,10 +17383,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1DeclarationsConfigsUpdateResponse>(
+                var responseData = JsonUtils.Deserialize<ConfigsUpdateDeclarationsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1DeclarationsConfigsUpdateResponse>()
+                return new WithRawResponse<ConfigsUpdateDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -15600,6 +17445,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -15626,6 +17483,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -15693,9 +17562,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsCertificatesUploadResponse>
-    > StoreTheCertificateOrPrivateKeyAFilingSystemAuthenticatesWithAsyncCore(
-        PostV1DeclarationsCertificatesUploadRequest request,
+        WithRawResponse<CertificatesUploadDeclarationsResponse>
+    > CertificatesUploadAsyncCore(
+        CertificatesUploadDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -15731,11 +17600,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsCertificatesUploadResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1DeclarationsCertificatesUploadResponse>()
+                var responseData = JsonUtils.Deserialize<CertificatesUploadDeclarationsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<CertificatesUploadDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -15794,6 +17662,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -15820,6 +17700,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -15887,9 +17779,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsCertificatesListResponse>
-    > PostV1DeclarationsCertificatesListAsyncCore(
-        PostV1DeclarationsCertificatesListRequest request,
+        WithRawResponse<CertificatesListDeclarationsResponse>
+    > CertificatesListAsyncCore(
+        CertificatesListDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -15925,11 +17817,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsCertificatesListResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1DeclarationsCertificatesListResponse>()
+                var responseData = JsonUtils.Deserialize<CertificatesListDeclarationsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<CertificatesListDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -15988,6 +17879,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -16014,6 +17917,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -16081,9 +17996,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsCertificatesDeleteResponse>
-    > PostV1DeclarationsCertificatesDeleteAsyncCore(
-        PostV1DeclarationsCertificatesDeleteRequest request,
+        WithRawResponse<CertificatesDeleteDeclarationsResponse>
+    > CertificatesDeleteAsyncCore(
+        CertificatesDeleteDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -16119,11 +18034,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsCertificatesDeleteResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1DeclarationsCertificatesDeleteResponse>()
+                var responseData = JsonUtils.Deserialize<CertificatesDeleteDeclarationsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<CertificatesDeleteDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -16182,6 +18096,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -16208,6 +18134,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -16274,10 +18212,8 @@ public partial class DeclarationsClient : IDeclarationsClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1DeclarationsAutomationListResponse>
-    > WhichDeadlinesNordletCanFileByItselfForThisCompanyAndWhichAreSwitchedOnAsyncCore(
-        PostV1DeclarationsAutomationListRequest request,
+    private async Task<WithRawResponse<AutomationListDeclarationsResponse>> AutomationListAsyncCore(
+        AutomationListDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -16313,10 +18249,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1DeclarationsAutomationListResponse>(
+                var responseData = JsonUtils.Deserialize<AutomationListDeclarationsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1DeclarationsAutomationListResponse>()
+                return new WithRawResponse<AutomationListDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -16375,6 +18311,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -16401,6 +18349,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -16468,9 +18428,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsAutomationUpdateResponse>
-    > PostV1DeclarationsAutomationUpdateAsyncCore(
-        PostV1DeclarationsAutomationUpdateRequest request,
+        WithRawResponse<AutomationUpdateDeclarationsResponse>
+    > AutomationUpdateAsyncCore(
+        AutomationUpdateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -16506,11 +18466,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsAutomationUpdateResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1DeclarationsAutomationUpdateResponse>()
+                var responseData = JsonUtils.Deserialize<AutomationUpdateDeclarationsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<AutomationUpdateDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -16569,6 +18528,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -16595,6 +18566,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -16662,9 +18645,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsSubmissionsRetryResponse>
-    > SendAFilingWhoseDeliveryFailedOnceMoreWithTheBytesThatWereGeneratedAsyncCore(
-        PostV1DeclarationsSubmissionsRetryRequest request,
+        WithRawResponse<SubmissionsRetryDeclarationsResponse>
+    > SubmissionsRetryAsyncCore(
+        SubmissionsRetryDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -16700,11 +18683,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsSubmissionsRetryResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1DeclarationsSubmissionsRetryResponse>()
+                var responseData = JsonUtils.Deserialize<SubmissionsRetryDeclarationsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<SubmissionsRetryDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -16763,6 +18745,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -16789,6 +18783,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -16856,9 +18862,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsSubmissionsCreateResponse>
-    > PostV1DeclarationsSubmissionsCreateAsyncCore(
-        PostV1DeclarationsSubmissionsCreateRequest request,
+        WithRawResponse<SubmissionsCreateDeclarationsResponse>
+    > SubmissionsCreateAsyncCore(
+        SubmissionsCreateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -16894,11 +18900,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1DeclarationsSubmissionsCreateResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1DeclarationsSubmissionsCreateResponse>()
+                var responseData = JsonUtils.Deserialize<SubmissionsCreateDeclarationsResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<SubmissionsCreateDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -16957,6 +18962,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -16983,6 +19000,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -17050,9 +19079,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsSubmissionsMarkResponse>
-    > PostV1DeclarationsSubmissionsMarkAsyncCore(
-        PostV1DeclarationsSubmissionsMarkRequest request,
+        WithRawResponse<SubmissionsMarkDeclarationsResponse>
+    > SubmissionsMarkAsyncCore(
+        SubmissionsMarkDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -17088,10 +19117,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1DeclarationsSubmissionsMarkResponse>(
+                var responseData = JsonUtils.Deserialize<SubmissionsMarkDeclarationsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1DeclarationsSubmissionsMarkResponse>()
+                return new WithRawResponse<SubmissionsMarkDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -17150,6 +19179,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -17176,6 +19217,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -17243,9 +19296,9 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     private async Task<
-        WithRawResponse<PostV1DeclarationsSubmissionsListResponse>
-    > PostV1DeclarationsSubmissionsListAsyncCore(
-        PostV1DeclarationsSubmissionsListRequest request,
+        WithRawResponse<SubmissionsListDeclarationsResponse>
+    > SubmissionsListAsyncCore(
+        SubmissionsListDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -17281,10 +19334,10 @@ public partial class DeclarationsClient : IDeclarationsClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1DeclarationsSubmissionsListResponse>(
+                var responseData = JsonUtils.Deserialize<SubmissionsListDeclarationsResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1DeclarationsSubmissionsListResponse>()
+                return new WithRawResponse<SubmissionsListDeclarationsResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -17343,6 +19396,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -17369,6 +19434,18 @@ public partial class DeclarationsClient : IDeclarationsClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -17436,388 +19513,376 @@ public partial class DeclarationsClient : IDeclarationsClient
     }
 
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsLtIntrastatComputeAsync(
-    ///     new PostV1DeclarationsLtIntrastatComputeRequest
+    /// await client.Declarations.LtIntrastatComputeAsync(
+    ///     new LtIntrastatComputeDeclarationsRequest
     ///     {
     ///         Year = 1000000,
     ///         Month = 1000000,
-    ///         Flow = PostV1DeclarationsLtIntrastatComputeRequestFlow.Arrivals,
+    ///         Flow = LtIntrastatComputeDeclarationsRequestFlow.Arrivals,
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsLtIntrastatComputeResponse> PostV1DeclarationsLtIntrastatComputeAsync(
-        PostV1DeclarationsLtIntrastatComputeRequest request,
+    public WithRawResponseTask<LtIntrastatComputeDeclarationsResponse> LtIntrastatComputeAsync(
+        LtIntrastatComputeDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsLtIntrastatComputeResponse>(
-            PostV1DeclarationsLtIntrastatComputeAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<LtIntrastatComputeDeclarationsResponse>(
+            LtIntrastatComputeAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsLtIvazGenerateAsync(
-    ///     new PostV1DeclarationsLtIvazGenerateRequest { WaybillIds = new List&lt;string&gt;() { "waybillIds" } }
+    /// await client.Declarations.LtIvazGenerateAsync(
+    ///     new LtIvazGenerateDeclarationsRequest { WaybillIds = new List&lt;string&gt;() { "waybillIds" } }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsLtIvazGenerateResponse> PostV1DeclarationsLtIvazGenerateAsync(
-        PostV1DeclarationsLtIvazGenerateRequest request,
+    public WithRawResponseTask<LtIvazGenerateDeclarationsResponse> LtIvazGenerateAsync(
+        LtIvazGenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsLtIvazGenerateResponse>(
-            PostV1DeclarationsLtIvazGenerateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<LtIvazGenerateDeclarationsResponse>(
+            LtIvazGenerateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsLtIntrastatObligationAsync(
-    ///     new PostV1DeclarationsLtIntrastatObligationRequest { Year = 1000000 }
+    /// await client.Declarations.LtIntrastatObligationAsync(
+    ///     new LtIntrastatObligationDeclarationsRequest { Year = 1000000 }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsLtIntrastatObligationResponse> PostV1DeclarationsLtIntrastatObligationAsync(
-        PostV1DeclarationsLtIntrastatObligationRequest request,
+    public WithRawResponseTask<LtIntrastatObligationDeclarationsResponse> LtIntrastatObligationAsync(
+        LtIntrastatObligationDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsLtIntrastatObligationResponse>(
-            PostV1DeclarationsLtIntrastatObligationAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<LtIntrastatObligationDeclarationsResponse>(
+            LtIntrastatObligationAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsLtIsafGenerateAsync(
-    ///     new PostV1DeclarationsLtIsafGenerateRequest { Year = 1000000, Month = 1000000 }
+    /// await client.Declarations.LtIsafGenerateAsync(
+    ///     new LtIsafGenerateDeclarationsRequest { Year = 1000000, Month = 1000000 }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsLtIsafGenerateResponse> PostV1DeclarationsLtIsafGenerateAsync(
-        PostV1DeclarationsLtIsafGenerateRequest request,
+    public WithRawResponseTask<LtIsafGenerateDeclarationsResponse> LtIsafGenerateAsync(
+        LtIsafGenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsLtIsafGenerateResponse>(
-            PostV1DeclarationsLtIsafGenerateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<LtIsafGenerateDeclarationsResponse>(
+            LtIsafGenerateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsLtFr0600ComputeAsync(
-    ///     new PostV1DeclarationsLtFr0600ComputeRequest { Year = 1000000, Month = 1000000 }
+    /// await client.Declarations.LtFr0600ComputeAsync(
+    ///     new LtFr0600ComputeDeclarationsRequest { Year = 1000000, Month = 1000000 }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsLtFr0600ComputeResponse> PostV1DeclarationsLtFr0600ComputeAsync(
-        PostV1DeclarationsLtFr0600ComputeRequest request,
+    public WithRawResponseTask<LtFr0600ComputeDeclarationsResponse> LtFr0600ComputeAsync(
+        LtFr0600ComputeDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsLtFr0600ComputeResponse>(
-            PostV1DeclarationsLtFr0600ComputeAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<LtFr0600ComputeDeclarationsResponse>(
+            LtFr0600ComputeAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsLtGpm313ComputeAsync(
-    ///     new PostV1DeclarationsLtGpm313ComputeRequest { Year = 1000000, Month = 1000000 }
+    /// await client.Declarations.LtGpm313ComputeAsync(
+    ///     new LtGpm313ComputeDeclarationsRequest { Year = 1000000, Month = 1000000 }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsLtGpm313ComputeResponse> PostV1DeclarationsLtGpm313ComputeAsync(
-        PostV1DeclarationsLtGpm313ComputeRequest request,
+    public WithRawResponseTask<LtGpm313ComputeDeclarationsResponse> LtGpm313ComputeAsync(
+        LtGpm313ComputeDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsLtGpm313ComputeResponse>(
-            PostV1DeclarationsLtGpm313ComputeAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<LtGpm313ComputeDeclarationsResponse>(
+            LtGpm313ComputeAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsLtSamComputeAsync(
-    ///     new PostV1DeclarationsLtSamComputeRequest { Year = 1000000, Month = 1000000 }
+    /// await client.Declarations.LtSamComputeAsync(
+    ///     new LtSamComputeDeclarationsRequest { Year = 1000000, Month = 1000000 }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsLtSamComputeResponse> PostV1DeclarationsLtSamComputeAsync(
-        PostV1DeclarationsLtSamComputeRequest request,
+    public WithRawResponseTask<LtSamComputeDeclarationsResponse> LtSamComputeAsync(
+        LtSamComputeDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsLtSamComputeResponse>(
-            PostV1DeclarationsLtSamComputeAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<LtSamComputeDeclarationsResponse>(
+            LtSamComputeAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsLtSdGenerateAsync(
-    ///     new PostV1DeclarationsLtSdGenerateRequest
+    /// await client.Declarations.LtSdGenerateAsync(
+    ///     new LtSdGenerateDeclarationsRequest
     ///     {
-    ///         Type = PostV1DeclarationsLtSdGenerateRequestType.OneSd,
-    ///         FromDate = "fromDate",
-    ///         ToDate = "toDate",
+    ///         Type = LtSdGenerateDeclarationsRequestType.OneSd,
+    ///         FromDate = new DateOnly(2026, 7, 1),
+    ///         ToDate = new DateOnly(2026, 7, 1),
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsLtSdGenerateResponse> PostV1DeclarationsLtSdGenerateAsync(
-        PostV1DeclarationsLtSdGenerateRequest request,
+    public WithRawResponseTask<LtSdGenerateDeclarationsResponse> LtSdGenerateAsync(
+        LtSdGenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsLtSdGenerateResponse>(
-            PostV1DeclarationsLtSdGenerateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<LtSdGenerateDeclarationsResponse>(
+            LtSdGenerateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsLtSaftGenerateAsync(
-    ///     new PostV1DeclarationsLtSaftGenerateRequest { FromDate = "fromDate", ToDate = "toDate" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsLtSaftGenerateResponse> PostV1DeclarationsLtSaftGenerateAsync(
-        PostV1DeclarationsLtSaftGenerateRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1DeclarationsLtSaftGenerateResponse>(
-            PostV1DeclarationsLtSaftGenerateAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsLtIvazAmendAsync(
-    ///     new PostV1DeclarationsLtIvazAmendRequest { WaybillIds = new List&lt;string&gt;() { "waybillIds" } }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsLtIvazAmendResponse> PostV1DeclarationsLtIvazAmendAsync(
-        PostV1DeclarationsLtIvazAmendRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1DeclarationsLtIvazAmendResponse>(
-            PostV1DeclarationsLtIvazAmendAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsLtIvazCancelAsync(
-    ///     new PostV1DeclarationsLtIvazCancelRequest
+    /// await client.Declarations.LtSaftGenerateAsync(
+    ///     new LtSaftGenerateDeclarationsRequest
     ///     {
-    ///         Entries = new List&lt;PostV1DeclarationsLtIvazCancelRequestEntriesItem&gt;()
+    ///         FromDate = new DateOnly(2026, 7, 1),
+    ///         ToDate = new DateOnly(2026, 7, 1),
+    ///     }
+    /// );
+    /// </code></example>
+    public WithRawResponseTask<LtSaftGenerateDeclarationsResponse> LtSaftGenerateAsync(
+        LtSaftGenerateDeclarationsRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<LtSaftGenerateDeclarationsResponse>(
+            LtSaftGenerateAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Declarations.LtIvazAmendAsync(
+    ///     new LtIvazAmendDeclarationsRequest { WaybillIds = new List&lt;string&gt;() { "waybillIds" } }
+    /// );
+    /// </code></example>
+    public WithRawResponseTask<LtIvazAmendDeclarationsResponse> LtIvazAmendAsync(
+        LtIvazAmendDeclarationsRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<LtIvazAmendDeclarationsResponse>(
+            LtIvazAmendAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Declarations.LtIvazCancelAsync(
+    ///     new LtIvazCancelDeclarationsRequest
+    ///     {
+    ///         Entries = new List&lt;LtIvazCancelDeclarationsRequestEntriesItem&gt;()
     ///         {
-    ///             new PostV1DeclarationsLtIvazCancelRequestEntriesItem
+    ///             new LtIvazCancelDeclarationsRequestEntriesItem
     ///             {
     ///                 WaybillId = "waybillId",
-    ///                 Reason = PostV1DeclarationsLtIvazCancelRequestEntriesItemReason.One,
+    ///                 Reason = LtIvazCancelDeclarationsRequestEntriesItemReason.One,
     ///             },
     ///         },
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsLtIvazCancelResponse> PostV1DeclarationsLtIvazCancelAsync(
-        PostV1DeclarationsLtIvazCancelRequest request,
+    public WithRawResponseTask<LtIvazCancelDeclarationsResponse> LtIvazCancelAsync(
+        LtIvazCancelDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsLtIvazCancelResponse>(
-            PostV1DeclarationsLtIvazCancelAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<LtIvazCancelDeclarationsResponse>(
+            LtIvazCancelAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsLtFr0564ComputeAsync(
-    ///     new PostV1DeclarationsLtFr0564ComputeRequest { Year = 1000000, Month = 1000000 }
+    /// await client.Declarations.LtFr0564ComputeAsync(
+    ///     new LtFr0564ComputeDeclarationsRequest { Year = 1000000, Month = 1000000 }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsLtFr0564ComputeResponse> PostV1DeclarationsLtFr0564ComputeAsync(
-        PostV1DeclarationsLtFr0564ComputeRequest request,
+    public WithRawResponseTask<LtFr0564ComputeDeclarationsResponse> LtFr0564ComputeAsync(
+        LtFr0564ComputeDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsLtFr0564ComputeResponse>(
-            PostV1DeclarationsLtFr0564ComputeAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<LtFr0564ComputeDeclarationsResponse>(
+            LtFr0564ComputeAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsLtGpm312ComputeAsync(
-    ///     new PostV1DeclarationsLtGpm312ComputeRequest { Year = 1000000 }
+    /// await client.Declarations.LtGpm312ComputeAsync(
+    ///     new LtGpm312ComputeDeclarationsRequest { Year = 1000000 }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsLtGpm312ComputeResponse> PostV1DeclarationsLtGpm312ComputeAsync(
-        PostV1DeclarationsLtGpm312ComputeRequest request,
+    public WithRawResponseTask<LtGpm312ComputeDeclarationsResponse> LtGpm312ComputeAsync(
+        LtGpm312ComputeDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsLtGpm312ComputeResponse>(
-            PostV1DeclarationsLtGpm312ComputeAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<LtGpm312ComputeDeclarationsResponse>(
+            LtGpm312ComputeAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsLtPln204ComputeAsync(
-    ///     new PostV1DeclarationsLtPln204ComputeRequest { Year = 1000000 }
+    /// await client.Declarations.LtPln204ComputeAsync(
+    ///     new LtPln204ComputeDeclarationsRequest { Year = 1000000 }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsLtPln204ComputeResponse> PostV1DeclarationsLtPln204ComputeAsync(
-        PostV1DeclarationsLtPln204ComputeRequest request,
+    public WithRawResponseTask<LtPln204ComputeDeclarationsResponse> LtPln204ComputeAsync(
+        LtPln204ComputeDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsLtPln204ComputeResponse>(
-            PostV1DeclarationsLtPln204ComputeAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<LtPln204ComputeDeclarationsResponse>(
+            LtPln204ComputeAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsEuOssComputeAsync(
-    ///     new PostV1DeclarationsEuOssComputeRequest { Year = 1000000, Quarter = 1000000 }
+    /// await client.Declarations.EuOssComputeAsync(
+    ///     new EuOssComputeDeclarationsRequest { Year = 1000000, Quarter = 1000000 }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsEuOssComputeResponse> PostV1DeclarationsEuOssComputeAsync(
-        PostV1DeclarationsEuOssComputeRequest request,
+    public WithRawResponseTask<EuOssComputeDeclarationsResponse> EuOssComputeAsync(
+        EuOssComputeDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsEuOssComputeResponse>(
-            PostV1DeclarationsEuOssComputeAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<EuOssComputeDeclarationsResponse>(
+            EuOssComputeAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsEuIossComputeAsync(
-    ///     new PostV1DeclarationsEuIossComputeRequest { Year = 1000000, Month = 1000000 }
+    /// await client.Declarations.EuIossComputeAsync(
+    ///     new EuIossComputeDeclarationsRequest { Year = 1000000, Month = 1000000 }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsEuIossComputeResponse> PostV1DeclarationsEuIossComputeAsync(
-        PostV1DeclarationsEuIossComputeRequest request,
+    public WithRawResponseTask<EuIossComputeDeclarationsResponse> EuIossComputeAsync(
+        EuIossComputeDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsEuIossComputeResponse>(
-            PostV1DeclarationsEuIossComputeAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<EuIossComputeDeclarationsResponse>(
+            EuIossComputeAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsEuDistanceSalesThresholdGetAsync(
-    ///     new PostV1DeclarationsEuDistanceSalesThresholdGetRequest()
+    /// await client.Declarations.EuDistanceSalesThresholdGetAsync(
+    ///     new EuDistanceSalesThresholdGetDeclarationsRequest()
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsEuDistanceSalesThresholdGetResponse> PostV1DeclarationsEuDistanceSalesThresholdGetAsync(
-        PostV1DeclarationsEuDistanceSalesThresholdGetRequest request,
+    public WithRawResponseTask<EuDistanceSalesThresholdGetDeclarationsResponse> EuDistanceSalesThresholdGetAsync(
+        EuDistanceSalesThresholdGetDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsEuDistanceSalesThresholdGetResponse>(
-            PostV1DeclarationsEuDistanceSalesThresholdGetAsyncCore(
-                request,
-                options,
-                cancellationToken
-            )
+        return new WithRawResponseTask<EuDistanceSalesThresholdGetDeclarationsResponse>(
+            EuDistanceSalesThresholdGetAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsEuUnionTurnoverGetAsync(
-    ///     new PostV1DeclarationsEuUnionTurnoverGetRequest()
+    /// await client.Declarations.EuUnionTurnoverGetAsync(new EuUnionTurnoverGetDeclarationsRequest());
+    /// </code></example>
+    public WithRawResponseTask<EuUnionTurnoverGetDeclarationsResponse> EuUnionTurnoverGetAsync(
+        EuUnionTurnoverGetDeclarationsRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<EuUnionTurnoverGetDeclarationsResponse>(
+            EuUnionTurnoverGetAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Declarations.EuSmeCrossBorderReportComputeAsync(
+    ///     new EuSmeCrossBorderReportComputeDeclarationsRequest { Year = 1000000, Quarter = 1000000 }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsEuUnionTurnoverGetResponse> PostV1DeclarationsEuUnionTurnoverGetAsync(
-        PostV1DeclarationsEuUnionTurnoverGetRequest request,
+    public WithRawResponseTask<EuSmeCrossBorderReportComputeDeclarationsResponse> EuSmeCrossBorderReportComputeAsync(
+        EuSmeCrossBorderReportComputeDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsEuUnionTurnoverGetResponse>(
-            PostV1DeclarationsEuUnionTurnoverGetAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<EuSmeCrossBorderReportComputeDeclarationsResponse>(
+            EuSmeCrossBorderReportComputeAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsEuSmeCrossBorderReportComputeAsync(
-    ///     new PostV1DeclarationsEuSmeCrossBorderReportComputeRequest { Year = 1000000, Quarter = 1000000 }
-    /// );
+    /// await client.Declarations.EuSmeThresholdsListAsync(new EuSmeThresholdsListDeclarationsRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsEuSmeCrossBorderReportComputeResponse> PostV1DeclarationsEuSmeCrossBorderReportComputeAsync(
-        PostV1DeclarationsEuSmeCrossBorderReportComputeRequest request,
+    public WithRawResponseTask<EuSmeThresholdsListDeclarationsResponse> EuSmeThresholdsListAsync(
+        EuSmeThresholdsListDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsEuSmeCrossBorderReportComputeResponse>(
-            PostV1DeclarationsEuSmeCrossBorderReportComputeAsyncCore(
-                request,
-                options,
-                cancellationToken
-            )
+        return new WithRawResponseTask<EuSmeThresholdsListDeclarationsResponse>(
+            EuSmeThresholdsListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsEuSmeThresholdsListAsync(
-    ///     new PostV1DeclarationsEuSmeThresholdsListRequest()
-    /// );
+    /// await client.Declarations.EuSmeThresholdGetAsync(new EuSmeThresholdGetDeclarationsRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsEuSmeThresholdsListResponse> PostV1DeclarationsEuSmeThresholdsListAsync(
-        PostV1DeclarationsEuSmeThresholdsListRequest request,
+    public WithRawResponseTask<EuSmeThresholdGetDeclarationsResponse> EuSmeThresholdGetAsync(
+        EuSmeThresholdGetDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsEuSmeThresholdsListResponse>(
-            PostV1DeclarationsEuSmeThresholdsListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<EuSmeThresholdGetDeclarationsResponse>(
+            EuSmeThresholdGetAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsEuSmeThresholdGetAsync(
-    ///     new PostV1DeclarationsEuSmeThresholdGetRequest()
-    /// );
+    /// await client.Declarations.EuVatReturnPacksListAsync(new EuVatReturnPacksListDeclarationsRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsEuSmeThresholdGetResponse> PostV1DeclarationsEuSmeThresholdGetAsync(
-        PostV1DeclarationsEuSmeThresholdGetRequest request,
+    public WithRawResponseTask<EuVatReturnPacksListDeclarationsResponse> EuVatReturnPacksListAsync(
+        EuVatReturnPacksListDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsEuSmeThresholdGetResponse>(
-            PostV1DeclarationsEuSmeThresholdGetAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<EuVatReturnPacksListDeclarationsResponse>(
+            EuVatReturnPacksListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsEuVatReturnPacksListAsync(
-    ///     new PostV1DeclarationsEuVatReturnPacksListRequest()
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsEuVatReturnPacksListResponse> PostV1DeclarationsEuVatReturnPacksListAsync(
-        PostV1DeclarationsEuVatReturnPacksListRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1DeclarationsEuVatReturnPacksListResponse>(
-            PostV1DeclarationsEuVatReturnPacksListAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsEuVatReturnComputeAsync(
-    ///     new PostV1DeclarationsEuVatReturnComputeRequest
+    /// await client.Declarations.EuVatReturnComputeAsync(
+    ///     new EuVatReturnComputeDeclarationsRequest
     ///     {
     ///         CountryCode = "countryCode",
     ///         Year = 1000000,
@@ -17825,14 +19890,14 @@ public partial class DeclarationsClient : IDeclarationsClient
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsEuVatReturnComputeResponse> PostV1DeclarationsEuVatReturnComputeAsync(
-        PostV1DeclarationsEuVatReturnComputeRequest request,
+    public WithRawResponseTask<EuVatReturnComputeDeclarationsResponse> EuVatReturnComputeAsync(
+        EuVatReturnComputeDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsEuVatReturnComputeResponse>(
-            PostV1DeclarationsEuVatReturnComputeAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<EuVatReturnComputeDeclarationsResponse>(
+            EuVatReturnComputeAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -17840,8 +19905,8 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// Generate the Polish JPK_V7M(3) file (VAT declaration with evidence) for a month, per the MF schema in force since February 2026. Amounts must already be in PLN; rows are marked BFK until a KSeF integration supplies invoice numbers. Review the warnings before submitting via e-dokumenty.mf.gov.pl.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsPlJpkV7MGenerateAsync(
-    ///     new PostV1DeclarationsPlJpkV7MGenerateRequest
+    /// await client.Declarations.PlJpkV7MGenerateAsync(
+    ///     new PlJpkV7MGenerateDeclarationsRequest
     ///     {
     ///         Year = 1000000,
     ///         Month = 1000000,
@@ -17850,14 +19915,14 @@ public partial class DeclarationsClient : IDeclarationsClient
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsPlJpkV7MGenerateResponse> PostV1DeclarationsPlJpkV7MGenerateAsync(
-        PostV1DeclarationsPlJpkV7MGenerateRequest request,
+    public WithRawResponseTask<PlJpkV7MGenerateDeclarationsResponse> PlJpkV7MGenerateAsync(
+        PlJpkV7MGenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsPlJpkV7MGenerateResponse>(
-            PostV1DeclarationsPlJpkV7MGenerateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<PlJpkV7MGenerateDeclarationsResponse>(
+            PlJpkV7MGenerateAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -17865,18 +19930,18 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// Build the rows of the Polish recapitulative statement VAT-UE for a month: section C intra-Community supplies of goods, section D intra-Community acquisitions, section E services taxed where the customer is established. Amounts are full złoty per counterparty. The VAT-UE(5) file itself goes out from the EU sales list deadline in the calendar.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsPlVatUeGenerateAsync(
-    ///     new PostV1DeclarationsPlVatUeGenerateRequest { Year = 1000000, Month = 1000000 }
+    /// await client.Declarations.PlVatUeGenerateAsync(
+    ///     new PlVatUeGenerateDeclarationsRequest { Year = 1000000, Month = 1000000 }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsPlVatUeGenerateResponse> PostV1DeclarationsPlVatUeGenerateAsync(
-        PostV1DeclarationsPlVatUeGenerateRequest request,
+    public WithRawResponseTask<PlVatUeGenerateDeclarationsResponse> PlVatUeGenerateAsync(
+        PlVatUeGenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsPlVatUeGenerateResponse>(
-            PostV1DeclarationsPlVatUeGenerateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<PlVatUeGenerateDeclarationsResponse>(
+            PlVatUeGenerateAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -17884,23 +19949,23 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// Build the rows of the Polish INTRASTAT declaration for a month, arrivals or dispatches, grouped by CN code, partner country, country of origin, partner VAT number, nature of transaction, transport and delivery terms. Values are whole złoty converted at the invoice rate; credit notes with goods lines are returns (code 21). Goods without a CN code are left out and named in the warnings. The IST message itself goes out from the Intrastat deadline in the calendar.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsPlIntrastatGenerateAsync(
-    ///     new PostV1DeclarationsPlIntrastatGenerateRequest
+    /// await client.Declarations.PlIntrastatGenerateAsync(
+    ///     new PlIntrastatGenerateDeclarationsRequest
     ///     {
     ///         Year = 1000000,
     ///         Month = 1000000,
-    ///         Flow = PostV1DeclarationsPlIntrastatGenerateRequestFlow.Arrivals,
+    ///         Flow = PlIntrastatGenerateDeclarationsRequestFlow.Arrivals,
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsPlIntrastatGenerateResponse> PostV1DeclarationsPlIntrastatGenerateAsync(
-        PostV1DeclarationsPlIntrastatGenerateRequest request,
+    public WithRawResponseTask<PlIntrastatGenerateDeclarationsResponse> PlIntrastatGenerateAsync(
+        PlIntrastatGenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsPlIntrastatGenerateResponse>(
-            PostV1DeclarationsPlIntrastatGenerateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<PlIntrastatGenerateDeclarationsResponse>(
+            PlIntrastatGenerateAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -17908,22 +19973,22 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// List the invoices KSeF holds for this company as the buyer, for a window of acquisition timestamps. Each row carries the KSeF number and, when the document number matches a registered purchase invoice, the invoice it belongs to.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsPlKsefReceivedListAsync(
-    ///     new PostV1DeclarationsPlKsefReceivedListRequest
+    /// await client.Declarations.PlKsefReceivedListAsync(
+    ///     new PlKsefReceivedListDeclarationsRequest
     ///     {
     ///         From = new DateTime(2024, 01, 15, 09, 30, 00, 000),
     ///         To = new DateTime(2024, 01, 15, 09, 30, 00, 000),
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsPlKsefReceivedListResponse> PostV1DeclarationsPlKsefReceivedListAsync(
-        PostV1DeclarationsPlKsefReceivedListRequest request,
+    public WithRawResponseTask<PlKsefReceivedListDeclarationsResponse> PlKsefReceivedListAsync(
+        PlKsefReceivedListDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsPlKsefReceivedListResponse>(
-            PostV1DeclarationsPlKsefReceivedListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<PlKsefReceivedListDeclarationsResponse>(
+            PlKsefReceivedListAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -17931,18 +19996,18 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// Read one invoice out of KSeF by its national number. With a purchase invoice given, the KSeF number is written onto that invoice, which is what makes the purchase row of JPK_V7M carry NrKSeF instead of the BFK marker.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsPlKsefReceivedFetchAsync(
-    ///     new PostV1DeclarationsPlKsefReceivedFetchRequest { KsefNumber = "ksefNumber" }
+    /// await client.Declarations.PlKsefReceivedFetchAsync(
+    ///     new PlKsefReceivedFetchDeclarationsRequest { KsefNumber = "ksefNumber" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsPlKsefReceivedFetchResponse> PostV1DeclarationsPlKsefReceivedFetchAsync(
-        PostV1DeclarationsPlKsefReceivedFetchRequest request,
+    public WithRawResponseTask<PlKsefReceivedFetchDeclarationsResponse> PlKsefReceivedFetchAsync(
+        PlKsefReceivedFetchDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsPlKsefReceivedFetchResponse>(
-            PostV1DeclarationsPlKsefReceivedFetchAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<PlKsefReceivedFetchDeclarationsResponse>(
+            PlKsefReceivedFetchAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -17950,18 +20015,16 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// The UPO for a KSeF session. KSeF issues one receipt per session rather than per invoice, so the session reference number from the send is what identifies it.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsPlKsefReceiptAsync(
-    ///     new PostV1DeclarationsPlKsefReceiptRequest()
-    /// );
+    /// await client.Declarations.PlKsefReceiptAsync(new PlKsefReceiptDeclarationsRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsPlKsefReceiptResponse> PostV1DeclarationsPlKsefReceiptAsync(
-        PostV1DeclarationsPlKsefReceiptRequest request,
+    public WithRawResponseTask<PlKsefReceiptDeclarationsResponse> PlKsefReceiptAsync(
+        PlKsefReceiptDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsPlKsefReceiptResponse>(
-            PostV1DeclarationsPlKsefReceiptAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<PlKsefReceiptDeclarationsResponse>(
+            PlKsefReceiptAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -17969,72 +20032,72 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// The differences between the accounting result and the taxable profit: non-deductible expenses, income added to or left out of the tax base, extra deductible expenses, donations, losses carried forward, reliefs and tax credits. The annual corporate income tax return is built from them.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.TaxAdjustmentsRecordedForATaxYearAsync(
-    ///     new PostV1DeclarationsTaxAdjustmentsListRequest { Year = 1000000 }
+    /// await client.Declarations.TaxAdjustmentsListAsync(
+    ///     new TaxAdjustmentsListDeclarationsRequest { Year = 1000000 }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsTaxAdjustmentsListResponse> TaxAdjustmentsRecordedForATaxYearAsync(
-        PostV1DeclarationsTaxAdjustmentsListRequest request,
+    public WithRawResponseTask<TaxAdjustmentsListDeclarationsResponse> TaxAdjustmentsListAsync(
+        TaxAdjustmentsListDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsTaxAdjustmentsListResponse>(
-            TaxAdjustmentsRecordedForATaxYearAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<TaxAdjustmentsListDeclarationsResponse>(
+            TaxAdjustmentsListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.RecordATaxAdjustmentForATaxYearAsync(
-    ///     new PostV1DeclarationsTaxAdjustmentsCreateRequest
+    /// await client.Declarations.TaxAdjustmentsCreateAsync(
+    ///     new TaxAdjustmentsCreateDeclarationsRequest
     ///     {
     ///         Year = 1000000,
-    ///         Kind = PostV1DeclarationsTaxAdjustmentsCreateRequestKind.NonDeductible,
-    ///         Amount = "amount",
+    ///         Kind = TaxAdjustmentsCreateDeclarationsRequestKind.NonDeductible,
+    ///         Amount = "121.00",
     ///         Description = "description",
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsTaxAdjustmentsCreateResponse> RecordATaxAdjustmentForATaxYearAsync(
-        PostV1DeclarationsTaxAdjustmentsCreateRequest request,
+    public WithRawResponseTask<TaxAdjustmentsCreateDeclarationsResponse> TaxAdjustmentsCreateAsync(
+        TaxAdjustmentsCreateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsTaxAdjustmentsCreateResponse>(
-            RecordATaxAdjustmentForATaxYearAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<TaxAdjustmentsCreateDeclarationsResponse>(
+            TaxAdjustmentsCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.ChangeARecordedTaxAdjustmentAsync(
-    ///     new PostV1DeclarationsTaxAdjustmentsUpdateRequest { Id = "id" }
+    /// await client.Declarations.TaxAdjustmentsUpdateAsync(
+    ///     new TaxAdjustmentsUpdateDeclarationsRequest { Id = "id" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsTaxAdjustmentsUpdateResponse> ChangeARecordedTaxAdjustmentAsync(
-        PostV1DeclarationsTaxAdjustmentsUpdateRequest request,
+    public WithRawResponseTask<TaxAdjustmentsUpdateDeclarationsResponse> TaxAdjustmentsUpdateAsync(
+        TaxAdjustmentsUpdateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsTaxAdjustmentsUpdateResponse>(
-            ChangeARecordedTaxAdjustmentAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<TaxAdjustmentsUpdateDeclarationsResponse>(
+            TaxAdjustmentsUpdateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.RemoveARecordedTaxAdjustmentAsync(
-    ///     new PostV1DeclarationsTaxAdjustmentsDeleteRequest { Id = "id" }
+    /// await client.Declarations.TaxAdjustmentsDeleteAsync(
+    ///     new TaxAdjustmentsDeleteDeclarationsRequest { Id = "id" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsTaxAdjustmentsDeleteResponse> RemoveARecordedTaxAdjustmentAsync(
-        PostV1DeclarationsTaxAdjustmentsDeleteRequest request,
+    public WithRawResponseTask<TaxAdjustmentsDeleteDeclarationsResponse> TaxAdjustmentsDeleteAsync(
+        TaxAdjustmentsDeleteDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsTaxAdjustmentsDeleteResponse>(
-            RemoveARecordedTaxAdjustmentAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<TaxAdjustmentsDeleteDeclarationsResponse>(
+            TaxAdjustmentsDeleteAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -18042,78 +20105,78 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// What the company has paid the administration towards a tax before the return is filed: payments on account, tax withheld at source by others, a final settlement, and a refund received. Returns report these on their own lines, so the amount they ask for is the balance.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.PaymentsAlreadyMadeTowardsATaxOfAYearAsync(
-    ///     new PostV1DeclarationsTaxPaymentsListRequest
+    /// await client.Declarations.TaxPaymentsListAsync(
+    ///     new TaxPaymentsListDeclarationsRequest
     ///     {
-    ///         Tax = PostV1DeclarationsTaxPaymentsListRequestTax.CorporateIncomeTax,
+    ///         Tax = TaxPaymentsListDeclarationsRequestTax.CorporateIncomeTax,
     ///         Year = 1000000,
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsTaxPaymentsListResponse> PaymentsAlreadyMadeTowardsATaxOfAYearAsync(
-        PostV1DeclarationsTaxPaymentsListRequest request,
+    public WithRawResponseTask<TaxPaymentsListDeclarationsResponse> TaxPaymentsListAsync(
+        TaxPaymentsListDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsTaxPaymentsListResponse>(
-            PaymentsAlreadyMadeTowardsATaxOfAYearAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<TaxPaymentsListDeclarationsResponse>(
+            TaxPaymentsListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.RecordAPaymentMadeTowardsATaxAsync(
-    ///     new PostV1DeclarationsTaxPaymentsCreateRequest
+    /// await client.Declarations.TaxPaymentsCreateAsync(
+    ///     new TaxPaymentsCreateDeclarationsRequest
     ///     {
-    ///         Tax = PostV1DeclarationsTaxPaymentsCreateRequestTax.CorporateIncomeTax,
+    ///         Tax = TaxPaymentsCreateDeclarationsRequestTax.CorporateIncomeTax,
     ///         Year = 1000000,
-    ///         Kind = PostV1DeclarationsTaxPaymentsCreateRequestKind.Advance,
-    ///         Amount = "amount",
-    ///         PaidOn = "paidOn",
+    ///         Kind = TaxPaymentsCreateDeclarationsRequestKind.Advance,
+    ///         Amount = "121.00",
+    ///         PaidOn = new DateOnly(2026, 7, 1),
     ///         Description = "description",
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsTaxPaymentsCreateResponse> RecordAPaymentMadeTowardsATaxAsync(
-        PostV1DeclarationsTaxPaymentsCreateRequest request,
+    public WithRawResponseTask<TaxPaymentsCreateDeclarationsResponse> TaxPaymentsCreateAsync(
+        TaxPaymentsCreateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsTaxPaymentsCreateResponse>(
-            RecordAPaymentMadeTowardsATaxAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<TaxPaymentsCreateDeclarationsResponse>(
+            TaxPaymentsCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.ChangeARecordedTaxPaymentAsync(
-    ///     new PostV1DeclarationsTaxPaymentsUpdateRequest { Id = "id" }
+    /// await client.Declarations.TaxPaymentsUpdateAsync(
+    ///     new TaxPaymentsUpdateDeclarationsRequest { Id = "id" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsTaxPaymentsUpdateResponse> ChangeARecordedTaxPaymentAsync(
-        PostV1DeclarationsTaxPaymentsUpdateRequest request,
+    public WithRawResponseTask<TaxPaymentsUpdateDeclarationsResponse> TaxPaymentsUpdateAsync(
+        TaxPaymentsUpdateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsTaxPaymentsUpdateResponse>(
-            ChangeARecordedTaxPaymentAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<TaxPaymentsUpdateDeclarationsResponse>(
+            TaxPaymentsUpdateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.RemoveARecordedTaxPaymentAsync(
-    ///     new PostV1DeclarationsTaxPaymentsDeleteRequest { Id = "id" }
+    /// await client.Declarations.TaxPaymentsDeleteAsync(
+    ///     new TaxPaymentsDeleteDeclarationsRequest { Id = "id" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsTaxPaymentsDeleteResponse> RemoveARecordedTaxPaymentAsync(
-        PostV1DeclarationsTaxPaymentsDeleteRequest request,
+    public WithRawResponseTask<TaxPaymentsDeleteDeclarationsResponse> TaxPaymentsDeleteAsync(
+        TaxPaymentsDeleteDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsTaxPaymentsDeleteResponse>(
-            RemoveARecordedTaxPaymentAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<TaxPaymentsDeleteDeclarationsResponse>(
+            TaxPaymentsDeleteAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -18121,177 +20184,161 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// Whether the general meeting adopted the annual accounts and on which date, the date the accounts were prepared, and which directors signed them. The annual accounts filed with the trade register are built from these facts.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.AdoptionAndSigningFactsOfTheAnnualAccountsOfAYearAsync(
-    ///     new PostV1DeclarationsAnnualAccountsGetRequest { Year = 1000000 }
+    /// await client.Declarations.AnnualAccountsGetAsync(
+    ///     new AnnualAccountsGetDeclarationsRequest { Year = 1000000 }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsAnnualAccountsGetResponse> AdoptionAndSigningFactsOfTheAnnualAccountsOfAYearAsync(
-        PostV1DeclarationsAnnualAccountsGetRequest request,
+    public WithRawResponseTask<AnnualAccountsGetDeclarationsResponse> AnnualAccountsGetAsync(
+        AnnualAccountsGetDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsAnnualAccountsGetResponse>(
-            AdoptionAndSigningFactsOfTheAnnualAccountsOfAYearAsyncCore(
-                request,
-                options,
-                cancellationToken
-            )
+        return new WithRawResponseTask<AnnualAccountsGetDeclarationsResponse>(
+            AnnualAccountsGetAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.RecordTheAdoptionAndPreparationOfTheAnnualAccountsOfAYearAsync(
-    ///     new PostV1DeclarationsAnnualAccountsSetRequest
+    /// await client.Declarations.AnnualAccountsSetAsync(
+    ///     new AnnualAccountsSetDeclarationsRequest
     ///     {
     ///         Year = 1000000,
     ///         Adopted = true,
-    ///         DateOfPreparation = "dateOfPreparation",
+    ///         DateOfPreparation = new DateOnly(2026, 7, 1),
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsAnnualAccountsSetResponse> RecordTheAdoptionAndPreparationOfTheAnnualAccountsOfAYearAsync(
-        PostV1DeclarationsAnnualAccountsSetRequest request,
+    public WithRawResponseTask<AnnualAccountsSetDeclarationsResponse> AnnualAccountsSetAsync(
+        AnnualAccountsSetDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsAnnualAccountsSetResponse>(
-            RecordTheAdoptionAndPreparationOfTheAnnualAccountsOfAYearAsyncCore(
-                request,
-                options,
-                cancellationToken
-            )
+        return new WithRawResponseTask<AnnualAccountsSetDeclarationsResponse>(
+            AnnualAccountsSetAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.RecordWhetherADirectorSignedTheAnnualAccountsOfAYearAsync(
-    ///     new PostV1DeclarationsAnnualAccountsSignaturesCreateRequest
+    /// await client.Declarations.AnnualAccountsSignaturesCreateAsync(
+    ///     new AnnualAccountsSignaturesCreateDeclarationsRequest
     ///     {
     ///         Year = 1000000,
     ///         DirectorName = "directorName",
     ///         DirectorType =
-    ///             PostV1DeclarationsAnnualAccountsSignaturesCreateRequestDirectorType.ManagingCurrent,
+    ///             AnnualAccountsSignaturesCreateDeclarationsRequestDirectorType.ManagingCurrent,
     ///         Signed = true,
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsAnnualAccountsSignaturesCreateResponse> RecordWhetherADirectorSignedTheAnnualAccountsOfAYearAsync(
-        PostV1DeclarationsAnnualAccountsSignaturesCreateRequest request,
+    public WithRawResponseTask<AnnualAccountsSignaturesCreateDeclarationsResponse> AnnualAccountsSignaturesCreateAsync(
+        AnnualAccountsSignaturesCreateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsAnnualAccountsSignaturesCreateResponse>(
-            RecordWhetherADirectorSignedTheAnnualAccountsOfAYearAsyncCore(
-                request,
-                options,
-                cancellationToken
-            )
+        return new WithRawResponseTask<AnnualAccountsSignaturesCreateDeclarationsResponse>(
+            AnnualAccountsSignaturesCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.ChangeARecordedDirectorSignatureAsync(
-    ///     new PostV1DeclarationsAnnualAccountsSignaturesUpdateRequest
+    /// await client.Declarations.AnnualAccountsSignaturesUpdateAsync(
+    ///     new AnnualAccountsSignaturesUpdateDeclarationsRequest
     ///     {
     ///         Id = "id",
     ///         DirectorName = "directorName",
     ///         DirectorType =
-    ///             PostV1DeclarationsAnnualAccountsSignaturesUpdateRequestDirectorType.ManagingCurrent,
+    ///             AnnualAccountsSignaturesUpdateDeclarationsRequestDirectorType.ManagingCurrent,
     ///         Signed = true,
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsAnnualAccountsSignaturesUpdateResponse> ChangeARecordedDirectorSignatureAsync(
-        PostV1DeclarationsAnnualAccountsSignaturesUpdateRequest request,
+    public WithRawResponseTask<AnnualAccountsSignaturesUpdateDeclarationsResponse> AnnualAccountsSignaturesUpdateAsync(
+        AnnualAccountsSignaturesUpdateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsAnnualAccountsSignaturesUpdateResponse>(
-            ChangeARecordedDirectorSignatureAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<AnnualAccountsSignaturesUpdateDeclarationsResponse>(
+            AnnualAccountsSignaturesUpdateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.RemoveARecordedDirectorSignatureAsync(
-    ///     new PostV1DeclarationsAnnualAccountsSignaturesDeleteRequest { Id = "id" }
+    /// await client.Declarations.AnnualAccountsSignaturesDeleteAsync(
+    ///     new AnnualAccountsSignaturesDeleteDeclarationsRequest { Id = "id" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsAnnualAccountsSignaturesDeleteResponse> RemoveARecordedDirectorSignatureAsync(
-        PostV1DeclarationsAnnualAccountsSignaturesDeleteRequest request,
+    public WithRawResponseTask<AnnualAccountsSignaturesDeleteDeclarationsResponse> AnnualAccountsSignaturesDeleteAsync(
+        AnnualAccountsSignaturesDeleteDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsAnnualAccountsSignaturesDeleteResponse>(
-            RemoveARecordedDirectorSignatureAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<AnnualAccountsSignaturesDeleteDeclarationsResponse>(
+            AnnualAccountsSignaturesDeleteAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.RecordADecisionToDistributeProfitADividendAnInterimDividendOrAPaymentTreatedAsOneAsync(
-    ///     new PostV1DeclarationsAnnualAccountsDistributionsCreateRequest
+    /// await client.Declarations.AnnualAccountsDistributionsCreateAsync(
+    ///     new AnnualAccountsDistributionsCreateDeclarationsRequest
     ///     {
     ///         Year = 1000000,
-    ///         DecidedOn = "decidedOn",
-    ///         Kind = PostV1DeclarationsAnnualAccountsDistributionsCreateRequestKind.Dividend,
-    ///         Amount = "amount",
+    ///         DecidedOn = new DateOnly(2026, 7, 1),
+    ///         Kind = AnnualAccountsDistributionsCreateDeclarationsRequestKind.Dividend,
+    ///         Amount = "121.00",
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsAnnualAccountsDistributionsCreateResponse> RecordADecisionToDistributeProfitADividendAnInterimDividendOrAPaymentTreatedAsOneAsync(
-        PostV1DeclarationsAnnualAccountsDistributionsCreateRequest request,
+    public WithRawResponseTask<AnnualAccountsDistributionsCreateDeclarationsResponse> AnnualAccountsDistributionsCreateAsync(
+        AnnualAccountsDistributionsCreateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsAnnualAccountsDistributionsCreateResponse>(
-            RecordADecisionToDistributeProfitADividendAnInterimDividendOrAPaymentTreatedAsOneAsyncCore(
-                request,
-                options,
-                cancellationToken
-            )
+        return new WithRawResponseTask<AnnualAccountsDistributionsCreateDeclarationsResponse>(
+            AnnualAccountsDistributionsCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.ChangeARecordedProfitDistributionAsync(
-    ///     new PostV1DeclarationsAnnualAccountsDistributionsUpdateRequest
+    /// await client.Declarations.AnnualAccountsDistributionsUpdateAsync(
+    ///     new AnnualAccountsDistributionsUpdateDeclarationsRequest
     ///     {
     ///         Id = "id",
-    ///         DecidedOn = "decidedOn",
-    ///         Kind = PostV1DeclarationsAnnualAccountsDistributionsUpdateRequestKind.Dividend,
-    ///         Amount = "amount",
+    ///         DecidedOn = new DateOnly(2026, 7, 1),
+    ///         Kind = AnnualAccountsDistributionsUpdateDeclarationsRequestKind.Dividend,
+    ///         Amount = "121.00",
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsAnnualAccountsDistributionsUpdateResponse> ChangeARecordedProfitDistributionAsync(
-        PostV1DeclarationsAnnualAccountsDistributionsUpdateRequest request,
+    public WithRawResponseTask<AnnualAccountsDistributionsUpdateDeclarationsResponse> AnnualAccountsDistributionsUpdateAsync(
+        AnnualAccountsDistributionsUpdateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsAnnualAccountsDistributionsUpdateResponse>(
-            ChangeARecordedProfitDistributionAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<AnnualAccountsDistributionsUpdateDeclarationsResponse>(
+            AnnualAccountsDistributionsUpdateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.RemoveARecordedProfitDistributionAsync(
-    ///     new PostV1DeclarationsAnnualAccountsDistributionsDeleteRequest { Id = "id" }
+    /// await client.Declarations.AnnualAccountsDistributionsDeleteAsync(
+    ///     new AnnualAccountsDistributionsDeleteDeclarationsRequest { Id = "id" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsAnnualAccountsDistributionsDeleteResponse> RemoveARecordedProfitDistributionAsync(
-        PostV1DeclarationsAnnualAccountsDistributionsDeleteRequest request,
+    public WithRawResponseTask<AnnualAccountsDistributionsDeleteDeclarationsResponse> AnnualAccountsDistributionsDeleteAsync(
+        AnnualAccountsDistributionsDeleteDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsAnnualAccountsDistributionsDeleteResponse>(
-            RemoveARecordedProfitDistributionAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<AnnualAccountsDistributionsDeleteDeclarationsResponse>(
+            AnnualAccountsDistributionsDeleteAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -18299,47 +20346,39 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// Links a file uploaded through files/upload (its storageKey) to the annual accounts of the year as the notes, the management report, the auditor statement, the profit appropriation resolution, the approval certificate, the general data sheet, the full report as a pdf, or another document. Deposits that must carry these documents take them from here.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.AttachAnUploadedDocumentToTheAnnualAccountsOfAYearAsync(
-    ///     new PostV1DeclarationsAnnualAccountsAttachmentsAddRequest
+    /// await client.Declarations.AnnualAccountsAttachmentsAddAsync(
+    ///     new AnnualAccountsAttachmentsAddDeclarationsRequest
     ///     {
     ///         Year = 1000000,
-    ///         Kind = PostV1DeclarationsAnnualAccountsAttachmentsAddRequestKind.FullReport,
+    ///         Kind = AnnualAccountsAttachmentsAddDeclarationsRequestKind.FullReport,
     ///         Ref = "ref",
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsAnnualAccountsAttachmentsAddResponse> AttachAnUploadedDocumentToTheAnnualAccountsOfAYearAsync(
-        PostV1DeclarationsAnnualAccountsAttachmentsAddRequest request,
+    public WithRawResponseTask<AnnualAccountsAttachmentsAddDeclarationsResponse> AnnualAccountsAttachmentsAddAsync(
+        AnnualAccountsAttachmentsAddDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsAnnualAccountsAttachmentsAddResponse>(
-            AttachAnUploadedDocumentToTheAnnualAccountsOfAYearAsyncCore(
-                request,
-                options,
-                cancellationToken
-            )
+        return new WithRawResponseTask<AnnualAccountsAttachmentsAddDeclarationsResponse>(
+            AnnualAccountsAttachmentsAddAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.RemoveADocumentAttachedToTheAnnualAccountsAndDeleteItsFileAsync(
-    ///     new PostV1DeclarationsAnnualAccountsAttachmentsDeleteRequest { Id = "id" }
+    /// await client.Declarations.AnnualAccountsAttachmentsDeleteAsync(
+    ///     new AnnualAccountsAttachmentsDeleteDeclarationsRequest { Id = "id" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsAnnualAccountsAttachmentsDeleteResponse> RemoveADocumentAttachedToTheAnnualAccountsAndDeleteItsFileAsync(
-        PostV1DeclarationsAnnualAccountsAttachmentsDeleteRequest request,
+    public WithRawResponseTask<AnnualAccountsAttachmentsDeleteDeclarationsResponse> AnnualAccountsAttachmentsDeleteAsync(
+        AnnualAccountsAttachmentsDeleteDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsAnnualAccountsAttachmentsDeleteResponse>(
-            RemoveADocumentAttachedToTheAnnualAccountsAndDeleteItsFileAsyncCore(
-                request,
-                options,
-                cancellationToken
-            )
+        return new WithRawResponseTask<AnnualAccountsAttachmentsDeleteDeclarationsResponse>(
+            AnnualAccountsAttachmentsDeleteAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -18347,18 +20386,18 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// Compute the company income tax return TD4 of a tax year from the ledger and the recorded tax adjustments: the accounting profit, the add-backs, deductions, capital allowances and losses brought forward, the chargeable income, the corporation tax at the rate of the year and the double tax relief, as the fields the company keys into TAXISnet or Tax For All. The Tax Department publishes no upload layout for the TD4; the XML is a working file.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsCyTd4GenerateAsync(
-    ///     new PostV1DeclarationsCyTd4GenerateRequest { Year = 1000000 }
+    /// await client.Declarations.CyTd4GenerateAsync(
+    ///     new CyTd4GenerateDeclarationsRequest { Year = 1000000 }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsCyTd4GenerateResponse> PostV1DeclarationsCyTd4GenerateAsync(
-        PostV1DeclarationsCyTd4GenerateRequest request,
+    public WithRawResponseTask<CyTd4GenerateDeclarationsResponse> CyTd4GenerateAsync(
+        CyTd4GenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsCyTd4GenerateResponse>(
-            PostV1DeclarationsCyTd4GenerateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<CyTd4GenerateDeclarationsResponse>(
+            CyTd4GenerateAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -18366,18 +20405,18 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// Build the annual return HE32 of a year: the figures the Registrar’s e-filing screens ask for (company number, registered office, made-up-to date, share capital, register of members, directors and secretary, annual general meeting date, the accounts summary), the working file, and the printed form HE32(I) filled in as a PDF for signing and for keying into the Registrar’s system, which takes the return only through its own screens.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsCyHe32GenerateAsync(
-    ///     new PostV1DeclarationsCyHe32GenerateRequest { Year = 1000000 }
+    /// await client.Declarations.CyHe32GenerateAsync(
+    ///     new CyHe32GenerateDeclarationsRequest { Year = 1000000 }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsCyHe32GenerateResponse> PostV1DeclarationsCyHe32GenerateAsync(
-        PostV1DeclarationsCyHe32GenerateRequest request,
+    public WithRawResponseTask<CyHe32GenerateDeclarationsResponse> CyHe32GenerateAsync(
+        CyHe32GenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsCyHe32GenerateResponse>(
-            PostV1DeclarationsCyHe32GenerateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<CyHe32GenerateDeclarationsResponse>(
+            CyHe32GenerateAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -18385,22 +20424,22 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// Build one of the German returns that ELSTER accepts only through a licensed ERiC transmission (E-Bilanz, Körperschaftsteuer, Gewerbesteuer with its Zerlegungserklärung, annual VAT return, Lohnsteuer-Anmeldung, Lohnsteuerbescheinigung) for the company to send through its own ELSTER-capable program. The period is the year, or YYYY-MM for the monthly Lohnsteuer-Anmeldung.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsDeReturnsGenerateAsync(
-    ///     new PostV1DeclarationsDeReturnsGenerateRequest
+    /// await client.Declarations.DeReturnsGenerateAsync(
+    ///     new DeReturnsGenerateDeclarationsRequest
     ///     {
-    ///         RuleKey = PostV1DeclarationsDeReturnsGenerateRequestRuleKey.DeEBilanz,
+    ///         RuleKey = DeReturnsGenerateDeclarationsRequestRuleKey.DeEBilanz,
     ///         Period = "period",
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsDeReturnsGenerateResponse> PostV1DeclarationsDeReturnsGenerateAsync(
-        PostV1DeclarationsDeReturnsGenerateRequest request,
+    public WithRawResponseTask<DeReturnsGenerateDeclarationsResponse> DeReturnsGenerateAsync(
+        DeReturnsGenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsDeReturnsGenerateResponse>(
-            PostV1DeclarationsDeReturnsGenerateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<DeReturnsGenerateDeclarationsResponse>(
+            DeReturnsGenerateAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -18408,18 +20447,18 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// The facts of one year that the German annual returns (Körperschaftsteuer, Gewerbesteuer, Umsatzsteuererklärung) need and the ledger does not hold: changes of shareholders, contracts with shareholders, the tax contribution account, loss carry-back, the donation carry-forward, the business premises with the municipalities for the apportionment of the trade tax, the land values or property tax and the participations for the trade tax additions and reductions, the foreign income per country for the Anlage AESt, the date of leaving the small-business scheme and the Anlage UN answers of a company seated abroad. A key that is absent has not been answered.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsDeReturnFactsGetAsync(
-    ///     new PostV1DeclarationsDeReturnFactsGetRequest { Year = 1000000 }
+    /// await client.Declarations.DeReturnFactsGetAsync(
+    ///     new DeReturnFactsGetDeclarationsRequest { Year = 1000000 }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsDeReturnFactsGetResponse> PostV1DeclarationsDeReturnFactsGetAsync(
-        PostV1DeclarationsDeReturnFactsGetRequest request,
+    public WithRawResponseTask<DeReturnFactsGetDeclarationsResponse> DeReturnFactsGetAsync(
+        DeReturnFactsGetDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsDeReturnFactsGetResponse>(
-            PostV1DeclarationsDeReturnFactsGetAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<DeReturnFactsGetDeclarationsResponse>(
+            DeReturnFactsGetAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -18427,22 +20466,22 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// Replace the facts of one year for the German annual returns. The returns built afterwards read them; a key left out stays unanswered.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsDeReturnFactsSetAsync(
-    ///     new PostV1DeclarationsDeReturnFactsSetRequest
+    /// await client.Declarations.DeReturnFactsSetAsync(
+    ///     new DeReturnFactsSetDeclarationsRequest
     ///     {
     ///         Year = 1000000,
-    ///         Facts = new PostV1DeclarationsDeReturnFactsSetRequestFacts(),
+    ///         Facts = new DeReturnFactsSetDeclarationsRequestFacts(),
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsDeReturnFactsSetResponse> PostV1DeclarationsDeReturnFactsSetAsync(
-        PostV1DeclarationsDeReturnFactsSetRequest request,
+    public WithRawResponseTask<DeReturnFactsSetDeclarationsResponse> DeReturnFactsSetAsync(
+        DeReturnFactsSetDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsDeReturnFactsSetResponse>(
-            PostV1DeclarationsDeReturnFactsSetAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<DeReturnFactsSetDeclarationsResponse>(
+            DeReturnFactsSetAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -18450,18 +20489,18 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// Build the DEÜV notifications of a month (Anmeldung for every start, Abmeldung for every leaving, in December the Jahresmeldung for everyone employed on 31 December) as DSME records with the DBME, DBNA, DBGB and DBAN blocks of Anlage 4 in force from 2026, from the approved payroll runs and the employee record, for the company's own transmission channel.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsDeDeuevGenerateAsync(
-    ///     new PostV1DeclarationsDeDeuevGenerateRequest { Year = 1000000, Month = 1000000 }
+    /// await client.Declarations.DeDeuevGenerateAsync(
+    ///     new DeDeuevGenerateDeclarationsRequest { Year = 1000000, Month = 1000000 }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsDeDeuevGenerateResponse> PostV1DeclarationsDeDeuevGenerateAsync(
-        PostV1DeclarationsDeDeuevGenerateRequest request,
+    public WithRawResponseTask<DeDeuevGenerateDeclarationsResponse> DeDeuevGenerateAsync(
+        DeDeuevGenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsDeDeuevGenerateResponse>(
-            PostV1DeclarationsDeDeuevGenerateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<DeDeuevGenerateDeclarationsResponse>(
+            DeDeuevGenerateAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -18469,22 +20508,18 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// Build the monthly contribution statement to the health insurers (Beitragsnachweis) from the payroll run: one fixed-length record BW02 per insurer, in the record layout in force from 2026, ready for the company's own transmission channel.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsDeBeitragsnachweisGenerateAsync(
-    ///     new PostV1DeclarationsDeBeitragsnachweisGenerateRequest { Year = 1000000, Month = 1000000 }
+    /// await client.Declarations.DeBeitragsnachweisGenerateAsync(
+    ///     new DeBeitragsnachweisGenerateDeclarationsRequest { Year = 1000000, Month = 1000000 }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsDeBeitragsnachweisGenerateResponse> PostV1DeclarationsDeBeitragsnachweisGenerateAsync(
-        PostV1DeclarationsDeBeitragsnachweisGenerateRequest request,
+    public WithRawResponseTask<DeBeitragsnachweisGenerateDeclarationsResponse> DeBeitragsnachweisGenerateAsync(
+        DeBeitragsnachweisGenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsDeBeitragsnachweisGenerateResponse>(
-            PostV1DeclarationsDeBeitragsnachweisGenerateAsyncCore(
-                request,
-                options,
-                cancellationToken
-            )
+        return new WithRawResponseTask<DeBeitragsnachweisGenerateDeclarationsResponse>(
+            DeBeitragsnachweisGenerateAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -18492,18 +20527,18 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// Compute the oplysningsskema for selskaber (selskabsselvangivelsen) of an income year from the ledger and the recorded tax adjustments: accounting result before tax, tax adjustments, losses carried forward, taxable income, the 22 % corporation tax, reliefs and the balance, as the rubrikker the company keys into TastSelv Selskabsskat (DIAS). Skatteforvaltningen publishes no file format for the return; the XML is a working file.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsDkSelskabsskatGenerateAsync(
-    ///     new PostV1DeclarationsDkSelskabsskatGenerateRequest { Year = 1000000 }
+    /// await client.Declarations.DkSelskabsskatGenerateAsync(
+    ///     new DkSelskabsskatGenerateDeclarationsRequest { Year = 1000000 }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsDkSelskabsskatGenerateResponse> PostV1DeclarationsDkSelskabsskatGenerateAsync(
-        PostV1DeclarationsDkSelskabsskatGenerateRequest request,
+    public WithRawResponseTask<DkSelskabsskatGenerateDeclarationsResponse> DkSelskabsskatGenerateAsync(
+        DkSelskabsskatGenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsDkSelskabsskatGenerateResponse>(
-            PostV1DeclarationsDkSelskabsskatGenerateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<DkSelskabsskatGenerateDeclarationsResponse>(
+            DkSelskabsskatGenerateAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -18511,22 +20546,22 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// Send one employment register (töötamise register) entry for an employment contract to e-MTA over X-tee: the start of work, or its end with the reason recorded on the contract.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsEeEmploymentRegisterSendAsync(
-    ///     new PostV1DeclarationsEeEmploymentRegisterSendRequest
+    /// await client.Declarations.EeEmploymentRegisterSendAsync(
+    ///     new EeEmploymentRegisterSendDeclarationsRequest
     ///     {
     ///         ContractId = "contractId",
-    ///         Event = PostV1DeclarationsEeEmploymentRegisterSendRequestEvent.Start,
+    ///         Event = EeEmploymentRegisterSendDeclarationsRequestEvent.Start,
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsEeEmploymentRegisterSendResponse> PostV1DeclarationsEeEmploymentRegisterSendAsync(
-        PostV1DeclarationsEeEmploymentRegisterSendRequest request,
+    public WithRawResponseTask<EeEmploymentRegisterSendDeclarationsResponse> EeEmploymentRegisterSendAsync(
+        EeEmploymentRegisterSendDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsEeEmploymentRegisterSendResponse>(
-            PostV1DeclarationsEeEmploymentRegisterSendAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<EeEmploymentRegisterSendDeclarationsResponse>(
+            EeEmploymentRegisterSendAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -18534,22 +20569,18 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// Nordlet's declaración responsable for its VERI*FACTU invoicing system (Orden HAC/1177/2024, art. 15), as a PDF and as plain text.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsEsVerifactuDeclaracionResponsableAsync(
-    ///     new PostV1DeclarationsEsVerifactuDeclaracionResponsableRequest()
+    /// await client.Declarations.EsVerifactuDeclaracionResponsableAsync(
+    ///     new EsVerifactuDeclaracionResponsableDeclarationsRequest()
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsEsVerifactuDeclaracionResponsableResponse> PostV1DeclarationsEsVerifactuDeclaracionResponsableAsync(
-        PostV1DeclarationsEsVerifactuDeclaracionResponsableRequest request,
+    public WithRawResponseTask<EsVerifactuDeclaracionResponsableDeclarationsResponse> EsVerifactuDeclaracionResponsableAsync(
+        EsVerifactuDeclaracionResponsableDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsEsVerifactuDeclaracionResponsableResponse>(
-            PostV1DeclarationsEsVerifactuDeclaracionResponsableAsyncCore(
-                request,
-                options,
-                cancellationToken
-            )
+        return new WithRawResponseTask<EsVerifactuDeclaracionResponsableDeclarationsResponse>(
+            EsVerifactuDeclaracionResponsableAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -18557,18 +20588,18 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// Build the Form CT1 of an accounting year as the ROS version 26 XML and the accompanying financial statements as inline XBRL on the FRS 102 Irish Extension 2026 taxonomy Revenue accepts, both from the ledger, the recorded tax adjustments, the annual accounts record and the officers, for upload through the company’s own ROS account. Says whether the company is above the iXBRL deferral limits (balance sheet total €4.4 million, turnover €8.8 million, 50 employees).
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsIeCt1GenerateAsync(
-    ///     new PostV1DeclarationsIeCt1GenerateRequest { Year = 1000000 }
+    /// await client.Declarations.IeCt1GenerateAsync(
+    ///     new IeCt1GenerateDeclarationsRequest { Year = 1000000 }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsIeCt1GenerateResponse> PostV1DeclarationsIeCt1GenerateAsync(
-        PostV1DeclarationsIeCt1GenerateRequest request,
+    public WithRawResponseTask<IeCt1GenerateDeclarationsResponse> IeCt1GenerateAsync(
+        IeCt1GenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsIeCt1GenerateResponse>(
-            PostV1DeclarationsIeCt1GenerateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<IeCt1GenerateDeclarationsResponse>(
+            IeCt1GenerateAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -18576,18 +20607,16 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// Build the working paper for the Form B1 annual return of a financial year — company details, registered office, directors and secretary from Settings → Officers, the members from Settings → Shareholders, the issued share capital and the figures of the financial statements — in the order the CORE screens ask for them. The CRO publishes no file format for the B1, so it is keyed into CORE.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsIeB1GenerateAsync(
-    ///     new PostV1DeclarationsIeB1GenerateRequest { Year = 1000000 }
-    /// );
+    /// await client.Declarations.IeB1GenerateAsync(new IeB1GenerateDeclarationsRequest { Year = 1000000 });
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsIeB1GenerateResponse> PostV1DeclarationsIeB1GenerateAsync(
-        PostV1DeclarationsIeB1GenerateRequest request,
+    public WithRawResponseTask<IeB1GenerateDeclarationsResponse> IeB1GenerateAsync(
+        IeB1GenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsIeB1GenerateResponse>(
-            PostV1DeclarationsIeB1GenerateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<IeB1GenerateDeclarationsResponse>(
+            IeB1GenerateAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -18595,18 +20624,18 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// Build the TD16-TD19 integration document for a registered purchase invoice and send it to the Sistema di Interscambio. Since July 2022 a purchase from a supplier established abroad is reported this way instead of the esterometro. The Italian VAT rate to self-assess is a judgement about the supply: pass vatRatePercent unless the purchase lines already carry it, otherwise the request is refused rather than guessed.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsItSdiPurchaseSendAsync(
-    ///     new PostV1DeclarationsItSdiPurchaseSendRequest { PurchaseInvoiceId = "purchaseInvoiceId" }
+    /// await client.Declarations.ItSdiPurchaseSendAsync(
+    ///     new ItSdiPurchaseSendDeclarationsRequest { PurchaseInvoiceId = "purchaseInvoiceId" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsItSdiPurchaseSendResponse> PostV1DeclarationsItSdiPurchaseSendAsync(
-        PostV1DeclarationsItSdiPurchaseSendRequest request,
+    public WithRawResponseTask<ItSdiPurchaseSendDeclarationsResponse> ItSdiPurchaseSendAsync(
+        ItSdiPurchaseSendDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsItSdiPurchaseSendResponse>(
-            PostV1DeclarationsItSdiPurchaseSendAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<ItSdiPurchaseSendDeclarationsResponse>(
+            ItSdiPurchaseSendAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -18614,37 +20643,41 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// Render the TD16-TD19 integration document for a registered purchase invoice without sending it, so the rate and the document type can be checked first.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsItSdiPurchasePreviewAsync(
-    ///     new PostV1DeclarationsItSdiPurchasePreviewRequest { PurchaseInvoiceId = "purchaseInvoiceId" }
+    /// await client.Declarations.ItSdiPurchasePreviewAsync(
+    ///     new ItSdiPurchasePreviewDeclarationsRequest { PurchaseInvoiceId = "purchaseInvoiceId" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsItSdiPurchasePreviewResponse> PostV1DeclarationsItSdiPurchasePreviewAsync(
-        PostV1DeclarationsItSdiPurchasePreviewRequest request,
+    public WithRawResponseTask<ItSdiPurchasePreviewDeclarationsResponse> ItSdiPurchasePreviewAsync(
+        ItSdiPurchasePreviewDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsItSdiPurchasePreviewResponse>(
-            PostV1DeclarationsItSdiPurchasePreviewAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<ItSdiPurchasePreviewDeclarationsResponse>(
+            ItSdiPurchasePreviewAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <summary>
-    /// Upload the SAF-T file to i.SAF-T over the iSAFTUploaderService web service and start its processing. The submission itself is confirmed separately, because after confirmation the file can no longer be corrected.
+    /// Upload the SAF-T file to i.SAF-T over the iSAFTUploaderService web service and start its processing. The file, the case reference and the status are kept as a declaration submission (submissionId), whose outcome Nordlet then checks with i.SAF-T. The submission itself is confirmed separately, because after confirmation the file can no longer be corrected. A range and data type already sent is sent again only with amend: true.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsLtSaftSendAsync(
-    ///     new PostV1DeclarationsLtSaftSendRequest { FromDate = "fromDate", ToDate = "toDate" }
+    /// await client.Declarations.LtSaftSendAsync(
+    ///     new LtSaftSendDeclarationsRequest
+    ///     {
+    ///         FromDate = new DateOnly(2026, 7, 1),
+    ///         ToDate = new DateOnly(2026, 7, 1),
+    ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsLtSaftSendResponse> PostV1DeclarationsLtSaftSendAsync(
-        PostV1DeclarationsLtSaftSendRequest request,
+    public WithRawResponseTask<LtSaftSendDeclarationsResponse> LtSaftSendAsync(
+        LtSaftSendDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsLtSaftSendResponse>(
-            PostV1DeclarationsLtSaftSendAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<LtSaftSendDeclarationsResponse>(
+            LtSaftSendAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -18652,23 +20685,23 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// Render the Sodra 1-SD or 2-SD notice for the contracts starting or ending in the range as an .ffdata document for EDAS.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsLtSdFfdataAsync(
-    ///     new PostV1DeclarationsLtSdFfdataRequest
+    /// await client.Declarations.LtSdFfdataAsync(
+    ///     new LtSdFfdataDeclarationsRequest
     ///     {
-    ///         Type = PostV1DeclarationsLtSdFfdataRequestType.OneSd,
-    ///         FromDate = "fromDate",
-    ///         ToDate = "toDate",
+    ///         Type = LtSdFfdataDeclarationsRequestType.OneSd,
+    ///         FromDate = new DateOnly(2026, 7, 1),
+    ///         ToDate = new DateOnly(2026, 7, 1),
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsLtSdFfdataResponse> PostV1DeclarationsLtSdFfdataAsync(
-        PostV1DeclarationsLtSdFfdataRequest request,
+    public WithRawResponseTask<LtSdFfdataDeclarationsResponse> LtSdFfdataAsync(
+        LtSdFfdataDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsLtSdFfdataResponse>(
-            PostV1DeclarationsLtSdFfdataAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<LtSdFfdataDeclarationsResponse>(
+            LtSdFfdataAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -18676,18 +20709,18 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// Render the annual corporate income tax return PLN204 as an .ffdata document, including the PLN204S and PLN204Z annexes, from the ledger and the tax adjustments recorded for that year.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsLtPln204FfdataAsync(
-    ///     new PostV1DeclarationsLtPln204FfdataRequest { Year = 1000000 }
+    /// await client.Declarations.LtPln204FfdataAsync(
+    ///     new LtPln204FfdataDeclarationsRequest { Year = 1000000 }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsLtPln204FfdataResponse> PostV1DeclarationsLtPln204FfdataAsync(
-        PostV1DeclarationsLtPln204FfdataRequest request,
+    public WithRawResponseTask<LtPln204FfdataDeclarationsResponse> LtPln204FfdataAsync(
+        LtPln204FfdataDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsLtPln204FfdataResponse>(
-            PostV1DeclarationsLtPln204FfdataAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<LtPln204FfdataDeclarationsResponse>(
+            LtPln204FfdataAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -18695,18 +20728,18 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// Compute the company income tax return and self-assessment of a year of assessment from the ledger and the recorded tax adjustments: the accounting profit before tax, the add-backs and deductions, the approved donations, capital allowances and losses carried forward, the chargeable income, the 35 % charge, the relief against the tax and the allocation of the distributable profit to the five tax accounts. The Malta Tax and Customs Administration issues the return as a personalised spreadsheet to the registered tax practitioner and publishes no layout, so the XML is a working file and the figures are keyed into that spreadsheet.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsMtCompanyTaxGenerateAsync(
-    ///     new PostV1DeclarationsMtCompanyTaxGenerateRequest { Year = 1000000 }
+    /// await client.Declarations.MtCompanyTaxGenerateAsync(
+    ///     new MtCompanyTaxGenerateDeclarationsRequest { Year = 1000000 }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsMtCompanyTaxGenerateResponse> PostV1DeclarationsMtCompanyTaxGenerateAsync(
-        PostV1DeclarationsMtCompanyTaxGenerateRequest request,
+    public WithRawResponseTask<MtCompanyTaxGenerateDeclarationsResponse> MtCompanyTaxGenerateAsync(
+        MtCompanyTaxGenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsMtCompanyTaxGenerateResponse>(
-            PostV1DeclarationsMtCompanyTaxGenerateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<MtCompanyTaxGenerateDeclarationsResponse>(
+            MtCompanyTaxGenerateAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -18714,18 +20747,18 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// Build the annual return of a year: the company number, registered office and made-up-to date, the share capital, the register of members, the directors and the company secretary and the accounts summary, as the figures the Malta Business Registry asks for on its own screens, plus the printed Annual Return Form of the Seventh Schedule filled in as a PDF for signing.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsMtAnnualReturnGenerateAsync(
-    ///     new PostV1DeclarationsMtAnnualReturnGenerateRequest { Year = 1000000 }
+    /// await client.Declarations.MtAnnualReturnGenerateAsync(
+    ///     new MtAnnualReturnGenerateDeclarationsRequest { Year = 1000000 }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsMtAnnualReturnGenerateResponse> PostV1DeclarationsMtAnnualReturnGenerateAsync(
-        PostV1DeclarationsMtAnnualReturnGenerateRequest request,
+    public WithRawResponseTask<MtAnnualReturnGenerateDeclarationsResponse> MtAnnualReturnGenerateAsync(
+        MtAnnualReturnGenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsMtAnnualReturnGenerateResponse>(
-            PostV1DeclarationsMtAnnualReturnGenerateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<MtAnnualReturnGenerateDeclarationsResponse>(
+            MtAnnualReturnGenerateAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -18733,18 +20766,22 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// Generate JPK_FA(4), the on-demand structure with every sales invoice issued in a period, its VAT bases per rate and one row per invoice line. Filed only when the tax office asks for it.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsPlJpkFaGenerateAsync(
-    ///     new PostV1DeclarationsPlJpkFaGenerateRequest { DateFrom = "dateFrom", DateTo = "dateTo" }
+    /// await client.Declarations.PlJpkFaGenerateAsync(
+    ///     new PlJpkFaGenerateDeclarationsRequest
+    ///     {
+    ///         DateFrom = new DateOnly(2026, 7, 1),
+    ///         DateTo = new DateOnly(2026, 7, 1),
+    ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsPlJpkFaGenerateResponse> PostV1DeclarationsPlJpkFaGenerateAsync(
-        PostV1DeclarationsPlJpkFaGenerateRequest request,
+    public WithRawResponseTask<PlJpkFaGenerateDeclarationsResponse> PlJpkFaGenerateAsync(
+        PlJpkFaGenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsPlJpkFaGenerateResponse>(
-            PostV1DeclarationsPlJpkFaGenerateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<PlJpkFaGenerateDeclarationsResponse>(
+            PlJpkFaGenerateAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -18752,18 +20789,22 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// Generate JPK_KR(1), the on-demand structure with the chart of accounts and its opening balances and turnover, the journal and the double entries behind it. Filed only when the tax office asks for it.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsPlJpkKrGenerateAsync(
-    ///     new PostV1DeclarationsPlJpkKrGenerateRequest { DateFrom = "dateFrom", DateTo = "dateTo" }
+    /// await client.Declarations.PlJpkKrGenerateAsync(
+    ///     new PlJpkKrGenerateDeclarationsRequest
+    ///     {
+    ///         DateFrom = new DateOnly(2026, 7, 1),
+    ///         DateTo = new DateOnly(2026, 7, 1),
+    ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsPlJpkKrGenerateResponse> PostV1DeclarationsPlJpkKrGenerateAsync(
-        PostV1DeclarationsPlJpkKrGenerateRequest request,
+    public WithRawResponseTask<PlJpkKrGenerateDeclarationsResponse> PlJpkKrGenerateAsync(
+        PlJpkKrGenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsPlJpkKrGenerateResponse>(
-            PostV1DeclarationsPlJpkKrGenerateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<PlJpkKrGenerateDeclarationsResponse>(
+            PlJpkKrGenerateAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -18771,18 +20812,22 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// Generate JPK_MAG(2), the on-demand structure with the warehouse documents of one warehouse: goods received from outside (PZ) or internally (PW) and issued to a customer (WZ) or internally (RW). Filed only when the tax office asks for it.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsPlJpkMagGenerateAsync(
-    ///     new PostV1DeclarationsPlJpkMagGenerateRequest { DateFrom = "dateFrom", DateTo = "dateTo" }
+    /// await client.Declarations.PlJpkMagGenerateAsync(
+    ///     new PlJpkMagGenerateDeclarationsRequest
+    ///     {
+    ///         DateFrom = new DateOnly(2026, 7, 1),
+    ///         DateTo = new DateOnly(2026, 7, 1),
+    ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsPlJpkMagGenerateResponse> PostV1DeclarationsPlJpkMagGenerateAsync(
-        PostV1DeclarationsPlJpkMagGenerateRequest request,
+    public WithRawResponseTask<PlJpkMagGenerateDeclarationsResponse> PlJpkMagGenerateAsync(
+        PlJpkMagGenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsPlJpkMagGenerateResponse>(
-            PostV1DeclarationsPlJpkMagGenerateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<PlJpkMagGenerateDeclarationsResponse>(
+            PlJpkMagGenerateAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -18790,18 +20835,18 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// Generate PIT-11(29) for every person on the payroll of one year: the pay, the deductible costs, the advance withheld and the social and health contributions taken off it. One document per person, because that is how the form is filed.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsPlPit11GenerateAsync(
-    ///     new PostV1DeclarationsPlPit11GenerateRequest { Year = 1000000 }
+    /// await client.Declarations.PlPit11GenerateAsync(
+    ///     new PlPit11GenerateDeclarationsRequest { Year = 1000000 }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsPlPit11GenerateResponse> PostV1DeclarationsPlPit11GenerateAsync(
-        PostV1DeclarationsPlPit11GenerateRequest request,
+    public WithRawResponseTask<PlPit11GenerateDeclarationsResponse> PlPit11GenerateAsync(
+        PlPit11GenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsPlPit11GenerateResponse>(
-            PostV1DeclarationsPlPit11GenerateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<PlPit11GenerateDeclarationsResponse>(
+            PlPit11GenerateAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -18809,18 +20854,18 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// Generate CIT-8(34), the annual corporate income tax return, from the ledger of the year and the recorded tax adjustments. The tax office code and the small-taxpayer setting come from the e-Deklaracje compliance settings, the seat address from the JPK gateway settings. Names the annexes the figures would need, which are not produced.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsPlCit8GenerateAsync(
-    ///     new PostV1DeclarationsPlCit8GenerateRequest { Year = 1000000 }
+    /// await client.Declarations.PlCit8GenerateAsync(
+    ///     new PlCit8GenerateDeclarationsRequest { Year = 1000000 }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsPlCit8GenerateResponse> PostV1DeclarationsPlCit8GenerateAsync(
-        PostV1DeclarationsPlCit8GenerateRequest request,
+    public WithRawResponseTask<PlCit8GenerateDeclarationsResponse> PlCit8GenerateAsync(
+        PlCit8GenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsPlCit8GenerateResponse>(
-            PostV1DeclarationsPlCit8GenerateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<PlCit8GenerateDeclarationsResponse>(
+            PlCit8GenerateAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -18828,18 +20873,18 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// Compute the monthly ZUS DRA settlement from the payroll run of one month: the pension, disability, sickness, accident and health insurance contributions and the Labour Fund, Solidarity Fund and guaranteed benefits fund charges, each split between the insured person and the payer. The amounts are carried into Płatnik or ePłatnik by hand.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsPlZusDraComputeAsync(
-    ///     new PostV1DeclarationsPlZusDraComputeRequest { Year = 1000000, Month = 1000000 }
+    /// await client.Declarations.PlZusDraComputeAsync(
+    ///     new PlZusDraComputeDeclarationsRequest { Year = 1000000, Month = 1000000 }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsPlZusDraComputeResponse> PostV1DeclarationsPlZusDraComputeAsync(
-        PostV1DeclarationsPlZusDraComputeRequest request,
+    public WithRawResponseTask<PlZusDraComputeDeclarationsResponse> PlZusDraComputeAsync(
+        PlZusDraComputeDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsPlZusDraComputeResponse>(
-            PostV1DeclarationsPlZusDraComputeAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<PlZusDraComputeDeclarationsResponse>(
+            PlZusDraComputeAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -18847,18 +20892,18 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// Build the KEDU file for one month: the ZUS DRA settlement and one ZUS RCA report per person on the payroll, in the schema kedu_5_4 that Płatnik and ePłatnik import. The payer REGON, short name and declaration deadline code come from the ZUS compliance settings; the insurance title code and working time of each person from the employee record.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsPlZusDraKeduAsync(
-    ///     new PostV1DeclarationsPlZusDraKeduRequest { Year = 1000000, Month = 1000000 }
+    /// await client.Declarations.PlZusDraKeduAsync(
+    ///     new PlZusDraKeduDeclarationsRequest { Year = 1000000, Month = 1000000 }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsPlZusDraKeduResponse> PostV1DeclarationsPlZusDraKeduAsync(
-        PostV1DeclarationsPlZusDraKeduRequest request,
+    public WithRawResponseTask<PlZusDraKeduDeclarationsResponse> PlZusDraKeduAsync(
+        PlZusDraKeduDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsPlZusDraKeduResponse>(
-            PostV1DeclarationsPlZusDraKeduAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<PlZusDraKeduDeclarationsResponse>(
+            PlZusDraKeduAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -18866,18 +20911,18 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// Fill the published ZUS DRA form for one month and return it as a PDF. The amounts, the payer identity and the deadline code are the same ones the KEDU file carries; blocks the payroll does not hold (paid benefits, bridging pensions, income declaration of a self-paying person) stay empty.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsPlZusDraPdfAsync(
-    ///     new PostV1DeclarationsPlZusDraPdfRequest { Year = 1000000, Month = 1000000 }
+    /// await client.Declarations.PlZusDraPdfAsync(
+    ///     new PlZusDraPdfDeclarationsRequest { Year = 1000000, Month = 1000000 }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsPlZusDraPdfResponse> PostV1DeclarationsPlZusDraPdfAsync(
-        PostV1DeclarationsPlZusDraPdfRequest request,
+    public WithRawResponseTask<PlZusDraPdfDeclarationsResponse> PlZusDraPdfAsync(
+        PlZusDraPdfDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsPlZusDraPdfResponse>(
-            PostV1DeclarationsPlZusDraPdfAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<PlZusDraPdfDeclarationsResponse>(
+            PlZusDraPdfAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -18885,18 +20930,18 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// Build the RO e-Transport declaration for an issued waybill: goods with their tariff codes and masses, the commercial partner, the route and the vehicle. The XML follows the ANAF eTransport v2 schema and is kept as a file on the waybill. Anything listed in blockers has to be filled in before /etransport/send will accept it.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsRoEtransportBuildAsync(
-    ///     new PostV1DeclarationsRoEtransportBuildRequest { WaybillId = "waybillId" }
+    /// await client.Declarations.RoEtransportBuildAsync(
+    ///     new RoEtransportBuildDeclarationsRequest { WaybillId = "waybillId" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsRoEtransportBuildResponse> PostV1DeclarationsRoEtransportBuildAsync(
-        PostV1DeclarationsRoEtransportBuildRequest request,
+    public WithRawResponseTask<RoEtransportBuildDeclarationsResponse> RoEtransportBuildAsync(
+        RoEtransportBuildDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsRoEtransportBuildResponse>(
-            PostV1DeclarationsRoEtransportBuildAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<RoEtransportBuildDeclarationsResponse>(
+            RoEtransportBuildAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -18904,18 +20949,18 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// Hand the RO e-Transport declaration for an issued waybill to ANAF under the SPV OAuth token in compliance settings, and return the upload index the UIT is read back with. Answers 422 while any field the ANAF validator requires is still missing.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsRoEtransportSubmitAsync(
-    ///     new PostV1DeclarationsRoEtransportSubmitRequest { WaybillId = "waybillId" }
+    /// await client.Declarations.RoEtransportSubmitAsync(
+    ///     new RoEtransportSubmitDeclarationsRequest { WaybillId = "waybillId" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsRoEtransportSubmitResponse> PostV1DeclarationsRoEtransportSubmitAsync(
-        PostV1DeclarationsRoEtransportSubmitRequest request,
+    public WithRawResponseTask<RoEtransportSubmitDeclarationsResponse> RoEtransportSubmitAsync(
+        RoEtransportSubmitDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsRoEtransportSubmitResponse>(
-            PostV1DeclarationsRoEtransportSubmitAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<RoEtransportSubmitDeclarationsResponse>(
+            RoEtransportSubmitAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -18923,18 +20968,18 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// Read the outcome of an e-Transport declaration from ANAF by its upload index, under the SPV OAuth token in compliance settings. Returns the UIT code once the declaration validates.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsRoEtransportStatusAsync(
-    ///     new PostV1DeclarationsRoEtransportStatusRequest { Reference = "reference" }
+    /// await client.Declarations.RoEtransportStatusAsync(
+    ///     new RoEtransportStatusDeclarationsRequest { Reference = "reference" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsRoEtransportStatusResponse> PostV1DeclarationsRoEtransportStatusAsync(
-        PostV1DeclarationsRoEtransportStatusRequest request,
+    public WithRawResponseTask<RoEtransportStatusDeclarationsResponse> RoEtransportStatusAsync(
+        RoEtransportStatusDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsRoEtransportStatusResponse>(
-            PostV1DeclarationsRoEtransportStatusAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<RoEtransportStatusDeclarationsResponse>(
+            RoEtransportStatusAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -18942,22 +20987,18 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// Build the annual wage declaration (Lohndeklaration) to the AHV-IV-FAK from the approved payroll runs of the year as the CSV that AHVeasy imports under Lohndeklaration → CSV-Import der Lohndaten: one row per employee with the 18 columns of the AHVeasy template, the AHV-liable wage and the ALV wage.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsLiLohndeklarationGenerateAsync(
-    ///     new PostV1DeclarationsLiLohndeklarationGenerateRequest { Year = 1000000 }
+    /// await client.Declarations.LiLohndeklarationGenerateAsync(
+    ///     new LiLohndeklarationGenerateDeclarationsRequest { Year = 1000000 }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsLiLohndeklarationGenerateResponse> PostV1DeclarationsLiLohndeklarationGenerateAsync(
-        PostV1DeclarationsLiLohndeklarationGenerateRequest request,
+    public WithRawResponseTask<LiLohndeklarationGenerateDeclarationsResponse> LiLohndeklarationGenerateAsync(
+        LiLohndeklarationGenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsLiLohndeklarationGenerateResponse>(
-            PostV1DeclarationsLiLohndeklarationGenerateAsyncCore(
-                request,
-                options,
-                cancellationToken
-            )
+        return new WithRawResponseTask<LiLohndeklarationGenerateDeclarationsResponse>(
+            LiLohndeklarationGenerateAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -18965,60 +21006,58 @@ public partial class DeclarationsClient : IDeclarationsClient
     /// Build the annual wage list (Lohnliste) of a Liechtenstein employer from the approved payroll runs of the year as the XLSX file the tax administration's eLohnausweis / eLohnlisten application imports: one row per employee with PEID, name, birth date, address, gross wage, wage tax withheld and the settlement period.
     /// </summary>
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsLiLohnlistenGenerateAsync(
-    ///     new PostV1DeclarationsLiLohnlistenGenerateRequest { Year = 1000000 }
+    /// await client.Declarations.LiLohnlistenGenerateAsync(
+    ///     new LiLohnlistenGenerateDeclarationsRequest { Year = 1000000 }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsLiLohnlistenGenerateResponse> PostV1DeclarationsLiLohnlistenGenerateAsync(
-        PostV1DeclarationsLiLohnlistenGenerateRequest request,
+    public WithRawResponseTask<LiLohnlistenGenerateDeclarationsResponse> LiLohnlistenGenerateAsync(
+        LiLohnlistenGenerateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsLiLohnlistenGenerateResponse>(
-            PostV1DeclarationsLiLohnlistenGenerateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<LiLohnlistenGenerateDeclarationsResponse>(
+            LiLohnlistenGenerateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsConfigsListAsync(
-    ///     new PostV1DeclarationsConfigsListRequest()
-    /// );
+    /// await client.Declarations.ConfigsListAsync(new ConfigsListDeclarationsRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsConfigsListResponse> PostV1DeclarationsConfigsListAsync(
-        PostV1DeclarationsConfigsListRequest request,
+    public WithRawResponseTask<ConfigsListDeclarationsResponse> ConfigsListAsync(
+        ConfigsListDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsConfigsListResponse>(
-            PostV1DeclarationsConfigsListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<ConfigsListDeclarationsResponse>(
+            ConfigsListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsConfigsUpdateAsync(
-    ///     new PostV1DeclarationsConfigsUpdateRequest
+    /// await client.Declarations.ConfigsUpdateAsync(
+    ///     new ConfigsUpdateDeclarationsRequest
     ///     {
     ///         System = "system",
     ///         Config = new Dictionary&lt;string, string&gt;() { { "key", "value" } },
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsConfigsUpdateResponse> PostV1DeclarationsConfigsUpdateAsync(
-        PostV1DeclarationsConfigsUpdateRequest request,
+    public WithRawResponseTask<ConfigsUpdateDeclarationsResponse> ConfigsUpdateAsync(
+        ConfigsUpdateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsConfigsUpdateResponse>(
-            PostV1DeclarationsConfigsUpdateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<ConfigsUpdateDeclarationsResponse>(
+            ConfigsUpdateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.StoreTheCertificateOrPrivateKeyAFilingSystemAuthenticatesWithAsync(
-    ///     new PostV1DeclarationsCertificatesUploadRequest
+    /// await client.Declarations.CertificatesUploadAsync(
+    ///     new CertificatesUploadDeclarationsRequest
     ///     {
     ///         System = "system",
     ///         FileName = "fileName",
@@ -19026,167 +21065,149 @@ public partial class DeclarationsClient : IDeclarationsClient
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsCertificatesUploadResponse> StoreTheCertificateOrPrivateKeyAFilingSystemAuthenticatesWithAsync(
-        PostV1DeclarationsCertificatesUploadRequest request,
+    public WithRawResponseTask<CertificatesUploadDeclarationsResponse> CertificatesUploadAsync(
+        CertificatesUploadDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsCertificatesUploadResponse>(
-            StoreTheCertificateOrPrivateKeyAFilingSystemAuthenticatesWithAsyncCore(
-                request,
-                options,
-                cancellationToken
-            )
+        return new WithRawResponseTask<CertificatesUploadDeclarationsResponse>(
+            CertificatesUploadAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsCertificatesListAsync(
-    ///     new PostV1DeclarationsCertificatesListRequest()
-    /// );
+    /// await client.Declarations.CertificatesListAsync(new CertificatesListDeclarationsRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsCertificatesListResponse> PostV1DeclarationsCertificatesListAsync(
-        PostV1DeclarationsCertificatesListRequest request,
+    public WithRawResponseTask<CertificatesListDeclarationsResponse> CertificatesListAsync(
+        CertificatesListDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsCertificatesListResponse>(
-            PostV1DeclarationsCertificatesListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<CertificatesListDeclarationsResponse>(
+            CertificatesListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsCertificatesDeleteAsync(
-    ///     new PostV1DeclarationsCertificatesDeleteRequest
+    /// await client.Declarations.CertificatesDeleteAsync(
+    ///     new CertificatesDeleteDeclarationsRequest
     ///     {
     ///         System = "system",
-    ///         FieldKey = PostV1DeclarationsCertificatesDeleteRequestFieldKey.Certificate,
+    ///         FieldKey = CertificatesDeleteDeclarationsRequestFieldKey.Certificate,
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsCertificatesDeleteResponse> PostV1DeclarationsCertificatesDeleteAsync(
-        PostV1DeclarationsCertificatesDeleteRequest request,
+    public WithRawResponseTask<CertificatesDeleteDeclarationsResponse> CertificatesDeleteAsync(
+        CertificatesDeleteDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsCertificatesDeleteResponse>(
-            PostV1DeclarationsCertificatesDeleteAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<CertificatesDeleteDeclarationsResponse>(
+            CertificatesDeleteAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.WhichDeadlinesNordletCanFileByItselfForThisCompanyAndWhichAreSwitchedOnAsync(
-    ///     new PostV1DeclarationsAutomationListRequest()
+    /// await client.Declarations.AutomationListAsync(new AutomationListDeclarationsRequest());
+    /// </code></example>
+    public WithRawResponseTask<AutomationListDeclarationsResponse> AutomationListAsync(
+        AutomationListDeclarationsRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<AutomationListDeclarationsResponse>(
+            AutomationListAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Declarations.AutomationUpdateAsync(
+    ///     new AutomationUpdateDeclarationsRequest { RuleKey = "ruleKey", Enabled = true }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsAutomationListResponse> WhichDeadlinesNordletCanFileByItselfForThisCompanyAndWhichAreSwitchedOnAsync(
-        PostV1DeclarationsAutomationListRequest request,
+    public WithRawResponseTask<AutomationUpdateDeclarationsResponse> AutomationUpdateAsync(
+        AutomationUpdateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsAutomationListResponse>(
-            WhichDeadlinesNordletCanFileByItselfForThisCompanyAndWhichAreSwitchedOnAsyncCore(
-                request,
-                options,
-                cancellationToken
-            )
+        return new WithRawResponseTask<AutomationUpdateDeclarationsResponse>(
+            AutomationUpdateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsAutomationUpdateAsync(
-    ///     new PostV1DeclarationsAutomationUpdateRequest { RuleKey = "ruleKey", Enabled = true }
+    /// await client.Declarations.SubmissionsRetryAsync(
+    ///     new SubmissionsRetryDeclarationsRequest { Id = "id" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsAutomationUpdateResponse> PostV1DeclarationsAutomationUpdateAsync(
-        PostV1DeclarationsAutomationUpdateRequest request,
+    public WithRawResponseTask<SubmissionsRetryDeclarationsResponse> SubmissionsRetryAsync(
+        SubmissionsRetryDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsAutomationUpdateResponse>(
-            PostV1DeclarationsAutomationUpdateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<SubmissionsRetryDeclarationsResponse>(
+            SubmissionsRetryAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.SendAFilingWhoseDeliveryFailedOnceMoreWithTheBytesThatWereGeneratedAsync(
-    ///     new PostV1DeclarationsSubmissionsRetryRequest { Id = "id" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsSubmissionsRetryResponse> SendAFilingWhoseDeliveryFailedOnceMoreWithTheBytesThatWereGeneratedAsync(
-        PostV1DeclarationsSubmissionsRetryRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1DeclarationsSubmissionsRetryResponse>(
-            SendAFilingWhoseDeliveryFailedOnceMoreWithTheBytesThatWereGeneratedAsyncCore(
-                request,
-                options,
-                cancellationToken
-            )
-        );
-    }
-
-    /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsSubmissionsCreateAsync(
-    ///     new PostV1DeclarationsSubmissionsCreateRequest
+    /// await client.Declarations.SubmissionsCreateAsync(
+    ///     new SubmissionsCreateDeclarationsRequest
     ///     {
-    ///         Obligation = PostV1DeclarationsSubmissionsCreateRequestObligation.LtIsaf,
+    ///         Obligation = SubmissionsCreateDeclarationsRequestObligation.LtIsaf,
     ///         Year = 1000000,
     ///         Month = 1000000,
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsSubmissionsCreateResponse> PostV1DeclarationsSubmissionsCreateAsync(
-        PostV1DeclarationsSubmissionsCreateRequest request,
+    public WithRawResponseTask<SubmissionsCreateDeclarationsResponse> SubmissionsCreateAsync(
+        SubmissionsCreateDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsSubmissionsCreateResponse>(
-            PostV1DeclarationsSubmissionsCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<SubmissionsCreateDeclarationsResponse>(
+            SubmissionsCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsSubmissionsMarkAsync(
-    ///     new PostV1DeclarationsSubmissionsMarkRequest
+    /// await client.Declarations.SubmissionsMarkAsync(
+    ///     new SubmissionsMarkDeclarationsRequest
     ///     {
     ///         Id = "id",
-    ///         Status = PostV1DeclarationsSubmissionsMarkRequestStatus.Submitted,
+    ///         Status = SubmissionsMarkDeclarationsRequestStatus.Submitted,
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsSubmissionsMarkResponse> PostV1DeclarationsSubmissionsMarkAsync(
-        PostV1DeclarationsSubmissionsMarkRequest request,
+    public WithRawResponseTask<SubmissionsMarkDeclarationsResponse> SubmissionsMarkAsync(
+        SubmissionsMarkDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsSubmissionsMarkResponse>(
-            PostV1DeclarationsSubmissionsMarkAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<SubmissionsMarkDeclarationsResponse>(
+            SubmissionsMarkAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Declarations.PostV1DeclarationsSubmissionsListAsync(
-    ///     new PostV1DeclarationsSubmissionsListRequest()
-    /// );
+    /// await client.Declarations.SubmissionsListAsync(new SubmissionsListDeclarationsRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1DeclarationsSubmissionsListResponse> PostV1DeclarationsSubmissionsListAsync(
-        PostV1DeclarationsSubmissionsListRequest request,
+    public WithRawResponseTask<SubmissionsListDeclarationsResponse> SubmissionsListAsync(
+        SubmissionsListDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1DeclarationsSubmissionsListResponse>(
-            PostV1DeclarationsSubmissionsListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<SubmissionsListDeclarationsResponse>(
+            SubmissionsListAsyncCore(request, options, cancellationToken)
         );
     }
 }

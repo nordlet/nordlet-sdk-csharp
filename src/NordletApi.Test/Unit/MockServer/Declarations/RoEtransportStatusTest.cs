@@ -1,0 +1,91 @@
+using NordletApi;
+using NordletApi.Test.Unit.MockServer;
+using NordletApi.Test.Utils;
+using NUnit.Framework;
+
+namespace NordletApi.Test.Unit.MockServer.Declarations;
+
+[TestFixture]
+[Parallelizable(ParallelScope.Self)]
+public class RoEtransportStatusTest : BaseMockServerTest
+{
+    [NUnit.Framework.Test]
+    public async Task MockServerTest_1()
+    {
+        const string requestJson = """
+            {
+              "reference": "x"
+            }
+            """;
+
+        const string mockResponse = """
+            {
+              "reference": "reference",
+              "state": "submitted",
+              "uit": "uit",
+              "detail": "detail"
+            }
+            """;
+
+        Server
+            .Given(
+                WireMock
+                    .RequestBuilders.Request.Create()
+                    .WithPath("/v1/declarations/ro/etransport/status")
+                    .WithHeader("Content-Type", "application/json")
+                    .UsingPost()
+                    .WithBodyAsJson(requestJson)
+            )
+            .RespondWith(
+                WireMock
+                    .ResponseBuilders.Response.Create()
+                    .WithStatusCode(200)
+                    .WithBody(mockResponse)
+            );
+
+        var response = await Client.Declarations.RoEtransportStatusAsync(
+            new RoEtransportStatusDeclarationsRequest { Reference = "x" }
+        );
+        JsonAssert.AreEqual(response, mockResponse);
+    }
+
+    [NUnit.Framework.Test]
+    public async Task MockServerTest_2()
+    {
+        const string requestJson = """
+            {
+              "reference": "reference"
+            }
+            """;
+
+        const string mockResponse = """
+            {
+              "reference": "reference",
+              "state": "submitted",
+              "uit": "uit",
+              "detail": "detail"
+            }
+            """;
+
+        Server
+            .Given(
+                WireMock
+                    .RequestBuilders.Request.Create()
+                    .WithPath("/v1/declarations/ro/etransport/status")
+                    .WithHeader("Content-Type", "application/json")
+                    .UsingPost()
+                    .WithBodyAsJson(requestJson)
+            )
+            .RespondWith(
+                WireMock
+                    .ResponseBuilders.Response.Create()
+                    .WithStatusCode(200)
+                    .WithBody(mockResponse)
+            );
+
+        var response = await Client.Declarations.RoEtransportStatusAsync(
+            new RoEtransportStatusDeclarationsRequest { Reference = "reference" }
+        );
+        JsonAssert.AreEqual(response, mockResponse);
+    }
+}

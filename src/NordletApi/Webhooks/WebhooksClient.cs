@@ -13,9 +13,9 @@ public partial class WebhooksClient : IWebhooksClient
     }
 
     private async Task<
-        WithRawResponse<PostV1WebhooksSubscriptionsCreateResponse>
-    > PostV1WebhooksSubscriptionsCreateAsyncCore(
-        PostV1WebhooksSubscriptionsCreateRequest request,
+        WithRawResponse<SubscriptionsCreateWebhooksResponse>
+    > SubscriptionsCreateAsyncCore(
+        SubscriptionsCreateWebhooksRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -51,10 +51,10 @@ public partial class WebhooksClient : IWebhooksClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1WebhooksSubscriptionsCreateResponse>(
+                var responseData = JsonUtils.Deserialize<SubscriptionsCreateWebhooksResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1WebhooksSubscriptionsCreateResponse>()
+                return new WithRawResponse<SubscriptionsCreateWebhooksResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -113,6 +113,18 @@ public partial class WebhooksClient : IWebhooksClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -139,6 +151,18 @@ public partial class WebhooksClient : IWebhooksClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -206,9 +230,9 @@ public partial class WebhooksClient : IWebhooksClient
     }
 
     private async Task<
-        WithRawResponse<PostV1WebhooksSubscriptionsListResponse>
-    > PostV1WebhooksSubscriptionsListAsyncCore(
-        PostV1WebhooksSubscriptionsListRequest request,
+        WithRawResponse<SubscriptionsListWebhooksResponse>
+    > SubscriptionsListAsyncCore(
+        SubscriptionsListWebhooksRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -244,10 +268,10 @@ public partial class WebhooksClient : IWebhooksClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1WebhooksSubscriptionsListResponse>(
+                var responseData = JsonUtils.Deserialize<SubscriptionsListWebhooksResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1WebhooksSubscriptionsListResponse>()
+                return new WithRawResponse<SubscriptionsListWebhooksResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -306,6 +330,18 @@ public partial class WebhooksClient : IWebhooksClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -332,6 +368,18 @@ public partial class WebhooksClient : IWebhooksClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -399,9 +447,9 @@ public partial class WebhooksClient : IWebhooksClient
     }
 
     private async Task<
-        WithRawResponse<PostV1WebhooksSubscriptionsUpdateResponse>
-    > PostV1WebhooksSubscriptionsUpdateAsyncCore(
-        PostV1WebhooksSubscriptionsUpdateRequest request,
+        WithRawResponse<SubscriptionsUpdateWebhooksResponse>
+    > SubscriptionsUpdateAsyncCore(
+        SubscriptionsUpdateWebhooksRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -437,10 +485,10 @@ public partial class WebhooksClient : IWebhooksClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1WebhooksSubscriptionsUpdateResponse>(
+                var responseData = JsonUtils.Deserialize<SubscriptionsUpdateWebhooksResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1WebhooksSubscriptionsUpdateResponse>()
+                return new WithRawResponse<SubscriptionsUpdateWebhooksResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -499,6 +547,18 @@ public partial class WebhooksClient : IWebhooksClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -525,6 +585,18 @@ public partial class WebhooksClient : IWebhooksClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -592,9 +664,9 @@ public partial class WebhooksClient : IWebhooksClient
     }
 
     private async Task<
-        WithRawResponse<PostV1WebhooksSubscriptionsDeleteResponse>
-    > PostV1WebhooksSubscriptionsDeleteAsyncCore(
-        PostV1WebhooksSubscriptionsDeleteRequest request,
+        WithRawResponse<SubscriptionsDeleteWebhooksResponse>
+    > SubscriptionsDeleteAsyncCore(
+        SubscriptionsDeleteWebhooksRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -630,10 +702,10 @@ public partial class WebhooksClient : IWebhooksClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1WebhooksSubscriptionsDeleteResponse>(
+                var responseData = JsonUtils.Deserialize<SubscriptionsDeleteWebhooksResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1WebhooksSubscriptionsDeleteResponse>()
+                return new WithRawResponse<SubscriptionsDeleteWebhooksResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -692,6 +764,18 @@ public partial class WebhooksClient : IWebhooksClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -718,6 +802,18 @@ public partial class WebhooksClient : IWebhooksClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -784,10 +880,8 @@ public partial class WebhooksClient : IWebhooksClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1WebhooksDeliveriesListResponse>
-    > PostV1WebhooksDeliveriesListAsyncCore(
-        PostV1WebhooksDeliveriesListRequest request,
+    private async Task<WithRawResponse<DeliveriesListWebhooksResponse>> DeliveriesListAsyncCore(
+        DeliveriesListWebhooksRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -823,10 +917,10 @@ public partial class WebhooksClient : IWebhooksClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1WebhooksDeliveriesListResponse>(
+                var responseData = JsonUtils.Deserialize<DeliveriesListWebhooksResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1WebhooksDeliveriesListResponse>()
+                return new WithRawResponse<DeliveriesListWebhooksResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -885,6 +979,18 @@ public partial class WebhooksClient : IWebhooksClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -911,6 +1017,18 @@ public partial class WebhooksClient : IWebhooksClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -978,9 +1096,9 @@ public partial class WebhooksClient : IWebhooksClient
     }
 
     private async Task<
-        WithRawResponse<PostV1WebhooksDeliveriesRedeliverResponse>
-    > PostV1WebhooksDeliveriesRedeliverAsyncCore(
-        PostV1WebhooksDeliveriesRedeliverRequest request,
+        WithRawResponse<DeliveriesRedeliverWebhooksResponse>
+    > DeliveriesRedeliverAsyncCore(
+        DeliveriesRedeliverWebhooksRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1016,10 +1134,10 @@ public partial class WebhooksClient : IWebhooksClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1WebhooksDeliveriesRedeliverResponse>(
+                var responseData = JsonUtils.Deserialize<DeliveriesRedeliverWebhooksResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1WebhooksDeliveriesRedeliverResponse>()
+                return new WithRawResponse<DeliveriesRedeliverWebhooksResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1078,6 +1196,18 @@ public partial class WebhooksClient : IWebhooksClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1104,6 +1234,18 @@ public partial class WebhooksClient : IWebhooksClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1171,100 +1313,101 @@ public partial class WebhooksClient : IWebhooksClient
     }
 
     /// <example><code>
-    /// await client.Webhooks.PostV1WebhooksSubscriptionsCreateAsync(
-    ///     new PostV1WebhooksSubscriptionsCreateRequest
+    /// await client.Webhooks.SubscriptionsCreateAsync(
+    ///     new SubscriptionsCreateWebhooksRequest
     ///     {
     ///         Url = "url",
-    ///         Events = new List&lt;string&gt;() { "events" },
+    ///         Events = new List&lt;SubscriptionsCreateWebhooksRequestEventsItem&gt;()
+    ///         {
+    ///             SubscriptionsCreateWebhooksRequestEventsItem.AgreementInvoiceGenerated,
+    ///         },
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1WebhooksSubscriptionsCreateResponse> PostV1WebhooksSubscriptionsCreateAsync(
-        PostV1WebhooksSubscriptionsCreateRequest request,
+    public WithRawResponseTask<SubscriptionsCreateWebhooksResponse> SubscriptionsCreateAsync(
+        SubscriptionsCreateWebhooksRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1WebhooksSubscriptionsCreateResponse>(
-            PostV1WebhooksSubscriptionsCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<SubscriptionsCreateWebhooksResponse>(
+            SubscriptionsCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Webhooks.PostV1WebhooksSubscriptionsListAsync(
-    ///     new PostV1WebhooksSubscriptionsListRequest()
+    /// await client.Webhooks.SubscriptionsListAsync(new SubscriptionsListWebhooksRequest());
+    /// </code></example>
+    public WithRawResponseTask<SubscriptionsListWebhooksResponse> SubscriptionsListAsync(
+        SubscriptionsListWebhooksRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<SubscriptionsListWebhooksResponse>(
+            SubscriptionsListAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Webhooks.SubscriptionsUpdateAsync(
+    ///     new SubscriptionsUpdateWebhooksRequest { Id = "id" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1WebhooksSubscriptionsListResponse> PostV1WebhooksSubscriptionsListAsync(
-        PostV1WebhooksSubscriptionsListRequest request,
+    public WithRawResponseTask<SubscriptionsUpdateWebhooksResponse> SubscriptionsUpdateAsync(
+        SubscriptionsUpdateWebhooksRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1WebhooksSubscriptionsListResponse>(
-            PostV1WebhooksSubscriptionsListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<SubscriptionsUpdateWebhooksResponse>(
+            SubscriptionsUpdateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Webhooks.PostV1WebhooksSubscriptionsUpdateAsync(
-    ///     new PostV1WebhooksSubscriptionsUpdateRequest { Id = "id" }
+    /// await client.Webhooks.SubscriptionsDeleteAsync(
+    ///     new SubscriptionsDeleteWebhooksRequest { Id = "id" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1WebhooksSubscriptionsUpdateResponse> PostV1WebhooksSubscriptionsUpdateAsync(
-        PostV1WebhooksSubscriptionsUpdateRequest request,
+    public WithRawResponseTask<SubscriptionsDeleteWebhooksResponse> SubscriptionsDeleteAsync(
+        SubscriptionsDeleteWebhooksRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1WebhooksSubscriptionsUpdateResponse>(
-            PostV1WebhooksSubscriptionsUpdateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<SubscriptionsDeleteWebhooksResponse>(
+            SubscriptionsDeleteAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Webhooks.PostV1WebhooksSubscriptionsDeleteAsync(
-    ///     new PostV1WebhooksSubscriptionsDeleteRequest { Id = "id" }
+    /// await client.Webhooks.DeliveriesListAsync(new DeliveriesListWebhooksRequest());
+    /// </code></example>
+    public WithRawResponseTask<DeliveriesListWebhooksResponse> DeliveriesListAsync(
+        DeliveriesListWebhooksRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<DeliveriesListWebhooksResponse>(
+            DeliveriesListAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Webhooks.DeliveriesRedeliverAsync(
+    ///     new DeliveriesRedeliverWebhooksRequest { Id = "id" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1WebhooksSubscriptionsDeleteResponse> PostV1WebhooksSubscriptionsDeleteAsync(
-        PostV1WebhooksSubscriptionsDeleteRequest request,
+    public WithRawResponseTask<DeliveriesRedeliverWebhooksResponse> DeliveriesRedeliverAsync(
+        DeliveriesRedeliverWebhooksRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1WebhooksSubscriptionsDeleteResponse>(
-            PostV1WebhooksSubscriptionsDeleteAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Webhooks.PostV1WebhooksDeliveriesListAsync(new PostV1WebhooksDeliveriesListRequest());
-    /// </code></example>
-    public WithRawResponseTask<PostV1WebhooksDeliveriesListResponse> PostV1WebhooksDeliveriesListAsync(
-        PostV1WebhooksDeliveriesListRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1WebhooksDeliveriesListResponse>(
-            PostV1WebhooksDeliveriesListAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Webhooks.PostV1WebhooksDeliveriesRedeliverAsync(
-    ///     new PostV1WebhooksDeliveriesRedeliverRequest { Id = "id" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1WebhooksDeliveriesRedeliverResponse> PostV1WebhooksDeliveriesRedeliverAsync(
-        PostV1WebhooksDeliveriesRedeliverRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1WebhooksDeliveriesRedeliverResponse>(
-            PostV1WebhooksDeliveriesRedeliverAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<DeliveriesRedeliverWebhooksResponse>(
+            DeliveriesRedeliverAsyncCore(request, options, cancellationToken)
         );
     }
 }

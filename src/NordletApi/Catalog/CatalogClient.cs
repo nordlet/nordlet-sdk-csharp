@@ -12,10 +12,8 @@ public partial class CatalogClient : ICatalogClient
         _client = client;
     }
 
-    private async Task<
-        WithRawResponse<PostV1CatalogItemsCreateResponse>
-    > PostV1CatalogItemsCreateAsyncCore(
-        PostV1CatalogItemsCreateRequest request,
+    private async Task<WithRawResponse<ItemsCreateCatalogResponse>> ItemsCreateAsyncCore(
+        ItemsCreateCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -51,10 +49,8 @@ public partial class CatalogClient : ICatalogClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CatalogItemsCreateResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1CatalogItemsCreateResponse>()
+                var responseData = JsonUtils.Deserialize<ItemsCreateCatalogResponse>(responseBody)!;
+                return new WithRawResponse<ItemsCreateCatalogResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -113,6 +109,18 @@ public partial class CatalogClient : ICatalogClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -139,6 +147,18 @@ public partial class CatalogClient : ICatalogClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -205,10 +225,8 @@ public partial class CatalogClient : ICatalogClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1CatalogItemsGetResponse>
-    > PostV1CatalogItemsGetAsyncCore(
-        PostV1CatalogItemsGetRequest request,
+    private async Task<WithRawResponse<ItemsGetCatalogResponse>> ItemsGetAsyncCore(
+        ItemsGetCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -244,10 +262,8 @@ public partial class CatalogClient : ICatalogClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CatalogItemsGetResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1CatalogItemsGetResponse>()
+                var responseData = JsonUtils.Deserialize<ItemsGetCatalogResponse>(responseBody)!;
+                return new WithRawResponse<ItemsGetCatalogResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -306,6 +322,18 @@ public partial class CatalogClient : ICatalogClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -332,6 +360,18 @@ public partial class CatalogClient : ICatalogClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -398,10 +438,8 @@ public partial class CatalogClient : ICatalogClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1CatalogItemsUpdateResponse>
-    > PostV1CatalogItemsUpdateAsyncCore(
-        PostV1CatalogItemsUpdateRequest request,
+    private async Task<WithRawResponse<ItemsUpdateCatalogResponse>> ItemsUpdateAsyncCore(
+        ItemsUpdateCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -437,10 +475,8 @@ public partial class CatalogClient : ICatalogClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CatalogItemsUpdateResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1CatalogItemsUpdateResponse>()
+                var responseData = JsonUtils.Deserialize<ItemsUpdateCatalogResponse>(responseBody)!;
+                return new WithRawResponse<ItemsUpdateCatalogResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -499,6 +535,18 @@ public partial class CatalogClient : ICatalogClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -525,6 +573,18 @@ public partial class CatalogClient : ICatalogClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -591,10 +651,8 @@ public partial class CatalogClient : ICatalogClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1CatalogItemsDeleteResponse>
-    > PostV1CatalogItemsDeleteAsyncCore(
-        PostV1CatalogItemsDeleteRequest request,
+    private async Task<WithRawResponse<ItemsDeleteCatalogResponse>> ItemsDeleteAsyncCore(
+        ItemsDeleteCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -630,10 +688,8 @@ public partial class CatalogClient : ICatalogClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CatalogItemsDeleteResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1CatalogItemsDeleteResponse>()
+                var responseData = JsonUtils.Deserialize<ItemsDeleteCatalogResponse>(responseBody)!;
+                return new WithRawResponse<ItemsDeleteCatalogResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -692,6 +748,18 @@ public partial class CatalogClient : ICatalogClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -718,6 +786,18 @@ public partial class CatalogClient : ICatalogClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -784,10 +864,8 @@ public partial class CatalogClient : ICatalogClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1CatalogItemsListResponse>
-    > PostV1CatalogItemsListAsyncCore(
-        PostV1CatalogItemsListRequest request,
+    private async Task<WithRawResponse<ItemsListCatalogResponse>> ItemsListAsyncCore(
+        ItemsListCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -823,10 +901,8 @@ public partial class CatalogClient : ICatalogClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CatalogItemsListResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1CatalogItemsListResponse>()
+                var responseData = JsonUtils.Deserialize<ItemsListCatalogResponse>(responseBody)!;
+                return new WithRawResponse<ItemsListCatalogResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -885,6 +961,18 @@ public partial class CatalogClient : ICatalogClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -911,6 +999,18 @@ public partial class CatalogClient : ICatalogClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -977,10 +1077,8 @@ public partial class CatalogClient : ICatalogClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1CatalogItemsFilesListResponse>
-    > PostV1CatalogItemsFilesListAsyncCore(
-        PostV1CatalogItemsFilesListRequest request,
+    private async Task<WithRawResponse<ItemsFilesListCatalogResponse>> ItemsFilesListAsyncCore(
+        ItemsFilesListCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1016,10 +1114,10 @@ public partial class CatalogClient : ICatalogClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CatalogItemsFilesListResponse>(
+                var responseData = JsonUtils.Deserialize<ItemsFilesListCatalogResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1CatalogItemsFilesListResponse>()
+                return new WithRawResponse<ItemsFilesListCatalogResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1078,6 +1176,18 @@ public partial class CatalogClient : ICatalogClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1104,6 +1214,18 @@ public partial class CatalogClient : ICatalogClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1170,10 +1292,8 @@ public partial class CatalogClient : ICatalogClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1CatalogItemsKindsCreateResponse>
-    > PostV1CatalogItemsKindsCreateAsyncCore(
-        PostV1CatalogItemsKindsCreateRequest request,
+    private async Task<WithRawResponse<ItemsKindsCreateCatalogResponse>> ItemsKindsCreateAsyncCore(
+        ItemsKindsCreateCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1209,10 +1329,10 @@ public partial class CatalogClient : ICatalogClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CatalogItemsKindsCreateResponse>(
+                var responseData = JsonUtils.Deserialize<ItemsKindsCreateCatalogResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1CatalogItemsKindsCreateResponse>()
+                return new WithRawResponse<ItemsKindsCreateCatalogResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1271,6 +1391,18 @@ public partial class CatalogClient : ICatalogClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1297,6 +1429,18 @@ public partial class CatalogClient : ICatalogClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1363,10 +1507,8 @@ public partial class CatalogClient : ICatalogClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1CatalogItemsKindsUpdateResponse>
-    > PostV1CatalogItemsKindsUpdateAsyncCore(
-        PostV1CatalogItemsKindsUpdateRequest request,
+    private async Task<WithRawResponse<ItemsKindsUpdateCatalogResponse>> ItemsKindsUpdateAsyncCore(
+        ItemsKindsUpdateCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1402,10 +1544,10 @@ public partial class CatalogClient : ICatalogClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CatalogItemsKindsUpdateResponse>(
+                var responseData = JsonUtils.Deserialize<ItemsKindsUpdateCatalogResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1CatalogItemsKindsUpdateResponse>()
+                return new WithRawResponse<ItemsKindsUpdateCatalogResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1464,6 +1606,18 @@ public partial class CatalogClient : ICatalogClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1490,6 +1644,18 @@ public partial class CatalogClient : ICatalogClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1556,10 +1722,8 @@ public partial class CatalogClient : ICatalogClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1CatalogItemsKindsDeleteResponse>
-    > PostV1CatalogItemsKindsDeleteAsyncCore(
-        PostV1CatalogItemsKindsDeleteRequest request,
+    private async Task<WithRawResponse<ItemsKindsDeleteCatalogResponse>> ItemsKindsDeleteAsyncCore(
+        ItemsKindsDeleteCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1595,10 +1759,10 @@ public partial class CatalogClient : ICatalogClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CatalogItemsKindsDeleteResponse>(
+                var responseData = JsonUtils.Deserialize<ItemsKindsDeleteCatalogResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1CatalogItemsKindsDeleteResponse>()
+                return new WithRawResponse<ItemsKindsDeleteCatalogResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1657,6 +1821,18 @@ public partial class CatalogClient : ICatalogClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1683,6 +1859,18 @@ public partial class CatalogClient : ICatalogClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1749,10 +1937,8 @@ public partial class CatalogClient : ICatalogClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1CatalogItemsKindsListResponse>
-    > PostV1CatalogItemsKindsListAsyncCore(
-        PostV1CatalogItemsKindsListRequest request,
+    private async Task<WithRawResponse<ItemsKindsListCatalogResponse>> ItemsKindsListAsyncCore(
+        ItemsKindsListCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1788,10 +1974,10 @@ public partial class CatalogClient : ICatalogClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CatalogItemsKindsListResponse>(
+                var responseData = JsonUtils.Deserialize<ItemsKindsListCatalogResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1CatalogItemsKindsListResponse>()
+                return new WithRawResponse<ItemsKindsListCatalogResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1850,6 +2036,18 @@ public partial class CatalogClient : ICatalogClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1876,6 +2074,18 @@ public partial class CatalogClient : ICatalogClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1942,10 +2152,8 @@ public partial class CatalogClient : ICatalogClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1CatalogUnitsCreateResponse>
-    > PostV1CatalogUnitsCreateAsyncCore(
-        PostV1CatalogUnitsCreateRequest request,
+    private async Task<WithRawResponse<UnitsCreateCatalogResponse>> UnitsCreateAsyncCore(
+        UnitsCreateCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1981,10 +2189,8 @@ public partial class CatalogClient : ICatalogClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CatalogUnitsCreateResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1CatalogUnitsCreateResponse>()
+                var responseData = JsonUtils.Deserialize<UnitsCreateCatalogResponse>(responseBody)!;
+                return new WithRawResponse<UnitsCreateCatalogResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2043,6 +2249,18 @@ public partial class CatalogClient : ICatalogClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2069,6 +2287,18 @@ public partial class CatalogClient : ICatalogClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2135,10 +2365,8 @@ public partial class CatalogClient : ICatalogClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1CatalogUnitsUpdateResponse>
-    > PostV1CatalogUnitsUpdateAsyncCore(
-        PostV1CatalogUnitsUpdateRequest request,
+    private async Task<WithRawResponse<UnitsUpdateCatalogResponse>> UnitsUpdateAsyncCore(
+        UnitsUpdateCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2174,10 +2402,8 @@ public partial class CatalogClient : ICatalogClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CatalogUnitsUpdateResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1CatalogUnitsUpdateResponse>()
+                var responseData = JsonUtils.Deserialize<UnitsUpdateCatalogResponse>(responseBody)!;
+                return new WithRawResponse<UnitsUpdateCatalogResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2236,6 +2462,18 @@ public partial class CatalogClient : ICatalogClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2262,6 +2500,18 @@ public partial class CatalogClient : ICatalogClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2328,10 +2578,8 @@ public partial class CatalogClient : ICatalogClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1CatalogUnitsDeleteResponse>
-    > PostV1CatalogUnitsDeleteAsyncCore(
-        PostV1CatalogUnitsDeleteRequest request,
+    private async Task<WithRawResponse<UnitsDeleteCatalogResponse>> UnitsDeleteAsyncCore(
+        UnitsDeleteCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2367,10 +2615,8 @@ public partial class CatalogClient : ICatalogClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CatalogUnitsDeleteResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1CatalogUnitsDeleteResponse>()
+                var responseData = JsonUtils.Deserialize<UnitsDeleteCatalogResponse>(responseBody)!;
+                return new WithRawResponse<UnitsDeleteCatalogResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2429,6 +2675,18 @@ public partial class CatalogClient : ICatalogClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2455,6 +2713,18 @@ public partial class CatalogClient : ICatalogClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2521,10 +2791,8 @@ public partial class CatalogClient : ICatalogClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1CatalogUnitsListResponse>
-    > PostV1CatalogUnitsListAsyncCore(
-        PostV1CatalogUnitsListRequest request,
+    private async Task<WithRawResponse<UnitsListCatalogResponse>> UnitsListAsyncCore(
+        UnitsListCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2560,10 +2828,8 @@ public partial class CatalogClient : ICatalogClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CatalogUnitsListResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1CatalogUnitsListResponse>()
+                var responseData = JsonUtils.Deserialize<UnitsListCatalogResponse>(responseBody)!;
+                return new WithRawResponse<UnitsListCatalogResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2622,6 +2888,18 @@ public partial class CatalogClient : ICatalogClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2648,6 +2926,18 @@ public partial class CatalogClient : ICatalogClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2714,10 +3004,8 @@ public partial class CatalogClient : ICatalogClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1CatalogUnitsOptionsResponse>
-    > PostV1CatalogUnitsOptionsAsyncCore(
-        PostV1CatalogUnitsOptionsRequest request,
+    private async Task<WithRawResponse<UnitsOptionsCatalogResponse>> UnitsOptionsAsyncCore(
+        UnitsOptionsCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2753,10 +3041,10 @@ public partial class CatalogClient : ICatalogClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CatalogUnitsOptionsResponse>(
+                var responseData = JsonUtils.Deserialize<UnitsOptionsCatalogResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1CatalogUnitsOptionsResponse>()
+                return new WithRawResponse<UnitsOptionsCatalogResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2815,6 +3103,18 @@ public partial class CatalogClient : ICatalogClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2841,6 +3141,18 @@ public partial class CatalogClient : ICatalogClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2907,10 +3219,8 @@ public partial class CatalogClient : ICatalogClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1CatalogItemGroupsCreateResponse>
-    > PostV1CatalogItemGroupsCreateAsyncCore(
-        PostV1CatalogItemGroupsCreateRequest request,
+    private async Task<WithRawResponse<ItemGroupsCreateCatalogResponse>> ItemGroupsCreateAsyncCore(
+        ItemGroupsCreateCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2946,10 +3256,10 @@ public partial class CatalogClient : ICatalogClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CatalogItemGroupsCreateResponse>(
+                var responseData = JsonUtils.Deserialize<ItemGroupsCreateCatalogResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1CatalogItemGroupsCreateResponse>()
+                return new WithRawResponse<ItemGroupsCreateCatalogResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3008,6 +3318,18 @@ public partial class CatalogClient : ICatalogClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3034,6 +3356,18 @@ public partial class CatalogClient : ICatalogClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3100,10 +3434,8 @@ public partial class CatalogClient : ICatalogClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1CatalogItemGroupsUpdateResponse>
-    > PostV1CatalogItemGroupsUpdateAsyncCore(
-        PostV1CatalogItemGroupsUpdateRequest request,
+    private async Task<WithRawResponse<ItemGroupsUpdateCatalogResponse>> ItemGroupsUpdateAsyncCore(
+        ItemGroupsUpdateCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3139,10 +3471,10 @@ public partial class CatalogClient : ICatalogClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CatalogItemGroupsUpdateResponse>(
+                var responseData = JsonUtils.Deserialize<ItemGroupsUpdateCatalogResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1CatalogItemGroupsUpdateResponse>()
+                return new WithRawResponse<ItemGroupsUpdateCatalogResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3201,6 +3533,18 @@ public partial class CatalogClient : ICatalogClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3227,6 +3571,18 @@ public partial class CatalogClient : ICatalogClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3293,10 +3649,8 @@ public partial class CatalogClient : ICatalogClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1CatalogItemGroupsDeleteResponse>
-    > PostV1CatalogItemGroupsDeleteAsyncCore(
-        PostV1CatalogItemGroupsDeleteRequest request,
+    private async Task<WithRawResponse<ItemGroupsDeleteCatalogResponse>> ItemGroupsDeleteAsyncCore(
+        ItemGroupsDeleteCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3332,10 +3686,10 @@ public partial class CatalogClient : ICatalogClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CatalogItemGroupsDeleteResponse>(
+                var responseData = JsonUtils.Deserialize<ItemGroupsDeleteCatalogResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1CatalogItemGroupsDeleteResponse>()
+                return new WithRawResponse<ItemGroupsDeleteCatalogResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3394,6 +3748,18 @@ public partial class CatalogClient : ICatalogClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3420,6 +3786,18 @@ public partial class CatalogClient : ICatalogClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3486,10 +3864,8 @@ public partial class CatalogClient : ICatalogClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1CatalogItemGroupsListResponse>
-    > PostV1CatalogItemGroupsListAsyncCore(
-        PostV1CatalogItemGroupsListRequest request,
+    private async Task<WithRawResponse<ItemGroupsListCatalogResponse>> ItemGroupsListAsyncCore(
+        ItemGroupsListCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3525,10 +3901,10 @@ public partial class CatalogClient : ICatalogClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CatalogItemGroupsListResponse>(
+                var responseData = JsonUtils.Deserialize<ItemGroupsListCatalogResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1CatalogItemGroupsListResponse>()
+                return new WithRawResponse<ItemGroupsListCatalogResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3587,6 +3963,18 @@ public partial class CatalogClient : ICatalogClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3613,6 +4001,18 @@ public partial class CatalogClient : ICatalogClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3680,9 +4080,9 @@ public partial class CatalogClient : ICatalogClient
     }
 
     private async Task<
-        WithRawResponse<PostV1CatalogItemsSuppliersUpsertResponse>
-    > PostV1CatalogItemsSuppliersUpsertAsyncCore(
-        PostV1CatalogItemsSuppliersUpsertRequest request,
+        WithRawResponse<ItemsSuppliersUpsertCatalogResponse>
+    > ItemsSuppliersUpsertAsyncCore(
+        ItemsSuppliersUpsertCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3718,10 +4118,10 @@ public partial class CatalogClient : ICatalogClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CatalogItemsSuppliersUpsertResponse>(
+                var responseData = JsonUtils.Deserialize<ItemsSuppliersUpsertCatalogResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1CatalogItemsSuppliersUpsertResponse>()
+                return new WithRawResponse<ItemsSuppliersUpsertCatalogResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3780,6 +4180,18 @@ public partial class CatalogClient : ICatalogClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3806,6 +4218,18 @@ public partial class CatalogClient : ICatalogClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3873,9 +4297,9 @@ public partial class CatalogClient : ICatalogClient
     }
 
     private async Task<
-        WithRawResponse<PostV1CatalogItemsSuppliersListResponse>
-    > PostV1CatalogItemsSuppliersListAsyncCore(
-        PostV1CatalogItemsSuppliersListRequest request,
+        WithRawResponse<ItemsSuppliersListCatalogResponse>
+    > ItemsSuppliersListAsyncCore(
+        ItemsSuppliersListCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3911,10 +4335,10 @@ public partial class CatalogClient : ICatalogClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CatalogItemsSuppliersListResponse>(
+                var responseData = JsonUtils.Deserialize<ItemsSuppliersListCatalogResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1CatalogItemsSuppliersListResponse>()
+                return new WithRawResponse<ItemsSuppliersListCatalogResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3973,6 +4397,18 @@ public partial class CatalogClient : ICatalogClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3999,6 +4435,18 @@ public partial class CatalogClient : ICatalogClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -4066,9 +4514,9 @@ public partial class CatalogClient : ICatalogClient
     }
 
     private async Task<
-        WithRawResponse<PostV1CatalogItemsSuppliersDeleteResponse>
-    > PostV1CatalogItemsSuppliersDeleteAsyncCore(
-        PostV1CatalogItemsSuppliersDeleteRequest request,
+        WithRawResponse<ItemsSuppliersDeleteCatalogResponse>
+    > ItemsSuppliersDeleteAsyncCore(
+        ItemsSuppliersDeleteCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -4104,10 +4552,10 @@ public partial class CatalogClient : ICatalogClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CatalogItemsSuppliersDeleteResponse>(
+                var responseData = JsonUtils.Deserialize<ItemsSuppliersDeleteCatalogResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1CatalogItemsSuppliersDeleteResponse>()
+                return new WithRawResponse<ItemsSuppliersDeleteCatalogResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -4166,6 +4614,18 @@ public partial class CatalogClient : ICatalogClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -4192,6 +4652,18 @@ public partial class CatalogClient : ICatalogClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -4258,10 +4730,8 @@ public partial class CatalogClient : ICatalogClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1CatalogPriceListsCreateResponse>
-    > PostV1CatalogPriceListsCreateAsyncCore(
-        PostV1CatalogPriceListsCreateRequest request,
+    private async Task<WithRawResponse<PriceListsCreateCatalogResponse>> PriceListsCreateAsyncCore(
+        PriceListsCreateCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -4297,10 +4767,10 @@ public partial class CatalogClient : ICatalogClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CatalogPriceListsCreateResponse>(
+                var responseData = JsonUtils.Deserialize<PriceListsCreateCatalogResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1CatalogPriceListsCreateResponse>()
+                return new WithRawResponse<PriceListsCreateCatalogResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -4359,6 +4829,18 @@ public partial class CatalogClient : ICatalogClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -4385,6 +4867,18 @@ public partial class CatalogClient : ICatalogClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -4451,10 +4945,8 @@ public partial class CatalogClient : ICatalogClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1CatalogPriceListsUpdateResponse>
-    > PostV1CatalogPriceListsUpdateAsyncCore(
-        PostV1CatalogPriceListsUpdateRequest request,
+    private async Task<WithRawResponse<PriceListsUpdateCatalogResponse>> PriceListsUpdateAsyncCore(
+        PriceListsUpdateCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -4490,10 +4982,10 @@ public partial class CatalogClient : ICatalogClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CatalogPriceListsUpdateResponse>(
+                var responseData = JsonUtils.Deserialize<PriceListsUpdateCatalogResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1CatalogPriceListsUpdateResponse>()
+                return new WithRawResponse<PriceListsUpdateCatalogResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -4552,6 +5044,18 @@ public partial class CatalogClient : ICatalogClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -4578,6 +5082,18 @@ public partial class CatalogClient : ICatalogClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -4644,10 +5160,8 @@ public partial class CatalogClient : ICatalogClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1CatalogPriceListsListResponse>
-    > PostV1CatalogPriceListsListAsyncCore(
-        PostV1CatalogPriceListsListRequest request,
+    private async Task<WithRawResponse<PriceListsListCatalogResponse>> PriceListsListAsyncCore(
+        PriceListsListCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -4683,10 +5197,10 @@ public partial class CatalogClient : ICatalogClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CatalogPriceListsListResponse>(
+                var responseData = JsonUtils.Deserialize<PriceListsListCatalogResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1CatalogPriceListsListResponse>()
+                return new WithRawResponse<PriceListsListCatalogResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -4745,6 +5259,18 @@ public partial class CatalogClient : ICatalogClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -4771,6 +5297,18 @@ public partial class CatalogClient : ICatalogClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -4838,9 +5376,9 @@ public partial class CatalogClient : ICatalogClient
     }
 
     private async Task<
-        WithRawResponse<PostV1CatalogPriceListsItemsSetResponse>
-    > PostV1CatalogPriceListsItemsSetAsyncCore(
-        PostV1CatalogPriceListsItemsSetRequest request,
+        WithRawResponse<PriceListsItemsSetCatalogResponse>
+    > PriceListsItemsSetAsyncCore(
+        PriceListsItemsSetCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -4876,10 +5414,10 @@ public partial class CatalogClient : ICatalogClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CatalogPriceListsItemsSetResponse>(
+                var responseData = JsonUtils.Deserialize<PriceListsItemsSetCatalogResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1CatalogPriceListsItemsSetResponse>()
+                return new WithRawResponse<PriceListsItemsSetCatalogResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -4938,6 +5476,18 @@ public partial class CatalogClient : ICatalogClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -4964,6 +5514,18 @@ public partial class CatalogClient : ICatalogClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -5031,9 +5593,9 @@ public partial class CatalogClient : ICatalogClient
     }
 
     private async Task<
-        WithRawResponse<PostV1CatalogPriceListsItemsListResponse>
-    > PostV1CatalogPriceListsItemsListAsyncCore(
-        PostV1CatalogPriceListsItemsListRequest request,
+        WithRawResponse<PriceListsItemsListCatalogResponse>
+    > PriceListsItemsListAsyncCore(
+        PriceListsItemsListCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -5069,10 +5631,10 @@ public partial class CatalogClient : ICatalogClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CatalogPriceListsItemsListResponse>(
+                var responseData = JsonUtils.Deserialize<PriceListsItemsListCatalogResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1CatalogPriceListsItemsListResponse>()
+                return new WithRawResponse<PriceListsItemsListCatalogResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -5131,6 +5693,18 @@ public partial class CatalogClient : ICatalogClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -5157,6 +5731,18 @@ public partial class CatalogClient : ICatalogClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -5224,9 +5810,9 @@ public partial class CatalogClient : ICatalogClient
     }
 
     private async Task<
-        WithRawResponse<PostV1CatalogPriceListsItemsDeleteResponse>
-    > PostV1CatalogPriceListsItemsDeleteAsyncCore(
-        PostV1CatalogPriceListsItemsDeleteRequest request,
+        WithRawResponse<PriceListsItemsDeleteCatalogResponse>
+    > PriceListsItemsDeleteAsyncCore(
+        PriceListsItemsDeleteCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -5262,11 +5848,10 @@ public partial class CatalogClient : ICatalogClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1CatalogPriceListsItemsDeleteResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1CatalogPriceListsItemsDeleteResponse>()
+                var responseData = JsonUtils.Deserialize<PriceListsItemsDeleteCatalogResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<PriceListsItemsDeleteCatalogResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -5325,6 +5910,18 @@ public partial class CatalogClient : ICatalogClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -5351,6 +5948,18 @@ public partial class CatalogClient : ICatalogClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -5418,447 +6027,423 @@ public partial class CatalogClient : ICatalogClient
     }
 
     /// <example><code>
-    /// await client.Catalog.PostV1CatalogItemsCreateAsync(
-    ///     new PostV1CatalogItemsCreateRequest { Name = "name" }
+    /// await client.Catalog.ItemsCreateAsync(new ItemsCreateCatalogRequest { Name = "name" });
+    /// </code></example>
+    public WithRawResponseTask<ItemsCreateCatalogResponse> ItemsCreateAsync(
+        ItemsCreateCatalogRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<ItemsCreateCatalogResponse>(
+            ItemsCreateAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Catalog.ItemsGetAsync(new ItemsGetCatalogRequest { Id = "id" });
+    /// </code></example>
+    public WithRawResponseTask<ItemsGetCatalogResponse> ItemsGetAsync(
+        ItemsGetCatalogRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<ItemsGetCatalogResponse>(
+            ItemsGetAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Catalog.ItemsUpdateAsync(new ItemsUpdateCatalogRequest { Id = "id" });
+    /// </code></example>
+    public WithRawResponseTask<ItemsUpdateCatalogResponse> ItemsUpdateAsync(
+        ItemsUpdateCatalogRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<ItemsUpdateCatalogResponse>(
+            ItemsUpdateAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Catalog.ItemsDeleteAsync(new ItemsDeleteCatalogRequest { Id = "id" });
+    /// </code></example>
+    public WithRawResponseTask<ItemsDeleteCatalogResponse> ItemsDeleteAsync(
+        ItemsDeleteCatalogRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<ItemsDeleteCatalogResponse>(
+            ItemsDeleteAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Catalog.ItemsListAsync(new ItemsListCatalogRequest());
+    /// </code></example>
+    public WithRawResponseTask<ItemsListCatalogResponse> ItemsListAsync(
+        ItemsListCatalogRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<ItemsListCatalogResponse>(
+            ItemsListAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Catalog.ItemsFilesListAsync(new ItemsFilesListCatalogRequest { ItemId = "itemId" });
+    /// </code></example>
+    public WithRawResponseTask<ItemsFilesListCatalogResponse> ItemsFilesListAsync(
+        ItemsFilesListCatalogRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<ItemsFilesListCatalogResponse>(
+            ItemsFilesListAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Catalog.ItemsKindsCreateAsync(
+    ///     new ItemsKindsCreateCatalogRequest { Code = "code", Name = "name" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1CatalogItemsCreateResponse> PostV1CatalogItemsCreateAsync(
-        PostV1CatalogItemsCreateRequest request,
+    public WithRawResponseTask<ItemsKindsCreateCatalogResponse> ItemsKindsCreateAsync(
+        ItemsKindsCreateCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1CatalogItemsCreateResponse>(
-            PostV1CatalogItemsCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<ItemsKindsCreateCatalogResponse>(
+            ItemsKindsCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Catalog.PostV1CatalogItemsGetAsync(new PostV1CatalogItemsGetRequest { Id = "id" });
+    /// await client.Catalog.ItemsKindsUpdateAsync(new ItemsKindsUpdateCatalogRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1CatalogItemsGetResponse> PostV1CatalogItemsGetAsync(
-        PostV1CatalogItemsGetRequest request,
+    public WithRawResponseTask<ItemsKindsUpdateCatalogResponse> ItemsKindsUpdateAsync(
+        ItemsKindsUpdateCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1CatalogItemsGetResponse>(
-            PostV1CatalogItemsGetAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<ItemsKindsUpdateCatalogResponse>(
+            ItemsKindsUpdateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Catalog.PostV1CatalogItemsUpdateAsync(
-    ///     new PostV1CatalogItemsUpdateRequest { Id = "id" }
+    /// await client.Catalog.ItemsKindsDeleteAsync(new ItemsKindsDeleteCatalogRequest { Id = "id" });
+    /// </code></example>
+    public WithRawResponseTask<ItemsKindsDeleteCatalogResponse> ItemsKindsDeleteAsync(
+        ItemsKindsDeleteCatalogRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<ItemsKindsDeleteCatalogResponse>(
+            ItemsKindsDeleteAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Catalog.ItemsKindsListAsync(new ItemsKindsListCatalogRequest());
+    /// </code></example>
+    public WithRawResponseTask<ItemsKindsListCatalogResponse> ItemsKindsListAsync(
+        ItemsKindsListCatalogRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<ItemsKindsListCatalogResponse>(
+            ItemsKindsListAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Catalog.UnitsCreateAsync(
+    ///     new UnitsCreateCatalogRequest { Code = "code", Name = "name" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1CatalogItemsUpdateResponse> PostV1CatalogItemsUpdateAsync(
-        PostV1CatalogItemsUpdateRequest request,
+    public WithRawResponseTask<UnitsCreateCatalogResponse> UnitsCreateAsync(
+        UnitsCreateCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1CatalogItemsUpdateResponse>(
-            PostV1CatalogItemsUpdateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<UnitsCreateCatalogResponse>(
+            UnitsCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Catalog.PostV1CatalogItemsDeleteAsync(
-    ///     new PostV1CatalogItemsDeleteRequest { Id = "id" }
+    /// await client.Catalog.UnitsUpdateAsync(new UnitsUpdateCatalogRequest { Id = "id" });
+    /// </code></example>
+    public WithRawResponseTask<UnitsUpdateCatalogResponse> UnitsUpdateAsync(
+        UnitsUpdateCatalogRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<UnitsUpdateCatalogResponse>(
+            UnitsUpdateAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Catalog.UnitsDeleteAsync(new UnitsDeleteCatalogRequest { Id = "id" });
+    /// </code></example>
+    public WithRawResponseTask<UnitsDeleteCatalogResponse> UnitsDeleteAsync(
+        UnitsDeleteCatalogRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<UnitsDeleteCatalogResponse>(
+            UnitsDeleteAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Catalog.UnitsListAsync(new UnitsListCatalogRequest());
+    /// </code></example>
+    public WithRawResponseTask<UnitsListCatalogResponse> UnitsListAsync(
+        UnitsListCatalogRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<UnitsListCatalogResponse>(
+            UnitsListAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Catalog.UnitsOptionsAsync(new UnitsOptionsCatalogRequest());
+    /// </code></example>
+    public WithRawResponseTask<UnitsOptionsCatalogResponse> UnitsOptionsAsync(
+        UnitsOptionsCatalogRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<UnitsOptionsCatalogResponse>(
+            UnitsOptionsAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Catalog.ItemGroupsCreateAsync(
+    ///     new ItemGroupsCreateCatalogRequest { Code = "code", Name = "name" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1CatalogItemsDeleteResponse> PostV1CatalogItemsDeleteAsync(
-        PostV1CatalogItemsDeleteRequest request,
+    public WithRawResponseTask<ItemGroupsCreateCatalogResponse> ItemGroupsCreateAsync(
+        ItemGroupsCreateCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1CatalogItemsDeleteResponse>(
-            PostV1CatalogItemsDeleteAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<ItemGroupsCreateCatalogResponse>(
+            ItemGroupsCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Catalog.PostV1CatalogItemsListAsync(new PostV1CatalogItemsListRequest());
+    /// await client.Catalog.ItemGroupsUpdateAsync(new ItemGroupsUpdateCatalogRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1CatalogItemsListResponse> PostV1CatalogItemsListAsync(
-        PostV1CatalogItemsListRequest request,
+    public WithRawResponseTask<ItemGroupsUpdateCatalogResponse> ItemGroupsUpdateAsync(
+        ItemGroupsUpdateCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1CatalogItemsListResponse>(
-            PostV1CatalogItemsListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<ItemGroupsUpdateCatalogResponse>(
+            ItemGroupsUpdateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Catalog.PostV1CatalogItemsFilesListAsync(
-    ///     new PostV1CatalogItemsFilesListRequest { ItemId = "itemId" }
+    /// await client.Catalog.ItemGroupsDeleteAsync(new ItemGroupsDeleteCatalogRequest { Id = "id" });
+    /// </code></example>
+    public WithRawResponseTask<ItemGroupsDeleteCatalogResponse> ItemGroupsDeleteAsync(
+        ItemGroupsDeleteCatalogRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<ItemGroupsDeleteCatalogResponse>(
+            ItemGroupsDeleteAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Catalog.ItemGroupsListAsync(new ItemGroupsListCatalogRequest());
+    /// </code></example>
+    public WithRawResponseTask<ItemGroupsListCatalogResponse> ItemGroupsListAsync(
+        ItemGroupsListCatalogRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<ItemGroupsListCatalogResponse>(
+            ItemGroupsListAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Catalog.ItemsSuppliersUpsertAsync(
+    ///     new ItemsSuppliersUpsertCatalogRequest { ItemId = "itemId", PartnerId = "partnerId" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1CatalogItemsFilesListResponse> PostV1CatalogItemsFilesListAsync(
-        PostV1CatalogItemsFilesListRequest request,
+    public WithRawResponseTask<ItemsSuppliersUpsertCatalogResponse> ItemsSuppliersUpsertAsync(
+        ItemsSuppliersUpsertCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1CatalogItemsFilesListResponse>(
-            PostV1CatalogItemsFilesListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<ItemsSuppliersUpsertCatalogResponse>(
+            ItemsSuppliersUpsertAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Catalog.PostV1CatalogItemsKindsCreateAsync(
-    ///     new PostV1CatalogItemsKindsCreateRequest { Code = "code", Name = "name" }
+    /// await client.Catalog.ItemsSuppliersListAsync(new ItemsSuppliersListCatalogRequest());
+    /// </code></example>
+    public WithRawResponseTask<ItemsSuppliersListCatalogResponse> ItemsSuppliersListAsync(
+        ItemsSuppliersListCatalogRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<ItemsSuppliersListCatalogResponse>(
+            ItemsSuppliersListAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Catalog.ItemsSuppliersDeleteAsync(
+    ///     new ItemsSuppliersDeleteCatalogRequest { Id = "id" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1CatalogItemsKindsCreateResponse> PostV1CatalogItemsKindsCreateAsync(
-        PostV1CatalogItemsKindsCreateRequest request,
+    public WithRawResponseTask<ItemsSuppliersDeleteCatalogResponse> ItemsSuppliersDeleteAsync(
+        ItemsSuppliersDeleteCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1CatalogItemsKindsCreateResponse>(
-            PostV1CatalogItemsKindsCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<ItemsSuppliersDeleteCatalogResponse>(
+            ItemsSuppliersDeleteAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Catalog.PostV1CatalogItemsKindsUpdateAsync(
-    ///     new PostV1CatalogItemsKindsUpdateRequest { Id = "id" }
+    /// await client.Catalog.PriceListsCreateAsync(
+    ///     new PriceListsCreateCatalogRequest { Code = "code", Name = "name" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1CatalogItemsKindsUpdateResponse> PostV1CatalogItemsKindsUpdateAsync(
-        PostV1CatalogItemsKindsUpdateRequest request,
+    public WithRawResponseTask<PriceListsCreateCatalogResponse> PriceListsCreateAsync(
+        PriceListsCreateCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1CatalogItemsKindsUpdateResponse>(
-            PostV1CatalogItemsKindsUpdateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<PriceListsCreateCatalogResponse>(
+            PriceListsCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Catalog.PostV1CatalogItemsKindsDeleteAsync(
-    ///     new PostV1CatalogItemsKindsDeleteRequest { Id = "id" }
-    /// );
+    /// await client.Catalog.PriceListsUpdateAsync(new PriceListsUpdateCatalogRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1CatalogItemsKindsDeleteResponse> PostV1CatalogItemsKindsDeleteAsync(
-        PostV1CatalogItemsKindsDeleteRequest request,
+    public WithRawResponseTask<PriceListsUpdateCatalogResponse> PriceListsUpdateAsync(
+        PriceListsUpdateCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1CatalogItemsKindsDeleteResponse>(
-            PostV1CatalogItemsKindsDeleteAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<PriceListsUpdateCatalogResponse>(
+            PriceListsUpdateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Catalog.PostV1CatalogItemsKindsListAsync(new PostV1CatalogItemsKindsListRequest());
+    /// await client.Catalog.PriceListsListAsync(new PriceListsListCatalogRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1CatalogItemsKindsListResponse> PostV1CatalogItemsKindsListAsync(
-        PostV1CatalogItemsKindsListRequest request,
+    public WithRawResponseTask<PriceListsListCatalogResponse> PriceListsListAsync(
+        PriceListsListCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1CatalogItemsKindsListResponse>(
-            PostV1CatalogItemsKindsListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<PriceListsListCatalogResponse>(
+            PriceListsListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Catalog.PostV1CatalogUnitsCreateAsync(
-    ///     new PostV1CatalogUnitsCreateRequest { Code = "code", Name = "name" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1CatalogUnitsCreateResponse> PostV1CatalogUnitsCreateAsync(
-        PostV1CatalogUnitsCreateRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1CatalogUnitsCreateResponse>(
-            PostV1CatalogUnitsCreateAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Catalog.PostV1CatalogUnitsUpdateAsync(
-    ///     new PostV1CatalogUnitsUpdateRequest { Id = "id" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1CatalogUnitsUpdateResponse> PostV1CatalogUnitsUpdateAsync(
-        PostV1CatalogUnitsUpdateRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1CatalogUnitsUpdateResponse>(
-            PostV1CatalogUnitsUpdateAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Catalog.PostV1CatalogUnitsDeleteAsync(
-    ///     new PostV1CatalogUnitsDeleteRequest { Id = "id" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1CatalogUnitsDeleteResponse> PostV1CatalogUnitsDeleteAsync(
-        PostV1CatalogUnitsDeleteRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1CatalogUnitsDeleteResponse>(
-            PostV1CatalogUnitsDeleteAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Catalog.PostV1CatalogUnitsListAsync(new PostV1CatalogUnitsListRequest());
-    /// </code></example>
-    public WithRawResponseTask<PostV1CatalogUnitsListResponse> PostV1CatalogUnitsListAsync(
-        PostV1CatalogUnitsListRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1CatalogUnitsListResponse>(
-            PostV1CatalogUnitsListAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Catalog.PostV1CatalogUnitsOptionsAsync(new PostV1CatalogUnitsOptionsRequest());
-    /// </code></example>
-    public WithRawResponseTask<PostV1CatalogUnitsOptionsResponse> PostV1CatalogUnitsOptionsAsync(
-        PostV1CatalogUnitsOptionsRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1CatalogUnitsOptionsResponse>(
-            PostV1CatalogUnitsOptionsAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Catalog.PostV1CatalogItemGroupsCreateAsync(
-    ///     new PostV1CatalogItemGroupsCreateRequest { Code = "code", Name = "name" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1CatalogItemGroupsCreateResponse> PostV1CatalogItemGroupsCreateAsync(
-        PostV1CatalogItemGroupsCreateRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1CatalogItemGroupsCreateResponse>(
-            PostV1CatalogItemGroupsCreateAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Catalog.PostV1CatalogItemGroupsUpdateAsync(
-    ///     new PostV1CatalogItemGroupsUpdateRequest { Id = "id" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1CatalogItemGroupsUpdateResponse> PostV1CatalogItemGroupsUpdateAsync(
-        PostV1CatalogItemGroupsUpdateRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1CatalogItemGroupsUpdateResponse>(
-            PostV1CatalogItemGroupsUpdateAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Catalog.PostV1CatalogItemGroupsDeleteAsync(
-    ///     new PostV1CatalogItemGroupsDeleteRequest { Id = "id" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1CatalogItemGroupsDeleteResponse> PostV1CatalogItemGroupsDeleteAsync(
-        PostV1CatalogItemGroupsDeleteRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1CatalogItemGroupsDeleteResponse>(
-            PostV1CatalogItemGroupsDeleteAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Catalog.PostV1CatalogItemGroupsListAsync(new PostV1CatalogItemGroupsListRequest());
-    /// </code></example>
-    public WithRawResponseTask<PostV1CatalogItemGroupsListResponse> PostV1CatalogItemGroupsListAsync(
-        PostV1CatalogItemGroupsListRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1CatalogItemGroupsListResponse>(
-            PostV1CatalogItemGroupsListAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Catalog.PostV1CatalogItemsSuppliersUpsertAsync(
-    ///     new PostV1CatalogItemsSuppliersUpsertRequest { ItemId = "itemId", PartnerId = "partnerId" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1CatalogItemsSuppliersUpsertResponse> PostV1CatalogItemsSuppliersUpsertAsync(
-        PostV1CatalogItemsSuppliersUpsertRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1CatalogItemsSuppliersUpsertResponse>(
-            PostV1CatalogItemsSuppliersUpsertAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Catalog.PostV1CatalogItemsSuppliersListAsync(
-    ///     new PostV1CatalogItemsSuppliersListRequest()
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1CatalogItemsSuppliersListResponse> PostV1CatalogItemsSuppliersListAsync(
-        PostV1CatalogItemsSuppliersListRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1CatalogItemsSuppliersListResponse>(
-            PostV1CatalogItemsSuppliersListAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Catalog.PostV1CatalogItemsSuppliersDeleteAsync(
-    ///     new PostV1CatalogItemsSuppliersDeleteRequest { Id = "id" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1CatalogItemsSuppliersDeleteResponse> PostV1CatalogItemsSuppliersDeleteAsync(
-        PostV1CatalogItemsSuppliersDeleteRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1CatalogItemsSuppliersDeleteResponse>(
-            PostV1CatalogItemsSuppliersDeleteAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Catalog.PostV1CatalogPriceListsCreateAsync(
-    ///     new PostV1CatalogPriceListsCreateRequest { Code = "code", Name = "name" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1CatalogPriceListsCreateResponse> PostV1CatalogPriceListsCreateAsync(
-        PostV1CatalogPriceListsCreateRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1CatalogPriceListsCreateResponse>(
-            PostV1CatalogPriceListsCreateAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Catalog.PostV1CatalogPriceListsUpdateAsync(
-    ///     new PostV1CatalogPriceListsUpdateRequest { Id = "id" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1CatalogPriceListsUpdateResponse> PostV1CatalogPriceListsUpdateAsync(
-        PostV1CatalogPriceListsUpdateRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1CatalogPriceListsUpdateResponse>(
-            PostV1CatalogPriceListsUpdateAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Catalog.PostV1CatalogPriceListsListAsync(new PostV1CatalogPriceListsListRequest());
-    /// </code></example>
-    public WithRawResponseTask<PostV1CatalogPriceListsListResponse> PostV1CatalogPriceListsListAsync(
-        PostV1CatalogPriceListsListRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1CatalogPriceListsListResponse>(
-            PostV1CatalogPriceListsListAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Catalog.PostV1CatalogPriceListsItemsSetAsync(
-    ///     new PostV1CatalogPriceListsItemsSetRequest
+    /// await client.Catalog.PriceListsItemsSetAsync(
+    ///     new PriceListsItemsSetCatalogRequest
     ///     {
     ///         PriceListId = "priceListId",
-    ///         Items = new List&lt;PostV1CatalogPriceListsItemsSetRequestItemsItem&gt;()
+    ///         Items = new List&lt;PriceListsItemsSetCatalogRequestItemsItem&gt;()
     ///         {
-    ///             new PostV1CatalogPriceListsItemsSetRequestItemsItem
+    ///             new PriceListsItemsSetCatalogRequestItemsItem
     ///             {
     ///                 ItemId = "itemId",
-    ///                 UnitPriceExclVat = "unitPriceExclVat",
+    ///                 UnitPriceExclVat = "121.0000",
     ///             },
     ///         },
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1CatalogPriceListsItemsSetResponse> PostV1CatalogPriceListsItemsSetAsync(
-        PostV1CatalogPriceListsItemsSetRequest request,
+    public WithRawResponseTask<PriceListsItemsSetCatalogResponse> PriceListsItemsSetAsync(
+        PriceListsItemsSetCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1CatalogPriceListsItemsSetResponse>(
-            PostV1CatalogPriceListsItemsSetAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<PriceListsItemsSetCatalogResponse>(
+            PriceListsItemsSetAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Catalog.PostV1CatalogPriceListsItemsListAsync(
-    ///     new PostV1CatalogPriceListsItemsListRequest { PriceListId = "priceListId" }
+    /// await client.Catalog.PriceListsItemsListAsync(
+    ///     new PriceListsItemsListCatalogRequest { PriceListId = "priceListId" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1CatalogPriceListsItemsListResponse> PostV1CatalogPriceListsItemsListAsync(
-        PostV1CatalogPriceListsItemsListRequest request,
+    public WithRawResponseTask<PriceListsItemsListCatalogResponse> PriceListsItemsListAsync(
+        PriceListsItemsListCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1CatalogPriceListsItemsListResponse>(
-            PostV1CatalogPriceListsItemsListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<PriceListsItemsListCatalogResponse>(
+            PriceListsItemsListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Catalog.PostV1CatalogPriceListsItemsDeleteAsync(
-    ///     new PostV1CatalogPriceListsItemsDeleteRequest { PriceListId = "priceListId", ItemId = "itemId" }
+    /// await client.Catalog.PriceListsItemsDeleteAsync(
+    ///     new PriceListsItemsDeleteCatalogRequest { PriceListId = "priceListId", ItemId = "itemId" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1CatalogPriceListsItemsDeleteResponse> PostV1CatalogPriceListsItemsDeleteAsync(
-        PostV1CatalogPriceListsItemsDeleteRequest request,
+    public WithRawResponseTask<PriceListsItemsDeleteCatalogResponse> PriceListsItemsDeleteAsync(
+        PriceListsItemsDeleteCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1CatalogPriceListsItemsDeleteResponse>(
-            PostV1CatalogPriceListsItemsDeleteAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<PriceListsItemsDeleteCatalogResponse>(
+            PriceListsItemsDeleteAsyncCore(request, options, cancellationToken)
         );
     }
 }

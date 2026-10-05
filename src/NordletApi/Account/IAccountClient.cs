@@ -2,194 +2,194 @@ namespace NordletApi;
 
 public partial interface IAccountClient
 {
-    WithRawResponseTask<PostV1AccountLoginLinkRequestResponse> PostV1AccountLoginLinkRequestAsync(
-        PostV1AccountLoginLinkRequestRequest request,
+    WithRawResponseTask<LoginLinkRequestAccountResponse> LoginLinkRequestAsync(
+        LoginLinkRequestAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AccountLoginLinkConsumeResponse> PostV1AccountLoginLinkConsumeAsync(
-        PostV1AccountLoginLinkConsumeRequest request,
+    WithRawResponseTask<LoginLinkConsumeAccountResponse> LoginLinkConsumeAsync(
+        LoginLinkConsumeAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AccountLogoutResponse> PostV1AccountLogoutAsync(
-        PostV1AccountLogoutRequest request,
+    WithRawResponseTask<LogoutAccountResponse> LogoutAsync(
+        LogoutAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AccountMeResponse> PostV1AccountMeAsync(
-        PostV1AccountMeRequest request,
+    WithRawResponseTask<MeAccountResponse> MeAsync(
+        MeAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AccountMembersListResponse> PostV1AccountMembersListAsync(
-        PostV1AccountMembersListRequest request,
+    WithRawResponseTask<MembersListAccountResponse> MembersListAsync(
+        MembersListAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AccountMembersSetRoleResponse> PostV1AccountMembersSetRoleAsync(
-        PostV1AccountMembersSetRoleRequest request,
+    WithRawResponseTask<MembersSetRoleAccountResponse> MembersSetRoleAsync(
+        MembersSetRoleAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AccountMembersTransferOwnershipResponse> PostV1AccountMembersTransferOwnershipAsync(
-        PostV1AccountMembersTransferOwnershipRequest request,
+    WithRawResponseTask<MembersTransferOwnershipAccountResponse> MembersTransferOwnershipAsync(
+        MembersTransferOwnershipAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AccountMembersRemoveResponse> PostV1AccountMembersRemoveAsync(
-        PostV1AccountMembersRemoveRequest request,
+    WithRawResponseTask<MembersRemoveAccountResponse> MembersRemoveAsync(
+        MembersRemoveAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AccountInvitesCreateResponse> PostV1AccountInvitesCreateAsync(
-        PostV1AccountInvitesCreateRequest request,
+    WithRawResponseTask<InvitesCreateAccountResponse> InvitesCreateAsync(
+        InvitesCreateAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AccountInvitesListResponse> PostV1AccountInvitesListAsync(
-        PostV1AccountInvitesListRequest request,
+    WithRawResponseTask<InvitesListAccountResponse> InvitesListAsync(
+        InvitesListAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AccountInvitesRevokeResponse> PostV1AccountInvitesRevokeAsync(
-        PostV1AccountInvitesRevokeRequest request,
+    WithRawResponseTask<InvitesRevokeAccountResponse> InvitesRevokeAsync(
+        InvitesRevokeAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AccountInvitesGetResponse> PostV1AccountInvitesGetAsync(
-        PostV1AccountInvitesGetRequest request,
+    WithRawResponseTask<InvitesGetAccountResponse> InvitesGetAsync(
+        InvitesGetAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AccountInvitesAcceptResponse> PostV1AccountInvitesAcceptAsync(
-        PostV1AccountInvitesAcceptRequest request,
+    WithRawResponseTask<InvitesAcceptAccountResponse> InvitesAcceptAsync(
+        InvitesAcceptAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AccountLocaleSetResponse> PostV1AccountLocaleSetAsync(
-        PostV1AccountLocaleSetRequest request,
+    WithRawResponseTask<LocaleSetAccountResponse> LocaleSetAsync(
+        LocaleSetAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AccountCompaniesCreateResponse> PostV1AccountCompaniesCreateAsync(
-        PostV1AccountCompaniesCreateRequest request,
+    WithRawResponseTask<CompaniesCreateAccountResponse> CompaniesCreateAsync(
+        CompaniesCreateAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AccountCompaniesSelectResponse> PostV1AccountCompaniesSelectAsync(
-        PostV1AccountCompaniesSelectRequest request,
+    WithRawResponseTask<CompaniesSelectAccountResponse> CompaniesSelectAsync(
+        CompaniesSelectAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AccountCompaniesProfileResponse> PostV1AccountCompaniesProfileAsync(
-        PostV1AccountCompaniesProfileRequest request,
+    WithRawResponseTask<CompaniesProfileAccountResponse> CompaniesProfileAsync(
+        CompaniesProfileAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AccountCompaniesUpdateResponse> PostV1AccountCompaniesUpdateAsync(
-        PostV1AccountCompaniesUpdateRequest request,
+    WithRawResponseTask<CompaniesUpdateAccountResponse> CompaniesUpdateAsync(
+        CompaniesUpdateAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AccountCompaniesArchiveResponse> PostV1AccountCompaniesArchiveAsync(
-        PostV1AccountCompaniesArchiveRequest request,
+    WithRawResponseTask<CompaniesArchiveAccountResponse> CompaniesArchiveAsync(
+        CompaniesArchiveAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AccountCompaniesDeleteResponse> PostV1AccountCompaniesDeleteAsync(
-        PostV1AccountCompaniesDeleteRequest request,
+    WithRawResponseTask<CompaniesDeleteAccountResponse> CompaniesDeleteAsync(
+        CompaniesDeleteAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AccountCompaniesActivateResponse> PostV1AccountCompaniesActivateAsync(
-        PostV1AccountCompaniesActivateRequest request,
+    WithRawResponseTask<CompaniesActivateAccountResponse> CompaniesActivateAsync(
+        CompaniesActivateAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AccountApiKeysCreateResponse> PostV1AccountApiKeysCreateAsync(
-        PostV1AccountApiKeysCreateRequest request,
+    WithRawResponseTask<ApiKeysCreateAccountResponse> ApiKeysCreateAsync(
+        ApiKeysCreateAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AccountApiKeysListResponse> PostV1AccountApiKeysListAsync(
-        PostV1AccountApiKeysListRequest request,
+    WithRawResponseTask<ApiKeysListAccountResponse> ApiKeysListAsync(
+        ApiKeysListAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AccountApiKeysRotateResponse> IssueAReplacementForAnApiKeyAndSetTheOldOneToStopWorkingAfterAShortOverlapAsync(
-        PostV1AccountApiKeysRotateRequest request,
+    WithRawResponseTask<ApiKeysRotateAccountResponse> ApiKeysRotateAsync(
+        ApiKeysRotateAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AccountApiKeysRevokeResponse> PostV1AccountApiKeysRevokeAsync(
-        PostV1AccountApiKeysRevokeRequest request,
+    WithRawResponseTask<ApiKeysRevokeAccountResponse> ApiKeysRevokeAsync(
+        ApiKeysRevokeAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AccountConsentAcceptResponse> PostV1AccountConsentAcceptAsync(
-        PostV1AccountConsentAcceptRequest request,
+    WithRawResponseTask<ConsentAcceptAccountResponse> ConsentAcceptAsync(
+        ConsentAcceptAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AccountProfileUpdateResponse> PostV1AccountProfileUpdateAsync(
-        PostV1AccountProfileUpdateRequest request,
+    WithRawResponseTask<ProfileUpdateAccountResponse> ProfileUpdateAsync(
+        ProfileUpdateAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AccountEmailChangeRequestResponse> PostV1AccountEmailChangeRequestAsync(
-        PostV1AccountEmailChangeRequestRequest request,
+    WithRawResponseTask<EmailChangeRequestAccountResponse> EmailChangeRequestAsync(
+        EmailChangeRequestAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AccountSessionsListResponse> PostV1AccountSessionsListAsync(
-        PostV1AccountSessionsListRequest request,
+    WithRawResponseTask<SessionsListAccountResponse> SessionsListAsync(
+        SessionsListAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AccountSessionsRevokeResponse> PostV1AccountSessionsRevokeAsync(
-        PostV1AccountSessionsRevokeRequest request,
+    WithRawResponseTask<SessionsRevokeAccountResponse> SessionsRevokeAsync(
+        SessionsRevokeAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AccountSessionsRevokeOthersResponse> PostV1AccountSessionsRevokeOthersAsync(
-        PostV1AccountSessionsRevokeOthersRequest request,
+    WithRawResponseTask<SessionsRevokeOthersAccountResponse> SessionsRevokeOthersAsync(
+        SessionsRevokeOthersAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AccountExportResponse> DownloadEverythingNordletStoresAboutTheSignedInUserAsync(
-        PostV1AccountExportRequest request,
+    WithRawResponseTask<ExportAccountResponse> ExportAsync(
+        ExportAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
@@ -197,38 +197,38 @@ public partial interface IAccountClient
     /// <summary>
     /// Removes the user: sessions, sign-in links, memberships and pending invitations are deleted at once; the email and name are replaced by an anonymous placeholder immediately and the remaining row is removed after 30 days. Refused while the user still owns or pays for a company that is not deleted.
     /// </summary>
-    WithRawResponseTask<PostV1AccountDeleteResponse> DeleteTheSignedInUserAccountAsync(
-        PostV1AccountDeleteRequest request,
+    WithRawResponseTask<DeleteAccountResponse> DeleteAsync(
+        DeleteAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AccountReferralGetResponse> PostV1AccountReferralGetAsync(
-        PostV1AccountReferralGetRequest request,
+    WithRawResponseTask<ReferralGetAccountResponse> ReferralGetAsync(
+        ReferralGetAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AccountReferralConvertResponse> PostV1AccountReferralConvertAsync(
-        PostV1AccountReferralConvertRequest request,
+    WithRawResponseTask<ReferralConvertAccountResponse> ReferralConvertAsync(
+        ReferralConvertAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AccountTableSettingsGetResponse> PostV1AccountTableSettingsGetAsync(
-        PostV1AccountTableSettingsGetRequest request,
+    WithRawResponseTask<TableSettingsGetAccountResponse> TableSettingsGetAsync(
+        TableSettingsGetAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AccountTableSettingsSetResponse> PostV1AccountTableSettingsSetAsync(
-        PostV1AccountTableSettingsSetRequest request,
+    WithRawResponseTask<TableSettingsSetAccountResponse> TableSettingsSetAsync(
+        TableSettingsSetAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AccountTableSettingsListResponse> PostV1AccountTableSettingsListAsync(
-        PostV1AccountTableSettingsListRequest request,
+    WithRawResponseTask<TableSettingsListAccountResponse> TableSettingsListAsync(
+        TableSettingsListAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );

@@ -2,26 +2,26 @@ namespace NordletApi;
 
 public partial interface ILedgerClient
 {
-    WithRawResponseTask<PostV1LedgerAccountsListResponse> PostV1LedgerAccountsListAsync(
-        PostV1LedgerAccountsListRequest request,
+    WithRawResponseTask<AccountsListLedgerResponse> AccountsListAsync(
+        AccountsListLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1LedgerAccountsCreateResponse> PostV1LedgerAccountsCreateAsync(
-        PostV1LedgerAccountsCreateRequest request,
+    WithRawResponseTask<AccountsCreateLedgerResponse> AccountsCreateAsync(
+        AccountsCreateLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1LedgerAccountsUpdateResponse> PostV1LedgerAccountsUpdateAsync(
-        PostV1LedgerAccountsUpdateRequest request,
+    WithRawResponseTask<AccountsUpdateLedgerResponse> AccountsUpdateAsync(
+        AccountsUpdateLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1LedgerAccountsApplyTemplateResponse> PostV1LedgerAccountsApplyTemplateAsync(
-        PostV1LedgerAccountsApplyTemplateRequest request,
+    WithRawResponseTask<AccountsApplyTemplateLedgerResponse> AccountsApplyTemplateAsync(
+        AccountsApplyTemplateLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
@@ -29,122 +29,122 @@ public partial interface ILedgerClient
     /// <summary>
     /// Replaces the seeded chart with the chart template of the company country (the Romanian general chart for a company registered in Romania, the Lithuanian standard chart otherwise) and switches the posting defaults with it. Answers 409 when the company already uses that chart, has journal entries, holds accounts created by hand, or has settings that name an account the new chart does not have.
     /// </summary>
-    WithRawResponseTask<PostV1LedgerAccountsSwitchChartResponse> MoveACompanyThatHasPostedNothingYetToTheChartOfAccountsOfItsCountryAsync(
-        PostV1LedgerAccountsSwitchChartRequest request,
+    WithRawResponseTask<AccountsSwitchChartLedgerResponse> AccountsSwitchChartAsync(
+        AccountsSwitchChartLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1LedgerPeriodsListResponse> PostV1LedgerPeriodsListAsync(
-        PostV1LedgerPeriodsListRequest request,
+    WithRawResponseTask<PeriodsListLedgerResponse> PeriodsListAsync(
+        PeriodsListLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1LedgerPeriodsLockResponse> PostV1LedgerPeriodsLockAsync(
-        PostV1LedgerPeriodsLockRequest request,
+    WithRawResponseTask<PeriodsLockLedgerResponse> PeriodsLockAsync(
+        PeriodsLockLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1LedgerPeriodsUnlockResponse> PostV1LedgerPeriodsUnlockAsync(
-        PostV1LedgerPeriodsUnlockRequest request,
+    WithRawResponseTask<PeriodsUnlockLedgerResponse> PeriodsUnlockAsync(
+        PeriodsUnlockLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1LedgerJournalTransactionsListResponse> PostV1LedgerJournalTransactionsListAsync(
-        PostV1LedgerJournalTransactionsListRequest request,
+    WithRawResponseTask<JournalTransactionsListLedgerResponse> JournalTransactionsListAsync(
+        JournalTransactionsListLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1LedgerCostCentersCreateResponse> PostV1LedgerCostCentersCreateAsync(
-        PostV1LedgerCostCentersCreateRequest request,
+    WithRawResponseTask<CostCentersCreateLedgerResponse> CostCentersCreateAsync(
+        CostCentersCreateLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1LedgerCostCentersUpdateResponse> PostV1LedgerCostCentersUpdateAsync(
-        PostV1LedgerCostCentersUpdateRequest request,
+    WithRawResponseTask<CostCentersUpdateLedgerResponse> CostCentersUpdateAsync(
+        CostCentersUpdateLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1LedgerCostCentersListResponse> PostV1LedgerCostCentersListAsync(
-        PostV1LedgerCostCentersListRequest request,
+    WithRawResponseTask<CostCentersListLedgerResponse> CostCentersListAsync(
+        CostCentersListLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1LedgerCostCenterGroupsCreateResponse> PostV1LedgerCostCenterGroupsCreateAsync(
-        PostV1LedgerCostCenterGroupsCreateRequest request,
+    WithRawResponseTask<CostCenterGroupsCreateLedgerResponse> CostCenterGroupsCreateAsync(
+        CostCenterGroupsCreateLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1LedgerCostCenterGroupsUpdateResponse> PostV1LedgerCostCenterGroupsUpdateAsync(
-        PostV1LedgerCostCenterGroupsUpdateRequest request,
+    WithRawResponseTask<CostCenterGroupsUpdateLedgerResponse> CostCenterGroupsUpdateAsync(
+        CostCenterGroupsUpdateLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1LedgerCostCenterGroupsDeleteResponse> PostV1LedgerCostCenterGroupsDeleteAsync(
-        PostV1LedgerCostCenterGroupsDeleteRequest request,
+    WithRawResponseTask<CostCenterGroupsDeleteLedgerResponse> CostCenterGroupsDeleteAsync(
+        CostCenterGroupsDeleteLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1LedgerCostCenterGroupsListResponse> PostV1LedgerCostCenterGroupsListAsync(
-        PostV1LedgerCostCenterGroupsListRequest request,
+    WithRawResponseTask<CostCenterGroupsListLedgerResponse> CostCenterGroupsListAsync(
+        CostCenterGroupsListLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1LedgerPostingRulesListResponse> PostV1LedgerPostingRulesListAsync(
-        PostV1LedgerPostingRulesListRequest request,
+    WithRawResponseTask<PostingRulesListLedgerResponse> PostingRulesListAsync(
+        PostingRulesListLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1LedgerPostingRulesUpdateResponse> PostV1LedgerPostingRulesUpdateAsync(
-        PostV1LedgerPostingRulesUpdateRequest request,
+    WithRawResponseTask<PostingRulesUpdateLedgerResponse> PostingRulesUpdateAsync(
+        PostingRulesUpdateLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1LedgerOwnersCreateResponse> PostV1LedgerOwnersCreateAsync(
-        PostV1LedgerOwnersCreateRequest request,
+    WithRawResponseTask<OwnersCreateLedgerResponse> OwnersCreateAsync(
+        OwnersCreateLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1LedgerOwnersUpdateResponse> PostV1LedgerOwnersUpdateAsync(
-        PostV1LedgerOwnersUpdateRequest request,
+    WithRawResponseTask<OwnersUpdateLedgerResponse> OwnersUpdateAsync(
+        OwnersUpdateLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1LedgerOwnersDeleteResponse> PostV1LedgerOwnersDeleteAsync(
-        PostV1LedgerOwnersDeleteRequest request,
+    WithRawResponseTask<OwnersDeleteLedgerResponse> OwnersDeleteAsync(
+        OwnersDeleteLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1LedgerOwnersListResponse> PostV1LedgerOwnersListAsync(
-        PostV1LedgerOwnersListRequest request,
+    WithRawResponseTask<OwnersListLedgerResponse> OwnersListAsync(
+        OwnersListLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1LedgerJournalTransactionsGetResponse> PostV1LedgerJournalTransactionsGetAsync(
-        PostV1LedgerJournalTransactionsGetRequest request,
+    WithRawResponseTask<JournalTransactionsGetLedgerResponse> JournalTransactionsGetAsync(
+        JournalTransactionsGetLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1LedgerJournalTransactionsCreateResponse> PostV1LedgerJournalTransactionsCreateAsync(
-        PostV1LedgerJournalTransactionsCreateRequest request,
+    WithRawResponseTask<JournalTransactionsCreateLedgerResponse> JournalTransactionsCreateAsync(
+        JournalTransactionsCreateLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
@@ -152,14 +152,14 @@ public partial interface ILedgerClient
     /// <summary>
     /// The rows or codes of each return or registry deposit of the company country that are filled from account balances. Accounts fall into a row by the layout defaults for the standard chart of accounts unless mapped under Settings → Statement rows.
     /// </summary>
-    WithRawResponseTask<PostV1LedgerStatementRowsSchemesResponse> NationalStatementLayoutsAvailableToTheCompanyAsync(
-        PostV1LedgerStatementRowsSchemesRequest request,
+    WithRawResponseTask<StatementRowsSchemesLedgerResponse> StatementRowsSchemesAsync(
+        StatementRowsSchemesLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1LedgerStatementRowsListResponse> AccountsPlacedOnTheRowsOfAStatementLayoutWithTheRowTotalsOfAPeriodAsync(
-        PostV1LedgerStatementRowsListRequest request,
+    WithRawResponseTask<StatementRowsListLedgerResponse> StatementRowsListAsync(
+        StatementRowsListLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
@@ -167,35 +167,8 @@ public partial interface ILedgerClient
     /// <summary>
     /// A mapping on a code prefix covers every account whose code starts with it; the longest matching prefix wins. An empty rowCode removes the mapping so the layout default applies again.
     /// </summary>
-    WithRawResponseTask<PostV1LedgerStatementRowsSetResponse> MapAnAccountOrAnAccountCodePrefixToARowOfAStatementLayoutAsync(
-        PostV1LedgerStatementRowsSetRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    );
-
-    /// <summary>
-    /// Directors, board members, the company secretary, representatives and liquidators, with their personal identifier, appointment and resignation dates and whether they sign the annual accounts. Annual returns and registry deposits are built from this register.
-    /// </summary>
-    WithRawResponseTask<PostV1OfficersListResponse> OfficersOfTheCompanyAsync(
-        PostV1OfficersListRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    );
-
-    WithRawResponseTask<PostV1OfficersCreateResponse> RecordAnOfficerOfTheCompanyAsync(
-        PostV1OfficersCreateRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    );
-
-    WithRawResponseTask<PostV1OfficersUpdateResponse> ChangeARecordedOfficerAsync(
-        PostV1OfficersUpdateRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    );
-
-    WithRawResponseTask<PostV1OfficersDeleteResponse> RemoveARecordedOfficerAsync(
-        PostV1OfficersDeleteRequest request,
+    WithRawResponseTask<StatementRowsSetLedgerResponse> StatementRowsSetAsync(
+        StatementRowsSetLedgerRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );

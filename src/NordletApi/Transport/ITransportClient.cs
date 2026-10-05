@@ -2,38 +2,38 @@ namespace NordletApi;
 
 public partial interface ITransportClient
 {
-    WithRawResponseTask<PostV1TransportWaybillsCreateResponse> PostV1TransportWaybillsCreateAsync(
-        PostV1TransportWaybillsCreateRequest request,
+    WithRawResponseTask<WaybillsCreateTransportResponse> WaybillsCreateAsync(
+        WaybillsCreateTransportRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1TransportWaybillsUpdateResponse> PostV1TransportWaybillsUpdateAsync(
-        PostV1TransportWaybillsUpdateRequest request,
+    WithRawResponseTask<WaybillsUpdateTransportResponse> WaybillsUpdateAsync(
+        WaybillsUpdateTransportRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1TransportWaybillsIssueResponse> PostV1TransportWaybillsIssueAsync(
-        PostV1TransportWaybillsIssueRequest request,
+    WithRawResponseTask<WaybillsIssueTransportResponse> WaybillsIssueAsync(
+        WaybillsIssueTransportRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1TransportWaybillsCancelResponse> PostV1TransportWaybillsCancelAsync(
-        PostV1TransportWaybillsCancelRequest request,
+    WithRawResponseTask<WaybillsCancelTransportResponse> WaybillsCancelAsync(
+        WaybillsCancelTransportRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1TransportWaybillsGetResponse> PostV1TransportWaybillsGetAsync(
-        PostV1TransportWaybillsGetRequest request,
+    WithRawResponseTask<WaybillsGetTransportResponse> WaybillsGetAsync(
+        WaybillsGetTransportRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1TransportWaybillsListResponse> PostV1TransportWaybillsListAsync(
-        PostV1TransportWaybillsListRequest request,
+    WithRawResponseTask<WaybillsListTransportResponse> WaybillsListAsync(
+        WaybillsListTransportRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );

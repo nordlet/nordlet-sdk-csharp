@@ -12,8 +12,8 @@ public partial class FilesClient : IFilesClient
         _client = client;
     }
 
-    private async Task<WithRawResponse<PostV1FilesUploadResponse>> PostV1FilesUploadAsyncCore(
-        PostV1FilesUploadRequest request,
+    private async Task<WithRawResponse<UploadFilesResponse>> UploadAsyncCore(
+        UploadFilesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -49,8 +49,8 @@ public partial class FilesClient : IFilesClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1FilesUploadResponse>(responseBody)!;
-                return new WithRawResponse<PostV1FilesUploadResponse>()
+                var responseData = JsonUtils.Deserialize<UploadFilesResponse>(responseBody)!;
+                return new WithRawResponse<UploadFilesResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -109,6 +109,18 @@ public partial class FilesClient : IFilesClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -135,6 +147,18 @@ public partial class FilesClient : IFilesClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -201,8 +225,8 @@ public partial class FilesClient : IFilesClient
         }
     }
 
-    private async Task<WithRawResponse<PostV1FilesGetResponse>> PostV1FilesGetAsyncCore(
-        PostV1FilesGetRequest request,
+    private async Task<WithRawResponse<GetFilesResponse>> GetAsyncCore(
+        GetFilesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -238,8 +262,8 @@ public partial class FilesClient : IFilesClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1FilesGetResponse>(responseBody)!;
-                return new WithRawResponse<PostV1FilesGetResponse>()
+                var responseData = JsonUtils.Deserialize<GetFilesResponse>(responseBody)!;
+                return new WithRawResponse<GetFilesResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -298,6 +322,18 @@ public partial class FilesClient : IFilesClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -324,6 +360,18 @@ public partial class FilesClient : IFilesClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -390,8 +438,8 @@ public partial class FilesClient : IFilesClient
         }
     }
 
-    private async Task<WithRawResponse<PostV1FilesListResponse>> PostV1FilesListAsyncCore(
-        PostV1FilesListRequest request,
+    private async Task<WithRawResponse<ListFilesResponse>> ListAsyncCore(
+        ListFilesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -427,8 +475,8 @@ public partial class FilesClient : IFilesClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1FilesListResponse>(responseBody)!;
-                return new WithRawResponse<PostV1FilesListResponse>()
+                var responseData = JsonUtils.Deserialize<ListFilesResponse>(responseBody)!;
+                return new WithRawResponse<ListFilesResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -487,6 +535,18 @@ public partial class FilesClient : IFilesClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -513,6 +573,18 @@ public partial class FilesClient : IFilesClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -579,8 +651,8 @@ public partial class FilesClient : IFilesClient
         }
     }
 
-    private async Task<WithRawResponse<PostV1FilesDeleteResponse>> PostV1FilesDeleteAsyncCore(
-        PostV1FilesDeleteRequest request,
+    private async Task<WithRawResponse<DeleteFilesResponse>> DeleteAsyncCore(
+        DeleteFilesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -616,8 +688,8 @@ public partial class FilesClient : IFilesClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1FilesDeleteResponse>(responseBody)!;
-                return new WithRawResponse<PostV1FilesDeleteResponse>()
+                var responseData = JsonUtils.Deserialize<DeleteFilesResponse>(responseBody)!;
+                return new WithRawResponse<DeleteFilesResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -676,6 +748,18 @@ public partial class FilesClient : IFilesClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -702,6 +786,18 @@ public partial class FilesClient : IFilesClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -769,8 +865,8 @@ public partial class FilesClient : IFilesClient
     }
 
     /// <example><code>
-    /// await client.Files.PostV1FilesUploadAsync(
-    ///     new PostV1FilesUploadRequest
+    /// await client.Files.UploadAsync(
+    ///     new UploadFilesRequest
     ///     {
     ///         Entity = "entity",
     ///         FileName = "fileName",
@@ -779,56 +875,56 @@ public partial class FilesClient : IFilesClient
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1FilesUploadResponse> PostV1FilesUploadAsync(
-        PostV1FilesUploadRequest request,
+    public WithRawResponseTask<UploadFilesResponse> UploadAsync(
+        UploadFilesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1FilesUploadResponse>(
-            PostV1FilesUploadAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<UploadFilesResponse>(
+            UploadAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Files.PostV1FilesGetAsync(new PostV1FilesGetRequest { Id = "id" });
+    /// await client.Files.GetAsync(new GetFilesRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1FilesGetResponse> PostV1FilesGetAsync(
-        PostV1FilesGetRequest request,
+    public WithRawResponseTask<GetFilesResponse> GetAsync(
+        GetFilesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1FilesGetResponse>(
-            PostV1FilesGetAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<GetFilesResponse>(
+            GetAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Files.PostV1FilesListAsync(new PostV1FilesListRequest());
+    /// await client.Files.ListAsync(new ListFilesRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1FilesListResponse> PostV1FilesListAsync(
-        PostV1FilesListRequest request,
+    public WithRawResponseTask<ListFilesResponse> ListAsync(
+        ListFilesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1FilesListResponse>(
-            PostV1FilesListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<ListFilesResponse>(
+            ListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Files.PostV1FilesDeleteAsync(new PostV1FilesDeleteRequest { Id = "id" });
+    /// await client.Files.DeleteAsync(new DeleteFilesRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1FilesDeleteResponse> PostV1FilesDeleteAsync(
-        PostV1FilesDeleteRequest request,
+    public WithRawResponseTask<DeleteFilesResponse> DeleteAsync(
+        DeleteFilesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1FilesDeleteResponse>(
-            PostV1FilesDeleteAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<DeleteFilesResponse>(
+            DeleteAsyncCore(request, options, cancellationToken)
         );
     }
 }

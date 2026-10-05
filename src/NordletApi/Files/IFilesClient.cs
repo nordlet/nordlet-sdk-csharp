@@ -2,26 +2,26 @@ namespace NordletApi;
 
 public partial interface IFilesClient
 {
-    WithRawResponseTask<PostV1FilesUploadResponse> PostV1FilesUploadAsync(
-        PostV1FilesUploadRequest request,
+    WithRawResponseTask<UploadFilesResponse> UploadAsync(
+        UploadFilesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1FilesGetResponse> PostV1FilesGetAsync(
-        PostV1FilesGetRequest request,
+    WithRawResponseTask<GetFilesResponse> GetAsync(
+        GetFilesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1FilesListResponse> PostV1FilesListAsync(
-        PostV1FilesListRequest request,
+    WithRawResponseTask<ListFilesResponse> ListAsync(
+        ListFilesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1FilesDeleteResponse> PostV1FilesDeleteAsync(
-        PostV1FilesDeleteRequest request,
+    WithRawResponseTask<DeleteFilesResponse> DeleteAsync(
+        DeleteFilesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );

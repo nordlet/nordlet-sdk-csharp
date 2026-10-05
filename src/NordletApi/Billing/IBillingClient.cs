@@ -2,38 +2,38 @@ namespace NordletApi;
 
 public partial interface IBillingClient
 {
-    WithRawResponseTask<PostV1BillingAccountGetResponse> PostV1BillingAccountGetAsync(
-        PostV1BillingAccountGetRequest request,
+    WithRawResponseTask<AccountGetBillingResponse> AccountGetAsync(
+        AccountGetBillingRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BillingAccountSetPlanResponse> PostV1BillingAccountSetPlanAsync(
-        PostV1BillingAccountSetPlanRequest request,
+    WithRawResponseTask<AccountSetPlanBillingResponse> AccountSetPlanAsync(
+        AccountSetPlanBillingRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BillingTopupCreateResponse> PostV1BillingTopupCreateAsync(
-        PostV1BillingTopupCreateRequest request,
+    WithRawResponseTask<TopupCreateBillingResponse> TopupCreateAsync(
+        TopupCreateBillingRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BillingPortalCreateResponse> PostV1BillingPortalCreateAsync(
-        PostV1BillingPortalCreateRequest request,
+    WithRawResponseTask<PortalCreateBillingResponse> PortalCreateAsync(
+        PortalCreateBillingRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BillingTransactionsListResponse> PostV1BillingTransactionsListAsync(
-        PostV1BillingTransactionsListRequest request,
+    WithRawResponseTask<TransactionsListBillingResponse> TransactionsListAsync(
+        TransactionsListBillingRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BillingUsageListResponse> PostV1BillingUsageListAsync(
-        PostV1BillingUsageListRequest request,
+    WithRawResponseTask<UsageListBillingResponse> UsageListAsync(
+        UsageListBillingRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );

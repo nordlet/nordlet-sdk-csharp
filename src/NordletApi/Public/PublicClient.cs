@@ -13,9 +13,9 @@ public partial class PublicClient : IPublicClient
     }
 
     private async Task<
-        WithRawResponse<PostV1PublicIntegrationRequestsResponse>
-    > PostV1PublicIntegrationRequestsAsyncCore(
-        PostV1PublicIntegrationRequestsRequest request,
+        WithRawResponse<IntegrationRequestsPublicResponse>
+    > IntegrationRequestsAsyncCore(
+        IntegrationRequestsPublicRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -51,10 +51,10 @@ public partial class PublicClient : IPublicClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PublicIntegrationRequestsResponse>(
+                var responseData = JsonUtils.Deserialize<IntegrationRequestsPublicResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PublicIntegrationRequestsResponse>()
+                return new WithRawResponse<IntegrationRequestsPublicResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -113,6 +113,18 @@ public partial class PublicClient : IPublicClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -139,6 +151,18 @@ public partial class PublicClient : IPublicClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -205,8 +229,8 @@ public partial class PublicClient : IPublicClient
         }
     }
 
-    private async Task<RawResponse> GetV1PublicPayTokenAsyncCore(
-        GetV1PublicPayTokenRequest request,
+    private async Task<RawResponse> PayAsyncCore(
+        PayPublicRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -277,6 +301,18 @@ public partial class PublicClient : IPublicClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -303,6 +339,18 @@ public partial class PublicClient : IPublicClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -370,8 +418,8 @@ public partial class PublicClient : IPublicClient
     }
 
     /// <example><code>
-    /// await client.Public.PostV1PublicIntegrationRequestsAsync(
-    ///     new PostV1PublicIntegrationRequestsRequest
+    /// await client.Public.IntegrationRequestsAsync(
+    ///     new IntegrationRequestsPublicRequest
     ///     {
     ///         Integration = "integration",
     ///         Name = "name",
@@ -379,28 +427,26 @@ public partial class PublicClient : IPublicClient
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1PublicIntegrationRequestsResponse> PostV1PublicIntegrationRequestsAsync(
-        PostV1PublicIntegrationRequestsRequest request,
+    public WithRawResponseTask<IntegrationRequestsPublicResponse> IntegrationRequestsAsync(
+        IntegrationRequestsPublicRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PublicIntegrationRequestsResponse>(
-            PostV1PublicIntegrationRequestsAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<IntegrationRequestsPublicResponse>(
+            IntegrationRequestsAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Public.GetV1PublicPayTokenAsync(new GetV1PublicPayTokenRequest { Token = "token" });
+    /// await client.Public.PayAsync(new PayPublicRequest { Token = "token" });
     /// </code></example>
-    public WithRawResponseTask GetV1PublicPayTokenAsync(
-        GetV1PublicPayTokenRequest request,
+    public WithRawResponseTask PayAsync(
+        PayPublicRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask(
-            GetV1PublicPayTokenAsyncCore(request, options, cancellationToken)
-        );
+        return new WithRawResponseTask(PayAsyncCore(request, options, cancellationToken));
     }
 }

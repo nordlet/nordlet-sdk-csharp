@@ -12,8 +12,8 @@ public partial class AuditClient : IAuditClient
         _client = client;
     }
 
-    private async Task<WithRawResponse<PostV1AuditListResponse>> PostV1AuditListAsyncCore(
-        PostV1AuditListRequest request,
+    private async Task<WithRawResponse<ListAuditResponse>> ListAsyncCore(
+        ListAuditRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -49,8 +49,8 @@ public partial class AuditClient : IAuditClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1AuditListResponse>(responseBody)!;
-                return new WithRawResponse<PostV1AuditListResponse>()
+                var responseData = JsonUtils.Deserialize<ListAuditResponse>(responseBody)!;
+                return new WithRawResponse<ListAuditResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -109,6 +109,18 @@ public partial class AuditClient : IAuditClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -135,6 +147,18 @@ public partial class AuditClient : IAuditClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -202,16 +226,16 @@ public partial class AuditClient : IAuditClient
     }
 
     /// <example><code>
-    /// await client.Audit.PostV1AuditListAsync(new PostV1AuditListRequest());
+    /// await client.Audit.ListAsync(new ListAuditRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1AuditListResponse> PostV1AuditListAsync(
-        PostV1AuditListRequest request,
+    public WithRawResponseTask<ListAuditResponse> ListAsync(
+        ListAuditRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1AuditListResponse>(
-            PostV1AuditListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<ListAuditResponse>(
+            ListAsyncCore(request, options, cancellationToken)
         );
     }
 }

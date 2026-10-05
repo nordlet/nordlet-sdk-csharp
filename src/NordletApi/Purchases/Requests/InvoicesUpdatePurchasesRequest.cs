@@ -1,0 +1,59 @@
+using global::System.Text.Json.Serialization;
+using NordletApi.Core;
+
+namespace NordletApi;
+
+[Serializable]
+public record InvoicesUpdatePurchasesRequest
+{
+    [JsonPropertyName("id")]
+    public required string Id { get; set; }
+
+    [JsonPropertyName("partnerId")]
+    public string? PartnerId { get; set; }
+
+    [JsonPropertyName("documentNumber")]
+    public string? DocumentNumber { get; set; }
+
+    [JsonPropertyName("documentDate")]
+    public DateOnly? DocumentDate { get; set; }
+
+    [JsonPropertyName("dueDate")]
+    public DateOnly? DueDate { get; set; }
+
+    [JsonPropertyName("currency")]
+    public string? Currency { get; set; }
+
+    [JsonPropertyName("purchaseOrderId")]
+    public string? PurchaseOrderId { get; set; }
+
+    [JsonPropertyName("operationTypeId")]
+    public string? OperationTypeId { get; set; }
+
+    [JsonPropertyName("notes")]
+    public string? Notes { get; set; }
+
+    [JsonPropertyName("intrastatTransportMode")]
+    public string? IntrastatTransportMode { get; set; }
+
+    [JsonPropertyName("intrastatDeliveryTerms")]
+    public string? IntrastatDeliveryTerms { get; set; }
+
+    [JsonPropertyName("intrastatRegion")]
+    public string? IntrastatRegion { get; set; }
+
+    [JsonPropertyName("intrastatNatureOfTransaction")]
+    public string? IntrastatNatureOfTransaction { get; set; }
+
+    [JsonPropertyName("einvoiceNumber")]
+    public string? EinvoiceNumber { get; set; }
+
+    [JsonPropertyName("lines")]
+    public IEnumerable<InvoicesUpdatePurchasesRequestLinesItem>? Lines { get; set; }
+
+    /// <inheritdoc />
+    public override string ToString()
+    {
+        return JsonUtils.Serialize(this);
+    }
+}

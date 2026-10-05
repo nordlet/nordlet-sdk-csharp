@@ -13,9 +13,9 @@ public partial class PayrollClient : IPayrollClient
     }
 
     private async Task<
-        WithRawResponse<PostV1PayrollDepartmentsCreateResponse>
-    > PostV1PayrollDepartmentsCreateAsyncCore(
-        PostV1PayrollDepartmentsCreateRequest request,
+        WithRawResponse<DepartmentsCreatePayrollResponse>
+    > DepartmentsCreateAsyncCore(
+        DepartmentsCreatePayrollRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -51,10 +51,10 @@ public partial class PayrollClient : IPayrollClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PayrollDepartmentsCreateResponse>(
+                var responseData = JsonUtils.Deserialize<DepartmentsCreatePayrollResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PayrollDepartmentsCreateResponse>()
+                return new WithRawResponse<DepartmentsCreatePayrollResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -113,6 +113,18 @@ public partial class PayrollClient : IPayrollClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -139,6 +151,18 @@ public partial class PayrollClient : IPayrollClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -205,10 +229,8 @@ public partial class PayrollClient : IPayrollClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PayrollDepartmentsListResponse>
-    > PostV1PayrollDepartmentsListAsyncCore(
-        PostV1PayrollDepartmentsListRequest request,
+    private async Task<WithRawResponse<DepartmentsListPayrollResponse>> DepartmentsListAsyncCore(
+        DepartmentsListPayrollRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -244,10 +266,10 @@ public partial class PayrollClient : IPayrollClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PayrollDepartmentsListResponse>(
+                var responseData = JsonUtils.Deserialize<DepartmentsListPayrollResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PayrollDepartmentsListResponse>()
+                return new WithRawResponse<DepartmentsListPayrollResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -306,6 +328,18 @@ public partial class PayrollClient : IPayrollClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -332,6 +366,18 @@ public partial class PayrollClient : IPayrollClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -398,10 +444,8 @@ public partial class PayrollClient : IPayrollClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PayrollSchedulesCreateResponse>
-    > PostV1PayrollSchedulesCreateAsyncCore(
-        PostV1PayrollSchedulesCreateRequest request,
+    private async Task<WithRawResponse<SchedulesCreatePayrollResponse>> SchedulesCreateAsyncCore(
+        SchedulesCreatePayrollRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -437,10 +481,10 @@ public partial class PayrollClient : IPayrollClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PayrollSchedulesCreateResponse>(
+                var responseData = JsonUtils.Deserialize<SchedulesCreatePayrollResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PayrollSchedulesCreateResponse>()
+                return new WithRawResponse<SchedulesCreatePayrollResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -499,6 +543,18 @@ public partial class PayrollClient : IPayrollClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -525,6 +581,18 @@ public partial class PayrollClient : IPayrollClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -591,10 +659,8 @@ public partial class PayrollClient : IPayrollClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PayrollSchedulesListResponse>
-    > PostV1PayrollSchedulesListAsyncCore(
-        PostV1PayrollSchedulesListRequest request,
+    private async Task<WithRawResponse<SchedulesListPayrollResponse>> SchedulesListAsyncCore(
+        SchedulesListPayrollRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -630,10 +696,10 @@ public partial class PayrollClient : IPayrollClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PayrollSchedulesListResponse>(
+                var responseData = JsonUtils.Deserialize<SchedulesListPayrollResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PayrollSchedulesListResponse>()
+                return new WithRawResponse<SchedulesListPayrollResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -692,6 +758,18 @@ public partial class PayrollClient : IPayrollClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -718,6 +796,18 @@ public partial class PayrollClient : IPayrollClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -784,10 +874,8 @@ public partial class PayrollClient : IPayrollClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PayrollCalcResponse>
-    > CalculateOneEmployeePaymentUnderTheRulesOfTheCompanyCountryAsyncCore(
-        PostV1PayrollCalcRequest request,
+    private async Task<WithRawResponse<CalcPayrollResponse>> CalcAsyncCore(
+        CalcPayrollRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -823,8 +911,8 @@ public partial class PayrollClient : IPayrollClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PayrollCalcResponse>(responseBody)!;
-                return new WithRawResponse<PostV1PayrollCalcResponse>()
+                var responseData = JsonUtils.Deserialize<CalcPayrollResponse>(responseBody)!;
+                return new WithRawResponse<CalcPayrollResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -883,6 +971,18 @@ public partial class PayrollClient : IPayrollClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -909,6 +1009,18 @@ public partial class PayrollClient : IPayrollClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -975,10 +1087,8 @@ public partial class PayrollClient : IPayrollClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PayrollRunsCreateResponse>
-    > PostV1PayrollRunsCreateAsyncCore(
-        PostV1PayrollRunsCreateRequest request,
+    private async Task<WithRawResponse<RunsCreatePayrollResponse>> RunsCreateAsyncCore(
+        RunsCreatePayrollRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1014,10 +1124,8 @@ public partial class PayrollClient : IPayrollClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PayrollRunsCreateResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1PayrollRunsCreateResponse>()
+                var responseData = JsonUtils.Deserialize<RunsCreatePayrollResponse>(responseBody)!;
+                return new WithRawResponse<RunsCreatePayrollResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1076,6 +1184,18 @@ public partial class PayrollClient : IPayrollClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1102,6 +1222,18 @@ public partial class PayrollClient : IPayrollClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1168,8 +1300,8 @@ public partial class PayrollClient : IPayrollClient
         }
     }
 
-    private async Task<WithRawResponse<PostV1PayrollRunsGetResponse>> PostV1PayrollRunsGetAsyncCore(
-        PostV1PayrollRunsGetRequest request,
+    private async Task<WithRawResponse<RunsGetPayrollResponse>> RunsGetAsyncCore(
+        RunsGetPayrollRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1205,10 +1337,8 @@ public partial class PayrollClient : IPayrollClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PayrollRunsGetResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1PayrollRunsGetResponse>()
+                var responseData = JsonUtils.Deserialize<RunsGetPayrollResponse>(responseBody)!;
+                return new WithRawResponse<RunsGetPayrollResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1267,6 +1397,18 @@ public partial class PayrollClient : IPayrollClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1293,6 +1435,18 @@ public partial class PayrollClient : IPayrollClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1359,10 +1513,8 @@ public partial class PayrollClient : IPayrollClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PayrollRunsListResponse>
-    > PostV1PayrollRunsListAsyncCore(
-        PostV1PayrollRunsListRequest request,
+    private async Task<WithRawResponse<RunsListPayrollResponse>> RunsListAsyncCore(
+        RunsListPayrollRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1398,10 +1550,8 @@ public partial class PayrollClient : IPayrollClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PayrollRunsListResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1PayrollRunsListResponse>()
+                var responseData = JsonUtils.Deserialize<RunsListPayrollResponse>(responseBody)!;
+                return new WithRawResponse<RunsListPayrollResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1460,6 +1610,18 @@ public partial class PayrollClient : IPayrollClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1486,6 +1648,18 @@ public partial class PayrollClient : IPayrollClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1552,10 +1726,8 @@ public partial class PayrollClient : IPayrollClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PayrollLinesAttendanceResponse>
-    > RecordTheTimeAPersonWorkedInAPayrollLineAsyncCore(
-        PostV1PayrollLinesAttendanceRequest request,
+    private async Task<WithRawResponse<LinesAttendancePayrollResponse>> LinesAttendanceAsyncCore(
+        LinesAttendancePayrollRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1591,10 +1763,10 @@ public partial class PayrollClient : IPayrollClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PayrollLinesAttendanceResponse>(
+                var responseData = JsonUtils.Deserialize<LinesAttendancePayrollResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PayrollLinesAttendanceResponse>()
+                return new WithRawResponse<LinesAttendancePayrollResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1653,6 +1825,18 @@ public partial class PayrollClient : IPayrollClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1679,6 +1863,18 @@ public partial class PayrollClient : IPayrollClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1745,10 +1941,8 @@ public partial class PayrollClient : IPayrollClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PayrollRunsApproveResponse>
-    > PostV1PayrollRunsApproveAsyncCore(
-        PostV1PayrollRunsApproveRequest request,
+    private async Task<WithRawResponse<RunsApprovePayrollResponse>> RunsApproveAsyncCore(
+        RunsApprovePayrollRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1784,10 +1978,8 @@ public partial class PayrollClient : IPayrollClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PayrollRunsApproveResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1PayrollRunsApproveResponse>()
+                var responseData = JsonUtils.Deserialize<RunsApprovePayrollResponse>(responseBody)!;
+                return new WithRawResponse<RunsApprovePayrollResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1846,6 +2038,18 @@ public partial class PayrollClient : IPayrollClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1872,6 +2076,18 @@ public partial class PayrollClient : IPayrollClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1938,10 +2154,8 @@ public partial class PayrollClient : IPayrollClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PayrollRunsCancelResponse>
-    > PostV1PayrollRunsCancelAsyncCore(
-        PostV1PayrollRunsCancelRequest request,
+    private async Task<WithRawResponse<RunsCancelPayrollResponse>> RunsCancelAsyncCore(
+        RunsCancelPayrollRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1977,10 +2191,8 @@ public partial class PayrollClient : IPayrollClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PayrollRunsCancelResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1PayrollRunsCancelResponse>()
+                var responseData = JsonUtils.Deserialize<RunsCancelPayrollResponse>(responseBody)!;
+                return new WithRawResponse<RunsCancelPayrollResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2039,6 +2251,18 @@ public partial class PayrollClient : IPayrollClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2065,6 +2289,18 @@ public partial class PayrollClient : IPayrollClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2131,10 +2367,8 @@ public partial class PayrollClient : IPayrollClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PayrollPaymentsExportResponse>
-    > PostV1PayrollPaymentsExportAsyncCore(
-        PostV1PayrollPaymentsExportRequest request,
+    private async Task<WithRawResponse<PaymentsExportPayrollResponse>> PaymentsExportAsyncCore(
+        PaymentsExportPayrollRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2170,10 +2404,10 @@ public partial class PayrollClient : IPayrollClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PayrollPaymentsExportResponse>(
+                var responseData = JsonUtils.Deserialize<PaymentsExportPayrollResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PayrollPaymentsExportResponse>()
+                return new WithRawResponse<PaymentsExportPayrollResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2232,6 +2466,18 @@ public partial class PayrollClient : IPayrollClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2258,6 +2504,18 @@ public partial class PayrollClient : IPayrollClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2325,126 +2583,122 @@ public partial class PayrollClient : IPayrollClient
     }
 
     /// <example><code>
-    /// await client.Payroll.PostV1PayrollDepartmentsCreateAsync(
-    ///     new PostV1PayrollDepartmentsCreateRequest { Code = "code", Name = "name" }
+    /// await client.Payroll.DepartmentsCreateAsync(
+    ///     new DepartmentsCreatePayrollRequest { Code = "code", Name = "name" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1PayrollDepartmentsCreateResponse> PostV1PayrollDepartmentsCreateAsync(
-        PostV1PayrollDepartmentsCreateRequest request,
+    public WithRawResponseTask<DepartmentsCreatePayrollResponse> DepartmentsCreateAsync(
+        DepartmentsCreatePayrollRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PayrollDepartmentsCreateResponse>(
-            PostV1PayrollDepartmentsCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<DepartmentsCreatePayrollResponse>(
+            DepartmentsCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Payroll.PostV1PayrollDepartmentsListAsync(new PostV1PayrollDepartmentsListRequest());
+    /// await client.Payroll.DepartmentsListAsync(new DepartmentsListPayrollRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1PayrollDepartmentsListResponse> PostV1PayrollDepartmentsListAsync(
-        PostV1PayrollDepartmentsListRequest request,
+    public WithRawResponseTask<DepartmentsListPayrollResponse> DepartmentsListAsync(
+        DepartmentsListPayrollRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PayrollDepartmentsListResponse>(
-            PostV1PayrollDepartmentsListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<DepartmentsListPayrollResponse>(
+            DepartmentsListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Payroll.PostV1PayrollSchedulesCreateAsync(
-    ///     new PostV1PayrollSchedulesCreateRequest { Code = "code", Name = "name" }
+    /// await client.Payroll.SchedulesCreateAsync(
+    ///     new SchedulesCreatePayrollRequest { Code = "code", Name = "name" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1PayrollSchedulesCreateResponse> PostV1PayrollSchedulesCreateAsync(
-        PostV1PayrollSchedulesCreateRequest request,
+    public WithRawResponseTask<SchedulesCreatePayrollResponse> SchedulesCreateAsync(
+        SchedulesCreatePayrollRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PayrollSchedulesCreateResponse>(
-            PostV1PayrollSchedulesCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<SchedulesCreatePayrollResponse>(
+            SchedulesCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Payroll.PostV1PayrollSchedulesListAsync(new PostV1PayrollSchedulesListRequest());
+    /// await client.Payroll.SchedulesListAsync(new SchedulesListPayrollRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1PayrollSchedulesListResponse> PostV1PayrollSchedulesListAsync(
-        PostV1PayrollSchedulesListRequest request,
+    public WithRawResponseTask<SchedulesListPayrollResponse> SchedulesListAsync(
+        SchedulesListPayrollRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PayrollSchedulesListResponse>(
-            PostV1PayrollSchedulesListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<SchedulesListPayrollResponse>(
+            SchedulesListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Payroll.CalculateOneEmployeePaymentUnderTheRulesOfTheCompanyCountryAsync(
-    ///     new PostV1PayrollCalcRequest { TaxableBase = "taxableBase", Date = "date" }
+    /// await client.Payroll.CalcAsync(
+    ///     new CalcPayrollRequest { TaxableBase = "121.00", Date = new DateOnly(2026, 7, 1) }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1PayrollCalcResponse> CalculateOneEmployeePaymentUnderTheRulesOfTheCompanyCountryAsync(
-        PostV1PayrollCalcRequest request,
+    public WithRawResponseTask<CalcPayrollResponse> CalcAsync(
+        CalcPayrollRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PayrollCalcResponse>(
-            CalculateOneEmployeePaymentUnderTheRulesOfTheCompanyCountryAsyncCore(
-                request,
-                options,
-                cancellationToken
-            )
+        return new WithRawResponseTask<CalcPayrollResponse>(
+            CalcAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Payroll.PostV1PayrollRunsCreateAsync(
-    ///     new PostV1PayrollRunsCreateRequest { Year = 1000000, Month = 1000000 }
+    /// await client.Payroll.RunsCreateAsync(
+    ///     new RunsCreatePayrollRequest { Year = 1000000, Month = 1000000 }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1PayrollRunsCreateResponse> PostV1PayrollRunsCreateAsync(
-        PostV1PayrollRunsCreateRequest request,
+    public WithRawResponseTask<RunsCreatePayrollResponse> RunsCreateAsync(
+        RunsCreatePayrollRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PayrollRunsCreateResponse>(
-            PostV1PayrollRunsCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<RunsCreatePayrollResponse>(
+            RunsCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Payroll.PostV1PayrollRunsGetAsync(new PostV1PayrollRunsGetRequest { Id = "id" });
+    /// await client.Payroll.RunsGetAsync(new RunsGetPayrollRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1PayrollRunsGetResponse> PostV1PayrollRunsGetAsync(
-        PostV1PayrollRunsGetRequest request,
+    public WithRawResponseTask<RunsGetPayrollResponse> RunsGetAsync(
+        RunsGetPayrollRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PayrollRunsGetResponse>(
-            PostV1PayrollRunsGetAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<RunsGetPayrollResponse>(
+            RunsGetAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Payroll.PostV1PayrollRunsListAsync(new PostV1PayrollRunsListRequest());
+    /// await client.Payroll.RunsListAsync(new RunsListPayrollRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1PayrollRunsListResponse> PostV1PayrollRunsListAsync(
-        PostV1PayrollRunsListRequest request,
+    public WithRawResponseTask<RunsListPayrollResponse> RunsListAsync(
+        RunsListPayrollRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PayrollRunsListResponse>(
-            PostV1PayrollRunsListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<RunsListPayrollResponse>(
+            RunsListAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -2452,64 +2706,60 @@ public partial class PayrollClient : IPayrollClient
     /// The days and hours worked, the days on the register and the average hourly earnings that some countries report per employment. The Czech monthly employer report asks for all four. They can be set while the run is a draft.
     /// </summary>
     /// <example><code>
-    /// await client.Payroll.RecordTheTimeAPersonWorkedInAPayrollLineAsync(
-    ///     new PostV1PayrollLinesAttendanceRequest { Id = "id" }
-    /// );
+    /// await client.Payroll.LinesAttendanceAsync(new LinesAttendancePayrollRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1PayrollLinesAttendanceResponse> RecordTheTimeAPersonWorkedInAPayrollLineAsync(
-        PostV1PayrollLinesAttendanceRequest request,
+    public WithRawResponseTask<LinesAttendancePayrollResponse> LinesAttendanceAsync(
+        LinesAttendancePayrollRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PayrollLinesAttendanceResponse>(
-            RecordTheTimeAPersonWorkedInAPayrollLineAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<LinesAttendancePayrollResponse>(
+            LinesAttendanceAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Payroll.PostV1PayrollRunsApproveAsync(
-    ///     new PostV1PayrollRunsApproveRequest { Id = "id" }
-    /// );
+    /// await client.Payroll.RunsApproveAsync(new RunsApprovePayrollRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1PayrollRunsApproveResponse> PostV1PayrollRunsApproveAsync(
-        PostV1PayrollRunsApproveRequest request,
+    public WithRawResponseTask<RunsApprovePayrollResponse> RunsApproveAsync(
+        RunsApprovePayrollRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PayrollRunsApproveResponse>(
-            PostV1PayrollRunsApproveAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<RunsApprovePayrollResponse>(
+            RunsApproveAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Payroll.PostV1PayrollRunsCancelAsync(new PostV1PayrollRunsCancelRequest { Id = "id" });
+    /// await client.Payroll.RunsCancelAsync(new RunsCancelPayrollRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1PayrollRunsCancelResponse> PostV1PayrollRunsCancelAsync(
-        PostV1PayrollRunsCancelRequest request,
+    public WithRawResponseTask<RunsCancelPayrollResponse> RunsCancelAsync(
+        RunsCancelPayrollRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PayrollRunsCancelResponse>(
-            PostV1PayrollRunsCancelAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<RunsCancelPayrollResponse>(
+            RunsCancelAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Payroll.PostV1PayrollPaymentsExportAsync(
-    ///     new PostV1PayrollPaymentsExportRequest { RunId = "runId", BankAccountId = "bankAccountId" }
+    /// await client.Payroll.PaymentsExportAsync(
+    ///     new PaymentsExportPayrollRequest { RunId = "runId", BankAccountId = "bankAccountId" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1PayrollPaymentsExportResponse> PostV1PayrollPaymentsExportAsync(
-        PostV1PayrollPaymentsExportRequest request,
+    public WithRawResponseTask<PaymentsExportPayrollResponse> PaymentsExportAsync(
+        PaymentsExportPayrollRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PayrollPaymentsExportResponse>(
-            PostV1PayrollPaymentsExportAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<PaymentsExportPayrollResponse>(
+            PaymentsExportAsyncCore(request, options, cancellationToken)
         );
     }
 }

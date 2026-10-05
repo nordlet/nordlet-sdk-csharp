@@ -2,92 +2,92 @@ namespace NordletApi;
 
 public partial interface IReferenceClient
 {
-    WithRawResponseTask<PostV1ReferenceExchangeRatesSyncResponse> PostV1ReferenceExchangeRatesSyncAsync(
-        PostV1ReferenceExchangeRatesSyncRequest request,
+    WithRawResponseTask<ExchangeRatesSyncReferenceResponse> ExchangeRatesSyncAsync(
+        ExchangeRatesSyncReferenceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReferenceExchangeRatesListResponse> PostV1ReferenceExchangeRatesListAsync(
-        PostV1ReferenceExchangeRatesListRequest request,
+    WithRawResponseTask<ExchangeRatesListReferenceResponse> ExchangeRatesListAsync(
+        ExchangeRatesListReferenceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReferenceExchangeRatesSetResponse> PostV1ReferenceExchangeRatesSetAsync(
-        PostV1ReferenceExchangeRatesSetRequest request,
+    WithRawResponseTask<ExchangeRatesSetReferenceResponse> ExchangeRatesSetAsync(
+        ExchangeRatesSetReferenceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReferenceExchangeRatesOverridesListResponse> PostV1ReferenceExchangeRatesOverridesListAsync(
-        PostV1ReferenceExchangeRatesOverridesListRequest request,
+    WithRawResponseTask<ExchangeRatesOverridesListReferenceResponse> ExchangeRatesOverridesListAsync(
+        ExchangeRatesOverridesListReferenceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReferenceExchangeRatesOverridesDeleteResponse> PostV1ReferenceExchangeRatesOverridesDeleteAsync(
-        PostV1ReferenceExchangeRatesOverridesDeleteRequest request,
+    WithRawResponseTask<ExchangeRatesOverridesDeleteReferenceResponse> ExchangeRatesOverridesDeleteAsync(
+        ExchangeRatesOverridesDeleteReferenceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReferenceCountriesListResponse> PostV1ReferenceCountriesListAsync(
-        PostV1ReferenceCountriesListRequest request,
+    WithRawResponseTask<CountriesListReferenceResponse> CountriesListAsync(
+        CountriesListReferenceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReferenceLtCountiesListResponse> PostV1ReferenceLtCountiesListAsync(
-        PostV1ReferenceLtCountiesListRequest request,
+    WithRawResponseTask<LtCountiesListReferenceResponse> LtCountiesListAsync(
+        LtCountiesListReferenceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReferenceLtMunicipalitiesListResponse> PostV1ReferenceLtMunicipalitiesListAsync(
-        PostV1ReferenceLtMunicipalitiesListRequest request,
+    WithRawResponseTask<LtMunicipalitiesListReferenceResponse> LtMunicipalitiesListAsync(
+        LtMunicipalitiesListReferenceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReferenceLtCitiesListResponse> PostV1ReferenceLtCitiesListAsync(
-        PostV1ReferenceLtCitiesListRequest request,
+    WithRawResponseTask<LtCitiesListReferenceResponse> LtCitiesListAsync(
+        LtCitiesListReferenceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReferenceBanksListResponse> PostV1ReferenceBanksListAsync(
-        PostV1ReferenceBanksListRequest request,
+    WithRawResponseTask<BanksListReferenceResponse> BanksListAsync(
+        BanksListReferenceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReferenceBanksUpsertResponse> PostV1ReferenceBanksUpsertAsync(
-        PostV1ReferenceBanksUpsertRequest request,
+    WithRawResponseTask<BanksUpsertReferenceResponse> BanksUpsertAsync(
+        BanksUpsertReferenceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReferenceLtRegionsListResponse> PostV1ReferenceLtRegionsListAsync(
-        PostV1ReferenceLtRegionsListRequest request,
+    WithRawResponseTask<LtRegionsListReferenceResponse> LtRegionsListAsync(
+        LtRegionsListReferenceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReferenceCurrenciesListResponse> PostV1ReferenceCurrenciesListAsync(
-        PostV1ReferenceCurrenciesListRequest request,
+    WithRawResponseTask<CurrenciesListReferenceResponse> CurrenciesListAsync(
+        CurrenciesListReferenceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReferenceVatClassifiersListResponse> PostV1ReferenceVatClassifiersListAsync(
-        PostV1ReferenceVatClassifiersListRequest request,
+    WithRawResponseTask<VatClassifiersListReferenceResponse> VatClassifiersListAsync(
+        VatClassifiersListReferenceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReferenceVatClassifiersUpsertResponse> PostV1ReferenceVatClassifiersUpsertAsync(
-        PostV1ReferenceVatClassifiersUpsertRequest request,
+    WithRawResponseTask<VatClassifiersUpsertReferenceResponse> VatClassifiersUpsertAsync(
+        VatClassifiersUpsertReferenceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
@@ -95,8 +95,8 @@ public partial interface IReferenceClient
     /// <summary>
     /// Effective EU VAT rate mapping for this company: EC TEDB defaults, replaced per country by any company overrides. Verify the mapping fits the goods and services you sell before relying on it.
     /// </summary>
-    WithRawResponseTask<PostV1ReferenceEuVatRatesListResponse> PostV1ReferenceEuVatRatesListAsync(
-        PostV1ReferenceEuVatRatesListRequest request,
+    WithRawResponseTask<EuVatRatesListReferenceResponse> EuVatRatesListAsync(
+        EuVatRatesListReferenceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
@@ -104,56 +104,56 @@ public partial interface IReferenceClient
     /// <summary>
     /// Replace the VAT rate mapping this company uses for one EU country. Pass an empty rates array to drop the overrides and return to the TEDB defaults. Overrides feed rate suggestions (vat/resolve) and OSS/IOSS return rate classification.
     /// </summary>
-    WithRawResponseTask<PostV1ReferenceEuVatRatesSetOverridesResponse> PostV1ReferenceEuVatRatesSetOverridesAsync(
-        PostV1ReferenceEuVatRatesSetOverridesRequest request,
+    WithRawResponseTask<EuVatRatesSetOverridesReferenceResponse> EuVatRatesSetOverridesAsync(
+        EuVatRatesSetOverridesReferenceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReferenceVatResolveResponse> PostV1ReferenceVatResolveAsync(
-        PostV1ReferenceVatResolveRequest request,
+    WithRawResponseTask<VatResolveReferenceResponse> VatResolveAsync(
+        VatResolveReferenceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReferenceCnCodesListResponse> PostV1ReferenceCnCodesListAsync(
-        PostV1ReferenceCnCodesListRequest request,
+    WithRawResponseTask<CnCodesListReferenceResponse> CnCodesListAsync(
+        CnCodesListReferenceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReferenceCnCodesUpsertResponse> PostV1ReferenceCnCodesUpsertAsync(
-        PostV1ReferenceCnCodesUpsertRequest request,
+    WithRawResponseTask<CnCodesUpsertReferenceResponse> CnCodesUpsertAsync(
+        CnCodesUpsertReferenceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReferenceComplianceVersionsListResponse> PostV1ReferenceComplianceVersionsListAsync(
-        PostV1ReferenceComplianceVersionsListRequest request,
+    WithRawResponseTask<ComplianceVersionsListReferenceResponse> ComplianceVersionsListAsync(
+        ComplianceVersionsListReferenceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReferenceIntrastatThresholdsListResponse> PostV1ReferenceIntrastatThresholdsListAsync(
-        PostV1ReferenceIntrastatThresholdsListRequest request,
+    WithRawResponseTask<IntrastatThresholdsListReferenceResponse> IntrastatThresholdsListAsync(
+        IntrastatThresholdsListReferenceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReferenceUnitsListResponse> PostV1ReferenceUnitsListAsync(
-        PostV1ReferenceUnitsListRequest request,
+    WithRawResponseTask<UnitsListReferenceResponse> UnitsListAsync(
+        UnitsListReferenceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReferenceSeriesCreateResponse> PostV1ReferenceSeriesCreateAsync(
-        PostV1ReferenceSeriesCreateRequest request,
+    WithRawResponseTask<SeriesCreateReferenceResponse> SeriesCreateAsync(
+        SeriesCreateReferenceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1ReferenceSeriesListResponse> PostV1ReferenceSeriesListAsync(
-        PostV1ReferenceSeriesListRequest request,
+    WithRawResponseTask<SeriesListReferenceResponse> SeriesListAsync(
+        SeriesListReferenceRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );

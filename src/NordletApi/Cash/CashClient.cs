@@ -12,10 +12,8 @@ public partial class CashClient : ICashClient
         _client = client;
     }
 
-    private async Task<
-        WithRawResponse<PostV1CashOrdersCreateResponse>
-    > PostV1CashOrdersCreateAsyncCore(
-        PostV1CashOrdersCreateRequest request,
+    private async Task<WithRawResponse<OrdersCreateCashResponse>> OrdersCreateAsyncCore(
+        OrdersCreateCashRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -51,10 +49,8 @@ public partial class CashClient : ICashClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CashOrdersCreateResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1CashOrdersCreateResponse>()
+                var responseData = JsonUtils.Deserialize<OrdersCreateCashResponse>(responseBody)!;
+                return new WithRawResponse<OrdersCreateCashResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -113,6 +109,18 @@ public partial class CashClient : ICashClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -139,6 +147,18 @@ public partial class CashClient : ICashClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -205,8 +225,8 @@ public partial class CashClient : ICashClient
         }
     }
 
-    private async Task<WithRawResponse<PostV1CashOrdersGetResponse>> PostV1CashOrdersGetAsyncCore(
-        PostV1CashOrdersGetRequest request,
+    private async Task<WithRawResponse<OrdersGetCashResponse>> OrdersGetAsyncCore(
+        OrdersGetCashRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -242,10 +262,8 @@ public partial class CashClient : ICashClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CashOrdersGetResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1CashOrdersGetResponse>()
+                var responseData = JsonUtils.Deserialize<OrdersGetCashResponse>(responseBody)!;
+                return new WithRawResponse<OrdersGetCashResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -304,6 +322,18 @@ public partial class CashClient : ICashClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -330,6 +360,18 @@ public partial class CashClient : ICashClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -396,8 +438,8 @@ public partial class CashClient : ICashClient
         }
     }
 
-    private async Task<WithRawResponse<PostV1CashOrdersListResponse>> PostV1CashOrdersListAsyncCore(
-        PostV1CashOrdersListRequest request,
+    private async Task<WithRawResponse<OrdersListCashResponse>> OrdersListAsyncCore(
+        OrdersListCashRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -433,10 +475,8 @@ public partial class CashClient : ICashClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CashOrdersListResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1CashOrdersListResponse>()
+                var responseData = JsonUtils.Deserialize<OrdersListCashResponse>(responseBody)!;
+                return new WithRawResponse<OrdersListCashResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -495,6 +535,18 @@ public partial class CashClient : ICashClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -521,6 +573,18 @@ public partial class CashClient : ICashClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -587,8 +651,8 @@ public partial class CashClient : ICashClient
         }
     }
 
-    private async Task<WithRawResponse<PostV1CashBalanceResponse>> PostV1CashBalanceAsyncCore(
-        PostV1CashBalanceRequest request,
+    private async Task<WithRawResponse<BalanceCashResponse>> BalanceAsyncCore(
+        BalanceCashRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -624,8 +688,8 @@ public partial class CashClient : ICashClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CashBalanceResponse>(responseBody)!;
-                return new WithRawResponse<PostV1CashBalanceResponse>()
+                var responseData = JsonUtils.Deserialize<BalanceCashResponse>(responseBody)!;
+                return new WithRawResponse<BalanceCashResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -684,6 +748,18 @@ public partial class CashClient : ICashClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -710,6 +786,18 @@ public partial class CashClient : ICashClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -777,9 +865,9 @@ public partial class CashClient : ICashClient
     }
 
     private async Task<
-        WithRawResponse<PostV1CashAdvanceHoldersBalancesResponse>
-    > PostV1CashAdvanceHoldersBalancesAsyncCore(
-        PostV1CashAdvanceHoldersBalancesRequest request,
+        WithRawResponse<AdvanceHoldersBalancesCashResponse>
+    > AdvanceHoldersBalancesAsyncCore(
+        AdvanceHoldersBalancesCashRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -815,10 +903,10 @@ public partial class CashClient : ICashClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1CashAdvanceHoldersBalancesResponse>(
+                var responseData = JsonUtils.Deserialize<AdvanceHoldersBalancesCashResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1CashAdvanceHoldersBalancesResponse>()
+                return new WithRawResponse<AdvanceHoldersBalancesCashResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -877,6 +965,18 @@ public partial class CashClient : ICashClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -903,6 +1003,18 @@ public partial class CashClient : ICashClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -970,83 +1082,81 @@ public partial class CashClient : ICashClient
     }
 
     /// <example><code>
-    /// await client.Cash.PostV1CashOrdersCreateAsync(
-    ///     new PostV1CashOrdersCreateRequest
+    /// await client.Cash.OrdersCreateAsync(
+    ///     new OrdersCreateCashRequest
     ///     {
-    ///         Type = PostV1CashOrdersCreateRequestType.Receipt,
-    ///         Date = "date",
-    ///         Amount = "amount",
+    ///         Type = OrdersCreateCashRequestType.Receipt,
+    ///         Date = new DateOnly(2026, 7, 1),
+    ///         Amount = "121.0000",
     ///         Purpose = "purpose",
     ///         CounterAccountCode = "counterAccountCode",
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1CashOrdersCreateResponse> PostV1CashOrdersCreateAsync(
-        PostV1CashOrdersCreateRequest request,
+    public WithRawResponseTask<OrdersCreateCashResponse> OrdersCreateAsync(
+        OrdersCreateCashRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1CashOrdersCreateResponse>(
-            PostV1CashOrdersCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<OrdersCreateCashResponse>(
+            OrdersCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Cash.PostV1CashOrdersGetAsync(new PostV1CashOrdersGetRequest { Id = "id" });
+    /// await client.Cash.OrdersGetAsync(new OrdersGetCashRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1CashOrdersGetResponse> PostV1CashOrdersGetAsync(
-        PostV1CashOrdersGetRequest request,
+    public WithRawResponseTask<OrdersGetCashResponse> OrdersGetAsync(
+        OrdersGetCashRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1CashOrdersGetResponse>(
-            PostV1CashOrdersGetAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<OrdersGetCashResponse>(
+            OrdersGetAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Cash.PostV1CashOrdersListAsync(new PostV1CashOrdersListRequest());
+    /// await client.Cash.OrdersListAsync(new OrdersListCashRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1CashOrdersListResponse> PostV1CashOrdersListAsync(
-        PostV1CashOrdersListRequest request,
+    public WithRawResponseTask<OrdersListCashResponse> OrdersListAsync(
+        OrdersListCashRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1CashOrdersListResponse>(
-            PostV1CashOrdersListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<OrdersListCashResponse>(
+            OrdersListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Cash.PostV1CashBalanceAsync(new PostV1CashBalanceRequest());
+    /// await client.Cash.BalanceAsync(new BalanceCashRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1CashBalanceResponse> PostV1CashBalanceAsync(
-        PostV1CashBalanceRequest request,
+    public WithRawResponseTask<BalanceCashResponse> BalanceAsync(
+        BalanceCashRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1CashBalanceResponse>(
-            PostV1CashBalanceAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<BalanceCashResponse>(
+            BalanceAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Cash.PostV1CashAdvanceHoldersBalancesAsync(
-    ///     new PostV1CashAdvanceHoldersBalancesRequest()
-    /// );
+    /// await client.Cash.AdvanceHoldersBalancesAsync(new AdvanceHoldersBalancesCashRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1CashAdvanceHoldersBalancesResponse> PostV1CashAdvanceHoldersBalancesAsync(
-        PostV1CashAdvanceHoldersBalancesRequest request,
+    public WithRawResponseTask<AdvanceHoldersBalancesCashResponse> AdvanceHoldersBalancesAsync(
+        AdvanceHoldersBalancesCashRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1CashAdvanceHoldersBalancesResponse>(
-            PostV1CashAdvanceHoldersBalancesAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<AdvanceHoldersBalancesCashResponse>(
+            AdvanceHoldersBalancesAsyncCore(request, options, cancellationToken)
         );
     }
 }

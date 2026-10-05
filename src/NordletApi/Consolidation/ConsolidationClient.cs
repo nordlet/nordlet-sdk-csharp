@@ -12,10 +12,8 @@ public partial class ConsolidationClient : IConsolidationClient
         _client = client;
     }
 
-    private async Task<
-        WithRawResponse<PostV1ConsolidationGroupsCreateResponse>
-    > PostV1ConsolidationGroupsCreateAsyncCore(
-        PostV1ConsolidationGroupsCreateRequest request,
+    private async Task<WithRawResponse<GroupsCreateConsolidationResponse>> GroupsCreateAsyncCore(
+        GroupsCreateConsolidationRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -51,10 +49,10 @@ public partial class ConsolidationClient : IConsolidationClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1ConsolidationGroupsCreateResponse>(
+                var responseData = JsonUtils.Deserialize<GroupsCreateConsolidationResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1ConsolidationGroupsCreateResponse>()
+                return new WithRawResponse<GroupsCreateConsolidationResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -113,6 +111,18 @@ public partial class ConsolidationClient : IConsolidationClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -139,6 +149,18 @@ public partial class ConsolidationClient : IConsolidationClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -205,10 +227,8 @@ public partial class ConsolidationClient : IConsolidationClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1ConsolidationGroupsListResponse>
-    > PostV1ConsolidationGroupsListAsyncCore(
-        PostV1ConsolidationGroupsListRequest request,
+    private async Task<WithRawResponse<GroupsListConsolidationResponse>> GroupsListAsyncCore(
+        GroupsListConsolidationRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -244,10 +264,10 @@ public partial class ConsolidationClient : IConsolidationClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1ConsolidationGroupsListResponse>(
+                var responseData = JsonUtils.Deserialize<GroupsListConsolidationResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1ConsolidationGroupsListResponse>()
+                return new WithRawResponse<GroupsListConsolidationResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -306,6 +326,18 @@ public partial class ConsolidationClient : IConsolidationClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -332,6 +364,18 @@ public partial class ConsolidationClient : IConsolidationClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -398,10 +442,8 @@ public partial class ConsolidationClient : IConsolidationClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1ConsolidationGroupsGetResponse>
-    > PostV1ConsolidationGroupsGetAsyncCore(
-        PostV1ConsolidationGroupsGetRequest request,
+    private async Task<WithRawResponse<GroupsGetConsolidationResponse>> GroupsGetAsyncCore(
+        GroupsGetConsolidationRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -437,10 +479,10 @@ public partial class ConsolidationClient : IConsolidationClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1ConsolidationGroupsGetResponse>(
+                var responseData = JsonUtils.Deserialize<GroupsGetConsolidationResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1ConsolidationGroupsGetResponse>()
+                return new WithRawResponse<GroupsGetConsolidationResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -499,6 +541,18 @@ public partial class ConsolidationClient : IConsolidationClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -525,6 +579,18 @@ public partial class ConsolidationClient : IConsolidationClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -591,10 +657,8 @@ public partial class ConsolidationClient : IConsolidationClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1ConsolidationGroupsUpdateResponse>
-    > PostV1ConsolidationGroupsUpdateAsyncCore(
-        PostV1ConsolidationGroupsUpdateRequest request,
+    private async Task<WithRawResponse<GroupsUpdateConsolidationResponse>> GroupsUpdateAsyncCore(
+        GroupsUpdateConsolidationRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -630,10 +694,10 @@ public partial class ConsolidationClient : IConsolidationClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1ConsolidationGroupsUpdateResponse>(
+                var responseData = JsonUtils.Deserialize<GroupsUpdateConsolidationResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1ConsolidationGroupsUpdateResponse>()
+                return new WithRawResponse<GroupsUpdateConsolidationResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -692,6 +756,18 @@ public partial class ConsolidationClient : IConsolidationClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -718,6 +794,18 @@ public partial class ConsolidationClient : IConsolidationClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -784,10 +872,8 @@ public partial class ConsolidationClient : IConsolidationClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1ConsolidationGroupsDeleteResponse>
-    > PostV1ConsolidationGroupsDeleteAsyncCore(
-        PostV1ConsolidationGroupsDeleteRequest request,
+    private async Task<WithRawResponse<GroupsDeleteConsolidationResponse>> GroupsDeleteAsyncCore(
+        GroupsDeleteConsolidationRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -823,10 +909,10 @@ public partial class ConsolidationClient : IConsolidationClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1ConsolidationGroupsDeleteResponse>(
+                var responseData = JsonUtils.Deserialize<GroupsDeleteConsolidationResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1ConsolidationGroupsDeleteResponse>()
+                return new WithRawResponse<GroupsDeleteConsolidationResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -885,6 +971,18 @@ public partial class ConsolidationClient : IConsolidationClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -911,6 +1009,18 @@ public partial class ConsolidationClient : IConsolidationClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -977,10 +1087,8 @@ public partial class ConsolidationClient : IConsolidationClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1ConsolidationMembersAddResponse>
-    > PostV1ConsolidationMembersAddAsyncCore(
-        PostV1ConsolidationMembersAddRequest request,
+    private async Task<WithRawResponse<MembersAddConsolidationResponse>> MembersAddAsyncCore(
+        MembersAddConsolidationRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1016,10 +1124,10 @@ public partial class ConsolidationClient : IConsolidationClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1ConsolidationMembersAddResponse>(
+                var responseData = JsonUtils.Deserialize<MembersAddConsolidationResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1ConsolidationMembersAddResponse>()
+                return new WithRawResponse<MembersAddConsolidationResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1078,6 +1186,18 @@ public partial class ConsolidationClient : IConsolidationClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1104,6 +1224,18 @@ public partial class ConsolidationClient : IConsolidationClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1170,10 +1302,8 @@ public partial class ConsolidationClient : IConsolidationClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1ConsolidationMembersRemoveResponse>
-    > PostV1ConsolidationMembersRemoveAsyncCore(
-        PostV1ConsolidationMembersRemoveRequest request,
+    private async Task<WithRawResponse<MembersRemoveConsolidationResponse>> MembersRemoveAsyncCore(
+        MembersRemoveConsolidationRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1209,10 +1339,10 @@ public partial class ConsolidationClient : IConsolidationClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1ConsolidationMembersRemoveResponse>(
+                var responseData = JsonUtils.Deserialize<MembersRemoveConsolidationResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1ConsolidationMembersRemoveResponse>()
+                return new WithRawResponse<MembersRemoveConsolidationResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1271,6 +1401,18 @@ public partial class ConsolidationClient : IConsolidationClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1297,6 +1439,18 @@ public partial class ConsolidationClient : IConsolidationClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1364,9 +1518,9 @@ public partial class ConsolidationClient : IConsolidationClient
     }
 
     private async Task<
-        WithRawResponse<PostV1ConsolidationIntercompanyCandidatesResponse>
-    > PostV1ConsolidationIntercompanyCandidatesAsyncCore(
-        PostV1ConsolidationIntercompanyCandidatesRequest request,
+        WithRawResponse<IntercompanyCandidatesConsolidationResponse>
+    > IntercompanyCandidatesAsyncCore(
+        IntercompanyCandidatesConsolidationRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1403,10 +1557,10 @@ public partial class ConsolidationClient : IConsolidationClient
             try
             {
                 var responseData =
-                    JsonUtils.Deserialize<PostV1ConsolidationIntercompanyCandidatesResponse>(
+                    JsonUtils.Deserialize<IntercompanyCandidatesConsolidationResponse>(
                         responseBody
                     )!;
-                return new WithRawResponse<PostV1ConsolidationIntercompanyCandidatesResponse>()
+                return new WithRawResponse<IntercompanyCandidatesConsolidationResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1465,6 +1619,18 @@ public partial class ConsolidationClient : IConsolidationClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1491,6 +1657,18 @@ public partial class ConsolidationClient : IConsolidationClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1558,9 +1736,9 @@ public partial class ConsolidationClient : IConsolidationClient
     }
 
     private async Task<
-        WithRawResponse<PostV1ConsolidationIntercompanyLinksSetResponse>
-    > PostV1ConsolidationIntercompanyLinksSetAsyncCore(
-        PostV1ConsolidationIntercompanyLinksSetRequest request,
+        WithRawResponse<IntercompanyLinksSetConsolidationResponse>
+    > IntercompanyLinksSetAsyncCore(
+        IntercompanyLinksSetConsolidationRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1596,11 +1774,10 @@ public partial class ConsolidationClient : IConsolidationClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1ConsolidationIntercompanyLinksSetResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1ConsolidationIntercompanyLinksSetResponse>()
+                var responseData = JsonUtils.Deserialize<IntercompanyLinksSetConsolidationResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<IntercompanyLinksSetConsolidationResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1659,6 +1836,18 @@ public partial class ConsolidationClient : IConsolidationClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1685,6 +1874,18 @@ public partial class ConsolidationClient : IConsolidationClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1752,9 +1953,9 @@ public partial class ConsolidationClient : IConsolidationClient
     }
 
     private async Task<
-        WithRawResponse<PostV1ConsolidationIntercompanyLinksListResponse>
-    > PostV1ConsolidationIntercompanyLinksListAsyncCore(
-        PostV1ConsolidationIntercompanyLinksListRequest request,
+        WithRawResponse<IntercompanyLinksListConsolidationResponse>
+    > IntercompanyLinksListAsyncCore(
+        IntercompanyLinksListConsolidationRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1791,10 +1992,10 @@ public partial class ConsolidationClient : IConsolidationClient
             try
             {
                 var responseData =
-                    JsonUtils.Deserialize<PostV1ConsolidationIntercompanyLinksListResponse>(
+                    JsonUtils.Deserialize<IntercompanyLinksListConsolidationResponse>(
                         responseBody
                     )!;
-                return new WithRawResponse<PostV1ConsolidationIntercompanyLinksListResponse>()
+                return new WithRawResponse<IntercompanyLinksListConsolidationResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1853,6 +2054,18 @@ public partial class ConsolidationClient : IConsolidationClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1879,6 +2092,18 @@ public partial class ConsolidationClient : IConsolidationClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1946,9 +2171,9 @@ public partial class ConsolidationClient : IConsolidationClient
     }
 
     private async Task<
-        WithRawResponse<PostV1ConsolidationIntercompanyLinksRemoveResponse>
-    > PostV1ConsolidationIntercompanyLinksRemoveAsyncCore(
-        PostV1ConsolidationIntercompanyLinksRemoveRequest request,
+        WithRawResponse<IntercompanyLinksRemoveConsolidationResponse>
+    > IntercompanyLinksRemoveAsyncCore(
+        IntercompanyLinksRemoveConsolidationRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1985,10 +2210,10 @@ public partial class ConsolidationClient : IConsolidationClient
             try
             {
                 var responseData =
-                    JsonUtils.Deserialize<PostV1ConsolidationIntercompanyLinksRemoveResponse>(
+                    JsonUtils.Deserialize<IntercompanyLinksRemoveConsolidationResponse>(
                         responseBody
                     )!;
-                return new WithRawResponse<PostV1ConsolidationIntercompanyLinksRemoveResponse>()
+                return new WithRawResponse<IntercompanyLinksRemoveConsolidationResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2047,6 +2272,18 @@ public partial class ConsolidationClient : IConsolidationClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2073,6 +2310,18 @@ public partial class ConsolidationClient : IConsolidationClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2140,9 +2389,9 @@ public partial class ConsolidationClient : IConsolidationClient
     }
 
     private async Task<
-        WithRawResponse<PostV1ConsolidationIntercompanyReportResponse>
-    > PostV1ConsolidationIntercompanyReportAsyncCore(
-        PostV1ConsolidationIntercompanyReportRequest request,
+        WithRawResponse<IntercompanyReportConsolidationResponse>
+    > IntercompanyReportAsyncCore(
+        IntercompanyReportConsolidationRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2178,11 +2427,10 @@ public partial class ConsolidationClient : IConsolidationClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1ConsolidationIntercompanyReportResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1ConsolidationIntercompanyReportResponse>()
+                var responseData = JsonUtils.Deserialize<IntercompanyReportConsolidationResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<IntercompanyReportConsolidationResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2241,6 +2489,18 @@ public partial class ConsolidationClient : IConsolidationClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2267,6 +2527,18 @@ public partial class ConsolidationClient : IConsolidationClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2333,10 +2605,8 @@ public partial class ConsolidationClient : IConsolidationClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1ConsolidationReportResponse>
-    > PostV1ConsolidationReportAsyncCore(
-        PostV1ConsolidationReportRequest request,
+    private async Task<WithRawResponse<ReportConsolidationResponse>> ReportAsyncCore(
+        ReportConsolidationRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2372,10 +2642,10 @@ public partial class ConsolidationClient : IConsolidationClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1ConsolidationReportResponse>(
+                var responseData = JsonUtils.Deserialize<ReportConsolidationResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1ConsolidationReportResponse>()
+                return new WithRawResponse<ReportConsolidationResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2434,6 +2704,18 @@ public partial class ConsolidationClient : IConsolidationClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2460,6 +2742,18 @@ public partial class ConsolidationClient : IConsolidationClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2527,122 +2821,116 @@ public partial class ConsolidationClient : IConsolidationClient
     }
 
     /// <example><code>
-    /// await client.Consolidation.PostV1ConsolidationGroupsCreateAsync(
-    ///     new PostV1ConsolidationGroupsCreateRequest { Name = "name" }
+    /// await client.Consolidation.GroupsCreateAsync(
+    ///     new GroupsCreateConsolidationRequest { Name = "name" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1ConsolidationGroupsCreateResponse> PostV1ConsolidationGroupsCreateAsync(
-        PostV1ConsolidationGroupsCreateRequest request,
+    public WithRawResponseTask<GroupsCreateConsolidationResponse> GroupsCreateAsync(
+        GroupsCreateConsolidationRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ConsolidationGroupsCreateResponse>(
-            PostV1ConsolidationGroupsCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<GroupsCreateConsolidationResponse>(
+            GroupsCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Consolidation.PostV1ConsolidationGroupsListAsync(
-    ///     new PostV1ConsolidationGroupsListRequest()
-    /// );
+    /// await client.Consolidation.GroupsListAsync(new GroupsListConsolidationRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1ConsolidationGroupsListResponse> PostV1ConsolidationGroupsListAsync(
-        PostV1ConsolidationGroupsListRequest request,
+    public WithRawResponseTask<GroupsListConsolidationResponse> GroupsListAsync(
+        GroupsListConsolidationRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ConsolidationGroupsListResponse>(
-            PostV1ConsolidationGroupsListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<GroupsListConsolidationResponse>(
+            GroupsListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Consolidation.PostV1ConsolidationGroupsGetAsync(
-    ///     new PostV1ConsolidationGroupsGetRequest { GroupId = "groupId" }
+    /// await client.Consolidation.GroupsGetAsync(
+    ///     new GroupsGetConsolidationRequest { GroupId = "groupId" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1ConsolidationGroupsGetResponse> PostV1ConsolidationGroupsGetAsync(
-        PostV1ConsolidationGroupsGetRequest request,
+    public WithRawResponseTask<GroupsGetConsolidationResponse> GroupsGetAsync(
+        GroupsGetConsolidationRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ConsolidationGroupsGetResponse>(
-            PostV1ConsolidationGroupsGetAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<GroupsGetConsolidationResponse>(
+            GroupsGetAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Consolidation.PostV1ConsolidationGroupsUpdateAsync(
-    ///     new PostV1ConsolidationGroupsUpdateRequest { GroupId = "groupId" }
+    /// await client.Consolidation.GroupsUpdateAsync(
+    ///     new GroupsUpdateConsolidationRequest { GroupId = "groupId" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1ConsolidationGroupsUpdateResponse> PostV1ConsolidationGroupsUpdateAsync(
-        PostV1ConsolidationGroupsUpdateRequest request,
+    public WithRawResponseTask<GroupsUpdateConsolidationResponse> GroupsUpdateAsync(
+        GroupsUpdateConsolidationRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ConsolidationGroupsUpdateResponse>(
-            PostV1ConsolidationGroupsUpdateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<GroupsUpdateConsolidationResponse>(
+            GroupsUpdateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Consolidation.PostV1ConsolidationGroupsDeleteAsync(
-    ///     new PostV1ConsolidationGroupsDeleteRequest { GroupId = "groupId" }
+    /// await client.Consolidation.GroupsDeleteAsync(
+    ///     new GroupsDeleteConsolidationRequest { GroupId = "groupId" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1ConsolidationGroupsDeleteResponse> PostV1ConsolidationGroupsDeleteAsync(
-        PostV1ConsolidationGroupsDeleteRequest request,
+    public WithRawResponseTask<GroupsDeleteConsolidationResponse> GroupsDeleteAsync(
+        GroupsDeleteConsolidationRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ConsolidationGroupsDeleteResponse>(
-            PostV1ConsolidationGroupsDeleteAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<GroupsDeleteConsolidationResponse>(
+            GroupsDeleteAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Consolidation.PostV1ConsolidationMembersAddAsync(
-    ///     new PostV1ConsolidationMembersAddRequest
+    /// await client.Consolidation.MembersAddAsync(
+    ///     new MembersAddConsolidationRequest { GroupId = "groupId", MemberCompanyId = "memberCompanyId" }
+    /// );
+    /// </code></example>
+    public WithRawResponseTask<MembersAddConsolidationResponse> MembersAddAsync(
+        MembersAddConsolidationRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<MembersAddConsolidationResponse>(
+            MembersAddAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Consolidation.MembersRemoveAsync(
+    ///     new MembersRemoveConsolidationRequest
     ///     {
     ///         GroupId = "groupId",
     ///         MemberCompanyId = "memberCompanyId",
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1ConsolidationMembersAddResponse> PostV1ConsolidationMembersAddAsync(
-        PostV1ConsolidationMembersAddRequest request,
+    public WithRawResponseTask<MembersRemoveConsolidationResponse> MembersRemoveAsync(
+        MembersRemoveConsolidationRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ConsolidationMembersAddResponse>(
-            PostV1ConsolidationMembersAddAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Consolidation.PostV1ConsolidationMembersRemoveAsync(
-    ///     new PostV1ConsolidationMembersRemoveRequest
-    ///     {
-    ///         GroupId = "groupId",
-    ///         MemberCompanyId = "memberCompanyId",
-    ///     }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1ConsolidationMembersRemoveResponse> PostV1ConsolidationMembersRemoveAsync(
-        PostV1ConsolidationMembersRemoveRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1ConsolidationMembersRemoveResponse>(
-            PostV1ConsolidationMembersRemoveAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<MembersRemoveConsolidationResponse>(
+            MembersRemoveAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -2650,18 +2938,18 @@ public partial class ConsolidationClient : IConsolidationClient
     /// Partners in member companies that look like other members of the same group (matched on company code or VAT code), with any existing intercompany link. Confirming a candidate via intercompany/links/set enables invoice mirroring.
     /// </summary>
     /// <example><code>
-    /// await client.Consolidation.PostV1ConsolidationIntercompanyCandidatesAsync(
-    ///     new PostV1ConsolidationIntercompanyCandidatesRequest { GroupId = "groupId" }
+    /// await client.Consolidation.IntercompanyCandidatesAsync(
+    ///     new IntercompanyCandidatesConsolidationRequest { GroupId = "groupId" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1ConsolidationIntercompanyCandidatesResponse> PostV1ConsolidationIntercompanyCandidatesAsync(
-        PostV1ConsolidationIntercompanyCandidatesRequest request,
+    public WithRawResponseTask<IntercompanyCandidatesConsolidationResponse> IntercompanyCandidatesAsync(
+        IntercompanyCandidatesConsolidationRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ConsolidationIntercompanyCandidatesResponse>(
-            PostV1ConsolidationIntercompanyCandidatesAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<IntercompanyCandidatesConsolidationResponse>(
+            IntercompanyCandidatesAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -2669,8 +2957,8 @@ public partial class ConsolidationClient : IConsolidationClient
     /// Confirm that a partner record in one member company represents another member company of the group. Once links exist in both directions, issuing an intercompany sale invoice automatically creates the matching draft purchase invoice in the counterparty.
     /// </summary>
     /// <example><code>
-    /// await client.Consolidation.PostV1ConsolidationIntercompanyLinksSetAsync(
-    ///     new PostV1ConsolidationIntercompanyLinksSetRequest
+    /// await client.Consolidation.IntercompanyLinksSetAsync(
+    ///     new IntercompanyLinksSetConsolidationRequest
     ///     {
     ///         GroupId = "groupId",
     ///         PartnerId = "partnerId",
@@ -2678,46 +2966,46 @@ public partial class ConsolidationClient : IConsolidationClient
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1ConsolidationIntercompanyLinksSetResponse> PostV1ConsolidationIntercompanyLinksSetAsync(
-        PostV1ConsolidationIntercompanyLinksSetRequest request,
+    public WithRawResponseTask<IntercompanyLinksSetConsolidationResponse> IntercompanyLinksSetAsync(
+        IntercompanyLinksSetConsolidationRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ConsolidationIntercompanyLinksSetResponse>(
-            PostV1ConsolidationIntercompanyLinksSetAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<IntercompanyLinksSetConsolidationResponse>(
+            IntercompanyLinksSetAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Consolidation.PostV1ConsolidationIntercompanyLinksListAsync(
-    ///     new PostV1ConsolidationIntercompanyLinksListRequest { GroupId = "groupId" }
+    /// await client.Consolidation.IntercompanyLinksListAsync(
+    ///     new IntercompanyLinksListConsolidationRequest { GroupId = "groupId" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1ConsolidationIntercompanyLinksListResponse> PostV1ConsolidationIntercompanyLinksListAsync(
-        PostV1ConsolidationIntercompanyLinksListRequest request,
+    public WithRawResponseTask<IntercompanyLinksListConsolidationResponse> IntercompanyLinksListAsync(
+        IntercompanyLinksListConsolidationRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ConsolidationIntercompanyLinksListResponse>(
-            PostV1ConsolidationIntercompanyLinksListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<IntercompanyLinksListConsolidationResponse>(
+            IntercompanyLinksListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Consolidation.PostV1ConsolidationIntercompanyLinksRemoveAsync(
-    ///     new PostV1ConsolidationIntercompanyLinksRemoveRequest { GroupId = "groupId", Id = "id" }
+    /// await client.Consolidation.IntercompanyLinksRemoveAsync(
+    ///     new IntercompanyLinksRemoveConsolidationRequest { GroupId = "groupId", Id = "id" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1ConsolidationIntercompanyLinksRemoveResponse> PostV1ConsolidationIntercompanyLinksRemoveAsync(
-        PostV1ConsolidationIntercompanyLinksRemoveRequest request,
+    public WithRawResponseTask<IntercompanyLinksRemoveConsolidationResponse> IntercompanyLinksRemoveAsync(
+        IntercompanyLinksRemoveConsolidationRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ConsolidationIntercompanyLinksRemoveResponse>(
-            PostV1ConsolidationIntercompanyLinksRemoveAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<IntercompanyLinksRemoveConsolidationResponse>(
+            IntercompanyLinksRemoveAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -2725,44 +3013,44 @@ public partial class ConsolidationClient : IConsolidationClient
     /// Intercompany reconciliation for a period: every issued intercompany sale invoice with its mirrored or manually recorded counterpart, unmatched documents on both sides, and per-currency totals with differences. Confirmed pairs are the basis for consolidation eliminations.
     /// </summary>
     /// <example><code>
-    /// await client.Consolidation.PostV1ConsolidationIntercompanyReportAsync(
-    ///     new PostV1ConsolidationIntercompanyReportRequest
+    /// await client.Consolidation.IntercompanyReportAsync(
+    ///     new IntercompanyReportConsolidationRequest
     ///     {
     ///         GroupId = "groupId",
-    ///         FromDate = "fromDate",
-    ///         ToDate = "toDate",
+    ///         FromDate = new DateOnly(2026, 7, 1),
+    ///         ToDate = new DateOnly(2026, 7, 1),
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1ConsolidationIntercompanyReportResponse> PostV1ConsolidationIntercompanyReportAsync(
-        PostV1ConsolidationIntercompanyReportRequest request,
+    public WithRawResponseTask<IntercompanyReportConsolidationResponse> IntercompanyReportAsync(
+        IntercompanyReportConsolidationRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ConsolidationIntercompanyReportResponse>(
-            PostV1ConsolidationIntercompanyReportAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<IntercompanyReportConsolidationResponse>(
+            IntercompanyReportAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Consolidation.PostV1ConsolidationReportAsync(
-    ///     new PostV1ConsolidationReportRequest
+    /// await client.Consolidation.ReportAsync(
+    ///     new ReportConsolidationRequest
     ///     {
     ///         GroupId = "groupId",
-    ///         FromDate = "fromDate",
-    ///         ToDate = "toDate",
+    ///         FromDate = new DateOnly(2026, 7, 1),
+    ///         ToDate = new DateOnly(2026, 7, 1),
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1ConsolidationReportResponse> PostV1ConsolidationReportAsync(
-        PostV1ConsolidationReportRequest request,
+    public WithRawResponseTask<ReportConsolidationResponse> ReportAsync(
+        ReportConsolidationRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1ConsolidationReportResponse>(
-            PostV1ConsolidationReportAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<ReportConsolidationResponse>(
+            ReportAsyncCore(request, options, cancellationToken)
         );
     }
 }

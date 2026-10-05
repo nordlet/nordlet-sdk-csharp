@@ -45,9 +45,7 @@ Instantiate and use the client with the following:
 using NordletApi;
 
 var client = new NordletApiClient("TOKEN");
-await client.Reference.PostV1ReferenceExchangeRatesSyncAsync(
-    new PostV1ReferenceExchangeRatesSyncRequest()
-);
+await client.Reference.ExchangeRatesSyncAsync(new ExchangeRatesSyncReferenceRequest());
 ```
 
 ## Environments
@@ -72,7 +70,7 @@ will be thrown.
 using NordletApi;
 
 try {
-    var response = await client.Reference.PostV1ReferenceExchangeRatesSyncAsync(...);
+    var response = await client.Reference.ExchangeRatesSyncAsync(...);
 } catch (NordletApiApiException e) {
     System.Console.WriteLine(e.Body);
     System.Console.WriteLine(e.StatusCode);
@@ -115,7 +113,7 @@ Which status codes are retried depends on the `retryStatusCodes` generator confi
 Use the `MaxRetries` request option to configure this behavior.
 
 ```csharp
-var response = await client.Reference.PostV1ReferenceExchangeRatesSyncAsync(
+var response = await client.Reference.ExchangeRatesSyncAsync(
     ...,
     new RequestOptions {
         MaxRetries: 0 // Override MaxRetries at the request level
@@ -128,7 +126,7 @@ var response = await client.Reference.PostV1ReferenceExchangeRatesSyncAsync(
 The SDK defaults to a 30 second timeout. Use the `Timeout` option to configure this behavior.
 
 ```csharp
-var response = await client.Reference.PostV1ReferenceExchangeRatesSyncAsync(
+var response = await client.Reference.ExchangeRatesSyncAsync(
     ...,
     new RequestOptions {
         Timeout: TimeSpan.FromSeconds(3) // Override timeout to 3s
@@ -144,7 +142,7 @@ Access raw HTTP response data (status code, headers, URL) alongside parsed respo
 using NordletApi;
 
 // Access raw response data (status code, headers, etc.) alongside the parsed response
-var result = await client.Reference.PostV1ReferenceExchangeRatesSyncAsync(...).WithRawResponse();
+var result = await client.Reference.ExchangeRatesSyncAsync(...).WithRawResponse();
 
 // Access the parsed data
 var data = result.Data;
@@ -161,7 +159,7 @@ if (headers.TryGetValue("X-Request-Id", out var requestId))
 }
 
 // For the default behavior, simply await without .WithRawResponse()
-var data = await client.Reference.PostV1ReferenceExchangeRatesSyncAsync(...);
+var data = await client.Reference.ExchangeRatesSyncAsync(...);
 
 // .WithRawResponse() also works on streaming endpoints (returns IAsyncEnumerable<T> + RawResponse)
 // and on endpoints with no response body (returns RawResponse only).
@@ -172,7 +170,7 @@ var data = await client.Reference.PostV1ReferenceExchangeRatesSyncAsync(...);
 If you would like to send additional headers as part of the request, use the `AdditionalHeaders` request option.
 
 ```csharp
-var response = await client.Reference.PostV1ReferenceExchangeRatesSyncAsync(
+var response = await client.Reference.ExchangeRatesSyncAsync(
     ...,
     new RequestOptions {
         AdditionalHeaders = new Dictionary<string, string?>
@@ -188,7 +186,7 @@ var response = await client.Reference.PostV1ReferenceExchangeRatesSyncAsync(
 If you would like to send additional query parameters as part of the request, use the `AdditionalQueryParameters` request option.
 
 ```csharp
-var response = await client.Reference.PostV1ReferenceExchangeRatesSyncAsync(
+var response = await client.Reference.ExchangeRatesSyncAsync(
     ...,
     new RequestOptions {
         AdditionalQueryParameters = new Dictionary<string, string>
@@ -205,7 +203,7 @@ If you would like to send additional body properties as part of the request, use
 This is only applied to JSON requests.
 
 ```csharp
-var response = await client.Reference.PostV1ReferenceExchangeRatesSyncAsync(
+var response = await client.Reference.ExchangeRatesSyncAsync(
     ...,
     new RequestOptions {
         AdditionalBodyProperties = new Dictionary<string, object>
@@ -224,25 +222,25 @@ This SDK uses forward-compatible enums that can handle unknown values gracefully
 using NordletApi;
 
 // Using a built-in value
-var postV1ReferenceExchangeRatesListRequestSortItemDir = PostV1ReferenceExchangeRatesListRequestSortItemDir.Asc;
+var exchangeRatesListReferenceRequestSortItemDir = ExchangeRatesListReferenceRequestSortItemDir.Asc;
 
 // Using a custom value
-var customPostV1ReferenceExchangeRatesListRequestSortItemDir = PostV1ReferenceExchangeRatesListRequestSortItemDir.FromCustom("custom-value");
+var customExchangeRatesListReferenceRequestSortItemDir = ExchangeRatesListReferenceRequestSortItemDir.FromCustom("custom-value");
 
 // Using in a switch statement
-switch (postV1ReferenceExchangeRatesListRequestSortItemDir.Value)
+switch (exchangeRatesListReferenceRequestSortItemDir.Value)
 {
-    case PostV1ReferenceExchangeRatesListRequestSortItemDir.Values.Asc:
+    case ExchangeRatesListReferenceRequestSortItemDir.Values.Asc:
         Console.WriteLine("Asc");
         break;
     default:
-        Console.WriteLine($"Unknown value: {postV1ReferenceExchangeRatesListRequestSortItemDir.Value}");
+        Console.WriteLine($"Unknown value: {exchangeRatesListReferenceRequestSortItemDir.Value}");
         break;
 }
 
 // Explicit casting
-string postV1ReferenceExchangeRatesListRequestSortItemDirString = (string)PostV1ReferenceExchangeRatesListRequestSortItemDir.Asc;
-PostV1ReferenceExchangeRatesListRequestSortItemDir postV1ReferenceExchangeRatesListRequestSortItemDirFromString = (PostV1ReferenceExchangeRatesListRequestSortItemDir)"asc";
+string exchangeRatesListReferenceRequestSortItemDirString = (string)ExchangeRatesListReferenceRequestSortItemDir.Asc;
+ExchangeRatesListReferenceRequestSortItemDir exchangeRatesListReferenceRequestSortItemDirFromString = (ExchangeRatesListReferenceRequestSortItemDir)"asc";
 ```
 
 ## Contributing

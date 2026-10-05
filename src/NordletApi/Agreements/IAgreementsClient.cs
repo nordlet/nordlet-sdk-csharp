@@ -2,74 +2,74 @@ namespace NordletApi;
 
 public partial interface IAgreementsClient
 {
-    WithRawResponseTask<PostV1AgreementsTypesCreateResponse> PostV1AgreementsTypesCreateAsync(
-        PostV1AgreementsTypesCreateRequest request,
+    WithRawResponseTask<TypesCreateAgreementsResponse> TypesCreateAsync(
+        TypesCreateAgreementsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AgreementsTypesListResponse> PostV1AgreementsTypesListAsync(
-        PostV1AgreementsTypesListRequest request,
+    WithRawResponseTask<TypesListAgreementsResponse> TypesListAsync(
+        TypesListAgreementsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AgreementsAgreementsCreateResponse> PostV1AgreementsAgreementsCreateAsync(
-        PostV1AgreementsAgreementsCreateRequest request,
+    WithRawResponseTask<AgreementsCreateAgreementsResponse> AgreementsCreateAsync(
+        AgreementsCreateAgreementsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AgreementsAgreementsGetResponse> PostV1AgreementsAgreementsGetAsync(
-        PostV1AgreementsAgreementsGetRequest request,
+    WithRawResponseTask<AgreementsGetAgreementsResponse> AgreementsGetAsync(
+        AgreementsGetAgreementsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AgreementsAgreementsUpdateResponse> PostV1AgreementsAgreementsUpdateAsync(
-        PostV1AgreementsAgreementsUpdateRequest request,
+    WithRawResponseTask<AgreementsUpdateAgreementsResponse> AgreementsUpdateAsync(
+        AgreementsUpdateAgreementsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AgreementsAgreementsDeleteResponse> PostV1AgreementsAgreementsDeleteAsync(
-        PostV1AgreementsAgreementsDeleteRequest request,
+    WithRawResponseTask<AgreementsDeleteAgreementsResponse> AgreementsDeleteAsync(
+        AgreementsDeleteAgreementsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AgreementsAgreementsListResponse> PostV1AgreementsAgreementsListAsync(
-        PostV1AgreementsAgreementsListRequest request,
+    WithRawResponseTask<AgreementsListAgreementsResponse> AgreementsListAsync(
+        AgreementsListAgreementsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AgreementsAgreementsGenerateInvoiceResponse> PostV1AgreementsAgreementsGenerateInvoiceAsync(
-        PostV1AgreementsAgreementsGenerateInvoiceRequest request,
+    WithRawResponseTask<AgreementsGenerateInvoiceAgreementsResponse> AgreementsGenerateInvoiceAsync(
+        AgreementsGenerateInvoiceAgreementsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AgreementsAgreementsBillingRunResponse> PostV1AgreementsAgreementsBillingRunAsync(
-        PostV1AgreementsAgreementsBillingRunRequest request,
+    WithRawResponseTask<AgreementsBillingRunAgreementsResponse> AgreementsBillingRunAsync(
+        AgreementsBillingRunAgreementsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AgreementsInsurancePoliciesCreateResponse> PostV1AgreementsInsurancePoliciesCreateAsync(
-        PostV1AgreementsInsurancePoliciesCreateRequest request,
+    WithRawResponseTask<InsurancePoliciesCreateAgreementsResponse> InsurancePoliciesCreateAsync(
+        InsurancePoliciesCreateAgreementsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AgreementsInsurancePoliciesListResponse> PostV1AgreementsInsurancePoliciesListAsync(
-        PostV1AgreementsInsurancePoliciesListRequest request,
+    WithRawResponseTask<InsurancePoliciesListAgreementsResponse> InsurancePoliciesListAsync(
+        InsurancePoliciesListAgreementsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1AgreementsInsurancePoliciesDeleteResponse> PostV1AgreementsInsurancePoliciesDeleteAsync(
-        PostV1AgreementsInsurancePoliciesDeleteRequest request,
+    WithRawResponseTask<InsurancePoliciesDeleteAgreementsResponse> InsurancePoliciesDeleteAsync(
+        InsurancePoliciesDeleteAgreementsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );

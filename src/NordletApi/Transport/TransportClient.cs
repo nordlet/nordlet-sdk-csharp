@@ -12,10 +12,8 @@ public partial class TransportClient : ITransportClient
         _client = client;
     }
 
-    private async Task<
-        WithRawResponse<PostV1TransportWaybillsCreateResponse>
-    > PostV1TransportWaybillsCreateAsyncCore(
-        PostV1TransportWaybillsCreateRequest request,
+    private async Task<WithRawResponse<WaybillsCreateTransportResponse>> WaybillsCreateAsyncCore(
+        WaybillsCreateTransportRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -51,10 +49,10 @@ public partial class TransportClient : ITransportClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1TransportWaybillsCreateResponse>(
+                var responseData = JsonUtils.Deserialize<WaybillsCreateTransportResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1TransportWaybillsCreateResponse>()
+                return new WithRawResponse<WaybillsCreateTransportResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -113,6 +111,18 @@ public partial class TransportClient : ITransportClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -139,6 +149,18 @@ public partial class TransportClient : ITransportClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -205,10 +227,8 @@ public partial class TransportClient : ITransportClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1TransportWaybillsUpdateResponse>
-    > PostV1TransportWaybillsUpdateAsyncCore(
-        PostV1TransportWaybillsUpdateRequest request,
+    private async Task<WithRawResponse<WaybillsUpdateTransportResponse>> WaybillsUpdateAsyncCore(
+        WaybillsUpdateTransportRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -244,10 +264,10 @@ public partial class TransportClient : ITransportClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1TransportWaybillsUpdateResponse>(
+                var responseData = JsonUtils.Deserialize<WaybillsUpdateTransportResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1TransportWaybillsUpdateResponse>()
+                return new WithRawResponse<WaybillsUpdateTransportResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -306,6 +326,18 @@ public partial class TransportClient : ITransportClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -332,6 +364,18 @@ public partial class TransportClient : ITransportClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -398,10 +442,8 @@ public partial class TransportClient : ITransportClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1TransportWaybillsIssueResponse>
-    > PostV1TransportWaybillsIssueAsyncCore(
-        PostV1TransportWaybillsIssueRequest request,
+    private async Task<WithRawResponse<WaybillsIssueTransportResponse>> WaybillsIssueAsyncCore(
+        WaybillsIssueTransportRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -437,10 +479,10 @@ public partial class TransportClient : ITransportClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1TransportWaybillsIssueResponse>(
+                var responseData = JsonUtils.Deserialize<WaybillsIssueTransportResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1TransportWaybillsIssueResponse>()
+                return new WithRawResponse<WaybillsIssueTransportResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -499,6 +541,18 @@ public partial class TransportClient : ITransportClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -525,6 +579,18 @@ public partial class TransportClient : ITransportClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -591,10 +657,8 @@ public partial class TransportClient : ITransportClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1TransportWaybillsCancelResponse>
-    > PostV1TransportWaybillsCancelAsyncCore(
-        PostV1TransportWaybillsCancelRequest request,
+    private async Task<WithRawResponse<WaybillsCancelTransportResponse>> WaybillsCancelAsyncCore(
+        WaybillsCancelTransportRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -630,10 +694,10 @@ public partial class TransportClient : ITransportClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1TransportWaybillsCancelResponse>(
+                var responseData = JsonUtils.Deserialize<WaybillsCancelTransportResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1TransportWaybillsCancelResponse>()
+                return new WithRawResponse<WaybillsCancelTransportResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -692,6 +756,18 @@ public partial class TransportClient : ITransportClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -718,6 +794,18 @@ public partial class TransportClient : ITransportClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -784,10 +872,8 @@ public partial class TransportClient : ITransportClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1TransportWaybillsGetResponse>
-    > PostV1TransportWaybillsGetAsyncCore(
-        PostV1TransportWaybillsGetRequest request,
+    private async Task<WithRawResponse<WaybillsGetTransportResponse>> WaybillsGetAsyncCore(
+        WaybillsGetTransportRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -823,10 +909,10 @@ public partial class TransportClient : ITransportClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1TransportWaybillsGetResponse>(
+                var responseData = JsonUtils.Deserialize<WaybillsGetTransportResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1TransportWaybillsGetResponse>()
+                return new WithRawResponse<WaybillsGetTransportResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -885,6 +971,18 @@ public partial class TransportClient : ITransportClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -911,6 +1009,18 @@ public partial class TransportClient : ITransportClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -977,10 +1087,8 @@ public partial class TransportClient : ITransportClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1TransportWaybillsListResponse>
-    > PostV1TransportWaybillsListAsyncCore(
-        PostV1TransportWaybillsListRequest request,
+    private async Task<WithRawResponse<WaybillsListTransportResponse>> WaybillsListAsyncCore(
+        WaybillsListTransportRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1016,10 +1124,10 @@ public partial class TransportClient : ITransportClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1TransportWaybillsListResponse>(
+                var responseData = JsonUtils.Deserialize<WaybillsListTransportResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1TransportWaybillsListResponse>()
+                return new WithRawResponse<WaybillsListTransportResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1078,6 +1186,18 @@ public partial class TransportClient : ITransportClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1104,6 +1224,18 @@ public partial class TransportClient : ITransportClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1171,8 +1303,8 @@ public partial class TransportClient : ITransportClient
     }
 
     /// <example><code>
-    /// await client.Transport.PostV1TransportWaybillsCreateAsync(
-    ///     new PostV1TransportWaybillsCreateRequest
+    /// await client.Transport.WaybillsCreateAsync(
+    ///     new WaybillsCreateTransportRequest
     ///     {
     ///         ConsigneePartnerId = "consigneePartnerId",
     ///         DispatchAt = new DateTime(2024, 01, 15, 09, 30, 00, 000),
@@ -1181,92 +1313,84 @@ public partial class TransportClient : ITransportClient
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1TransportWaybillsCreateResponse> PostV1TransportWaybillsCreateAsync(
-        PostV1TransportWaybillsCreateRequest request,
+    public WithRawResponseTask<WaybillsCreateTransportResponse> WaybillsCreateAsync(
+        WaybillsCreateTransportRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1TransportWaybillsCreateResponse>(
-            PostV1TransportWaybillsCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<WaybillsCreateTransportResponse>(
+            WaybillsCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Transport.PostV1TransportWaybillsUpdateAsync(
-    ///     new PostV1TransportWaybillsUpdateRequest { Id = "id" }
-    /// );
+    /// await client.Transport.WaybillsUpdateAsync(new WaybillsUpdateTransportRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1TransportWaybillsUpdateResponse> PostV1TransportWaybillsUpdateAsync(
-        PostV1TransportWaybillsUpdateRequest request,
+    public WithRawResponseTask<WaybillsUpdateTransportResponse> WaybillsUpdateAsync(
+        WaybillsUpdateTransportRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1TransportWaybillsUpdateResponse>(
-            PostV1TransportWaybillsUpdateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<WaybillsUpdateTransportResponse>(
+            WaybillsUpdateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Transport.PostV1TransportWaybillsIssueAsync(
-    ///     new PostV1TransportWaybillsIssueRequest { Id = "id" }
-    /// );
+    /// await client.Transport.WaybillsIssueAsync(new WaybillsIssueTransportRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1TransportWaybillsIssueResponse> PostV1TransportWaybillsIssueAsync(
-        PostV1TransportWaybillsIssueRequest request,
+    public WithRawResponseTask<WaybillsIssueTransportResponse> WaybillsIssueAsync(
+        WaybillsIssueTransportRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1TransportWaybillsIssueResponse>(
-            PostV1TransportWaybillsIssueAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<WaybillsIssueTransportResponse>(
+            WaybillsIssueAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Transport.PostV1TransportWaybillsCancelAsync(
-    ///     new PostV1TransportWaybillsCancelRequest { Id = "id" }
-    /// );
+    /// await client.Transport.WaybillsCancelAsync(new WaybillsCancelTransportRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1TransportWaybillsCancelResponse> PostV1TransportWaybillsCancelAsync(
-        PostV1TransportWaybillsCancelRequest request,
+    public WithRawResponseTask<WaybillsCancelTransportResponse> WaybillsCancelAsync(
+        WaybillsCancelTransportRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1TransportWaybillsCancelResponse>(
-            PostV1TransportWaybillsCancelAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<WaybillsCancelTransportResponse>(
+            WaybillsCancelAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Transport.PostV1TransportWaybillsGetAsync(
-    ///     new PostV1TransportWaybillsGetRequest { Id = "id" }
-    /// );
+    /// await client.Transport.WaybillsGetAsync(new WaybillsGetTransportRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1TransportWaybillsGetResponse> PostV1TransportWaybillsGetAsync(
-        PostV1TransportWaybillsGetRequest request,
+    public WithRawResponseTask<WaybillsGetTransportResponse> WaybillsGetAsync(
+        WaybillsGetTransportRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1TransportWaybillsGetResponse>(
-            PostV1TransportWaybillsGetAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<WaybillsGetTransportResponse>(
+            WaybillsGetAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Transport.PostV1TransportWaybillsListAsync(new PostV1TransportWaybillsListRequest());
+    /// await client.Transport.WaybillsListAsync(new WaybillsListTransportRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1TransportWaybillsListResponse> PostV1TransportWaybillsListAsync(
-        PostV1TransportWaybillsListRequest request,
+    public WithRawResponseTask<WaybillsListTransportResponse> WaybillsListAsync(
+        WaybillsListTransportRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1TransportWaybillsListResponse>(
-            PostV1TransportWaybillsListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<WaybillsListTransportResponse>(
+            WaybillsListAsyncCore(request, options, cancellationToken)
         );
     }
 }

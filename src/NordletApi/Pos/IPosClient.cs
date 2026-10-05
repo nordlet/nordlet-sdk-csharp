@@ -2,38 +2,38 @@ namespace NordletApi;
 
 public partial interface IPosClient
 {
-    WithRawResponseTask<PostV1PosDevicesCreateResponse> PostV1PosDevicesCreateAsync(
-        PostV1PosDevicesCreateRequest request,
+    WithRawResponseTask<DevicesCreatePosResponse> DevicesCreateAsync(
+        DevicesCreatePosRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1PosDevicesUpdateResponse> PostV1PosDevicesUpdateAsync(
-        PostV1PosDevicesUpdateRequest request,
+    WithRawResponseTask<DevicesUpdatePosResponse> DevicesUpdateAsync(
+        DevicesUpdatePosRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1PosDevicesListResponse> PostV1PosDevicesListAsync(
-        PostV1PosDevicesListRequest request,
+    WithRawResponseTask<DevicesListPosResponse> DevicesListAsync(
+        DevicesListPosRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1PosReportsCreateResponse> PostV1PosReportsCreateAsync(
-        PostV1PosReportsCreateRequest request,
+    WithRawResponseTask<ReportsCreatePosResponse> ReportsCreateAsync(
+        ReportsCreatePosRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1PosReportsGetResponse> PostV1PosReportsGetAsync(
-        PostV1PosReportsGetRequest request,
+    WithRawResponseTask<ReportsGetPosResponse> ReportsGetAsync(
+        ReportsGetPosRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1PosReportsListResponse> PostV1PosReportsListAsync(
-        PostV1PosReportsListRequest request,
+    WithRawResponseTask<ReportsListPosResponse> ReportsListAsync(
+        ReportsListPosRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );

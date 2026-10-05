@@ -12,10 +12,8 @@ public partial class PartnersClient : IPartnersClient
         _client = client;
     }
 
-    private async Task<
-        WithRawResponse<PostV1PartnersAddressesCreateResponse>
-    > PostV1PartnersAddressesCreateAsyncCore(
-        PostV1PartnersAddressesCreateRequest request,
+    private async Task<WithRawResponse<AddressesCreatePartnersResponse>> AddressesCreateAsyncCore(
+        AddressesCreatePartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -51,10 +49,10 @@ public partial class PartnersClient : IPartnersClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PartnersAddressesCreateResponse>(
+                var responseData = JsonUtils.Deserialize<AddressesCreatePartnersResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PartnersAddressesCreateResponse>()
+                return new WithRawResponse<AddressesCreatePartnersResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -113,6 +111,18 @@ public partial class PartnersClient : IPartnersClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -139,6 +149,18 @@ public partial class PartnersClient : IPartnersClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -205,10 +227,8 @@ public partial class PartnersClient : IPartnersClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PartnersAddressesUpdateResponse>
-    > PostV1PartnersAddressesUpdateAsyncCore(
-        PostV1PartnersAddressesUpdateRequest request,
+    private async Task<WithRawResponse<AddressesUpdatePartnersResponse>> AddressesUpdateAsyncCore(
+        AddressesUpdatePartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -244,10 +264,10 @@ public partial class PartnersClient : IPartnersClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PartnersAddressesUpdateResponse>(
+                var responseData = JsonUtils.Deserialize<AddressesUpdatePartnersResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PartnersAddressesUpdateResponse>()
+                return new WithRawResponse<AddressesUpdatePartnersResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -306,6 +326,18 @@ public partial class PartnersClient : IPartnersClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -332,6 +364,18 @@ public partial class PartnersClient : IPartnersClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -398,10 +442,8 @@ public partial class PartnersClient : IPartnersClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PartnersAddressesDeleteResponse>
-    > PostV1PartnersAddressesDeleteAsyncCore(
-        PostV1PartnersAddressesDeleteRequest request,
+    private async Task<WithRawResponse<AddressesDeletePartnersResponse>> AddressesDeleteAsyncCore(
+        AddressesDeletePartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -437,10 +479,10 @@ public partial class PartnersClient : IPartnersClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PartnersAddressesDeleteResponse>(
+                var responseData = JsonUtils.Deserialize<AddressesDeletePartnersResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PartnersAddressesDeleteResponse>()
+                return new WithRawResponse<AddressesDeletePartnersResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -499,6 +541,18 @@ public partial class PartnersClient : IPartnersClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -525,6 +579,18 @@ public partial class PartnersClient : IPartnersClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -591,10 +657,8 @@ public partial class PartnersClient : IPartnersClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PartnersAddressesListResponse>
-    > PostV1PartnersAddressesListAsyncCore(
-        PostV1PartnersAddressesListRequest request,
+    private async Task<WithRawResponse<AddressesListPartnersResponse>> AddressesListAsyncCore(
+        AddressesListPartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -630,10 +694,10 @@ public partial class PartnersClient : IPartnersClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PartnersAddressesListResponse>(
+                var responseData = JsonUtils.Deserialize<AddressesListPartnersResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PartnersAddressesListResponse>()
+                return new WithRawResponse<AddressesListPartnersResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -692,6 +756,18 @@ public partial class PartnersClient : IPartnersClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -718,6 +794,18 @@ public partial class PartnersClient : IPartnersClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -784,10 +872,8 @@ public partial class PartnersClient : IPartnersClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PartnersContactsCreateResponse>
-    > PostV1PartnersContactsCreateAsyncCore(
-        PostV1PartnersContactsCreateRequest request,
+    private async Task<WithRawResponse<ContactsCreatePartnersResponse>> ContactsCreateAsyncCore(
+        ContactsCreatePartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -823,10 +909,10 @@ public partial class PartnersClient : IPartnersClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PartnersContactsCreateResponse>(
+                var responseData = JsonUtils.Deserialize<ContactsCreatePartnersResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PartnersContactsCreateResponse>()
+                return new WithRawResponse<ContactsCreatePartnersResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -885,6 +971,18 @@ public partial class PartnersClient : IPartnersClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -911,6 +1009,18 @@ public partial class PartnersClient : IPartnersClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -977,10 +1087,8 @@ public partial class PartnersClient : IPartnersClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PartnersContactsUpdateResponse>
-    > PostV1PartnersContactsUpdateAsyncCore(
-        PostV1PartnersContactsUpdateRequest request,
+    private async Task<WithRawResponse<ContactsUpdatePartnersResponse>> ContactsUpdateAsyncCore(
+        ContactsUpdatePartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1016,10 +1124,10 @@ public partial class PartnersClient : IPartnersClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PartnersContactsUpdateResponse>(
+                var responseData = JsonUtils.Deserialize<ContactsUpdatePartnersResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PartnersContactsUpdateResponse>()
+                return new WithRawResponse<ContactsUpdatePartnersResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1078,6 +1186,18 @@ public partial class PartnersClient : IPartnersClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1104,6 +1224,18 @@ public partial class PartnersClient : IPartnersClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1170,10 +1302,8 @@ public partial class PartnersClient : IPartnersClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PartnersContactsDeleteResponse>
-    > PostV1PartnersContactsDeleteAsyncCore(
-        PostV1PartnersContactsDeleteRequest request,
+    private async Task<WithRawResponse<ContactsDeletePartnersResponse>> ContactsDeleteAsyncCore(
+        ContactsDeletePartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1209,10 +1339,10 @@ public partial class PartnersClient : IPartnersClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PartnersContactsDeleteResponse>(
+                var responseData = JsonUtils.Deserialize<ContactsDeletePartnersResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PartnersContactsDeleteResponse>()
+                return new WithRawResponse<ContactsDeletePartnersResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1271,6 +1401,18 @@ public partial class PartnersClient : IPartnersClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1297,6 +1439,18 @@ public partial class PartnersClient : IPartnersClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1363,10 +1517,8 @@ public partial class PartnersClient : IPartnersClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PartnersContactsListResponse>
-    > PostV1PartnersContactsListAsyncCore(
-        PostV1PartnersContactsListRequest request,
+    private async Task<WithRawResponse<ContactsListPartnersResponse>> ContactsListAsyncCore(
+        ContactsListPartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1402,10 +1554,10 @@ public partial class PartnersClient : IPartnersClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PartnersContactsListResponse>(
+                var responseData = JsonUtils.Deserialize<ContactsListPartnersResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PartnersContactsListResponse>()
+                return new WithRawResponse<ContactsListPartnersResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1464,6 +1616,18 @@ public partial class PartnersClient : IPartnersClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1490,6 +1654,18 @@ public partial class PartnersClient : IPartnersClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1557,9 +1733,9 @@ public partial class PartnersClient : IPartnersClient
     }
 
     private async Task<
-        WithRawResponse<PostV1PartnersBankAccountsCreateResponse>
-    > PostV1PartnersBankAccountsCreateAsyncCore(
-        PostV1PartnersBankAccountsCreateRequest request,
+        WithRawResponse<BankAccountsCreatePartnersResponse>
+    > BankAccountsCreateAsyncCore(
+        BankAccountsCreatePartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1595,10 +1771,10 @@ public partial class PartnersClient : IPartnersClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PartnersBankAccountsCreateResponse>(
+                var responseData = JsonUtils.Deserialize<BankAccountsCreatePartnersResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PartnersBankAccountsCreateResponse>()
+                return new WithRawResponse<BankAccountsCreatePartnersResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1657,6 +1833,18 @@ public partial class PartnersClient : IPartnersClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1683,6 +1871,18 @@ public partial class PartnersClient : IPartnersClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1750,9 +1950,9 @@ public partial class PartnersClient : IPartnersClient
     }
 
     private async Task<
-        WithRawResponse<PostV1PartnersBankAccountsUpdateResponse>
-    > PostV1PartnersBankAccountsUpdateAsyncCore(
-        PostV1PartnersBankAccountsUpdateRequest request,
+        WithRawResponse<BankAccountsUpdatePartnersResponse>
+    > BankAccountsUpdateAsyncCore(
+        BankAccountsUpdatePartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1788,10 +1988,10 @@ public partial class PartnersClient : IPartnersClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PartnersBankAccountsUpdateResponse>(
+                var responseData = JsonUtils.Deserialize<BankAccountsUpdatePartnersResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PartnersBankAccountsUpdateResponse>()
+                return new WithRawResponse<BankAccountsUpdatePartnersResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1850,6 +2050,18 @@ public partial class PartnersClient : IPartnersClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1876,6 +2088,18 @@ public partial class PartnersClient : IPartnersClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1943,9 +2167,9 @@ public partial class PartnersClient : IPartnersClient
     }
 
     private async Task<
-        WithRawResponse<PostV1PartnersBankAccountsDeleteResponse>
-    > PostV1PartnersBankAccountsDeleteAsyncCore(
-        PostV1PartnersBankAccountsDeleteRequest request,
+        WithRawResponse<BankAccountsDeletePartnersResponse>
+    > BankAccountsDeleteAsyncCore(
+        BankAccountsDeletePartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1981,10 +2205,10 @@ public partial class PartnersClient : IPartnersClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PartnersBankAccountsDeleteResponse>(
+                var responseData = JsonUtils.Deserialize<BankAccountsDeletePartnersResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PartnersBankAccountsDeleteResponse>()
+                return new WithRawResponse<BankAccountsDeletePartnersResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2043,6 +2267,18 @@ public partial class PartnersClient : IPartnersClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2069,6 +2305,18 @@ public partial class PartnersClient : IPartnersClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2135,10 +2383,8 @@ public partial class PartnersClient : IPartnersClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PartnersBankAccountsListResponse>
-    > PostV1PartnersBankAccountsListAsyncCore(
-        PostV1PartnersBankAccountsListRequest request,
+    private async Task<WithRawResponse<BankAccountsListPartnersResponse>> BankAccountsListAsyncCore(
+        BankAccountsListPartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2174,10 +2420,10 @@ public partial class PartnersClient : IPartnersClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PartnersBankAccountsListResponse>(
+                var responseData = JsonUtils.Deserialize<BankAccountsListPartnersResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PartnersBankAccountsListResponse>()
+                return new WithRawResponse<BankAccountsListPartnersResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2236,6 +2482,18 @@ public partial class PartnersClient : IPartnersClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2262,6 +2520,18 @@ public partial class PartnersClient : IPartnersClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2328,10 +2598,8 @@ public partial class PartnersClient : IPartnersClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PartnersFilesListResponse>
-    > PostV1PartnersFilesListAsyncCore(
-        PostV1PartnersFilesListRequest request,
+    private async Task<WithRawResponse<FilesListPartnersResponse>> FilesListAsyncCore(
+        FilesListPartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2367,10 +2635,8 @@ public partial class PartnersClient : IPartnersClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PartnersFilesListResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1PartnersFilesListResponse>()
+                var responseData = JsonUtils.Deserialize<FilesListPartnersResponse>(responseBody)!;
+                return new WithRawResponse<FilesListPartnersResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2429,6 +2695,18 @@ public partial class PartnersClient : IPartnersClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2455,6 +2733,18 @@ public partial class PartnersClient : IPartnersClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2522,9 +2812,9 @@ public partial class PartnersClient : IPartnersClient
     }
 
     private async Task<
-        WithRawResponse<PostV1PartnersDebtRemindersPreviewResponse>
-    > RemindersTheOvernightDebtReminderJobWouldSendTodayForThisCompanyAsyncCore(
-        PostV1PartnersDebtRemindersPreviewRequest request,
+        WithRawResponse<DebtRemindersPreviewPartnersResponse>
+    > DebtRemindersPreviewAsyncCore(
+        DebtRemindersPreviewPartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2560,11 +2850,10 @@ public partial class PartnersClient : IPartnersClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData =
-                    JsonUtils.Deserialize<PostV1PartnersDebtRemindersPreviewResponse>(
-                        responseBody
-                    )!;
-                return new WithRawResponse<PostV1PartnersDebtRemindersPreviewResponse>()
+                var responseData = JsonUtils.Deserialize<DebtRemindersPreviewPartnersResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<DebtRemindersPreviewPartnersResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2623,6 +2912,18 @@ public partial class PartnersClient : IPartnersClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2649,6 +2950,18 @@ public partial class PartnersClient : IPartnersClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2716,9 +3029,9 @@ public partial class PartnersClient : IPartnersClient
     }
 
     private async Task<
-        WithRawResponse<PostV1PartnersDebtRemindersListResponse>
-    > PostV1PartnersDebtRemindersListAsyncCore(
-        PostV1PartnersDebtRemindersListRequest request,
+        WithRawResponse<DebtRemindersListPartnersResponse>
+    > DebtRemindersListAsyncCore(
+        DebtRemindersListPartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2754,10 +3067,10 @@ public partial class PartnersClient : IPartnersClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PartnersDebtRemindersListResponse>(
+                var responseData = JsonUtils.Deserialize<DebtRemindersListPartnersResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PartnersDebtRemindersListResponse>()
+                return new WithRawResponse<DebtRemindersListPartnersResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2816,6 +3129,18 @@ public partial class PartnersClient : IPartnersClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2842,6 +3167,18 @@ public partial class PartnersClient : IPartnersClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2908,10 +3245,8 @@ public partial class PartnersClient : IPartnersClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PartnersValidateVatResponse>
-    > PostV1PartnersValidateVatAsyncCore(
-        PostV1PartnersValidateVatRequest request,
+    private async Task<WithRawResponse<ValidateVatPartnersResponse>> ValidateVatAsyncCore(
+        ValidateVatPartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2947,10 +3282,10 @@ public partial class PartnersClient : IPartnersClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PartnersValidateVatResponse>(
+                var responseData = JsonUtils.Deserialize<ValidateVatPartnersResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PartnersValidateVatResponse>()
+                return new WithRawResponse<ValidateVatPartnersResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3009,6 +3344,18 @@ public partial class PartnersClient : IPartnersClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3035,6 +3382,18 @@ public partial class PartnersClient : IPartnersClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3101,10 +3460,8 @@ public partial class PartnersClient : IPartnersClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PartnersVatReviewsListResponse>
-    > PostV1PartnersVatReviewsListAsyncCore(
-        PostV1PartnersVatReviewsListRequest request,
+    private async Task<WithRawResponse<VatReviewsListPartnersResponse>> VatReviewsListAsyncCore(
+        VatReviewsListPartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3140,10 +3497,10 @@ public partial class PartnersClient : IPartnersClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PartnersVatReviewsListResponse>(
+                var responseData = JsonUtils.Deserialize<VatReviewsListPartnersResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PartnersVatReviewsListResponse>()
+                return new WithRawResponse<VatReviewsListPartnersResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3202,6 +3559,18 @@ public partial class PartnersClient : IPartnersClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3228,6 +3597,18 @@ public partial class PartnersClient : IPartnersClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3295,9 +3676,9 @@ public partial class PartnersClient : IPartnersClient
     }
 
     private async Task<
-        WithRawResponse<PostV1PartnersVatReviewsResolveResponse>
-    > PostV1PartnersVatReviewsResolveAsyncCore(
-        PostV1PartnersVatReviewsResolveRequest request,
+        WithRawResponse<VatReviewsResolvePartnersResponse>
+    > VatReviewsResolveAsyncCore(
+        VatReviewsResolvePartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3333,10 +3714,10 @@ public partial class PartnersClient : IPartnersClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PartnersVatReviewsResolveResponse>(
+                var responseData = JsonUtils.Deserialize<VatReviewsResolvePartnersResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PartnersVatReviewsResolveResponse>()
+                return new WithRawResponse<VatReviewsResolvePartnersResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3395,6 +3776,18 @@ public partial class PartnersClient : IPartnersClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3421,6 +3814,18 @@ public partial class PartnersClient : IPartnersClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3487,8 +3892,8 @@ public partial class PartnersClient : IPartnersClient
         }
     }
 
-    private async Task<WithRawResponse<PostV1PartnersCreateResponse>> PostV1PartnersCreateAsyncCore(
-        PostV1PartnersCreateRequest request,
+    private async Task<WithRawResponse<CreatePartnersResponse>> CreateAsyncCore(
+        CreatePartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3524,10 +3929,8 @@ public partial class PartnersClient : IPartnersClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PartnersCreateResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1PartnersCreateResponse>()
+                var responseData = JsonUtils.Deserialize<CreatePartnersResponse>(responseBody)!;
+                return new WithRawResponse<CreatePartnersResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3586,6 +3989,18 @@ public partial class PartnersClient : IPartnersClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3612,6 +4027,18 @@ public partial class PartnersClient : IPartnersClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3678,10 +4105,8 @@ public partial class PartnersClient : IPartnersClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PartnersFindOrCreateResponse>
-    > PostV1PartnersFindOrCreateAsyncCore(
-        PostV1PartnersFindOrCreateRequest request,
+    private async Task<WithRawResponse<FindOrCreatePartnersResponse>> FindOrCreateAsyncCore(
+        FindOrCreatePartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3717,10 +4142,10 @@ public partial class PartnersClient : IPartnersClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PartnersFindOrCreateResponse>(
+                var responseData = JsonUtils.Deserialize<FindOrCreatePartnersResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PartnersFindOrCreateResponse>()
+                return new WithRawResponse<FindOrCreatePartnersResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3779,6 +4204,18 @@ public partial class PartnersClient : IPartnersClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3805,6 +4242,18 @@ public partial class PartnersClient : IPartnersClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3871,8 +4320,8 @@ public partial class PartnersClient : IPartnersClient
         }
     }
 
-    private async Task<WithRawResponse<PostV1PartnersGetResponse>> PostV1PartnersGetAsyncCore(
-        PostV1PartnersGetRequest request,
+    private async Task<WithRawResponse<GetPartnersResponse>> GetAsyncCore(
+        GetPartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3908,8 +4357,8 @@ public partial class PartnersClient : IPartnersClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PartnersGetResponse>(responseBody)!;
-                return new WithRawResponse<PostV1PartnersGetResponse>()
+                var responseData = JsonUtils.Deserialize<GetPartnersResponse>(responseBody)!;
+                return new WithRawResponse<GetPartnersResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3968,6 +4417,18 @@ public partial class PartnersClient : IPartnersClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3994,6 +4455,18 @@ public partial class PartnersClient : IPartnersClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -4060,8 +4533,8 @@ public partial class PartnersClient : IPartnersClient
         }
     }
 
-    private async Task<WithRawResponse<PostV1PartnersUpdateResponse>> PostV1PartnersUpdateAsyncCore(
-        PostV1PartnersUpdateRequest request,
+    private async Task<WithRawResponse<UpdatePartnersResponse>> UpdateAsyncCore(
+        UpdatePartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -4097,10 +4570,8 @@ public partial class PartnersClient : IPartnersClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PartnersUpdateResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1PartnersUpdateResponse>()
+                var responseData = JsonUtils.Deserialize<UpdatePartnersResponse>(responseBody)!;
+                return new WithRawResponse<UpdatePartnersResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -4159,6 +4630,18 @@ public partial class PartnersClient : IPartnersClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -4185,6 +4668,18 @@ public partial class PartnersClient : IPartnersClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -4251,8 +4746,8 @@ public partial class PartnersClient : IPartnersClient
         }
     }
 
-    private async Task<WithRawResponse<PostV1PartnersDeleteResponse>> PostV1PartnersDeleteAsyncCore(
-        PostV1PartnersDeleteRequest request,
+    private async Task<WithRawResponse<DeletePartnersResponse>> DeleteAsyncCore(
+        DeletePartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -4288,10 +4783,8 @@ public partial class PartnersClient : IPartnersClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PartnersDeleteResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1PartnersDeleteResponse>()
+                var responseData = JsonUtils.Deserialize<DeletePartnersResponse>(responseBody)!;
+                return new WithRawResponse<DeletePartnersResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -4350,6 +4843,18 @@ public partial class PartnersClient : IPartnersClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -4376,6 +4881,18 @@ public partial class PartnersClient : IPartnersClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -4442,10 +4959,8 @@ public partial class PartnersClient : IPartnersClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PartnersAnonymizeResponse>
-    > BlankAPartnersPersonalDataAndHideTheRecordAsyncCore(
-        PostV1PartnersAnonymizeRequest request,
+    private async Task<WithRawResponse<AnonymizePartnersResponse>> AnonymizeAsyncCore(
+        AnonymizePartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -4481,10 +4996,8 @@ public partial class PartnersClient : IPartnersClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PartnersAnonymizeResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1PartnersAnonymizeResponse>()
+                var responseData = JsonUtils.Deserialize<AnonymizePartnersResponse>(responseBody)!;
+                return new WithRawResponse<AnonymizePartnersResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -4543,6 +5056,18 @@ public partial class PartnersClient : IPartnersClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -4569,6 +5094,18 @@ public partial class PartnersClient : IPartnersClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -4635,8 +5172,8 @@ public partial class PartnersClient : IPartnersClient
         }
     }
 
-    private async Task<WithRawResponse<PostV1PartnersListResponse>> PostV1PartnersListAsyncCore(
-        PostV1PartnersListRequest request,
+    private async Task<WithRawResponse<ListPartnersResponse>> ListAsyncCore(
+        ListPartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -4672,8 +5209,8 @@ public partial class PartnersClient : IPartnersClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PartnersListResponse>(responseBody)!;
-                return new WithRawResponse<PostV1PartnersListResponse>()
+                var responseData = JsonUtils.Deserialize<ListPartnersResponse>(responseBody)!;
+                return new WithRawResponse<ListPartnersResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -4732,6 +5269,18 @@ public partial class PartnersClient : IPartnersClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -4758,6 +5307,18 @@ public partial class PartnersClient : IPartnersClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -4824,10 +5385,8 @@ public partial class PartnersClient : IPartnersClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PartnersGroupsCreateResponse>
-    > PostV1PartnersGroupsCreateAsyncCore(
-        PostV1PartnersGroupsCreateRequest request,
+    private async Task<WithRawResponse<GroupsCreatePartnersResponse>> GroupsCreateAsyncCore(
+        GroupsCreatePartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -4863,10 +5422,10 @@ public partial class PartnersClient : IPartnersClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PartnersGroupsCreateResponse>(
+                var responseData = JsonUtils.Deserialize<GroupsCreatePartnersResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PartnersGroupsCreateResponse>()
+                return new WithRawResponse<GroupsCreatePartnersResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -4925,6 +5484,18 @@ public partial class PartnersClient : IPartnersClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -4951,6 +5522,18 @@ public partial class PartnersClient : IPartnersClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -5017,10 +5600,8 @@ public partial class PartnersClient : IPartnersClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PartnersGroupsUpdateResponse>
-    > PostV1PartnersGroupsUpdateAsyncCore(
-        PostV1PartnersGroupsUpdateRequest request,
+    private async Task<WithRawResponse<GroupsUpdatePartnersResponse>> GroupsUpdateAsyncCore(
+        GroupsUpdatePartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -5056,10 +5637,10 @@ public partial class PartnersClient : IPartnersClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PartnersGroupsUpdateResponse>(
+                var responseData = JsonUtils.Deserialize<GroupsUpdatePartnersResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PartnersGroupsUpdateResponse>()
+                return new WithRawResponse<GroupsUpdatePartnersResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -5118,6 +5699,18 @@ public partial class PartnersClient : IPartnersClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -5144,6 +5737,18 @@ public partial class PartnersClient : IPartnersClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -5210,10 +5815,8 @@ public partial class PartnersClient : IPartnersClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PartnersGroupsDeleteResponse>
-    > PostV1PartnersGroupsDeleteAsyncCore(
-        PostV1PartnersGroupsDeleteRequest request,
+    private async Task<WithRawResponse<GroupsDeletePartnersResponse>> GroupsDeleteAsyncCore(
+        GroupsDeletePartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -5249,10 +5852,10 @@ public partial class PartnersClient : IPartnersClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PartnersGroupsDeleteResponse>(
+                var responseData = JsonUtils.Deserialize<GroupsDeletePartnersResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PartnersGroupsDeleteResponse>()
+                return new WithRawResponse<GroupsDeletePartnersResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -5311,6 +5914,18 @@ public partial class PartnersClient : IPartnersClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -5337,6 +5952,18 @@ public partial class PartnersClient : IPartnersClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -5403,10 +6030,8 @@ public partial class PartnersClient : IPartnersClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PartnersGroupsListResponse>
-    > PostV1PartnersGroupsListAsyncCore(
-        PostV1PartnersGroupsListRequest request,
+    private async Task<WithRawResponse<GroupsListPartnersResponse>> GroupsListAsyncCore(
+        GroupsListPartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -5442,10 +6067,8 @@ public partial class PartnersClient : IPartnersClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PartnersGroupsListResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1PartnersGroupsListResponse>()
+                var responseData = JsonUtils.Deserialize<GroupsListPartnersResponse>(responseBody)!;
+                return new WithRawResponse<GroupsListPartnersResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -5504,6 +6127,18 @@ public partial class PartnersClient : IPartnersClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -5530,6 +6165,18 @@ public partial class PartnersClient : IPartnersClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -5596,10 +6243,8 @@ public partial class PartnersClient : IPartnersClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PartnersStatusesCreateResponse>
-    > PostV1PartnersStatusesCreateAsyncCore(
-        PostV1PartnersStatusesCreateRequest request,
+    private async Task<WithRawResponse<StatusesCreatePartnersResponse>> StatusesCreateAsyncCore(
+        StatusesCreatePartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -5635,10 +6280,10 @@ public partial class PartnersClient : IPartnersClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PartnersStatusesCreateResponse>(
+                var responseData = JsonUtils.Deserialize<StatusesCreatePartnersResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PartnersStatusesCreateResponse>()
+                return new WithRawResponse<StatusesCreatePartnersResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -5697,6 +6342,18 @@ public partial class PartnersClient : IPartnersClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -5723,6 +6380,18 @@ public partial class PartnersClient : IPartnersClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -5789,10 +6458,8 @@ public partial class PartnersClient : IPartnersClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PartnersStatusesUpdateResponse>
-    > PostV1PartnersStatusesUpdateAsyncCore(
-        PostV1PartnersStatusesUpdateRequest request,
+    private async Task<WithRawResponse<StatusesUpdatePartnersResponse>> StatusesUpdateAsyncCore(
+        StatusesUpdatePartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -5828,10 +6495,10 @@ public partial class PartnersClient : IPartnersClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PartnersStatusesUpdateResponse>(
+                var responseData = JsonUtils.Deserialize<StatusesUpdatePartnersResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PartnersStatusesUpdateResponse>()
+                return new WithRawResponse<StatusesUpdatePartnersResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -5890,6 +6557,18 @@ public partial class PartnersClient : IPartnersClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -5916,6 +6595,18 @@ public partial class PartnersClient : IPartnersClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -5982,10 +6673,8 @@ public partial class PartnersClient : IPartnersClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PartnersStatusesDeleteResponse>
-    > PostV1PartnersStatusesDeleteAsyncCore(
-        PostV1PartnersStatusesDeleteRequest request,
+    private async Task<WithRawResponse<StatusesDeletePartnersResponse>> StatusesDeleteAsyncCore(
+        StatusesDeletePartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -6021,10 +6710,10 @@ public partial class PartnersClient : IPartnersClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PartnersStatusesDeleteResponse>(
+                var responseData = JsonUtils.Deserialize<StatusesDeletePartnersResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PartnersStatusesDeleteResponse>()
+                return new WithRawResponse<StatusesDeletePartnersResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -6083,6 +6772,18 @@ public partial class PartnersClient : IPartnersClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -6109,6 +6810,18 @@ public partial class PartnersClient : IPartnersClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -6175,10 +6888,8 @@ public partial class PartnersClient : IPartnersClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PartnersStatusesListResponse>
-    > PostV1PartnersStatusesListAsyncCore(
-        PostV1PartnersStatusesListRequest request,
+    private async Task<WithRawResponse<StatusesListPartnersResponse>> StatusesListAsyncCore(
+        StatusesListPartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -6214,10 +6925,10 @@ public partial class PartnersClient : IPartnersClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PartnersStatusesListResponse>(
+                var responseData = JsonUtils.Deserialize<StatusesListPartnersResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PartnersStatusesListResponse>()
+                return new WithRawResponse<StatusesListPartnersResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -6276,6 +6987,18 @@ public partial class PartnersClient : IPartnersClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -6302,6 +7025,18 @@ public partial class PartnersClient : IPartnersClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -6368,10 +7103,8 @@ public partial class PartnersClient : IPartnersClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PartnersInquiriesCreateResponse>
-    > PostV1PartnersInquiriesCreateAsyncCore(
-        PostV1PartnersInquiriesCreateRequest request,
+    private async Task<WithRawResponse<InquiriesCreatePartnersResponse>> InquiriesCreateAsyncCore(
+        InquiriesCreatePartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -6407,10 +7140,10 @@ public partial class PartnersClient : IPartnersClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PartnersInquiriesCreateResponse>(
+                var responseData = JsonUtils.Deserialize<InquiriesCreatePartnersResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PartnersInquiriesCreateResponse>()
+                return new WithRawResponse<InquiriesCreatePartnersResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -6469,6 +7202,18 @@ public partial class PartnersClient : IPartnersClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -6495,6 +7240,18 @@ public partial class PartnersClient : IPartnersClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -6561,10 +7318,8 @@ public partial class PartnersClient : IPartnersClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PartnersInquiriesUpdateResponse>
-    > PostV1PartnersInquiriesUpdateAsyncCore(
-        PostV1PartnersInquiriesUpdateRequest request,
+    private async Task<WithRawResponse<InquiriesUpdatePartnersResponse>> InquiriesUpdateAsyncCore(
+        InquiriesUpdatePartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -6600,10 +7355,10 @@ public partial class PartnersClient : IPartnersClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PartnersInquiriesUpdateResponse>(
+                var responseData = JsonUtils.Deserialize<InquiriesUpdatePartnersResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PartnersInquiriesUpdateResponse>()
+                return new WithRawResponse<InquiriesUpdatePartnersResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -6662,6 +7417,18 @@ public partial class PartnersClient : IPartnersClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -6688,6 +7455,18 @@ public partial class PartnersClient : IPartnersClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -6754,10 +7533,8 @@ public partial class PartnersClient : IPartnersClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PartnersInquiriesGetResponse>
-    > PostV1PartnersInquiriesGetAsyncCore(
-        PostV1PartnersInquiriesGetRequest request,
+    private async Task<WithRawResponse<InquiriesGetPartnersResponse>> InquiriesGetAsyncCore(
+        InquiriesGetPartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -6793,10 +7570,10 @@ public partial class PartnersClient : IPartnersClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PartnersInquiriesGetResponse>(
+                var responseData = JsonUtils.Deserialize<InquiriesGetPartnersResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PartnersInquiriesGetResponse>()
+                return new WithRawResponse<InquiriesGetPartnersResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -6855,6 +7632,18 @@ public partial class PartnersClient : IPartnersClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -6881,6 +7670,18 @@ public partial class PartnersClient : IPartnersClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -6947,10 +7748,8 @@ public partial class PartnersClient : IPartnersClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PartnersInquiriesListResponse>
-    > PostV1PartnersInquiriesListAsyncCore(
-        PostV1PartnersInquiriesListRequest request,
+    private async Task<WithRawResponse<InquiriesListPartnersResponse>> InquiriesListAsyncCore(
+        InquiriesListPartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -6986,10 +7785,10 @@ public partial class PartnersClient : IPartnersClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PartnersInquiriesListResponse>(
+                var responseData = JsonUtils.Deserialize<InquiriesListPartnersResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PartnersInquiriesListResponse>()
+                return new WithRawResponse<InquiriesListPartnersResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -7048,6 +7847,18 @@ public partial class PartnersClient : IPartnersClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -7074,6 +7885,18 @@ public partial class PartnersClient : IPartnersClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -7140,10 +7963,8 @@ public partial class PartnersClient : IPartnersClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1PartnersCreditCheckResponse>
-    > PostV1PartnersCreditCheckAsyncCore(
-        PostV1PartnersCreditCheckRequest request,
+    private async Task<WithRawResponse<CreditCheckPartnersResponse>> CreditCheckAsyncCore(
+        CreditCheckPartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -7179,10 +8000,10 @@ public partial class PartnersClient : IPartnersClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1PartnersCreditCheckResponse>(
+                var responseData = JsonUtils.Deserialize<CreditCheckPartnersResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1PartnersCreditCheckResponse>()
+                return new WithRawResponse<CreditCheckPartnersResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -7241,185 +8062,8 @@ public partial class PartnersClient : IPartnersClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
-                    case 403:
-                        throw new ForbiddenError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 404:
-                        throw new NotFoundError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 409:
-                        throw new ConflictError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 422:
-                        throw new UnprocessableEntityError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 429:
-                        throw new TooManyRequestsError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 500:
-                        throw new InternalServerError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                }
-            }
-            catch (JsonException)
-            {
-                // unable to map error response, throwing generic error
-            }
-            throw new NordletApiApiException(
-                $"Error with status code {response.StatusCode}",
-                response.StatusCode,
-                responseBody,
-                rawResponse: new NordletApi.RawResponse()
-                {
-                    StatusCode = response.Raw.StatusCode,
-                    Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                    Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                }
-            );
-        }
-    }
-
-    private async Task<WithRawResponse<PostV1LeadsCreateResponse>> PostV1LeadsCreateAsyncCore(
-        PostV1LeadsCreateRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        var _queryString = new NordletApi.Core.QueryStringBuilder.Builder(capacity: 0)
-            .MergeAdditional(options?.AdditionalQueryParameters)
-            .Build();
-        var _headers = await new NordletApi.Core.HeadersBuilder.Builder()
-            .Add(_client.Options.Headers)
-            .Add(_client.Options.AdditionalHeaders)
-            .Add(options?.AdditionalHeaders)
-            .BuildAsync()
-            .ConfigureAwait(false);
-        var response = await _client
-            .SendRequestAsync(
-                new JsonRequest
-                {
-                    Method = HttpMethod.Post,
-                    Path = "v1/leads/create",
-                    Body = request,
-                    QueryString = _queryString,
-                    Headers = _headers,
-                    ContentType = "application/json",
-                    Options = options,
-                },
-                cancellationToken
-            )
-            .ConfigureAwait(false);
-        if (response.StatusCode is >= 200 and < 400)
-        {
-            var responseBody = await response
-                .Raw.Content.ReadAsStringAsync(cancellationToken)
-                .ConfigureAwait(false);
-            try
-            {
-                var responseData = JsonUtils.Deserialize<PostV1LeadsCreateResponse>(responseBody)!;
-                return new WithRawResponse<PostV1LeadsCreateResponse>()
-                {
-                    Data = responseData,
-                    RawResponse = new NordletApi.RawResponse()
-                    {
-                        StatusCode = response.Raw.StatusCode,
-                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                    },
-                };
-            }
-            catch (JsonException e)
-            {
-                throw new NordletApiApiException(
-                    "Failed to deserialize response",
-                    response.StatusCode,
-                    responseBody,
-                    e,
-                    rawResponse: new NordletApi.RawResponse()
-                    {
-                        StatusCode = response.Raw.StatusCode,
-                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                    }
-                );
-            }
-        }
-        {
-            var responseBody = await response
-                .Raw.Content.ReadAsStringAsync(cancellationToken)
-                .ConfigureAwait(false);
-            try
-            {
-                switch (response.StatusCode)
-                {
-                    case 400:
-                        throw new BadRequestError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 401:
-                        throw new UnauthorizedError(
+                    case 402:
+                        throw new PaymentRequiredError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -7466,2674 +8110,8 @@ public partial class PartnersClient : IPartnersClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
-                    case 422:
-                        throw new UnprocessableEntityError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 429:
-                        throw new TooManyRequestsError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 500:
-                        throw new InternalServerError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                }
-            }
-            catch (JsonException)
-            {
-                // unable to map error response, throwing generic error
-            }
-            throw new NordletApiApiException(
-                $"Error with status code {response.StatusCode}",
-                response.StatusCode,
-                responseBody,
-                rawResponse: new NordletApi.RawResponse()
-                {
-                    StatusCode = response.Raw.StatusCode,
-                    Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                    Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                }
-            );
-        }
-    }
-
-    private async Task<WithRawResponse<PostV1LeadsGetResponse>> PostV1LeadsGetAsyncCore(
-        PostV1LeadsGetRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        var _queryString = new NordletApi.Core.QueryStringBuilder.Builder(capacity: 0)
-            .MergeAdditional(options?.AdditionalQueryParameters)
-            .Build();
-        var _headers = await new NordletApi.Core.HeadersBuilder.Builder()
-            .Add(_client.Options.Headers)
-            .Add(_client.Options.AdditionalHeaders)
-            .Add(options?.AdditionalHeaders)
-            .BuildAsync()
-            .ConfigureAwait(false);
-        var response = await _client
-            .SendRequestAsync(
-                new JsonRequest
-                {
-                    Method = HttpMethod.Post,
-                    Path = "v1/leads/get",
-                    Body = request,
-                    QueryString = _queryString,
-                    Headers = _headers,
-                    ContentType = "application/json",
-                    Options = options,
-                },
-                cancellationToken
-            )
-            .ConfigureAwait(false);
-        if (response.StatusCode is >= 200 and < 400)
-        {
-            var responseBody = await response
-                .Raw.Content.ReadAsStringAsync(cancellationToken)
-                .ConfigureAwait(false);
-            try
-            {
-                var responseData = JsonUtils.Deserialize<PostV1LeadsGetResponse>(responseBody)!;
-                return new WithRawResponse<PostV1LeadsGetResponse>()
-                {
-                    Data = responseData,
-                    RawResponse = new NordletApi.RawResponse()
-                    {
-                        StatusCode = response.Raw.StatusCode,
-                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                    },
-                };
-            }
-            catch (JsonException e)
-            {
-                throw new NordletApiApiException(
-                    "Failed to deserialize response",
-                    response.StatusCode,
-                    responseBody,
-                    e,
-                    rawResponse: new NordletApi.RawResponse()
-                    {
-                        StatusCode = response.Raw.StatusCode,
-                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                    }
-                );
-            }
-        }
-        {
-            var responseBody = await response
-                .Raw.Content.ReadAsStringAsync(cancellationToken)
-                .ConfigureAwait(false);
-            try
-            {
-                switch (response.StatusCode)
-                {
-                    case 400:
-                        throw new BadRequestError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 401:
-                        throw new UnauthorizedError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 403:
-                        throw new ForbiddenError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 404:
-                        throw new NotFoundError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 409:
-                        throw new ConflictError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 422:
-                        throw new UnprocessableEntityError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 429:
-                        throw new TooManyRequestsError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 500:
-                        throw new InternalServerError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                }
-            }
-            catch (JsonException)
-            {
-                // unable to map error response, throwing generic error
-            }
-            throw new NordletApiApiException(
-                $"Error with status code {response.StatusCode}",
-                response.StatusCode,
-                responseBody,
-                rawResponse: new NordletApi.RawResponse()
-                {
-                    StatusCode = response.Raw.StatusCode,
-                    Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                    Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                }
-            );
-        }
-    }
-
-    private async Task<WithRawResponse<PostV1LeadsUpdateResponse>> PostV1LeadsUpdateAsyncCore(
-        PostV1LeadsUpdateRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        var _queryString = new NordletApi.Core.QueryStringBuilder.Builder(capacity: 0)
-            .MergeAdditional(options?.AdditionalQueryParameters)
-            .Build();
-        var _headers = await new NordletApi.Core.HeadersBuilder.Builder()
-            .Add(_client.Options.Headers)
-            .Add(_client.Options.AdditionalHeaders)
-            .Add(options?.AdditionalHeaders)
-            .BuildAsync()
-            .ConfigureAwait(false);
-        var response = await _client
-            .SendRequestAsync(
-                new JsonRequest
-                {
-                    Method = HttpMethod.Post,
-                    Path = "v1/leads/update",
-                    Body = request,
-                    QueryString = _queryString,
-                    Headers = _headers,
-                    ContentType = "application/json",
-                    Options = options,
-                },
-                cancellationToken
-            )
-            .ConfigureAwait(false);
-        if (response.StatusCode is >= 200 and < 400)
-        {
-            var responseBody = await response
-                .Raw.Content.ReadAsStringAsync(cancellationToken)
-                .ConfigureAwait(false);
-            try
-            {
-                var responseData = JsonUtils.Deserialize<PostV1LeadsUpdateResponse>(responseBody)!;
-                return new WithRawResponse<PostV1LeadsUpdateResponse>()
-                {
-                    Data = responseData,
-                    RawResponse = new NordletApi.RawResponse()
-                    {
-                        StatusCode = response.Raw.StatusCode,
-                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                    },
-                };
-            }
-            catch (JsonException e)
-            {
-                throw new NordletApiApiException(
-                    "Failed to deserialize response",
-                    response.StatusCode,
-                    responseBody,
-                    e,
-                    rawResponse: new NordletApi.RawResponse()
-                    {
-                        StatusCode = response.Raw.StatusCode,
-                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                    }
-                );
-            }
-        }
-        {
-            var responseBody = await response
-                .Raw.Content.ReadAsStringAsync(cancellationToken)
-                .ConfigureAwait(false);
-            try
-            {
-                switch (response.StatusCode)
-                {
-                    case 400:
-                        throw new BadRequestError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 401:
-                        throw new UnauthorizedError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 403:
-                        throw new ForbiddenError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 404:
-                        throw new NotFoundError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 409:
-                        throw new ConflictError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 422:
-                        throw new UnprocessableEntityError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 429:
-                        throw new TooManyRequestsError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 500:
-                        throw new InternalServerError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                }
-            }
-            catch (JsonException)
-            {
-                // unable to map error response, throwing generic error
-            }
-            throw new NordletApiApiException(
-                $"Error with status code {response.StatusCode}",
-                response.StatusCode,
-                responseBody,
-                rawResponse: new NordletApi.RawResponse()
-                {
-                    StatusCode = response.Raw.StatusCode,
-                    Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                    Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                }
-            );
-        }
-    }
-
-    private async Task<WithRawResponse<PostV1LeadsDeleteResponse>> PostV1LeadsDeleteAsyncCore(
-        PostV1LeadsDeleteRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        var _queryString = new NordletApi.Core.QueryStringBuilder.Builder(capacity: 0)
-            .MergeAdditional(options?.AdditionalQueryParameters)
-            .Build();
-        var _headers = await new NordletApi.Core.HeadersBuilder.Builder()
-            .Add(_client.Options.Headers)
-            .Add(_client.Options.AdditionalHeaders)
-            .Add(options?.AdditionalHeaders)
-            .BuildAsync()
-            .ConfigureAwait(false);
-        var response = await _client
-            .SendRequestAsync(
-                new JsonRequest
-                {
-                    Method = HttpMethod.Post,
-                    Path = "v1/leads/delete",
-                    Body = request,
-                    QueryString = _queryString,
-                    Headers = _headers,
-                    ContentType = "application/json",
-                    Options = options,
-                },
-                cancellationToken
-            )
-            .ConfigureAwait(false);
-        if (response.StatusCode is >= 200 and < 400)
-        {
-            var responseBody = await response
-                .Raw.Content.ReadAsStringAsync(cancellationToken)
-                .ConfigureAwait(false);
-            try
-            {
-                var responseData = JsonUtils.Deserialize<PostV1LeadsDeleteResponse>(responseBody)!;
-                return new WithRawResponse<PostV1LeadsDeleteResponse>()
-                {
-                    Data = responseData,
-                    RawResponse = new NordletApi.RawResponse()
-                    {
-                        StatusCode = response.Raw.StatusCode,
-                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                    },
-                };
-            }
-            catch (JsonException e)
-            {
-                throw new NordletApiApiException(
-                    "Failed to deserialize response",
-                    response.StatusCode,
-                    responseBody,
-                    e,
-                    rawResponse: new NordletApi.RawResponse()
-                    {
-                        StatusCode = response.Raw.StatusCode,
-                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                    }
-                );
-            }
-        }
-        {
-            var responseBody = await response
-                .Raw.Content.ReadAsStringAsync(cancellationToken)
-                .ConfigureAwait(false);
-            try
-            {
-                switch (response.StatusCode)
-                {
-                    case 400:
-                        throw new BadRequestError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 401:
-                        throw new UnauthorizedError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 403:
-                        throw new ForbiddenError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 404:
-                        throw new NotFoundError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 409:
-                        throw new ConflictError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 422:
-                        throw new UnprocessableEntityError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 429:
-                        throw new TooManyRequestsError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 500:
-                        throw new InternalServerError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                }
-            }
-            catch (JsonException)
-            {
-                // unable to map error response, throwing generic error
-            }
-            throw new NordletApiApiException(
-                $"Error with status code {response.StatusCode}",
-                response.StatusCode,
-                responseBody,
-                rawResponse: new NordletApi.RawResponse()
-                {
-                    StatusCode = response.Raw.StatusCode,
-                    Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                    Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                }
-            );
-        }
-    }
-
-    private async Task<WithRawResponse<PostV1LeadsListResponse>> PostV1LeadsListAsyncCore(
-        PostV1LeadsListRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        var _queryString = new NordletApi.Core.QueryStringBuilder.Builder(capacity: 0)
-            .MergeAdditional(options?.AdditionalQueryParameters)
-            .Build();
-        var _headers = await new NordletApi.Core.HeadersBuilder.Builder()
-            .Add(_client.Options.Headers)
-            .Add(_client.Options.AdditionalHeaders)
-            .Add(options?.AdditionalHeaders)
-            .BuildAsync()
-            .ConfigureAwait(false);
-        var response = await _client
-            .SendRequestAsync(
-                new JsonRequest
-                {
-                    Method = HttpMethod.Post,
-                    Path = "v1/leads/list",
-                    Body = request,
-                    QueryString = _queryString,
-                    Headers = _headers,
-                    ContentType = "application/json",
-                    Options = options,
-                },
-                cancellationToken
-            )
-            .ConfigureAwait(false);
-        if (response.StatusCode is >= 200 and < 400)
-        {
-            var responseBody = await response
-                .Raw.Content.ReadAsStringAsync(cancellationToken)
-                .ConfigureAwait(false);
-            try
-            {
-                var responseData = JsonUtils.Deserialize<PostV1LeadsListResponse>(responseBody)!;
-                return new WithRawResponse<PostV1LeadsListResponse>()
-                {
-                    Data = responseData,
-                    RawResponse = new NordletApi.RawResponse()
-                    {
-                        StatusCode = response.Raw.StatusCode,
-                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                    },
-                };
-            }
-            catch (JsonException e)
-            {
-                throw new NordletApiApiException(
-                    "Failed to deserialize response",
-                    response.StatusCode,
-                    responseBody,
-                    e,
-                    rawResponse: new NordletApi.RawResponse()
-                    {
-                        StatusCode = response.Raw.StatusCode,
-                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                    }
-                );
-            }
-        }
-        {
-            var responseBody = await response
-                .Raw.Content.ReadAsStringAsync(cancellationToken)
-                .ConfigureAwait(false);
-            try
-            {
-                switch (response.StatusCode)
-                {
-                    case 400:
-                        throw new BadRequestError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 401:
-                        throw new UnauthorizedError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 403:
-                        throw new ForbiddenError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 404:
-                        throw new NotFoundError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 409:
-                        throw new ConflictError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 422:
-                        throw new UnprocessableEntityError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 429:
-                        throw new TooManyRequestsError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 500:
-                        throw new InternalServerError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                }
-            }
-            catch (JsonException)
-            {
-                // unable to map error response, throwing generic error
-            }
-            throw new NordletApiApiException(
-                $"Error with status code {response.StatusCode}",
-                response.StatusCode,
-                responseBody,
-                rawResponse: new NordletApi.RawResponse()
-                {
-                    StatusCode = response.Raw.StatusCode,
-                    Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                    Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                }
-            );
-        }
-    }
-
-    private async Task<
-        WithRawResponse<PostV1LeadsNotesCreateResponse>
-    > PostV1LeadsNotesCreateAsyncCore(
-        PostV1LeadsNotesCreateRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        var _queryString = new NordletApi.Core.QueryStringBuilder.Builder(capacity: 0)
-            .MergeAdditional(options?.AdditionalQueryParameters)
-            .Build();
-        var _headers = await new NordletApi.Core.HeadersBuilder.Builder()
-            .Add(_client.Options.Headers)
-            .Add(_client.Options.AdditionalHeaders)
-            .Add(options?.AdditionalHeaders)
-            .BuildAsync()
-            .ConfigureAwait(false);
-        var response = await _client
-            .SendRequestAsync(
-                new JsonRequest
-                {
-                    Method = HttpMethod.Post,
-                    Path = "v1/leads/notes/create",
-                    Body = request,
-                    QueryString = _queryString,
-                    Headers = _headers,
-                    ContentType = "application/json",
-                    Options = options,
-                },
-                cancellationToken
-            )
-            .ConfigureAwait(false);
-        if (response.StatusCode is >= 200 and < 400)
-        {
-            var responseBody = await response
-                .Raw.Content.ReadAsStringAsync(cancellationToken)
-                .ConfigureAwait(false);
-            try
-            {
-                var responseData = JsonUtils.Deserialize<PostV1LeadsNotesCreateResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1LeadsNotesCreateResponse>()
-                {
-                    Data = responseData,
-                    RawResponse = new NordletApi.RawResponse()
-                    {
-                        StatusCode = response.Raw.StatusCode,
-                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                    },
-                };
-            }
-            catch (JsonException e)
-            {
-                throw new NordletApiApiException(
-                    "Failed to deserialize response",
-                    response.StatusCode,
-                    responseBody,
-                    e,
-                    rawResponse: new NordletApi.RawResponse()
-                    {
-                        StatusCode = response.Raw.StatusCode,
-                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                    }
-                );
-            }
-        }
-        {
-            var responseBody = await response
-                .Raw.Content.ReadAsStringAsync(cancellationToken)
-                .ConfigureAwait(false);
-            try
-            {
-                switch (response.StatusCode)
-                {
-                    case 400:
-                        throw new BadRequestError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 401:
-                        throw new UnauthorizedError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 403:
-                        throw new ForbiddenError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 404:
-                        throw new NotFoundError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 409:
-                        throw new ConflictError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 422:
-                        throw new UnprocessableEntityError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 429:
-                        throw new TooManyRequestsError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 500:
-                        throw new InternalServerError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                }
-            }
-            catch (JsonException)
-            {
-                // unable to map error response, throwing generic error
-            }
-            throw new NordletApiApiException(
-                $"Error with status code {response.StatusCode}",
-                response.StatusCode,
-                responseBody,
-                rawResponse: new NordletApi.RawResponse()
-                {
-                    StatusCode = response.Raw.StatusCode,
-                    Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                    Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                }
-            );
-        }
-    }
-
-    private async Task<
-        WithRawResponse<PostV1LeadsNotesDeleteResponse>
-    > PostV1LeadsNotesDeleteAsyncCore(
-        PostV1LeadsNotesDeleteRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        var _queryString = new NordletApi.Core.QueryStringBuilder.Builder(capacity: 0)
-            .MergeAdditional(options?.AdditionalQueryParameters)
-            .Build();
-        var _headers = await new NordletApi.Core.HeadersBuilder.Builder()
-            .Add(_client.Options.Headers)
-            .Add(_client.Options.AdditionalHeaders)
-            .Add(options?.AdditionalHeaders)
-            .BuildAsync()
-            .ConfigureAwait(false);
-        var response = await _client
-            .SendRequestAsync(
-                new JsonRequest
-                {
-                    Method = HttpMethod.Post,
-                    Path = "v1/leads/notes/delete",
-                    Body = request,
-                    QueryString = _queryString,
-                    Headers = _headers,
-                    ContentType = "application/json",
-                    Options = options,
-                },
-                cancellationToken
-            )
-            .ConfigureAwait(false);
-        if (response.StatusCode is >= 200 and < 400)
-        {
-            var responseBody = await response
-                .Raw.Content.ReadAsStringAsync(cancellationToken)
-                .ConfigureAwait(false);
-            try
-            {
-                var responseData = JsonUtils.Deserialize<PostV1LeadsNotesDeleteResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1LeadsNotesDeleteResponse>()
-                {
-                    Data = responseData,
-                    RawResponse = new NordletApi.RawResponse()
-                    {
-                        StatusCode = response.Raw.StatusCode,
-                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                    },
-                };
-            }
-            catch (JsonException e)
-            {
-                throw new NordletApiApiException(
-                    "Failed to deserialize response",
-                    response.StatusCode,
-                    responseBody,
-                    e,
-                    rawResponse: new NordletApi.RawResponse()
-                    {
-                        StatusCode = response.Raw.StatusCode,
-                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                    }
-                );
-            }
-        }
-        {
-            var responseBody = await response
-                .Raw.Content.ReadAsStringAsync(cancellationToken)
-                .ConfigureAwait(false);
-            try
-            {
-                switch (response.StatusCode)
-                {
-                    case 400:
-                        throw new BadRequestError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 401:
-                        throw new UnauthorizedError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 403:
-                        throw new ForbiddenError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 404:
-                        throw new NotFoundError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 409:
-                        throw new ConflictError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 422:
-                        throw new UnprocessableEntityError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 429:
-                        throw new TooManyRequestsError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 500:
-                        throw new InternalServerError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                }
-            }
-            catch (JsonException)
-            {
-                // unable to map error response, throwing generic error
-            }
-            throw new NordletApiApiException(
-                $"Error with status code {response.StatusCode}",
-                response.StatusCode,
-                responseBody,
-                rawResponse: new NordletApi.RawResponse()
-                {
-                    StatusCode = response.Raw.StatusCode,
-                    Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                    Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                }
-            );
-        }
-    }
-
-    private async Task<WithRawResponse<PostV1LeadsNotesListResponse>> PostV1LeadsNotesListAsyncCore(
-        PostV1LeadsNotesListRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        var _queryString = new NordletApi.Core.QueryStringBuilder.Builder(capacity: 0)
-            .MergeAdditional(options?.AdditionalQueryParameters)
-            .Build();
-        var _headers = await new NordletApi.Core.HeadersBuilder.Builder()
-            .Add(_client.Options.Headers)
-            .Add(_client.Options.AdditionalHeaders)
-            .Add(options?.AdditionalHeaders)
-            .BuildAsync()
-            .ConfigureAwait(false);
-        var response = await _client
-            .SendRequestAsync(
-                new JsonRequest
-                {
-                    Method = HttpMethod.Post,
-                    Path = "v1/leads/notes/list",
-                    Body = request,
-                    QueryString = _queryString,
-                    Headers = _headers,
-                    ContentType = "application/json",
-                    Options = options,
-                },
-                cancellationToken
-            )
-            .ConfigureAwait(false);
-        if (response.StatusCode is >= 200 and < 400)
-        {
-            var responseBody = await response
-                .Raw.Content.ReadAsStringAsync(cancellationToken)
-                .ConfigureAwait(false);
-            try
-            {
-                var responseData = JsonUtils.Deserialize<PostV1LeadsNotesListResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1LeadsNotesListResponse>()
-                {
-                    Data = responseData,
-                    RawResponse = new NordletApi.RawResponse()
-                    {
-                        StatusCode = response.Raw.StatusCode,
-                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                    },
-                };
-            }
-            catch (JsonException e)
-            {
-                throw new NordletApiApiException(
-                    "Failed to deserialize response",
-                    response.StatusCode,
-                    responseBody,
-                    e,
-                    rawResponse: new NordletApi.RawResponse()
-                    {
-                        StatusCode = response.Raw.StatusCode,
-                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                    }
-                );
-            }
-        }
-        {
-            var responseBody = await response
-                .Raw.Content.ReadAsStringAsync(cancellationToken)
-                .ConfigureAwait(false);
-            try
-            {
-                switch (response.StatusCode)
-                {
-                    case 400:
-                        throw new BadRequestError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 401:
-                        throw new UnauthorizedError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 403:
-                        throw new ForbiddenError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 404:
-                        throw new NotFoundError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 409:
-                        throw new ConflictError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 422:
-                        throw new UnprocessableEntityError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 429:
-                        throw new TooManyRequestsError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 500:
-                        throw new InternalServerError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                }
-            }
-            catch (JsonException)
-            {
-                // unable to map error response, throwing generic error
-            }
-            throw new NordletApiApiException(
-                $"Error with status code {response.StatusCode}",
-                response.StatusCode,
-                responseBody,
-                rawResponse: new NordletApi.RawResponse()
-                {
-                    StatusCode = response.Raw.StatusCode,
-                    Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                    Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                }
-            );
-        }
-    }
-
-    private async Task<WithRawResponse<PostV1LeadsFilesListResponse>> PostV1LeadsFilesListAsyncCore(
-        PostV1LeadsFilesListRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        var _queryString = new NordletApi.Core.QueryStringBuilder.Builder(capacity: 0)
-            .MergeAdditional(options?.AdditionalQueryParameters)
-            .Build();
-        var _headers = await new NordletApi.Core.HeadersBuilder.Builder()
-            .Add(_client.Options.Headers)
-            .Add(_client.Options.AdditionalHeaders)
-            .Add(options?.AdditionalHeaders)
-            .BuildAsync()
-            .ConfigureAwait(false);
-        var response = await _client
-            .SendRequestAsync(
-                new JsonRequest
-                {
-                    Method = HttpMethod.Post,
-                    Path = "v1/leads/files/list",
-                    Body = request,
-                    QueryString = _queryString,
-                    Headers = _headers,
-                    ContentType = "application/json",
-                    Options = options,
-                },
-                cancellationToken
-            )
-            .ConfigureAwait(false);
-        if (response.StatusCode is >= 200 and < 400)
-        {
-            var responseBody = await response
-                .Raw.Content.ReadAsStringAsync(cancellationToken)
-                .ConfigureAwait(false);
-            try
-            {
-                var responseData = JsonUtils.Deserialize<PostV1LeadsFilesListResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1LeadsFilesListResponse>()
-                {
-                    Data = responseData,
-                    RawResponse = new NordletApi.RawResponse()
-                    {
-                        StatusCode = response.Raw.StatusCode,
-                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                    },
-                };
-            }
-            catch (JsonException e)
-            {
-                throw new NordletApiApiException(
-                    "Failed to deserialize response",
-                    response.StatusCode,
-                    responseBody,
-                    e,
-                    rawResponse: new NordletApi.RawResponse()
-                    {
-                        StatusCode = response.Raw.StatusCode,
-                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                    }
-                );
-            }
-        }
-        {
-            var responseBody = await response
-                .Raw.Content.ReadAsStringAsync(cancellationToken)
-                .ConfigureAwait(false);
-            try
-            {
-                switch (response.StatusCode)
-                {
-                    case 400:
-                        throw new BadRequestError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 401:
-                        throw new UnauthorizedError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 403:
-                        throw new ForbiddenError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 404:
-                        throw new NotFoundError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 409:
-                        throw new ConflictError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 422:
-                        throw new UnprocessableEntityError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 429:
-                        throw new TooManyRequestsError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 500:
-                        throw new InternalServerError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                }
-            }
-            catch (JsonException)
-            {
-                // unable to map error response, throwing generic error
-            }
-            throw new NordletApiApiException(
-                $"Error with status code {response.StatusCode}",
-                response.StatusCode,
-                responseBody,
-                rawResponse: new NordletApi.RawResponse()
-                {
-                    StatusCode = response.Raw.StatusCode,
-                    Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                    Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                }
-            );
-        }
-    }
-
-    private async Task<
-        WithRawResponse<PostV1LeadsSourcesCreateResponse>
-    > PostV1LeadsSourcesCreateAsyncCore(
-        PostV1LeadsSourcesCreateRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        var _queryString = new NordletApi.Core.QueryStringBuilder.Builder(capacity: 0)
-            .MergeAdditional(options?.AdditionalQueryParameters)
-            .Build();
-        var _headers = await new NordletApi.Core.HeadersBuilder.Builder()
-            .Add(_client.Options.Headers)
-            .Add(_client.Options.AdditionalHeaders)
-            .Add(options?.AdditionalHeaders)
-            .BuildAsync()
-            .ConfigureAwait(false);
-        var response = await _client
-            .SendRequestAsync(
-                new JsonRequest
-                {
-                    Method = HttpMethod.Post,
-                    Path = "v1/leads/sources/create",
-                    Body = request,
-                    QueryString = _queryString,
-                    Headers = _headers,
-                    ContentType = "application/json",
-                    Options = options,
-                },
-                cancellationToken
-            )
-            .ConfigureAwait(false);
-        if (response.StatusCode is >= 200 and < 400)
-        {
-            var responseBody = await response
-                .Raw.Content.ReadAsStringAsync(cancellationToken)
-                .ConfigureAwait(false);
-            try
-            {
-                var responseData = JsonUtils.Deserialize<PostV1LeadsSourcesCreateResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1LeadsSourcesCreateResponse>()
-                {
-                    Data = responseData,
-                    RawResponse = new NordletApi.RawResponse()
-                    {
-                        StatusCode = response.Raw.StatusCode,
-                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                    },
-                };
-            }
-            catch (JsonException e)
-            {
-                throw new NordletApiApiException(
-                    "Failed to deserialize response",
-                    response.StatusCode,
-                    responseBody,
-                    e,
-                    rawResponse: new NordletApi.RawResponse()
-                    {
-                        StatusCode = response.Raw.StatusCode,
-                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                    }
-                );
-            }
-        }
-        {
-            var responseBody = await response
-                .Raw.Content.ReadAsStringAsync(cancellationToken)
-                .ConfigureAwait(false);
-            try
-            {
-                switch (response.StatusCode)
-                {
-                    case 400:
-                        throw new BadRequestError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 401:
-                        throw new UnauthorizedError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 403:
-                        throw new ForbiddenError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 404:
-                        throw new NotFoundError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 409:
-                        throw new ConflictError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 422:
-                        throw new UnprocessableEntityError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 429:
-                        throw new TooManyRequestsError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 500:
-                        throw new InternalServerError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                }
-            }
-            catch (JsonException)
-            {
-                // unable to map error response, throwing generic error
-            }
-            throw new NordletApiApiException(
-                $"Error with status code {response.StatusCode}",
-                response.StatusCode,
-                responseBody,
-                rawResponse: new NordletApi.RawResponse()
-                {
-                    StatusCode = response.Raw.StatusCode,
-                    Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                    Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                }
-            );
-        }
-    }
-
-    private async Task<
-        WithRawResponse<PostV1LeadsSourcesUpdateResponse>
-    > PostV1LeadsSourcesUpdateAsyncCore(
-        PostV1LeadsSourcesUpdateRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        var _queryString = new NordletApi.Core.QueryStringBuilder.Builder(capacity: 0)
-            .MergeAdditional(options?.AdditionalQueryParameters)
-            .Build();
-        var _headers = await new NordletApi.Core.HeadersBuilder.Builder()
-            .Add(_client.Options.Headers)
-            .Add(_client.Options.AdditionalHeaders)
-            .Add(options?.AdditionalHeaders)
-            .BuildAsync()
-            .ConfigureAwait(false);
-        var response = await _client
-            .SendRequestAsync(
-                new JsonRequest
-                {
-                    Method = HttpMethod.Post,
-                    Path = "v1/leads/sources/update",
-                    Body = request,
-                    QueryString = _queryString,
-                    Headers = _headers,
-                    ContentType = "application/json",
-                    Options = options,
-                },
-                cancellationToken
-            )
-            .ConfigureAwait(false);
-        if (response.StatusCode is >= 200 and < 400)
-        {
-            var responseBody = await response
-                .Raw.Content.ReadAsStringAsync(cancellationToken)
-                .ConfigureAwait(false);
-            try
-            {
-                var responseData = JsonUtils.Deserialize<PostV1LeadsSourcesUpdateResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1LeadsSourcesUpdateResponse>()
-                {
-                    Data = responseData,
-                    RawResponse = new NordletApi.RawResponse()
-                    {
-                        StatusCode = response.Raw.StatusCode,
-                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                    },
-                };
-            }
-            catch (JsonException e)
-            {
-                throw new NordletApiApiException(
-                    "Failed to deserialize response",
-                    response.StatusCode,
-                    responseBody,
-                    e,
-                    rawResponse: new NordletApi.RawResponse()
-                    {
-                        StatusCode = response.Raw.StatusCode,
-                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                    }
-                );
-            }
-        }
-        {
-            var responseBody = await response
-                .Raw.Content.ReadAsStringAsync(cancellationToken)
-                .ConfigureAwait(false);
-            try
-            {
-                switch (response.StatusCode)
-                {
-                    case 400:
-                        throw new BadRequestError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 401:
-                        throw new UnauthorizedError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 403:
-                        throw new ForbiddenError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 404:
-                        throw new NotFoundError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 409:
-                        throw new ConflictError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 422:
-                        throw new UnprocessableEntityError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 429:
-                        throw new TooManyRequestsError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 500:
-                        throw new InternalServerError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                }
-            }
-            catch (JsonException)
-            {
-                // unable to map error response, throwing generic error
-            }
-            throw new NordletApiApiException(
-                $"Error with status code {response.StatusCode}",
-                response.StatusCode,
-                responseBody,
-                rawResponse: new NordletApi.RawResponse()
-                {
-                    StatusCode = response.Raw.StatusCode,
-                    Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                    Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                }
-            );
-        }
-    }
-
-    private async Task<
-        WithRawResponse<PostV1LeadsSourcesDeleteResponse>
-    > PostV1LeadsSourcesDeleteAsyncCore(
-        PostV1LeadsSourcesDeleteRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        var _queryString = new NordletApi.Core.QueryStringBuilder.Builder(capacity: 0)
-            .MergeAdditional(options?.AdditionalQueryParameters)
-            .Build();
-        var _headers = await new NordletApi.Core.HeadersBuilder.Builder()
-            .Add(_client.Options.Headers)
-            .Add(_client.Options.AdditionalHeaders)
-            .Add(options?.AdditionalHeaders)
-            .BuildAsync()
-            .ConfigureAwait(false);
-        var response = await _client
-            .SendRequestAsync(
-                new JsonRequest
-                {
-                    Method = HttpMethod.Post,
-                    Path = "v1/leads/sources/delete",
-                    Body = request,
-                    QueryString = _queryString,
-                    Headers = _headers,
-                    ContentType = "application/json",
-                    Options = options,
-                },
-                cancellationToken
-            )
-            .ConfigureAwait(false);
-        if (response.StatusCode is >= 200 and < 400)
-        {
-            var responseBody = await response
-                .Raw.Content.ReadAsStringAsync(cancellationToken)
-                .ConfigureAwait(false);
-            try
-            {
-                var responseData = JsonUtils.Deserialize<PostV1LeadsSourcesDeleteResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1LeadsSourcesDeleteResponse>()
-                {
-                    Data = responseData,
-                    RawResponse = new NordletApi.RawResponse()
-                    {
-                        StatusCode = response.Raw.StatusCode,
-                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                    },
-                };
-            }
-            catch (JsonException e)
-            {
-                throw new NordletApiApiException(
-                    "Failed to deserialize response",
-                    response.StatusCode,
-                    responseBody,
-                    e,
-                    rawResponse: new NordletApi.RawResponse()
-                    {
-                        StatusCode = response.Raw.StatusCode,
-                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                    }
-                );
-            }
-        }
-        {
-            var responseBody = await response
-                .Raw.Content.ReadAsStringAsync(cancellationToken)
-                .ConfigureAwait(false);
-            try
-            {
-                switch (response.StatusCode)
-                {
-                    case 400:
-                        throw new BadRequestError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 401:
-                        throw new UnauthorizedError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 403:
-                        throw new ForbiddenError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 404:
-                        throw new NotFoundError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 409:
-                        throw new ConflictError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 422:
-                        throw new UnprocessableEntityError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 429:
-                        throw new TooManyRequestsError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 500:
-                        throw new InternalServerError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                }
-            }
-            catch (JsonException)
-            {
-                // unable to map error response, throwing generic error
-            }
-            throw new NordletApiApiException(
-                $"Error with status code {response.StatusCode}",
-                response.StatusCode,
-                responseBody,
-                rawResponse: new NordletApi.RawResponse()
-                {
-                    StatusCode = response.Raw.StatusCode,
-                    Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                    Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                }
-            );
-        }
-    }
-
-    private async Task<
-        WithRawResponse<PostV1LeadsSourcesListResponse>
-    > PostV1LeadsSourcesListAsyncCore(
-        PostV1LeadsSourcesListRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        var _queryString = new NordletApi.Core.QueryStringBuilder.Builder(capacity: 0)
-            .MergeAdditional(options?.AdditionalQueryParameters)
-            .Build();
-        var _headers = await new NordletApi.Core.HeadersBuilder.Builder()
-            .Add(_client.Options.Headers)
-            .Add(_client.Options.AdditionalHeaders)
-            .Add(options?.AdditionalHeaders)
-            .BuildAsync()
-            .ConfigureAwait(false);
-        var response = await _client
-            .SendRequestAsync(
-                new JsonRequest
-                {
-                    Method = HttpMethod.Post,
-                    Path = "v1/leads/sources/list",
-                    Body = request,
-                    QueryString = _queryString,
-                    Headers = _headers,
-                    ContentType = "application/json",
-                    Options = options,
-                },
-                cancellationToken
-            )
-            .ConfigureAwait(false);
-        if (response.StatusCode is >= 200 and < 400)
-        {
-            var responseBody = await response
-                .Raw.Content.ReadAsStringAsync(cancellationToken)
-                .ConfigureAwait(false);
-            try
-            {
-                var responseData = JsonUtils.Deserialize<PostV1LeadsSourcesListResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1LeadsSourcesListResponse>()
-                {
-                    Data = responseData,
-                    RawResponse = new NordletApi.RawResponse()
-                    {
-                        StatusCode = response.Raw.StatusCode,
-                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                    },
-                };
-            }
-            catch (JsonException e)
-            {
-                throw new NordletApiApiException(
-                    "Failed to deserialize response",
-                    response.StatusCode,
-                    responseBody,
-                    e,
-                    rawResponse: new NordletApi.RawResponse()
-                    {
-                        StatusCode = response.Raw.StatusCode,
-                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                    }
-                );
-            }
-        }
-        {
-            var responseBody = await response
-                .Raw.Content.ReadAsStringAsync(cancellationToken)
-                .ConfigureAwait(false);
-            try
-            {
-                switch (response.StatusCode)
-                {
-                    case 400:
-                        throw new BadRequestError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 401:
-                        throw new UnauthorizedError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 403:
-                        throw new ForbiddenError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 404:
-                        throw new NotFoundError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 409:
-                        throw new ConflictError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 422:
-                        throw new UnprocessableEntityError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 429:
-                        throw new TooManyRequestsError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 500:
-                        throw new InternalServerError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                }
-            }
-            catch (JsonException)
-            {
-                // unable to map error response, throwing generic error
-            }
-            throw new NordletApiApiException(
-                $"Error with status code {response.StatusCode}",
-                response.StatusCode,
-                responseBody,
-                rawResponse: new NordletApi.RawResponse()
-                {
-                    StatusCode = response.Raw.StatusCode,
-                    Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                    Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                }
-            );
-        }
-    }
-
-    private async Task<
-        WithRawResponse<PostV1LeadsSourcesOptionsResponse>
-    > PostV1LeadsSourcesOptionsAsyncCore(
-        PostV1LeadsSourcesOptionsRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        var _queryString = new NordletApi.Core.QueryStringBuilder.Builder(capacity: 0)
-            .MergeAdditional(options?.AdditionalQueryParameters)
-            .Build();
-        var _headers = await new NordletApi.Core.HeadersBuilder.Builder()
-            .Add(_client.Options.Headers)
-            .Add(_client.Options.AdditionalHeaders)
-            .Add(options?.AdditionalHeaders)
-            .BuildAsync()
-            .ConfigureAwait(false);
-        var response = await _client
-            .SendRequestAsync(
-                new JsonRequest
-                {
-                    Method = HttpMethod.Post,
-                    Path = "v1/leads/sources/options",
-                    Body = request,
-                    QueryString = _queryString,
-                    Headers = _headers,
-                    ContentType = "application/json",
-                    Options = options,
-                },
-                cancellationToken
-            )
-            .ConfigureAwait(false);
-        if (response.StatusCode is >= 200 and < 400)
-        {
-            var responseBody = await response
-                .Raw.Content.ReadAsStringAsync(cancellationToken)
-                .ConfigureAwait(false);
-            try
-            {
-                var responseData = JsonUtils.Deserialize<PostV1LeadsSourcesOptionsResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1LeadsSourcesOptionsResponse>()
-                {
-                    Data = responseData,
-                    RawResponse = new NordletApi.RawResponse()
-                    {
-                        StatusCode = response.Raw.StatusCode,
-                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                    },
-                };
-            }
-            catch (JsonException e)
-            {
-                throw new NordletApiApiException(
-                    "Failed to deserialize response",
-                    response.StatusCode,
-                    responseBody,
-                    e,
-                    rawResponse: new NordletApi.RawResponse()
-                    {
-                        StatusCode = response.Raw.StatusCode,
-                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                    }
-                );
-            }
-        }
-        {
-            var responseBody = await response
-                .Raw.Content.ReadAsStringAsync(cancellationToken)
-                .ConfigureAwait(false);
-            try
-            {
-                switch (response.StatusCode)
-                {
-                    case 400:
-                        throw new BadRequestError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 401:
-                        throw new UnauthorizedError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 403:
-                        throw new ForbiddenError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 404:
-                        throw new NotFoundError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 409:
-                        throw new ConflictError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 422:
-                        throw new UnprocessableEntityError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 429:
-                        throw new TooManyRequestsError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 500:
-                        throw new InternalServerError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                }
-            }
-            catch (JsonException)
-            {
-                // unable to map error response, throwing generic error
-            }
-            throw new NordletApiApiException(
-                $"Error with status code {response.StatusCode}",
-                response.StatusCode,
-                responseBody,
-                rawResponse: new NordletApi.RawResponse()
-                {
-                    StatusCode = response.Raw.StatusCode,
-                    Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                    Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                }
-            );
-        }
-    }
-
-    private async Task<WithRawResponse<PostV1LeadsConvertResponse>> PostV1LeadsConvertAsyncCore(
-        PostV1LeadsConvertRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        var _queryString = new NordletApi.Core.QueryStringBuilder.Builder(capacity: 0)
-            .MergeAdditional(options?.AdditionalQueryParameters)
-            .Build();
-        var _headers = await new NordletApi.Core.HeadersBuilder.Builder()
-            .Add(_client.Options.Headers)
-            .Add(_client.Options.AdditionalHeaders)
-            .Add(options?.AdditionalHeaders)
-            .BuildAsync()
-            .ConfigureAwait(false);
-        var response = await _client
-            .SendRequestAsync(
-                new JsonRequest
-                {
-                    Method = HttpMethod.Post,
-                    Path = "v1/leads/convert",
-                    Body = request,
-                    QueryString = _queryString,
-                    Headers = _headers,
-                    ContentType = "application/json",
-                    Options = options,
-                },
-                cancellationToken
-            )
-            .ConfigureAwait(false);
-        if (response.StatusCode is >= 200 and < 400)
-        {
-            var responseBody = await response
-                .Raw.Content.ReadAsStringAsync(cancellationToken)
-                .ConfigureAwait(false);
-            try
-            {
-                var responseData = JsonUtils.Deserialize<PostV1LeadsConvertResponse>(responseBody)!;
-                return new WithRawResponse<PostV1LeadsConvertResponse>()
-                {
-                    Data = responseData,
-                    RawResponse = new NordletApi.RawResponse()
-                    {
-                        StatusCode = response.Raw.StatusCode,
-                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                    },
-                };
-            }
-            catch (JsonException e)
-            {
-                throw new NordletApiApiException(
-                    "Failed to deserialize response",
-                    response.StatusCode,
-                    responseBody,
-                    e,
-                    rawResponse: new NordletApi.RawResponse()
-                    {
-                        StatusCode = response.Raw.StatusCode,
-                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
-                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                    }
-                );
-            }
-        }
-        {
-            var responseBody = await response
-                .Raw.Content.ReadAsStringAsync(cancellationToken)
-                .ConfigureAwait(false);
-            try
-            {
-                switch (response.StatusCode)
-                {
-                    case 400:
-                        throw new BadRequestError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 401:
-                        throw new UnauthorizedError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 403:
-                        throw new ForbiddenError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 404:
-                        throw new NotFoundError(
-                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
-                            rawResponse: new NordletApi.RawResponse()
-                            {
-                                StatusCode = response.Raw.StatusCode,
-                                Url =
-                                    response.Raw.RequestMessage?.RequestUri
-                                    ?? new Uri("about:blank"),
-                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
-                            }
-                        );
-                    case 409:
-                        throw new ConflictError(
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -10201,362 +8179,336 @@ public partial class PartnersClient : IPartnersClient
     }
 
     /// <example><code>
-    /// await client.Partners.PostV1PartnersAddressesCreateAsync(
-    ///     new PostV1PartnersAddressesCreateRequest { PartnerId = "partnerId" }
+    /// await client.Partners.AddressesCreateAsync(
+    ///     new AddressesCreatePartnersRequest { PartnerId = "partnerId" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1PartnersAddressesCreateResponse> PostV1PartnersAddressesCreateAsync(
-        PostV1PartnersAddressesCreateRequest request,
+    public WithRawResponseTask<AddressesCreatePartnersResponse> AddressesCreateAsync(
+        AddressesCreatePartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PartnersAddressesCreateResponse>(
-            PostV1PartnersAddressesCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<AddressesCreatePartnersResponse>(
+            AddressesCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Partners.PostV1PartnersAddressesUpdateAsync(
-    ///     new PostV1PartnersAddressesUpdateRequest { Id = "id" }
+    /// await client.Partners.AddressesUpdateAsync(new AddressesUpdatePartnersRequest { Id = "id" });
+    /// </code></example>
+    public WithRawResponseTask<AddressesUpdatePartnersResponse> AddressesUpdateAsync(
+        AddressesUpdatePartnersRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<AddressesUpdatePartnersResponse>(
+            AddressesUpdateAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Partners.AddressesDeleteAsync(new AddressesDeletePartnersRequest { Id = "id" });
+    /// </code></example>
+    public WithRawResponseTask<AddressesDeletePartnersResponse> AddressesDeleteAsync(
+        AddressesDeletePartnersRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<AddressesDeletePartnersResponse>(
+            AddressesDeleteAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Partners.AddressesListAsync(new AddressesListPartnersRequest());
+    /// </code></example>
+    public WithRawResponseTask<AddressesListPartnersResponse> AddressesListAsync(
+        AddressesListPartnersRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<AddressesListPartnersResponse>(
+            AddressesListAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Partners.ContactsCreateAsync(
+    ///     new ContactsCreatePartnersRequest { Name = "name", PartnerId = "partnerId" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1PartnersAddressesUpdateResponse> PostV1PartnersAddressesUpdateAsync(
-        PostV1PartnersAddressesUpdateRequest request,
+    public WithRawResponseTask<ContactsCreatePartnersResponse> ContactsCreateAsync(
+        ContactsCreatePartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PartnersAddressesUpdateResponse>(
-            PostV1PartnersAddressesUpdateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<ContactsCreatePartnersResponse>(
+            ContactsCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Partners.PostV1PartnersAddressesDeleteAsync(
-    ///     new PostV1PartnersAddressesDeleteRequest { Id = "id" }
+    /// await client.Partners.ContactsUpdateAsync(new ContactsUpdatePartnersRequest { Id = "id" });
+    /// </code></example>
+    public WithRawResponseTask<ContactsUpdatePartnersResponse> ContactsUpdateAsync(
+        ContactsUpdatePartnersRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<ContactsUpdatePartnersResponse>(
+            ContactsUpdateAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Partners.ContactsDeleteAsync(new ContactsDeletePartnersRequest { Id = "id" });
+    /// </code></example>
+    public WithRawResponseTask<ContactsDeletePartnersResponse> ContactsDeleteAsync(
+        ContactsDeletePartnersRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<ContactsDeletePartnersResponse>(
+            ContactsDeleteAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Partners.ContactsListAsync(new ContactsListPartnersRequest());
+    /// </code></example>
+    public WithRawResponseTask<ContactsListPartnersResponse> ContactsListAsync(
+        ContactsListPartnersRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<ContactsListPartnersResponse>(
+            ContactsListAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Partners.BankAccountsCreateAsync(
+    ///     new BankAccountsCreatePartnersRequest { Iban = "iban", PartnerId = "partnerId" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1PartnersAddressesDeleteResponse> PostV1PartnersAddressesDeleteAsync(
-        PostV1PartnersAddressesDeleteRequest request,
+    public WithRawResponseTask<BankAccountsCreatePartnersResponse> BankAccountsCreateAsync(
+        BankAccountsCreatePartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PartnersAddressesDeleteResponse>(
-            PostV1PartnersAddressesDeleteAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<BankAccountsCreatePartnersResponse>(
+            BankAccountsCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Partners.PostV1PartnersAddressesListAsync(new PostV1PartnersAddressesListRequest());
+    /// await client.Partners.BankAccountsUpdateAsync(new BankAccountsUpdatePartnersRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1PartnersAddressesListResponse> PostV1PartnersAddressesListAsync(
-        PostV1PartnersAddressesListRequest request,
+    public WithRawResponseTask<BankAccountsUpdatePartnersResponse> BankAccountsUpdateAsync(
+        BankAccountsUpdatePartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PartnersAddressesListResponse>(
-            PostV1PartnersAddressesListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<BankAccountsUpdatePartnersResponse>(
+            BankAccountsUpdateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Partners.PostV1PartnersContactsCreateAsync(
-    ///     new PostV1PartnersContactsCreateRequest { Name = "name", PartnerId = "partnerId" }
-    /// );
+    /// await client.Partners.BankAccountsDeleteAsync(new BankAccountsDeletePartnersRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1PartnersContactsCreateResponse> PostV1PartnersContactsCreateAsync(
-        PostV1PartnersContactsCreateRequest request,
+    public WithRawResponseTask<BankAccountsDeletePartnersResponse> BankAccountsDeleteAsync(
+        BankAccountsDeletePartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PartnersContactsCreateResponse>(
-            PostV1PartnersContactsCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<BankAccountsDeletePartnersResponse>(
+            BankAccountsDeleteAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Partners.PostV1PartnersContactsUpdateAsync(
-    ///     new PostV1PartnersContactsUpdateRequest { Id = "id" }
-    /// );
+    /// await client.Partners.BankAccountsListAsync(new BankAccountsListPartnersRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1PartnersContactsUpdateResponse> PostV1PartnersContactsUpdateAsync(
-        PostV1PartnersContactsUpdateRequest request,
+    public WithRawResponseTask<BankAccountsListPartnersResponse> BankAccountsListAsync(
+        BankAccountsListPartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PartnersContactsUpdateResponse>(
-            PostV1PartnersContactsUpdateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<BankAccountsListPartnersResponse>(
+            BankAccountsListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Partners.PostV1PartnersContactsDeleteAsync(
-    ///     new PostV1PartnersContactsDeleteRequest { Id = "id" }
-    /// );
+    /// await client.Partners.FilesListAsync(new FilesListPartnersRequest { PartnerId = "partnerId" });
     /// </code></example>
-    public WithRawResponseTask<PostV1PartnersContactsDeleteResponse> PostV1PartnersContactsDeleteAsync(
-        PostV1PartnersContactsDeleteRequest request,
+    public WithRawResponseTask<FilesListPartnersResponse> FilesListAsync(
+        FilesListPartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PartnersContactsDeleteResponse>(
-            PostV1PartnersContactsDeleteAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<FilesListPartnersResponse>(
+            FilesListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Partners.PostV1PartnersContactsListAsync(new PostV1PartnersContactsListRequest());
+    /// await client.Partners.DebtRemindersPreviewAsync(new DebtRemindersPreviewPartnersRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1PartnersContactsListResponse> PostV1PartnersContactsListAsync(
-        PostV1PartnersContactsListRequest request,
+    public WithRawResponseTask<DebtRemindersPreviewPartnersResponse> DebtRemindersPreviewAsync(
+        DebtRemindersPreviewPartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PartnersContactsListResponse>(
-            PostV1PartnersContactsListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<DebtRemindersPreviewPartnersResponse>(
+            DebtRemindersPreviewAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Partners.PostV1PartnersBankAccountsCreateAsync(
-    ///     new PostV1PartnersBankAccountsCreateRequest { Iban = "iban", PartnerId = "partnerId" }
-    /// );
+    /// await client.Partners.DebtRemindersListAsync(new DebtRemindersListPartnersRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1PartnersBankAccountsCreateResponse> PostV1PartnersBankAccountsCreateAsync(
-        PostV1PartnersBankAccountsCreateRequest request,
+    public WithRawResponseTask<DebtRemindersListPartnersResponse> DebtRemindersListAsync(
+        DebtRemindersListPartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PartnersBankAccountsCreateResponse>(
-            PostV1PartnersBankAccountsCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<DebtRemindersListPartnersResponse>(
+            DebtRemindersListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Partners.PostV1PartnersBankAccountsUpdateAsync(
-    ///     new PostV1PartnersBankAccountsUpdateRequest { Id = "id" }
-    /// );
+    /// await client.Partners.ValidateVatAsync(new ValidateVatPartnersRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1PartnersBankAccountsUpdateResponse> PostV1PartnersBankAccountsUpdateAsync(
-        PostV1PartnersBankAccountsUpdateRequest request,
+    public WithRawResponseTask<ValidateVatPartnersResponse> ValidateVatAsync(
+        ValidateVatPartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PartnersBankAccountsUpdateResponse>(
-            PostV1PartnersBankAccountsUpdateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<ValidateVatPartnersResponse>(
+            ValidateVatAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Partners.PostV1PartnersBankAccountsDeleteAsync(
-    ///     new PostV1PartnersBankAccountsDeleteRequest { Id = "id" }
-    /// );
+    /// await client.Partners.VatReviewsListAsync(new VatReviewsListPartnersRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1PartnersBankAccountsDeleteResponse> PostV1PartnersBankAccountsDeleteAsync(
-        PostV1PartnersBankAccountsDeleteRequest request,
+    public WithRawResponseTask<VatReviewsListPartnersResponse> VatReviewsListAsync(
+        VatReviewsListPartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PartnersBankAccountsDeleteResponse>(
-            PostV1PartnersBankAccountsDeleteAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<VatReviewsListPartnersResponse>(
+            VatReviewsListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Partners.PostV1PartnersBankAccountsListAsync(
-    ///     new PostV1PartnersBankAccountsListRequest()
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1PartnersBankAccountsListResponse> PostV1PartnersBankAccountsListAsync(
-        PostV1PartnersBankAccountsListRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1PartnersBankAccountsListResponse>(
-            PostV1PartnersBankAccountsListAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Partners.PostV1PartnersFilesListAsync(
-    ///     new PostV1PartnersFilesListRequest { PartnerId = "partnerId" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1PartnersFilesListResponse> PostV1PartnersFilesListAsync(
-        PostV1PartnersFilesListRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1PartnersFilesListResponse>(
-            PostV1PartnersFilesListAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Partners.RemindersTheOvernightDebtReminderJobWouldSendTodayForThisCompanyAsync(
-    ///     new PostV1PartnersDebtRemindersPreviewRequest()
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1PartnersDebtRemindersPreviewResponse> RemindersTheOvernightDebtReminderJobWouldSendTodayForThisCompanyAsync(
-        PostV1PartnersDebtRemindersPreviewRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1PartnersDebtRemindersPreviewResponse>(
-            RemindersTheOvernightDebtReminderJobWouldSendTodayForThisCompanyAsyncCore(
-                request,
-                options,
-                cancellationToken
-            )
-        );
-    }
-
-    /// <example><code>
-    /// await client.Partners.PostV1PartnersDebtRemindersListAsync(
-    ///     new PostV1PartnersDebtRemindersListRequest()
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1PartnersDebtRemindersListResponse> PostV1PartnersDebtRemindersListAsync(
-        PostV1PartnersDebtRemindersListRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1PartnersDebtRemindersListResponse>(
-            PostV1PartnersDebtRemindersListAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Partners.PostV1PartnersValidateVatAsync(new PostV1PartnersValidateVatRequest());
-    /// </code></example>
-    public WithRawResponseTask<PostV1PartnersValidateVatResponse> PostV1PartnersValidateVatAsync(
-        PostV1PartnersValidateVatRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1PartnersValidateVatResponse>(
-            PostV1PartnersValidateVatAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Partners.PostV1PartnersVatReviewsListAsync(new PostV1PartnersVatReviewsListRequest());
-    /// </code></example>
-    public WithRawResponseTask<PostV1PartnersVatReviewsListResponse> PostV1PartnersVatReviewsListAsync(
-        PostV1PartnersVatReviewsListRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1PartnersVatReviewsListResponse>(
-            PostV1PartnersVatReviewsListAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Partners.PostV1PartnersVatReviewsResolveAsync(
-    ///     new PostV1PartnersVatReviewsResolveRequest
+    /// await client.Partners.VatReviewsResolveAsync(
+    ///     new VatReviewsResolvePartnersRequest
     ///     {
     ///         Id = "id",
-    ///         Resolution = PostV1PartnersVatReviewsResolveRequestResolution.ConfirmedValid,
+    ///         Resolution = VatReviewsResolvePartnersRequestResolution.ConfirmedValid,
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1PartnersVatReviewsResolveResponse> PostV1PartnersVatReviewsResolveAsync(
-        PostV1PartnersVatReviewsResolveRequest request,
+    public WithRawResponseTask<VatReviewsResolvePartnersResponse> VatReviewsResolveAsync(
+        VatReviewsResolvePartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PartnersVatReviewsResolveResponse>(
-            PostV1PartnersVatReviewsResolveAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<VatReviewsResolvePartnersResponse>(
+            VatReviewsResolveAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Partners.PostV1PartnersCreateAsync(new PostV1PartnersCreateRequest { Name = "name" });
+    /// await client.Partners.CreateAsync(new CreatePartnersRequest { Name = "name" });
     /// </code></example>
-    public WithRawResponseTask<PostV1PartnersCreateResponse> PostV1PartnersCreateAsync(
-        PostV1PartnersCreateRequest request,
+    public WithRawResponseTask<CreatePartnersResponse> CreateAsync(
+        CreatePartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PartnersCreateResponse>(
-            PostV1PartnersCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<CreatePartnersResponse>(
+            CreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Partners.PostV1PartnersFindOrCreateAsync(
-    ///     new PostV1PartnersFindOrCreateRequest { Name = "name" }
-    /// );
+    /// await client.Partners.FindOrCreateAsync(new FindOrCreatePartnersRequest { Name = "name" });
     /// </code></example>
-    public WithRawResponseTask<PostV1PartnersFindOrCreateResponse> PostV1PartnersFindOrCreateAsync(
-        PostV1PartnersFindOrCreateRequest request,
+    public WithRawResponseTask<FindOrCreatePartnersResponse> FindOrCreateAsync(
+        FindOrCreatePartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PartnersFindOrCreateResponse>(
-            PostV1PartnersFindOrCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<FindOrCreatePartnersResponse>(
+            FindOrCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Partners.PostV1PartnersGetAsync(new PostV1PartnersGetRequest { Id = "id" });
+    /// await client.Partners.GetAsync(new GetPartnersRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1PartnersGetResponse> PostV1PartnersGetAsync(
-        PostV1PartnersGetRequest request,
+    public WithRawResponseTask<GetPartnersResponse> GetAsync(
+        GetPartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PartnersGetResponse>(
-            PostV1PartnersGetAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<GetPartnersResponse>(
+            GetAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Partners.PostV1PartnersUpdateAsync(new PostV1PartnersUpdateRequest { Id = "id" });
+    /// await client.Partners.UpdateAsync(new UpdatePartnersRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1PartnersUpdateResponse> PostV1PartnersUpdateAsync(
-        PostV1PartnersUpdateRequest request,
+    public WithRawResponseTask<UpdatePartnersResponse> UpdateAsync(
+        UpdatePartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PartnersUpdateResponse>(
-            PostV1PartnersUpdateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<UpdatePartnersResponse>(
+            UpdateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Partners.PostV1PartnersDeleteAsync(new PostV1PartnersDeleteRequest { Id = "id" });
+    /// await client.Partners.DeleteAsync(new DeletePartnersRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1PartnersDeleteResponse> PostV1PartnersDeleteAsync(
-        PostV1PartnersDeleteRequest request,
+    public WithRawResponseTask<DeletePartnersResponse> DeleteAsync(
+        DeletePartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PartnersDeleteResponse>(
-            PostV1PartnersDeleteAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<DeletePartnersResponse>(
+            DeleteAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -10564,459 +8516,218 @@ public partial class PartnersClient : IPartnersClient
     /// Removes birth date, self-employment certificate number, email, phone, address, notes, contacts, addresses and bank accounts, then hides the partner. The name, code and VAT number stay because issued invoices must keep identifying the counterparty for the statutory retention period.
     /// </summary>
     /// <example><code>
-    /// await client.Partners.BlankAPartnersPersonalDataAndHideTheRecordAsync(
-    ///     new PostV1PartnersAnonymizeRequest { Id = "id" }
+    /// await client.Partners.AnonymizeAsync(new AnonymizePartnersRequest { Id = "id" });
+    /// </code></example>
+    public WithRawResponseTask<AnonymizePartnersResponse> AnonymizeAsync(
+        AnonymizePartnersRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<AnonymizePartnersResponse>(
+            AnonymizeAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Partners.ListAsync(new ListPartnersRequest());
+    /// </code></example>
+    public WithRawResponseTask<ListPartnersResponse> ListAsync(
+        ListPartnersRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<ListPartnersResponse>(
+            ListAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Partners.GroupsCreateAsync(
+    ///     new GroupsCreatePartnersRequest { Code = "code", Name = "name" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1PartnersAnonymizeResponse> BlankAPartnersPersonalDataAndHideTheRecordAsync(
-        PostV1PartnersAnonymizeRequest request,
+    public WithRawResponseTask<GroupsCreatePartnersResponse> GroupsCreateAsync(
+        GroupsCreatePartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PartnersAnonymizeResponse>(
-            BlankAPartnersPersonalDataAndHideTheRecordAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<GroupsCreatePartnersResponse>(
+            GroupsCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Partners.PostV1PartnersListAsync(new PostV1PartnersListRequest());
+    /// await client.Partners.GroupsUpdateAsync(new GroupsUpdatePartnersRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1PartnersListResponse> PostV1PartnersListAsync(
-        PostV1PartnersListRequest request,
+    public WithRawResponseTask<GroupsUpdatePartnersResponse> GroupsUpdateAsync(
+        GroupsUpdatePartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PartnersListResponse>(
-            PostV1PartnersListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<GroupsUpdatePartnersResponse>(
+            GroupsUpdateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Partners.PostV1PartnersGroupsCreateAsync(
-    ///     new PostV1PartnersGroupsCreateRequest { Code = "code", Name = "name" }
+    /// await client.Partners.GroupsDeleteAsync(new GroupsDeletePartnersRequest { Id = "id" });
+    /// </code></example>
+    public WithRawResponseTask<GroupsDeletePartnersResponse> GroupsDeleteAsync(
+        GroupsDeletePartnersRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<GroupsDeletePartnersResponse>(
+            GroupsDeleteAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Partners.GroupsListAsync(new GroupsListPartnersRequest());
+    /// </code></example>
+    public WithRawResponseTask<GroupsListPartnersResponse> GroupsListAsync(
+        GroupsListPartnersRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<GroupsListPartnersResponse>(
+            GroupsListAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Partners.StatusesCreateAsync(
+    ///     new StatusesCreatePartnersRequest { Code = "code", Name = "name" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1PartnersGroupsCreateResponse> PostV1PartnersGroupsCreateAsync(
-        PostV1PartnersGroupsCreateRequest request,
+    public WithRawResponseTask<StatusesCreatePartnersResponse> StatusesCreateAsync(
+        StatusesCreatePartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PartnersGroupsCreateResponse>(
-            PostV1PartnersGroupsCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<StatusesCreatePartnersResponse>(
+            StatusesCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Partners.PostV1PartnersGroupsUpdateAsync(
-    ///     new PostV1PartnersGroupsUpdateRequest { Id = "id" }
+    /// await client.Partners.StatusesUpdateAsync(new StatusesUpdatePartnersRequest { Id = "id" });
+    /// </code></example>
+    public WithRawResponseTask<StatusesUpdatePartnersResponse> StatusesUpdateAsync(
+        StatusesUpdatePartnersRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<StatusesUpdatePartnersResponse>(
+            StatusesUpdateAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Partners.StatusesDeleteAsync(new StatusesDeletePartnersRequest { Id = "id" });
+    /// </code></example>
+    public WithRawResponseTask<StatusesDeletePartnersResponse> StatusesDeleteAsync(
+        StatusesDeletePartnersRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<StatusesDeletePartnersResponse>(
+            StatusesDeleteAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Partners.StatusesListAsync(new StatusesListPartnersRequest());
+    /// </code></example>
+    public WithRawResponseTask<StatusesListPartnersResponse> StatusesListAsync(
+        StatusesListPartnersRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<StatusesListPartnersResponse>(
+            StatusesListAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Partners.InquiriesCreateAsync(
+    ///     new InquiriesCreatePartnersRequest { Subject = "subject" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1PartnersGroupsUpdateResponse> PostV1PartnersGroupsUpdateAsync(
-        PostV1PartnersGroupsUpdateRequest request,
+    public WithRawResponseTask<InquiriesCreatePartnersResponse> InquiriesCreateAsync(
+        InquiriesCreatePartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PartnersGroupsUpdateResponse>(
-            PostV1PartnersGroupsUpdateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<InquiriesCreatePartnersResponse>(
+            InquiriesCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Partners.PostV1PartnersGroupsDeleteAsync(
-    ///     new PostV1PartnersGroupsDeleteRequest { Id = "id" }
-    /// );
+    /// await client.Partners.InquiriesUpdateAsync(new InquiriesUpdatePartnersRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1PartnersGroupsDeleteResponse> PostV1PartnersGroupsDeleteAsync(
-        PostV1PartnersGroupsDeleteRequest request,
+    public WithRawResponseTask<InquiriesUpdatePartnersResponse> InquiriesUpdateAsync(
+        InquiriesUpdatePartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PartnersGroupsDeleteResponse>(
-            PostV1PartnersGroupsDeleteAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<InquiriesUpdatePartnersResponse>(
+            InquiriesUpdateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Partners.PostV1PartnersGroupsListAsync(new PostV1PartnersGroupsListRequest());
+    /// await client.Partners.InquiriesGetAsync(new InquiriesGetPartnersRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1PartnersGroupsListResponse> PostV1PartnersGroupsListAsync(
-        PostV1PartnersGroupsListRequest request,
+    public WithRawResponseTask<InquiriesGetPartnersResponse> InquiriesGetAsync(
+        InquiriesGetPartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PartnersGroupsListResponse>(
-            PostV1PartnersGroupsListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<InquiriesGetPartnersResponse>(
+            InquiriesGetAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Partners.PostV1PartnersStatusesCreateAsync(
-    ///     new PostV1PartnersStatusesCreateRequest { Code = "code", Name = "name" }
-    /// );
+    /// await client.Partners.InquiriesListAsync(new InquiriesListPartnersRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1PartnersStatusesCreateResponse> PostV1PartnersStatusesCreateAsync(
-        PostV1PartnersStatusesCreateRequest request,
+    public WithRawResponseTask<InquiriesListPartnersResponse> InquiriesListAsync(
+        InquiriesListPartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PartnersStatusesCreateResponse>(
-            PostV1PartnersStatusesCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<InquiriesListPartnersResponse>(
+            InquiriesListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Partners.PostV1PartnersStatusesUpdateAsync(
-    ///     new PostV1PartnersStatusesUpdateRequest { Id = "id" }
-    /// );
+    /// await client.Partners.CreditCheckAsync(new CreditCheckPartnersRequest { PartnerId = "partnerId" });
     /// </code></example>
-    public WithRawResponseTask<PostV1PartnersStatusesUpdateResponse> PostV1PartnersStatusesUpdateAsync(
-        PostV1PartnersStatusesUpdateRequest request,
+    public WithRawResponseTask<CreditCheckPartnersResponse> CreditCheckAsync(
+        CreditCheckPartnersRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1PartnersStatusesUpdateResponse>(
-            PostV1PartnersStatusesUpdateAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Partners.PostV1PartnersStatusesDeleteAsync(
-    ///     new PostV1PartnersStatusesDeleteRequest { Id = "id" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1PartnersStatusesDeleteResponse> PostV1PartnersStatusesDeleteAsync(
-        PostV1PartnersStatusesDeleteRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1PartnersStatusesDeleteResponse>(
-            PostV1PartnersStatusesDeleteAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Partners.PostV1PartnersStatusesListAsync(new PostV1PartnersStatusesListRequest());
-    /// </code></example>
-    public WithRawResponseTask<PostV1PartnersStatusesListResponse> PostV1PartnersStatusesListAsync(
-        PostV1PartnersStatusesListRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1PartnersStatusesListResponse>(
-            PostV1PartnersStatusesListAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Partners.PostV1PartnersInquiriesCreateAsync(
-    ///     new PostV1PartnersInquiriesCreateRequest { Subject = "subject" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1PartnersInquiriesCreateResponse> PostV1PartnersInquiriesCreateAsync(
-        PostV1PartnersInquiriesCreateRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1PartnersInquiriesCreateResponse>(
-            PostV1PartnersInquiriesCreateAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Partners.PostV1PartnersInquiriesUpdateAsync(
-    ///     new PostV1PartnersInquiriesUpdateRequest { Id = "id" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1PartnersInquiriesUpdateResponse> PostV1PartnersInquiriesUpdateAsync(
-        PostV1PartnersInquiriesUpdateRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1PartnersInquiriesUpdateResponse>(
-            PostV1PartnersInquiriesUpdateAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Partners.PostV1PartnersInquiriesGetAsync(
-    ///     new PostV1PartnersInquiriesGetRequest { Id = "id" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1PartnersInquiriesGetResponse> PostV1PartnersInquiriesGetAsync(
-        PostV1PartnersInquiriesGetRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1PartnersInquiriesGetResponse>(
-            PostV1PartnersInquiriesGetAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Partners.PostV1PartnersInquiriesListAsync(new PostV1PartnersInquiriesListRequest());
-    /// </code></example>
-    public WithRawResponseTask<PostV1PartnersInquiriesListResponse> PostV1PartnersInquiriesListAsync(
-        PostV1PartnersInquiriesListRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1PartnersInquiriesListResponse>(
-            PostV1PartnersInquiriesListAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Partners.PostV1PartnersCreditCheckAsync(
-    ///     new PostV1PartnersCreditCheckRequest { PartnerId = "partnerId" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1PartnersCreditCheckResponse> PostV1PartnersCreditCheckAsync(
-        PostV1PartnersCreditCheckRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1PartnersCreditCheckResponse>(
-            PostV1PartnersCreditCheckAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Partners.PostV1LeadsCreateAsync(new PostV1LeadsCreateRequest { Name = "name" });
-    /// </code></example>
-    public WithRawResponseTask<PostV1LeadsCreateResponse> PostV1LeadsCreateAsync(
-        PostV1LeadsCreateRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1LeadsCreateResponse>(
-            PostV1LeadsCreateAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Partners.PostV1LeadsGetAsync(new PostV1LeadsGetRequest { Id = "id" });
-    /// </code></example>
-    public WithRawResponseTask<PostV1LeadsGetResponse> PostV1LeadsGetAsync(
-        PostV1LeadsGetRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1LeadsGetResponse>(
-            PostV1LeadsGetAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Partners.PostV1LeadsUpdateAsync(new PostV1LeadsUpdateRequest { Id = "id" });
-    /// </code></example>
-    public WithRawResponseTask<PostV1LeadsUpdateResponse> PostV1LeadsUpdateAsync(
-        PostV1LeadsUpdateRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1LeadsUpdateResponse>(
-            PostV1LeadsUpdateAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Partners.PostV1LeadsDeleteAsync(new PostV1LeadsDeleteRequest { Id = "id" });
-    /// </code></example>
-    public WithRawResponseTask<PostV1LeadsDeleteResponse> PostV1LeadsDeleteAsync(
-        PostV1LeadsDeleteRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1LeadsDeleteResponse>(
-            PostV1LeadsDeleteAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Partners.PostV1LeadsListAsync(new PostV1LeadsListRequest());
-    /// </code></example>
-    public WithRawResponseTask<PostV1LeadsListResponse> PostV1LeadsListAsync(
-        PostV1LeadsListRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1LeadsListResponse>(
-            PostV1LeadsListAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Partners.PostV1LeadsNotesCreateAsync(
-    ///     new PostV1LeadsNotesCreateRequest { LeadId = "leadId", Body = "body" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1LeadsNotesCreateResponse> PostV1LeadsNotesCreateAsync(
-        PostV1LeadsNotesCreateRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1LeadsNotesCreateResponse>(
-            PostV1LeadsNotesCreateAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Partners.PostV1LeadsNotesDeleteAsync(new PostV1LeadsNotesDeleteRequest { Id = "id" });
-    /// </code></example>
-    public WithRawResponseTask<PostV1LeadsNotesDeleteResponse> PostV1LeadsNotesDeleteAsync(
-        PostV1LeadsNotesDeleteRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1LeadsNotesDeleteResponse>(
-            PostV1LeadsNotesDeleteAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Partners.PostV1LeadsNotesListAsync(
-    ///     new PostV1LeadsNotesListRequest { LeadId = "leadId" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1LeadsNotesListResponse> PostV1LeadsNotesListAsync(
-        PostV1LeadsNotesListRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1LeadsNotesListResponse>(
-            PostV1LeadsNotesListAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Partners.PostV1LeadsFilesListAsync(
-    ///     new PostV1LeadsFilesListRequest { LeadId = "leadId" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1LeadsFilesListResponse> PostV1LeadsFilesListAsync(
-        PostV1LeadsFilesListRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1LeadsFilesListResponse>(
-            PostV1LeadsFilesListAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Partners.PostV1LeadsSourcesCreateAsync(
-    ///     new PostV1LeadsSourcesCreateRequest { Name = "name" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1LeadsSourcesCreateResponse> PostV1LeadsSourcesCreateAsync(
-        PostV1LeadsSourcesCreateRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1LeadsSourcesCreateResponse>(
-            PostV1LeadsSourcesCreateAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Partners.PostV1LeadsSourcesUpdateAsync(
-    ///     new PostV1LeadsSourcesUpdateRequest { Id = "id" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1LeadsSourcesUpdateResponse> PostV1LeadsSourcesUpdateAsync(
-        PostV1LeadsSourcesUpdateRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1LeadsSourcesUpdateResponse>(
-            PostV1LeadsSourcesUpdateAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Partners.PostV1LeadsSourcesDeleteAsync(
-    ///     new PostV1LeadsSourcesDeleteRequest { Id = "id" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1LeadsSourcesDeleteResponse> PostV1LeadsSourcesDeleteAsync(
-        PostV1LeadsSourcesDeleteRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1LeadsSourcesDeleteResponse>(
-            PostV1LeadsSourcesDeleteAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Partners.PostV1LeadsSourcesListAsync(new PostV1LeadsSourcesListRequest());
-    /// </code></example>
-    public WithRawResponseTask<PostV1LeadsSourcesListResponse> PostV1LeadsSourcesListAsync(
-        PostV1LeadsSourcesListRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1LeadsSourcesListResponse>(
-            PostV1LeadsSourcesListAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Partners.PostV1LeadsSourcesOptionsAsync(new PostV1LeadsSourcesOptionsRequest());
-    /// </code></example>
-    public WithRawResponseTask<PostV1LeadsSourcesOptionsResponse> PostV1LeadsSourcesOptionsAsync(
-        PostV1LeadsSourcesOptionsRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1LeadsSourcesOptionsResponse>(
-            PostV1LeadsSourcesOptionsAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <summary>
-    /// Create a customer partner from the lead, move the lead files to the partner, copy the lead notes into the partner notes and mark the lead as converted.
-    /// </summary>
-    /// <example><code>
-    /// await client.Partners.PostV1LeadsConvertAsync(new PostV1LeadsConvertRequest { Id = "id" });
-    /// </code></example>
-    public WithRawResponseTask<PostV1LeadsConvertResponse> PostV1LeadsConvertAsync(
-        PostV1LeadsConvertRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1LeadsConvertResponse>(
-            PostV1LeadsConvertAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<CreditCheckPartnersResponse>(
+            CreditCheckAsyncCore(request, options, cancellationToken)
         );
     }
 }

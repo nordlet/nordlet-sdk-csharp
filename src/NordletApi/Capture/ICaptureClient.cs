@@ -2,62 +2,62 @@ namespace NordletApi;
 
 public partial interface ICaptureClient
 {
-    WithRawResponseTask<PostV1CaptureSettingsGetResponse> PostV1CaptureSettingsGetAsync(
-        PostV1CaptureSettingsGetRequest request,
+    WithRawResponseTask<SettingsGetCaptureResponse> SettingsGetAsync(
+        SettingsGetCaptureRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CaptureSettingsUpdateResponse> PostV1CaptureSettingsUpdateAsync(
-        PostV1CaptureSettingsUpdateRequest request,
+    WithRawResponseTask<SettingsUpdateCaptureResponse> SettingsUpdateAsync(
+        SettingsUpdateCaptureRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CaptureSettingsRegenerateIntakeResponse> PostV1CaptureSettingsRegenerateIntakeAsync(
-        PostV1CaptureSettingsRegenerateIntakeRequest request,
+    WithRawResponseTask<SettingsRegenerateIntakeCaptureResponse> SettingsRegenerateIntakeAsync(
+        SettingsRegenerateIntakeCaptureRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CaptureInboundEmailResponse> ReceiveAnInboundEmailWithSupplierDocumentsAttachedPostmarkStyleOrGenericJsonAsync(
-        PostV1CaptureInboundEmailRequest request,
+    WithRawResponseTask<InboundEmailCaptureResponse> InboundEmailAsync(
+        InboundEmailCaptureRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CaptureDocumentsUploadResponse> ReadAVendorBillOrReceiptAndReturnAnEditablePurchaseInvoiceDraftAsync(
-        PostV1CaptureDocumentsUploadRequest request,
+    WithRawResponseTask<DocumentsUploadCaptureResponse> DocumentsUploadAsync(
+        DocumentsUploadCaptureRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CaptureDocumentsExtractResponse> ReReadAStoredCaptureReplacingThePreviousDraftAsync(
-        PostV1CaptureDocumentsExtractRequest request,
+    WithRawResponseTask<DocumentsExtractCaptureResponse> DocumentsExtractAsync(
+        DocumentsExtractCaptureRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CaptureDocumentsGetResponse> PostV1CaptureDocumentsGetAsync(
-        PostV1CaptureDocumentsGetRequest request,
+    WithRawResponseTask<DocumentsGetCaptureResponse> DocumentsGetAsync(
+        DocumentsGetCaptureRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CaptureDocumentsListResponse> PostV1CaptureDocumentsListAsync(
-        PostV1CaptureDocumentsListRequest request,
+    WithRawResponseTask<DocumentsListCaptureResponse> DocumentsListAsync(
+        DocumentsListCaptureRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CaptureDocumentsDeleteResponse> PostV1CaptureDocumentsDeleteAsync(
-        PostV1CaptureDocumentsDeleteRequest request,
+    WithRawResponseTask<DocumentsDeleteCaptureResponse> DocumentsDeleteAsync(
+        DocumentsDeleteCaptureRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CaptureDocumentsConfirmResponse> SaveTheReviewedDraftAsAPurchaseInvoiceAndAttachTheOriginalDocumentAsync(
-        PostV1CaptureDocumentsConfirmRequest request,
+    WithRawResponseTask<DocumentsConfirmCaptureResponse> DocumentsConfirmAsync(
+        DocumentsConfirmCaptureRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );

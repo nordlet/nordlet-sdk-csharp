@@ -35,12 +35,16 @@ public partial class NordletApiClient : INordletApiClient
         _client = new RawClient(clientOptionsWithAuth);
         Reference = new ReferenceClient(_client);
         Partners = new PartnersClient(_client);
+        Leads = new LeadsClient(_client);
         Catalog = new CatalogClient(_client);
         Sales = new SalesClient(_client);
+        OperationTypes = new OperationTypesClient(_client);
+        DocumentSeries = new DocumentSeriesClient(_client);
         Purchases = new PurchasesClient(_client);
         Capture = new CaptureClient(_client);
         Declarations = new DeclarationsClient(_client);
         Ledger = new LedgerClient(_client);
+        Officers = new OfficersClient(_client);
         Migration = new MigrationClient(_client);
         Assets = new AssetsClient(_client);
         Hr = new HrClient(_client);
@@ -70,9 +74,15 @@ public partial class NordletApiClient : INordletApiClient
 
     public IPartnersClient Partners { get; }
 
+    public ILeadsClient Leads { get; }
+
     public ICatalogClient Catalog { get; }
 
     public ISalesClient Sales { get; }
+
+    public IOperationTypesClient OperationTypes { get; }
+
+    public IDocumentSeriesClient DocumentSeries { get; }
 
     public IPurchasesClient Purchases { get; }
 
@@ -81,6 +91,8 @@ public partial class NordletApiClient : INordletApiClient
     public IDeclarationsClient Declarations { get; }
 
     public ILedgerClient Ledger { get; }
+
+    public IOfficersClient Officers { get; }
 
     public IMigrationClient Migration { get; }
 

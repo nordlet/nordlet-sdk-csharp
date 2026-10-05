@@ -2,32 +2,32 @@ namespace NordletApi;
 
 public partial interface ICashClient
 {
-    WithRawResponseTask<PostV1CashOrdersCreateResponse> PostV1CashOrdersCreateAsync(
-        PostV1CashOrdersCreateRequest request,
+    WithRawResponseTask<OrdersCreateCashResponse> OrdersCreateAsync(
+        OrdersCreateCashRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CashOrdersGetResponse> PostV1CashOrdersGetAsync(
-        PostV1CashOrdersGetRequest request,
+    WithRawResponseTask<OrdersGetCashResponse> OrdersGetAsync(
+        OrdersGetCashRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CashOrdersListResponse> PostV1CashOrdersListAsync(
-        PostV1CashOrdersListRequest request,
+    WithRawResponseTask<OrdersListCashResponse> OrdersListAsync(
+        OrdersListCashRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CashBalanceResponse> PostV1CashBalanceAsync(
-        PostV1CashBalanceRequest request,
+    WithRawResponseTask<BalanceCashResponse> BalanceAsync(
+        BalanceCashRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CashAdvanceHoldersBalancesResponse> PostV1CashAdvanceHoldersBalancesAsync(
-        PostV1CashAdvanceHoldersBalancesRequest request,
+    WithRawResponseTask<AdvanceHoldersBalancesCashResponse> AdvanceHoldersBalancesAsync(
+        AdvanceHoldersBalancesCashRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );

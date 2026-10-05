@@ -2,176 +2,185 @@ namespace NordletApi;
 
 public partial interface IBankClient
 {
-    WithRawResponseTask<PostV1BankAccountsCreateResponse> PostV1BankAccountsCreateAsync(
-        PostV1BankAccountsCreateRequest request,
+    WithRawResponseTask<AccountsCreateBankResponse> AccountsCreateAsync(
+        AccountsCreateBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BankAccountsListResponse> PostV1BankAccountsListAsync(
-        PostV1BankAccountsListRequest request,
+    WithRawResponseTask<AccountsListBankResponse> AccountsListAsync(
+        AccountsListBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BankAccountsUpdateResponse> PostV1BankAccountsUpdateAsync(
-        PostV1BankAccountsUpdateRequest request,
+    WithRawResponseTask<AccountsUpdateBankResponse> AccountsUpdateAsync(
+        AccountsUpdateBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BankTransactionsImportResponse> PostV1BankTransactionsImportAsync(
-        PostV1BankTransactionsImportRequest request,
+    WithRawResponseTask<TransactionsImportBankResponse> TransactionsImportAsync(
+        TransactionsImportBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BankStatementsImportResponse> PostV1BankStatementsImportAsync(
-        PostV1BankStatementsImportRequest request,
+    WithRawResponseTask<StatementsImportBankResponse> StatementsImportAsync(
+        StatementsImportBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BankTransactionsListResponse> PostV1BankTransactionsListAsync(
-        PostV1BankTransactionsListRequest request,
+    WithRawResponseTask<TransactionsListBankResponse> TransactionsListAsync(
+        TransactionsListBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BankTransactionsMatchResponse> PostV1BankTransactionsMatchAsync(
-        PostV1BankTransactionsMatchRequest request,
+    WithRawResponseTask<TransactionsMatchBankResponse> TransactionsMatchAsync(
+        TransactionsMatchBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BankTransactionsRecordResponse> PostV1BankTransactionsRecordAsync(
-        PostV1BankTransactionsRecordRequest request,
+    /// <summary>
+    /// Undo a match. A payment matched to an invoice, or a line posted by an import template, gets a reversing journal transaction dated date (default: today) and the invoice paid amount and payment status are restored; a line linked to a payment-provider settlement is only unlinked. The line returns to status new.
+    /// </summary>
+    WithRawResponseTask<TransactionsUnmatchBankResponse> TransactionsUnmatchAsync(
+        TransactionsUnmatchBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BankPaymentsExportResponse> PostV1BankPaymentsExportAsync(
-        PostV1BankPaymentsExportRequest request,
+    WithRawResponseTask<TransactionsRecordBankResponse> TransactionsRecordAsync(
+        TransactionsRecordBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BankImportTemplatesCreateResponse> CreateABankImportTemplateFieldsDefaultToTheTypesStandardFieldListAsync(
-        PostV1BankImportTemplatesCreateRequest request,
+    WithRawResponseTask<PaymentsExportBankResponse> PaymentsExportAsync(
+        PaymentsExportBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BankImportTemplatesUpdateResponse> PostV1BankImportTemplatesUpdateAsync(
-        PostV1BankImportTemplatesUpdateRequest request,
+    WithRawResponseTask<ImportTemplatesCreateBankResponse> ImportTemplatesCreateAsync(
+        ImportTemplatesCreateBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BankImportTemplatesDeleteResponse> PostV1BankImportTemplatesDeleteAsync(
-        PostV1BankImportTemplatesDeleteRequest request,
+    WithRawResponseTask<ImportTemplatesUpdateBankResponse> ImportTemplatesUpdateAsync(
+        ImportTemplatesUpdateBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BankImportTemplatesGetResponse> PostV1BankImportTemplatesGetAsync(
-        PostV1BankImportTemplatesGetRequest request,
+    WithRawResponseTask<ImportTemplatesDeleteBankResponse> ImportTemplatesDeleteAsync(
+        ImportTemplatesDeleteBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BankImportTemplatesListResponse> PostV1BankImportTemplatesListAsync(
-        PostV1BankImportTemplatesListRequest request,
+    WithRawResponseTask<ImportTemplatesGetBankResponse> ImportTemplatesGetAsync(
+        ImportTemplatesGetBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BankMatchRulesCreateResponse> PostV1BankMatchRulesCreateAsync(
-        PostV1BankMatchRulesCreateRequest request,
+    WithRawResponseTask<ImportTemplatesListBankResponse> ImportTemplatesListAsync(
+        ImportTemplatesListBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BankMatchRulesUpdateResponse> PostV1BankMatchRulesUpdateAsync(
-        PostV1BankMatchRulesUpdateRequest request,
+    WithRawResponseTask<MatchRulesCreateBankResponse> MatchRulesCreateAsync(
+        MatchRulesCreateBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BankMatchRulesDeleteResponse> PostV1BankMatchRulesDeleteAsync(
-        PostV1BankMatchRulesDeleteRequest request,
+    WithRawResponseTask<MatchRulesUpdateBankResponse> MatchRulesUpdateAsync(
+        MatchRulesUpdateBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BankMatchRulesListResponse> PostV1BankMatchRulesListAsync(
-        PostV1BankMatchRulesListRequest request,
+    WithRawResponseTask<MatchRulesDeleteBankResponse> MatchRulesDeleteAsync(
+        MatchRulesDeleteBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BankMandatesCreateResponse> PostV1BankMandatesCreateAsync(
-        PostV1BankMandatesCreateRequest request,
+    WithRawResponseTask<MatchRulesListBankResponse> MatchRulesListAsync(
+        MatchRulesListBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BankMandatesUpdateResponse> PostV1BankMandatesUpdateAsync(
-        PostV1BankMandatesUpdateRequest request,
+    WithRawResponseTask<MandatesCreateBankResponse> MandatesCreateAsync(
+        MandatesCreateBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BankMandatesCancelResponse> PostV1BankMandatesCancelAsync(
-        PostV1BankMandatesCancelRequest request,
+    WithRawResponseTask<MandatesUpdateBankResponse> MandatesUpdateAsync(
+        MandatesUpdateBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BankMandatesGetResponse> PostV1BankMandatesGetAsync(
-        PostV1BankMandatesGetRequest request,
+    WithRawResponseTask<MandatesCancelBankResponse> MandatesCancelAsync(
+        MandatesCancelBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BankMandatesListResponse> PostV1BankMandatesListAsync(
-        PostV1BankMandatesListRequest request,
+    WithRawResponseTask<MandatesGetBankResponse> MandatesGetAsync(
+        MandatesGetBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BankDirectDebitsExportResponse> PostV1BankDirectDebitsExportAsync(
-        PostV1BankDirectDebitsExportRequest request,
+    WithRawResponseTask<MandatesListBankResponse> MandatesListAsync(
+        MandatesListBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BankTransactionsSuggestMatchesResponse> PostV1BankTransactionsSuggestMatchesAsync(
-        PostV1BankTransactionsSuggestMatchesRequest request,
+    WithRawResponseTask<DirectDebitsExportBankResponse> DirectDebitsExportAsync(
+        DirectDebitsExportBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BankSettlementsImportResponse> PostV1BankSettlementsImportAsync(
-        PostV1BankSettlementsImportRequest request,
+    WithRawResponseTask<TransactionsSuggestMatchesBankResponse> TransactionsSuggestMatchesAsync(
+        TransactionsSuggestMatchesBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BankSettlementsListResponse> PostV1BankSettlementsListAsync(
-        PostV1BankSettlementsListRequest request,
+    WithRawResponseTask<SettlementsImportBankResponse> SettlementsImportAsync(
+        SettlementsImportBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BankSettlementsGetResponse> PostV1BankSettlementsGetAsync(
-        PostV1BankSettlementsGetRequest request,
+    WithRawResponseTask<SettlementsListBankResponse> SettlementsListAsync(
+        SettlementsListBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BankSettlementsMatchResponse> PostV1BankSettlementsMatchAsync(
-        PostV1BankSettlementsMatchRequest request,
+    WithRawResponseTask<SettlementsGetBankResponse> SettlementsGetAsync(
+        SettlementsGetBankRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<SettlementsMatchBankResponse> SettlementsMatchAsync(
+        SettlementsMatchBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
@@ -179,8 +188,8 @@ public partial interface IBankClient
     /// <summary>
     /// A line with its own rate or amount is split with that value when the batch is posted. A line without one falls back to the commissionPercent given to the posting call, and without that the amount goes to the suspense account. Send both fields as null to clear the line back to the fallback.
     /// </summary>
-    WithRawResponseTask<PostV1BankSettlementsCommissionResponse> SetWhatTheMarketplaceKeepsFromOneSettlementLineAsARateOrAsAnAmountAsync(
-        PostV1BankSettlementsCommissionRequest request,
+    WithRawResponseTask<SettlementsCommissionBankResponse> SettlementsCommissionAsync(
+        SettlementsCommissionBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
@@ -188,8 +197,8 @@ public partial interface IBankClient
     /// <summary>
     /// Attach the incoming bank-statement line that carries this payout to the settlement batch.
     /// </summary>
-    WithRawResponseTask<PostV1BankSettlementsLinkResponse> PostV1BankSettlementsLinkAsync(
-        PostV1BankSettlementsLinkRequest request,
+    WithRawResponseTask<SettlementsLinkBankResponse> SettlementsLinkAsync(
+        SettlementsLinkBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
@@ -197,68 +206,68 @@ public partial interface IBankClient
     /// <summary>
     /// Detach the bank-statement line from the settlement batch and return the line to unmatched.
     /// </summary>
-    WithRawResponseTask<PostV1BankSettlementsUnlinkResponse> PostV1BankSettlementsUnlinkAsync(
-        PostV1BankSettlementsUnlinkRequest request,
+    WithRawResponseTask<SettlementsUnlinkBankResponse> SettlementsUnlinkAsync(
+        SettlementsUnlinkBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BankSettlementsPostResponse> PostV1BankSettlementsPostAsync(
-        PostV1BankSettlementsPostRequest request,
+    WithRawResponseTask<SettlementsPostBankResponse> SettlementsPostAsync(
+        SettlementsPostBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BankFeedsBanksListResponse> ListThePsd2BanksAspsPsAvailableToConnectAsync(
-        PostV1BankFeedsBanksListRequest request,
+    WithRawResponseTask<FeedsBanksListBankResponse> FeedsBanksListAsync(
+        FeedsBanksListBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BankFeedsConnectionsStartResponse> BeginBankAuthorizationRedirectTheUserToTheReturnedUrlAsync(
-        PostV1BankFeedsConnectionsStartRequest request,
+    WithRawResponseTask<FeedsConnectionsStartBankResponse> FeedsConnectionsStartAsync(
+        FeedsConnectionsStartBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BankFeedsConnectionsCompleteResponse> ExchangeTheRedirectCodeForASessionAndStoreTheBankAccountsItExposesAsync(
-        PostV1BankFeedsConnectionsCompleteRequest request,
+    WithRawResponseTask<FeedsConnectionsCompleteBankResponse> FeedsConnectionsCompleteAsync(
+        FeedsConnectionsCompleteBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BankFeedsConnectionsGetResponse> PostV1BankFeedsConnectionsGetAsync(
-        PostV1BankFeedsConnectionsGetRequest request,
+    WithRawResponseTask<FeedsConnectionsGetBankResponse> FeedsConnectionsGetAsync(
+        FeedsConnectionsGetBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BankFeedsConnectionsListResponse> PostV1BankFeedsConnectionsListAsync(
-        PostV1BankFeedsConnectionsListRequest request,
+    WithRawResponseTask<FeedsConnectionsListBankResponse> FeedsConnectionsListAsync(
+        FeedsConnectionsListBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BankFeedsConnectionsDeleteResponse> RevokeTheConsentAtTheBankAndDropTheStoredConnectionAsync(
-        PostV1BankFeedsConnectionsDeleteRequest request,
+    WithRawResponseTask<FeedsConnectionsDeleteBankResponse> FeedsConnectionsDeleteAsync(
+        FeedsConnectionsDeleteBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BankFeedsAccountsLinkResponse> PointABankFeedAccountAtALedgerBankAccountSoItsTransactionsCanBeSyncedAsync(
-        PostV1BankFeedsAccountsLinkRequest request,
+    WithRawResponseTask<FeedsAccountsLinkBankResponse> FeedsAccountsLinkAsync(
+        FeedsAccountsLinkBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BankFeedsAccountsConfigureResponse> ChooseTheImportTemplateAppliedOnSyncAndHowOftenTheAccountIsSyncedAutomaticallyAsync(
-        PostV1BankFeedsAccountsConfigureRequest request,
+    WithRawResponseTask<FeedsAccountsConfigureBankResponse> FeedsAccountsConfigureAsync(
+        FeedsAccountsConfigureBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1BankFeedsSyncResponse> PullNewTransactionsFromTheBankIntoTheLedgerEmitsBankFeedSyncedAsync(
-        PostV1BankFeedsSyncRequest request,
+    WithRawResponseTask<FeedsSyncBankResponse> FeedsSyncAsync(
+        FeedsSyncBankRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );

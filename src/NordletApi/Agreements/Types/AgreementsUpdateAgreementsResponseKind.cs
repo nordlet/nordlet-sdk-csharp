@@ -1,0 +1,142 @@
+using global::System.Text.Json;
+using global::System.Text.Json.Serialization;
+using NordletApi.Core;
+
+namespace NordletApi;
+
+[JsonConverter(
+    typeof(AgreementsUpdateAgreementsResponseKind.AgreementsUpdateAgreementsResponseKindSerializer)
+)]
+[Serializable]
+public readonly record struct AgreementsUpdateAgreementsResponseKind : IStringEnum
+{
+    public static readonly AgreementsUpdateAgreementsResponseKind Customer = new(Values.Customer);
+
+    public static readonly AgreementsUpdateAgreementsResponseKind Supplier = new(Values.Supplier);
+
+    public static readonly AgreementsUpdateAgreementsResponseKind Employment = new(
+        Values.Employment
+    );
+
+    public static readonly AgreementsUpdateAgreementsResponseKind Bank = new(Values.Bank);
+
+    public static readonly AgreementsUpdateAgreementsResponseKind Lease = new(Values.Lease);
+
+    public static readonly AgreementsUpdateAgreementsResponseKind Insurance = new(Values.Insurance);
+
+    public static readonly AgreementsUpdateAgreementsResponseKind Other = new(Values.Other);
+
+    public AgreementsUpdateAgreementsResponseKind(string value)
+    {
+        Value = value;
+    }
+
+    /// <summary>
+    /// The string value of the enum.
+    /// </summary>
+    public string Value { get; }
+
+    /// <summary>
+    /// Create a string enum with the given value.
+    /// </summary>
+    public static AgreementsUpdateAgreementsResponseKind FromCustom(string value)
+    {
+        return new AgreementsUpdateAgreementsResponseKind(value);
+    }
+
+    public bool Equals(string? other)
+    {
+        return Value.Equals(other);
+    }
+
+    /// <summary>
+    /// Returns the string value of the enum.
+    /// </summary>
+    public override string ToString()
+    {
+        return Value;
+    }
+
+    public static bool operator ==(AgreementsUpdateAgreementsResponseKind value1, string value2) =>
+        value1.Value.Equals(value2);
+
+    public static bool operator !=(AgreementsUpdateAgreementsResponseKind value1, string value2) =>
+        !value1.Value.Equals(value2);
+
+    public static explicit operator string(AgreementsUpdateAgreementsResponseKind value) =>
+        value.Value;
+
+    public static explicit operator AgreementsUpdateAgreementsResponseKind(string value) =>
+        new(value);
+
+    internal class AgreementsUpdateAgreementsResponseKindSerializer
+        : JsonConverter<AgreementsUpdateAgreementsResponseKind>
+    {
+        public override AgreementsUpdateAgreementsResponseKind Read(
+            ref Utf8JsonReader reader,
+            Type typeToConvert,
+            JsonSerializerOptions options
+        )
+        {
+            var stringValue =
+                reader.GetString()
+                ?? throw new global::System.Exception(
+                    "The JSON value could not be read as a string."
+                );
+            return new AgreementsUpdateAgreementsResponseKind(stringValue);
+        }
+
+        public override void Write(
+            Utf8JsonWriter writer,
+            AgreementsUpdateAgreementsResponseKind value,
+            JsonSerializerOptions options
+        )
+        {
+            writer.WriteStringValue(value.Value);
+        }
+
+        public override AgreementsUpdateAgreementsResponseKind ReadAsPropertyName(
+            ref Utf8JsonReader reader,
+            Type typeToConvert,
+            JsonSerializerOptions options
+        )
+        {
+            var stringValue =
+                reader.GetString()
+                ?? throw new global::System.Exception(
+                    "The JSON property name could not be read as a string."
+                );
+            return new AgreementsUpdateAgreementsResponseKind(stringValue);
+        }
+
+        public override void WriteAsPropertyName(
+            Utf8JsonWriter writer,
+            AgreementsUpdateAgreementsResponseKind value,
+            JsonSerializerOptions options
+        )
+        {
+            writer.WritePropertyName(value.Value);
+        }
+    }
+
+    /// <summary>
+    /// Constant strings for enum values
+    /// </summary>
+    [Serializable]
+    public static class Values
+    {
+        public const string Customer = "customer";
+
+        public const string Supplier = "supplier";
+
+        public const string Employment = "employment";
+
+        public const string Bank = "bank";
+
+        public const string Lease = "lease";
+
+        public const string Insurance = "insurance";
+
+        public const string Other = "other";
+    }
+}

@@ -12,10 +12,8 @@ public partial class InventoryClient : IInventoryClient
         _client = client;
     }
 
-    private async Task<
-        WithRawResponse<PostV1InventorySettingsGetResponse>
-    > PostV1InventorySettingsGetAsyncCore(
-        PostV1InventorySettingsGetRequest request,
+    private async Task<WithRawResponse<SettingsGetInventoryResponse>> SettingsGetAsyncCore(
+        SettingsGetInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -51,10 +49,10 @@ public partial class InventoryClient : IInventoryClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1InventorySettingsGetResponse>(
+                var responseData = JsonUtils.Deserialize<SettingsGetInventoryResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1InventorySettingsGetResponse>()
+                return new WithRawResponse<SettingsGetInventoryResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -113,6 +111,18 @@ public partial class InventoryClient : IInventoryClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -139,6 +149,18 @@ public partial class InventoryClient : IInventoryClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -205,10 +227,8 @@ public partial class InventoryClient : IInventoryClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1InventorySettingsUpdateResponse>
-    > PostV1InventorySettingsUpdateAsyncCore(
-        PostV1InventorySettingsUpdateRequest request,
+    private async Task<WithRawResponse<SettingsUpdateInventoryResponse>> SettingsUpdateAsyncCore(
+        SettingsUpdateInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -244,10 +264,10 @@ public partial class InventoryClient : IInventoryClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1InventorySettingsUpdateResponse>(
+                var responseData = JsonUtils.Deserialize<SettingsUpdateInventoryResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1InventorySettingsUpdateResponse>()
+                return new WithRawResponse<SettingsUpdateInventoryResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -306,6 +326,18 @@ public partial class InventoryClient : IInventoryClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -332,6 +364,18 @@ public partial class InventoryClient : IInventoryClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -399,9 +443,9 @@ public partial class InventoryClient : IInventoryClient
     }
 
     private async Task<
-        WithRawResponse<PostV1InventoryWarehousesCreateResponse>
-    > PostV1InventoryWarehousesCreateAsyncCore(
-        PostV1InventoryWarehousesCreateRequest request,
+        WithRawResponse<WarehousesCreateInventoryResponse>
+    > WarehousesCreateAsyncCore(
+        WarehousesCreateInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -437,10 +481,10 @@ public partial class InventoryClient : IInventoryClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1InventoryWarehousesCreateResponse>(
+                var responseData = JsonUtils.Deserialize<WarehousesCreateInventoryResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1InventoryWarehousesCreateResponse>()
+                return new WithRawResponse<WarehousesCreateInventoryResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -499,6 +543,18 @@ public partial class InventoryClient : IInventoryClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -525,6 +581,18 @@ public partial class InventoryClient : IInventoryClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -591,10 +659,8 @@ public partial class InventoryClient : IInventoryClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1InventoryWarehousesListResponse>
-    > PostV1InventoryWarehousesListAsyncCore(
-        PostV1InventoryWarehousesListRequest request,
+    private async Task<WithRawResponse<WarehousesListInventoryResponse>> WarehousesListAsyncCore(
+        WarehousesListInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -630,10 +696,10 @@ public partial class InventoryClient : IInventoryClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1InventoryWarehousesListResponse>(
+                var responseData = JsonUtils.Deserialize<WarehousesListInventoryResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1InventoryWarehousesListResponse>()
+                return new WithRawResponse<WarehousesListInventoryResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -692,6 +758,18 @@ public partial class InventoryClient : IInventoryClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -718,6 +796,18 @@ public partial class InventoryClient : IInventoryClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -784,10 +874,8 @@ public partial class InventoryClient : IInventoryClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1InventoryStockReceiveResponse>
-    > PostV1InventoryStockReceiveAsyncCore(
-        PostV1InventoryStockReceiveRequest request,
+    private async Task<WithRawResponse<StockReceiveInventoryResponse>> StockReceiveAsyncCore(
+        StockReceiveInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -823,10 +911,10 @@ public partial class InventoryClient : IInventoryClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1InventoryStockReceiveResponse>(
+                var responseData = JsonUtils.Deserialize<StockReceiveInventoryResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1InventoryStockReceiveResponse>()
+                return new WithRawResponse<StockReceiveInventoryResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -885,6 +973,18 @@ public partial class InventoryClient : IInventoryClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -911,6 +1011,18 @@ public partial class InventoryClient : IInventoryClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -977,10 +1089,8 @@ public partial class InventoryClient : IInventoryClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1InventoryStockWriteOffResponse>
-    > PostV1InventoryStockWriteOffAsyncCore(
-        PostV1InventoryStockWriteOffRequest request,
+    private async Task<WithRawResponse<StockWriteOffInventoryResponse>> StockWriteOffAsyncCore(
+        StockWriteOffInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1016,10 +1126,10 @@ public partial class InventoryClient : IInventoryClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1InventoryStockWriteOffResponse>(
+                var responseData = JsonUtils.Deserialize<StockWriteOffInventoryResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1InventoryStockWriteOffResponse>()
+                return new WithRawResponse<StockWriteOffInventoryResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1078,6 +1188,18 @@ public partial class InventoryClient : IInventoryClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1104,6 +1226,18 @@ public partial class InventoryClient : IInventoryClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1170,10 +1304,8 @@ public partial class InventoryClient : IInventoryClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1InventoryStockTransferResponse>
-    > PostV1InventoryStockTransferAsyncCore(
-        PostV1InventoryStockTransferRequest request,
+    private async Task<WithRawResponse<StockTransferInventoryResponse>> StockTransferAsyncCore(
+        StockTransferInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1209,10 +1341,10 @@ public partial class InventoryClient : IInventoryClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1InventoryStockTransferResponse>(
+                var responseData = JsonUtils.Deserialize<StockTransferInventoryResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1InventoryStockTransferResponse>()
+                return new WithRawResponse<StockTransferInventoryResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1271,6 +1403,18 @@ public partial class InventoryClient : IInventoryClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1297,6 +1441,18 @@ public partial class InventoryClient : IInventoryClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1363,10 +1519,8 @@ public partial class InventoryClient : IInventoryClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1InventoryStockTakeResponse>
-    > PostV1InventoryStockTakeAsyncCore(
-        PostV1InventoryStockTakeRequest request,
+    private async Task<WithRawResponse<StockTakeInventoryResponse>> StockTakeAsyncCore(
+        StockTakeInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1402,10 +1556,8 @@ public partial class InventoryClient : IInventoryClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1InventoryStockTakeResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1InventoryStockTakeResponse>()
+                var responseData = JsonUtils.Deserialize<StockTakeInventoryResponse>(responseBody)!;
+                return new WithRawResponse<StockTakeInventoryResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1464,6 +1616,18 @@ public partial class InventoryClient : IInventoryClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1490,6 +1654,18 @@ public partial class InventoryClient : IInventoryClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1556,10 +1732,8 @@ public partial class InventoryClient : IInventoryClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1InventoryStockLevelsResponse>
-    > PostV1InventoryStockLevelsAsyncCore(
-        PostV1InventoryStockLevelsRequest request,
+    private async Task<WithRawResponse<StockLevelsInventoryResponse>> StockLevelsAsyncCore(
+        StockLevelsInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1595,10 +1769,10 @@ public partial class InventoryClient : IInventoryClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1InventoryStockLevelsResponse>(
+                var responseData = JsonUtils.Deserialize<StockLevelsInventoryResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1InventoryStockLevelsResponse>()
+                return new WithRawResponse<StockLevelsInventoryResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1657,6 +1831,18 @@ public partial class InventoryClient : IInventoryClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1683,6 +1869,18 @@ public partial class InventoryClient : IInventoryClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1750,9 +1948,9 @@ public partial class InventoryClient : IInventoryClient
     }
 
     private async Task<
-        WithRawResponse<PostV1InventoryStockMovementsListResponse>
-    > PostV1InventoryStockMovementsListAsyncCore(
-        PostV1InventoryStockMovementsListRequest request,
+        WithRawResponse<StockMovementsListInventoryResponse>
+    > StockMovementsListAsyncCore(
+        StockMovementsListInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1788,10 +1986,10 @@ public partial class InventoryClient : IInventoryClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1InventoryStockMovementsListResponse>(
+                var responseData = JsonUtils.Deserialize<StockMovementsListInventoryResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1InventoryStockMovementsListResponse>()
+                return new WithRawResponse<StockMovementsListInventoryResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -1850,6 +2048,18 @@ public partial class InventoryClient : IInventoryClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -1876,6 +2086,18 @@ public partial class InventoryClient : IInventoryClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -1942,10 +2164,8 @@ public partial class InventoryClient : IInventoryClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1InventoryLotsListResponse>
-    > PostV1InventoryLotsListAsyncCore(
-        PostV1InventoryLotsListRequest request,
+    private async Task<WithRawResponse<LotsListInventoryResponse>> LotsListAsyncCore(
+        LotsListInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -1981,10 +2201,8 @@ public partial class InventoryClient : IInventoryClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1InventoryLotsListResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1InventoryLotsListResponse>()
+                var responseData = JsonUtils.Deserialize<LotsListInventoryResponse>(responseBody)!;
+                return new WithRawResponse<LotsListInventoryResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2043,6 +2261,18 @@ public partial class InventoryClient : IInventoryClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2069,6 +2299,18 @@ public partial class InventoryClient : IInventoryClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2135,10 +2377,8 @@ public partial class InventoryClient : IInventoryClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1InventoryLotsGetResponse>
-    > PostV1InventoryLotsGetAsyncCore(
-        PostV1InventoryLotsGetRequest request,
+    private async Task<WithRawResponse<LotsGetInventoryResponse>> LotsGetAsyncCore(
+        LotsGetInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2174,10 +2414,8 @@ public partial class InventoryClient : IInventoryClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1InventoryLotsGetResponse>(
-                    responseBody
-                )!;
-                return new WithRawResponse<PostV1InventoryLotsGetResponse>()
+                var responseData = JsonUtils.Deserialize<LotsGetInventoryResponse>(responseBody)!;
+                return new WithRawResponse<LotsGetInventoryResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2236,6 +2474,18 @@ public partial class InventoryClient : IInventoryClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2262,6 +2512,18 @@ public partial class InventoryClient : IInventoryClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2328,10 +2590,8 @@ public partial class InventoryClient : IInventoryClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1InventoryLotsUpdateResponse>
-    > PostV1InventoryLotsUpdateAsyncCore(
-        PostV1InventoryLotsUpdateRequest request,
+    private async Task<WithRawResponse<LotsUpdateInventoryResponse>> LotsUpdateAsyncCore(
+        LotsUpdateInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2367,10 +2627,10 @@ public partial class InventoryClient : IInventoryClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1InventoryLotsUpdateResponse>(
+                var responseData = JsonUtils.Deserialize<LotsUpdateInventoryResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1InventoryLotsUpdateResponse>()
+                return new WithRawResponse<LotsUpdateInventoryResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2429,6 +2689,18 @@ public partial class InventoryClient : IInventoryClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2455,6 +2727,18 @@ public partial class InventoryClient : IInventoryClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2522,9 +2806,9 @@ public partial class InventoryClient : IInventoryClient
     }
 
     private async Task<
-        WithRawResponse<PostV1InventoryLandedCostsCreateResponse>
-    > PostV1InventoryLandedCostsCreateAsyncCore(
-        PostV1InventoryLandedCostsCreateRequest request,
+        WithRawResponse<LandedCostsCreateInventoryResponse>
+    > LandedCostsCreateAsyncCore(
+        LandedCostsCreateInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2560,10 +2844,10 @@ public partial class InventoryClient : IInventoryClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1InventoryLandedCostsCreateResponse>(
+                var responseData = JsonUtils.Deserialize<LandedCostsCreateInventoryResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1InventoryLandedCostsCreateResponse>()
+                return new WithRawResponse<LandedCostsCreateInventoryResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2622,6 +2906,18 @@ public partial class InventoryClient : IInventoryClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2648,6 +2944,18 @@ public partial class InventoryClient : IInventoryClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2714,10 +3022,8 @@ public partial class InventoryClient : IInventoryClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1InventoryLandedCostsGetResponse>
-    > PostV1InventoryLandedCostsGetAsyncCore(
-        PostV1InventoryLandedCostsGetRequest request,
+    private async Task<WithRawResponse<LandedCostsGetInventoryResponse>> LandedCostsGetAsyncCore(
+        LandedCostsGetInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2753,10 +3059,10 @@ public partial class InventoryClient : IInventoryClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1InventoryLandedCostsGetResponse>(
+                var responseData = JsonUtils.Deserialize<LandedCostsGetInventoryResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1InventoryLandedCostsGetResponse>()
+                return new WithRawResponse<LandedCostsGetInventoryResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -2815,6 +3121,18 @@ public partial class InventoryClient : IInventoryClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -2841,6 +3159,18 @@ public partial class InventoryClient : IInventoryClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -2907,10 +3237,8 @@ public partial class InventoryClient : IInventoryClient
         }
     }
 
-    private async Task<
-        WithRawResponse<PostV1InventoryLandedCostsListResponse>
-    > PostV1InventoryLandedCostsListAsyncCore(
-        PostV1InventoryLandedCostsListRequest request,
+    private async Task<WithRawResponse<LandedCostsListInventoryResponse>> LandedCostsListAsyncCore(
+        LandedCostsListInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -2946,10 +3274,10 @@ public partial class InventoryClient : IInventoryClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1InventoryLandedCostsListResponse>(
+                var responseData = JsonUtils.Deserialize<LandedCostsListInventoryResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1InventoryLandedCostsListResponse>()
+                return new WithRawResponse<LandedCostsListInventoryResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3008,6 +3336,18 @@ public partial class InventoryClient : IInventoryClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3034,6 +3374,18 @@ public partial class InventoryClient : IInventoryClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3101,9 +3453,9 @@ public partial class InventoryClient : IInventoryClient
     }
 
     private async Task<
-        WithRawResponse<PostV1InventoryReorderRulesCreateResponse>
-    > PostV1InventoryReorderRulesCreateAsyncCore(
-        PostV1InventoryReorderRulesCreateRequest request,
+        WithRawResponse<ReorderRulesCreateInventoryResponse>
+    > ReorderRulesCreateAsyncCore(
+        ReorderRulesCreateInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3139,10 +3491,10 @@ public partial class InventoryClient : IInventoryClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1InventoryReorderRulesCreateResponse>(
+                var responseData = JsonUtils.Deserialize<ReorderRulesCreateInventoryResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1InventoryReorderRulesCreateResponse>()
+                return new WithRawResponse<ReorderRulesCreateInventoryResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3201,6 +3553,18 @@ public partial class InventoryClient : IInventoryClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3227,6 +3591,18 @@ public partial class InventoryClient : IInventoryClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3294,9 +3670,9 @@ public partial class InventoryClient : IInventoryClient
     }
 
     private async Task<
-        WithRawResponse<PostV1InventoryReorderRulesUpdateResponse>
-    > PostV1InventoryReorderRulesUpdateAsyncCore(
-        PostV1InventoryReorderRulesUpdateRequest request,
+        WithRawResponse<ReorderRulesUpdateInventoryResponse>
+    > ReorderRulesUpdateAsyncCore(
+        ReorderRulesUpdateInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3332,10 +3708,10 @@ public partial class InventoryClient : IInventoryClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1InventoryReorderRulesUpdateResponse>(
+                var responseData = JsonUtils.Deserialize<ReorderRulesUpdateInventoryResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1InventoryReorderRulesUpdateResponse>()
+                return new WithRawResponse<ReorderRulesUpdateInventoryResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3394,6 +3770,18 @@ public partial class InventoryClient : IInventoryClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3420,6 +3808,18 @@ public partial class InventoryClient : IInventoryClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3487,9 +3887,9 @@ public partial class InventoryClient : IInventoryClient
     }
 
     private async Task<
-        WithRawResponse<PostV1InventoryReorderRulesDeleteResponse>
-    > PostV1InventoryReorderRulesDeleteAsyncCore(
-        PostV1InventoryReorderRulesDeleteRequest request,
+        WithRawResponse<ReorderRulesDeleteInventoryResponse>
+    > ReorderRulesDeleteAsyncCore(
+        ReorderRulesDeleteInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3525,10 +3925,10 @@ public partial class InventoryClient : IInventoryClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1InventoryReorderRulesDeleteResponse>(
+                var responseData = JsonUtils.Deserialize<ReorderRulesDeleteInventoryResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1InventoryReorderRulesDeleteResponse>()
+                return new WithRawResponse<ReorderRulesDeleteInventoryResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3587,6 +3987,18 @@ public partial class InventoryClient : IInventoryClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3613,6 +4025,18 @@ public partial class InventoryClient : IInventoryClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3680,9 +4104,9 @@ public partial class InventoryClient : IInventoryClient
     }
 
     private async Task<
-        WithRawResponse<PostV1InventoryReorderRulesListResponse>
-    > PostV1InventoryReorderRulesListAsyncCore(
-        PostV1InventoryReorderRulesListRequest request,
+        WithRawResponse<ReorderRulesListInventoryResponse>
+    > ReorderRulesListAsyncCore(
+        ReorderRulesListInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3718,10 +4142,10 @@ public partial class InventoryClient : IInventoryClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1InventoryReorderRulesListResponse>(
+                var responseData = JsonUtils.Deserialize<ReorderRulesListInventoryResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1InventoryReorderRulesListResponse>()
+                return new WithRawResponse<ReorderRulesListInventoryResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3780,6 +4204,18 @@ public partial class InventoryClient : IInventoryClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3806,6 +4242,18 @@ public partial class InventoryClient : IInventoryClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -3873,9 +4321,9 @@ public partial class InventoryClient : IInventoryClient
     }
 
     private async Task<
-        WithRawResponse<PostV1InventoryReorderRulesCheckResponse>
-    > PostV1InventoryReorderRulesCheckAsyncCore(
-        PostV1InventoryReorderRulesCheckRequest request,
+        WithRawResponse<ReorderRulesCheckInventoryResponse>
+    > ReorderRulesCheckAsyncCore(
+        ReorderRulesCheckInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
@@ -3911,10 +4359,10 @@ public partial class InventoryClient : IInventoryClient
                 .ConfigureAwait(false);
             try
             {
-                var responseData = JsonUtils.Deserialize<PostV1InventoryReorderRulesCheckResponse>(
+                var responseData = JsonUtils.Deserialize<ReorderRulesCheckInventoryResponse>(
                     responseBody
                 )!;
-                return new WithRawResponse<PostV1InventoryReorderRulesCheckResponse>()
+                return new WithRawResponse<ReorderRulesCheckInventoryResponse>()
                 {
                     Data = responseData,
                     RawResponse = new NordletApi.RawResponse()
@@ -3973,6 +4421,18 @@ public partial class InventoryClient : IInventoryClient
                                 Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
                             }
                         );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
                     case 403:
                         throw new ForbiddenError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
@@ -3999,6 +4459,18 @@ public partial class InventoryClient : IInventoryClient
                         );
                     case 409:
                         throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
                             JsonUtils.Deserialize<ErrorResponse>(responseBody),
                             rawResponse: new NordletApi.RawResponse()
                             {
@@ -4066,361 +4538,347 @@ public partial class InventoryClient : IInventoryClient
     }
 
     /// <example><code>
-    /// await client.Inventory.PostV1InventorySettingsGetAsync(new PostV1InventorySettingsGetRequest());
+    /// await client.Inventory.SettingsGetAsync(new SettingsGetInventoryRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1InventorySettingsGetResponse> PostV1InventorySettingsGetAsync(
-        PostV1InventorySettingsGetRequest request,
+    public WithRawResponseTask<SettingsGetInventoryResponse> SettingsGetAsync(
+        SettingsGetInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1InventorySettingsGetResponse>(
-            PostV1InventorySettingsGetAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<SettingsGetInventoryResponse>(
+            SettingsGetAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Inventory.PostV1InventorySettingsUpdateAsync(
-    ///     new PostV1InventorySettingsUpdateRequest
+    /// await client.Inventory.SettingsUpdateAsync(
+    ///     new SettingsUpdateInventoryRequest
     ///     {
-    ///         NegativeStockPolicy = PostV1InventorySettingsUpdateRequestNegativeStockPolicy.Reject,
+    ///         NegativeStockPolicy = SettingsUpdateInventoryRequestNegativeStockPolicy.Reject,
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1InventorySettingsUpdateResponse> PostV1InventorySettingsUpdateAsync(
-        PostV1InventorySettingsUpdateRequest request,
+    public WithRawResponseTask<SettingsUpdateInventoryResponse> SettingsUpdateAsync(
+        SettingsUpdateInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1InventorySettingsUpdateResponse>(
-            PostV1InventorySettingsUpdateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<SettingsUpdateInventoryResponse>(
+            SettingsUpdateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Inventory.PostV1InventoryWarehousesCreateAsync(
-    ///     new PostV1InventoryWarehousesCreateRequest { Code = "code", Name = "name" }
+    /// await client.Inventory.WarehousesCreateAsync(
+    ///     new WarehousesCreateInventoryRequest { Code = "code", Name = "name" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1InventoryWarehousesCreateResponse> PostV1InventoryWarehousesCreateAsync(
-        PostV1InventoryWarehousesCreateRequest request,
+    public WithRawResponseTask<WarehousesCreateInventoryResponse> WarehousesCreateAsync(
+        WarehousesCreateInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1InventoryWarehousesCreateResponse>(
-            PostV1InventoryWarehousesCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<WarehousesCreateInventoryResponse>(
+            WarehousesCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Inventory.PostV1InventoryWarehousesListAsync(
-    ///     new PostV1InventoryWarehousesListRequest()
-    /// );
+    /// await client.Inventory.WarehousesListAsync(new WarehousesListInventoryRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1InventoryWarehousesListResponse> PostV1InventoryWarehousesListAsync(
-        PostV1InventoryWarehousesListRequest request,
+    public WithRawResponseTask<WarehousesListInventoryResponse> WarehousesListAsync(
+        WarehousesListInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1InventoryWarehousesListResponse>(
-            PostV1InventoryWarehousesListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<WarehousesListInventoryResponse>(
+            WarehousesListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Inventory.PostV1InventoryStockReceiveAsync(
-    ///     new PostV1InventoryStockReceiveRequest
+    /// await client.Inventory.StockReceiveAsync(
+    ///     new StockReceiveInventoryRequest
     ///     {
     ///         WarehouseId = "warehouseId",
     ///         ItemId = "itemId",
-    ///         Date = "date",
-    ///         Quantity = "quantity",
-    ///         UnitCost = "unitCost",
+    ///         Date = new DateOnly(2026, 7, 1),
+    ///         Quantity = "121.0000",
+    ///         UnitCost = "121.000000",
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1InventoryStockReceiveResponse> PostV1InventoryStockReceiveAsync(
-        PostV1InventoryStockReceiveRequest request,
+    public WithRawResponseTask<StockReceiveInventoryResponse> StockReceiveAsync(
+        StockReceiveInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1InventoryStockReceiveResponse>(
-            PostV1InventoryStockReceiveAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<StockReceiveInventoryResponse>(
+            StockReceiveAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Inventory.PostV1InventoryStockWriteOffAsync(
-    ///     new PostV1InventoryStockWriteOffRequest
+    /// await client.Inventory.StockWriteOffAsync(
+    ///     new StockWriteOffInventoryRequest
     ///     {
     ///         WarehouseId = "warehouseId",
     ///         ItemId = "itemId",
-    ///         Date = "date",
-    ///         Quantity = "quantity",
+    ///         Date = new DateOnly(2026, 7, 1),
+    ///         Quantity = "121.0000",
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1InventoryStockWriteOffResponse> PostV1InventoryStockWriteOffAsync(
-        PostV1InventoryStockWriteOffRequest request,
+    public WithRawResponseTask<StockWriteOffInventoryResponse> StockWriteOffAsync(
+        StockWriteOffInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1InventoryStockWriteOffResponse>(
-            PostV1InventoryStockWriteOffAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<StockWriteOffInventoryResponse>(
+            StockWriteOffAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Inventory.PostV1InventoryStockTransferAsync(
-    ///     new PostV1InventoryStockTransferRequest
+    /// await client.Inventory.StockTransferAsync(
+    ///     new StockTransferInventoryRequest
     ///     {
     ///         FromWarehouseId = "fromWarehouseId",
     ///         ToWarehouseId = "toWarehouseId",
     ///         ItemId = "itemId",
-    ///         Date = "date",
-    ///         Quantity = "quantity",
+    ///         Date = new DateOnly(2026, 7, 1),
+    ///         Quantity = "121.0000",
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1InventoryStockTransferResponse> PostV1InventoryStockTransferAsync(
-        PostV1InventoryStockTransferRequest request,
+    public WithRawResponseTask<StockTransferInventoryResponse> StockTransferAsync(
+        StockTransferInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1InventoryStockTransferResponse>(
-            PostV1InventoryStockTransferAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<StockTransferInventoryResponse>(
+            StockTransferAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Inventory.PostV1InventoryStockTakeAsync(
-    ///     new PostV1InventoryStockTakeRequest
+    /// await client.Inventory.StockTakeAsync(
+    ///     new StockTakeInventoryRequest
     ///     {
     ///         WarehouseId = "warehouseId",
-    ///         Date = "date",
-    ///         Lines = new List&lt;PostV1InventoryStockTakeRequestLinesItem&gt;()
+    ///         Date = new DateOnly(2026, 7, 1),
+    ///         Lines = new List&lt;StockTakeInventoryRequestLinesItem&gt;()
     ///         {
-    ///             new PostV1InventoryStockTakeRequestLinesItem { CountedQty = "countedQty" },
+    ///             new StockTakeInventoryRequestLinesItem { CountedQty = "121.0000" },
     ///         },
     ///     }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1InventoryStockTakeResponse> PostV1InventoryStockTakeAsync(
-        PostV1InventoryStockTakeRequest request,
+    public WithRawResponseTask<StockTakeInventoryResponse> StockTakeAsync(
+        StockTakeInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1InventoryStockTakeResponse>(
-            PostV1InventoryStockTakeAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<StockTakeInventoryResponse>(
+            StockTakeAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Inventory.PostV1InventoryStockLevelsAsync(new PostV1InventoryStockLevelsRequest());
+    /// await client.Inventory.StockLevelsAsync(new StockLevelsInventoryRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1InventoryStockLevelsResponse> PostV1InventoryStockLevelsAsync(
-        PostV1InventoryStockLevelsRequest request,
+    public WithRawResponseTask<StockLevelsInventoryResponse> StockLevelsAsync(
+        StockLevelsInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1InventoryStockLevelsResponse>(
-            PostV1InventoryStockLevelsAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<StockLevelsInventoryResponse>(
+            StockLevelsAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Inventory.PostV1InventoryStockMovementsListAsync(
-    ///     new PostV1InventoryStockMovementsListRequest()
+    /// await client.Inventory.StockMovementsListAsync(new StockMovementsListInventoryRequest());
+    /// </code></example>
+    public WithRawResponseTask<StockMovementsListInventoryResponse> StockMovementsListAsync(
+        StockMovementsListInventoryRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<StockMovementsListInventoryResponse>(
+            StockMovementsListAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Inventory.LotsListAsync(new LotsListInventoryRequest());
+    /// </code></example>
+    public WithRawResponseTask<LotsListInventoryResponse> LotsListAsync(
+        LotsListInventoryRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<LotsListInventoryResponse>(
+            LotsListAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Inventory.LotsGetAsync(new LotsGetInventoryRequest { Id = "id" });
+    /// </code></example>
+    public WithRawResponseTask<LotsGetInventoryResponse> LotsGetAsync(
+        LotsGetInventoryRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<LotsGetInventoryResponse>(
+            LotsGetAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Inventory.LotsUpdateAsync(new LotsUpdateInventoryRequest { Id = "id" });
+    /// </code></example>
+    public WithRawResponseTask<LotsUpdateInventoryResponse> LotsUpdateAsync(
+        LotsUpdateInventoryRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<LotsUpdateInventoryResponse>(
+            LotsUpdateAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <example><code>
+    /// await client.Inventory.LandedCostsCreateAsync(
+    ///     new LandedCostsCreateInventoryRequest { Date = new DateOnly(2026, 7, 1), Amount = "121.000000" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1InventoryStockMovementsListResponse> PostV1InventoryStockMovementsListAsync(
-        PostV1InventoryStockMovementsListRequest request,
+    public WithRawResponseTask<LandedCostsCreateInventoryResponse> LandedCostsCreateAsync(
+        LandedCostsCreateInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1InventoryStockMovementsListResponse>(
-            PostV1InventoryStockMovementsListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<LandedCostsCreateInventoryResponse>(
+            LandedCostsCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Inventory.PostV1InventoryLotsListAsync(new PostV1InventoryLotsListRequest());
+    /// await client.Inventory.LandedCostsGetAsync(new LandedCostsGetInventoryRequest { Id = "id" });
     /// </code></example>
-    public WithRawResponseTask<PostV1InventoryLotsListResponse> PostV1InventoryLotsListAsync(
-        PostV1InventoryLotsListRequest request,
+    public WithRawResponseTask<LandedCostsGetInventoryResponse> LandedCostsGetAsync(
+        LandedCostsGetInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1InventoryLotsListResponse>(
-            PostV1InventoryLotsListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<LandedCostsGetInventoryResponse>(
+            LandedCostsGetAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Inventory.PostV1InventoryLotsGetAsync(new PostV1InventoryLotsGetRequest { Id = "id" });
+    /// await client.Inventory.LandedCostsListAsync(new LandedCostsListInventoryRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1InventoryLotsGetResponse> PostV1InventoryLotsGetAsync(
-        PostV1InventoryLotsGetRequest request,
+    public WithRawResponseTask<LandedCostsListInventoryResponse> LandedCostsListAsync(
+        LandedCostsListInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1InventoryLotsGetResponse>(
-            PostV1InventoryLotsGetAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<LandedCostsListInventoryResponse>(
+            LandedCostsListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Inventory.PostV1InventoryLotsUpdateAsync(
-    ///     new PostV1InventoryLotsUpdateRequest { Id = "id" }
+    /// await client.Inventory.ReorderRulesCreateAsync(
+    ///     new ReorderRulesCreateInventoryRequest { ItemId = "itemId", MinQty = "121.0000" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1InventoryLotsUpdateResponse> PostV1InventoryLotsUpdateAsync(
-        PostV1InventoryLotsUpdateRequest request,
+    public WithRawResponseTask<ReorderRulesCreateInventoryResponse> ReorderRulesCreateAsync(
+        ReorderRulesCreateInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1InventoryLotsUpdateResponse>(
-            PostV1InventoryLotsUpdateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<ReorderRulesCreateInventoryResponse>(
+            ReorderRulesCreateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Inventory.PostV1InventoryLandedCostsCreateAsync(
-    ///     new PostV1InventoryLandedCostsCreateRequest { Date = "date", Amount = "amount" }
+    /// await client.Inventory.ReorderRulesUpdateAsync(
+    ///     new ReorderRulesUpdateInventoryRequest { Id = "id" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1InventoryLandedCostsCreateResponse> PostV1InventoryLandedCostsCreateAsync(
-        PostV1InventoryLandedCostsCreateRequest request,
+    public WithRawResponseTask<ReorderRulesUpdateInventoryResponse> ReorderRulesUpdateAsync(
+        ReorderRulesUpdateInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1InventoryLandedCostsCreateResponse>(
-            PostV1InventoryLandedCostsCreateAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<ReorderRulesUpdateInventoryResponse>(
+            ReorderRulesUpdateAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Inventory.PostV1InventoryLandedCostsGetAsync(
-    ///     new PostV1InventoryLandedCostsGetRequest { Id = "id" }
+    /// await client.Inventory.ReorderRulesDeleteAsync(
+    ///     new ReorderRulesDeleteInventoryRequest { Id = "id" }
     /// );
     /// </code></example>
-    public WithRawResponseTask<PostV1InventoryLandedCostsGetResponse> PostV1InventoryLandedCostsGetAsync(
-        PostV1InventoryLandedCostsGetRequest request,
+    public WithRawResponseTask<ReorderRulesDeleteInventoryResponse> ReorderRulesDeleteAsync(
+        ReorderRulesDeleteInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1InventoryLandedCostsGetResponse>(
-            PostV1InventoryLandedCostsGetAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<ReorderRulesDeleteInventoryResponse>(
+            ReorderRulesDeleteAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Inventory.PostV1InventoryLandedCostsListAsync(
-    ///     new PostV1InventoryLandedCostsListRequest()
-    /// );
+    /// await client.Inventory.ReorderRulesListAsync(new ReorderRulesListInventoryRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1InventoryLandedCostsListResponse> PostV1InventoryLandedCostsListAsync(
-        PostV1InventoryLandedCostsListRequest request,
+    public WithRawResponseTask<ReorderRulesListInventoryResponse> ReorderRulesListAsync(
+        ReorderRulesListInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1InventoryLandedCostsListResponse>(
-            PostV1InventoryLandedCostsListAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<ReorderRulesListInventoryResponse>(
+            ReorderRulesListAsyncCore(request, options, cancellationToken)
         );
     }
 
     /// <example><code>
-    /// await client.Inventory.PostV1InventoryReorderRulesCreateAsync(
-    ///     new PostV1InventoryReorderRulesCreateRequest { ItemId = "itemId", MinQty = "minQty" }
-    /// );
+    /// await client.Inventory.ReorderRulesCheckAsync(new ReorderRulesCheckInventoryRequest());
     /// </code></example>
-    public WithRawResponseTask<PostV1InventoryReorderRulesCreateResponse> PostV1InventoryReorderRulesCreateAsync(
-        PostV1InventoryReorderRulesCreateRequest request,
+    public WithRawResponseTask<ReorderRulesCheckInventoryResponse> ReorderRulesCheckAsync(
+        ReorderRulesCheckInventoryRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     )
     {
-        return new WithRawResponseTask<PostV1InventoryReorderRulesCreateResponse>(
-            PostV1InventoryReorderRulesCreateAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Inventory.PostV1InventoryReorderRulesUpdateAsync(
-    ///     new PostV1InventoryReorderRulesUpdateRequest { Id = "id" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1InventoryReorderRulesUpdateResponse> PostV1InventoryReorderRulesUpdateAsync(
-        PostV1InventoryReorderRulesUpdateRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1InventoryReorderRulesUpdateResponse>(
-            PostV1InventoryReorderRulesUpdateAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Inventory.PostV1InventoryReorderRulesDeleteAsync(
-    ///     new PostV1InventoryReorderRulesDeleteRequest { Id = "id" }
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1InventoryReorderRulesDeleteResponse> PostV1InventoryReorderRulesDeleteAsync(
-        PostV1InventoryReorderRulesDeleteRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1InventoryReorderRulesDeleteResponse>(
-            PostV1InventoryReorderRulesDeleteAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Inventory.PostV1InventoryReorderRulesListAsync(
-    ///     new PostV1InventoryReorderRulesListRequest()
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1InventoryReorderRulesListResponse> PostV1InventoryReorderRulesListAsync(
-        PostV1InventoryReorderRulesListRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1InventoryReorderRulesListResponse>(
-            PostV1InventoryReorderRulesListAsyncCore(request, options, cancellationToken)
-        );
-    }
-
-    /// <example><code>
-    /// await client.Inventory.PostV1InventoryReorderRulesCheckAsync(
-    ///     new PostV1InventoryReorderRulesCheckRequest()
-    /// );
-    /// </code></example>
-    public WithRawResponseTask<PostV1InventoryReorderRulesCheckResponse> PostV1InventoryReorderRulesCheckAsync(
-        PostV1InventoryReorderRulesCheckRequest request,
-        RequestOptions? options = null,
-        CancellationToken cancellationToken = default
-    )
-    {
-        return new WithRawResponseTask<PostV1InventoryReorderRulesCheckResponse>(
-            PostV1InventoryReorderRulesCheckAsyncCore(request, options, cancellationToken)
+        return new WithRawResponseTask<ReorderRulesCheckInventoryResponse>(
+            ReorderRulesCheckAsyncCore(request, options, cancellationToken)
         );
     }
 }

@@ -2,170 +2,170 @@ namespace NordletApi;
 
 public partial interface ICatalogClient
 {
-    WithRawResponseTask<PostV1CatalogItemsCreateResponse> PostV1CatalogItemsCreateAsync(
-        PostV1CatalogItemsCreateRequest request,
+    WithRawResponseTask<ItemsCreateCatalogResponse> ItemsCreateAsync(
+        ItemsCreateCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CatalogItemsGetResponse> PostV1CatalogItemsGetAsync(
-        PostV1CatalogItemsGetRequest request,
+    WithRawResponseTask<ItemsGetCatalogResponse> ItemsGetAsync(
+        ItemsGetCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CatalogItemsUpdateResponse> PostV1CatalogItemsUpdateAsync(
-        PostV1CatalogItemsUpdateRequest request,
+    WithRawResponseTask<ItemsUpdateCatalogResponse> ItemsUpdateAsync(
+        ItemsUpdateCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CatalogItemsDeleteResponse> PostV1CatalogItemsDeleteAsync(
-        PostV1CatalogItemsDeleteRequest request,
+    WithRawResponseTask<ItemsDeleteCatalogResponse> ItemsDeleteAsync(
+        ItemsDeleteCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CatalogItemsListResponse> PostV1CatalogItemsListAsync(
-        PostV1CatalogItemsListRequest request,
+    WithRawResponseTask<ItemsListCatalogResponse> ItemsListAsync(
+        ItemsListCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CatalogItemsFilesListResponse> PostV1CatalogItemsFilesListAsync(
-        PostV1CatalogItemsFilesListRequest request,
+    WithRawResponseTask<ItemsFilesListCatalogResponse> ItemsFilesListAsync(
+        ItemsFilesListCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CatalogItemsKindsCreateResponse> PostV1CatalogItemsKindsCreateAsync(
-        PostV1CatalogItemsKindsCreateRequest request,
+    WithRawResponseTask<ItemsKindsCreateCatalogResponse> ItemsKindsCreateAsync(
+        ItemsKindsCreateCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CatalogItemsKindsUpdateResponse> PostV1CatalogItemsKindsUpdateAsync(
-        PostV1CatalogItemsKindsUpdateRequest request,
+    WithRawResponseTask<ItemsKindsUpdateCatalogResponse> ItemsKindsUpdateAsync(
+        ItemsKindsUpdateCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CatalogItemsKindsDeleteResponse> PostV1CatalogItemsKindsDeleteAsync(
-        PostV1CatalogItemsKindsDeleteRequest request,
+    WithRawResponseTask<ItemsKindsDeleteCatalogResponse> ItemsKindsDeleteAsync(
+        ItemsKindsDeleteCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CatalogItemsKindsListResponse> PostV1CatalogItemsKindsListAsync(
-        PostV1CatalogItemsKindsListRequest request,
+    WithRawResponseTask<ItemsKindsListCatalogResponse> ItemsKindsListAsync(
+        ItemsKindsListCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CatalogUnitsCreateResponse> PostV1CatalogUnitsCreateAsync(
-        PostV1CatalogUnitsCreateRequest request,
+    WithRawResponseTask<UnitsCreateCatalogResponse> UnitsCreateAsync(
+        UnitsCreateCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CatalogUnitsUpdateResponse> PostV1CatalogUnitsUpdateAsync(
-        PostV1CatalogUnitsUpdateRequest request,
+    WithRawResponseTask<UnitsUpdateCatalogResponse> UnitsUpdateAsync(
+        UnitsUpdateCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CatalogUnitsDeleteResponse> PostV1CatalogUnitsDeleteAsync(
-        PostV1CatalogUnitsDeleteRequest request,
+    WithRawResponseTask<UnitsDeleteCatalogResponse> UnitsDeleteAsync(
+        UnitsDeleteCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CatalogUnitsListResponse> PostV1CatalogUnitsListAsync(
-        PostV1CatalogUnitsListRequest request,
+    WithRawResponseTask<UnitsListCatalogResponse> UnitsListAsync(
+        UnitsListCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CatalogUnitsOptionsResponse> PostV1CatalogUnitsOptionsAsync(
-        PostV1CatalogUnitsOptionsRequest request,
+    WithRawResponseTask<UnitsOptionsCatalogResponse> UnitsOptionsAsync(
+        UnitsOptionsCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CatalogItemGroupsCreateResponse> PostV1CatalogItemGroupsCreateAsync(
-        PostV1CatalogItemGroupsCreateRequest request,
+    WithRawResponseTask<ItemGroupsCreateCatalogResponse> ItemGroupsCreateAsync(
+        ItemGroupsCreateCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CatalogItemGroupsUpdateResponse> PostV1CatalogItemGroupsUpdateAsync(
-        PostV1CatalogItemGroupsUpdateRequest request,
+    WithRawResponseTask<ItemGroupsUpdateCatalogResponse> ItemGroupsUpdateAsync(
+        ItemGroupsUpdateCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CatalogItemGroupsDeleteResponse> PostV1CatalogItemGroupsDeleteAsync(
-        PostV1CatalogItemGroupsDeleteRequest request,
+    WithRawResponseTask<ItemGroupsDeleteCatalogResponse> ItemGroupsDeleteAsync(
+        ItemGroupsDeleteCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CatalogItemGroupsListResponse> PostV1CatalogItemGroupsListAsync(
-        PostV1CatalogItemGroupsListRequest request,
+    WithRawResponseTask<ItemGroupsListCatalogResponse> ItemGroupsListAsync(
+        ItemGroupsListCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CatalogItemsSuppliersUpsertResponse> PostV1CatalogItemsSuppliersUpsertAsync(
-        PostV1CatalogItemsSuppliersUpsertRequest request,
+    WithRawResponseTask<ItemsSuppliersUpsertCatalogResponse> ItemsSuppliersUpsertAsync(
+        ItemsSuppliersUpsertCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CatalogItemsSuppliersListResponse> PostV1CatalogItemsSuppliersListAsync(
-        PostV1CatalogItemsSuppliersListRequest request,
+    WithRawResponseTask<ItemsSuppliersListCatalogResponse> ItemsSuppliersListAsync(
+        ItemsSuppliersListCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CatalogItemsSuppliersDeleteResponse> PostV1CatalogItemsSuppliersDeleteAsync(
-        PostV1CatalogItemsSuppliersDeleteRequest request,
+    WithRawResponseTask<ItemsSuppliersDeleteCatalogResponse> ItemsSuppliersDeleteAsync(
+        ItemsSuppliersDeleteCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CatalogPriceListsCreateResponse> PostV1CatalogPriceListsCreateAsync(
-        PostV1CatalogPriceListsCreateRequest request,
+    WithRawResponseTask<PriceListsCreateCatalogResponse> PriceListsCreateAsync(
+        PriceListsCreateCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CatalogPriceListsUpdateResponse> PostV1CatalogPriceListsUpdateAsync(
-        PostV1CatalogPriceListsUpdateRequest request,
+    WithRawResponseTask<PriceListsUpdateCatalogResponse> PriceListsUpdateAsync(
+        PriceListsUpdateCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CatalogPriceListsListResponse> PostV1CatalogPriceListsListAsync(
-        PostV1CatalogPriceListsListRequest request,
+    WithRawResponseTask<PriceListsListCatalogResponse> PriceListsListAsync(
+        PriceListsListCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CatalogPriceListsItemsSetResponse> PostV1CatalogPriceListsItemsSetAsync(
-        PostV1CatalogPriceListsItemsSetRequest request,
+    WithRawResponseTask<PriceListsItemsSetCatalogResponse> PriceListsItemsSetAsync(
+        PriceListsItemsSetCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CatalogPriceListsItemsListResponse> PostV1CatalogPriceListsItemsListAsync(
-        PostV1CatalogPriceListsItemsListRequest request,
+    WithRawResponseTask<PriceListsItemsListCatalogResponse> PriceListsItemsListAsync(
+        PriceListsItemsListCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1CatalogPriceListsItemsDeleteResponse> PostV1CatalogPriceListsItemsDeleteAsync(
-        PostV1CatalogPriceListsItemsDeleteRequest request,
+    WithRawResponseTask<PriceListsItemsDeleteCatalogResponse> PriceListsItemsDeleteAsync(
+        PriceListsItemsDeleteCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );

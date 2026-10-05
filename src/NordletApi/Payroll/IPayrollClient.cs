@@ -2,50 +2,50 @@ namespace NordletApi;
 
 public partial interface IPayrollClient
 {
-    WithRawResponseTask<PostV1PayrollDepartmentsCreateResponse> PostV1PayrollDepartmentsCreateAsync(
-        PostV1PayrollDepartmentsCreateRequest request,
+    WithRawResponseTask<DepartmentsCreatePayrollResponse> DepartmentsCreateAsync(
+        DepartmentsCreatePayrollRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1PayrollDepartmentsListResponse> PostV1PayrollDepartmentsListAsync(
-        PostV1PayrollDepartmentsListRequest request,
+    WithRawResponseTask<DepartmentsListPayrollResponse> DepartmentsListAsync(
+        DepartmentsListPayrollRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1PayrollSchedulesCreateResponse> PostV1PayrollSchedulesCreateAsync(
-        PostV1PayrollSchedulesCreateRequest request,
+    WithRawResponseTask<SchedulesCreatePayrollResponse> SchedulesCreateAsync(
+        SchedulesCreatePayrollRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1PayrollSchedulesListResponse> PostV1PayrollSchedulesListAsync(
-        PostV1PayrollSchedulesListRequest request,
+    WithRawResponseTask<SchedulesListPayrollResponse> SchedulesListAsync(
+        SchedulesListPayrollRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1PayrollCalcResponse> CalculateOneEmployeePaymentUnderTheRulesOfTheCompanyCountryAsync(
-        PostV1PayrollCalcRequest request,
+    WithRawResponseTask<CalcPayrollResponse> CalcAsync(
+        CalcPayrollRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1PayrollRunsCreateResponse> PostV1PayrollRunsCreateAsync(
-        PostV1PayrollRunsCreateRequest request,
+    WithRawResponseTask<RunsCreatePayrollResponse> RunsCreateAsync(
+        RunsCreatePayrollRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1PayrollRunsGetResponse> PostV1PayrollRunsGetAsync(
-        PostV1PayrollRunsGetRequest request,
+    WithRawResponseTask<RunsGetPayrollResponse> RunsGetAsync(
+        RunsGetPayrollRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1PayrollRunsListResponse> PostV1PayrollRunsListAsync(
-        PostV1PayrollRunsListRequest request,
+    WithRawResponseTask<RunsListPayrollResponse> RunsListAsync(
+        RunsListPayrollRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
@@ -53,26 +53,26 @@ public partial interface IPayrollClient
     /// <summary>
     /// The days and hours worked, the days on the register and the average hourly earnings that some countries report per employment. The Czech monthly employer report asks for all four. They can be set while the run is a draft.
     /// </summary>
-    WithRawResponseTask<PostV1PayrollLinesAttendanceResponse> RecordTheTimeAPersonWorkedInAPayrollLineAsync(
-        PostV1PayrollLinesAttendanceRequest request,
+    WithRawResponseTask<LinesAttendancePayrollResponse> LinesAttendanceAsync(
+        LinesAttendancePayrollRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1PayrollRunsApproveResponse> PostV1PayrollRunsApproveAsync(
-        PostV1PayrollRunsApproveRequest request,
+    WithRawResponseTask<RunsApprovePayrollResponse> RunsApproveAsync(
+        RunsApprovePayrollRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1PayrollRunsCancelResponse> PostV1PayrollRunsCancelAsync(
-        PostV1PayrollRunsCancelRequest request,
+    WithRawResponseTask<RunsCancelPayrollResponse> RunsCancelAsync(
+        RunsCancelPayrollRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );
 
-    WithRawResponseTask<PostV1PayrollPaymentsExportResponse> PostV1PayrollPaymentsExportAsync(
-        PostV1PayrollPaymentsExportRequest request,
+    WithRawResponseTask<PaymentsExportPayrollResponse> PaymentsExportAsync(
+        PaymentsExportPayrollRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );

@@ -1,6 +1,6 @@
 # Reference
-## Reference
-<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">PostV1ReferenceExchangeRatesSyncAsync</a>(PostV1ReferenceExchangeRatesSyncRequest { ... }) -> WithRawResponseTask&lt;PostV1ReferenceExchangeRatesSyncResponse&gt;</code></summary>
+## reference
+<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">ExchangeRatesSyncAsync</a>(ExchangeRatesSyncReferenceRequest { ... }) -> WithRawResponseTask&lt;ExchangeRatesSyncReferenceResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -13,9 +13,7 @@
 <dd>
 
 ```csharp
-await client.Reference.PostV1ReferenceExchangeRatesSyncAsync(
-    new PostV1ReferenceExchangeRatesSyncRequest()
-);
+await client.Reference.ExchangeRatesSyncAsync(new ExchangeRatesSyncReferenceRequest());
 ```
 </dd>
 </dl>
@@ -30,7 +28,7 @@ await client.Reference.PostV1ReferenceExchangeRatesSyncAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ReferenceExchangeRatesSyncRequest` 
+**request:** `ExchangeRatesSyncReferenceRequest` 
     
 </dd>
 </dl>
@@ -42,7 +40,7 @@ await client.Reference.PostV1ReferenceExchangeRatesSyncAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">PostV1ReferenceExchangeRatesListAsync</a>(PostV1ReferenceExchangeRatesListRequest { ... }) -> WithRawResponseTask&lt;PostV1ReferenceExchangeRatesListResponse&gt;</code></summary>
+<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">ExchangeRatesListAsync</a>(ExchangeRatesListReferenceRequest { ... }) -> WithRawResponseTask&lt;ExchangeRatesListReferenceResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -55,9 +53,7 @@ await client.Reference.PostV1ReferenceExchangeRatesSyncAsync(
 <dd>
 
 ```csharp
-await client.Reference.PostV1ReferenceExchangeRatesListAsync(
-    new PostV1ReferenceExchangeRatesListRequest()
-);
+await client.Reference.ExchangeRatesListAsync(new ExchangeRatesListReferenceRequest());
 ```
 </dd>
 </dl>
@@ -72,7 +68,7 @@ await client.Reference.PostV1ReferenceExchangeRatesListAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ReferenceExchangeRatesListRequest` 
+**request:** `ExchangeRatesListReferenceRequest` 
     
 </dd>
 </dl>
@@ -84,7 +80,7 @@ await client.Reference.PostV1ReferenceExchangeRatesListAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">PostV1ReferenceExchangeRatesSetAsync</a>(PostV1ReferenceExchangeRatesSetRequest { ... }) -> WithRawResponseTask&lt;PostV1ReferenceExchangeRatesSetResponse&gt;</code></summary>
+<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">ExchangeRatesSetAsync</a>(ExchangeRatesSetReferenceRequest { ... }) -> WithRawResponseTask&lt;ExchangeRatesSetReferenceResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -97,12 +93,12 @@ await client.Reference.PostV1ReferenceExchangeRatesListAsync(
 <dd>
 
 ```csharp
-await client.Reference.PostV1ReferenceExchangeRatesSetAsync(
-    new PostV1ReferenceExchangeRatesSetRequest
+await client.Reference.ExchangeRatesSetAsync(
+    new ExchangeRatesSetReferenceRequest
     {
         Currency = "currency",
-        Date = "date",
-        Rate = "rate",
+        Date = new DateOnly(2026, 7, 1),
+        Rate = "121.00000000",
     }
 );
 ```
@@ -119,7 +115,7 @@ await client.Reference.PostV1ReferenceExchangeRatesSetAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ReferenceExchangeRatesSetRequest` 
+**request:** `ExchangeRatesSetReferenceRequest` 
     
 </dd>
 </dl>
@@ -131,7 +127,7 @@ await client.Reference.PostV1ReferenceExchangeRatesSetAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">PostV1ReferenceExchangeRatesOverridesListAsync</a>(PostV1ReferenceExchangeRatesOverridesListRequest { ... }) -> WithRawResponseTask&lt;PostV1ReferenceExchangeRatesOverridesListResponse&gt;</code></summary>
+<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">ExchangeRatesOverridesListAsync</a>(ExchangeRatesOverridesListReferenceRequest { ... }) -> WithRawResponseTask&lt;ExchangeRatesOverridesListReferenceResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -144,8 +140,8 @@ await client.Reference.PostV1ReferenceExchangeRatesSetAsync(
 <dd>
 
 ```csharp
-await client.Reference.PostV1ReferenceExchangeRatesOverridesListAsync(
-    new PostV1ReferenceExchangeRatesOverridesListRequest()
+await client.Reference.ExchangeRatesOverridesListAsync(
+    new ExchangeRatesOverridesListReferenceRequest()
 );
 ```
 </dd>
@@ -161,7 +157,7 @@ await client.Reference.PostV1ReferenceExchangeRatesOverridesListAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ReferenceExchangeRatesOverridesListRequest` 
+**request:** `ExchangeRatesOverridesListReferenceRequest` 
     
 </dd>
 </dl>
@@ -173,7 +169,7 @@ await client.Reference.PostV1ReferenceExchangeRatesOverridesListAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">PostV1ReferenceExchangeRatesOverridesDeleteAsync</a>(PostV1ReferenceExchangeRatesOverridesDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1ReferenceExchangeRatesOverridesDeleteResponse&gt;</code></summary>
+<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">ExchangeRatesOverridesDeleteAsync</a>(ExchangeRatesOverridesDeleteReferenceRequest { ... }) -> WithRawResponseTask&lt;ExchangeRatesOverridesDeleteReferenceResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -186,8 +182,12 @@ await client.Reference.PostV1ReferenceExchangeRatesOverridesListAsync(
 <dd>
 
 ```csharp
-await client.Reference.PostV1ReferenceExchangeRatesOverridesDeleteAsync(
-    new PostV1ReferenceExchangeRatesOverridesDeleteRequest { Currency = "currency", Date = "date" }
+await client.Reference.ExchangeRatesOverridesDeleteAsync(
+    new ExchangeRatesOverridesDeleteReferenceRequest
+    {
+        Currency = "currency",
+        Date = new DateOnly(2026, 7, 1),
+    }
 );
 ```
 </dd>
@@ -203,7 +203,7 @@ await client.Reference.PostV1ReferenceExchangeRatesOverridesDeleteAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ReferenceExchangeRatesOverridesDeleteRequest` 
+**request:** `ExchangeRatesOverridesDeleteReferenceRequest` 
     
 </dd>
 </dl>
@@ -215,7 +215,7 @@ await client.Reference.PostV1ReferenceExchangeRatesOverridesDeleteAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">PostV1ReferenceCountriesListAsync</a>(PostV1ReferenceCountriesListRequest { ... }) -> WithRawResponseTask&lt;PostV1ReferenceCountriesListResponse&gt;</code></summary>
+<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">CountriesListAsync</a>(CountriesListReferenceRequest { ... }) -> WithRawResponseTask&lt;CountriesListReferenceResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -228,7 +228,7 @@ await client.Reference.PostV1ReferenceExchangeRatesOverridesDeleteAsync(
 <dd>
 
 ```csharp
-await client.Reference.PostV1ReferenceCountriesListAsync(new PostV1ReferenceCountriesListRequest());
+await client.Reference.CountriesListAsync(new CountriesListReferenceRequest());
 ```
 </dd>
 </dl>
@@ -243,7 +243,7 @@ await client.Reference.PostV1ReferenceCountriesListAsync(new PostV1ReferenceCoun
 <dl>
 <dd>
 
-**request:** `PostV1ReferenceCountriesListRequest` 
+**request:** `CountriesListReferenceRequest` 
     
 </dd>
 </dl>
@@ -255,7 +255,7 @@ await client.Reference.PostV1ReferenceCountriesListAsync(new PostV1ReferenceCoun
 </dl>
 </details>
 
-<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">PostV1ReferenceLtCountiesListAsync</a>(PostV1ReferenceLtCountiesListRequest { ... }) -> WithRawResponseTask&lt;PostV1ReferenceLtCountiesListResponse&gt;</code></summary>
+<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">LtCountiesListAsync</a>(LtCountiesListReferenceRequest { ... }) -> WithRawResponseTask&lt;LtCountiesListReferenceResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -268,9 +268,7 @@ await client.Reference.PostV1ReferenceCountriesListAsync(new PostV1ReferenceCoun
 <dd>
 
 ```csharp
-await client.Reference.PostV1ReferenceLtCountiesListAsync(
-    new PostV1ReferenceLtCountiesListRequest()
-);
+await client.Reference.LtCountiesListAsync(new LtCountiesListReferenceRequest());
 ```
 </dd>
 </dl>
@@ -285,7 +283,7 @@ await client.Reference.PostV1ReferenceLtCountiesListAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ReferenceLtCountiesListRequest` 
+**request:** `LtCountiesListReferenceRequest` 
     
 </dd>
 </dl>
@@ -297,7 +295,7 @@ await client.Reference.PostV1ReferenceLtCountiesListAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">PostV1ReferenceLtMunicipalitiesListAsync</a>(PostV1ReferenceLtMunicipalitiesListRequest { ... }) -> WithRawResponseTask&lt;PostV1ReferenceLtMunicipalitiesListResponse&gt;</code></summary>
+<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">LtMunicipalitiesListAsync</a>(LtMunicipalitiesListReferenceRequest { ... }) -> WithRawResponseTask&lt;LtMunicipalitiesListReferenceResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -310,9 +308,7 @@ await client.Reference.PostV1ReferenceLtCountiesListAsync(
 <dd>
 
 ```csharp
-await client.Reference.PostV1ReferenceLtMunicipalitiesListAsync(
-    new PostV1ReferenceLtMunicipalitiesListRequest()
-);
+await client.Reference.LtMunicipalitiesListAsync(new LtMunicipalitiesListReferenceRequest());
 ```
 </dd>
 </dl>
@@ -327,7 +323,7 @@ await client.Reference.PostV1ReferenceLtMunicipalitiesListAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ReferenceLtMunicipalitiesListRequest` 
+**request:** `LtMunicipalitiesListReferenceRequest` 
     
 </dd>
 </dl>
@@ -339,7 +335,7 @@ await client.Reference.PostV1ReferenceLtMunicipalitiesListAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">PostV1ReferenceLtCitiesListAsync</a>(PostV1ReferenceLtCitiesListRequest { ... }) -> WithRawResponseTask&lt;PostV1ReferenceLtCitiesListResponse&gt;</code></summary>
+<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">LtCitiesListAsync</a>(LtCitiesListReferenceRequest { ... }) -> WithRawResponseTask&lt;LtCitiesListReferenceResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -352,7 +348,7 @@ await client.Reference.PostV1ReferenceLtMunicipalitiesListAsync(
 <dd>
 
 ```csharp
-await client.Reference.PostV1ReferenceLtCitiesListAsync(new PostV1ReferenceLtCitiesListRequest());
+await client.Reference.LtCitiesListAsync(new LtCitiesListReferenceRequest());
 ```
 </dd>
 </dl>
@@ -367,7 +363,7 @@ await client.Reference.PostV1ReferenceLtCitiesListAsync(new PostV1ReferenceLtCit
 <dl>
 <dd>
 
-**request:** `PostV1ReferenceLtCitiesListRequest` 
+**request:** `LtCitiesListReferenceRequest` 
     
 </dd>
 </dl>
@@ -379,7 +375,7 @@ await client.Reference.PostV1ReferenceLtCitiesListAsync(new PostV1ReferenceLtCit
 </dl>
 </details>
 
-<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">PostV1ReferenceBanksListAsync</a>(PostV1ReferenceBanksListRequest { ... }) -> WithRawResponseTask&lt;PostV1ReferenceBanksListResponse&gt;</code></summary>
+<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">BanksListAsync</a>(BanksListReferenceRequest { ... }) -> WithRawResponseTask&lt;BanksListReferenceResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -392,7 +388,7 @@ await client.Reference.PostV1ReferenceLtCitiesListAsync(new PostV1ReferenceLtCit
 <dd>
 
 ```csharp
-await client.Reference.PostV1ReferenceBanksListAsync(new PostV1ReferenceBanksListRequest());
+await client.Reference.BanksListAsync(new BanksListReferenceRequest());
 ```
 </dd>
 </dl>
@@ -407,7 +403,7 @@ await client.Reference.PostV1ReferenceBanksListAsync(new PostV1ReferenceBanksLis
 <dl>
 <dd>
 
-**request:** `PostV1ReferenceBanksListRequest` 
+**request:** `BanksListReferenceRequest` 
     
 </dd>
 </dl>
@@ -419,7 +415,7 @@ await client.Reference.PostV1ReferenceBanksListAsync(new PostV1ReferenceBanksLis
 </dl>
 </details>
 
-<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">PostV1ReferenceBanksUpsertAsync</a>(PostV1ReferenceBanksUpsertRequest { ... }) -> WithRawResponseTask&lt;PostV1ReferenceBanksUpsertResponse&gt;</code></summary>
+<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">BanksUpsertAsync</a>(BanksUpsertReferenceRequest { ... }) -> WithRawResponseTask&lt;BanksUpsertReferenceResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -432,8 +428,8 @@ await client.Reference.PostV1ReferenceBanksListAsync(new PostV1ReferenceBanksLis
 <dd>
 
 ```csharp
-await client.Reference.PostV1ReferenceBanksUpsertAsync(
-    new PostV1ReferenceBanksUpsertRequest
+await client.Reference.BanksUpsertAsync(
+    new BanksUpsertReferenceRequest
     {
         CountryCode = "countryCode",
         Name = "name",
@@ -454,7 +450,7 @@ await client.Reference.PostV1ReferenceBanksUpsertAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ReferenceBanksUpsertRequest` 
+**request:** `BanksUpsertReferenceRequest` 
     
 </dd>
 </dl>
@@ -466,7 +462,7 @@ await client.Reference.PostV1ReferenceBanksUpsertAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">PostV1ReferenceLtRegionsListAsync</a>(PostV1ReferenceLtRegionsListRequest { ... }) -> WithRawResponseTask&lt;PostV1ReferenceLtRegionsListResponse&gt;</code></summary>
+<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">LtRegionsListAsync</a>(LtRegionsListReferenceRequest { ... }) -> WithRawResponseTask&lt;LtRegionsListReferenceResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -479,7 +475,7 @@ await client.Reference.PostV1ReferenceBanksUpsertAsync(
 <dd>
 
 ```csharp
-await client.Reference.PostV1ReferenceLtRegionsListAsync(new PostV1ReferenceLtRegionsListRequest());
+await client.Reference.LtRegionsListAsync(new LtRegionsListReferenceRequest());
 ```
 </dd>
 </dl>
@@ -494,7 +490,7 @@ await client.Reference.PostV1ReferenceLtRegionsListAsync(new PostV1ReferenceLtRe
 <dl>
 <dd>
 
-**request:** `PostV1ReferenceLtRegionsListRequest` 
+**request:** `LtRegionsListReferenceRequest` 
     
 </dd>
 </dl>
@@ -506,7 +502,7 @@ await client.Reference.PostV1ReferenceLtRegionsListAsync(new PostV1ReferenceLtRe
 </dl>
 </details>
 
-<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">PostV1ReferenceCurrenciesListAsync</a>(PostV1ReferenceCurrenciesListRequest { ... }) -> WithRawResponseTask&lt;PostV1ReferenceCurrenciesListResponse&gt;</code></summary>
+<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">CurrenciesListAsync</a>(CurrenciesListReferenceRequest { ... }) -> WithRawResponseTask&lt;CurrenciesListReferenceResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -519,9 +515,7 @@ await client.Reference.PostV1ReferenceLtRegionsListAsync(new PostV1ReferenceLtRe
 <dd>
 
 ```csharp
-await client.Reference.PostV1ReferenceCurrenciesListAsync(
-    new PostV1ReferenceCurrenciesListRequest()
-);
+await client.Reference.CurrenciesListAsync(new CurrenciesListReferenceRequest());
 ```
 </dd>
 </dl>
@@ -536,7 +530,7 @@ await client.Reference.PostV1ReferenceCurrenciesListAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ReferenceCurrenciesListRequest` 
+**request:** `CurrenciesListReferenceRequest` 
     
 </dd>
 </dl>
@@ -548,7 +542,7 @@ await client.Reference.PostV1ReferenceCurrenciesListAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">PostV1ReferenceVatClassifiersListAsync</a>(PostV1ReferenceVatClassifiersListRequest { ... }) -> WithRawResponseTask&lt;PostV1ReferenceVatClassifiersListResponse&gt;</code></summary>
+<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">VatClassifiersListAsync</a>(VatClassifiersListReferenceRequest { ... }) -> WithRawResponseTask&lt;VatClassifiersListReferenceResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -561,9 +555,7 @@ await client.Reference.PostV1ReferenceCurrenciesListAsync(
 <dd>
 
 ```csharp
-await client.Reference.PostV1ReferenceVatClassifiersListAsync(
-    new PostV1ReferenceVatClassifiersListRequest()
-);
+await client.Reference.VatClassifiersListAsync(new VatClassifiersListReferenceRequest());
 ```
 </dd>
 </dl>
@@ -578,7 +570,7 @@ await client.Reference.PostV1ReferenceVatClassifiersListAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ReferenceVatClassifiersListRequest` 
+**request:** `VatClassifiersListReferenceRequest` 
     
 </dd>
 </dl>
@@ -590,7 +582,7 @@ await client.Reference.PostV1ReferenceVatClassifiersListAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">PostV1ReferenceVatClassifiersUpsertAsync</a>(PostV1ReferenceVatClassifiersUpsertRequest { ... }) -> WithRawResponseTask&lt;PostV1ReferenceVatClassifiersUpsertResponse&gt;</code></summary>
+<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">VatClassifiersUpsertAsync</a>(VatClassifiersUpsertReferenceRequest { ... }) -> WithRawResponseTask&lt;VatClassifiersUpsertReferenceResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -603,12 +595,12 @@ await client.Reference.PostV1ReferenceVatClassifiersListAsync(
 <dd>
 
 ```csharp
-await client.Reference.PostV1ReferenceVatClassifiersUpsertAsync(
-    new PostV1ReferenceVatClassifiersUpsertRequest
+await client.Reference.VatClassifiersUpsertAsync(
+    new VatClassifiersUpsertReferenceRequest
     {
-        Rows = new List<PostV1ReferenceVatClassifiersUpsertRequestRowsItem>()
+        Rows = new List<VatClassifiersUpsertReferenceRequestRowsItem>()
         {
-            new PostV1ReferenceVatClassifiersUpsertRequestRowsItem { Code = "code", Name = "name" },
+            new VatClassifiersUpsertReferenceRequestRowsItem { Code = "code", Name = "name" },
         },
     }
 );
@@ -626,7 +618,7 @@ await client.Reference.PostV1ReferenceVatClassifiersUpsertAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ReferenceVatClassifiersUpsertRequest` 
+**request:** `VatClassifiersUpsertReferenceRequest` 
     
 </dd>
 </dl>
@@ -638,7 +630,7 @@ await client.Reference.PostV1ReferenceVatClassifiersUpsertAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">PostV1ReferenceEuVatRatesListAsync</a>(PostV1ReferenceEuVatRatesListRequest { ... }) -> WithRawResponseTask&lt;PostV1ReferenceEuVatRatesListResponse&gt;</code></summary>
+<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">EuVatRatesListAsync</a>(EuVatRatesListReferenceRequest { ... }) -> WithRawResponseTask&lt;EuVatRatesListReferenceResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -665,9 +657,7 @@ Effective EU VAT rate mapping for this company: EC TEDB defaults, replaced per c
 <dd>
 
 ```csharp
-await client.Reference.PostV1ReferenceEuVatRatesListAsync(
-    new PostV1ReferenceEuVatRatesListRequest()
-);
+await client.Reference.EuVatRatesListAsync(new EuVatRatesListReferenceRequest());
 ```
 </dd>
 </dl>
@@ -682,7 +672,7 @@ await client.Reference.PostV1ReferenceEuVatRatesListAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ReferenceEuVatRatesListRequest` 
+**request:** `EuVatRatesListReferenceRequest` 
     
 </dd>
 </dl>
@@ -694,7 +684,7 @@ await client.Reference.PostV1ReferenceEuVatRatesListAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">PostV1ReferenceEuVatRatesSetOverridesAsync</a>(PostV1ReferenceEuVatRatesSetOverridesRequest { ... }) -> WithRawResponseTask&lt;PostV1ReferenceEuVatRatesSetOverridesResponse&gt;</code></summary>
+<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">EuVatRatesSetOverridesAsync</a>(EuVatRatesSetOverridesReferenceRequest { ... }) -> WithRawResponseTask&lt;EuVatRatesSetOverridesReferenceResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -721,16 +711,16 @@ Replace the VAT rate mapping this company uses for one EU country. Pass an empty
 <dd>
 
 ```csharp
-await client.Reference.PostV1ReferenceEuVatRatesSetOverridesAsync(
-    new PostV1ReferenceEuVatRatesSetOverridesRequest
+await client.Reference.EuVatRatesSetOverridesAsync(
+    new EuVatRatesSetOverridesReferenceRequest
     {
         CountryCode = "countryCode",
-        Rates = new List<PostV1ReferenceEuVatRatesSetOverridesRequestRatesItem>()
+        Rates = new List<EuVatRatesSetOverridesReferenceRequestRatesItem>()
         {
-            new PostV1ReferenceEuVatRatesSetOverridesRequestRatesItem
+            new EuVatRatesSetOverridesReferenceRequestRatesItem
             {
-                Category = PostV1ReferenceEuVatRatesSetOverridesRequestRatesItemCategory.Standard,
-                RatePercent = "ratePercent",
+                Category = EuVatRatesSetOverridesReferenceRequestRatesItemCategory.Standard,
+                RatePercent = "121.00",
             },
         },
     }
@@ -749,7 +739,7 @@ await client.Reference.PostV1ReferenceEuVatRatesSetOverridesAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ReferenceEuVatRatesSetOverridesRequest` 
+**request:** `EuVatRatesSetOverridesReferenceRequest` 
     
 </dd>
 </dl>
@@ -761,7 +751,7 @@ await client.Reference.PostV1ReferenceEuVatRatesSetOverridesAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">PostV1ReferenceVatResolveAsync</a>(PostV1ReferenceVatResolveRequest { ... }) -> WithRawResponseTask&lt;PostV1ReferenceVatResolveResponse&gt;</code></summary>
+<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">VatResolveAsync</a>(VatResolveReferenceRequest { ... }) -> WithRawResponseTask&lt;VatResolveReferenceResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -774,7 +764,7 @@ await client.Reference.PostV1ReferenceEuVatRatesSetOverridesAsync(
 <dd>
 
 ```csharp
-await client.Reference.PostV1ReferenceVatResolveAsync(new PostV1ReferenceVatResolveRequest());
+await client.Reference.VatResolveAsync(new VatResolveReferenceRequest());
 ```
 </dd>
 </dl>
@@ -789,7 +779,7 @@ await client.Reference.PostV1ReferenceVatResolveAsync(new PostV1ReferenceVatReso
 <dl>
 <dd>
 
-**request:** `PostV1ReferenceVatResolveRequest` 
+**request:** `VatResolveReferenceRequest` 
     
 </dd>
 </dl>
@@ -801,7 +791,7 @@ await client.Reference.PostV1ReferenceVatResolveAsync(new PostV1ReferenceVatReso
 </dl>
 </details>
 
-<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">PostV1ReferenceCnCodesListAsync</a>(PostV1ReferenceCnCodesListRequest { ... }) -> WithRawResponseTask&lt;PostV1ReferenceCnCodesListResponse&gt;</code></summary>
+<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">CnCodesListAsync</a>(CnCodesListReferenceRequest { ... }) -> WithRawResponseTask&lt;CnCodesListReferenceResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -814,7 +804,7 @@ await client.Reference.PostV1ReferenceVatResolveAsync(new PostV1ReferenceVatReso
 <dd>
 
 ```csharp
-await client.Reference.PostV1ReferenceCnCodesListAsync(new PostV1ReferenceCnCodesListRequest());
+await client.Reference.CnCodesListAsync(new CnCodesListReferenceRequest());
 ```
 </dd>
 </dl>
@@ -829,7 +819,7 @@ await client.Reference.PostV1ReferenceCnCodesListAsync(new PostV1ReferenceCnCode
 <dl>
 <dd>
 
-**request:** `PostV1ReferenceCnCodesListRequest` 
+**request:** `CnCodesListReferenceRequest` 
     
 </dd>
 </dl>
@@ -841,7 +831,7 @@ await client.Reference.PostV1ReferenceCnCodesListAsync(new PostV1ReferenceCnCode
 </dl>
 </details>
 
-<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">PostV1ReferenceCnCodesUpsertAsync</a>(PostV1ReferenceCnCodesUpsertRequest { ... }) -> WithRawResponseTask&lt;PostV1ReferenceCnCodesUpsertResponse&gt;</code></summary>
+<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">CnCodesUpsertAsync</a>(CnCodesUpsertReferenceRequest { ... }) -> WithRawResponseTask&lt;CnCodesUpsertReferenceResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -854,12 +844,12 @@ await client.Reference.PostV1ReferenceCnCodesListAsync(new PostV1ReferenceCnCode
 <dd>
 
 ```csharp
-await client.Reference.PostV1ReferenceCnCodesUpsertAsync(
-    new PostV1ReferenceCnCodesUpsertRequest
+await client.Reference.CnCodesUpsertAsync(
+    new CnCodesUpsertReferenceRequest
     {
-        Rows = new List<PostV1ReferenceCnCodesUpsertRequestRowsItem>()
+        Rows = new List<CnCodesUpsertReferenceRequestRowsItem>()
         {
-            new PostV1ReferenceCnCodesUpsertRequestRowsItem { Code = "code", Name = "name" },
+            new CnCodesUpsertReferenceRequestRowsItem { Code = "code", Name = "name" },
         },
     }
 );
@@ -877,7 +867,7 @@ await client.Reference.PostV1ReferenceCnCodesUpsertAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ReferenceCnCodesUpsertRequest` 
+**request:** `CnCodesUpsertReferenceRequest` 
     
 </dd>
 </dl>
@@ -889,7 +879,7 @@ await client.Reference.PostV1ReferenceCnCodesUpsertAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">PostV1ReferenceComplianceVersionsListAsync</a>(PostV1ReferenceComplianceVersionsListRequest { ... }) -> WithRawResponseTask&lt;PostV1ReferenceComplianceVersionsListResponse&gt;</code></summary>
+<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">ComplianceVersionsListAsync</a>(ComplianceVersionsListReferenceRequest { ... }) -> WithRawResponseTask&lt;ComplianceVersionsListReferenceResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -902,8 +892,128 @@ await client.Reference.PostV1ReferenceCnCodesUpsertAsync(
 <dd>
 
 ```csharp
-await client.Reference.PostV1ReferenceComplianceVersionsListAsync(
-    new PostV1ReferenceComplianceVersionsListRequest()
+await client.Reference.ComplianceVersionsListAsync(new ComplianceVersionsListReferenceRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ComplianceVersionsListReferenceRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">IntrastatThresholdsListAsync</a>(IntrastatThresholdsListReferenceRequest { ... }) -> WithRawResponseTask&lt;IntrastatThresholdsListReferenceResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Reference.IntrastatThresholdsListAsync(new IntrastatThresholdsListReferenceRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `IntrastatThresholdsListReferenceRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">UnitsListAsync</a>(UnitsListReferenceRequest { ... }) -> WithRawResponseTask&lt;UnitsListReferenceResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Reference.UnitsListAsync(new UnitsListReferenceRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `UnitsListReferenceRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">SeriesCreateAsync</a>(SeriesCreateReferenceRequest { ... }) -> WithRawResponseTask&lt;SeriesCreateReferenceResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Reference.SeriesCreateAsync(
+    new SeriesCreateReferenceRequest { DocumentType = "documentType", Year = 1000000 }
 );
 ```
 </dd>
@@ -919,7 +1029,7 @@ await client.Reference.PostV1ReferenceComplianceVersionsListAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ReferenceComplianceVersionsListRequest` 
+**request:** `SeriesCreateReferenceRequest` 
     
 </dd>
 </dl>
@@ -931,7 +1041,7 @@ await client.Reference.PostV1ReferenceComplianceVersionsListAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">PostV1ReferenceIntrastatThresholdsListAsync</a>(PostV1ReferenceIntrastatThresholdsListRequest { ... }) -> WithRawResponseTask&lt;PostV1ReferenceIntrastatThresholdsListResponse&gt;</code></summary>
+<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">SeriesListAsync</a>(SeriesListReferenceRequest { ... }) -> WithRawResponseTask&lt;SeriesListReferenceResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -944,8 +1054,49 @@ await client.Reference.PostV1ReferenceComplianceVersionsListAsync(
 <dd>
 
 ```csharp
-await client.Reference.PostV1ReferenceIntrastatThresholdsListAsync(
-    new PostV1ReferenceIntrastatThresholdsListRequest()
+await client.Reference.SeriesListAsync(new SeriesListReferenceRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `SeriesListReferenceRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## partners
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">AddressesCreateAsync</a>(AddressesCreatePartnersRequest { ... }) -> WithRawResponseTask&lt;AddressesCreatePartnersResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Partners.AddressesCreateAsync(
+    new AddressesCreatePartnersRequest { PartnerId = "partnerId" }
 );
 ```
 </dd>
@@ -961,7 +1112,7 @@ await client.Reference.PostV1ReferenceIntrastatThresholdsListAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ReferenceIntrastatThresholdsListRequest` 
+**request:** `AddressesCreatePartnersRequest` 
     
 </dd>
 </dl>
@@ -973,7 +1124,7 @@ await client.Reference.PostV1ReferenceIntrastatThresholdsListAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">PostV1ReferenceUnitsListAsync</a>(PostV1ReferenceUnitsListRequest { ... }) -> WithRawResponseTask&lt;PostV1ReferenceUnitsListResponse&gt;</code></summary>
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">AddressesUpdateAsync</a>(AddressesUpdatePartnersRequest { ... }) -> WithRawResponseTask&lt;AddressesUpdatePartnersResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -986,7 +1137,7 @@ await client.Reference.PostV1ReferenceIntrastatThresholdsListAsync(
 <dd>
 
 ```csharp
-await client.Reference.PostV1ReferenceUnitsListAsync(new PostV1ReferenceUnitsListRequest());
+await client.Partners.AddressesUpdateAsync(new AddressesUpdatePartnersRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -1001,7 +1152,7 @@ await client.Reference.PostV1ReferenceUnitsListAsync(new PostV1ReferenceUnitsLis
 <dl>
 <dd>
 
-**request:** `PostV1ReferenceUnitsListRequest` 
+**request:** `AddressesUpdatePartnersRequest` 
     
 </dd>
 </dl>
@@ -1013,7 +1164,7 @@ await client.Reference.PostV1ReferenceUnitsListAsync(new PostV1ReferenceUnitsLis
 </dl>
 </details>
 
-<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">PostV1ReferenceSeriesCreateAsync</a>(PostV1ReferenceSeriesCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1ReferenceSeriesCreateResponse&gt;</code></summary>
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">AddressesDeleteAsync</a>(AddressesDeletePartnersRequest { ... }) -> WithRawResponseTask&lt;AddressesDeletePartnersResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -1026,8 +1177,88 @@ await client.Reference.PostV1ReferenceUnitsListAsync(new PostV1ReferenceUnitsLis
 <dd>
 
 ```csharp
-await client.Reference.PostV1ReferenceSeriesCreateAsync(
-    new PostV1ReferenceSeriesCreateRequest { DocumentType = "documentType", Year = 1000000 }
+await client.Partners.AddressesDeleteAsync(new AddressesDeletePartnersRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `AddressesDeletePartnersRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">AddressesListAsync</a>(AddressesListPartnersRequest { ... }) -> WithRawResponseTask&lt;AddressesListPartnersResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Partners.AddressesListAsync(new AddressesListPartnersRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `AddressesListPartnersRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">ContactsCreateAsync</a>(ContactsCreatePartnersRequest { ... }) -> WithRawResponseTask&lt;ContactsCreatePartnersResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Partners.ContactsCreateAsync(
+    new ContactsCreatePartnersRequest { Name = "name", PartnerId = "partnerId" }
 );
 ```
 </dd>
@@ -1043,7 +1274,7 @@ await client.Reference.PostV1ReferenceSeriesCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ReferenceSeriesCreateRequest` 
+**request:** `ContactsCreatePartnersRequest` 
     
 </dd>
 </dl>
@@ -1055,7 +1286,7 @@ await client.Reference.PostV1ReferenceSeriesCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Reference.<a href="/src/NordletApi/Reference/ReferenceClient.cs">PostV1ReferenceSeriesListAsync</a>(PostV1ReferenceSeriesListRequest { ... }) -> WithRawResponseTask&lt;PostV1ReferenceSeriesListResponse&gt;</code></summary>
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">ContactsUpdateAsync</a>(ContactsUpdatePartnersRequest { ... }) -> WithRawResponseTask&lt;ContactsUpdatePartnersResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -1068,7 +1299,7 @@ await client.Reference.PostV1ReferenceSeriesCreateAsync(
 <dd>
 
 ```csharp
-await client.Reference.PostV1ReferenceSeriesListAsync(new PostV1ReferenceSeriesListRequest());
+await client.Partners.ContactsUpdateAsync(new ContactsUpdatePartnersRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -1083,7 +1314,7 @@ await client.Reference.PostV1ReferenceSeriesListAsync(new PostV1ReferenceSeriesL
 <dl>
 <dd>
 
-**request:** `PostV1ReferenceSeriesListRequest` 
+**request:** `ContactsUpdatePartnersRequest` 
     
 </dd>
 </dl>
@@ -1095,8 +1326,7 @@ await client.Reference.PostV1ReferenceSeriesListAsync(new PostV1ReferenceSeriesL
 </dl>
 </details>
 
-## Partners
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1PartnersAddressesCreateAsync</a>(PostV1PartnersAddressesCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersAddressesCreateResponse&gt;</code></summary>
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">ContactsDeleteAsync</a>(ContactsDeletePartnersRequest { ... }) -> WithRawResponseTask&lt;ContactsDeletePartnersResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -1109,8 +1339,88 @@ await client.Reference.PostV1ReferenceSeriesListAsync(new PostV1ReferenceSeriesL
 <dd>
 
 ```csharp
-await client.Partners.PostV1PartnersAddressesCreateAsync(
-    new PostV1PartnersAddressesCreateRequest { PartnerId = "partnerId" }
+await client.Partners.ContactsDeleteAsync(new ContactsDeletePartnersRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ContactsDeletePartnersRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">ContactsListAsync</a>(ContactsListPartnersRequest { ... }) -> WithRawResponseTask&lt;ContactsListPartnersResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Partners.ContactsListAsync(new ContactsListPartnersRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ContactsListPartnersRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">BankAccountsCreateAsync</a>(BankAccountsCreatePartnersRequest { ... }) -> WithRawResponseTask&lt;BankAccountsCreatePartnersResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Partners.BankAccountsCreateAsync(
+    new BankAccountsCreatePartnersRequest { Iban = "iban", PartnerId = "partnerId" }
 );
 ```
 </dd>
@@ -1126,7 +1436,7 @@ await client.Partners.PostV1PartnersAddressesCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PartnersAddressesCreateRequest` 
+**request:** `BankAccountsCreatePartnersRequest` 
     
 </dd>
 </dl>
@@ -1138,7 +1448,7 @@ await client.Partners.PostV1PartnersAddressesCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1PartnersAddressesUpdateAsync</a>(PostV1PartnersAddressesUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersAddressesUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">BankAccountsUpdateAsync</a>(BankAccountsUpdatePartnersRequest { ... }) -> WithRawResponseTask&lt;BankAccountsUpdatePartnersResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -1151,9 +1461,7 @@ await client.Partners.PostV1PartnersAddressesCreateAsync(
 <dd>
 
 ```csharp
-await client.Partners.PostV1PartnersAddressesUpdateAsync(
-    new PostV1PartnersAddressesUpdateRequest { Id = "id" }
-);
+await client.Partners.BankAccountsUpdateAsync(new BankAccountsUpdatePartnersRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -1168,7 +1476,7 @@ await client.Partners.PostV1PartnersAddressesUpdateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PartnersAddressesUpdateRequest` 
+**request:** `BankAccountsUpdatePartnersRequest` 
     
 </dd>
 </dl>
@@ -1180,7 +1488,7 @@ await client.Partners.PostV1PartnersAddressesUpdateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1PartnersAddressesDeleteAsync</a>(PostV1PartnersAddressesDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersAddressesDeleteResponse&gt;</code></summary>
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">BankAccountsDeleteAsync</a>(BankAccountsDeletePartnersRequest { ... }) -> WithRawResponseTask&lt;BankAccountsDeletePartnersResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -1193,9 +1501,7 @@ await client.Partners.PostV1PartnersAddressesUpdateAsync(
 <dd>
 
 ```csharp
-await client.Partners.PostV1PartnersAddressesDeleteAsync(
-    new PostV1PartnersAddressesDeleteRequest { Id = "id" }
-);
+await client.Partners.BankAccountsDeleteAsync(new BankAccountsDeletePartnersRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -1210,7 +1516,7 @@ await client.Partners.PostV1PartnersAddressesDeleteAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PartnersAddressesDeleteRequest` 
+**request:** `BankAccountsDeletePartnersRequest` 
     
 </dd>
 </dl>
@@ -1222,7 +1528,7 @@ await client.Partners.PostV1PartnersAddressesDeleteAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1PartnersAddressesListAsync</a>(PostV1PartnersAddressesListRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersAddressesListResponse&gt;</code></summary>
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">BankAccountsListAsync</a>(BankAccountsListPartnersRequest { ... }) -> WithRawResponseTask&lt;BankAccountsListPartnersResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -1235,7 +1541,7 @@ await client.Partners.PostV1PartnersAddressesDeleteAsync(
 <dd>
 
 ```csharp
-await client.Partners.PostV1PartnersAddressesListAsync(new PostV1PartnersAddressesListRequest());
+await client.Partners.BankAccountsListAsync(new BankAccountsListPartnersRequest());
 ```
 </dd>
 </dl>
@@ -1250,7 +1556,7 @@ await client.Partners.PostV1PartnersAddressesListAsync(new PostV1PartnersAddress
 <dl>
 <dd>
 
-**request:** `PostV1PartnersAddressesListRequest` 
+**request:** `BankAccountsListPartnersRequest` 
     
 </dd>
 </dl>
@@ -1262,7 +1568,7 @@ await client.Partners.PostV1PartnersAddressesListAsync(new PostV1PartnersAddress
 </dl>
 </details>
 
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1PartnersContactsCreateAsync</a>(PostV1PartnersContactsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersContactsCreateResponse&gt;</code></summary>
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">FilesListAsync</a>(FilesListPartnersRequest { ... }) -> WithRawResponseTask&lt;FilesListPartnersResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -1275,9 +1581,7 @@ await client.Partners.PostV1PartnersAddressesListAsync(new PostV1PartnersAddress
 <dd>
 
 ```csharp
-await client.Partners.PostV1PartnersContactsCreateAsync(
-    new PostV1PartnersContactsCreateRequest { Name = "name", PartnerId = "partnerId" }
-);
+await client.Partners.FilesListAsync(new FilesListPartnersRequest { PartnerId = "partnerId" });
 ```
 </dd>
 </dl>
@@ -1292,7 +1596,7 @@ await client.Partners.PostV1PartnersContactsCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PartnersContactsCreateRequest` 
+**request:** `FilesListPartnersRequest` 
     
 </dd>
 </dl>
@@ -1304,7 +1608,7 @@ await client.Partners.PostV1PartnersContactsCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1PartnersContactsUpdateAsync</a>(PostV1PartnersContactsUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersContactsUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">DebtRemindersPreviewAsync</a>(DebtRemindersPreviewPartnersRequest { ... }) -> WithRawResponseTask&lt;DebtRemindersPreviewPartnersResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -1317,9 +1621,7 @@ await client.Partners.PostV1PartnersContactsCreateAsync(
 <dd>
 
 ```csharp
-await client.Partners.PostV1PartnersContactsUpdateAsync(
-    new PostV1PartnersContactsUpdateRequest { Id = "id" }
-);
+await client.Partners.DebtRemindersPreviewAsync(new DebtRemindersPreviewPartnersRequest());
 ```
 </dd>
 </dl>
@@ -1334,7 +1636,7 @@ await client.Partners.PostV1PartnersContactsUpdateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PartnersContactsUpdateRequest` 
+**request:** `DebtRemindersPreviewPartnersRequest` 
     
 </dd>
 </dl>
@@ -1346,7 +1648,7 @@ await client.Partners.PostV1PartnersContactsUpdateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1PartnersContactsDeleteAsync</a>(PostV1PartnersContactsDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersContactsDeleteResponse&gt;</code></summary>
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">DebtRemindersListAsync</a>(DebtRemindersListPartnersRequest { ... }) -> WithRawResponseTask&lt;DebtRemindersListPartnersResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -1359,9 +1661,7 @@ await client.Partners.PostV1PartnersContactsUpdateAsync(
 <dd>
 
 ```csharp
-await client.Partners.PostV1PartnersContactsDeleteAsync(
-    new PostV1PartnersContactsDeleteRequest { Id = "id" }
-);
+await client.Partners.DebtRemindersListAsync(new DebtRemindersListPartnersRequest());
 ```
 </dd>
 </dl>
@@ -1376,7 +1676,7 @@ await client.Partners.PostV1PartnersContactsDeleteAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PartnersContactsDeleteRequest` 
+**request:** `DebtRemindersListPartnersRequest` 
     
 </dd>
 </dl>
@@ -1388,7 +1688,7 @@ await client.Partners.PostV1PartnersContactsDeleteAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1PartnersContactsListAsync</a>(PostV1PartnersContactsListRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersContactsListResponse&gt;</code></summary>
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">ValidateVatAsync</a>(ValidateVatPartnersRequest { ... }) -> WithRawResponseTask&lt;ValidateVatPartnersResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -1401,7 +1701,7 @@ await client.Partners.PostV1PartnersContactsDeleteAsync(
 <dd>
 
 ```csharp
-await client.Partners.PostV1PartnersContactsListAsync(new PostV1PartnersContactsListRequest());
+await client.Partners.ValidateVatAsync(new ValidateVatPartnersRequest());
 ```
 </dd>
 </dl>
@@ -1416,7 +1716,7 @@ await client.Partners.PostV1PartnersContactsListAsync(new PostV1PartnersContacts
 <dl>
 <dd>
 
-**request:** `PostV1PartnersContactsListRequest` 
+**request:** `ValidateVatPartnersRequest` 
     
 </dd>
 </dl>
@@ -1428,7 +1728,7 @@ await client.Partners.PostV1PartnersContactsListAsync(new PostV1PartnersContacts
 </dl>
 </details>
 
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1PartnersBankAccountsCreateAsync</a>(PostV1PartnersBankAccountsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersBankAccountsCreateResponse&gt;</code></summary>
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">VatReviewsListAsync</a>(VatReviewsListPartnersRequest { ... }) -> WithRawResponseTask&lt;VatReviewsListPartnersResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -1441,9 +1741,7 @@ await client.Partners.PostV1PartnersContactsListAsync(new PostV1PartnersContacts
 <dd>
 
 ```csharp
-await client.Partners.PostV1PartnersBankAccountsCreateAsync(
-    new PostV1PartnersBankAccountsCreateRequest { Iban = "iban", PartnerId = "partnerId" }
-);
+await client.Partners.VatReviewsListAsync(new VatReviewsListPartnersRequest());
 ```
 </dd>
 </dl>
@@ -1458,7 +1756,7 @@ await client.Partners.PostV1PartnersBankAccountsCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PartnersBankAccountsCreateRequest` 
+**request:** `VatReviewsListPartnersRequest` 
     
 </dd>
 </dl>
@@ -1470,7 +1768,7 @@ await client.Partners.PostV1PartnersBankAccountsCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1PartnersBankAccountsUpdateAsync</a>(PostV1PartnersBankAccountsUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersBankAccountsUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">VatReviewsResolveAsync</a>(VatReviewsResolvePartnersRequest { ... }) -> WithRawResponseTask&lt;VatReviewsResolvePartnersResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -1483,343 +1781,11 @@ await client.Partners.PostV1PartnersBankAccountsCreateAsync(
 <dd>
 
 ```csharp
-await client.Partners.PostV1PartnersBankAccountsUpdateAsync(
-    new PostV1PartnersBankAccountsUpdateRequest { Id = "id" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1PartnersBankAccountsUpdateRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1PartnersBankAccountsDeleteAsync</a>(PostV1PartnersBankAccountsDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersBankAccountsDeleteResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Partners.PostV1PartnersBankAccountsDeleteAsync(
-    new PostV1PartnersBankAccountsDeleteRequest { Id = "id" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1PartnersBankAccountsDeleteRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1PartnersBankAccountsListAsync</a>(PostV1PartnersBankAccountsListRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersBankAccountsListResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Partners.PostV1PartnersBankAccountsListAsync(
-    new PostV1PartnersBankAccountsListRequest()
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1PartnersBankAccountsListRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1PartnersFilesListAsync</a>(PostV1PartnersFilesListRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersFilesListResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Partners.PostV1PartnersFilesListAsync(
-    new PostV1PartnersFilesListRequest { PartnerId = "partnerId" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1PartnersFilesListRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">RemindersTheOvernightDebtReminderJobWouldSendTodayForThisCompanyAsync</a>(PostV1PartnersDebtRemindersPreviewRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersDebtRemindersPreviewResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Partners.RemindersTheOvernightDebtReminderJobWouldSendTodayForThisCompanyAsync(
-    new PostV1PartnersDebtRemindersPreviewRequest()
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1PartnersDebtRemindersPreviewRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1PartnersDebtRemindersListAsync</a>(PostV1PartnersDebtRemindersListRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersDebtRemindersListResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Partners.PostV1PartnersDebtRemindersListAsync(
-    new PostV1PartnersDebtRemindersListRequest()
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1PartnersDebtRemindersListRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1PartnersValidateVatAsync</a>(PostV1PartnersValidateVatRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersValidateVatResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Partners.PostV1PartnersValidateVatAsync(new PostV1PartnersValidateVatRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1PartnersValidateVatRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1PartnersVatReviewsListAsync</a>(PostV1PartnersVatReviewsListRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersVatReviewsListResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Partners.PostV1PartnersVatReviewsListAsync(new PostV1PartnersVatReviewsListRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1PartnersVatReviewsListRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1PartnersVatReviewsResolveAsync</a>(PostV1PartnersVatReviewsResolveRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersVatReviewsResolveResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Partners.PostV1PartnersVatReviewsResolveAsync(
-    new PostV1PartnersVatReviewsResolveRequest
+await client.Partners.VatReviewsResolveAsync(
+    new VatReviewsResolvePartnersRequest
     {
         Id = "id",
-        Resolution = PostV1PartnersVatReviewsResolveRequestResolution.ConfirmedValid,
+        Resolution = VatReviewsResolvePartnersRequestResolution.ConfirmedValid,
     }
 );
 ```
@@ -1836,7 +1802,7 @@ await client.Partners.PostV1PartnersVatReviewsResolveAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PartnersVatReviewsResolveRequest` 
+**request:** `VatReviewsResolvePartnersRequest` 
     
 </dd>
 </dl>
@@ -1848,7 +1814,7 @@ await client.Partners.PostV1PartnersVatReviewsResolveAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1PartnersCreateAsync</a>(PostV1PartnersCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersCreateResponse&gt;</code></summary>
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">CreateAsync</a>(CreatePartnersRequest { ... }) -> WithRawResponseTask&lt;CreatePartnersResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -1861,7 +1827,7 @@ await client.Partners.PostV1PartnersVatReviewsResolveAsync(
 <dd>
 
 ```csharp
-await client.Partners.PostV1PartnersCreateAsync(new PostV1PartnersCreateRequest { Name = "name" });
+await client.Partners.CreateAsync(new CreatePartnersRequest { Name = "name" });
 ```
 </dd>
 </dl>
@@ -1876,7 +1842,7 @@ await client.Partners.PostV1PartnersCreateAsync(new PostV1PartnersCreateRequest 
 <dl>
 <dd>
 
-**request:** `PostV1PartnersCreateRequest` 
+**request:** `CreatePartnersRequest` 
     
 </dd>
 </dl>
@@ -1888,7 +1854,7 @@ await client.Partners.PostV1PartnersCreateAsync(new PostV1PartnersCreateRequest 
 </dl>
 </details>
 
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1PartnersFindOrCreateAsync</a>(PostV1PartnersFindOrCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersFindOrCreateResponse&gt;</code></summary>
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">FindOrCreateAsync</a>(FindOrCreatePartnersRequest { ... }) -> WithRawResponseTask&lt;FindOrCreatePartnersResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -1901,9 +1867,7 @@ await client.Partners.PostV1PartnersCreateAsync(new PostV1PartnersCreateRequest 
 <dd>
 
 ```csharp
-await client.Partners.PostV1PartnersFindOrCreateAsync(
-    new PostV1PartnersFindOrCreateRequest { Name = "name" }
-);
+await client.Partners.FindOrCreateAsync(new FindOrCreatePartnersRequest { Name = "name" });
 ```
 </dd>
 </dl>
@@ -1918,7 +1882,7 @@ await client.Partners.PostV1PartnersFindOrCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PartnersFindOrCreateRequest` 
+**request:** `FindOrCreatePartnersRequest` 
     
 </dd>
 </dl>
@@ -1930,7 +1894,7 @@ await client.Partners.PostV1PartnersFindOrCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1PartnersGetAsync</a>(PostV1PartnersGetRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersGetResponse&gt;</code></summary>
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">GetAsync</a>(GetPartnersRequest { ... }) -> WithRawResponseTask&lt;GetPartnersResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -1943,7 +1907,7 @@ await client.Partners.PostV1PartnersFindOrCreateAsync(
 <dd>
 
 ```csharp
-await client.Partners.PostV1PartnersGetAsync(new PostV1PartnersGetRequest { Id = "id" });
+await client.Partners.GetAsync(new GetPartnersRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -1958,7 +1922,7 @@ await client.Partners.PostV1PartnersGetAsync(new PostV1PartnersGetRequest { Id =
 <dl>
 <dd>
 
-**request:** `PostV1PartnersGetRequest` 
+**request:** `GetPartnersRequest` 
     
 </dd>
 </dl>
@@ -1970,7 +1934,7 @@ await client.Partners.PostV1PartnersGetAsync(new PostV1PartnersGetRequest { Id =
 </dl>
 </details>
 
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1PartnersUpdateAsync</a>(PostV1PartnersUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">UpdateAsync</a>(UpdatePartnersRequest { ... }) -> WithRawResponseTask&lt;UpdatePartnersResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -1983,7 +1947,7 @@ await client.Partners.PostV1PartnersGetAsync(new PostV1PartnersGetRequest { Id =
 <dd>
 
 ```csharp
-await client.Partners.PostV1PartnersUpdateAsync(new PostV1PartnersUpdateRequest { Id = "id" });
+await client.Partners.UpdateAsync(new UpdatePartnersRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -1998,7 +1962,7 @@ await client.Partners.PostV1PartnersUpdateAsync(new PostV1PartnersUpdateRequest 
 <dl>
 <dd>
 
-**request:** `PostV1PartnersUpdateRequest` 
+**request:** `UpdatePartnersRequest` 
     
 </dd>
 </dl>
@@ -2010,7 +1974,7 @@ await client.Partners.PostV1PartnersUpdateAsync(new PostV1PartnersUpdateRequest 
 </dl>
 </details>
 
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1PartnersDeleteAsync</a>(PostV1PartnersDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersDeleteResponse&gt;</code></summary>
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">DeleteAsync</a>(DeletePartnersRequest { ... }) -> WithRawResponseTask&lt;DeletePartnersResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -2023,7 +1987,7 @@ await client.Partners.PostV1PartnersUpdateAsync(new PostV1PartnersUpdateRequest 
 <dd>
 
 ```csharp
-await client.Partners.PostV1PartnersDeleteAsync(new PostV1PartnersDeleteRequest { Id = "id" });
+await client.Partners.DeleteAsync(new DeletePartnersRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -2038,7 +2002,7 @@ await client.Partners.PostV1PartnersDeleteAsync(new PostV1PartnersDeleteRequest 
 <dl>
 <dd>
 
-**request:** `PostV1PartnersDeleteRequest` 
+**request:** `DeletePartnersRequest` 
     
 </dd>
 </dl>
@@ -2050,7 +2014,7 @@ await client.Partners.PostV1PartnersDeleteAsync(new PostV1PartnersDeleteRequest 
 </dl>
 </details>
 
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">BlankAPartnersPersonalDataAndHideTheRecordAsync</a>(PostV1PartnersAnonymizeRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersAnonymizeResponse&gt;</code></summary>
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">AnonymizeAsync</a>(AnonymizePartnersRequest { ... }) -> WithRawResponseTask&lt;AnonymizePartnersResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -2077,8 +2041,88 @@ Removes birth date, self-employment certificate number, email, phone, address, n
 <dd>
 
 ```csharp
-await client.Partners.BlankAPartnersPersonalDataAndHideTheRecordAsync(
-    new PostV1PartnersAnonymizeRequest { Id = "id" }
+await client.Partners.AnonymizeAsync(new AnonymizePartnersRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `AnonymizePartnersRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">ListAsync</a>(ListPartnersRequest { ... }) -> WithRawResponseTask&lt;ListPartnersResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Partners.ListAsync(new ListPartnersRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ListPartnersRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">GroupsCreateAsync</a>(GroupsCreatePartnersRequest { ... }) -> WithRawResponseTask&lt;GroupsCreatePartnersResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Partners.GroupsCreateAsync(
+    new GroupsCreatePartnersRequest { Code = "code", Name = "name" }
 );
 ```
 </dd>
@@ -2094,7 +2138,7 @@ await client.Partners.BlankAPartnersPersonalDataAndHideTheRecordAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PartnersAnonymizeRequest` 
+**request:** `GroupsCreatePartnersRequest` 
     
 </dd>
 </dl>
@@ -2106,7 +2150,7 @@ await client.Partners.BlankAPartnersPersonalDataAndHideTheRecordAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1PartnersListAsync</a>(PostV1PartnersListRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersListResponse&gt;</code></summary>
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">GroupsUpdateAsync</a>(GroupsUpdatePartnersRequest { ... }) -> WithRawResponseTask&lt;GroupsUpdatePartnersResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -2119,7 +2163,7 @@ await client.Partners.BlankAPartnersPersonalDataAndHideTheRecordAsync(
 <dd>
 
 ```csharp
-await client.Partners.PostV1PartnersListAsync(new PostV1PartnersListRequest());
+await client.Partners.GroupsUpdateAsync(new GroupsUpdatePartnersRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -2134,7 +2178,7 @@ await client.Partners.PostV1PartnersListAsync(new PostV1PartnersListRequest());
 <dl>
 <dd>
 
-**request:** `PostV1PartnersListRequest` 
+**request:** `GroupsUpdatePartnersRequest` 
     
 </dd>
 </dl>
@@ -2146,7 +2190,7 @@ await client.Partners.PostV1PartnersListAsync(new PostV1PartnersListRequest());
 </dl>
 </details>
 
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1PartnersGroupsCreateAsync</a>(PostV1PartnersGroupsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersGroupsCreateResponse&gt;</code></summary>
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">GroupsDeleteAsync</a>(GroupsDeletePartnersRequest { ... }) -> WithRawResponseTask&lt;GroupsDeletePartnersResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -2159,8 +2203,88 @@ await client.Partners.PostV1PartnersListAsync(new PostV1PartnersListRequest());
 <dd>
 
 ```csharp
-await client.Partners.PostV1PartnersGroupsCreateAsync(
-    new PostV1PartnersGroupsCreateRequest { Code = "code", Name = "name" }
+await client.Partners.GroupsDeleteAsync(new GroupsDeletePartnersRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `GroupsDeletePartnersRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">GroupsListAsync</a>(GroupsListPartnersRequest { ... }) -> WithRawResponseTask&lt;GroupsListPartnersResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Partners.GroupsListAsync(new GroupsListPartnersRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `GroupsListPartnersRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">StatusesCreateAsync</a>(StatusesCreatePartnersRequest { ... }) -> WithRawResponseTask&lt;StatusesCreatePartnersResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Partners.StatusesCreateAsync(
+    new StatusesCreatePartnersRequest { Code = "code", Name = "name" }
 );
 ```
 </dd>
@@ -2176,7 +2300,7 @@ await client.Partners.PostV1PartnersGroupsCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PartnersGroupsCreateRequest` 
+**request:** `StatusesCreatePartnersRequest` 
     
 </dd>
 </dl>
@@ -2188,7 +2312,7 @@ await client.Partners.PostV1PartnersGroupsCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1PartnersGroupsUpdateAsync</a>(PostV1PartnersGroupsUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersGroupsUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">StatusesUpdateAsync</a>(StatusesUpdatePartnersRequest { ... }) -> WithRawResponseTask&lt;StatusesUpdatePartnersResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -2201,8 +2325,128 @@ await client.Partners.PostV1PartnersGroupsCreateAsync(
 <dd>
 
 ```csharp
-await client.Partners.PostV1PartnersGroupsUpdateAsync(
-    new PostV1PartnersGroupsUpdateRequest { Id = "id" }
+await client.Partners.StatusesUpdateAsync(new StatusesUpdatePartnersRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `StatusesUpdatePartnersRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">StatusesDeleteAsync</a>(StatusesDeletePartnersRequest { ... }) -> WithRawResponseTask&lt;StatusesDeletePartnersResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Partners.StatusesDeleteAsync(new StatusesDeletePartnersRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `StatusesDeletePartnersRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">StatusesListAsync</a>(StatusesListPartnersRequest { ... }) -> WithRawResponseTask&lt;StatusesListPartnersResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Partners.StatusesListAsync(new StatusesListPartnersRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `StatusesListPartnersRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">InquiriesCreateAsync</a>(InquiriesCreatePartnersRequest { ... }) -> WithRawResponseTask&lt;InquiriesCreatePartnersResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Partners.InquiriesCreateAsync(
+    new InquiriesCreatePartnersRequest { Subject = "subject" }
 );
 ```
 </dd>
@@ -2218,7 +2462,7 @@ await client.Partners.PostV1PartnersGroupsUpdateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PartnersGroupsUpdateRequest` 
+**request:** `InquiriesCreatePartnersRequest` 
     
 </dd>
 </dl>
@@ -2230,7 +2474,7 @@ await client.Partners.PostV1PartnersGroupsUpdateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1PartnersGroupsDeleteAsync</a>(PostV1PartnersGroupsDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersGroupsDeleteResponse&gt;</code></summary>
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">InquiriesUpdateAsync</a>(InquiriesUpdatePartnersRequest { ... }) -> WithRawResponseTask&lt;InquiriesUpdatePartnersResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -2243,8 +2487,369 @@ await client.Partners.PostV1PartnersGroupsUpdateAsync(
 <dd>
 
 ```csharp
-await client.Partners.PostV1PartnersGroupsDeleteAsync(
-    new PostV1PartnersGroupsDeleteRequest { Id = "id" }
+await client.Partners.InquiriesUpdateAsync(new InquiriesUpdatePartnersRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `InquiriesUpdatePartnersRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">InquiriesGetAsync</a>(InquiriesGetPartnersRequest { ... }) -> WithRawResponseTask&lt;InquiriesGetPartnersResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Partners.InquiriesGetAsync(new InquiriesGetPartnersRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `InquiriesGetPartnersRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">InquiriesListAsync</a>(InquiriesListPartnersRequest { ... }) -> WithRawResponseTask&lt;InquiriesListPartnersResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Partners.InquiriesListAsync(new InquiriesListPartnersRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `InquiriesListPartnersRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">CreditCheckAsync</a>(CreditCheckPartnersRequest { ... }) -> WithRawResponseTask&lt;CreditCheckPartnersResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Partners.CreditCheckAsync(new CreditCheckPartnersRequest { PartnerId = "partnerId" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `CreditCheckPartnersRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## Leads
+<details><summary><code>client.Leads.<a href="/src/NordletApi/Leads/LeadsClient.cs">CreateAsync</a>(CreateLeadsRequest { ... }) -> WithRawResponseTask&lt;CreateLeadsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Leads.CreateAsync(new CreateLeadsRequest { Name = "name" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `CreateLeadsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Leads.<a href="/src/NordletApi/Leads/LeadsClient.cs">GetAsync</a>(GetLeadsRequest { ... }) -> WithRawResponseTask&lt;GetLeadsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Leads.GetAsync(new GetLeadsRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `GetLeadsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Leads.<a href="/src/NordletApi/Leads/LeadsClient.cs">UpdateAsync</a>(UpdateLeadsRequest { ... }) -> WithRawResponseTask&lt;UpdateLeadsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Leads.UpdateAsync(new UpdateLeadsRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `UpdateLeadsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Leads.<a href="/src/NordletApi/Leads/LeadsClient.cs">DeleteAsync</a>(DeleteLeadsRequest { ... }) -> WithRawResponseTask&lt;DeleteLeadsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Leads.DeleteAsync(new DeleteLeadsRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `DeleteLeadsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Leads.<a href="/src/NordletApi/Leads/LeadsClient.cs">ListAsync</a>(ListLeadsRequest { ... }) -> WithRawResponseTask&lt;ListLeadsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Leads.ListAsync(new ListLeadsRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ListLeadsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Leads.<a href="/src/NordletApi/Leads/LeadsClient.cs">NotesCreateAsync</a>(NotesCreateLeadsRequest { ... }) -> WithRawResponseTask&lt;NotesCreateLeadsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Leads.NotesCreateAsync(
+    new NotesCreateLeadsRequest { LeadId = "leadId", Body = "body" }
 );
 ```
 </dd>
@@ -2260,7 +2865,7 @@ await client.Partners.PostV1PartnersGroupsDeleteAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PartnersGroupsDeleteRequest` 
+**request:** `NotesCreateLeadsRequest` 
     
 </dd>
 </dl>
@@ -2272,7 +2877,7 @@ await client.Partners.PostV1PartnersGroupsDeleteAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1PartnersGroupsListAsync</a>(PostV1PartnersGroupsListRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersGroupsListResponse&gt;</code></summary>
+<details><summary><code>client.Leads.<a href="/src/NordletApi/Leads/LeadsClient.cs">NotesDeleteAsync</a>(NotesDeleteLeadsRequest { ... }) -> WithRawResponseTask&lt;NotesDeleteLeadsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -2285,7 +2890,7 @@ await client.Partners.PostV1PartnersGroupsDeleteAsync(
 <dd>
 
 ```csharp
-await client.Partners.PostV1PartnersGroupsListAsync(new PostV1PartnersGroupsListRequest());
+await client.Leads.NotesDeleteAsync(new NotesDeleteLeadsRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -2300,7 +2905,7 @@ await client.Partners.PostV1PartnersGroupsListAsync(new PostV1PartnersGroupsList
 <dl>
 <dd>
 
-**request:** `PostV1PartnersGroupsListRequest` 
+**request:** `NotesDeleteLeadsRequest` 
     
 </dd>
 </dl>
@@ -2312,7 +2917,7 @@ await client.Partners.PostV1PartnersGroupsListAsync(new PostV1PartnersGroupsList
 </dl>
 </details>
 
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1PartnersStatusesCreateAsync</a>(PostV1PartnersStatusesCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersStatusesCreateResponse&gt;</code></summary>
+<details><summary><code>client.Leads.<a href="/src/NordletApi/Leads/LeadsClient.cs">NotesListAsync</a>(NotesListLeadsRequest { ... }) -> WithRawResponseTask&lt;NotesListLeadsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -2325,9 +2930,7 @@ await client.Partners.PostV1PartnersGroupsListAsync(new PostV1PartnersGroupsList
 <dd>
 
 ```csharp
-await client.Partners.PostV1PartnersStatusesCreateAsync(
-    new PostV1PartnersStatusesCreateRequest { Code = "code", Name = "name" }
-);
+await client.Leads.NotesListAsync(new NotesListLeadsRequest { LeadId = "leadId" });
 ```
 </dd>
 </dl>
@@ -2342,7 +2945,7 @@ await client.Partners.PostV1PartnersStatusesCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PartnersStatusesCreateRequest` 
+**request:** `NotesListLeadsRequest` 
     
 </dd>
 </dl>
@@ -2354,7 +2957,7 @@ await client.Partners.PostV1PartnersStatusesCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1PartnersStatusesUpdateAsync</a>(PostV1PartnersStatusesUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersStatusesUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Leads.<a href="/src/NordletApi/Leads/LeadsClient.cs">FilesListAsync</a>(FilesListLeadsRequest { ... }) -> WithRawResponseTask&lt;FilesListLeadsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -2367,9 +2970,7 @@ await client.Partners.PostV1PartnersStatusesCreateAsync(
 <dd>
 
 ```csharp
-await client.Partners.PostV1PartnersStatusesUpdateAsync(
-    new PostV1PartnersStatusesUpdateRequest { Id = "id" }
-);
+await client.Leads.FilesListAsync(new FilesListLeadsRequest { LeadId = "leadId" });
 ```
 </dd>
 </dl>
@@ -2384,7 +2985,7 @@ await client.Partners.PostV1PartnersStatusesUpdateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PartnersStatusesUpdateRequest` 
+**request:** `FilesListLeadsRequest` 
     
 </dd>
 </dl>
@@ -2396,7 +2997,7 @@ await client.Partners.PostV1PartnersStatusesUpdateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1PartnersStatusesDeleteAsync</a>(PostV1PartnersStatusesDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersStatusesDeleteResponse&gt;</code></summary>
+<details><summary><code>client.Leads.<a href="/src/NordletApi/Leads/LeadsClient.cs">SourcesCreateAsync</a>(SourcesCreateLeadsRequest { ... }) -> WithRawResponseTask&lt;SourcesCreateLeadsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -2409,9 +3010,7 @@ await client.Partners.PostV1PartnersStatusesUpdateAsync(
 <dd>
 
 ```csharp
-await client.Partners.PostV1PartnersStatusesDeleteAsync(
-    new PostV1PartnersStatusesDeleteRequest { Id = "id" }
-);
+await client.Leads.SourcesCreateAsync(new SourcesCreateLeadsRequest { Name = "name" });
 ```
 </dd>
 </dl>
@@ -2426,7 +3025,7 @@ await client.Partners.PostV1PartnersStatusesDeleteAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PartnersStatusesDeleteRequest` 
+**request:** `SourcesCreateLeadsRequest` 
     
 </dd>
 </dl>
@@ -2438,7 +3037,7 @@ await client.Partners.PostV1PartnersStatusesDeleteAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1PartnersStatusesListAsync</a>(PostV1PartnersStatusesListRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersStatusesListResponse&gt;</code></summary>
+<details><summary><code>client.Leads.<a href="/src/NordletApi/Leads/LeadsClient.cs">SourcesUpdateAsync</a>(SourcesUpdateLeadsRequest { ... }) -> WithRawResponseTask&lt;SourcesUpdateLeadsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -2451,7 +3050,7 @@ await client.Partners.PostV1PartnersStatusesDeleteAsync(
 <dd>
 
 ```csharp
-await client.Partners.PostV1PartnersStatusesListAsync(new PostV1PartnersStatusesListRequest());
+await client.Leads.SourcesUpdateAsync(new SourcesUpdateLeadsRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -2466,7 +3065,7 @@ await client.Partners.PostV1PartnersStatusesListAsync(new PostV1PartnersStatuses
 <dl>
 <dd>
 
-**request:** `PostV1PartnersStatusesListRequest` 
+**request:** `SourcesUpdateLeadsRequest` 
     
 </dd>
 </dl>
@@ -2478,7 +3077,7 @@ await client.Partners.PostV1PartnersStatusesListAsync(new PostV1PartnersStatuses
 </dl>
 </details>
 
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1PartnersInquiriesCreateAsync</a>(PostV1PartnersInquiriesCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersInquiriesCreateResponse&gt;</code></summary>
+<details><summary><code>client.Leads.<a href="/src/NordletApi/Leads/LeadsClient.cs">SourcesDeleteAsync</a>(SourcesDeleteLeadsRequest { ... }) -> WithRawResponseTask&lt;SourcesDeleteLeadsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -2491,9 +3090,7 @@ await client.Partners.PostV1PartnersStatusesListAsync(new PostV1PartnersStatuses
 <dd>
 
 ```csharp
-await client.Partners.PostV1PartnersInquiriesCreateAsync(
-    new PostV1PartnersInquiriesCreateRequest { Subject = "subject" }
-);
+await client.Leads.SourcesDeleteAsync(new SourcesDeleteLeadsRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -2508,7 +3105,7 @@ await client.Partners.PostV1PartnersInquiriesCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PartnersInquiriesCreateRequest` 
+**request:** `SourcesDeleteLeadsRequest` 
     
 </dd>
 </dl>
@@ -2520,7 +3117,7 @@ await client.Partners.PostV1PartnersInquiriesCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1PartnersInquiriesUpdateAsync</a>(PostV1PartnersInquiriesUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersInquiriesUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Leads.<a href="/src/NordletApi/Leads/LeadsClient.cs">SourcesListAsync</a>(SourcesListLeadsRequest { ... }) -> WithRawResponseTask&lt;SourcesListLeadsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -2533,9 +3130,7 @@ await client.Partners.PostV1PartnersInquiriesCreateAsync(
 <dd>
 
 ```csharp
-await client.Partners.PostV1PartnersInquiriesUpdateAsync(
-    new PostV1PartnersInquiriesUpdateRequest { Id = "id" }
-);
+await client.Leads.SourcesListAsync(new SourcesListLeadsRequest());
 ```
 </dd>
 </dl>
@@ -2550,7 +3145,7 @@ await client.Partners.PostV1PartnersInquiriesUpdateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PartnersInquiriesUpdateRequest` 
+**request:** `SourcesListLeadsRequest` 
     
 </dd>
 </dl>
@@ -2562,7 +3157,7 @@ await client.Partners.PostV1PartnersInquiriesUpdateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1PartnersInquiriesGetAsync</a>(PostV1PartnersInquiriesGetRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersInquiriesGetResponse&gt;</code></summary>
+<details><summary><code>client.Leads.<a href="/src/NordletApi/Leads/LeadsClient.cs">SourcesOptionsAsync</a>(SourcesOptionsLeadsRequest { ... }) -> WithRawResponseTask&lt;SourcesOptionsLeadsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -2575,9 +3170,7 @@ await client.Partners.PostV1PartnersInquiriesUpdateAsync(
 <dd>
 
 ```csharp
-await client.Partners.PostV1PartnersInquiriesGetAsync(
-    new PostV1PartnersInquiriesGetRequest { Id = "id" }
-);
+await client.Leads.SourcesOptionsAsync(new SourcesOptionsLeadsRequest());
 ```
 </dd>
 </dl>
@@ -2592,7 +3185,7 @@ await client.Partners.PostV1PartnersInquiriesGetAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PartnersInquiriesGetRequest` 
+**request:** `SourcesOptionsLeadsRequest` 
     
 </dd>
 </dl>
@@ -2604,661 +3197,7 @@ await client.Partners.PostV1PartnersInquiriesGetAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1PartnersInquiriesListAsync</a>(PostV1PartnersInquiriesListRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersInquiriesListResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Partners.PostV1PartnersInquiriesListAsync(new PostV1PartnersInquiriesListRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1PartnersInquiriesListRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1PartnersCreditCheckAsync</a>(PostV1PartnersCreditCheckRequest { ... }) -> WithRawResponseTask&lt;PostV1PartnersCreditCheckResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Partners.PostV1PartnersCreditCheckAsync(
-    new PostV1PartnersCreditCheckRequest { PartnerId = "partnerId" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1PartnersCreditCheckRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1LeadsCreateAsync</a>(PostV1LeadsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1LeadsCreateResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Partners.PostV1LeadsCreateAsync(new PostV1LeadsCreateRequest { Name = "name" });
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1LeadsCreateRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1LeadsGetAsync</a>(PostV1LeadsGetRequest { ... }) -> WithRawResponseTask&lt;PostV1LeadsGetResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Partners.PostV1LeadsGetAsync(new PostV1LeadsGetRequest { Id = "id" });
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1LeadsGetRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1LeadsUpdateAsync</a>(PostV1LeadsUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1LeadsUpdateResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Partners.PostV1LeadsUpdateAsync(new PostV1LeadsUpdateRequest { Id = "id" });
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1LeadsUpdateRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1LeadsDeleteAsync</a>(PostV1LeadsDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1LeadsDeleteResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Partners.PostV1LeadsDeleteAsync(new PostV1LeadsDeleteRequest { Id = "id" });
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1LeadsDeleteRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1LeadsListAsync</a>(PostV1LeadsListRequest { ... }) -> WithRawResponseTask&lt;PostV1LeadsListResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Partners.PostV1LeadsListAsync(new PostV1LeadsListRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1LeadsListRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1LeadsNotesCreateAsync</a>(PostV1LeadsNotesCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1LeadsNotesCreateResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Partners.PostV1LeadsNotesCreateAsync(
-    new PostV1LeadsNotesCreateRequest { LeadId = "leadId", Body = "body" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1LeadsNotesCreateRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1LeadsNotesDeleteAsync</a>(PostV1LeadsNotesDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1LeadsNotesDeleteResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Partners.PostV1LeadsNotesDeleteAsync(new PostV1LeadsNotesDeleteRequest { Id = "id" });
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1LeadsNotesDeleteRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1LeadsNotesListAsync</a>(PostV1LeadsNotesListRequest { ... }) -> WithRawResponseTask&lt;PostV1LeadsNotesListResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Partners.PostV1LeadsNotesListAsync(
-    new PostV1LeadsNotesListRequest { LeadId = "leadId" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1LeadsNotesListRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1LeadsFilesListAsync</a>(PostV1LeadsFilesListRequest { ... }) -> WithRawResponseTask&lt;PostV1LeadsFilesListResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Partners.PostV1LeadsFilesListAsync(
-    new PostV1LeadsFilesListRequest { LeadId = "leadId" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1LeadsFilesListRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1LeadsSourcesCreateAsync</a>(PostV1LeadsSourcesCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1LeadsSourcesCreateResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Partners.PostV1LeadsSourcesCreateAsync(
-    new PostV1LeadsSourcesCreateRequest { Name = "name" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1LeadsSourcesCreateRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1LeadsSourcesUpdateAsync</a>(PostV1LeadsSourcesUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1LeadsSourcesUpdateResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Partners.PostV1LeadsSourcesUpdateAsync(
-    new PostV1LeadsSourcesUpdateRequest { Id = "id" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1LeadsSourcesUpdateRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1LeadsSourcesDeleteAsync</a>(PostV1LeadsSourcesDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1LeadsSourcesDeleteResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Partners.PostV1LeadsSourcesDeleteAsync(
-    new PostV1LeadsSourcesDeleteRequest { Id = "id" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1LeadsSourcesDeleteRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1LeadsSourcesListAsync</a>(PostV1LeadsSourcesListRequest { ... }) -> WithRawResponseTask&lt;PostV1LeadsSourcesListResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Partners.PostV1LeadsSourcesListAsync(new PostV1LeadsSourcesListRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1LeadsSourcesListRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1LeadsSourcesOptionsAsync</a>(PostV1LeadsSourcesOptionsRequest { ... }) -> WithRawResponseTask&lt;PostV1LeadsSourcesOptionsResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Partners.PostV1LeadsSourcesOptionsAsync(new PostV1LeadsSourcesOptionsRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1LeadsSourcesOptionsRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">PostV1LeadsConvertAsync</a>(PostV1LeadsConvertRequest { ... }) -> WithRawResponseTask&lt;PostV1LeadsConvertResponse&gt;</code></summary>
+<details><summary><code>client.Leads.<a href="/src/NordletApi/Leads/LeadsClient.cs">ConvertAsync</a>(ConvertLeadsRequest { ... }) -> WithRawResponseTask&lt;ConvertLeadsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -3285,7 +3224,7 @@ Create a customer partner from the lead, move the lead files to the partner, cop
 <dd>
 
 ```csharp
-await client.Partners.PostV1LeadsConvertAsync(new PostV1LeadsConvertRequest { Id = "id" });
+await client.Leads.ConvertAsync(new ConvertLeadsRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -3300,7 +3239,7 @@ await client.Partners.PostV1LeadsConvertAsync(new PostV1LeadsConvertRequest { Id
 <dl>
 <dd>
 
-**request:** `PostV1LeadsConvertRequest` 
+**request:** `ConvertLeadsRequest` 
     
 </dd>
 </dl>
@@ -3312,8 +3251,8 @@ await client.Partners.PostV1LeadsConvertAsync(new PostV1LeadsConvertRequest { Id
 </dl>
 </details>
 
-## Catalog
-<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">PostV1CatalogItemsCreateAsync</a>(PostV1CatalogItemsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1CatalogItemsCreateResponse&gt;</code></summary>
+## catalog
+<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">ItemsCreateAsync</a>(ItemsCreateCatalogRequest { ... }) -> WithRawResponseTask&lt;ItemsCreateCatalogResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -3326,8 +3265,248 @@ await client.Partners.PostV1LeadsConvertAsync(new PostV1LeadsConvertRequest { Id
 <dd>
 
 ```csharp
-await client.Catalog.PostV1CatalogItemsCreateAsync(
-    new PostV1CatalogItemsCreateRequest { Name = "name" }
+await client.Catalog.ItemsCreateAsync(new ItemsCreateCatalogRequest { Name = "name" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ItemsCreateCatalogRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">ItemsGetAsync</a>(ItemsGetCatalogRequest { ... }) -> WithRawResponseTask&lt;ItemsGetCatalogResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Catalog.ItemsGetAsync(new ItemsGetCatalogRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ItemsGetCatalogRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">ItemsUpdateAsync</a>(ItemsUpdateCatalogRequest { ... }) -> WithRawResponseTask&lt;ItemsUpdateCatalogResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Catalog.ItemsUpdateAsync(new ItemsUpdateCatalogRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ItemsUpdateCatalogRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">ItemsDeleteAsync</a>(ItemsDeleteCatalogRequest { ... }) -> WithRawResponseTask&lt;ItemsDeleteCatalogResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Catalog.ItemsDeleteAsync(new ItemsDeleteCatalogRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ItemsDeleteCatalogRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">ItemsListAsync</a>(ItemsListCatalogRequest { ... }) -> WithRawResponseTask&lt;ItemsListCatalogResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Catalog.ItemsListAsync(new ItemsListCatalogRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ItemsListCatalogRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">ItemsFilesListAsync</a>(ItemsFilesListCatalogRequest { ... }) -> WithRawResponseTask&lt;ItemsFilesListCatalogResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Catalog.ItemsFilesListAsync(new ItemsFilesListCatalogRequest { ItemId = "itemId" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ItemsFilesListCatalogRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">ItemsKindsCreateAsync</a>(ItemsKindsCreateCatalogRequest { ... }) -> WithRawResponseTask&lt;ItemsKindsCreateCatalogResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Catalog.ItemsKindsCreateAsync(
+    new ItemsKindsCreateCatalogRequest { Code = "code", Name = "name" }
 );
 ```
 </dd>
@@ -3343,7 +3522,7 @@ await client.Catalog.PostV1CatalogItemsCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1CatalogItemsCreateRequest` 
+**request:** `ItemsKindsCreateCatalogRequest` 
     
 </dd>
 </dl>
@@ -3355,7 +3534,7 @@ await client.Catalog.PostV1CatalogItemsCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">PostV1CatalogItemsGetAsync</a>(PostV1CatalogItemsGetRequest { ... }) -> WithRawResponseTask&lt;PostV1CatalogItemsGetResponse&gt;</code></summary>
+<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">ItemsKindsUpdateAsync</a>(ItemsKindsUpdateCatalogRequest { ... }) -> WithRawResponseTask&lt;ItemsKindsUpdateCatalogResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -3368,7 +3547,7 @@ await client.Catalog.PostV1CatalogItemsCreateAsync(
 <dd>
 
 ```csharp
-await client.Catalog.PostV1CatalogItemsGetAsync(new PostV1CatalogItemsGetRequest { Id = "id" });
+await client.Catalog.ItemsKindsUpdateAsync(new ItemsKindsUpdateCatalogRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -3383,7 +3562,7 @@ await client.Catalog.PostV1CatalogItemsGetAsync(new PostV1CatalogItemsGetRequest
 <dl>
 <dd>
 
-**request:** `PostV1CatalogItemsGetRequest` 
+**request:** `ItemsKindsUpdateCatalogRequest` 
     
 </dd>
 </dl>
@@ -3395,7 +3574,7 @@ await client.Catalog.PostV1CatalogItemsGetAsync(new PostV1CatalogItemsGetRequest
 </dl>
 </details>
 
-<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">PostV1CatalogItemsUpdateAsync</a>(PostV1CatalogItemsUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1CatalogItemsUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">ItemsKindsDeleteAsync</a>(ItemsKindsDeleteCatalogRequest { ... }) -> WithRawResponseTask&lt;ItemsKindsDeleteCatalogResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -3408,8 +3587,88 @@ await client.Catalog.PostV1CatalogItemsGetAsync(new PostV1CatalogItemsGetRequest
 <dd>
 
 ```csharp
-await client.Catalog.PostV1CatalogItemsUpdateAsync(
-    new PostV1CatalogItemsUpdateRequest { Id = "id" }
+await client.Catalog.ItemsKindsDeleteAsync(new ItemsKindsDeleteCatalogRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ItemsKindsDeleteCatalogRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">ItemsKindsListAsync</a>(ItemsKindsListCatalogRequest { ... }) -> WithRawResponseTask&lt;ItemsKindsListCatalogResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Catalog.ItemsKindsListAsync(new ItemsKindsListCatalogRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ItemsKindsListCatalogRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">UnitsCreateAsync</a>(UnitsCreateCatalogRequest { ... }) -> WithRawResponseTask&lt;UnitsCreateCatalogResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Catalog.UnitsCreateAsync(
+    new UnitsCreateCatalogRequest { Code = "code", Name = "name" }
 );
 ```
 </dd>
@@ -3425,7 +3684,7 @@ await client.Catalog.PostV1CatalogItemsUpdateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1CatalogItemsUpdateRequest` 
+**request:** `UnitsCreateCatalogRequest` 
     
 </dd>
 </dl>
@@ -3437,7 +3696,7 @@ await client.Catalog.PostV1CatalogItemsUpdateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">PostV1CatalogItemsDeleteAsync</a>(PostV1CatalogItemsDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1CatalogItemsDeleteResponse&gt;</code></summary>
+<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">UnitsUpdateAsync</a>(UnitsUpdateCatalogRequest { ... }) -> WithRawResponseTask&lt;UnitsUpdateCatalogResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -3450,8 +3709,168 @@ await client.Catalog.PostV1CatalogItemsUpdateAsync(
 <dd>
 
 ```csharp
-await client.Catalog.PostV1CatalogItemsDeleteAsync(
-    new PostV1CatalogItemsDeleteRequest { Id = "id" }
+await client.Catalog.UnitsUpdateAsync(new UnitsUpdateCatalogRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `UnitsUpdateCatalogRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">UnitsDeleteAsync</a>(UnitsDeleteCatalogRequest { ... }) -> WithRawResponseTask&lt;UnitsDeleteCatalogResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Catalog.UnitsDeleteAsync(new UnitsDeleteCatalogRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `UnitsDeleteCatalogRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">UnitsListAsync</a>(UnitsListCatalogRequest { ... }) -> WithRawResponseTask&lt;UnitsListCatalogResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Catalog.UnitsListAsync(new UnitsListCatalogRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `UnitsListCatalogRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">UnitsOptionsAsync</a>(UnitsOptionsCatalogRequest { ... }) -> WithRawResponseTask&lt;UnitsOptionsCatalogResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Catalog.UnitsOptionsAsync(new UnitsOptionsCatalogRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `UnitsOptionsCatalogRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">ItemGroupsCreateAsync</a>(ItemGroupsCreateCatalogRequest { ... }) -> WithRawResponseTask&lt;ItemGroupsCreateCatalogResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Catalog.ItemGroupsCreateAsync(
+    new ItemGroupsCreateCatalogRequest { Code = "code", Name = "name" }
 );
 ```
 </dd>
@@ -3467,7 +3886,7 @@ await client.Catalog.PostV1CatalogItemsDeleteAsync(
 <dl>
 <dd>
 
-**request:** `PostV1CatalogItemsDeleteRequest` 
+**request:** `ItemGroupsCreateCatalogRequest` 
     
 </dd>
 </dl>
@@ -3479,7 +3898,7 @@ await client.Catalog.PostV1CatalogItemsDeleteAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">PostV1CatalogItemsListAsync</a>(PostV1CatalogItemsListRequest { ... }) -> WithRawResponseTask&lt;PostV1CatalogItemsListResponse&gt;</code></summary>
+<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">ItemGroupsUpdateAsync</a>(ItemGroupsUpdateCatalogRequest { ... }) -> WithRawResponseTask&lt;ItemGroupsUpdateCatalogResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -3492,7 +3911,7 @@ await client.Catalog.PostV1CatalogItemsDeleteAsync(
 <dd>
 
 ```csharp
-await client.Catalog.PostV1CatalogItemsListAsync(new PostV1CatalogItemsListRequest());
+await client.Catalog.ItemGroupsUpdateAsync(new ItemGroupsUpdateCatalogRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -3507,7 +3926,7 @@ await client.Catalog.PostV1CatalogItemsListAsync(new PostV1CatalogItemsListReque
 <dl>
 <dd>
 
-**request:** `PostV1CatalogItemsListRequest` 
+**request:** `ItemGroupsUpdateCatalogRequest` 
     
 </dd>
 </dl>
@@ -3519,7 +3938,7 @@ await client.Catalog.PostV1CatalogItemsListAsync(new PostV1CatalogItemsListReque
 </dl>
 </details>
 
-<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">PostV1CatalogItemsFilesListAsync</a>(PostV1CatalogItemsFilesListRequest { ... }) -> WithRawResponseTask&lt;PostV1CatalogItemsFilesListResponse&gt;</code></summary>
+<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">ItemGroupsDeleteAsync</a>(ItemGroupsDeleteCatalogRequest { ... }) -> WithRawResponseTask&lt;ItemGroupsDeleteCatalogResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -3532,8 +3951,88 @@ await client.Catalog.PostV1CatalogItemsListAsync(new PostV1CatalogItemsListReque
 <dd>
 
 ```csharp
-await client.Catalog.PostV1CatalogItemsFilesListAsync(
-    new PostV1CatalogItemsFilesListRequest { ItemId = "itemId" }
+await client.Catalog.ItemGroupsDeleteAsync(new ItemGroupsDeleteCatalogRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ItemGroupsDeleteCatalogRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">ItemGroupsListAsync</a>(ItemGroupsListCatalogRequest { ... }) -> WithRawResponseTask&lt;ItemGroupsListCatalogResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Catalog.ItemGroupsListAsync(new ItemGroupsListCatalogRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ItemGroupsListCatalogRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">ItemsSuppliersUpsertAsync</a>(ItemsSuppliersUpsertCatalogRequest { ... }) -> WithRawResponseTask&lt;ItemsSuppliersUpsertCatalogResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Catalog.ItemsSuppliersUpsertAsync(
+    new ItemsSuppliersUpsertCatalogRequest { ItemId = "itemId", PartnerId = "partnerId" }
 );
 ```
 </dd>
@@ -3549,7 +4048,7 @@ await client.Catalog.PostV1CatalogItemsFilesListAsync(
 <dl>
 <dd>
 
-**request:** `PostV1CatalogItemsFilesListRequest` 
+**request:** `ItemsSuppliersUpsertCatalogRequest` 
     
 </dd>
 </dl>
@@ -3561,7 +4060,7 @@ await client.Catalog.PostV1CatalogItemsFilesListAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">PostV1CatalogItemsKindsCreateAsync</a>(PostV1CatalogItemsKindsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1CatalogItemsKindsCreateResponse&gt;</code></summary>
+<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">ItemsSuppliersListAsync</a>(ItemsSuppliersListCatalogRequest { ... }) -> WithRawResponseTask&lt;ItemsSuppliersListCatalogResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -3574,8 +4073,48 @@ await client.Catalog.PostV1CatalogItemsFilesListAsync(
 <dd>
 
 ```csharp
-await client.Catalog.PostV1CatalogItemsKindsCreateAsync(
-    new PostV1CatalogItemsKindsCreateRequest { Code = "code", Name = "name" }
+await client.Catalog.ItemsSuppliersListAsync(new ItemsSuppliersListCatalogRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ItemsSuppliersListCatalogRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">ItemsSuppliersDeleteAsync</a>(ItemsSuppliersDeleteCatalogRequest { ... }) -> WithRawResponseTask&lt;ItemsSuppliersDeleteCatalogResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Catalog.ItemsSuppliersDeleteAsync(
+    new ItemsSuppliersDeleteCatalogRequest { Id = "id" }
 );
 ```
 </dd>
@@ -3591,7 +4130,7 @@ await client.Catalog.PostV1CatalogItemsKindsCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1CatalogItemsKindsCreateRequest` 
+**request:** `ItemsSuppliersDeleteCatalogRequest` 
     
 </dd>
 </dl>
@@ -3603,7 +4142,7 @@ await client.Catalog.PostV1CatalogItemsKindsCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">PostV1CatalogItemsKindsUpdateAsync</a>(PostV1CatalogItemsKindsUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1CatalogItemsKindsUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">PriceListsCreateAsync</a>(PriceListsCreateCatalogRequest { ... }) -> WithRawResponseTask&lt;PriceListsCreateCatalogResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -3616,8 +4155,8 @@ await client.Catalog.PostV1CatalogItemsKindsCreateAsync(
 <dd>
 
 ```csharp
-await client.Catalog.PostV1CatalogItemsKindsUpdateAsync(
-    new PostV1CatalogItemsKindsUpdateRequest { Id = "id" }
+await client.Catalog.PriceListsCreateAsync(
+    new PriceListsCreateCatalogRequest { Code = "code", Name = "name" }
 );
 ```
 </dd>
@@ -3633,7 +4172,7 @@ await client.Catalog.PostV1CatalogItemsKindsUpdateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1CatalogItemsKindsUpdateRequest` 
+**request:** `PriceListsCreateCatalogRequest` 
     
 </dd>
 </dl>
@@ -3645,7 +4184,7 @@ await client.Catalog.PostV1CatalogItemsKindsUpdateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">PostV1CatalogItemsKindsDeleteAsync</a>(PostV1CatalogItemsKindsDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1CatalogItemsKindsDeleteResponse&gt;</code></summary>
+<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">PriceListsUpdateAsync</a>(PriceListsUpdateCatalogRequest { ... }) -> WithRawResponseTask&lt;PriceListsUpdateCatalogResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -3658,9 +4197,7 @@ await client.Catalog.PostV1CatalogItemsKindsUpdateAsync(
 <dd>
 
 ```csharp
-await client.Catalog.PostV1CatalogItemsKindsDeleteAsync(
-    new PostV1CatalogItemsKindsDeleteRequest { Id = "id" }
-);
+await client.Catalog.PriceListsUpdateAsync(new PriceListsUpdateCatalogRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -3675,7 +4212,7 @@ await client.Catalog.PostV1CatalogItemsKindsDeleteAsync(
 <dl>
 <dd>
 
-**request:** `PostV1CatalogItemsKindsDeleteRequest` 
+**request:** `PriceListsUpdateCatalogRequest` 
     
 </dd>
 </dl>
@@ -3687,7 +4224,7 @@ await client.Catalog.PostV1CatalogItemsKindsDeleteAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">PostV1CatalogItemsKindsListAsync</a>(PostV1CatalogItemsKindsListRequest { ... }) -> WithRawResponseTask&lt;PostV1CatalogItemsKindsListResponse&gt;</code></summary>
+<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">PriceListsListAsync</a>(PriceListsListCatalogRequest { ... }) -> WithRawResponseTask&lt;PriceListsListCatalogResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -3700,7 +4237,7 @@ await client.Catalog.PostV1CatalogItemsKindsDeleteAsync(
 <dd>
 
 ```csharp
-await client.Catalog.PostV1CatalogItemsKindsListAsync(new PostV1CatalogItemsKindsListRequest());
+await client.Catalog.PriceListsListAsync(new PriceListsListCatalogRequest());
 ```
 </dd>
 </dl>
@@ -3715,7 +4252,7 @@ await client.Catalog.PostV1CatalogItemsKindsListAsync(new PostV1CatalogItemsKind
 <dl>
 <dd>
 
-**request:** `PostV1CatalogItemsKindsListRequest` 
+**request:** `PriceListsListCatalogRequest` 
     
 </dd>
 </dl>
@@ -3727,7 +4264,7 @@ await client.Catalog.PostV1CatalogItemsKindsListAsync(new PostV1CatalogItemsKind
 </dl>
 </details>
 
-<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">PostV1CatalogUnitsCreateAsync</a>(PostV1CatalogUnitsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1CatalogUnitsCreateResponse&gt;</code></summary>
+<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">PriceListsItemsSetAsync</a>(PriceListsItemsSetCatalogRequest { ... }) -> WithRawResponseTask&lt;PriceListsItemsSetCatalogResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -3740,638 +4277,16 @@ await client.Catalog.PostV1CatalogItemsKindsListAsync(new PostV1CatalogItemsKind
 <dd>
 
 ```csharp
-await client.Catalog.PostV1CatalogUnitsCreateAsync(
-    new PostV1CatalogUnitsCreateRequest { Code = "code", Name = "name" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1CatalogUnitsCreateRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">PostV1CatalogUnitsUpdateAsync</a>(PostV1CatalogUnitsUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1CatalogUnitsUpdateResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Catalog.PostV1CatalogUnitsUpdateAsync(
-    new PostV1CatalogUnitsUpdateRequest { Id = "id" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1CatalogUnitsUpdateRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">PostV1CatalogUnitsDeleteAsync</a>(PostV1CatalogUnitsDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1CatalogUnitsDeleteResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Catalog.PostV1CatalogUnitsDeleteAsync(
-    new PostV1CatalogUnitsDeleteRequest { Id = "id" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1CatalogUnitsDeleteRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">PostV1CatalogUnitsListAsync</a>(PostV1CatalogUnitsListRequest { ... }) -> WithRawResponseTask&lt;PostV1CatalogUnitsListResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Catalog.PostV1CatalogUnitsListAsync(new PostV1CatalogUnitsListRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1CatalogUnitsListRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">PostV1CatalogUnitsOptionsAsync</a>(PostV1CatalogUnitsOptionsRequest { ... }) -> WithRawResponseTask&lt;PostV1CatalogUnitsOptionsResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Catalog.PostV1CatalogUnitsOptionsAsync(new PostV1CatalogUnitsOptionsRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1CatalogUnitsOptionsRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">PostV1CatalogItemGroupsCreateAsync</a>(PostV1CatalogItemGroupsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1CatalogItemGroupsCreateResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Catalog.PostV1CatalogItemGroupsCreateAsync(
-    new PostV1CatalogItemGroupsCreateRequest { Code = "code", Name = "name" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1CatalogItemGroupsCreateRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">PostV1CatalogItemGroupsUpdateAsync</a>(PostV1CatalogItemGroupsUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1CatalogItemGroupsUpdateResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Catalog.PostV1CatalogItemGroupsUpdateAsync(
-    new PostV1CatalogItemGroupsUpdateRequest { Id = "id" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1CatalogItemGroupsUpdateRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">PostV1CatalogItemGroupsDeleteAsync</a>(PostV1CatalogItemGroupsDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1CatalogItemGroupsDeleteResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Catalog.PostV1CatalogItemGroupsDeleteAsync(
-    new PostV1CatalogItemGroupsDeleteRequest { Id = "id" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1CatalogItemGroupsDeleteRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">PostV1CatalogItemGroupsListAsync</a>(PostV1CatalogItemGroupsListRequest { ... }) -> WithRawResponseTask&lt;PostV1CatalogItemGroupsListResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Catalog.PostV1CatalogItemGroupsListAsync(new PostV1CatalogItemGroupsListRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1CatalogItemGroupsListRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">PostV1CatalogItemsSuppliersUpsertAsync</a>(PostV1CatalogItemsSuppliersUpsertRequest { ... }) -> WithRawResponseTask&lt;PostV1CatalogItemsSuppliersUpsertResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Catalog.PostV1CatalogItemsSuppliersUpsertAsync(
-    new PostV1CatalogItemsSuppliersUpsertRequest { ItemId = "itemId", PartnerId = "partnerId" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1CatalogItemsSuppliersUpsertRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">PostV1CatalogItemsSuppliersListAsync</a>(PostV1CatalogItemsSuppliersListRequest { ... }) -> WithRawResponseTask&lt;PostV1CatalogItemsSuppliersListResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Catalog.PostV1CatalogItemsSuppliersListAsync(
-    new PostV1CatalogItemsSuppliersListRequest()
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1CatalogItemsSuppliersListRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">PostV1CatalogItemsSuppliersDeleteAsync</a>(PostV1CatalogItemsSuppliersDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1CatalogItemsSuppliersDeleteResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Catalog.PostV1CatalogItemsSuppliersDeleteAsync(
-    new PostV1CatalogItemsSuppliersDeleteRequest { Id = "id" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1CatalogItemsSuppliersDeleteRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">PostV1CatalogPriceListsCreateAsync</a>(PostV1CatalogPriceListsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1CatalogPriceListsCreateResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Catalog.PostV1CatalogPriceListsCreateAsync(
-    new PostV1CatalogPriceListsCreateRequest { Code = "code", Name = "name" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1CatalogPriceListsCreateRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">PostV1CatalogPriceListsUpdateAsync</a>(PostV1CatalogPriceListsUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1CatalogPriceListsUpdateResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Catalog.PostV1CatalogPriceListsUpdateAsync(
-    new PostV1CatalogPriceListsUpdateRequest { Id = "id" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1CatalogPriceListsUpdateRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">PostV1CatalogPriceListsListAsync</a>(PostV1CatalogPriceListsListRequest { ... }) -> WithRawResponseTask&lt;PostV1CatalogPriceListsListResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Catalog.PostV1CatalogPriceListsListAsync(new PostV1CatalogPriceListsListRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1CatalogPriceListsListRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">PostV1CatalogPriceListsItemsSetAsync</a>(PostV1CatalogPriceListsItemsSetRequest { ... }) -> WithRawResponseTask&lt;PostV1CatalogPriceListsItemsSetResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Catalog.PostV1CatalogPriceListsItemsSetAsync(
-    new PostV1CatalogPriceListsItemsSetRequest
+await client.Catalog.PriceListsItemsSetAsync(
+    new PriceListsItemsSetCatalogRequest
     {
         PriceListId = "priceListId",
-        Items = new List<PostV1CatalogPriceListsItemsSetRequestItemsItem>()
+        Items = new List<PriceListsItemsSetCatalogRequestItemsItem>()
         {
-            new PostV1CatalogPriceListsItemsSetRequestItemsItem
+            new PriceListsItemsSetCatalogRequestItemsItem
             {
                 ItemId = "itemId",
-                UnitPriceExclVat = "unitPriceExclVat",
+                UnitPriceExclVat = "121.0000",
             },
         },
     }
@@ -4390,7 +4305,7 @@ await client.Catalog.PostV1CatalogPriceListsItemsSetAsync(
 <dl>
 <dd>
 
-**request:** `PostV1CatalogPriceListsItemsSetRequest` 
+**request:** `PriceListsItemsSetCatalogRequest` 
     
 </dd>
 </dl>
@@ -4402,7 +4317,7 @@ await client.Catalog.PostV1CatalogPriceListsItemsSetAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">PostV1CatalogPriceListsItemsListAsync</a>(PostV1CatalogPriceListsItemsListRequest { ... }) -> WithRawResponseTask&lt;PostV1CatalogPriceListsItemsListResponse&gt;</code></summary>
+<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">PriceListsItemsListAsync</a>(PriceListsItemsListCatalogRequest { ... }) -> WithRawResponseTask&lt;PriceListsItemsListCatalogResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -4415,8 +4330,8 @@ await client.Catalog.PostV1CatalogPriceListsItemsSetAsync(
 <dd>
 
 ```csharp
-await client.Catalog.PostV1CatalogPriceListsItemsListAsync(
-    new PostV1CatalogPriceListsItemsListRequest { PriceListId = "priceListId" }
+await client.Catalog.PriceListsItemsListAsync(
+    new PriceListsItemsListCatalogRequest { PriceListId = "priceListId" }
 );
 ```
 </dd>
@@ -4432,7 +4347,7 @@ await client.Catalog.PostV1CatalogPriceListsItemsListAsync(
 <dl>
 <dd>
 
-**request:** `PostV1CatalogPriceListsItemsListRequest` 
+**request:** `PriceListsItemsListCatalogRequest` 
     
 </dd>
 </dl>
@@ -4444,7 +4359,7 @@ await client.Catalog.PostV1CatalogPriceListsItemsListAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">PostV1CatalogPriceListsItemsDeleteAsync</a>(PostV1CatalogPriceListsItemsDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1CatalogPriceListsItemsDeleteResponse&gt;</code></summary>
+<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">PriceListsItemsDeleteAsync</a>(PriceListsItemsDeleteCatalogRequest { ... }) -> WithRawResponseTask&lt;PriceListsItemsDeleteCatalogResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -4457,8 +4372,8 @@ await client.Catalog.PostV1CatalogPriceListsItemsListAsync(
 <dd>
 
 ```csharp
-await client.Catalog.PostV1CatalogPriceListsItemsDeleteAsync(
-    new PostV1CatalogPriceListsItemsDeleteRequest { PriceListId = "priceListId", ItemId = "itemId" }
+await client.Catalog.PriceListsItemsDeleteAsync(
+    new PriceListsItemsDeleteCatalogRequest { PriceListId = "priceListId", ItemId = "itemId" }
 );
 ```
 </dd>
@@ -4474,7 +4389,7 @@ await client.Catalog.PostV1CatalogPriceListsItemsDeleteAsync(
 <dl>
 <dd>
 
-**request:** `PostV1CatalogPriceListsItemsDeleteRequest` 
+**request:** `PriceListsItemsDeleteCatalogRequest` 
     
 </dd>
 </dl>
@@ -4486,8 +4401,8 @@ await client.Catalog.PostV1CatalogPriceListsItemsDeleteAsync(
 </dl>
 </details>
 
-## Sales
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesInvoicesCreateAsync</a>(PostV1SalesInvoicesCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesInvoicesCreateResponse&gt;</code></summary>
+## sales
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">InvoicesCreateAsync</a>(InvoicesCreateSalesRequest { ... }) -> WithRawResponseTask&lt;InvoicesCreateSalesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -4500,13 +4415,13 @@ await client.Catalog.PostV1CatalogPriceListsItemsDeleteAsync(
 <dd>
 
 ```csharp
-await client.Sales.PostV1SalesInvoicesCreateAsync(
-    new PostV1SalesInvoicesCreateRequest
+await client.Sales.InvoicesCreateAsync(
+    new InvoicesCreateSalesRequest
     {
         PartnerId = "partnerId",
-        Lines = new List<PostV1SalesInvoicesCreateRequestLinesItem>()
+        Lines = new List<InvoicesCreateSalesRequestLinesItem>()
         {
-            new PostV1SalesInvoicesCreateRequestLinesItem(),
+            new InvoicesCreateSalesRequestLinesItem(),
         },
     }
 );
@@ -4524,7 +4439,7 @@ await client.Sales.PostV1SalesInvoicesCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1SalesInvoicesCreateRequest` 
+**request:** `InvoicesCreateSalesRequest` 
     
 </dd>
 </dl>
@@ -4536,7 +4451,7 @@ await client.Sales.PostV1SalesInvoicesCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesInvoicesGetAsync</a>(PostV1SalesInvoicesGetRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesInvoicesGetResponse&gt;</code></summary>
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">InvoicesGetAsync</a>(InvoicesGetSalesRequest { ... }) -> WithRawResponseTask&lt;InvoicesGetSalesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -4549,7 +4464,7 @@ await client.Sales.PostV1SalesInvoicesCreateAsync(
 <dd>
 
 ```csharp
-await client.Sales.PostV1SalesInvoicesGetAsync(new PostV1SalesInvoicesGetRequest { Id = "id" });
+await client.Sales.InvoicesGetAsync(new InvoicesGetSalesRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -4564,7 +4479,7 @@ await client.Sales.PostV1SalesInvoicesGetAsync(new PostV1SalesInvoicesGetRequest
 <dl>
 <dd>
 
-**request:** `PostV1SalesInvoicesGetRequest` 
+**request:** `InvoicesGetSalesRequest` 
     
 </dd>
 </dl>
@@ -4576,7 +4491,7 @@ await client.Sales.PostV1SalesInvoicesGetAsync(new PostV1SalesInvoicesGetRequest
 </dl>
 </details>
 
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesInvoicesPdfAsync</a>(PostV1SalesInvoicesPdfRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesInvoicesPdfResponse&gt;</code></summary>
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">InvoicesPdfAsync</a>(InvoicesPdfSalesRequest { ... }) -> WithRawResponseTask&lt;InvoicesPdfSalesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -4589,7 +4504,7 @@ await client.Sales.PostV1SalesInvoicesGetAsync(new PostV1SalesInvoicesGetRequest
 <dd>
 
 ```csharp
-await client.Sales.PostV1SalesInvoicesPdfAsync(new PostV1SalesInvoicesPdfRequest { Id = "id" });
+await client.Sales.InvoicesPdfAsync(new InvoicesPdfSalesRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -4604,7 +4519,7 @@ await client.Sales.PostV1SalesInvoicesPdfAsync(new PostV1SalesInvoicesPdfRequest
 <dl>
 <dd>
 
-**request:** `PostV1SalesInvoicesPdfRequest` 
+**request:** `InvoicesPdfSalesRequest` 
     
 </dd>
 </dl>
@@ -4616,7 +4531,7 @@ await client.Sales.PostV1SalesInvoicesPdfAsync(new PostV1SalesInvoicesPdfRequest
 </dl>
 </details>
 
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesInvoicesSendAsync</a>(PostV1SalesInvoicesSendRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesInvoicesSendResponse&gt;</code></summary>
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">InvoicesSendAsync</a>(InvoicesSendSalesRequest { ... }) -> WithRawResponseTask&lt;InvoicesSendSalesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -4629,7 +4544,7 @@ await client.Sales.PostV1SalesInvoicesPdfAsync(new PostV1SalesInvoicesPdfRequest
 <dd>
 
 ```csharp
-await client.Sales.PostV1SalesInvoicesSendAsync(new PostV1SalesInvoicesSendRequest { Id = "id" });
+await client.Sales.InvoicesSendAsync(new InvoicesSendSalesRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -4644,7 +4559,7 @@ await client.Sales.PostV1SalesInvoicesSendAsync(new PostV1SalesInvoicesSendReque
 <dl>
 <dd>
 
-**request:** `PostV1SalesInvoicesSendRequest` 
+**request:** `InvoicesSendSalesRequest` 
     
 </dd>
 </dl>
@@ -4656,7 +4571,7 @@ await client.Sales.PostV1SalesInvoicesSendAsync(new PostV1SalesInvoicesSendReque
 </dl>
 </details>
 
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesInvoicesPeppolXmlAsync</a>(PostV1SalesInvoicesPeppolXmlRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesInvoicesPeppolXmlResponse&gt;</code></summary>
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">InvoicesPeppolXmlAsync</a>(InvoicesPeppolXmlSalesRequest { ... }) -> WithRawResponseTask&lt;InvoicesPeppolXmlSalesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -4669,9 +4584,7 @@ await client.Sales.PostV1SalesInvoicesSendAsync(new PostV1SalesInvoicesSendReque
 <dd>
 
 ```csharp
-await client.Sales.PostV1SalesInvoicesPeppolXmlAsync(
-    new PostV1SalesInvoicesPeppolXmlRequest { Id = "id" }
-);
+await client.Sales.InvoicesPeppolXmlAsync(new InvoicesPeppolXmlSalesRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -4686,7 +4599,7 @@ await client.Sales.PostV1SalesInvoicesPeppolXmlAsync(
 <dl>
 <dd>
 
-**request:** `PostV1SalesInvoicesPeppolXmlRequest` 
+**request:** `InvoicesPeppolXmlSalesRequest` 
     
 </dd>
 </dl>
@@ -4698,7 +4611,7 @@ await client.Sales.PostV1SalesInvoicesPeppolXmlAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesInvoicesPeppolSendAsync</a>(PostV1SalesInvoicesPeppolSendRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesInvoicesPeppolSendResponse&gt;</code></summary>
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">InvoicesPeppolSendAsync</a>(InvoicesPeppolSendSalesRequest { ... }) -> WithRawResponseTask&lt;InvoicesPeppolSendSalesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -4711,9 +4624,7 @@ await client.Sales.PostV1SalesInvoicesPeppolXmlAsync(
 <dd>
 
 ```csharp
-await client.Sales.PostV1SalesInvoicesPeppolSendAsync(
-    new PostV1SalesInvoicesPeppolSendRequest { Id = "id" }
-);
+await client.Sales.InvoicesPeppolSendAsync(new InvoicesPeppolSendSalesRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -4728,7 +4639,7 @@ await client.Sales.PostV1SalesInvoicesPeppolSendAsync(
 <dl>
 <dd>
 
-**request:** `PostV1SalesInvoicesPeppolSendRequest` 
+**request:** `InvoicesPeppolSendSalesRequest` 
     
 </dd>
 </dl>
@@ -4740,7 +4651,7 @@ await client.Sales.PostV1SalesInvoicesPeppolSendAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesInvoicesEinvoiceXmlAsync</a>(PostV1SalesInvoicesEinvoiceXmlRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesInvoicesEinvoiceXmlResponse&gt;</code></summary>
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">InvoicesEinvoiceXmlAsync</a>(InvoicesEinvoiceXmlSalesRequest { ... }) -> WithRawResponseTask&lt;InvoicesEinvoiceXmlSalesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -4767,9 +4678,7 @@ Render an issued invoice as the national e-invoicing payload for the company cou
 <dd>
 
 ```csharp
-await client.Sales.PostV1SalesInvoicesEinvoiceXmlAsync(
-    new PostV1SalesInvoicesEinvoiceXmlRequest { Id = "id" }
-);
+await client.Sales.InvoicesEinvoiceXmlAsync(new InvoicesEinvoiceXmlSalesRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -4784,7 +4693,7 @@ await client.Sales.PostV1SalesInvoicesEinvoiceXmlAsync(
 <dl>
 <dd>
 
-**request:** `PostV1SalesInvoicesEinvoiceXmlRequest` 
+**request:** `InvoicesEinvoiceXmlSalesRequest` 
     
 </dd>
 </dl>
@@ -4796,7 +4705,7 @@ await client.Sales.PostV1SalesInvoicesEinvoiceXmlAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesInvoicesEinvoiceSendAsync</a>(PostV1SalesInvoicesEinvoiceSendRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesInvoicesEinvoiceSendResponse&gt;</code></summary>
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">InvoicesEinvoiceSendAsync</a>(InvoicesEinvoiceSendSalesRequest { ... }) -> WithRawResponseTask&lt;InvoicesEinvoiceSendSalesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -4823,9 +4732,7 @@ Build the national e-invoicing payload and deliver it over the transport configu
 <dd>
 
 ```csharp
-await client.Sales.PostV1SalesInvoicesEinvoiceSendAsync(
-    new PostV1SalesInvoicesEinvoiceSendRequest { Id = "id" }
-);
+await client.Sales.InvoicesEinvoiceSendAsync(new InvoicesEinvoiceSendSalesRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -4840,7 +4747,7 @@ await client.Sales.PostV1SalesInvoicesEinvoiceSendAsync(
 <dl>
 <dd>
 
-**request:** `PostV1SalesInvoicesEinvoiceSendRequest` 
+**request:** `InvoicesEinvoiceSendSalesRequest` 
     
 </dd>
 </dl>
@@ -4852,7 +4759,7 @@ await client.Sales.PostV1SalesInvoicesEinvoiceSendAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesInvoicesEinvoiceStatusAsync</a>(PostV1SalesInvoicesEinvoiceStatusRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesInvoicesEinvoiceStatusResponse&gt;</code></summary>
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">InvoicesEinvoiceStatusAsync</a>(InvoicesEinvoiceStatusSalesRequest { ... }) -> WithRawResponseTask&lt;InvoicesEinvoiceStatusSalesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -4879,8 +4786,8 @@ Ask the national e-invoicing channel what happened to an invoice that was alread
 <dd>
 
 ```csharp
-await client.Sales.PostV1SalesInvoicesEinvoiceStatusAsync(
-    new PostV1SalesInvoicesEinvoiceStatusRequest { Id = "id" }
+await client.Sales.InvoicesEinvoiceStatusAsync(
+    new InvoicesEinvoiceStatusSalesRequest { Id = "id" }
 );
 ```
 </dd>
@@ -4896,7 +4803,7 @@ await client.Sales.PostV1SalesInvoicesEinvoiceStatusAsync(
 <dl>
 <dd>
 
-**request:** `PostV1SalesInvoicesEinvoiceStatusRequest` 
+**request:** `InvoicesEinvoiceStatusSalesRequest` 
     
 </dd>
 </dl>
@@ -4908,7 +4815,7 @@ await client.Sales.PostV1SalesInvoicesEinvoiceStatusAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesInvoicesUpdateAsync</a>(PostV1SalesInvoicesUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesInvoicesUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">InvoicesUpdateAsync</a>(InvoicesUpdateSalesRequest { ... }) -> WithRawResponseTask&lt;InvoicesUpdateSalesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -4921,8 +4828,288 @@ await client.Sales.PostV1SalesInvoicesEinvoiceStatusAsync(
 <dd>
 
 ```csharp
-await client.Sales.PostV1SalesInvoicesUpdateAsync(
-    new PostV1SalesInvoicesUpdateRequest { Id = "id" }
+await client.Sales.InvoicesUpdateAsync(new InvoicesUpdateSalesRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `InvoicesUpdateSalesRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">InvoicesDeleteAsync</a>(InvoicesDeleteSalesRequest { ... }) -> WithRawResponseTask&lt;InvoicesDeleteSalesResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Sales.InvoicesDeleteAsync(new InvoicesDeleteSalesRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `InvoicesDeleteSalesRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">InvoicesIssueAsync</a>(InvoicesIssueSalesRequest { ... }) -> WithRawResponseTask&lt;InvoicesIssueSalesResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Sales.InvoicesIssueAsync(new InvoicesIssueSalesRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `InvoicesIssueSalesRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">InvoicesLockAsync</a>(InvoicesLockSalesRequest { ... }) -> WithRawResponseTask&lt;InvoicesLockSalesResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Sales.InvoicesLockAsync(new InvoicesLockSalesRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `InvoicesLockSalesRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">InvoicesUnlockAsync</a>(InvoicesUnlockSalesRequest { ... }) -> WithRawResponseTask&lt;InvoicesUnlockSalesResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Sales.InvoicesUnlockAsync(new InvoicesUnlockSalesRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `InvoicesUnlockSalesRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">InvoicesPaymentLinkAsync</a>(InvoicesPaymentLinkSalesRequest { ... }) -> WithRawResponseTask&lt;InvoicesPaymentLinkSalesResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Sales.InvoicesPaymentLinkAsync(new InvoicesPaymentLinkSalesRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `InvoicesPaymentLinkSalesRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">InvoicesPaymentSettingsGetAsync</a>(InvoicesPaymentSettingsGetSalesRequest { ... }) -> WithRawResponseTask&lt;InvoicesPaymentSettingsGetSalesResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Sales.InvoicesPaymentSettingsGetAsync(new InvoicesPaymentSettingsGetSalesRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `InvoicesPaymentSettingsGetSalesRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">InvoicesPaymentSettingsUpdateAsync</a>(InvoicesPaymentSettingsUpdateSalesRequest { ... }) -> WithRawResponseTask&lt;InvoicesPaymentSettingsUpdateSalesResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Sales.InvoicesPaymentSettingsUpdateAsync(
+    new InvoicesPaymentSettingsUpdateSalesRequest()
 );
 ```
 </dd>
@@ -4938,7 +5125,7 @@ await client.Sales.PostV1SalesInvoicesUpdateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1SalesInvoicesUpdateRequest` 
+**request:** `InvoicesPaymentSettingsUpdateSalesRequest` 
     
 </dd>
 </dl>
@@ -4950,7 +5137,7 @@ await client.Sales.PostV1SalesInvoicesUpdateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesInvoicesDeleteAsync</a>(PostV1SalesInvoicesDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesInvoicesDeleteResponse&gt;</code></summary>
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">RecognitionSchedulesListAsync</a>(RecognitionSchedulesListSalesRequest { ... }) -> WithRawResponseTask&lt;RecognitionSchedulesListSalesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -4963,8 +5150,48 @@ await client.Sales.PostV1SalesInvoicesUpdateAsync(
 <dd>
 
 ```csharp
-await client.Sales.PostV1SalesInvoicesDeleteAsync(
-    new PostV1SalesInvoicesDeleteRequest { Id = "id" }
+await client.Sales.RecognitionSchedulesListAsync(new RecognitionSchedulesListSalesRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `RecognitionSchedulesListSalesRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">InvoicesApplyAdvanceAsync</a>(InvoicesApplyAdvanceSalesRequest { ... }) -> WithRawResponseTask&lt;InvoicesApplyAdvanceSalesResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Sales.InvoicesApplyAdvanceAsync(
+    new InvoicesApplyAdvanceSalesRequest { AdvanceId = "advanceId", InvoiceId = "invoiceId" }
 );
 ```
 </dd>
@@ -4980,7 +5207,7 @@ await client.Sales.PostV1SalesInvoicesDeleteAsync(
 <dl>
 <dd>
 
-**request:** `PostV1SalesInvoicesDeleteRequest` 
+**request:** `InvoicesApplyAdvanceSalesRequest` 
     
 </dd>
 </dl>
@@ -4992,7 +5219,7 @@ await client.Sales.PostV1SalesInvoicesDeleteAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesInvoicesIssueAsync</a>(PostV1SalesInvoicesIssueRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesInvoicesIssueResponse&gt;</code></summary>
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">InvoicesListAsync</a>(InvoicesListSalesRequest { ... }) -> WithRawResponseTask&lt;InvoicesListSalesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -5005,7 +5232,7 @@ await client.Sales.PostV1SalesInvoicesDeleteAsync(
 <dd>
 
 ```csharp
-await client.Sales.PostV1SalesInvoicesIssueAsync(new PostV1SalesInvoicesIssueRequest { Id = "id" });
+await client.Sales.InvoicesListAsync(new InvoicesListSalesRequest());
 ```
 </dd>
 </dl>
@@ -5020,7 +5247,7 @@ await client.Sales.PostV1SalesInvoicesIssueAsync(new PostV1SalesInvoicesIssueReq
 <dl>
 <dd>
 
-**request:** `PostV1SalesInvoicesIssueRequest` 
+**request:** `InvoicesListSalesRequest` 
     
 </dd>
 </dl>
@@ -5032,7 +5259,7 @@ await client.Sales.PostV1SalesInvoicesIssueAsync(new PostV1SalesInvoicesIssueReq
 </dl>
 </details>
 
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesInvoicesLockAsync</a>(PostV1SalesInvoicesLockRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesInvoicesLockResponse&gt;</code></summary>
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">ActsCreateAsync</a>(ActsCreateSalesRequest { ... }) -> WithRawResponseTask&lt;ActsCreateSalesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -5045,7 +5272,7 @@ await client.Sales.PostV1SalesInvoicesIssueAsync(new PostV1SalesInvoicesIssueReq
 <dd>
 
 ```csharp
-await client.Sales.PostV1SalesInvoicesLockAsync(new PostV1SalesInvoicesLockRequest { Id = "id" });
+await client.Sales.ActsCreateAsync(new ActsCreateSalesRequest { PartnerId = "partnerId" });
 ```
 </dd>
 </dl>
@@ -5060,7 +5287,7 @@ await client.Sales.PostV1SalesInvoicesLockAsync(new PostV1SalesInvoicesLockReque
 <dl>
 <dd>
 
-**request:** `PostV1SalesInvoicesLockRequest` 
+**request:** `ActsCreateSalesRequest` 
     
 </dd>
 </dl>
@@ -5072,7 +5299,7 @@ await client.Sales.PostV1SalesInvoicesLockAsync(new PostV1SalesInvoicesLockReque
 </dl>
 </details>
 
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesInvoicesUnlockAsync</a>(PostV1SalesInvoicesUnlockRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesInvoicesUnlockResponse&gt;</code></summary>
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">ActsUpdateAsync</a>(ActsUpdateSalesRequest { ... }) -> WithRawResponseTask&lt;ActsUpdateSalesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -5085,9 +5312,7 @@ await client.Sales.PostV1SalesInvoicesLockAsync(new PostV1SalesInvoicesLockReque
 <dd>
 
 ```csharp
-await client.Sales.PostV1SalesInvoicesUnlockAsync(
-    new PostV1SalesInvoicesUnlockRequest { Id = "id" }
-);
+await client.Sales.ActsUpdateAsync(new ActsUpdateSalesRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -5102,7 +5327,7 @@ await client.Sales.PostV1SalesInvoicesUnlockAsync(
 <dl>
 <dd>
 
-**request:** `PostV1SalesInvoicesUnlockRequest` 
+**request:** `ActsUpdateSalesRequest` 
     
 </dd>
 </dl>
@@ -5114,7 +5339,7 @@ await client.Sales.PostV1SalesInvoicesUnlockAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesInvoicesPaymentLinkAsync</a>(PostV1SalesInvoicesPaymentLinkRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesInvoicesPaymentLinkResponse&gt;</code></summary>
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">ActsIssueAsync</a>(ActsIssueSalesRequest { ... }) -> WithRawResponseTask&lt;ActsIssueSalesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -5127,9 +5352,7 @@ await client.Sales.PostV1SalesInvoicesUnlockAsync(
 <dd>
 
 ```csharp
-await client.Sales.PostV1SalesInvoicesPaymentLinkAsync(
-    new PostV1SalesInvoicesPaymentLinkRequest { Id = "id" }
-);
+await client.Sales.ActsIssueAsync(new ActsIssueSalesRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -5144,7 +5367,7 @@ await client.Sales.PostV1SalesInvoicesPaymentLinkAsync(
 <dl>
 <dd>
 
-**request:** `PostV1SalesInvoicesPaymentLinkRequest` 
+**request:** `ActsIssueSalesRequest` 
     
 </dd>
 </dl>
@@ -5156,7 +5379,7 @@ await client.Sales.PostV1SalesInvoicesPaymentLinkAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesInvoicesPaymentSettingsGetAsync</a>(PostV1SalesInvoicesPaymentSettingsGetRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesInvoicesPaymentSettingsGetResponse&gt;</code></summary>
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">ActsCancelAsync</a>(ActsCancelSalesRequest { ... }) -> WithRawResponseTask&lt;ActsCancelSalesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -5169,9 +5392,7 @@ await client.Sales.PostV1SalesInvoicesPaymentLinkAsync(
 <dd>
 
 ```csharp
-await client.Sales.PostV1SalesInvoicesPaymentSettingsGetAsync(
-    new PostV1SalesInvoicesPaymentSettingsGetRequest()
-);
+await client.Sales.ActsCancelAsync(new ActsCancelSalesRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -5186,7 +5407,7 @@ await client.Sales.PostV1SalesInvoicesPaymentSettingsGetAsync(
 <dl>
 <dd>
 
-**request:** `PostV1SalesInvoicesPaymentSettingsGetRequest` 
+**request:** `ActsCancelSalesRequest` 
     
 </dd>
 </dl>
@@ -5198,7 +5419,7 @@ await client.Sales.PostV1SalesInvoicesPaymentSettingsGetAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesInvoicesPaymentSettingsUpdateAsync</a>(PostV1SalesInvoicesPaymentSettingsUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesInvoicesPaymentSettingsUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">ActsGetAsync</a>(ActsGetSalesRequest { ... }) -> WithRawResponseTask&lt;ActsGetSalesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -5211,9 +5432,7 @@ await client.Sales.PostV1SalesInvoicesPaymentSettingsGetAsync(
 <dd>
 
 ```csharp
-await client.Sales.PostV1SalesInvoicesPaymentSettingsUpdateAsync(
-    new PostV1SalesInvoicesPaymentSettingsUpdateRequest()
-);
+await client.Sales.ActsGetAsync(new ActsGetSalesRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -5228,7 +5447,7 @@ await client.Sales.PostV1SalesInvoicesPaymentSettingsUpdateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1SalesInvoicesPaymentSettingsUpdateRequest` 
+**request:** `ActsGetSalesRequest` 
     
 </dd>
 </dl>
@@ -5240,7 +5459,7 @@ await client.Sales.PostV1SalesInvoicesPaymentSettingsUpdateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesRecognitionSchedulesListAsync</a>(PostV1SalesRecognitionSchedulesListRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesRecognitionSchedulesListResponse&gt;</code></summary>
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">ActsListAsync</a>(ActsListSalesRequest { ... }) -> WithRawResponseTask&lt;ActsListSalesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -5253,9 +5472,7 @@ await client.Sales.PostV1SalesInvoicesPaymentSettingsUpdateAsync(
 <dd>
 
 ```csharp
-await client.Sales.PostV1SalesRecognitionSchedulesListAsync(
-    new PostV1SalesRecognitionSchedulesListRequest()
-);
+await client.Sales.ActsListAsync(new ActsListSalesRequest());
 ```
 </dd>
 </dl>
@@ -5270,7 +5487,7 @@ await client.Sales.PostV1SalesRecognitionSchedulesListAsync(
 <dl>
 <dd>
 
-**request:** `PostV1SalesRecognitionSchedulesListRequest` 
+**request:** `ActsListSalesRequest` 
     
 </dd>
 </dl>
@@ -5282,7 +5499,7 @@ await client.Sales.PostV1SalesRecognitionSchedulesListAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesInvoicesApplyAdvanceAsync</a>(PostV1SalesInvoicesApplyAdvanceRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesInvoicesApplyAdvanceResponse&gt;</code></summary>
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">ActsPdfAsync</a>(ActsPdfSalesRequest { ... }) -> WithRawResponseTask&lt;ActsPdfSalesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -5295,9 +5512,7 @@ await client.Sales.PostV1SalesRecognitionSchedulesListAsync(
 <dd>
 
 ```csharp
-await client.Sales.PostV1SalesInvoicesApplyAdvanceAsync(
-    new PostV1SalesInvoicesApplyAdvanceRequest { AdvanceId = "advanceId", InvoiceId = "invoiceId" }
-);
+await client.Sales.ActsPdfAsync(new ActsPdfSalesRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -5312,7 +5527,7 @@ await client.Sales.PostV1SalesInvoicesApplyAdvanceAsync(
 <dl>
 <dd>
 
-**request:** `PostV1SalesInvoicesApplyAdvanceRequest` 
+**request:** `ActsPdfSalesRequest` 
     
 </dd>
 </dl>
@@ -5324,7 +5539,7 @@ await client.Sales.PostV1SalesInvoicesApplyAdvanceAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesInvoicesListAsync</a>(PostV1SalesInvoicesListRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesInvoicesListResponse&gt;</code></summary>
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">RecognitionComputeAsync</a>(RecognitionComputeSalesRequest { ... }) -> WithRawResponseTask&lt;RecognitionComputeSalesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -5337,7 +5552,7 @@ await client.Sales.PostV1SalesInvoicesApplyAdvanceAsync(
 <dd>
 
 ```csharp
-await client.Sales.PostV1SalesInvoicesListAsync(new PostV1SalesInvoicesListRequest());
+await client.Sales.RecognitionComputeAsync(new RecognitionComputeSalesRequest());
 ```
 </dd>
 </dl>
@@ -5352,7 +5567,7 @@ await client.Sales.PostV1SalesInvoicesListAsync(new PostV1SalesInvoicesListReque
 <dl>
 <dd>
 
-**request:** `PostV1SalesInvoicesListRequest` 
+**request:** `RecognitionComputeSalesRequest` 
     
 </dd>
 </dl>
@@ -5364,7 +5579,7 @@ await client.Sales.PostV1SalesInvoicesListAsync(new PostV1SalesInvoicesListReque
 </dl>
 </details>
 
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesActsCreateAsync</a>(PostV1SalesActsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesActsCreateResponse&gt;</code></summary>
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">RecognitionRunAsync</a>(RecognitionRunSalesRequest { ... }) -> WithRawResponseTask&lt;RecognitionRunSalesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -5377,9 +5592,7 @@ await client.Sales.PostV1SalesInvoicesListAsync(new PostV1SalesInvoicesListReque
 <dd>
 
 ```csharp
-await client.Sales.PostV1SalesActsCreateAsync(
-    new PostV1SalesActsCreateRequest { PartnerId = "partnerId" }
-);
+await client.Sales.RecognitionRunAsync(new RecognitionRunSalesRequest());
 ```
 </dd>
 </dl>
@@ -5394,7 +5607,7 @@ await client.Sales.PostV1SalesActsCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1SalesActsCreateRequest` 
+**request:** `RecognitionRunSalesRequest` 
     
 </dd>
 </dl>
@@ -5406,7 +5619,7 @@ await client.Sales.PostV1SalesActsCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesActsUpdateAsync</a>(PostV1SalesActsUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesActsUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">RecognitionProgressAsync</a>(RecognitionProgressSalesRequest { ... }) -> WithRawResponseTask&lt;RecognitionProgressSalesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -5419,743 +5632,11 @@ await client.Sales.PostV1SalesActsCreateAsync(
 <dd>
 
 ```csharp
-await client.Sales.PostV1SalesActsUpdateAsync(new PostV1SalesActsUpdateRequest { Id = "id" });
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1SalesActsUpdateRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesActsIssueAsync</a>(PostV1SalesActsIssueRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesActsIssueResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Sales.PostV1SalesActsIssueAsync(new PostV1SalesActsIssueRequest { Id = "id" });
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1SalesActsIssueRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesActsCancelAsync</a>(PostV1SalesActsCancelRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesActsCancelResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Sales.PostV1SalesActsCancelAsync(new PostV1SalesActsCancelRequest { Id = "id" });
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1SalesActsCancelRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesActsGetAsync</a>(PostV1SalesActsGetRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesActsGetResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Sales.PostV1SalesActsGetAsync(new PostV1SalesActsGetRequest { Id = "id" });
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1SalesActsGetRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesActsListAsync</a>(PostV1SalesActsListRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesActsListResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Sales.PostV1SalesActsListAsync(new PostV1SalesActsListRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1SalesActsListRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesActsPdfAsync</a>(PostV1SalesActsPdfRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesActsPdfResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Sales.PostV1SalesActsPdfAsync(new PostV1SalesActsPdfRequest { Id = "id" });
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1SalesActsPdfRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1OperationTypesCreateAsync</a>(PostV1OperationTypesCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1OperationTypesCreateResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Sales.PostV1OperationTypesCreateAsync(
-    new PostV1OperationTypesCreateRequest { Code = "code", Name = "name" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1OperationTypesCreateRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1OperationTypesUpdateAsync</a>(PostV1OperationTypesUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1OperationTypesUpdateResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Sales.PostV1OperationTypesUpdateAsync(
-    new PostV1OperationTypesUpdateRequest { Id = "id" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1OperationTypesUpdateRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1OperationTypesGetAsync</a>(PostV1OperationTypesGetRequest { ... }) -> WithRawResponseTask&lt;PostV1OperationTypesGetResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Sales.PostV1OperationTypesGetAsync(new PostV1OperationTypesGetRequest { Id = "id" });
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1OperationTypesGetRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1OperationTypesDeleteAsync</a>(PostV1OperationTypesDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1OperationTypesDeleteResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Sales.PostV1OperationTypesDeleteAsync(
-    new PostV1OperationTypesDeleteRequest { Id = "id" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1OperationTypesDeleteRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1OperationTypesListAsync</a>(PostV1OperationTypesListRequest { ... }) -> WithRawResponseTask&lt;PostV1OperationTypesListResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Sales.PostV1OperationTypesListAsync(new PostV1OperationTypesListRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1OperationTypesListRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1DocumentSeriesCreateAsync</a>(PostV1DocumentSeriesCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1DocumentSeriesCreateResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Sales.PostV1DocumentSeriesCreateAsync(
-    new PostV1DocumentSeriesCreateRequest { Prefix = "prefix" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1DocumentSeriesCreateRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1DocumentSeriesUpdateAsync</a>(PostV1DocumentSeriesUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1DocumentSeriesUpdateResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Sales.PostV1DocumentSeriesUpdateAsync(
-    new PostV1DocumentSeriesUpdateRequest { Id = "id" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1DocumentSeriesUpdateRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1DocumentSeriesGetAsync</a>(PostV1DocumentSeriesGetRequest { ... }) -> WithRawResponseTask&lt;PostV1DocumentSeriesGetResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Sales.PostV1DocumentSeriesGetAsync(new PostV1DocumentSeriesGetRequest { Id = "id" });
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1DocumentSeriesGetRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1DocumentSeriesDeleteAsync</a>(PostV1DocumentSeriesDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1DocumentSeriesDeleteResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Sales.PostV1DocumentSeriesDeleteAsync(
-    new PostV1DocumentSeriesDeleteRequest { Id = "id" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1DocumentSeriesDeleteRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1DocumentSeriesListAsync</a>(PostV1DocumentSeriesListRequest { ... }) -> WithRawResponseTask&lt;PostV1DocumentSeriesListResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Sales.PostV1DocumentSeriesListAsync(new PostV1DocumentSeriesListRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1DocumentSeriesListRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesRecognitionComputeAsync</a>(PostV1SalesRecognitionComputeRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesRecognitionComputeResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Sales.PostV1SalesRecognitionComputeAsync(new PostV1SalesRecognitionComputeRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1SalesRecognitionComputeRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesRecognitionRunAsync</a>(PostV1SalesRecognitionRunRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesRecognitionRunResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Sales.PostV1SalesRecognitionRunAsync(new PostV1SalesRecognitionRunRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1SalesRecognitionRunRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesRecognitionProgressAsync</a>(PostV1SalesRecognitionProgressRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesRecognitionProgressResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Sales.PostV1SalesRecognitionProgressAsync(
-    new PostV1SalesRecognitionProgressRequest
+await client.Sales.RecognitionProgressAsync(
+    new RecognitionProgressSalesRequest
     {
         InvoiceLineId = "invoiceLineId",
-        PercentComplete = "percentComplete",
+        PercentComplete = "121.00",
     }
 );
 ```
@@ -6172,7 +5653,7 @@ await client.Sales.PostV1SalesRecognitionProgressAsync(
 <dl>
 <dd>
 
-**request:** `PostV1SalesRecognitionProgressRequest` 
+**request:** `RecognitionProgressSalesRequest` 
     
 </dd>
 </dl>
@@ -6184,7 +5665,7 @@ await client.Sales.PostV1SalesRecognitionProgressAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesRecognitionModifyAsync</a>(PostV1SalesRecognitionModifyRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesRecognitionModifyResponse&gt;</code></summary>
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">RecognitionModifyAsync</a>(RecognitionModifySalesRequest { ... }) -> WithRawResponseTask&lt;RecognitionModifySalesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -6211,11 +5692,11 @@ Apply an IFRS 15 contract modification to a deferred invoice line. Prospective: 
 <dd>
 
 ```csharp
-await client.Sales.PostV1SalesRecognitionModifyAsync(
-    new PostV1SalesRecognitionModifyRequest
+await client.Sales.RecognitionModifyAsync(
+    new RecognitionModifySalesRequest
     {
         InvoiceLineId = "invoiceLineId",
-        Approach = PostV1SalesRecognitionModifyRequestApproach.Prospective,
+        Approach = RecognitionModifySalesRequestApproach.Prospective,
     }
 );
 ```
@@ -6232,7 +5713,7 @@ await client.Sales.PostV1SalesRecognitionModifyAsync(
 <dl>
 <dd>
 
-**request:** `PostV1SalesRecognitionModifyRequest` 
+**request:** `RecognitionModifySalesRequest` 
     
 </dd>
 </dl>
@@ -6244,7 +5725,7 @@ await client.Sales.PostV1SalesRecognitionModifyAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesRecognitionRunsListAsync</a>(PostV1SalesRecognitionRunsListRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesRecognitionRunsListResponse&gt;</code></summary>
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">RecognitionRunsListAsync</a>(RecognitionRunsListSalesRequest { ... }) -> WithRawResponseTask&lt;RecognitionRunsListSalesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -6257,7 +5738,7 @@ await client.Sales.PostV1SalesRecognitionModifyAsync(
 <dd>
 
 ```csharp
-await client.Sales.PostV1SalesRecognitionRunsListAsync(new PostV1SalesRecognitionRunsListRequest());
+await client.Sales.RecognitionRunsListAsync(new RecognitionRunsListSalesRequest());
 ```
 </dd>
 </dl>
@@ -6272,7 +5753,7 @@ await client.Sales.PostV1SalesRecognitionRunsListAsync(new PostV1SalesRecognitio
 <dl>
 <dd>
 
-**request:** `PostV1SalesRecognitionRunsListRequest` 
+**request:** `RecognitionRunsListSalesRequest` 
     
 </dd>
 </dl>
@@ -6284,7 +5765,7 @@ await client.Sales.PostV1SalesRecognitionRunsListAsync(new PostV1SalesRecognitio
 </dl>
 </details>
 
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesRecognitionSummaryAsync</a>(PostV1SalesRecognitionSummaryRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesRecognitionSummaryResponse&gt;</code></summary>
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">RecognitionSummaryAsync</a>(RecognitionSummarySalesRequest { ... }) -> WithRawResponseTask&lt;RecognitionSummarySalesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -6297,7 +5778,7 @@ await client.Sales.PostV1SalesRecognitionRunsListAsync(new PostV1SalesRecognitio
 <dd>
 
 ```csharp
-await client.Sales.PostV1SalesRecognitionSummaryAsync(new PostV1SalesRecognitionSummaryRequest());
+await client.Sales.RecognitionSummaryAsync(new RecognitionSummarySalesRequest());
 ```
 </dd>
 </dl>
@@ -6312,7 +5793,7 @@ await client.Sales.PostV1SalesRecognitionSummaryAsync(new PostV1SalesRecognition
 <dl>
 <dd>
 
-**request:** `PostV1SalesRecognitionSummaryRequest` 
+**request:** `RecognitionSummarySalesRequest` 
     
 </dd>
 </dl>
@@ -6324,7 +5805,7 @@ await client.Sales.PostV1SalesRecognitionSummaryAsync(new PostV1SalesRecognition
 </dl>
 </details>
 
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesRefundLiabilityListAsync</a>(PostV1SalesRefundLiabilityListRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesRefundLiabilityListResponse&gt;</code></summary>
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">RefundLiabilityListAsync</a>(RefundLiabilityListSalesRequest { ... }) -> WithRawResponseTask&lt;RefundLiabilityListSalesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -6337,7 +5818,7 @@ await client.Sales.PostV1SalesRecognitionSummaryAsync(new PostV1SalesRecognition
 <dd>
 
 ```csharp
-await client.Sales.PostV1SalesRefundLiabilityListAsync(new PostV1SalesRefundLiabilityListRequest());
+await client.Sales.RefundLiabilityListAsync(new RefundLiabilityListSalesRequest());
 ```
 </dd>
 </dl>
@@ -6352,7 +5833,7 @@ await client.Sales.PostV1SalesRefundLiabilityListAsync(new PostV1SalesRefundLiab
 <dl>
 <dd>
 
-**request:** `PostV1SalesRefundLiabilityListRequest` 
+**request:** `RefundLiabilityListSalesRequest` 
     
 </dd>
 </dl>
@@ -6364,7 +5845,7 @@ await client.Sales.PostV1SalesRefundLiabilityListAsync(new PostV1SalesRefundLiab
 </dl>
 </details>
 
-<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">PostV1SalesRefundLiabilityTrueUpAsync</a>(PostV1SalesRefundLiabilityTrueUpRequest { ... }) -> WithRawResponseTask&lt;PostV1SalesRefundLiabilityTrueUpResponse&gt;</code></summary>
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">RefundLiabilityTrueUpAsync</a>(RefundLiabilityTrueUpSalesRequest { ... }) -> WithRawResponseTask&lt;RefundLiabilityTrueUpSalesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -6377,12 +5858,8 @@ await client.Sales.PostV1SalesRefundLiabilityListAsync(new PostV1SalesRefundLiab
 <dd>
 
 ```csharp
-await client.Sales.PostV1SalesRefundLiabilityTrueUpAsync(
-    new PostV1SalesRefundLiabilityTrueUpRequest
-    {
-        InvoiceId = "invoiceId",
-        EstimatedTotal = "estimatedTotal",
-    }
+await client.Sales.RefundLiabilityTrueUpAsync(
+    new RefundLiabilityTrueUpSalesRequest { InvoiceId = "invoiceId", EstimatedTotal = "121.0000" }
 );
 ```
 </dd>
@@ -6398,7 +5875,7 @@ await client.Sales.PostV1SalesRefundLiabilityTrueUpAsync(
 <dl>
 <dd>
 
-**request:** `PostV1SalesRefundLiabilityTrueUpRequest` 
+**request:** `RefundLiabilityTrueUpSalesRequest` 
     
 </dd>
 </dl>
@@ -6410,8 +5887,8 @@ await client.Sales.PostV1SalesRefundLiabilityTrueUpAsync(
 </dl>
 </details>
 
-## Purchases
-<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">PostV1PurchasesInvoicesCreateAsync</a>(PostV1PurchasesInvoicesCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1PurchasesInvoicesCreateResponse&gt;</code></summary>
+## OperationTypes
+<details><summary><code>client.OperationTypes.<a href="/src/NordletApi/OperationTypes/OperationTypesClient.cs">CreateAsync</a>(CreateOperationTypesRequest { ... }) -> WithRawResponseTask&lt;CreateOperationTypesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -6424,15 +5901,419 @@ await client.Sales.PostV1SalesRefundLiabilityTrueUpAsync(
 <dd>
 
 ```csharp
-await client.Purchases.PostV1PurchasesInvoicesCreateAsync(
-    new PostV1PurchasesInvoicesCreateRequest
+await client.OperationTypes.CreateAsync(
+    new CreateOperationTypesRequest { Code = "code", Name = "name" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `CreateOperationTypesRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.OperationTypes.<a href="/src/NordletApi/OperationTypes/OperationTypesClient.cs">UpdateAsync</a>(UpdateOperationTypesRequest { ... }) -> WithRawResponseTask&lt;UpdateOperationTypesResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.OperationTypes.UpdateAsync(new UpdateOperationTypesRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `UpdateOperationTypesRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.OperationTypes.<a href="/src/NordletApi/OperationTypes/OperationTypesClient.cs">GetAsync</a>(GetOperationTypesRequest { ... }) -> WithRawResponseTask&lt;GetOperationTypesResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.OperationTypes.GetAsync(new GetOperationTypesRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `GetOperationTypesRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.OperationTypes.<a href="/src/NordletApi/OperationTypes/OperationTypesClient.cs">DeleteAsync</a>(DeleteOperationTypesRequest { ... }) -> WithRawResponseTask&lt;DeleteOperationTypesResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.OperationTypes.DeleteAsync(new DeleteOperationTypesRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `DeleteOperationTypesRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.OperationTypes.<a href="/src/NordletApi/OperationTypes/OperationTypesClient.cs">ListAsync</a>(ListOperationTypesRequest { ... }) -> WithRawResponseTask&lt;ListOperationTypesResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.OperationTypes.ListAsync(new ListOperationTypesRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ListOperationTypesRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## DocumentSeries
+<details><summary><code>client.DocumentSeries.<a href="/src/NordletApi/DocumentSeries/DocumentSeriesClient.cs">CreateAsync</a>(CreateDocumentSeriesRequest { ... }) -> WithRawResponseTask&lt;CreateDocumentSeriesResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.DocumentSeries.CreateAsync(new CreateDocumentSeriesRequest { Prefix = "prefix" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `CreateDocumentSeriesRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.DocumentSeries.<a href="/src/NordletApi/DocumentSeries/DocumentSeriesClient.cs">UpdateAsync</a>(UpdateDocumentSeriesRequest { ... }) -> WithRawResponseTask&lt;UpdateDocumentSeriesResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.DocumentSeries.UpdateAsync(new UpdateDocumentSeriesRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `UpdateDocumentSeriesRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.DocumentSeries.<a href="/src/NordletApi/DocumentSeries/DocumentSeriesClient.cs">GetAsync</a>(GetDocumentSeriesRequest { ... }) -> WithRawResponseTask&lt;GetDocumentSeriesResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.DocumentSeries.GetAsync(new GetDocumentSeriesRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `GetDocumentSeriesRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.DocumentSeries.<a href="/src/NordletApi/DocumentSeries/DocumentSeriesClient.cs">DeleteAsync</a>(DeleteDocumentSeriesRequest { ... }) -> WithRawResponseTask&lt;DeleteDocumentSeriesResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.DocumentSeries.DeleteAsync(new DeleteDocumentSeriesRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `DeleteDocumentSeriesRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.DocumentSeries.<a href="/src/NordletApi/DocumentSeries/DocumentSeriesClient.cs">ListAsync</a>(ListDocumentSeriesRequest { ... }) -> WithRawResponseTask&lt;ListDocumentSeriesResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.DocumentSeries.ListAsync(new ListDocumentSeriesRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ListDocumentSeriesRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## purchases
+<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">InvoicesCreateAsync</a>(InvoicesCreatePurchasesRequest { ... }) -> WithRawResponseTask&lt;InvoicesCreatePurchasesResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Purchases.InvoicesCreateAsync(
+    new InvoicesCreatePurchasesRequest
     {
         PartnerId = "partnerId",
         DocumentNumber = "documentNumber",
-        DocumentDate = "documentDate",
-        Lines = new List<PostV1PurchasesInvoicesCreateRequestLinesItem>()
+        DocumentDate = new DateOnly(2026, 7, 1),
+        Lines = new List<InvoicesCreatePurchasesRequestLinesItem>()
         {
-            new PostV1PurchasesInvoicesCreateRequestLinesItem(),
+            new InvoicesCreatePurchasesRequestLinesItem(),
         },
     }
 );
@@ -6450,7 +6331,7 @@ await client.Purchases.PostV1PurchasesInvoicesCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PurchasesInvoicesCreateRequest` 
+**request:** `InvoicesCreatePurchasesRequest` 
     
 </dd>
 </dl>
@@ -6462,7 +6343,7 @@ await client.Purchases.PostV1PurchasesInvoicesCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">PostV1PurchasesInvoicesGetAsync</a>(PostV1PurchasesInvoicesGetRequest { ... }) -> WithRawResponseTask&lt;PostV1PurchasesInvoicesGetResponse&gt;</code></summary>
+<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">InvoicesGetAsync</a>(InvoicesGetPurchasesRequest { ... }) -> WithRawResponseTask&lt;InvoicesGetPurchasesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -6475,9 +6356,7 @@ await client.Purchases.PostV1PurchasesInvoicesCreateAsync(
 <dd>
 
 ```csharp
-await client.Purchases.PostV1PurchasesInvoicesGetAsync(
-    new PostV1PurchasesInvoicesGetRequest { Id = "id" }
-);
+await client.Purchases.InvoicesGetAsync(new InvoicesGetPurchasesRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -6492,7 +6371,7 @@ await client.Purchases.PostV1PurchasesInvoicesGetAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PurchasesInvoicesGetRequest` 
+**request:** `InvoicesGetPurchasesRequest` 
     
 </dd>
 </dl>
@@ -6504,7 +6383,7 @@ await client.Purchases.PostV1PurchasesInvoicesGetAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">PostV1PurchasesInvoicesUpdateAsync</a>(PostV1PurchasesInvoicesUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1PurchasesInvoicesUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">InvoicesUpdateAsync</a>(InvoicesUpdatePurchasesRequest { ... }) -> WithRawResponseTask&lt;InvoicesUpdatePurchasesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -6517,9 +6396,7 @@ await client.Purchases.PostV1PurchasesInvoicesGetAsync(
 <dd>
 
 ```csharp
-await client.Purchases.PostV1PurchasesInvoicesUpdateAsync(
-    new PostV1PurchasesInvoicesUpdateRequest { Id = "id" }
-);
+await client.Purchases.InvoicesUpdateAsync(new InvoicesUpdatePurchasesRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -6534,7 +6411,7 @@ await client.Purchases.PostV1PurchasesInvoicesUpdateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PurchasesInvoicesUpdateRequest` 
+**request:** `InvoicesUpdatePurchasesRequest` 
     
 </dd>
 </dl>
@@ -6546,7 +6423,7 @@ await client.Purchases.PostV1PurchasesInvoicesUpdateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">PostV1PurchasesInvoicesDeleteAsync</a>(PostV1PurchasesInvoicesDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1PurchasesInvoicesDeleteResponse&gt;</code></summary>
+<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">InvoicesDeleteAsync</a>(InvoicesDeletePurchasesRequest { ... }) -> WithRawResponseTask&lt;InvoicesDeletePurchasesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -6559,9 +6436,7 @@ await client.Purchases.PostV1PurchasesInvoicesUpdateAsync(
 <dd>
 
 ```csharp
-await client.Purchases.PostV1PurchasesInvoicesDeleteAsync(
-    new PostV1PurchasesInvoicesDeleteRequest { Id = "id" }
-);
+await client.Purchases.InvoicesDeleteAsync(new InvoicesDeletePurchasesRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -6576,7 +6451,7 @@ await client.Purchases.PostV1PurchasesInvoicesDeleteAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PurchasesInvoicesDeleteRequest` 
+**request:** `InvoicesDeletePurchasesRequest` 
     
 </dd>
 </dl>
@@ -6588,7 +6463,7 @@ await client.Purchases.PostV1PurchasesInvoicesDeleteAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">PostV1PurchasesInvoicesRegisterAsync</a>(PostV1PurchasesInvoicesRegisterRequest { ... }) -> WithRawResponseTask&lt;PostV1PurchasesInvoicesRegisterResponse&gt;</code></summary>
+<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">InvoicesRegisterAsync</a>(InvoicesRegisterPurchasesRequest { ... }) -> WithRawResponseTask&lt;InvoicesRegisterPurchasesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -6601,9 +6476,7 @@ await client.Purchases.PostV1PurchasesInvoicesDeleteAsync(
 <dd>
 
 ```csharp
-await client.Purchases.PostV1PurchasesInvoicesRegisterAsync(
-    new PostV1PurchasesInvoicesRegisterRequest { Id = "id" }
-);
+await client.Purchases.InvoicesRegisterAsync(new InvoicesRegisterPurchasesRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -6618,7 +6491,7 @@ await client.Purchases.PostV1PurchasesInvoicesRegisterAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PurchasesInvoicesRegisterRequest` 
+**request:** `InvoicesRegisterPurchasesRequest` 
     
 </dd>
 </dl>
@@ -6630,7 +6503,7 @@ await client.Purchases.PostV1PurchasesInvoicesRegisterAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">PostV1PurchasesInvoicesListAsync</a>(PostV1PurchasesInvoicesListRequest { ... }) -> WithRawResponseTask&lt;PostV1PurchasesInvoicesListResponse&gt;</code></summary>
+<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">InvoicesListAsync</a>(InvoicesListPurchasesRequest { ... }) -> WithRawResponseTask&lt;InvoicesListPurchasesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -6643,7 +6516,7 @@ await client.Purchases.PostV1PurchasesInvoicesRegisterAsync(
 <dd>
 
 ```csharp
-await client.Purchases.PostV1PurchasesInvoicesListAsync(new PostV1PurchasesInvoicesListRequest());
+await client.Purchases.InvoicesListAsync(new InvoicesListPurchasesRequest());
 ```
 </dd>
 </dl>
@@ -6658,7 +6531,7 @@ await client.Purchases.PostV1PurchasesInvoicesListAsync(new PostV1PurchasesInvoi
 <dl>
 <dd>
 
-**request:** `PostV1PurchasesInvoicesListRequest` 
+**request:** `InvoicesListPurchasesRequest` 
     
 </dd>
 </dl>
@@ -6670,7 +6543,7 @@ await client.Purchases.PostV1PurchasesInvoicesListAsync(new PostV1PurchasesInvoi
 </dl>
 </details>
 
-<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">PostV1PurchasesOrdersCreateAsync</a>(PostV1PurchasesOrdersCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1PurchasesOrdersCreateResponse&gt;</code></summary>
+<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">OrdersCreateAsync</a>(OrdersCreatePurchasesRequest { ... }) -> WithRawResponseTask&lt;OrdersCreatePurchasesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -6683,14 +6556,14 @@ await client.Purchases.PostV1PurchasesInvoicesListAsync(new PostV1PurchasesInvoi
 <dd>
 
 ```csharp
-await client.Purchases.PostV1PurchasesOrdersCreateAsync(
-    new PostV1PurchasesOrdersCreateRequest
+await client.Purchases.OrdersCreateAsync(
+    new OrdersCreatePurchasesRequest
     {
         PartnerId = "partnerId",
-        OrderDate = "orderDate",
-        Lines = new List<PostV1PurchasesOrdersCreateRequestLinesItem>()
+        OrderDate = new DateOnly(2026, 7, 1),
+        Lines = new List<OrdersCreatePurchasesRequestLinesItem>()
         {
-            new PostV1PurchasesOrdersCreateRequestLinesItem(),
+            new OrdersCreatePurchasesRequestLinesItem(),
         },
     }
 );
@@ -6708,7 +6581,7 @@ await client.Purchases.PostV1PurchasesOrdersCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PurchasesOrdersCreateRequest` 
+**request:** `OrdersCreatePurchasesRequest` 
     
 </dd>
 </dl>
@@ -6720,7 +6593,7 @@ await client.Purchases.PostV1PurchasesOrdersCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">PostV1PurchasesOrdersUpdateAsync</a>(PostV1PurchasesOrdersUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1PurchasesOrdersUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">OrdersUpdateAsync</a>(OrdersUpdatePurchasesRequest { ... }) -> WithRawResponseTask&lt;OrdersUpdatePurchasesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -6733,9 +6606,7 @@ await client.Purchases.PostV1PurchasesOrdersCreateAsync(
 <dd>
 
 ```csharp
-await client.Purchases.PostV1PurchasesOrdersUpdateAsync(
-    new PostV1PurchasesOrdersUpdateRequest { Id = "id" }
-);
+await client.Purchases.OrdersUpdateAsync(new OrdersUpdatePurchasesRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -6750,7 +6621,7 @@ await client.Purchases.PostV1PurchasesOrdersUpdateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PurchasesOrdersUpdateRequest` 
+**request:** `OrdersUpdatePurchasesRequest` 
     
 </dd>
 </dl>
@@ -6762,7 +6633,7 @@ await client.Purchases.PostV1PurchasesOrdersUpdateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">PostV1PurchasesOrdersGetAsync</a>(PostV1PurchasesOrdersGetRequest { ... }) -> WithRawResponseTask&lt;PostV1PurchasesOrdersGetResponse&gt;</code></summary>
+<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">OrdersGetAsync</a>(OrdersGetPurchasesRequest { ... }) -> WithRawResponseTask&lt;OrdersGetPurchasesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -6775,9 +6646,7 @@ await client.Purchases.PostV1PurchasesOrdersUpdateAsync(
 <dd>
 
 ```csharp
-await client.Purchases.PostV1PurchasesOrdersGetAsync(
-    new PostV1PurchasesOrdersGetRequest { Id = "id" }
-);
+await client.Purchases.OrdersGetAsync(new OrdersGetPurchasesRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -6792,7 +6661,7 @@ await client.Purchases.PostV1PurchasesOrdersGetAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PurchasesOrdersGetRequest` 
+**request:** `OrdersGetPurchasesRequest` 
     
 </dd>
 </dl>
@@ -6804,7 +6673,7 @@ await client.Purchases.PostV1PurchasesOrdersGetAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">PostV1PurchasesOrdersListAsync</a>(PostV1PurchasesOrdersListRequest { ... }) -> WithRawResponseTask&lt;PostV1PurchasesOrdersListResponse&gt;</code></summary>
+<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">OrdersListAsync</a>(OrdersListPurchasesRequest { ... }) -> WithRawResponseTask&lt;OrdersListPurchasesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -6817,7 +6686,7 @@ await client.Purchases.PostV1PurchasesOrdersGetAsync(
 <dd>
 
 ```csharp
-await client.Purchases.PostV1PurchasesOrdersListAsync(new PostV1PurchasesOrdersListRequest());
+await client.Purchases.OrdersListAsync(new OrdersListPurchasesRequest());
 ```
 </dd>
 </dl>
@@ -6832,7 +6701,7 @@ await client.Purchases.PostV1PurchasesOrdersListAsync(new PostV1PurchasesOrdersL
 <dl>
 <dd>
 
-**request:** `PostV1PurchasesOrdersListRequest` 
+**request:** `OrdersListPurchasesRequest` 
     
 </dd>
 </dl>
@@ -6844,7 +6713,7 @@ await client.Purchases.PostV1PurchasesOrdersListAsync(new PostV1PurchasesOrdersL
 </dl>
 </details>
 
-<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">PostV1PurchasesOrdersSubmitAsync</a>(PostV1PurchasesOrdersSubmitRequest { ... }) -> WithRawResponseTask&lt;PostV1PurchasesOrdersSubmitResponse&gt;</code></summary>
+<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">OrdersSubmitAsync</a>(OrdersSubmitPurchasesRequest { ... }) -> WithRawResponseTask&lt;OrdersSubmitPurchasesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -6857,9 +6726,7 @@ await client.Purchases.PostV1PurchasesOrdersListAsync(new PostV1PurchasesOrdersL
 <dd>
 
 ```csharp
-await client.Purchases.PostV1PurchasesOrdersSubmitAsync(
-    new PostV1PurchasesOrdersSubmitRequest { Id = "id" }
-);
+await client.Purchases.OrdersSubmitAsync(new OrdersSubmitPurchasesRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -6874,7 +6741,7 @@ await client.Purchases.PostV1PurchasesOrdersSubmitAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PurchasesOrdersSubmitRequest` 
+**request:** `OrdersSubmitPurchasesRequest` 
     
 </dd>
 </dl>
@@ -6886,7 +6753,7 @@ await client.Purchases.PostV1PurchasesOrdersSubmitAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">PostV1PurchasesOrdersApproveAsync</a>(PostV1PurchasesOrdersApproveRequest { ... }) -> WithRawResponseTask&lt;PostV1PurchasesOrdersApproveResponse&gt;</code></summary>
+<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">OrdersApproveAsync</a>(OrdersApprovePurchasesRequest { ... }) -> WithRawResponseTask&lt;OrdersApprovePurchasesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -6899,9 +6766,7 @@ await client.Purchases.PostV1PurchasesOrdersSubmitAsync(
 <dd>
 
 ```csharp
-await client.Purchases.PostV1PurchasesOrdersApproveAsync(
-    new PostV1PurchasesOrdersApproveRequest { Id = "id" }
-);
+await client.Purchases.OrdersApproveAsync(new OrdersApprovePurchasesRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -6916,7 +6781,7 @@ await client.Purchases.PostV1PurchasesOrdersApproveAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PurchasesOrdersApproveRequest` 
+**request:** `OrdersApprovePurchasesRequest` 
     
 </dd>
 </dl>
@@ -6928,7 +6793,7 @@ await client.Purchases.PostV1PurchasesOrdersApproveAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">PostV1PurchasesOrdersRejectAsync</a>(PostV1PurchasesOrdersRejectRequest { ... }) -> WithRawResponseTask&lt;PostV1PurchasesOrdersRejectResponse&gt;</code></summary>
+<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">OrdersRejectAsync</a>(OrdersRejectPurchasesRequest { ... }) -> WithRawResponseTask&lt;OrdersRejectPurchasesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -6941,9 +6806,7 @@ await client.Purchases.PostV1PurchasesOrdersApproveAsync(
 <dd>
 
 ```csharp
-await client.Purchases.PostV1PurchasesOrdersRejectAsync(
-    new PostV1PurchasesOrdersRejectRequest { Id = "id" }
-);
+await client.Purchases.OrdersRejectAsync(new OrdersRejectPurchasesRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -6958,7 +6821,7 @@ await client.Purchases.PostV1PurchasesOrdersRejectAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PurchasesOrdersRejectRequest` 
+**request:** `OrdersRejectPurchasesRequest` 
     
 </dd>
 </dl>
@@ -6970,7 +6833,7 @@ await client.Purchases.PostV1PurchasesOrdersRejectAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">PostV1PurchasesOrdersCancelAsync</a>(PostV1PurchasesOrdersCancelRequest { ... }) -> WithRawResponseTask&lt;PostV1PurchasesOrdersCancelResponse&gt;</code></summary>
+<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">OrdersCancelAsync</a>(OrdersCancelPurchasesRequest { ... }) -> WithRawResponseTask&lt;OrdersCancelPurchasesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -6983,9 +6846,7 @@ await client.Purchases.PostV1PurchasesOrdersRejectAsync(
 <dd>
 
 ```csharp
-await client.Purchases.PostV1PurchasesOrdersCancelAsync(
-    new PostV1PurchasesOrdersCancelRequest { Id = "id" }
-);
+await client.Purchases.OrdersCancelAsync(new OrdersCancelPurchasesRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -7000,7 +6861,7 @@ await client.Purchases.PostV1PurchasesOrdersCancelAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PurchasesOrdersCancelRequest` 
+**request:** `OrdersCancelPurchasesRequest` 
     
 </dd>
 </dl>
@@ -7012,7 +6873,7 @@ await client.Purchases.PostV1PurchasesOrdersCancelAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">PostV1PurchasesOrdersCloseAsync</a>(PostV1PurchasesOrdersCloseRequest { ... }) -> WithRawResponseTask&lt;PostV1PurchasesOrdersCloseResponse&gt;</code></summary>
+<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">OrdersCloseAsync</a>(OrdersClosePurchasesRequest { ... }) -> WithRawResponseTask&lt;OrdersClosePurchasesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -7025,9 +6886,7 @@ await client.Purchases.PostV1PurchasesOrdersCancelAsync(
 <dd>
 
 ```csharp
-await client.Purchases.PostV1PurchasesOrdersCloseAsync(
-    new PostV1PurchasesOrdersCloseRequest { Id = "id" }
-);
+await client.Purchases.OrdersCloseAsync(new OrdersClosePurchasesRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -7042,7 +6901,7 @@ await client.Purchases.PostV1PurchasesOrdersCloseAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PurchasesOrdersCloseRequest` 
+**request:** `OrdersClosePurchasesRequest` 
     
 </dd>
 </dl>
@@ -7054,7 +6913,7 @@ await client.Purchases.PostV1PurchasesOrdersCloseAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">PostV1PurchasesOrdersDeleteAsync</a>(PostV1PurchasesOrdersDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1PurchasesOrdersDeleteResponse&gt;</code></summary>
+<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">OrdersDeleteAsync</a>(OrdersDeletePurchasesRequest { ... }) -> WithRawResponseTask&lt;OrdersDeletePurchasesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -7067,9 +6926,7 @@ await client.Purchases.PostV1PurchasesOrdersCloseAsync(
 <dd>
 
 ```csharp
-await client.Purchases.PostV1PurchasesOrdersDeleteAsync(
-    new PostV1PurchasesOrdersDeleteRequest { Id = "id" }
-);
+await client.Purchases.OrdersDeleteAsync(new OrdersDeletePurchasesRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -7084,7 +6941,7 @@ await client.Purchases.PostV1PurchasesOrdersDeleteAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PurchasesOrdersDeleteRequest` 
+**request:** `OrdersDeletePurchasesRequest` 
     
 </dd>
 </dl>
@@ -7096,7 +6953,7 @@ await client.Purchases.PostV1PurchasesOrdersDeleteAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">PostV1PurchasesReceiptsCreateAsync</a>(PostV1PurchasesReceiptsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1PurchasesReceiptsCreateResponse&gt;</code></summary>
+<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">ReceiptsCreateAsync</a>(ReceiptsCreatePurchasesRequest { ... }) -> WithRawResponseTask&lt;ReceiptsCreatePurchasesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -7109,17 +6966,17 @@ await client.Purchases.PostV1PurchasesOrdersDeleteAsync(
 <dd>
 
 ```csharp
-await client.Purchases.PostV1PurchasesReceiptsCreateAsync(
-    new PostV1PurchasesReceiptsCreateRequest
+await client.Purchases.ReceiptsCreateAsync(
+    new ReceiptsCreatePurchasesRequest
     {
         OrderId = "orderId",
-        ReceiptDate = "receiptDate",
-        Lines = new List<PostV1PurchasesReceiptsCreateRequestLinesItem>()
+        ReceiptDate = new DateOnly(2026, 7, 1),
+        Lines = new List<ReceiptsCreatePurchasesRequestLinesItem>()
         {
-            new PostV1PurchasesReceiptsCreateRequestLinesItem
+            new ReceiptsCreatePurchasesRequestLinesItem
             {
                 OrderLineId = "orderLineId",
-                Quantity = "quantity",
+                Quantity = "121.0000",
             },
         },
     }
@@ -7138,7 +6995,7 @@ await client.Purchases.PostV1PurchasesReceiptsCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PurchasesReceiptsCreateRequest` 
+**request:** `ReceiptsCreatePurchasesRequest` 
     
 </dd>
 </dl>
@@ -7150,7 +7007,7 @@ await client.Purchases.PostV1PurchasesReceiptsCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">PostV1PurchasesReceiptsGetAsync</a>(PostV1PurchasesReceiptsGetRequest { ... }) -> WithRawResponseTask&lt;PostV1PurchasesReceiptsGetResponse&gt;</code></summary>
+<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">ReceiptsGetAsync</a>(ReceiptsGetPurchasesRequest { ... }) -> WithRawResponseTask&lt;ReceiptsGetPurchasesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -7163,8 +7020,88 @@ await client.Purchases.PostV1PurchasesReceiptsCreateAsync(
 <dd>
 
 ```csharp
-await client.Purchases.PostV1PurchasesReceiptsGetAsync(
-    new PostV1PurchasesReceiptsGetRequest { Id = "id" }
+await client.Purchases.ReceiptsGetAsync(new ReceiptsGetPurchasesRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ReceiptsGetPurchasesRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">ReceiptsListAsync</a>(ReceiptsListPurchasesRequest { ... }) -> WithRawResponseTask&lt;ReceiptsListPurchasesResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Purchases.ReceiptsListAsync(new ReceiptsListPurchasesRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ReceiptsListPurchasesRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">InvoicesMatchAsync</a>(InvoicesMatchPurchasesRequest { ... }) -> WithRawResponseTask&lt;InvoicesMatchPurchasesResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Purchases.InvoicesMatchAsync(
+    new InvoicesMatchPurchasesRequest { InvoiceId = "invoiceId" }
 );
 ```
 </dd>
@@ -7180,7 +7117,7 @@ await client.Purchases.PostV1PurchasesReceiptsGetAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PurchasesReceiptsGetRequest` 
+**request:** `InvoicesMatchPurchasesRequest` 
     
 </dd>
 </dl>
@@ -7192,7 +7129,8 @@ await client.Purchases.PostV1PurchasesReceiptsGetAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">PostV1PurchasesReceiptsListAsync</a>(PostV1PurchasesReceiptsListRequest { ... }) -> WithRawResponseTask&lt;PostV1PurchasesReceiptsListResponse&gt;</code></summary>
+## capture
+<details><summary><code>client.Capture.<a href="/src/NordletApi/Capture/CaptureClient.cs">SettingsGetAsync</a>(SettingsGetCaptureRequest { ... }) -> WithRawResponseTask&lt;SettingsGetCaptureResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -7205,7 +7143,7 @@ await client.Purchases.PostV1PurchasesReceiptsGetAsync(
 <dd>
 
 ```csharp
-await client.Purchases.PostV1PurchasesReceiptsListAsync(new PostV1PurchasesReceiptsListRequest());
+await client.Capture.SettingsGetAsync(new SettingsGetCaptureRequest());
 ```
 </dd>
 </dl>
@@ -7220,7 +7158,7 @@ await client.Purchases.PostV1PurchasesReceiptsListAsync(new PostV1PurchasesRecei
 <dl>
 <dd>
 
-**request:** `PostV1PurchasesReceiptsListRequest` 
+**request:** `SettingsGetCaptureRequest` 
     
 </dd>
 </dl>
@@ -7232,7 +7170,7 @@ await client.Purchases.PostV1PurchasesReceiptsListAsync(new PostV1PurchasesRecei
 </dl>
 </details>
 
-<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">PostV1PurchasesInvoicesMatchAsync</a>(PostV1PurchasesInvoicesMatchRequest { ... }) -> WithRawResponseTask&lt;PostV1PurchasesInvoicesMatchResponse&gt;</code></summary>
+<details><summary><code>client.Capture.<a href="/src/NordletApi/Capture/CaptureClient.cs">SettingsUpdateAsync</a>(SettingsUpdateCaptureRequest { ... }) -> WithRawResponseTask&lt;SettingsUpdateCaptureResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -7245,9 +7183,7 @@ await client.Purchases.PostV1PurchasesReceiptsListAsync(new PostV1PurchasesRecei
 <dd>
 
 ```csharp
-await client.Purchases.PostV1PurchasesInvoicesMatchAsync(
-    new PostV1PurchasesInvoicesMatchRequest { InvoiceId = "invoiceId" }
-);
+await client.Capture.SettingsUpdateAsync(new SettingsUpdateCaptureRequest());
 ```
 </dd>
 </dl>
@@ -7262,7 +7198,7 @@ await client.Purchases.PostV1PurchasesInvoicesMatchAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PurchasesInvoicesMatchRequest` 
+**request:** `SettingsUpdateCaptureRequest` 
     
 </dd>
 </dl>
@@ -7274,8 +7210,7 @@ await client.Purchases.PostV1PurchasesInvoicesMatchAsync(
 </dl>
 </details>
 
-## Capture
-<details><summary><code>client.Capture.<a href="/src/NordletApi/Capture/CaptureClient.cs">PostV1CaptureSettingsGetAsync</a>(PostV1CaptureSettingsGetRequest { ... }) -> WithRawResponseTask&lt;PostV1CaptureSettingsGetResponse&gt;</code></summary>
+<details><summary><code>client.Capture.<a href="/src/NordletApi/Capture/CaptureClient.cs">SettingsRegenerateIntakeAsync</a>(SettingsRegenerateIntakeCaptureRequest { ... }) -> WithRawResponseTask&lt;SettingsRegenerateIntakeCaptureResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -7288,7 +7223,7 @@ await client.Purchases.PostV1PurchasesInvoicesMatchAsync(
 <dd>
 
 ```csharp
-await client.Capture.PostV1CaptureSettingsGetAsync(new PostV1CaptureSettingsGetRequest());
+await client.Capture.SettingsRegenerateIntakeAsync(new SettingsRegenerateIntakeCaptureRequest());
 ```
 </dd>
 </dl>
@@ -7303,7 +7238,7 @@ await client.Capture.PostV1CaptureSettingsGetAsync(new PostV1CaptureSettingsGetR
 <dl>
 <dd>
 
-**request:** `PostV1CaptureSettingsGetRequest` 
+**request:** `SettingsRegenerateIntakeCaptureRequest` 
     
 </dd>
 </dl>
@@ -7315,7 +7250,7 @@ await client.Capture.PostV1CaptureSettingsGetAsync(new PostV1CaptureSettingsGetR
 </dl>
 </details>
 
-<details><summary><code>client.Capture.<a href="/src/NordletApi/Capture/CaptureClient.cs">PostV1CaptureSettingsUpdateAsync</a>(PostV1CaptureSettingsUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1CaptureSettingsUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Capture.<a href="/src/NordletApi/Capture/CaptureClient.cs">InboundEmailAsync</a>(InboundEmailCaptureRequest { ... }) -> WithRawResponseTask&lt;InboundEmailCaptureResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -7328,7 +7263,7 @@ await client.Capture.PostV1CaptureSettingsGetAsync(new PostV1CaptureSettingsGetR
 <dd>
 
 ```csharp
-await client.Capture.PostV1CaptureSettingsUpdateAsync(new PostV1CaptureSettingsUpdateRequest());
+await client.Capture.InboundEmailAsync(new InboundEmailCaptureRequest());
 ```
 </dd>
 </dl>
@@ -7343,7 +7278,7 @@ await client.Capture.PostV1CaptureSettingsUpdateAsync(new PostV1CaptureSettingsU
 <dl>
 <dd>
 
-**request:** `PostV1CaptureSettingsUpdateRequest` 
+**request:** `InboundEmailCaptureRequest` 
     
 </dd>
 </dl>
@@ -7355,7 +7290,7 @@ await client.Capture.PostV1CaptureSettingsUpdateAsync(new PostV1CaptureSettingsU
 </dl>
 </details>
 
-<details><summary><code>client.Capture.<a href="/src/NordletApi/Capture/CaptureClient.cs">PostV1CaptureSettingsRegenerateIntakeAsync</a>(PostV1CaptureSettingsRegenerateIntakeRequest { ... }) -> WithRawResponseTask&lt;PostV1CaptureSettingsRegenerateIntakeResponse&gt;</code></summary>
+<details><summary><code>client.Capture.<a href="/src/NordletApi/Capture/CaptureClient.cs">DocumentsUploadAsync</a>(DocumentsUploadCaptureRequest { ... }) -> WithRawResponseTask&lt;DocumentsUploadCaptureResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -7368,92 +7303,8 @@ await client.Capture.PostV1CaptureSettingsUpdateAsync(new PostV1CaptureSettingsU
 <dd>
 
 ```csharp
-await client.Capture.PostV1CaptureSettingsRegenerateIntakeAsync(
-    new PostV1CaptureSettingsRegenerateIntakeRequest()
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1CaptureSettingsRegenerateIntakeRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Capture.<a href="/src/NordletApi/Capture/CaptureClient.cs">ReceiveAnInboundEmailWithSupplierDocumentsAttachedPostmarkStyleOrGenericJsonAsync</a>(PostV1CaptureInboundEmailRequest { ... }) -> WithRawResponseTask&lt;PostV1CaptureInboundEmailResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Capture.ReceiveAnInboundEmailWithSupplierDocumentsAttachedPostmarkStyleOrGenericJsonAsync(
-    new PostV1CaptureInboundEmailRequest()
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1CaptureInboundEmailRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Capture.<a href="/src/NordletApi/Capture/CaptureClient.cs">ReadAVendorBillOrReceiptAndReturnAnEditablePurchaseInvoiceDraftAsync</a>(PostV1CaptureDocumentsUploadRequest { ... }) -> WithRawResponseTask&lt;PostV1CaptureDocumentsUploadResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Capture.ReadAVendorBillOrReceiptAndReturnAnEditablePurchaseInvoiceDraftAsync(
-    new PostV1CaptureDocumentsUploadRequest
+await client.Capture.DocumentsUploadAsync(
+    new DocumentsUploadCaptureRequest
     {
         FileName = "fileName",
         MimeType = "mimeType",
@@ -7474,7 +7325,7 @@ await client.Capture.ReadAVendorBillOrReceiptAndReturnAnEditablePurchaseInvoiceD
 <dl>
 <dd>
 
-**request:** `PostV1CaptureDocumentsUploadRequest` 
+**request:** `DocumentsUploadCaptureRequest` 
     
 </dd>
 </dl>
@@ -7486,7 +7337,7 @@ await client.Capture.ReadAVendorBillOrReceiptAndReturnAnEditablePurchaseInvoiceD
 </dl>
 </details>
 
-<details><summary><code>client.Capture.<a href="/src/NordletApi/Capture/CaptureClient.cs">ReReadAStoredCaptureReplacingThePreviousDraftAsync</a>(PostV1CaptureDocumentsExtractRequest { ... }) -> WithRawResponseTask&lt;PostV1CaptureDocumentsExtractResponse&gt;</code></summary>
+<details><summary><code>client.Capture.<a href="/src/NordletApi/Capture/CaptureClient.cs">DocumentsExtractAsync</a>(DocumentsExtractCaptureRequest { ... }) -> WithRawResponseTask&lt;DocumentsExtractCaptureResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -7499,9 +7350,7 @@ await client.Capture.ReadAVendorBillOrReceiptAndReturnAnEditablePurchaseInvoiceD
 <dd>
 
 ```csharp
-await client.Capture.ReReadAStoredCaptureReplacingThePreviousDraftAsync(
-    new PostV1CaptureDocumentsExtractRequest { Id = "id" }
-);
+await client.Capture.DocumentsExtractAsync(new DocumentsExtractCaptureRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -7516,7 +7365,7 @@ await client.Capture.ReReadAStoredCaptureReplacingThePreviousDraftAsync(
 <dl>
 <dd>
 
-**request:** `PostV1CaptureDocumentsExtractRequest` 
+**request:** `DocumentsExtractCaptureRequest` 
     
 </dd>
 </dl>
@@ -7528,7 +7377,7 @@ await client.Capture.ReReadAStoredCaptureReplacingThePreviousDraftAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Capture.<a href="/src/NordletApi/Capture/CaptureClient.cs">PostV1CaptureDocumentsGetAsync</a>(PostV1CaptureDocumentsGetRequest { ... }) -> WithRawResponseTask&lt;PostV1CaptureDocumentsGetResponse&gt;</code></summary>
+<details><summary><code>client.Capture.<a href="/src/NordletApi/Capture/CaptureClient.cs">DocumentsGetAsync</a>(DocumentsGetCaptureRequest { ... }) -> WithRawResponseTask&lt;DocumentsGetCaptureResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -7541,9 +7390,7 @@ await client.Capture.ReReadAStoredCaptureReplacingThePreviousDraftAsync(
 <dd>
 
 ```csharp
-await client.Capture.PostV1CaptureDocumentsGetAsync(
-    new PostV1CaptureDocumentsGetRequest { Id = "id" }
-);
+await client.Capture.DocumentsGetAsync(new DocumentsGetCaptureRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -7558,7 +7405,7 @@ await client.Capture.PostV1CaptureDocumentsGetAsync(
 <dl>
 <dd>
 
-**request:** `PostV1CaptureDocumentsGetRequest` 
+**request:** `DocumentsGetCaptureRequest` 
     
 </dd>
 </dl>
@@ -7570,7 +7417,7 @@ await client.Capture.PostV1CaptureDocumentsGetAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Capture.<a href="/src/NordletApi/Capture/CaptureClient.cs">PostV1CaptureDocumentsListAsync</a>(PostV1CaptureDocumentsListRequest { ... }) -> WithRawResponseTask&lt;PostV1CaptureDocumentsListResponse&gt;</code></summary>
+<details><summary><code>client.Capture.<a href="/src/NordletApi/Capture/CaptureClient.cs">DocumentsListAsync</a>(DocumentsListCaptureRequest { ... }) -> WithRawResponseTask&lt;DocumentsListCaptureResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -7583,7 +7430,7 @@ await client.Capture.PostV1CaptureDocumentsGetAsync(
 <dd>
 
 ```csharp
-await client.Capture.PostV1CaptureDocumentsListAsync(new PostV1CaptureDocumentsListRequest());
+await client.Capture.DocumentsListAsync(new DocumentsListCaptureRequest());
 ```
 </dd>
 </dl>
@@ -7598,7 +7445,7 @@ await client.Capture.PostV1CaptureDocumentsListAsync(new PostV1CaptureDocumentsL
 <dl>
 <dd>
 
-**request:** `PostV1CaptureDocumentsListRequest` 
+**request:** `DocumentsListCaptureRequest` 
     
 </dd>
 </dl>
@@ -7610,7 +7457,7 @@ await client.Capture.PostV1CaptureDocumentsListAsync(new PostV1CaptureDocumentsL
 </dl>
 </details>
 
-<details><summary><code>client.Capture.<a href="/src/NordletApi/Capture/CaptureClient.cs">PostV1CaptureDocumentsDeleteAsync</a>(PostV1CaptureDocumentsDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1CaptureDocumentsDeleteResponse&gt;</code></summary>
+<details><summary><code>client.Capture.<a href="/src/NordletApi/Capture/CaptureClient.cs">DocumentsDeleteAsync</a>(DocumentsDeleteCaptureRequest { ... }) -> WithRawResponseTask&lt;DocumentsDeleteCaptureResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -7623,9 +7470,7 @@ await client.Capture.PostV1CaptureDocumentsListAsync(new PostV1CaptureDocumentsL
 <dd>
 
 ```csharp
-await client.Capture.PostV1CaptureDocumentsDeleteAsync(
-    new PostV1CaptureDocumentsDeleteRequest { Id = "id" }
-);
+await client.Capture.DocumentsDeleteAsync(new DocumentsDeleteCaptureRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -7640,7 +7485,7 @@ await client.Capture.PostV1CaptureDocumentsDeleteAsync(
 <dl>
 <dd>
 
-**request:** `PostV1CaptureDocumentsDeleteRequest` 
+**request:** `DocumentsDeleteCaptureRequest` 
     
 </dd>
 </dl>
@@ -7652,7 +7497,7 @@ await client.Capture.PostV1CaptureDocumentsDeleteAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Capture.<a href="/src/NordletApi/Capture/CaptureClient.cs">SaveTheReviewedDraftAsAPurchaseInvoiceAndAttachTheOriginalDocumentAsync</a>(PostV1CaptureDocumentsConfirmRequest { ... }) -> WithRawResponseTask&lt;PostV1CaptureDocumentsConfirmResponse&gt;</code></summary>
+<details><summary><code>client.Capture.<a href="/src/NordletApi/Capture/CaptureClient.cs">DocumentsConfirmAsync</a>(DocumentsConfirmCaptureRequest { ... }) -> WithRawResponseTask&lt;DocumentsConfirmCaptureResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -7665,15 +7510,15 @@ await client.Capture.PostV1CaptureDocumentsDeleteAsync(
 <dd>
 
 ```csharp
-await client.Capture.SaveTheReviewedDraftAsAPurchaseInvoiceAndAttachTheOriginalDocumentAsync(
-    new PostV1CaptureDocumentsConfirmRequest
+await client.Capture.DocumentsConfirmAsync(
+    new DocumentsConfirmCaptureRequest
     {
         Id = "id",
         DocumentNumber = "documentNumber",
-        DocumentDate = "documentDate",
-        Lines = new List<PostV1CaptureDocumentsConfirmRequestLinesItem>()
+        DocumentDate = new DateOnly(2026, 7, 1),
+        Lines = new List<DocumentsConfirmCaptureRequestLinesItem>()
         {
-            new PostV1CaptureDocumentsConfirmRequestLinesItem(),
+            new DocumentsConfirmCaptureRequestLinesItem(),
         },
     }
 );
@@ -7691,7 +7536,7 @@ await client.Capture.SaveTheReviewedDraftAsAPurchaseInvoiceAndAttachTheOriginalD
 <dl>
 <dd>
 
-**request:** `PostV1CaptureDocumentsConfirmRequest` 
+**request:** `DocumentsConfirmCaptureRequest` 
     
 </dd>
 </dl>
@@ -7703,8 +7548,8 @@ await client.Capture.SaveTheReviewedDraftAsAPurchaseInvoiceAndAttachTheOriginalD
 </dl>
 </details>
 
-## Declarations
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsLtIntrastatComputeAsync</a>(PostV1DeclarationsLtIntrastatComputeRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsLtIntrastatComputeResponse&gt;</code></summary>
+## declarations
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">LtIntrastatComputeAsync</a>(LtIntrastatComputeDeclarationsRequest { ... }) -> WithRawResponseTask&lt;LtIntrastatComputeDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -7717,12 +7562,12 @@ await client.Capture.SaveTheReviewedDraftAsAPurchaseInvoiceAndAttachTheOriginalD
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsLtIntrastatComputeAsync(
-    new PostV1DeclarationsLtIntrastatComputeRequest
+await client.Declarations.LtIntrastatComputeAsync(
+    new LtIntrastatComputeDeclarationsRequest
     {
         Year = 1000000,
         Month = 1000000,
-        Flow = PostV1DeclarationsLtIntrastatComputeRequestFlow.Arrivals,
+        Flow = LtIntrastatComputeDeclarationsRequestFlow.Arrivals,
     }
 );
 ```
@@ -7739,7 +7584,7 @@ await client.Declarations.PostV1DeclarationsLtIntrastatComputeAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsLtIntrastatComputeRequest` 
+**request:** `LtIntrastatComputeDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -7751,7 +7596,7 @@ await client.Declarations.PostV1DeclarationsLtIntrastatComputeAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsLtIvazGenerateAsync</a>(PostV1DeclarationsLtIvazGenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsLtIvazGenerateResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">LtIvazGenerateAsync</a>(LtIvazGenerateDeclarationsRequest { ... }) -> WithRawResponseTask&lt;LtIvazGenerateDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -7764,8 +7609,8 @@ await client.Declarations.PostV1DeclarationsLtIntrastatComputeAsync(
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsLtIvazGenerateAsync(
-    new PostV1DeclarationsLtIvazGenerateRequest { WaybillIds = new List<string>() { "waybillIds" } }
+await client.Declarations.LtIvazGenerateAsync(
+    new LtIvazGenerateDeclarationsRequest { WaybillIds = new List<string>() { "waybillIds" } }
 );
 ```
 </dd>
@@ -7781,7 +7626,7 @@ await client.Declarations.PostV1DeclarationsLtIvazGenerateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsLtIvazGenerateRequest` 
+**request:** `LtIvazGenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -7793,7 +7638,7 @@ await client.Declarations.PostV1DeclarationsLtIvazGenerateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsLtIntrastatObligationAsync</a>(PostV1DeclarationsLtIntrastatObligationRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsLtIntrastatObligationResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">LtIntrastatObligationAsync</a>(LtIntrastatObligationDeclarationsRequest { ... }) -> WithRawResponseTask&lt;LtIntrastatObligationDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -7806,8 +7651,8 @@ await client.Declarations.PostV1DeclarationsLtIvazGenerateAsync(
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsLtIntrastatObligationAsync(
-    new PostV1DeclarationsLtIntrastatObligationRequest { Year = 1000000 }
+await client.Declarations.LtIntrastatObligationAsync(
+    new LtIntrastatObligationDeclarationsRequest { Year = 1000000 }
 );
 ```
 </dd>
@@ -7823,7 +7668,7 @@ await client.Declarations.PostV1DeclarationsLtIntrastatObligationAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsLtIntrastatObligationRequest` 
+**request:** `LtIntrastatObligationDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -7835,7 +7680,7 @@ await client.Declarations.PostV1DeclarationsLtIntrastatObligationAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsLtIsafGenerateAsync</a>(PostV1DeclarationsLtIsafGenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsLtIsafGenerateResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">LtIsafGenerateAsync</a>(LtIsafGenerateDeclarationsRequest { ... }) -> WithRawResponseTask&lt;LtIsafGenerateDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -7848,8 +7693,8 @@ await client.Declarations.PostV1DeclarationsLtIntrastatObligationAsync(
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsLtIsafGenerateAsync(
-    new PostV1DeclarationsLtIsafGenerateRequest { Year = 1000000, Month = 1000000 }
+await client.Declarations.LtIsafGenerateAsync(
+    new LtIsafGenerateDeclarationsRequest { Year = 1000000, Month = 1000000 }
 );
 ```
 </dd>
@@ -7865,7 +7710,7 @@ await client.Declarations.PostV1DeclarationsLtIsafGenerateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsLtIsafGenerateRequest` 
+**request:** `LtIsafGenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -7877,7 +7722,7 @@ await client.Declarations.PostV1DeclarationsLtIsafGenerateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsLtFr0600ComputeAsync</a>(PostV1DeclarationsLtFr0600ComputeRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsLtFr0600ComputeResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">LtFr0600ComputeAsync</a>(LtFr0600ComputeDeclarationsRequest { ... }) -> WithRawResponseTask&lt;LtFr0600ComputeDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -7890,8 +7735,8 @@ await client.Declarations.PostV1DeclarationsLtIsafGenerateAsync(
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsLtFr0600ComputeAsync(
-    new PostV1DeclarationsLtFr0600ComputeRequest { Year = 1000000, Month = 1000000 }
+await client.Declarations.LtFr0600ComputeAsync(
+    new LtFr0600ComputeDeclarationsRequest { Year = 1000000, Month = 1000000 }
 );
 ```
 </dd>
@@ -7907,7 +7752,7 @@ await client.Declarations.PostV1DeclarationsLtFr0600ComputeAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsLtFr0600ComputeRequest` 
+**request:** `LtFr0600ComputeDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -7919,7 +7764,7 @@ await client.Declarations.PostV1DeclarationsLtFr0600ComputeAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsLtGpm313ComputeAsync</a>(PostV1DeclarationsLtGpm313ComputeRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsLtGpm313ComputeResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">LtGpm313ComputeAsync</a>(LtGpm313ComputeDeclarationsRequest { ... }) -> WithRawResponseTask&lt;LtGpm313ComputeDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -7932,8 +7777,8 @@ await client.Declarations.PostV1DeclarationsLtFr0600ComputeAsync(
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsLtGpm313ComputeAsync(
-    new PostV1DeclarationsLtGpm313ComputeRequest { Year = 1000000, Month = 1000000 }
+await client.Declarations.LtGpm313ComputeAsync(
+    new LtGpm313ComputeDeclarationsRequest { Year = 1000000, Month = 1000000 }
 );
 ```
 </dd>
@@ -7949,7 +7794,7 @@ await client.Declarations.PostV1DeclarationsLtGpm313ComputeAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsLtGpm313ComputeRequest` 
+**request:** `LtGpm313ComputeDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -7961,7 +7806,7 @@ await client.Declarations.PostV1DeclarationsLtGpm313ComputeAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsLtSamComputeAsync</a>(PostV1DeclarationsLtSamComputeRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsLtSamComputeResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">LtSamComputeAsync</a>(LtSamComputeDeclarationsRequest { ... }) -> WithRawResponseTask&lt;LtSamComputeDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -7974,8 +7819,8 @@ await client.Declarations.PostV1DeclarationsLtGpm313ComputeAsync(
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsLtSamComputeAsync(
-    new PostV1DeclarationsLtSamComputeRequest { Year = 1000000, Month = 1000000 }
+await client.Declarations.LtSamComputeAsync(
+    new LtSamComputeDeclarationsRequest { Year = 1000000, Month = 1000000 }
 );
 ```
 </dd>
@@ -7991,7 +7836,7 @@ await client.Declarations.PostV1DeclarationsLtSamComputeAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsLtSamComputeRequest` 
+**request:** `LtSamComputeDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -8003,7 +7848,7 @@ await client.Declarations.PostV1DeclarationsLtSamComputeAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsLtSdGenerateAsync</a>(PostV1DeclarationsLtSdGenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsLtSdGenerateResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">LtSdGenerateAsync</a>(LtSdGenerateDeclarationsRequest { ... }) -> WithRawResponseTask&lt;LtSdGenerateDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -8016,12 +7861,12 @@ await client.Declarations.PostV1DeclarationsLtSamComputeAsync(
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsLtSdGenerateAsync(
-    new PostV1DeclarationsLtSdGenerateRequest
+await client.Declarations.LtSdGenerateAsync(
+    new LtSdGenerateDeclarationsRequest
     {
-        Type = PostV1DeclarationsLtSdGenerateRequestType.OneSd,
-        FromDate = "fromDate",
-        ToDate = "toDate",
+        Type = LtSdGenerateDeclarationsRequestType.OneSd,
+        FromDate = new DateOnly(2026, 7, 1),
+        ToDate = new DateOnly(2026, 7, 1),
     }
 );
 ```
@@ -8038,7 +7883,7 @@ await client.Declarations.PostV1DeclarationsLtSdGenerateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsLtSdGenerateRequest` 
+**request:** `LtSdGenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -8050,7 +7895,7 @@ await client.Declarations.PostV1DeclarationsLtSdGenerateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsLtSaftGenerateAsync</a>(PostV1DeclarationsLtSaftGenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsLtSaftGenerateResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">LtSaftGenerateAsync</a>(LtSaftGenerateDeclarationsRequest { ... }) -> WithRawResponseTask&lt;LtSaftGenerateDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -8063,99 +7908,103 @@ await client.Declarations.PostV1DeclarationsLtSdGenerateAsync(
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsLtSaftGenerateAsync(
-    new PostV1DeclarationsLtSaftGenerateRequest { FromDate = "fromDate", ToDate = "toDate" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1DeclarationsLtSaftGenerateRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsLtIvazAmendAsync</a>(PostV1DeclarationsLtIvazAmendRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsLtIvazAmendResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Declarations.PostV1DeclarationsLtIvazAmendAsync(
-    new PostV1DeclarationsLtIvazAmendRequest { WaybillIds = new List<string>() { "waybillIds" } }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1DeclarationsLtIvazAmendRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsLtIvazCancelAsync</a>(PostV1DeclarationsLtIvazCancelRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsLtIvazCancelResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Declarations.PostV1DeclarationsLtIvazCancelAsync(
-    new PostV1DeclarationsLtIvazCancelRequest
+await client.Declarations.LtSaftGenerateAsync(
+    new LtSaftGenerateDeclarationsRequest
     {
-        Entries = new List<PostV1DeclarationsLtIvazCancelRequestEntriesItem>()
+        FromDate = new DateOnly(2026, 7, 1),
+        ToDate = new DateOnly(2026, 7, 1),
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `LtSaftGenerateDeclarationsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">LtIvazAmendAsync</a>(LtIvazAmendDeclarationsRequest { ... }) -> WithRawResponseTask&lt;LtIvazAmendDeclarationsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.LtIvazAmendAsync(
+    new LtIvazAmendDeclarationsRequest { WaybillIds = new List<string>() { "waybillIds" } }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `LtIvazAmendDeclarationsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">LtIvazCancelAsync</a>(LtIvazCancelDeclarationsRequest { ... }) -> WithRawResponseTask&lt;LtIvazCancelDeclarationsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.LtIvazCancelAsync(
+    new LtIvazCancelDeclarationsRequest
+    {
+        Entries = new List<LtIvazCancelDeclarationsRequestEntriesItem>()
         {
-            new PostV1DeclarationsLtIvazCancelRequestEntriesItem
+            new LtIvazCancelDeclarationsRequestEntriesItem
             {
                 WaybillId = "waybillId",
-                Reason = PostV1DeclarationsLtIvazCancelRequestEntriesItemReason.One,
+                Reason = LtIvazCancelDeclarationsRequestEntriesItemReason.One,
             },
         },
     }
@@ -8174,7 +8023,7 @@ await client.Declarations.PostV1DeclarationsLtIvazCancelAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsLtIvazCancelRequest` 
+**request:** `LtIvazCancelDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -8186,7 +8035,7 @@ await client.Declarations.PostV1DeclarationsLtIvazCancelAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsLtFr0564ComputeAsync</a>(PostV1DeclarationsLtFr0564ComputeRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsLtFr0564ComputeResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">LtFr0564ComputeAsync</a>(LtFr0564ComputeDeclarationsRequest { ... }) -> WithRawResponseTask&lt;LtFr0564ComputeDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -8199,8 +8048,8 @@ await client.Declarations.PostV1DeclarationsLtIvazCancelAsync(
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsLtFr0564ComputeAsync(
-    new PostV1DeclarationsLtFr0564ComputeRequest { Year = 1000000, Month = 1000000 }
+await client.Declarations.LtFr0564ComputeAsync(
+    new LtFr0564ComputeDeclarationsRequest { Year = 1000000, Month = 1000000 }
 );
 ```
 </dd>
@@ -8216,7 +8065,7 @@ await client.Declarations.PostV1DeclarationsLtFr0564ComputeAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsLtFr0564ComputeRequest` 
+**request:** `LtFr0564ComputeDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -8228,7 +8077,7 @@ await client.Declarations.PostV1DeclarationsLtFr0564ComputeAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsLtGpm312ComputeAsync</a>(PostV1DeclarationsLtGpm312ComputeRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsLtGpm312ComputeResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">LtGpm312ComputeAsync</a>(LtGpm312ComputeDeclarationsRequest { ... }) -> WithRawResponseTask&lt;LtGpm312ComputeDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -8241,8 +8090,8 @@ await client.Declarations.PostV1DeclarationsLtFr0564ComputeAsync(
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsLtGpm312ComputeAsync(
-    new PostV1DeclarationsLtGpm312ComputeRequest { Year = 1000000 }
+await client.Declarations.LtGpm312ComputeAsync(
+    new LtGpm312ComputeDeclarationsRequest { Year = 1000000 }
 );
 ```
 </dd>
@@ -8258,7 +8107,7 @@ await client.Declarations.PostV1DeclarationsLtGpm312ComputeAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsLtGpm312ComputeRequest` 
+**request:** `LtGpm312ComputeDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -8270,7 +8119,7 @@ await client.Declarations.PostV1DeclarationsLtGpm312ComputeAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsLtPln204ComputeAsync</a>(PostV1DeclarationsLtPln204ComputeRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsLtPln204ComputeResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">LtPln204ComputeAsync</a>(LtPln204ComputeDeclarationsRequest { ... }) -> WithRawResponseTask&lt;LtPln204ComputeDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -8283,8 +8132,8 @@ await client.Declarations.PostV1DeclarationsLtGpm312ComputeAsync(
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsLtPln204ComputeAsync(
-    new PostV1DeclarationsLtPln204ComputeRequest { Year = 1000000 }
+await client.Declarations.LtPln204ComputeAsync(
+    new LtPln204ComputeDeclarationsRequest { Year = 1000000 }
 );
 ```
 </dd>
@@ -8300,7 +8149,7 @@ await client.Declarations.PostV1DeclarationsLtPln204ComputeAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsLtPln204ComputeRequest` 
+**request:** `LtPln204ComputeDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -8312,7 +8161,7 @@ await client.Declarations.PostV1DeclarationsLtPln204ComputeAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsEuOssComputeAsync</a>(PostV1DeclarationsEuOssComputeRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsEuOssComputeResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">EuOssComputeAsync</a>(EuOssComputeDeclarationsRequest { ... }) -> WithRawResponseTask&lt;EuOssComputeDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -8325,8 +8174,8 @@ await client.Declarations.PostV1DeclarationsLtPln204ComputeAsync(
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsEuOssComputeAsync(
-    new PostV1DeclarationsEuOssComputeRequest { Year = 1000000, Quarter = 1000000 }
+await client.Declarations.EuOssComputeAsync(
+    new EuOssComputeDeclarationsRequest { Year = 1000000, Quarter = 1000000 }
 );
 ```
 </dd>
@@ -8342,7 +8191,7 @@ await client.Declarations.PostV1DeclarationsEuOssComputeAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsEuOssComputeRequest` 
+**request:** `EuOssComputeDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -8354,7 +8203,7 @@ await client.Declarations.PostV1DeclarationsEuOssComputeAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsEuIossComputeAsync</a>(PostV1DeclarationsEuIossComputeRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsEuIossComputeResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">EuIossComputeAsync</a>(EuIossComputeDeclarationsRequest { ... }) -> WithRawResponseTask&lt;EuIossComputeDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -8367,8 +8216,8 @@ await client.Declarations.PostV1DeclarationsEuOssComputeAsync(
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsEuIossComputeAsync(
-    new PostV1DeclarationsEuIossComputeRequest { Year = 1000000, Month = 1000000 }
+await client.Declarations.EuIossComputeAsync(
+    new EuIossComputeDeclarationsRequest { Year = 1000000, Month = 1000000 }
 );
 ```
 </dd>
@@ -8384,7 +8233,7 @@ await client.Declarations.PostV1DeclarationsEuIossComputeAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsEuIossComputeRequest` 
+**request:** `EuIossComputeDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -8396,7 +8245,7 @@ await client.Declarations.PostV1DeclarationsEuIossComputeAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsEuDistanceSalesThresholdGetAsync</a>(PostV1DeclarationsEuDistanceSalesThresholdGetRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsEuDistanceSalesThresholdGetResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">EuDistanceSalesThresholdGetAsync</a>(EuDistanceSalesThresholdGetDeclarationsRequest { ... }) -> WithRawResponseTask&lt;EuDistanceSalesThresholdGetDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -8409,8 +8258,8 @@ await client.Declarations.PostV1DeclarationsEuIossComputeAsync(
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsEuDistanceSalesThresholdGetAsync(
-    new PostV1DeclarationsEuDistanceSalesThresholdGetRequest()
+await client.Declarations.EuDistanceSalesThresholdGetAsync(
+    new EuDistanceSalesThresholdGetDeclarationsRequest()
 );
 ```
 </dd>
@@ -8426,7 +8275,7 @@ await client.Declarations.PostV1DeclarationsEuDistanceSalesThresholdGetAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsEuDistanceSalesThresholdGetRequest` 
+**request:** `EuDistanceSalesThresholdGetDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -8438,7 +8287,7 @@ await client.Declarations.PostV1DeclarationsEuDistanceSalesThresholdGetAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsEuUnionTurnoverGetAsync</a>(PostV1DeclarationsEuUnionTurnoverGetRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsEuUnionTurnoverGetResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">EuUnionTurnoverGetAsync</a>(EuUnionTurnoverGetDeclarationsRequest { ... }) -> WithRawResponseTask&lt;EuUnionTurnoverGetDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -8451,8 +8300,48 @@ await client.Declarations.PostV1DeclarationsEuDistanceSalesThresholdGetAsync(
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsEuUnionTurnoverGetAsync(
-    new PostV1DeclarationsEuUnionTurnoverGetRequest()
+await client.Declarations.EuUnionTurnoverGetAsync(new EuUnionTurnoverGetDeclarationsRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `EuUnionTurnoverGetDeclarationsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">EuSmeCrossBorderReportComputeAsync</a>(EuSmeCrossBorderReportComputeDeclarationsRequest { ... }) -> WithRawResponseTask&lt;EuSmeCrossBorderReportComputeDeclarationsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.EuSmeCrossBorderReportComputeAsync(
+    new EuSmeCrossBorderReportComputeDeclarationsRequest { Year = 1000000, Quarter = 1000000 }
 );
 ```
 </dd>
@@ -8468,7 +8357,7 @@ await client.Declarations.PostV1DeclarationsEuUnionTurnoverGetAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsEuUnionTurnoverGetRequest` 
+**request:** `EuSmeCrossBorderReportComputeDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -8480,7 +8369,7 @@ await client.Declarations.PostV1DeclarationsEuUnionTurnoverGetAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsEuSmeCrossBorderReportComputeAsync</a>(PostV1DeclarationsEuSmeCrossBorderReportComputeRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsEuSmeCrossBorderReportComputeResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">EuSmeThresholdsListAsync</a>(EuSmeThresholdsListDeclarationsRequest { ... }) -> WithRawResponseTask&lt;EuSmeThresholdsListDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -8493,9 +8382,7 @@ await client.Declarations.PostV1DeclarationsEuUnionTurnoverGetAsync(
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsEuSmeCrossBorderReportComputeAsync(
-    new PostV1DeclarationsEuSmeCrossBorderReportComputeRequest { Year = 1000000, Quarter = 1000000 }
-);
+await client.Declarations.EuSmeThresholdsListAsync(new EuSmeThresholdsListDeclarationsRequest());
 ```
 </dd>
 </dl>
@@ -8510,7 +8397,7 @@ await client.Declarations.PostV1DeclarationsEuSmeCrossBorderReportComputeAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsEuSmeCrossBorderReportComputeRequest` 
+**request:** `EuSmeThresholdsListDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -8522,7 +8409,7 @@ await client.Declarations.PostV1DeclarationsEuSmeCrossBorderReportComputeAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsEuSmeThresholdsListAsync</a>(PostV1DeclarationsEuSmeThresholdsListRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsEuSmeThresholdsListResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">EuSmeThresholdGetAsync</a>(EuSmeThresholdGetDeclarationsRequest { ... }) -> WithRawResponseTask&lt;EuSmeThresholdGetDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -8535,9 +8422,7 @@ await client.Declarations.PostV1DeclarationsEuSmeCrossBorderReportComputeAsync(
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsEuSmeThresholdsListAsync(
-    new PostV1DeclarationsEuSmeThresholdsListRequest()
-);
+await client.Declarations.EuSmeThresholdGetAsync(new EuSmeThresholdGetDeclarationsRequest());
 ```
 </dd>
 </dl>
@@ -8552,7 +8437,7 @@ await client.Declarations.PostV1DeclarationsEuSmeThresholdsListAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsEuSmeThresholdsListRequest` 
+**request:** `EuSmeThresholdGetDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -8564,7 +8449,7 @@ await client.Declarations.PostV1DeclarationsEuSmeThresholdsListAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsEuSmeThresholdGetAsync</a>(PostV1DeclarationsEuSmeThresholdGetRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsEuSmeThresholdGetResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">EuVatReturnPacksListAsync</a>(EuVatReturnPacksListDeclarationsRequest { ... }) -> WithRawResponseTask&lt;EuVatReturnPacksListDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -8577,9 +8462,7 @@ await client.Declarations.PostV1DeclarationsEuSmeThresholdsListAsync(
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsEuSmeThresholdGetAsync(
-    new PostV1DeclarationsEuSmeThresholdGetRequest()
-);
+await client.Declarations.EuVatReturnPacksListAsync(new EuVatReturnPacksListDeclarationsRequest());
 ```
 </dd>
 </dl>
@@ -8594,7 +8477,7 @@ await client.Declarations.PostV1DeclarationsEuSmeThresholdGetAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsEuSmeThresholdGetRequest` 
+**request:** `EuVatReturnPacksListDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -8606,7 +8489,7 @@ await client.Declarations.PostV1DeclarationsEuSmeThresholdGetAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsEuVatReturnPacksListAsync</a>(PostV1DeclarationsEuVatReturnPacksListRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsEuVatReturnPacksListResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">EuVatReturnComputeAsync</a>(EuVatReturnComputeDeclarationsRequest { ... }) -> WithRawResponseTask&lt;EuVatReturnComputeDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -8619,50 +8502,8 @@ await client.Declarations.PostV1DeclarationsEuSmeThresholdGetAsync(
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsEuVatReturnPacksListAsync(
-    new PostV1DeclarationsEuVatReturnPacksListRequest()
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1DeclarationsEuVatReturnPacksListRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsEuVatReturnComputeAsync</a>(PostV1DeclarationsEuVatReturnComputeRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsEuVatReturnComputeResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Declarations.PostV1DeclarationsEuVatReturnComputeAsync(
-    new PostV1DeclarationsEuVatReturnComputeRequest
+await client.Declarations.EuVatReturnComputeAsync(
+    new EuVatReturnComputeDeclarationsRequest
     {
         CountryCode = "countryCode",
         Year = 1000000,
@@ -8683,7 +8524,7 @@ await client.Declarations.PostV1DeclarationsEuVatReturnComputeAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsEuVatReturnComputeRequest` 
+**request:** `EuVatReturnComputeDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -8695,7 +8536,7 @@ await client.Declarations.PostV1DeclarationsEuVatReturnComputeAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsPlJpkV7MGenerateAsync</a>(PostV1DeclarationsPlJpkV7MGenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsPlJpkV7MGenerateResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PlJpkV7MGenerateAsync</a>(PlJpkV7MGenerateDeclarationsRequest { ... }) -> WithRawResponseTask&lt;PlJpkV7MGenerateDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -8722,8 +8563,8 @@ Generate the Polish JPK_V7M(3) file (VAT declaration with evidence) for a month,
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsPlJpkV7MGenerateAsync(
-    new PostV1DeclarationsPlJpkV7MGenerateRequest
+await client.Declarations.PlJpkV7MGenerateAsync(
+    new PlJpkV7MGenerateDeclarationsRequest
     {
         Year = 1000000,
         Month = 1000000,
@@ -8745,7 +8586,7 @@ await client.Declarations.PostV1DeclarationsPlJpkV7MGenerateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsPlJpkV7MGenerateRequest` 
+**request:** `PlJpkV7MGenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -8757,7 +8598,7 @@ await client.Declarations.PostV1DeclarationsPlJpkV7MGenerateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsPlVatUeGenerateAsync</a>(PostV1DeclarationsPlVatUeGenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsPlVatUeGenerateResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PlVatUeGenerateAsync</a>(PlVatUeGenerateDeclarationsRequest { ... }) -> WithRawResponseTask&lt;PlVatUeGenerateDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -8784,8 +8625,8 @@ Build the rows of the Polish recapitulative statement VAT-UE for a month: sectio
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsPlVatUeGenerateAsync(
-    new PostV1DeclarationsPlVatUeGenerateRequest { Year = 1000000, Month = 1000000 }
+await client.Declarations.PlVatUeGenerateAsync(
+    new PlVatUeGenerateDeclarationsRequest { Year = 1000000, Month = 1000000 }
 );
 ```
 </dd>
@@ -8801,7 +8642,7 @@ await client.Declarations.PostV1DeclarationsPlVatUeGenerateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsPlVatUeGenerateRequest` 
+**request:** `PlVatUeGenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -8813,7 +8654,7 @@ await client.Declarations.PostV1DeclarationsPlVatUeGenerateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsPlIntrastatGenerateAsync</a>(PostV1DeclarationsPlIntrastatGenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsPlIntrastatGenerateResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PlIntrastatGenerateAsync</a>(PlIntrastatGenerateDeclarationsRequest { ... }) -> WithRawResponseTask&lt;PlIntrastatGenerateDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -8840,12 +8681,12 @@ Build the rows of the Polish INTRASTAT declaration for a month, arrivals or disp
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsPlIntrastatGenerateAsync(
-    new PostV1DeclarationsPlIntrastatGenerateRequest
+await client.Declarations.PlIntrastatGenerateAsync(
+    new PlIntrastatGenerateDeclarationsRequest
     {
         Year = 1000000,
         Month = 1000000,
-        Flow = PostV1DeclarationsPlIntrastatGenerateRequestFlow.Arrivals,
+        Flow = PlIntrastatGenerateDeclarationsRequestFlow.Arrivals,
     }
 );
 ```
@@ -8862,7 +8703,7 @@ await client.Declarations.PostV1DeclarationsPlIntrastatGenerateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsPlIntrastatGenerateRequest` 
+**request:** `PlIntrastatGenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -8874,7 +8715,7 @@ await client.Declarations.PostV1DeclarationsPlIntrastatGenerateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsPlKsefReceivedListAsync</a>(PostV1DeclarationsPlKsefReceivedListRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsPlKsefReceivedListResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PlKsefReceivedListAsync</a>(PlKsefReceivedListDeclarationsRequest { ... }) -> WithRawResponseTask&lt;PlKsefReceivedListDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -8901,8 +8742,8 @@ List the invoices KSeF holds for this company as the buyer, for a window of acqu
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsPlKsefReceivedListAsync(
-    new PostV1DeclarationsPlKsefReceivedListRequest
+await client.Declarations.PlKsefReceivedListAsync(
+    new PlKsefReceivedListDeclarationsRequest
     {
         From = new DateTime(2024, 01, 15, 09, 30, 00, 000),
         To = new DateTime(2024, 01, 15, 09, 30, 00, 000),
@@ -8922,7 +8763,7 @@ await client.Declarations.PostV1DeclarationsPlKsefReceivedListAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsPlKsefReceivedListRequest` 
+**request:** `PlKsefReceivedListDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -8934,7 +8775,7 @@ await client.Declarations.PostV1DeclarationsPlKsefReceivedListAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsPlKsefReceivedFetchAsync</a>(PostV1DeclarationsPlKsefReceivedFetchRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsPlKsefReceivedFetchResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PlKsefReceivedFetchAsync</a>(PlKsefReceivedFetchDeclarationsRequest { ... }) -> WithRawResponseTask&lt;PlKsefReceivedFetchDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -8961,8 +8802,8 @@ Read one invoice out of KSeF by its national number. With a purchase invoice giv
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsPlKsefReceivedFetchAsync(
-    new PostV1DeclarationsPlKsefReceivedFetchRequest { KsefNumber = "ksefNumber" }
+await client.Declarations.PlKsefReceivedFetchAsync(
+    new PlKsefReceivedFetchDeclarationsRequest { KsefNumber = "ksefNumber" }
 );
 ```
 </dd>
@@ -8978,7 +8819,7 @@ await client.Declarations.PostV1DeclarationsPlKsefReceivedFetchAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsPlKsefReceivedFetchRequest` 
+**request:** `PlKsefReceivedFetchDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -8990,7 +8831,7 @@ await client.Declarations.PostV1DeclarationsPlKsefReceivedFetchAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsPlKsefReceiptAsync</a>(PostV1DeclarationsPlKsefReceiptRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsPlKsefReceiptResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PlKsefReceiptAsync</a>(PlKsefReceiptDeclarationsRequest { ... }) -> WithRawResponseTask&lt;PlKsefReceiptDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -9017,9 +8858,7 @@ The UPO for a KSeF session. KSeF issues one receipt per session rather than per 
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsPlKsefReceiptAsync(
-    new PostV1DeclarationsPlKsefReceiptRequest()
-);
+await client.Declarations.PlKsefReceiptAsync(new PlKsefReceiptDeclarationsRequest());
 ```
 </dd>
 </dl>
@@ -9034,7 +8873,7 @@ await client.Declarations.PostV1DeclarationsPlKsefReceiptAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsPlKsefReceiptRequest` 
+**request:** `PlKsefReceiptDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -9046,7 +8885,7 @@ await client.Declarations.PostV1DeclarationsPlKsefReceiptAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">TaxAdjustmentsRecordedForATaxYearAsync</a>(PostV1DeclarationsTaxAdjustmentsListRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsTaxAdjustmentsListResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">TaxAdjustmentsListAsync</a>(TaxAdjustmentsListDeclarationsRequest { ... }) -> WithRawResponseTask&lt;TaxAdjustmentsListDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -9073,8 +8912,8 @@ The differences between the accounting result and the taxable profit: non-deduct
 <dd>
 
 ```csharp
-await client.Declarations.TaxAdjustmentsRecordedForATaxYearAsync(
-    new PostV1DeclarationsTaxAdjustmentsListRequest { Year = 1000000 }
+await client.Declarations.TaxAdjustmentsListAsync(
+    new TaxAdjustmentsListDeclarationsRequest { Year = 1000000 }
 );
 ```
 </dd>
@@ -9090,7 +8929,7 @@ await client.Declarations.TaxAdjustmentsRecordedForATaxYearAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsTaxAdjustmentsListRequest` 
+**request:** `TaxAdjustmentsListDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -9102,7 +8941,7 @@ await client.Declarations.TaxAdjustmentsRecordedForATaxYearAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">RecordATaxAdjustmentForATaxYearAsync</a>(PostV1DeclarationsTaxAdjustmentsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsTaxAdjustmentsCreateResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">TaxAdjustmentsCreateAsync</a>(TaxAdjustmentsCreateDeclarationsRequest { ... }) -> WithRawResponseTask&lt;TaxAdjustmentsCreateDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -9115,12 +8954,12 @@ await client.Declarations.TaxAdjustmentsRecordedForATaxYearAsync(
 <dd>
 
 ```csharp
-await client.Declarations.RecordATaxAdjustmentForATaxYearAsync(
-    new PostV1DeclarationsTaxAdjustmentsCreateRequest
+await client.Declarations.TaxAdjustmentsCreateAsync(
+    new TaxAdjustmentsCreateDeclarationsRequest
     {
         Year = 1000000,
-        Kind = PostV1DeclarationsTaxAdjustmentsCreateRequestKind.NonDeductible,
-        Amount = "amount",
+        Kind = TaxAdjustmentsCreateDeclarationsRequestKind.NonDeductible,
+        Amount = "121.00",
         Description = "description",
     }
 );
@@ -9138,7 +8977,7 @@ await client.Declarations.RecordATaxAdjustmentForATaxYearAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsTaxAdjustmentsCreateRequest` 
+**request:** `TaxAdjustmentsCreateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -9150,7 +8989,7 @@ await client.Declarations.RecordATaxAdjustmentForATaxYearAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">ChangeARecordedTaxAdjustmentAsync</a>(PostV1DeclarationsTaxAdjustmentsUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsTaxAdjustmentsUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">TaxAdjustmentsUpdateAsync</a>(TaxAdjustmentsUpdateDeclarationsRequest { ... }) -> WithRawResponseTask&lt;TaxAdjustmentsUpdateDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -9163,8 +9002,8 @@ await client.Declarations.RecordATaxAdjustmentForATaxYearAsync(
 <dd>
 
 ```csharp
-await client.Declarations.ChangeARecordedTaxAdjustmentAsync(
-    new PostV1DeclarationsTaxAdjustmentsUpdateRequest { Id = "id" }
+await client.Declarations.TaxAdjustmentsUpdateAsync(
+    new TaxAdjustmentsUpdateDeclarationsRequest { Id = "id" }
 );
 ```
 </dd>
@@ -9180,7 +9019,7 @@ await client.Declarations.ChangeARecordedTaxAdjustmentAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsTaxAdjustmentsUpdateRequest` 
+**request:** `TaxAdjustmentsUpdateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -9192,7 +9031,7 @@ await client.Declarations.ChangeARecordedTaxAdjustmentAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">RemoveARecordedTaxAdjustmentAsync</a>(PostV1DeclarationsTaxAdjustmentsDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsTaxAdjustmentsDeleteResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">TaxAdjustmentsDeleteAsync</a>(TaxAdjustmentsDeleteDeclarationsRequest { ... }) -> WithRawResponseTask&lt;TaxAdjustmentsDeleteDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -9205,8 +9044,8 @@ await client.Declarations.ChangeARecordedTaxAdjustmentAsync(
 <dd>
 
 ```csharp
-await client.Declarations.RemoveARecordedTaxAdjustmentAsync(
-    new PostV1DeclarationsTaxAdjustmentsDeleteRequest { Id = "id" }
+await client.Declarations.TaxAdjustmentsDeleteAsync(
+    new TaxAdjustmentsDeleteDeclarationsRequest { Id = "id" }
 );
 ```
 </dd>
@@ -9222,7 +9061,7 @@ await client.Declarations.RemoveARecordedTaxAdjustmentAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsTaxAdjustmentsDeleteRequest` 
+**request:** `TaxAdjustmentsDeleteDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -9234,7 +9073,7 @@ await client.Declarations.RemoveARecordedTaxAdjustmentAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PaymentsAlreadyMadeTowardsATaxOfAYearAsync</a>(PostV1DeclarationsTaxPaymentsListRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsTaxPaymentsListResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">TaxPaymentsListAsync</a>(TaxPaymentsListDeclarationsRequest { ... }) -> WithRawResponseTask&lt;TaxPaymentsListDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -9261,10 +9100,10 @@ What the company has paid the administration towards a tax before the return is 
 <dd>
 
 ```csharp
-await client.Declarations.PaymentsAlreadyMadeTowardsATaxOfAYearAsync(
-    new PostV1DeclarationsTaxPaymentsListRequest
+await client.Declarations.TaxPaymentsListAsync(
+    new TaxPaymentsListDeclarationsRequest
     {
-        Tax = PostV1DeclarationsTaxPaymentsListRequestTax.CorporateIncomeTax,
+        Tax = TaxPaymentsListDeclarationsRequestTax.CorporateIncomeTax,
         Year = 1000000,
     }
 );
@@ -9282,7 +9121,7 @@ await client.Declarations.PaymentsAlreadyMadeTowardsATaxOfAYearAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsTaxPaymentsListRequest` 
+**request:** `TaxPaymentsListDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -9294,7 +9133,7 @@ await client.Declarations.PaymentsAlreadyMadeTowardsATaxOfAYearAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">RecordAPaymentMadeTowardsATaxAsync</a>(PostV1DeclarationsTaxPaymentsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsTaxPaymentsCreateResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">TaxPaymentsCreateAsync</a>(TaxPaymentsCreateDeclarationsRequest { ... }) -> WithRawResponseTask&lt;TaxPaymentsCreateDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -9307,14 +9146,14 @@ await client.Declarations.PaymentsAlreadyMadeTowardsATaxOfAYearAsync(
 <dd>
 
 ```csharp
-await client.Declarations.RecordAPaymentMadeTowardsATaxAsync(
-    new PostV1DeclarationsTaxPaymentsCreateRequest
+await client.Declarations.TaxPaymentsCreateAsync(
+    new TaxPaymentsCreateDeclarationsRequest
     {
-        Tax = PostV1DeclarationsTaxPaymentsCreateRequestTax.CorporateIncomeTax,
+        Tax = TaxPaymentsCreateDeclarationsRequestTax.CorporateIncomeTax,
         Year = 1000000,
-        Kind = PostV1DeclarationsTaxPaymentsCreateRequestKind.Advance,
-        Amount = "amount",
-        PaidOn = "paidOn",
+        Kind = TaxPaymentsCreateDeclarationsRequestKind.Advance,
+        Amount = "121.00",
+        PaidOn = new DateOnly(2026, 7, 1),
         Description = "description",
     }
 );
@@ -9332,7 +9171,7 @@ await client.Declarations.RecordAPaymentMadeTowardsATaxAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsTaxPaymentsCreateRequest` 
+**request:** `TaxPaymentsCreateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -9344,7 +9183,7 @@ await client.Declarations.RecordAPaymentMadeTowardsATaxAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">ChangeARecordedTaxPaymentAsync</a>(PostV1DeclarationsTaxPaymentsUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsTaxPaymentsUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">TaxPaymentsUpdateAsync</a>(TaxPaymentsUpdateDeclarationsRequest { ... }) -> WithRawResponseTask&lt;TaxPaymentsUpdateDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -9357,8 +9196,8 @@ await client.Declarations.RecordAPaymentMadeTowardsATaxAsync(
 <dd>
 
 ```csharp
-await client.Declarations.ChangeARecordedTaxPaymentAsync(
-    new PostV1DeclarationsTaxPaymentsUpdateRequest { Id = "id" }
+await client.Declarations.TaxPaymentsUpdateAsync(
+    new TaxPaymentsUpdateDeclarationsRequest { Id = "id" }
 );
 ```
 </dd>
@@ -9374,7 +9213,7 @@ await client.Declarations.ChangeARecordedTaxPaymentAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsTaxPaymentsUpdateRequest` 
+**request:** `TaxPaymentsUpdateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -9386,7 +9225,7 @@ await client.Declarations.ChangeARecordedTaxPaymentAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">RemoveARecordedTaxPaymentAsync</a>(PostV1DeclarationsTaxPaymentsDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsTaxPaymentsDeleteResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">TaxPaymentsDeleteAsync</a>(TaxPaymentsDeleteDeclarationsRequest { ... }) -> WithRawResponseTask&lt;TaxPaymentsDeleteDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -9399,8 +9238,8 @@ await client.Declarations.ChangeARecordedTaxPaymentAsync(
 <dd>
 
 ```csharp
-await client.Declarations.RemoveARecordedTaxPaymentAsync(
-    new PostV1DeclarationsTaxPaymentsDeleteRequest { Id = "id" }
+await client.Declarations.TaxPaymentsDeleteAsync(
+    new TaxPaymentsDeleteDeclarationsRequest { Id = "id" }
 );
 ```
 </dd>
@@ -9416,7 +9255,7 @@ await client.Declarations.RemoveARecordedTaxPaymentAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsTaxPaymentsDeleteRequest` 
+**request:** `TaxPaymentsDeleteDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -9428,7 +9267,7 @@ await client.Declarations.RemoveARecordedTaxPaymentAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">AdoptionAndSigningFactsOfTheAnnualAccountsOfAYearAsync</a>(PostV1DeclarationsAnnualAccountsGetRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsAnnualAccountsGetResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">AnnualAccountsGetAsync</a>(AnnualAccountsGetDeclarationsRequest { ... }) -> WithRawResponseTask&lt;AnnualAccountsGetDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -9455,8 +9294,8 @@ Whether the general meeting adopted the annual accounts and on which date, the d
 <dd>
 
 ```csharp
-await client.Declarations.AdoptionAndSigningFactsOfTheAnnualAccountsOfAYearAsync(
-    new PostV1DeclarationsAnnualAccountsGetRequest { Year = 1000000 }
+await client.Declarations.AnnualAccountsGetAsync(
+    new AnnualAccountsGetDeclarationsRequest { Year = 1000000 }
 );
 ```
 </dd>
@@ -9472,7 +9311,7 @@ await client.Declarations.AdoptionAndSigningFactsOfTheAnnualAccountsOfAYearAsync
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsAnnualAccountsGetRequest` 
+**request:** `AnnualAccountsGetDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -9484,7 +9323,7 @@ await client.Declarations.AdoptionAndSigningFactsOfTheAnnualAccountsOfAYearAsync
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">RecordTheAdoptionAndPreparationOfTheAnnualAccountsOfAYearAsync</a>(PostV1DeclarationsAnnualAccountsSetRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsAnnualAccountsSetResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">AnnualAccountsSetAsync</a>(AnnualAccountsSetDeclarationsRequest { ... }) -> WithRawResponseTask&lt;AnnualAccountsSetDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -9497,12 +9336,12 @@ await client.Declarations.AdoptionAndSigningFactsOfTheAnnualAccountsOfAYearAsync
 <dd>
 
 ```csharp
-await client.Declarations.RecordTheAdoptionAndPreparationOfTheAnnualAccountsOfAYearAsync(
-    new PostV1DeclarationsAnnualAccountsSetRequest
+await client.Declarations.AnnualAccountsSetAsync(
+    new AnnualAccountsSetDeclarationsRequest
     {
         Year = 1000000,
         Adopted = true,
-        DateOfPreparation = "dateOfPreparation",
+        DateOfPreparation = new DateOnly(2026, 7, 1),
     }
 );
 ```
@@ -9519,7 +9358,7 @@ await client.Declarations.RecordTheAdoptionAndPreparationOfTheAnnualAccountsOfAY
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsAnnualAccountsSetRequest` 
+**request:** `AnnualAccountsSetDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -9531,7 +9370,7 @@ await client.Declarations.RecordTheAdoptionAndPreparationOfTheAnnualAccountsOfAY
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">RecordWhetherADirectorSignedTheAnnualAccountsOfAYearAsync</a>(PostV1DeclarationsAnnualAccountsSignaturesCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsAnnualAccountsSignaturesCreateResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">AnnualAccountsSignaturesCreateAsync</a>(AnnualAccountsSignaturesCreateDeclarationsRequest { ... }) -> WithRawResponseTask&lt;AnnualAccountsSignaturesCreateDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -9544,13 +9383,13 @@ await client.Declarations.RecordTheAdoptionAndPreparationOfTheAnnualAccountsOfAY
 <dd>
 
 ```csharp
-await client.Declarations.RecordWhetherADirectorSignedTheAnnualAccountsOfAYearAsync(
-    new PostV1DeclarationsAnnualAccountsSignaturesCreateRequest
+await client.Declarations.AnnualAccountsSignaturesCreateAsync(
+    new AnnualAccountsSignaturesCreateDeclarationsRequest
     {
         Year = 1000000,
         DirectorName = "directorName",
         DirectorType =
-            PostV1DeclarationsAnnualAccountsSignaturesCreateRequestDirectorType.ManagingCurrent,
+            AnnualAccountsSignaturesCreateDeclarationsRequestDirectorType.ManagingCurrent,
         Signed = true,
     }
 );
@@ -9568,7 +9407,7 @@ await client.Declarations.RecordWhetherADirectorSignedTheAnnualAccountsOfAYearAs
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsAnnualAccountsSignaturesCreateRequest` 
+**request:** `AnnualAccountsSignaturesCreateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -9580,7 +9419,7 @@ await client.Declarations.RecordWhetherADirectorSignedTheAnnualAccountsOfAYearAs
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">ChangeARecordedDirectorSignatureAsync</a>(PostV1DeclarationsAnnualAccountsSignaturesUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsAnnualAccountsSignaturesUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">AnnualAccountsSignaturesUpdateAsync</a>(AnnualAccountsSignaturesUpdateDeclarationsRequest { ... }) -> WithRawResponseTask&lt;AnnualAccountsSignaturesUpdateDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -9593,13 +9432,13 @@ await client.Declarations.RecordWhetherADirectorSignedTheAnnualAccountsOfAYearAs
 <dd>
 
 ```csharp
-await client.Declarations.ChangeARecordedDirectorSignatureAsync(
-    new PostV1DeclarationsAnnualAccountsSignaturesUpdateRequest
+await client.Declarations.AnnualAccountsSignaturesUpdateAsync(
+    new AnnualAccountsSignaturesUpdateDeclarationsRequest
     {
         Id = "id",
         DirectorName = "directorName",
         DirectorType =
-            PostV1DeclarationsAnnualAccountsSignaturesUpdateRequestDirectorType.ManagingCurrent,
+            AnnualAccountsSignaturesUpdateDeclarationsRequestDirectorType.ManagingCurrent,
         Signed = true,
     }
 );
@@ -9617,7 +9456,7 @@ await client.Declarations.ChangeARecordedDirectorSignatureAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsAnnualAccountsSignaturesUpdateRequest` 
+**request:** `AnnualAccountsSignaturesUpdateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -9629,7 +9468,7 @@ await client.Declarations.ChangeARecordedDirectorSignatureAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">RemoveARecordedDirectorSignatureAsync</a>(PostV1DeclarationsAnnualAccountsSignaturesDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsAnnualAccountsSignaturesDeleteResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">AnnualAccountsSignaturesDeleteAsync</a>(AnnualAccountsSignaturesDeleteDeclarationsRequest { ... }) -> WithRawResponseTask&lt;AnnualAccountsSignaturesDeleteDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -9642,8 +9481,8 @@ await client.Declarations.ChangeARecordedDirectorSignatureAsync(
 <dd>
 
 ```csharp
-await client.Declarations.RemoveARecordedDirectorSignatureAsync(
-    new PostV1DeclarationsAnnualAccountsSignaturesDeleteRequest { Id = "id" }
+await client.Declarations.AnnualAccountsSignaturesDeleteAsync(
+    new AnnualAccountsSignaturesDeleteDeclarationsRequest { Id = "id" }
 );
 ```
 </dd>
@@ -9659,7 +9498,7 @@ await client.Declarations.RemoveARecordedDirectorSignatureAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsAnnualAccountsSignaturesDeleteRequest` 
+**request:** `AnnualAccountsSignaturesDeleteDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -9671,7 +9510,7 @@ await client.Declarations.RemoveARecordedDirectorSignatureAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">RecordADecisionToDistributeProfitADividendAnInterimDividendOrAPaymentTreatedAsOneAsync</a>(PostV1DeclarationsAnnualAccountsDistributionsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsAnnualAccountsDistributionsCreateResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">AnnualAccountsDistributionsCreateAsync</a>(AnnualAccountsDistributionsCreateDeclarationsRequest { ... }) -> WithRawResponseTask&lt;AnnualAccountsDistributionsCreateDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -9684,13 +9523,13 @@ await client.Declarations.RemoveARecordedDirectorSignatureAsync(
 <dd>
 
 ```csharp
-await client.Declarations.RecordADecisionToDistributeProfitADividendAnInterimDividendOrAPaymentTreatedAsOneAsync(
-    new PostV1DeclarationsAnnualAccountsDistributionsCreateRequest
+await client.Declarations.AnnualAccountsDistributionsCreateAsync(
+    new AnnualAccountsDistributionsCreateDeclarationsRequest
     {
         Year = 1000000,
-        DecidedOn = "decidedOn",
-        Kind = PostV1DeclarationsAnnualAccountsDistributionsCreateRequestKind.Dividend,
-        Amount = "amount",
+        DecidedOn = new DateOnly(2026, 7, 1),
+        Kind = AnnualAccountsDistributionsCreateDeclarationsRequestKind.Dividend,
+        Amount = "121.00",
     }
 );
 ```
@@ -9707,7 +9546,7 @@ await client.Declarations.RecordADecisionToDistributeProfitADividendAnInterimDiv
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsAnnualAccountsDistributionsCreateRequest` 
+**request:** `AnnualAccountsDistributionsCreateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -9719,7 +9558,7 @@ await client.Declarations.RecordADecisionToDistributeProfitADividendAnInterimDiv
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">ChangeARecordedProfitDistributionAsync</a>(PostV1DeclarationsAnnualAccountsDistributionsUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsAnnualAccountsDistributionsUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">AnnualAccountsDistributionsUpdateAsync</a>(AnnualAccountsDistributionsUpdateDeclarationsRequest { ... }) -> WithRawResponseTask&lt;AnnualAccountsDistributionsUpdateDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -9732,13 +9571,13 @@ await client.Declarations.RecordADecisionToDistributeProfitADividendAnInterimDiv
 <dd>
 
 ```csharp
-await client.Declarations.ChangeARecordedProfitDistributionAsync(
-    new PostV1DeclarationsAnnualAccountsDistributionsUpdateRequest
+await client.Declarations.AnnualAccountsDistributionsUpdateAsync(
+    new AnnualAccountsDistributionsUpdateDeclarationsRequest
     {
         Id = "id",
-        DecidedOn = "decidedOn",
-        Kind = PostV1DeclarationsAnnualAccountsDistributionsUpdateRequestKind.Dividend,
-        Amount = "amount",
+        DecidedOn = new DateOnly(2026, 7, 1),
+        Kind = AnnualAccountsDistributionsUpdateDeclarationsRequestKind.Dividend,
+        Amount = "121.00",
     }
 );
 ```
@@ -9755,7 +9594,7 @@ await client.Declarations.ChangeARecordedProfitDistributionAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsAnnualAccountsDistributionsUpdateRequest` 
+**request:** `AnnualAccountsDistributionsUpdateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -9767,7 +9606,7 @@ await client.Declarations.ChangeARecordedProfitDistributionAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">RemoveARecordedProfitDistributionAsync</a>(PostV1DeclarationsAnnualAccountsDistributionsDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsAnnualAccountsDistributionsDeleteResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">AnnualAccountsDistributionsDeleteAsync</a>(AnnualAccountsDistributionsDeleteDeclarationsRequest { ... }) -> WithRawResponseTask&lt;AnnualAccountsDistributionsDeleteDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -9780,8 +9619,8 @@ await client.Declarations.ChangeARecordedProfitDistributionAsync(
 <dd>
 
 ```csharp
-await client.Declarations.RemoveARecordedProfitDistributionAsync(
-    new PostV1DeclarationsAnnualAccountsDistributionsDeleteRequest { Id = "id" }
+await client.Declarations.AnnualAccountsDistributionsDeleteAsync(
+    new AnnualAccountsDistributionsDeleteDeclarationsRequest { Id = "id" }
 );
 ```
 </dd>
@@ -9797,7 +9636,7 @@ await client.Declarations.RemoveARecordedProfitDistributionAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsAnnualAccountsDistributionsDeleteRequest` 
+**request:** `AnnualAccountsDistributionsDeleteDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -9809,7 +9648,7 @@ await client.Declarations.RemoveARecordedProfitDistributionAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">AttachAnUploadedDocumentToTheAnnualAccountsOfAYearAsync</a>(PostV1DeclarationsAnnualAccountsAttachmentsAddRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsAnnualAccountsAttachmentsAddResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">AnnualAccountsAttachmentsAddAsync</a>(AnnualAccountsAttachmentsAddDeclarationsRequest { ... }) -> WithRawResponseTask&lt;AnnualAccountsAttachmentsAddDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -9836,11 +9675,11 @@ Links a file uploaded through files/upload (its storageKey) to the annual accoun
 <dd>
 
 ```csharp
-await client.Declarations.AttachAnUploadedDocumentToTheAnnualAccountsOfAYearAsync(
-    new PostV1DeclarationsAnnualAccountsAttachmentsAddRequest
+await client.Declarations.AnnualAccountsAttachmentsAddAsync(
+    new AnnualAccountsAttachmentsAddDeclarationsRequest
     {
         Year = 1000000,
-        Kind = PostV1DeclarationsAnnualAccountsAttachmentsAddRequestKind.FullReport,
+        Kind = AnnualAccountsAttachmentsAddDeclarationsRequestKind.FullReport,
         Ref = "ref",
     }
 );
@@ -9858,7 +9697,7 @@ await client.Declarations.AttachAnUploadedDocumentToTheAnnualAccountsOfAYearAsyn
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsAnnualAccountsAttachmentsAddRequest` 
+**request:** `AnnualAccountsAttachmentsAddDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -9870,7 +9709,7 @@ await client.Declarations.AttachAnUploadedDocumentToTheAnnualAccountsOfAYearAsyn
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">RemoveADocumentAttachedToTheAnnualAccountsAndDeleteItsFileAsync</a>(PostV1DeclarationsAnnualAccountsAttachmentsDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsAnnualAccountsAttachmentsDeleteResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">AnnualAccountsAttachmentsDeleteAsync</a>(AnnualAccountsAttachmentsDeleteDeclarationsRequest { ... }) -> WithRawResponseTask&lt;AnnualAccountsAttachmentsDeleteDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -9883,8 +9722,8 @@ await client.Declarations.AttachAnUploadedDocumentToTheAnnualAccountsOfAYearAsyn
 <dd>
 
 ```csharp
-await client.Declarations.RemoveADocumentAttachedToTheAnnualAccountsAndDeleteItsFileAsync(
-    new PostV1DeclarationsAnnualAccountsAttachmentsDeleteRequest { Id = "id" }
+await client.Declarations.AnnualAccountsAttachmentsDeleteAsync(
+    new AnnualAccountsAttachmentsDeleteDeclarationsRequest { Id = "id" }
 );
 ```
 </dd>
@@ -9900,7 +9739,7 @@ await client.Declarations.RemoveADocumentAttachedToTheAnnualAccountsAndDeleteIts
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsAnnualAccountsAttachmentsDeleteRequest` 
+**request:** `AnnualAccountsAttachmentsDeleteDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -9912,7 +9751,7 @@ await client.Declarations.RemoveADocumentAttachedToTheAnnualAccountsAndDeleteIts
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsCyTd4GenerateAsync</a>(PostV1DeclarationsCyTd4GenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsCyTd4GenerateResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">CyTd4GenerateAsync</a>(CyTd4GenerateDeclarationsRequest { ... }) -> WithRawResponseTask&lt;CyTd4GenerateDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -9939,8 +9778,8 @@ Compute the company income tax return TD4 of a tax year from the ledger and the 
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsCyTd4GenerateAsync(
-    new PostV1DeclarationsCyTd4GenerateRequest { Year = 1000000 }
+await client.Declarations.CyTd4GenerateAsync(
+    new CyTd4GenerateDeclarationsRequest { Year = 1000000 }
 );
 ```
 </dd>
@@ -9956,7 +9795,7 @@ await client.Declarations.PostV1DeclarationsCyTd4GenerateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsCyTd4GenerateRequest` 
+**request:** `CyTd4GenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -9968,7 +9807,7 @@ await client.Declarations.PostV1DeclarationsCyTd4GenerateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsCyHe32GenerateAsync</a>(PostV1DeclarationsCyHe32GenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsCyHe32GenerateResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">CyHe32GenerateAsync</a>(CyHe32GenerateDeclarationsRequest { ... }) -> WithRawResponseTask&lt;CyHe32GenerateDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -9995,8 +9834,8 @@ Build the annual return HE32 of a year: the figures the Registrar’s e-filing s
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsCyHe32GenerateAsync(
-    new PostV1DeclarationsCyHe32GenerateRequest { Year = 1000000 }
+await client.Declarations.CyHe32GenerateAsync(
+    new CyHe32GenerateDeclarationsRequest { Year = 1000000 }
 );
 ```
 </dd>
@@ -10012,7 +9851,7 @@ await client.Declarations.PostV1DeclarationsCyHe32GenerateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsCyHe32GenerateRequest` 
+**request:** `CyHe32GenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -10024,7 +9863,7 @@ await client.Declarations.PostV1DeclarationsCyHe32GenerateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsDeReturnsGenerateAsync</a>(PostV1DeclarationsDeReturnsGenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsDeReturnsGenerateResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">DeReturnsGenerateAsync</a>(DeReturnsGenerateDeclarationsRequest { ... }) -> WithRawResponseTask&lt;DeReturnsGenerateDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -10051,10 +9890,10 @@ Build one of the German returns that ELSTER accepts only through a licensed ERiC
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsDeReturnsGenerateAsync(
-    new PostV1DeclarationsDeReturnsGenerateRequest
+await client.Declarations.DeReturnsGenerateAsync(
+    new DeReturnsGenerateDeclarationsRequest
     {
-        RuleKey = PostV1DeclarationsDeReturnsGenerateRequestRuleKey.DeEBilanz,
+        RuleKey = DeReturnsGenerateDeclarationsRequestRuleKey.DeEBilanz,
         Period = "period",
     }
 );
@@ -10072,7 +9911,7 @@ await client.Declarations.PostV1DeclarationsDeReturnsGenerateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsDeReturnsGenerateRequest` 
+**request:** `DeReturnsGenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -10084,7 +9923,7 @@ await client.Declarations.PostV1DeclarationsDeReturnsGenerateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsDeReturnFactsGetAsync</a>(PostV1DeclarationsDeReturnFactsGetRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsDeReturnFactsGetResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">DeReturnFactsGetAsync</a>(DeReturnFactsGetDeclarationsRequest { ... }) -> WithRawResponseTask&lt;DeReturnFactsGetDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -10111,8 +9950,8 @@ The facts of one year that the German annual returns (Körperschaftsteuer, Gewer
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsDeReturnFactsGetAsync(
-    new PostV1DeclarationsDeReturnFactsGetRequest { Year = 1000000 }
+await client.Declarations.DeReturnFactsGetAsync(
+    new DeReturnFactsGetDeclarationsRequest { Year = 1000000 }
 );
 ```
 </dd>
@@ -10128,7 +9967,7 @@ await client.Declarations.PostV1DeclarationsDeReturnFactsGetAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsDeReturnFactsGetRequest` 
+**request:** `DeReturnFactsGetDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -10140,7 +9979,7 @@ await client.Declarations.PostV1DeclarationsDeReturnFactsGetAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsDeReturnFactsSetAsync</a>(PostV1DeclarationsDeReturnFactsSetRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsDeReturnFactsSetResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">DeReturnFactsSetAsync</a>(DeReturnFactsSetDeclarationsRequest { ... }) -> WithRawResponseTask&lt;DeReturnFactsSetDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -10167,11 +10006,11 @@ Replace the facts of one year for the German annual returns. The returns built a
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsDeReturnFactsSetAsync(
-    new PostV1DeclarationsDeReturnFactsSetRequest
+await client.Declarations.DeReturnFactsSetAsync(
+    new DeReturnFactsSetDeclarationsRequest
     {
         Year = 1000000,
-        Facts = new PostV1DeclarationsDeReturnFactsSetRequestFacts(),
+        Facts = new DeReturnFactsSetDeclarationsRequestFacts(),
     }
 );
 ```
@@ -10188,7 +10027,7 @@ await client.Declarations.PostV1DeclarationsDeReturnFactsSetAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsDeReturnFactsSetRequest` 
+**request:** `DeReturnFactsSetDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -10200,7 +10039,7 @@ await client.Declarations.PostV1DeclarationsDeReturnFactsSetAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsDeDeuevGenerateAsync</a>(PostV1DeclarationsDeDeuevGenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsDeDeuevGenerateResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">DeDeuevGenerateAsync</a>(DeDeuevGenerateDeclarationsRequest { ... }) -> WithRawResponseTask&lt;DeDeuevGenerateDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -10227,8 +10066,8 @@ Build the DEÜV notifications of a month (Anmeldung for every start, Abmeldung f
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsDeDeuevGenerateAsync(
-    new PostV1DeclarationsDeDeuevGenerateRequest { Year = 1000000, Month = 1000000 }
+await client.Declarations.DeDeuevGenerateAsync(
+    new DeDeuevGenerateDeclarationsRequest { Year = 1000000, Month = 1000000 }
 );
 ```
 </dd>
@@ -10244,7 +10083,7 @@ await client.Declarations.PostV1DeclarationsDeDeuevGenerateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsDeDeuevGenerateRequest` 
+**request:** `DeDeuevGenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -10256,7 +10095,7 @@ await client.Declarations.PostV1DeclarationsDeDeuevGenerateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsDeBeitragsnachweisGenerateAsync</a>(PostV1DeclarationsDeBeitragsnachweisGenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsDeBeitragsnachweisGenerateResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">DeBeitragsnachweisGenerateAsync</a>(DeBeitragsnachweisGenerateDeclarationsRequest { ... }) -> WithRawResponseTask&lt;DeBeitragsnachweisGenerateDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -10283,8 +10122,8 @@ Build the monthly contribution statement to the health insurers (Beitragsnachwei
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsDeBeitragsnachweisGenerateAsync(
-    new PostV1DeclarationsDeBeitragsnachweisGenerateRequest { Year = 1000000, Month = 1000000 }
+await client.Declarations.DeBeitragsnachweisGenerateAsync(
+    new DeBeitragsnachweisGenerateDeclarationsRequest { Year = 1000000, Month = 1000000 }
 );
 ```
 </dd>
@@ -10300,7 +10139,7 @@ await client.Declarations.PostV1DeclarationsDeBeitragsnachweisGenerateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsDeBeitragsnachweisGenerateRequest` 
+**request:** `DeBeitragsnachweisGenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -10312,7 +10151,7 @@ await client.Declarations.PostV1DeclarationsDeBeitragsnachweisGenerateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsDkSelskabsskatGenerateAsync</a>(PostV1DeclarationsDkSelskabsskatGenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsDkSelskabsskatGenerateResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">DkSelskabsskatGenerateAsync</a>(DkSelskabsskatGenerateDeclarationsRequest { ... }) -> WithRawResponseTask&lt;DkSelskabsskatGenerateDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -10339,8 +10178,8 @@ Compute the oplysningsskema for selskaber (selskabsselvangivelsen) of an income 
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsDkSelskabsskatGenerateAsync(
-    new PostV1DeclarationsDkSelskabsskatGenerateRequest { Year = 1000000 }
+await client.Declarations.DkSelskabsskatGenerateAsync(
+    new DkSelskabsskatGenerateDeclarationsRequest { Year = 1000000 }
 );
 ```
 </dd>
@@ -10356,7 +10195,7 @@ await client.Declarations.PostV1DeclarationsDkSelskabsskatGenerateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsDkSelskabsskatGenerateRequest` 
+**request:** `DkSelskabsskatGenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -10368,7 +10207,7 @@ await client.Declarations.PostV1DeclarationsDkSelskabsskatGenerateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsEeEmploymentRegisterSendAsync</a>(PostV1DeclarationsEeEmploymentRegisterSendRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsEeEmploymentRegisterSendResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">EeEmploymentRegisterSendAsync</a>(EeEmploymentRegisterSendDeclarationsRequest { ... }) -> WithRawResponseTask&lt;EeEmploymentRegisterSendDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -10395,11 +10234,11 @@ Send one employment register (töötamise register) entry for an employment cont
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsEeEmploymentRegisterSendAsync(
-    new PostV1DeclarationsEeEmploymentRegisterSendRequest
+await client.Declarations.EeEmploymentRegisterSendAsync(
+    new EeEmploymentRegisterSendDeclarationsRequest
     {
         ContractId = "contractId",
-        Event = PostV1DeclarationsEeEmploymentRegisterSendRequestEvent.Start,
+        Event = EeEmploymentRegisterSendDeclarationsRequestEvent.Start,
     }
 );
 ```
@@ -10416,7 +10255,7 @@ await client.Declarations.PostV1DeclarationsEeEmploymentRegisterSendAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsEeEmploymentRegisterSendRequest` 
+**request:** `EeEmploymentRegisterSendDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -10428,7 +10267,7 @@ await client.Declarations.PostV1DeclarationsEeEmploymentRegisterSendAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsEsVerifactuDeclaracionResponsableAsync</a>(PostV1DeclarationsEsVerifactuDeclaracionResponsableRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsEsVerifactuDeclaracionResponsableResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">EsVerifactuDeclaracionResponsableAsync</a>(EsVerifactuDeclaracionResponsableDeclarationsRequest { ... }) -> WithRawResponseTask&lt;EsVerifactuDeclaracionResponsableDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -10455,8 +10294,8 @@ Nordlet's declaración responsable for its VERI*FACTU invoicing system (Orden HA
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsEsVerifactuDeclaracionResponsableAsync(
-    new PostV1DeclarationsEsVerifactuDeclaracionResponsableRequest()
+await client.Declarations.EsVerifactuDeclaracionResponsableAsync(
+    new EsVerifactuDeclaracionResponsableDeclarationsRequest()
 );
 ```
 </dd>
@@ -10472,7 +10311,7 @@ await client.Declarations.PostV1DeclarationsEsVerifactuDeclaracionResponsableAsy
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsEsVerifactuDeclaracionResponsableRequest` 
+**request:** `EsVerifactuDeclaracionResponsableDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -10484,7 +10323,7 @@ await client.Declarations.PostV1DeclarationsEsVerifactuDeclaracionResponsableAsy
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsIeCt1GenerateAsync</a>(PostV1DeclarationsIeCt1GenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsIeCt1GenerateResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">IeCt1GenerateAsync</a>(IeCt1GenerateDeclarationsRequest { ... }) -> WithRawResponseTask&lt;IeCt1GenerateDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -10511,8 +10350,8 @@ Build the Form CT1 of an accounting year as the ROS version 26 XML and the accom
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsIeCt1GenerateAsync(
-    new PostV1DeclarationsIeCt1GenerateRequest { Year = 1000000 }
+await client.Declarations.IeCt1GenerateAsync(
+    new IeCt1GenerateDeclarationsRequest { Year = 1000000 }
 );
 ```
 </dd>
@@ -10528,7 +10367,7 @@ await client.Declarations.PostV1DeclarationsIeCt1GenerateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsIeCt1GenerateRequest` 
+**request:** `IeCt1GenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -10540,7 +10379,7 @@ await client.Declarations.PostV1DeclarationsIeCt1GenerateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsIeB1GenerateAsync</a>(PostV1DeclarationsIeB1GenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsIeB1GenerateResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">IeB1GenerateAsync</a>(IeB1GenerateDeclarationsRequest { ... }) -> WithRawResponseTask&lt;IeB1GenerateDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -10567,9 +10406,7 @@ Build the working paper for the Form B1 annual return of a financial year — co
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsIeB1GenerateAsync(
-    new PostV1DeclarationsIeB1GenerateRequest { Year = 1000000 }
-);
+await client.Declarations.IeB1GenerateAsync(new IeB1GenerateDeclarationsRequest { Year = 1000000 });
 ```
 </dd>
 </dl>
@@ -10584,7 +10421,7 @@ await client.Declarations.PostV1DeclarationsIeB1GenerateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsIeB1GenerateRequest` 
+**request:** `IeB1GenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -10596,7 +10433,7 @@ await client.Declarations.PostV1DeclarationsIeB1GenerateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsItSdiPurchaseSendAsync</a>(PostV1DeclarationsItSdiPurchaseSendRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsItSdiPurchaseSendResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">ItSdiPurchaseSendAsync</a>(ItSdiPurchaseSendDeclarationsRequest { ... }) -> WithRawResponseTask&lt;ItSdiPurchaseSendDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -10623,8 +10460,8 @@ Build the TD16-TD19 integration document for a registered purchase invoice and s
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsItSdiPurchaseSendAsync(
-    new PostV1DeclarationsItSdiPurchaseSendRequest { PurchaseInvoiceId = "purchaseInvoiceId" }
+await client.Declarations.ItSdiPurchaseSendAsync(
+    new ItSdiPurchaseSendDeclarationsRequest { PurchaseInvoiceId = "purchaseInvoiceId" }
 );
 ```
 </dd>
@@ -10640,7 +10477,7 @@ await client.Declarations.PostV1DeclarationsItSdiPurchaseSendAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsItSdiPurchaseSendRequest` 
+**request:** `ItSdiPurchaseSendDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -10652,7 +10489,7 @@ await client.Declarations.PostV1DeclarationsItSdiPurchaseSendAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsItSdiPurchasePreviewAsync</a>(PostV1DeclarationsItSdiPurchasePreviewRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsItSdiPurchasePreviewResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">ItSdiPurchasePreviewAsync</a>(ItSdiPurchasePreviewDeclarationsRequest { ... }) -> WithRawResponseTask&lt;ItSdiPurchasePreviewDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -10679,8 +10516,8 @@ Render the TD16-TD19 integration document for a registered purchase invoice with
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsItSdiPurchasePreviewAsync(
-    new PostV1DeclarationsItSdiPurchasePreviewRequest { PurchaseInvoiceId = "purchaseInvoiceId" }
+await client.Declarations.ItSdiPurchasePreviewAsync(
+    new ItSdiPurchasePreviewDeclarationsRequest { PurchaseInvoiceId = "purchaseInvoiceId" }
 );
 ```
 </dd>
@@ -10696,7 +10533,7 @@ await client.Declarations.PostV1DeclarationsItSdiPurchasePreviewAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsItSdiPurchasePreviewRequest` 
+**request:** `ItSdiPurchasePreviewDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -10708,7 +10545,7 @@ await client.Declarations.PostV1DeclarationsItSdiPurchasePreviewAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsLtSaftSendAsync</a>(PostV1DeclarationsLtSaftSendRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsLtSaftSendResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">LtSaftSendAsync</a>(LtSaftSendDeclarationsRequest { ... }) -> WithRawResponseTask&lt;LtSaftSendDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -10720,7 +10557,7 @@ await client.Declarations.PostV1DeclarationsItSdiPurchasePreviewAsync(
 <dl>
 <dd>
 
-Upload the SAF-T file to i.SAF-T over the iSAFTUploaderService web service and start its processing. The submission itself is confirmed separately, because after confirmation the file can no longer be corrected.
+Upload the SAF-T file to i.SAF-T over the iSAFTUploaderService web service and start its processing. The file, the case reference and the status are kept as a declaration submission (submissionId), whose outcome Nordlet then checks with i.SAF-T. The submission itself is confirmed separately, because after confirmation the file can no longer be corrected. A range and data type already sent is sent again only with amend: true.
 </dd>
 </dl>
 </dd>
@@ -10735,8 +10572,12 @@ Upload the SAF-T file to i.SAF-T over the iSAFTUploaderService web service and s
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsLtSaftSendAsync(
-    new PostV1DeclarationsLtSaftSendRequest { FromDate = "fromDate", ToDate = "toDate" }
+await client.Declarations.LtSaftSendAsync(
+    new LtSaftSendDeclarationsRequest
+    {
+        FromDate = new DateOnly(2026, 7, 1),
+        ToDate = new DateOnly(2026, 7, 1),
+    }
 );
 ```
 </dd>
@@ -10752,7 +10593,7 @@ await client.Declarations.PostV1DeclarationsLtSaftSendAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsLtSaftSendRequest` 
+**request:** `LtSaftSendDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -10764,7 +10605,7 @@ await client.Declarations.PostV1DeclarationsLtSaftSendAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsLtSdFfdataAsync</a>(PostV1DeclarationsLtSdFfdataRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsLtSdFfdataResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">LtSdFfdataAsync</a>(LtSdFfdataDeclarationsRequest { ... }) -> WithRawResponseTask&lt;LtSdFfdataDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -10791,12 +10632,12 @@ Render the Sodra 1-SD or 2-SD notice for the contracts starting or ending in the
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsLtSdFfdataAsync(
-    new PostV1DeclarationsLtSdFfdataRequest
+await client.Declarations.LtSdFfdataAsync(
+    new LtSdFfdataDeclarationsRequest
     {
-        Type = PostV1DeclarationsLtSdFfdataRequestType.OneSd,
-        FromDate = "fromDate",
-        ToDate = "toDate",
+        Type = LtSdFfdataDeclarationsRequestType.OneSd,
+        FromDate = new DateOnly(2026, 7, 1),
+        ToDate = new DateOnly(2026, 7, 1),
     }
 );
 ```
@@ -10813,7 +10654,7 @@ await client.Declarations.PostV1DeclarationsLtSdFfdataAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsLtSdFfdataRequest` 
+**request:** `LtSdFfdataDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -10825,7 +10666,7 @@ await client.Declarations.PostV1DeclarationsLtSdFfdataAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsLtPln204FfdataAsync</a>(PostV1DeclarationsLtPln204FfdataRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsLtPln204FfdataResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">LtPln204FfdataAsync</a>(LtPln204FfdataDeclarationsRequest { ... }) -> WithRawResponseTask&lt;LtPln204FfdataDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -10852,8 +10693,8 @@ Render the annual corporate income tax return PLN204 as an .ffdata document, inc
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsLtPln204FfdataAsync(
-    new PostV1DeclarationsLtPln204FfdataRequest { Year = 1000000 }
+await client.Declarations.LtPln204FfdataAsync(
+    new LtPln204FfdataDeclarationsRequest { Year = 1000000 }
 );
 ```
 </dd>
@@ -10869,7 +10710,7 @@ await client.Declarations.PostV1DeclarationsLtPln204FfdataAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsLtPln204FfdataRequest` 
+**request:** `LtPln204FfdataDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -10881,7 +10722,7 @@ await client.Declarations.PostV1DeclarationsLtPln204FfdataAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsMtCompanyTaxGenerateAsync</a>(PostV1DeclarationsMtCompanyTaxGenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsMtCompanyTaxGenerateResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">MtCompanyTaxGenerateAsync</a>(MtCompanyTaxGenerateDeclarationsRequest { ... }) -> WithRawResponseTask&lt;MtCompanyTaxGenerateDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -10908,8 +10749,8 @@ Compute the company income tax return and self-assessment of a year of assessmen
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsMtCompanyTaxGenerateAsync(
-    new PostV1DeclarationsMtCompanyTaxGenerateRequest { Year = 1000000 }
+await client.Declarations.MtCompanyTaxGenerateAsync(
+    new MtCompanyTaxGenerateDeclarationsRequest { Year = 1000000 }
 );
 ```
 </dd>
@@ -10925,7 +10766,7 @@ await client.Declarations.PostV1DeclarationsMtCompanyTaxGenerateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsMtCompanyTaxGenerateRequest` 
+**request:** `MtCompanyTaxGenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -10937,7 +10778,7 @@ await client.Declarations.PostV1DeclarationsMtCompanyTaxGenerateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsMtAnnualReturnGenerateAsync</a>(PostV1DeclarationsMtAnnualReturnGenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsMtAnnualReturnGenerateResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">MtAnnualReturnGenerateAsync</a>(MtAnnualReturnGenerateDeclarationsRequest { ... }) -> WithRawResponseTask&lt;MtAnnualReturnGenerateDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -10964,8 +10805,8 @@ Build the annual return of a year: the company number, registered office and mad
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsMtAnnualReturnGenerateAsync(
-    new PostV1DeclarationsMtAnnualReturnGenerateRequest { Year = 1000000 }
+await client.Declarations.MtAnnualReturnGenerateAsync(
+    new MtAnnualReturnGenerateDeclarationsRequest { Year = 1000000 }
 );
 ```
 </dd>
@@ -10981,7 +10822,7 @@ await client.Declarations.PostV1DeclarationsMtAnnualReturnGenerateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsMtAnnualReturnGenerateRequest` 
+**request:** `MtAnnualReturnGenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -10993,7 +10834,7 @@ await client.Declarations.PostV1DeclarationsMtAnnualReturnGenerateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsPlJpkFaGenerateAsync</a>(PostV1DeclarationsPlJpkFaGenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsPlJpkFaGenerateResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PlJpkFaGenerateAsync</a>(PlJpkFaGenerateDeclarationsRequest { ... }) -> WithRawResponseTask&lt;PlJpkFaGenerateDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -11020,8 +10861,12 @@ Generate JPK_FA(4), the on-demand structure with every sales invoice issued in a
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsPlJpkFaGenerateAsync(
-    new PostV1DeclarationsPlJpkFaGenerateRequest { DateFrom = "dateFrom", DateTo = "dateTo" }
+await client.Declarations.PlJpkFaGenerateAsync(
+    new PlJpkFaGenerateDeclarationsRequest
+    {
+        DateFrom = new DateOnly(2026, 7, 1),
+        DateTo = new DateOnly(2026, 7, 1),
+    }
 );
 ```
 </dd>
@@ -11037,7 +10882,7 @@ await client.Declarations.PostV1DeclarationsPlJpkFaGenerateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsPlJpkFaGenerateRequest` 
+**request:** `PlJpkFaGenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -11049,7 +10894,7 @@ await client.Declarations.PostV1DeclarationsPlJpkFaGenerateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsPlJpkKrGenerateAsync</a>(PostV1DeclarationsPlJpkKrGenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsPlJpkKrGenerateResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PlJpkKrGenerateAsync</a>(PlJpkKrGenerateDeclarationsRequest { ... }) -> WithRawResponseTask&lt;PlJpkKrGenerateDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -11076,8 +10921,12 @@ Generate JPK_KR(1), the on-demand structure with the chart of accounts and its o
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsPlJpkKrGenerateAsync(
-    new PostV1DeclarationsPlJpkKrGenerateRequest { DateFrom = "dateFrom", DateTo = "dateTo" }
+await client.Declarations.PlJpkKrGenerateAsync(
+    new PlJpkKrGenerateDeclarationsRequest
+    {
+        DateFrom = new DateOnly(2026, 7, 1),
+        DateTo = new DateOnly(2026, 7, 1),
+    }
 );
 ```
 </dd>
@@ -11093,7 +10942,7 @@ await client.Declarations.PostV1DeclarationsPlJpkKrGenerateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsPlJpkKrGenerateRequest` 
+**request:** `PlJpkKrGenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -11105,7 +10954,7 @@ await client.Declarations.PostV1DeclarationsPlJpkKrGenerateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsPlJpkMagGenerateAsync</a>(PostV1DeclarationsPlJpkMagGenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsPlJpkMagGenerateResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PlJpkMagGenerateAsync</a>(PlJpkMagGenerateDeclarationsRequest { ... }) -> WithRawResponseTask&lt;PlJpkMagGenerateDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -11132,8 +10981,12 @@ Generate JPK_MAG(2), the on-demand structure with the warehouse documents of one
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsPlJpkMagGenerateAsync(
-    new PostV1DeclarationsPlJpkMagGenerateRequest { DateFrom = "dateFrom", DateTo = "dateTo" }
+await client.Declarations.PlJpkMagGenerateAsync(
+    new PlJpkMagGenerateDeclarationsRequest
+    {
+        DateFrom = new DateOnly(2026, 7, 1),
+        DateTo = new DateOnly(2026, 7, 1),
+    }
 );
 ```
 </dd>
@@ -11149,7 +11002,7 @@ await client.Declarations.PostV1DeclarationsPlJpkMagGenerateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsPlJpkMagGenerateRequest` 
+**request:** `PlJpkMagGenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -11161,7 +11014,7 @@ await client.Declarations.PostV1DeclarationsPlJpkMagGenerateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsPlPit11GenerateAsync</a>(PostV1DeclarationsPlPit11GenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsPlPit11GenerateResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PlPit11GenerateAsync</a>(PlPit11GenerateDeclarationsRequest { ... }) -> WithRawResponseTask&lt;PlPit11GenerateDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -11188,8 +11041,8 @@ Generate PIT-11(29) for every person on the payroll of one year: the pay, the de
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsPlPit11GenerateAsync(
-    new PostV1DeclarationsPlPit11GenerateRequest { Year = 1000000 }
+await client.Declarations.PlPit11GenerateAsync(
+    new PlPit11GenerateDeclarationsRequest { Year = 1000000 }
 );
 ```
 </dd>
@@ -11205,7 +11058,7 @@ await client.Declarations.PostV1DeclarationsPlPit11GenerateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsPlPit11GenerateRequest` 
+**request:** `PlPit11GenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -11217,7 +11070,7 @@ await client.Declarations.PostV1DeclarationsPlPit11GenerateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsPlCit8GenerateAsync</a>(PostV1DeclarationsPlCit8GenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsPlCit8GenerateResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PlCit8GenerateAsync</a>(PlCit8GenerateDeclarationsRequest { ... }) -> WithRawResponseTask&lt;PlCit8GenerateDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -11244,8 +11097,8 @@ Generate CIT-8(34), the annual corporate income tax return, from the ledger of t
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsPlCit8GenerateAsync(
-    new PostV1DeclarationsPlCit8GenerateRequest { Year = 1000000 }
+await client.Declarations.PlCit8GenerateAsync(
+    new PlCit8GenerateDeclarationsRequest { Year = 1000000 }
 );
 ```
 </dd>
@@ -11261,7 +11114,7 @@ await client.Declarations.PostV1DeclarationsPlCit8GenerateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsPlCit8GenerateRequest` 
+**request:** `PlCit8GenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -11273,7 +11126,7 @@ await client.Declarations.PostV1DeclarationsPlCit8GenerateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsPlZusDraComputeAsync</a>(PostV1DeclarationsPlZusDraComputeRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsPlZusDraComputeResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PlZusDraComputeAsync</a>(PlZusDraComputeDeclarationsRequest { ... }) -> WithRawResponseTask&lt;PlZusDraComputeDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -11300,8 +11153,8 @@ Compute the monthly ZUS DRA settlement from the payroll run of one month: the pe
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsPlZusDraComputeAsync(
-    new PostV1DeclarationsPlZusDraComputeRequest { Year = 1000000, Month = 1000000 }
+await client.Declarations.PlZusDraComputeAsync(
+    new PlZusDraComputeDeclarationsRequest { Year = 1000000, Month = 1000000 }
 );
 ```
 </dd>
@@ -11317,7 +11170,7 @@ await client.Declarations.PostV1DeclarationsPlZusDraComputeAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsPlZusDraComputeRequest` 
+**request:** `PlZusDraComputeDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -11329,7 +11182,7 @@ await client.Declarations.PostV1DeclarationsPlZusDraComputeAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsPlZusDraKeduAsync</a>(PostV1DeclarationsPlZusDraKeduRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsPlZusDraKeduResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PlZusDraKeduAsync</a>(PlZusDraKeduDeclarationsRequest { ... }) -> WithRawResponseTask&lt;PlZusDraKeduDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -11356,8 +11209,8 @@ Build the KEDU file for one month: the ZUS DRA settlement and one ZUS RCA report
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsPlZusDraKeduAsync(
-    new PostV1DeclarationsPlZusDraKeduRequest { Year = 1000000, Month = 1000000 }
+await client.Declarations.PlZusDraKeduAsync(
+    new PlZusDraKeduDeclarationsRequest { Year = 1000000, Month = 1000000 }
 );
 ```
 </dd>
@@ -11373,7 +11226,7 @@ await client.Declarations.PostV1DeclarationsPlZusDraKeduAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsPlZusDraKeduRequest` 
+**request:** `PlZusDraKeduDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -11385,7 +11238,7 @@ await client.Declarations.PostV1DeclarationsPlZusDraKeduAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsPlZusDraPdfAsync</a>(PostV1DeclarationsPlZusDraPdfRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsPlZusDraPdfResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PlZusDraPdfAsync</a>(PlZusDraPdfDeclarationsRequest { ... }) -> WithRawResponseTask&lt;PlZusDraPdfDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -11412,8 +11265,8 @@ Fill the published ZUS DRA form for one month and return it as a PDF. The amount
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsPlZusDraPdfAsync(
-    new PostV1DeclarationsPlZusDraPdfRequest { Year = 1000000, Month = 1000000 }
+await client.Declarations.PlZusDraPdfAsync(
+    new PlZusDraPdfDeclarationsRequest { Year = 1000000, Month = 1000000 }
 );
 ```
 </dd>
@@ -11429,7 +11282,7 @@ await client.Declarations.PostV1DeclarationsPlZusDraPdfAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsPlZusDraPdfRequest` 
+**request:** `PlZusDraPdfDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -11441,7 +11294,7 @@ await client.Declarations.PostV1DeclarationsPlZusDraPdfAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsRoEtransportBuildAsync</a>(PostV1DeclarationsRoEtransportBuildRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsRoEtransportBuildResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">RoEtransportBuildAsync</a>(RoEtransportBuildDeclarationsRequest { ... }) -> WithRawResponseTask&lt;RoEtransportBuildDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -11468,8 +11321,8 @@ Build the RO e-Transport declaration for an issued waybill: goods with their tar
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsRoEtransportBuildAsync(
-    new PostV1DeclarationsRoEtransportBuildRequest { WaybillId = "waybillId" }
+await client.Declarations.RoEtransportBuildAsync(
+    new RoEtransportBuildDeclarationsRequest { WaybillId = "waybillId" }
 );
 ```
 </dd>
@@ -11485,7 +11338,7 @@ await client.Declarations.PostV1DeclarationsRoEtransportBuildAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsRoEtransportBuildRequest` 
+**request:** `RoEtransportBuildDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -11497,7 +11350,7 @@ await client.Declarations.PostV1DeclarationsRoEtransportBuildAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsRoEtransportSubmitAsync</a>(PostV1DeclarationsRoEtransportSubmitRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsRoEtransportSubmitResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">RoEtransportSubmitAsync</a>(RoEtransportSubmitDeclarationsRequest { ... }) -> WithRawResponseTask&lt;RoEtransportSubmitDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -11524,8 +11377,8 @@ Hand the RO e-Transport declaration for an issued waybill to ANAF under the SPV 
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsRoEtransportSubmitAsync(
-    new PostV1DeclarationsRoEtransportSubmitRequest { WaybillId = "waybillId" }
+await client.Declarations.RoEtransportSubmitAsync(
+    new RoEtransportSubmitDeclarationsRequest { WaybillId = "waybillId" }
 );
 ```
 </dd>
@@ -11541,7 +11394,7 @@ await client.Declarations.PostV1DeclarationsRoEtransportSubmitAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsRoEtransportSubmitRequest` 
+**request:** `RoEtransportSubmitDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -11553,7 +11406,7 @@ await client.Declarations.PostV1DeclarationsRoEtransportSubmitAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsRoEtransportStatusAsync</a>(PostV1DeclarationsRoEtransportStatusRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsRoEtransportStatusResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">RoEtransportStatusAsync</a>(RoEtransportStatusDeclarationsRequest { ... }) -> WithRawResponseTask&lt;RoEtransportStatusDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -11580,8 +11433,8 @@ Read the outcome of an e-Transport declaration from ANAF by its upload index, un
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsRoEtransportStatusAsync(
-    new PostV1DeclarationsRoEtransportStatusRequest { Reference = "reference" }
+await client.Declarations.RoEtransportStatusAsync(
+    new RoEtransportStatusDeclarationsRequest { Reference = "reference" }
 );
 ```
 </dd>
@@ -11597,7 +11450,7 @@ await client.Declarations.PostV1DeclarationsRoEtransportStatusAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsRoEtransportStatusRequest` 
+**request:** `RoEtransportStatusDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -11609,7 +11462,7 @@ await client.Declarations.PostV1DeclarationsRoEtransportStatusAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsLiLohndeklarationGenerateAsync</a>(PostV1DeclarationsLiLohndeklarationGenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsLiLohndeklarationGenerateResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">LiLohndeklarationGenerateAsync</a>(LiLohndeklarationGenerateDeclarationsRequest { ... }) -> WithRawResponseTask&lt;LiLohndeklarationGenerateDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -11636,8 +11489,8 @@ Build the annual wage declaration (Lohndeklaration) to the AHV-IV-FAK from the a
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsLiLohndeklarationGenerateAsync(
-    new PostV1DeclarationsLiLohndeklarationGenerateRequest { Year = 1000000 }
+await client.Declarations.LiLohndeklarationGenerateAsync(
+    new LiLohndeklarationGenerateDeclarationsRequest { Year = 1000000 }
 );
 ```
 </dd>
@@ -11653,7 +11506,7 @@ await client.Declarations.PostV1DeclarationsLiLohndeklarationGenerateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsLiLohndeklarationGenerateRequest` 
+**request:** `LiLohndeklarationGenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -11665,7 +11518,7 @@ await client.Declarations.PostV1DeclarationsLiLohndeklarationGenerateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsLiLohnlistenGenerateAsync</a>(PostV1DeclarationsLiLohnlistenGenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsLiLohnlistenGenerateResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">LiLohnlistenGenerateAsync</a>(LiLohnlistenGenerateDeclarationsRequest { ... }) -> WithRawResponseTask&lt;LiLohnlistenGenerateDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -11692,8 +11545,8 @@ Build the annual wage list (Lohnliste) of a Liechtenstein employer from the appr
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsLiLohnlistenGenerateAsync(
-    new PostV1DeclarationsLiLohnlistenGenerateRequest { Year = 1000000 }
+await client.Declarations.LiLohnlistenGenerateAsync(
+    new LiLohnlistenGenerateDeclarationsRequest { Year = 1000000 }
 );
 ```
 </dd>
@@ -11709,7 +11562,7 @@ await client.Declarations.PostV1DeclarationsLiLohnlistenGenerateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsLiLohnlistenGenerateRequest` 
+**request:** `LiLohnlistenGenerateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -11721,7 +11574,7 @@ await client.Declarations.PostV1DeclarationsLiLohnlistenGenerateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsConfigsListAsync</a>(PostV1DeclarationsConfigsListRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsConfigsListResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">ConfigsListAsync</a>(ConfigsListDeclarationsRequest { ... }) -> WithRawResponseTask&lt;ConfigsListDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -11734,9 +11587,7 @@ await client.Declarations.PostV1DeclarationsLiLohnlistenGenerateAsync(
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsConfigsListAsync(
-    new PostV1DeclarationsConfigsListRequest()
-);
+await client.Declarations.ConfigsListAsync(new ConfigsListDeclarationsRequest());
 ```
 </dd>
 </dl>
@@ -11751,7 +11602,7 @@ await client.Declarations.PostV1DeclarationsConfigsListAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsConfigsListRequest` 
+**request:** `ConfigsListDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -11763,7 +11614,7 @@ await client.Declarations.PostV1DeclarationsConfigsListAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsConfigsUpdateAsync</a>(PostV1DeclarationsConfigsUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsConfigsUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">ConfigsUpdateAsync</a>(ConfigsUpdateDeclarationsRequest { ... }) -> WithRawResponseTask&lt;ConfigsUpdateDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -11776,8 +11627,8 @@ await client.Declarations.PostV1DeclarationsConfigsListAsync(
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsConfigsUpdateAsync(
-    new PostV1DeclarationsConfigsUpdateRequest
+await client.Declarations.ConfigsUpdateAsync(
+    new ConfigsUpdateDeclarationsRequest
     {
         System = "system",
         Config = new Dictionary<string, string>() { { "key", "value" } },
@@ -11797,7 +11648,7 @@ await client.Declarations.PostV1DeclarationsConfigsUpdateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsConfigsUpdateRequest` 
+**request:** `ConfigsUpdateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -11809,7 +11660,7 @@ await client.Declarations.PostV1DeclarationsConfigsUpdateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">StoreTheCertificateOrPrivateKeyAFilingSystemAuthenticatesWithAsync</a>(PostV1DeclarationsCertificatesUploadRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsCertificatesUploadResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">CertificatesUploadAsync</a>(CertificatesUploadDeclarationsRequest { ... }) -> WithRawResponseTask&lt;CertificatesUploadDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -11822,8 +11673,8 @@ await client.Declarations.PostV1DeclarationsConfigsUpdateAsync(
 <dd>
 
 ```csharp
-await client.Declarations.StoreTheCertificateOrPrivateKeyAFilingSystemAuthenticatesWithAsync(
-    new PostV1DeclarationsCertificatesUploadRequest
+await client.Declarations.CertificatesUploadAsync(
+    new CertificatesUploadDeclarationsRequest
     {
         System = "system",
         FileName = "fileName",
@@ -11844,7 +11695,7 @@ await client.Declarations.StoreTheCertificateOrPrivateKeyAFilingSystemAuthentica
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsCertificatesUploadRequest` 
+**request:** `CertificatesUploadDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -11856,7 +11707,7 @@ await client.Declarations.StoreTheCertificateOrPrivateKeyAFilingSystemAuthentica
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsCertificatesListAsync</a>(PostV1DeclarationsCertificatesListRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsCertificatesListResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">CertificatesListAsync</a>(CertificatesListDeclarationsRequest { ... }) -> WithRawResponseTask&lt;CertificatesListDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -11869,9 +11720,7 @@ await client.Declarations.StoreTheCertificateOrPrivateKeyAFilingSystemAuthentica
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsCertificatesListAsync(
-    new PostV1DeclarationsCertificatesListRequest()
-);
+await client.Declarations.CertificatesListAsync(new CertificatesListDeclarationsRequest());
 ```
 </dd>
 </dl>
@@ -11886,7 +11735,7 @@ await client.Declarations.PostV1DeclarationsCertificatesListAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsCertificatesListRequest` 
+**request:** `CertificatesListDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -11898,7 +11747,7 @@ await client.Declarations.PostV1DeclarationsCertificatesListAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsCertificatesDeleteAsync</a>(PostV1DeclarationsCertificatesDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsCertificatesDeleteResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">CertificatesDeleteAsync</a>(CertificatesDeleteDeclarationsRequest { ... }) -> WithRawResponseTask&lt;CertificatesDeleteDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -11911,11 +11760,11 @@ await client.Declarations.PostV1DeclarationsCertificatesListAsync(
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsCertificatesDeleteAsync(
-    new PostV1DeclarationsCertificatesDeleteRequest
+await client.Declarations.CertificatesDeleteAsync(
+    new CertificatesDeleteDeclarationsRequest
     {
         System = "system",
-        FieldKey = PostV1DeclarationsCertificatesDeleteRequestFieldKey.Certificate,
+        FieldKey = CertificatesDeleteDeclarationsRequestFieldKey.Certificate,
     }
 );
 ```
@@ -11932,7 +11781,7 @@ await client.Declarations.PostV1DeclarationsCertificatesDeleteAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsCertificatesDeleteRequest` 
+**request:** `CertificatesDeleteDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -11944,7 +11793,7 @@ await client.Declarations.PostV1DeclarationsCertificatesDeleteAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">WhichDeadlinesNordletCanFileByItselfForThisCompanyAndWhichAreSwitchedOnAsync</a>(PostV1DeclarationsAutomationListRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsAutomationListResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">AutomationListAsync</a>(AutomationListDeclarationsRequest { ... }) -> WithRawResponseTask&lt;AutomationListDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -11957,8 +11806,48 @@ await client.Declarations.PostV1DeclarationsCertificatesDeleteAsync(
 <dd>
 
 ```csharp
-await client.Declarations.WhichDeadlinesNordletCanFileByItselfForThisCompanyAndWhichAreSwitchedOnAsync(
-    new PostV1DeclarationsAutomationListRequest()
+await client.Declarations.AutomationListAsync(new AutomationListDeclarationsRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `AutomationListDeclarationsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">AutomationUpdateAsync</a>(AutomationUpdateDeclarationsRequest { ... }) -> WithRawResponseTask&lt;AutomationUpdateDeclarationsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.AutomationUpdateAsync(
+    new AutomationUpdateDeclarationsRequest { RuleKey = "ruleKey", Enabled = true }
 );
 ```
 </dd>
@@ -11974,7 +11863,7 @@ await client.Declarations.WhichDeadlinesNordletCanFileByItselfForThisCompanyAndW
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsAutomationListRequest` 
+**request:** `AutomationUpdateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -11986,7 +11875,7 @@ await client.Declarations.WhichDeadlinesNordletCanFileByItselfForThisCompanyAndW
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsAutomationUpdateAsync</a>(PostV1DeclarationsAutomationUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsAutomationUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">SubmissionsRetryAsync</a>(SubmissionsRetryDeclarationsRequest { ... }) -> WithRawResponseTask&lt;SubmissionsRetryDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -11999,8 +11888,8 @@ await client.Declarations.WhichDeadlinesNordletCanFileByItselfForThisCompanyAndW
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsAutomationUpdateAsync(
-    new PostV1DeclarationsAutomationUpdateRequest { RuleKey = "ruleKey", Enabled = true }
+await client.Declarations.SubmissionsRetryAsync(
+    new SubmissionsRetryDeclarationsRequest { Id = "id" }
 );
 ```
 </dd>
@@ -12016,7 +11905,7 @@ await client.Declarations.PostV1DeclarationsAutomationUpdateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsAutomationUpdateRequest` 
+**request:** `SubmissionsRetryDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -12028,7 +11917,7 @@ await client.Declarations.PostV1DeclarationsAutomationUpdateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">SendAFilingWhoseDeliveryFailedOnceMoreWithTheBytesThatWereGeneratedAsync</a>(PostV1DeclarationsSubmissionsRetryRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsSubmissionsRetryResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">SubmissionsCreateAsync</a>(SubmissionsCreateDeclarationsRequest { ... }) -> WithRawResponseTask&lt;SubmissionsCreateDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -12041,52 +11930,10 @@ await client.Declarations.PostV1DeclarationsAutomationUpdateAsync(
 <dd>
 
 ```csharp
-await client.Declarations.SendAFilingWhoseDeliveryFailedOnceMoreWithTheBytesThatWereGeneratedAsync(
-    new PostV1DeclarationsSubmissionsRetryRequest { Id = "id" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1DeclarationsSubmissionsRetryRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsSubmissionsCreateAsync</a>(PostV1DeclarationsSubmissionsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsSubmissionsCreateResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Declarations.PostV1DeclarationsSubmissionsCreateAsync(
-    new PostV1DeclarationsSubmissionsCreateRequest
+await client.Declarations.SubmissionsCreateAsync(
+    new SubmissionsCreateDeclarationsRequest
     {
-        Obligation = PostV1DeclarationsSubmissionsCreateRequestObligation.LtIsaf,
+        Obligation = SubmissionsCreateDeclarationsRequestObligation.LtIsaf,
         Year = 1000000,
         Month = 1000000,
     }
@@ -12105,7 +11952,7 @@ await client.Declarations.PostV1DeclarationsSubmissionsCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsSubmissionsCreateRequest` 
+**request:** `SubmissionsCreateDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -12117,7 +11964,7 @@ await client.Declarations.PostV1DeclarationsSubmissionsCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsSubmissionsMarkAsync</a>(PostV1DeclarationsSubmissionsMarkRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsSubmissionsMarkResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">SubmissionsMarkAsync</a>(SubmissionsMarkDeclarationsRequest { ... }) -> WithRawResponseTask&lt;SubmissionsMarkDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -12130,11 +11977,11 @@ await client.Declarations.PostV1DeclarationsSubmissionsCreateAsync(
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsSubmissionsMarkAsync(
-    new PostV1DeclarationsSubmissionsMarkRequest
+await client.Declarations.SubmissionsMarkAsync(
+    new SubmissionsMarkDeclarationsRequest
     {
         Id = "id",
-        Status = PostV1DeclarationsSubmissionsMarkRequestStatus.Submitted,
+        Status = SubmissionsMarkDeclarationsRequestStatus.Submitted,
     }
 );
 ```
@@ -12151,7 +11998,7 @@ await client.Declarations.PostV1DeclarationsSubmissionsMarkAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsSubmissionsMarkRequest` 
+**request:** `SubmissionsMarkDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -12163,7 +12010,7 @@ await client.Declarations.PostV1DeclarationsSubmissionsMarkAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">PostV1DeclarationsSubmissionsListAsync</a>(PostV1DeclarationsSubmissionsListRequest { ... }) -> WithRawResponseTask&lt;PostV1DeclarationsSubmissionsListResponse&gt;</code></summary>
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">SubmissionsListAsync</a>(SubmissionsListDeclarationsRequest { ... }) -> WithRawResponseTask&lt;SubmissionsListDeclarationsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -12176,9 +12023,7 @@ await client.Declarations.PostV1DeclarationsSubmissionsMarkAsync(
 <dd>
 
 ```csharp
-await client.Declarations.PostV1DeclarationsSubmissionsListAsync(
-    new PostV1DeclarationsSubmissionsListRequest()
-);
+await client.Declarations.SubmissionsListAsync(new SubmissionsListDeclarationsRequest());
 ```
 </dd>
 </dl>
@@ -12193,7 +12038,7 @@ await client.Declarations.PostV1DeclarationsSubmissionsListAsync(
 <dl>
 <dd>
 
-**request:** `PostV1DeclarationsSubmissionsListRequest` 
+**request:** `SubmissionsListDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -12205,8 +12050,8 @@ await client.Declarations.PostV1DeclarationsSubmissionsListAsync(
 </dl>
 </details>
 
-## Ledger
-<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">PostV1LedgerAccountsListAsync</a>(PostV1LedgerAccountsListRequest { ... }) -> WithRawResponseTask&lt;PostV1LedgerAccountsListResponse&gt;</code></summary>
+## ledger
+<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">AccountsListAsync</a>(AccountsListLedgerRequest { ... }) -> WithRawResponseTask&lt;AccountsListLedgerResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -12219,7 +12064,7 @@ await client.Declarations.PostV1DeclarationsSubmissionsListAsync(
 <dd>
 
 ```csharp
-await client.Ledger.PostV1LedgerAccountsListAsync(new PostV1LedgerAccountsListRequest());
+await client.Ledger.AccountsListAsync(new AccountsListLedgerRequest());
 ```
 </dd>
 </dl>
@@ -12234,7 +12079,7 @@ await client.Ledger.PostV1LedgerAccountsListAsync(new PostV1LedgerAccountsListRe
 <dl>
 <dd>
 
-**request:** `PostV1LedgerAccountsListRequest` 
+**request:** `AccountsListLedgerRequest` 
     
 </dd>
 </dl>
@@ -12246,7 +12091,7 @@ await client.Ledger.PostV1LedgerAccountsListAsync(new PostV1LedgerAccountsListRe
 </dl>
 </details>
 
-<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">PostV1LedgerAccountsCreateAsync</a>(PostV1LedgerAccountsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1LedgerAccountsCreateResponse&gt;</code></summary>
+<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">AccountsCreateAsync</a>(AccountsCreateLedgerRequest { ... }) -> WithRawResponseTask&lt;AccountsCreateLedgerResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -12259,12 +12104,12 @@ await client.Ledger.PostV1LedgerAccountsListAsync(new PostV1LedgerAccountsListRe
 <dd>
 
 ```csharp
-await client.Ledger.PostV1LedgerAccountsCreateAsync(
-    new PostV1LedgerAccountsCreateRequest
+await client.Ledger.AccountsCreateAsync(
+    new AccountsCreateLedgerRequest
     {
         Code = "code",
         Name = "name",
-        Type = PostV1LedgerAccountsCreateRequestType.Asset,
+        Type = AccountsCreateLedgerRequestType.Asset,
     }
 );
 ```
@@ -12281,7 +12126,7 @@ await client.Ledger.PostV1LedgerAccountsCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1LedgerAccountsCreateRequest` 
+**request:** `AccountsCreateLedgerRequest` 
     
 </dd>
 </dl>
@@ -12293,7 +12138,7 @@ await client.Ledger.PostV1LedgerAccountsCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">PostV1LedgerAccountsUpdateAsync</a>(PostV1LedgerAccountsUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1LedgerAccountsUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">AccountsUpdateAsync</a>(AccountsUpdateLedgerRequest { ... }) -> WithRawResponseTask&lt;AccountsUpdateLedgerResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -12306,9 +12151,7 @@ await client.Ledger.PostV1LedgerAccountsCreateAsync(
 <dd>
 
 ```csharp
-await client.Ledger.PostV1LedgerAccountsUpdateAsync(
-    new PostV1LedgerAccountsUpdateRequest { Id = "id" }
-);
+await client.Ledger.AccountsUpdateAsync(new AccountsUpdateLedgerRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -12323,7 +12166,7 @@ await client.Ledger.PostV1LedgerAccountsUpdateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1LedgerAccountsUpdateRequest` 
+**request:** `AccountsUpdateLedgerRequest` 
     
 </dd>
 </dl>
@@ -12335,7 +12178,7 @@ await client.Ledger.PostV1LedgerAccountsUpdateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">PostV1LedgerAccountsApplyTemplateAsync</a>(PostV1LedgerAccountsApplyTemplateRequest { ... }) -> WithRawResponseTask&lt;PostV1LedgerAccountsApplyTemplateResponse&gt;</code></summary>
+<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">AccountsApplyTemplateAsync</a>(AccountsApplyTemplateLedgerRequest { ... }) -> WithRawResponseTask&lt;AccountsApplyTemplateLedgerResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -12348,9 +12191,7 @@ await client.Ledger.PostV1LedgerAccountsUpdateAsync(
 <dd>
 
 ```csharp
-await client.Ledger.PostV1LedgerAccountsApplyTemplateAsync(
-    new PostV1LedgerAccountsApplyTemplateRequest()
-);
+await client.Ledger.AccountsApplyTemplateAsync(new AccountsApplyTemplateLedgerRequest());
 ```
 </dd>
 </dl>
@@ -12365,7 +12206,7 @@ await client.Ledger.PostV1LedgerAccountsApplyTemplateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1LedgerAccountsApplyTemplateRequest` 
+**request:** `AccountsApplyTemplateLedgerRequest` 
     
 </dd>
 </dl>
@@ -12377,7 +12218,7 @@ await client.Ledger.PostV1LedgerAccountsApplyTemplateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">MoveACompanyThatHasPostedNothingYetToTheChartOfAccountsOfItsCountryAsync</a>(PostV1LedgerAccountsSwitchChartRequest { ... }) -> WithRawResponseTask&lt;PostV1LedgerAccountsSwitchChartResponse&gt;</code></summary>
+<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">AccountsSwitchChartAsync</a>(AccountsSwitchChartLedgerRequest { ... }) -> WithRawResponseTask&lt;AccountsSwitchChartLedgerResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -12404,8 +12245,88 @@ Replaces the seeded chart with the chart template of the company country (the Ro
 <dd>
 
 ```csharp
-await client.Ledger.MoveACompanyThatHasPostedNothingYetToTheChartOfAccountsOfItsCountryAsync(
-    new PostV1LedgerAccountsSwitchChartRequest()
+await client.Ledger.AccountsSwitchChartAsync(new AccountsSwitchChartLedgerRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `AccountsSwitchChartLedgerRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">PeriodsListAsync</a>(PeriodsListLedgerRequest { ... }) -> WithRawResponseTask&lt;PeriodsListLedgerResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Ledger.PeriodsListAsync(new PeriodsListLedgerRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PeriodsListLedgerRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">PeriodsLockAsync</a>(PeriodsLockLedgerRequest { ... }) -> WithRawResponseTask&lt;PeriodsLockLedgerResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Ledger.PeriodsLockAsync(
+    new PeriodsLockLedgerRequest { Year = 1000000, Month = 1000000 }
 );
 ```
 </dd>
@@ -12421,7 +12342,7 @@ await client.Ledger.MoveACompanyThatHasPostedNothingYetToTheChartOfAccountsOfIts
 <dl>
 <dd>
 
-**request:** `PostV1LedgerAccountsSwitchChartRequest` 
+**request:** `PeriodsLockLedgerRequest` 
     
 </dd>
 </dl>
@@ -12433,7 +12354,7 @@ await client.Ledger.MoveACompanyThatHasPostedNothingYetToTheChartOfAccountsOfIts
 </dl>
 </details>
 
-<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">PostV1LedgerPeriodsListAsync</a>(PostV1LedgerPeriodsListRequest { ... }) -> WithRawResponseTask&lt;PostV1LedgerPeriodsListResponse&gt;</code></summary>
+<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">PeriodsUnlockAsync</a>(PeriodsUnlockLedgerRequest { ... }) -> WithRawResponseTask&lt;PeriodsUnlockLedgerResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -12446,48 +12367,8 @@ await client.Ledger.MoveACompanyThatHasPostedNothingYetToTheChartOfAccountsOfIts
 <dd>
 
 ```csharp
-await client.Ledger.PostV1LedgerPeriodsListAsync(new PostV1LedgerPeriodsListRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1LedgerPeriodsListRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">PostV1LedgerPeriodsLockAsync</a>(PostV1LedgerPeriodsLockRequest { ... }) -> WithRawResponseTask&lt;PostV1LedgerPeriodsLockResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Ledger.PostV1LedgerPeriodsLockAsync(
-    new PostV1LedgerPeriodsLockRequest { Year = 1000000, Month = 1000000 }
+await client.Ledger.PeriodsUnlockAsync(
+    new PeriodsUnlockLedgerRequest { Year = 1000000, Month = 1000000 }
 );
 ```
 </dd>
@@ -12503,7 +12384,7 @@ await client.Ledger.PostV1LedgerPeriodsLockAsync(
 <dl>
 <dd>
 
-**request:** `PostV1LedgerPeriodsLockRequest` 
+**request:** `PeriodsUnlockLedgerRequest` 
     
 </dd>
 </dl>
@@ -12515,7 +12396,7 @@ await client.Ledger.PostV1LedgerPeriodsLockAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">PostV1LedgerPeriodsUnlockAsync</a>(PostV1LedgerPeriodsUnlockRequest { ... }) -> WithRawResponseTask&lt;PostV1LedgerPeriodsUnlockResponse&gt;</code></summary>
+<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">JournalTransactionsListAsync</a>(JournalTransactionsListLedgerRequest { ... }) -> WithRawResponseTask&lt;JournalTransactionsListLedgerResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -12528,8 +12409,48 @@ await client.Ledger.PostV1LedgerPeriodsLockAsync(
 <dd>
 
 ```csharp
-await client.Ledger.PostV1LedgerPeriodsUnlockAsync(
-    new PostV1LedgerPeriodsUnlockRequest { Year = 1000000, Month = 1000000 }
+await client.Ledger.JournalTransactionsListAsync(new JournalTransactionsListLedgerRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `JournalTransactionsListLedgerRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">CostCentersCreateAsync</a>(CostCentersCreateLedgerRequest { ... }) -> WithRawResponseTask&lt;CostCentersCreateLedgerResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Ledger.CostCentersCreateAsync(
+    new CostCentersCreateLedgerRequest { Code = "code", Name = "name" }
 );
 ```
 </dd>
@@ -12545,7 +12466,7 @@ await client.Ledger.PostV1LedgerPeriodsUnlockAsync(
 <dl>
 <dd>
 
-**request:** `PostV1LedgerPeriodsUnlockRequest` 
+**request:** `CostCentersCreateLedgerRequest` 
     
 </dd>
 </dl>
@@ -12557,7 +12478,7 @@ await client.Ledger.PostV1LedgerPeriodsUnlockAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">PostV1LedgerJournalTransactionsListAsync</a>(PostV1LedgerJournalTransactionsListRequest { ... }) -> WithRawResponseTask&lt;PostV1LedgerJournalTransactionsListResponse&gt;</code></summary>
+<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">CostCentersUpdateAsync</a>(CostCentersUpdateLedgerRequest { ... }) -> WithRawResponseTask&lt;CostCentersUpdateLedgerResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -12570,8 +12491,88 @@ await client.Ledger.PostV1LedgerPeriodsUnlockAsync(
 <dd>
 
 ```csharp
-await client.Ledger.PostV1LedgerJournalTransactionsListAsync(
-    new PostV1LedgerJournalTransactionsListRequest()
+await client.Ledger.CostCentersUpdateAsync(new CostCentersUpdateLedgerRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `CostCentersUpdateLedgerRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">CostCentersListAsync</a>(CostCentersListLedgerRequest { ... }) -> WithRawResponseTask&lt;CostCentersListLedgerResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Ledger.CostCentersListAsync(new CostCentersListLedgerRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `CostCentersListLedgerRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">CostCenterGroupsCreateAsync</a>(CostCenterGroupsCreateLedgerRequest { ... }) -> WithRawResponseTask&lt;CostCenterGroupsCreateLedgerResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Ledger.CostCenterGroupsCreateAsync(
+    new CostCenterGroupsCreateLedgerRequest { Code = "code", Name = "name" }
 );
 ```
 </dd>
@@ -12587,7 +12588,7 @@ await client.Ledger.PostV1LedgerJournalTransactionsListAsync(
 <dl>
 <dd>
 
-**request:** `PostV1LedgerJournalTransactionsListRequest` 
+**request:** `CostCenterGroupsCreateLedgerRequest` 
     
 </dd>
 </dl>
@@ -12599,7 +12600,7 @@ await client.Ledger.PostV1LedgerJournalTransactionsListAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">PostV1LedgerCostCentersCreateAsync</a>(PostV1LedgerCostCentersCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1LedgerCostCentersCreateResponse&gt;</code></summary>
+<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">CostCenterGroupsUpdateAsync</a>(CostCenterGroupsUpdateLedgerRequest { ... }) -> WithRawResponseTask&lt;CostCenterGroupsUpdateLedgerResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -12612,8 +12613,8 @@ await client.Ledger.PostV1LedgerJournalTransactionsListAsync(
 <dd>
 
 ```csharp
-await client.Ledger.PostV1LedgerCostCentersCreateAsync(
-    new PostV1LedgerCostCentersCreateRequest { Code = "code", Name = "name" }
+await client.Ledger.CostCenterGroupsUpdateAsync(
+    new CostCenterGroupsUpdateLedgerRequest { Id = "id" }
 );
 ```
 </dd>
@@ -12629,7 +12630,7 @@ await client.Ledger.PostV1LedgerCostCentersCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1LedgerCostCentersCreateRequest` 
+**request:** `CostCenterGroupsUpdateLedgerRequest` 
     
 </dd>
 </dl>
@@ -12641,7 +12642,7 @@ await client.Ledger.PostV1LedgerCostCentersCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">PostV1LedgerCostCentersUpdateAsync</a>(PostV1LedgerCostCentersUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1LedgerCostCentersUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">CostCenterGroupsDeleteAsync</a>(CostCenterGroupsDeleteLedgerRequest { ... }) -> WithRawResponseTask&lt;CostCenterGroupsDeleteLedgerResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -12654,8 +12655,8 @@ await client.Ledger.PostV1LedgerCostCentersCreateAsync(
 <dd>
 
 ```csharp
-await client.Ledger.PostV1LedgerCostCentersUpdateAsync(
-    new PostV1LedgerCostCentersUpdateRequest { Id = "id" }
+await client.Ledger.CostCenterGroupsDeleteAsync(
+    new CostCenterGroupsDeleteLedgerRequest { Id = "id" }
 );
 ```
 </dd>
@@ -12671,7 +12672,7 @@ await client.Ledger.PostV1LedgerCostCentersUpdateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1LedgerCostCentersUpdateRequest` 
+**request:** `CostCenterGroupsDeleteLedgerRequest` 
     
 </dd>
 </dl>
@@ -12683,7 +12684,7 @@ await client.Ledger.PostV1LedgerCostCentersUpdateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">PostV1LedgerCostCentersListAsync</a>(PostV1LedgerCostCentersListRequest { ... }) -> WithRawResponseTask&lt;PostV1LedgerCostCentersListResponse&gt;</code></summary>
+<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">CostCenterGroupsListAsync</a>(CostCenterGroupsListLedgerRequest { ... }) -> WithRawResponseTask&lt;CostCenterGroupsListLedgerResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -12696,7 +12697,7 @@ await client.Ledger.PostV1LedgerCostCentersUpdateAsync(
 <dd>
 
 ```csharp
-await client.Ledger.PostV1LedgerCostCentersListAsync(new PostV1LedgerCostCentersListRequest());
+await client.Ledger.CostCenterGroupsListAsync(new CostCenterGroupsListLedgerRequest());
 ```
 </dd>
 </dl>
@@ -12711,7 +12712,7 @@ await client.Ledger.PostV1LedgerCostCentersListAsync(new PostV1LedgerCostCenters
 <dl>
 <dd>
 
-**request:** `PostV1LedgerCostCentersListRequest` 
+**request:** `CostCenterGroupsListLedgerRequest` 
     
 </dd>
 </dl>
@@ -12723,7 +12724,7 @@ await client.Ledger.PostV1LedgerCostCentersListAsync(new PostV1LedgerCostCenters
 </dl>
 </details>
 
-<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">PostV1LedgerCostCenterGroupsCreateAsync</a>(PostV1LedgerCostCenterGroupsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1LedgerCostCenterGroupsCreateResponse&gt;</code></summary>
+<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">PostingRulesListAsync</a>(PostingRulesListLedgerRequest { ... }) -> WithRawResponseTask&lt;PostingRulesListLedgerResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -12736,9 +12737,7 @@ await client.Ledger.PostV1LedgerCostCentersListAsync(new PostV1LedgerCostCenters
 <dd>
 
 ```csharp
-await client.Ledger.PostV1LedgerCostCenterGroupsCreateAsync(
-    new PostV1LedgerCostCenterGroupsCreateRequest { Code = "code", Name = "name" }
-);
+await client.Ledger.PostingRulesListAsync(new PostingRulesListLedgerRequest());
 ```
 </dd>
 </dl>
@@ -12753,7 +12752,7 @@ await client.Ledger.PostV1LedgerCostCenterGroupsCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1LedgerCostCenterGroupsCreateRequest` 
+**request:** `PostingRulesListLedgerRequest` 
     
 </dd>
 </dl>
@@ -12765,7 +12764,7 @@ await client.Ledger.PostV1LedgerCostCenterGroupsCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">PostV1LedgerCostCenterGroupsUpdateAsync</a>(PostV1LedgerCostCenterGroupsUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1LedgerCostCenterGroupsUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">PostingRulesUpdateAsync</a>(PostingRulesUpdateLedgerRequest { ... }) -> WithRawResponseTask&lt;PostingRulesUpdateLedgerResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -12778,180 +12777,14 @@ await client.Ledger.PostV1LedgerCostCenterGroupsCreateAsync(
 <dd>
 
 ```csharp
-await client.Ledger.PostV1LedgerCostCenterGroupsUpdateAsync(
-    new PostV1LedgerCostCenterGroupsUpdateRequest { Id = "id" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1LedgerCostCenterGroupsUpdateRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">PostV1LedgerCostCenterGroupsDeleteAsync</a>(PostV1LedgerCostCenterGroupsDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1LedgerCostCenterGroupsDeleteResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Ledger.PostV1LedgerCostCenterGroupsDeleteAsync(
-    new PostV1LedgerCostCenterGroupsDeleteRequest { Id = "id" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1LedgerCostCenterGroupsDeleteRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">PostV1LedgerCostCenterGroupsListAsync</a>(PostV1LedgerCostCenterGroupsListRequest { ... }) -> WithRawResponseTask&lt;PostV1LedgerCostCenterGroupsListResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Ledger.PostV1LedgerCostCenterGroupsListAsync(
-    new PostV1LedgerCostCenterGroupsListRequest()
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1LedgerCostCenterGroupsListRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">PostV1LedgerPostingRulesListAsync</a>(PostV1LedgerPostingRulesListRequest { ... }) -> WithRawResponseTask&lt;PostV1LedgerPostingRulesListResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Ledger.PostV1LedgerPostingRulesListAsync(new PostV1LedgerPostingRulesListRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1LedgerPostingRulesListRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">PostV1LedgerPostingRulesUpdateAsync</a>(PostV1LedgerPostingRulesUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1LedgerPostingRulesUpdateResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Ledger.PostV1LedgerPostingRulesUpdateAsync(
-    new PostV1LedgerPostingRulesUpdateRequest
+await client.Ledger.PostingRulesUpdateAsync(
+    new PostingRulesUpdateLedgerRequest
     {
-        Rules = new List<PostV1LedgerPostingRulesUpdateRequestRulesItem>()
+        Rules = new List<PostingRulesUpdateLedgerRequestRulesItem>()
         {
-            new PostV1LedgerPostingRulesUpdateRequestRulesItem
+            new PostingRulesUpdateLedgerRequestRulesItem
             {
-                Key = PostV1LedgerPostingRulesUpdateRequestRulesItemKey.SalesReceivable,
+                Key = PostingRulesUpdateLedgerRequestRulesItemKey.SalesReceivable,
             },
         },
     }
@@ -12970,7 +12803,7 @@ await client.Ledger.PostV1LedgerPostingRulesUpdateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1LedgerPostingRulesUpdateRequest` 
+**request:** `PostingRulesUpdateLedgerRequest` 
     
 </dd>
 </dl>
@@ -12982,7 +12815,7 @@ await client.Ledger.PostV1LedgerPostingRulesUpdateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">PostV1LedgerOwnersCreateAsync</a>(PostV1LedgerOwnersCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1LedgerOwnersCreateResponse&gt;</code></summary>
+<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">OwnersCreateAsync</a>(OwnersCreateLedgerRequest { ... }) -> WithRawResponseTask&lt;OwnersCreateLedgerResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -12995,8 +12828,168 @@ await client.Ledger.PostV1LedgerPostingRulesUpdateAsync(
 <dd>
 
 ```csharp
-await client.Ledger.PostV1LedgerOwnersCreateAsync(
-    new PostV1LedgerOwnersCreateRequest { Name = "name" }
+await client.Ledger.OwnersCreateAsync(new OwnersCreateLedgerRequest { Name = "name" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `OwnersCreateLedgerRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">OwnersUpdateAsync</a>(OwnersUpdateLedgerRequest { ... }) -> WithRawResponseTask&lt;OwnersUpdateLedgerResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Ledger.OwnersUpdateAsync(new OwnersUpdateLedgerRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `OwnersUpdateLedgerRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">OwnersDeleteAsync</a>(OwnersDeleteLedgerRequest { ... }) -> WithRawResponseTask&lt;OwnersDeleteLedgerResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Ledger.OwnersDeleteAsync(new OwnersDeleteLedgerRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `OwnersDeleteLedgerRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">OwnersListAsync</a>(OwnersListLedgerRequest { ... }) -> WithRawResponseTask&lt;OwnersListLedgerResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Ledger.OwnersListAsync(new OwnersListLedgerRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `OwnersListLedgerRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">JournalTransactionsGetAsync</a>(JournalTransactionsGetLedgerRequest { ... }) -> WithRawResponseTask&lt;JournalTransactionsGetLedgerResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Ledger.JournalTransactionsGetAsync(
+    new JournalTransactionsGetLedgerRequest { Id = "id" }
 );
 ```
 </dd>
@@ -13012,7 +13005,7 @@ await client.Ledger.PostV1LedgerOwnersCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1LedgerOwnersCreateRequest` 
+**request:** `JournalTransactionsGetLedgerRequest` 
     
 </dd>
 </dl>
@@ -13024,7 +13017,7 @@ await client.Ledger.PostV1LedgerOwnersCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">PostV1LedgerOwnersUpdateAsync</a>(PostV1LedgerOwnersUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1LedgerOwnersUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">JournalTransactionsCreateAsync</a>(JournalTransactionsCreateLedgerRequest { ... }) -> WithRawResponseTask&lt;JournalTransactionsCreateLedgerResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -13037,182 +13030,13 @@ await client.Ledger.PostV1LedgerOwnersCreateAsync(
 <dd>
 
 ```csharp
-await client.Ledger.PostV1LedgerOwnersUpdateAsync(
-    new PostV1LedgerOwnersUpdateRequest { Id = "id" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1LedgerOwnersUpdateRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">PostV1LedgerOwnersDeleteAsync</a>(PostV1LedgerOwnersDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1LedgerOwnersDeleteResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Ledger.PostV1LedgerOwnersDeleteAsync(
-    new PostV1LedgerOwnersDeleteRequest { Id = "id" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1LedgerOwnersDeleteRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">PostV1LedgerOwnersListAsync</a>(PostV1LedgerOwnersListRequest { ... }) -> WithRawResponseTask&lt;PostV1LedgerOwnersListResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Ledger.PostV1LedgerOwnersListAsync(new PostV1LedgerOwnersListRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1LedgerOwnersListRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">PostV1LedgerJournalTransactionsGetAsync</a>(PostV1LedgerJournalTransactionsGetRequest { ... }) -> WithRawResponseTask&lt;PostV1LedgerJournalTransactionsGetResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Ledger.PostV1LedgerJournalTransactionsGetAsync(
-    new PostV1LedgerJournalTransactionsGetRequest { Id = "id" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1LedgerJournalTransactionsGetRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">PostV1LedgerJournalTransactionsCreateAsync</a>(PostV1LedgerJournalTransactionsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1LedgerJournalTransactionsCreateResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Ledger.PostV1LedgerJournalTransactionsCreateAsync(
-    new PostV1LedgerJournalTransactionsCreateRequest
+await client.Ledger.JournalTransactionsCreateAsync(
+    new JournalTransactionsCreateLedgerRequest
     {
-        Date = "date",
-        Entries = new List<PostV1LedgerJournalTransactionsCreateRequestEntriesItem>()
+        Date = new DateOnly(2026, 7, 1),
+        Entries = new List<JournalTransactionsCreateLedgerRequestEntriesItem>()
         {
-            new PostV1LedgerJournalTransactionsCreateRequestEntriesItem
-            {
-                AccountCode = "accountCode",
-            },
+            new JournalTransactionsCreateLedgerRequestEntriesItem { AccountCode = "accountCode" },
         },
     }
 );
@@ -13230,7 +13054,7 @@ await client.Ledger.PostV1LedgerJournalTransactionsCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1LedgerJournalTransactionsCreateRequest` 
+**request:** `JournalTransactionsCreateLedgerRequest` 
     
 </dd>
 </dl>
@@ -13242,7 +13066,7 @@ await client.Ledger.PostV1LedgerJournalTransactionsCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">NationalStatementLayoutsAvailableToTheCompanyAsync</a>(PostV1LedgerStatementRowsSchemesRequest { ... }) -> WithRawResponseTask&lt;PostV1LedgerStatementRowsSchemesResponse&gt;</code></summary>
+<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">StatementRowsSchemesAsync</a>(StatementRowsSchemesLedgerRequest { ... }) -> WithRawResponseTask&lt;StatementRowsSchemesLedgerResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -13269,9 +13093,7 @@ The rows or codes of each return or registry deposit of the company country that
 <dd>
 
 ```csharp
-await client.Ledger.NationalStatementLayoutsAvailableToTheCompanyAsync(
-    new PostV1LedgerStatementRowsSchemesRequest()
-);
+await client.Ledger.StatementRowsSchemesAsync(new StatementRowsSchemesLedgerRequest());
 ```
 </dd>
 </dl>
@@ -13286,7 +13108,7 @@ await client.Ledger.NationalStatementLayoutsAvailableToTheCompanyAsync(
 <dl>
 <dd>
 
-**request:** `PostV1LedgerStatementRowsSchemesRequest` 
+**request:** `StatementRowsSchemesLedgerRequest` 
     
 </dd>
 </dl>
@@ -13298,7 +13120,7 @@ await client.Ledger.NationalStatementLayoutsAvailableToTheCompanyAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">AccountsPlacedOnTheRowsOfAStatementLayoutWithTheRowTotalsOfAPeriodAsync</a>(PostV1LedgerStatementRowsListRequest { ... }) -> WithRawResponseTask&lt;PostV1LedgerStatementRowsListResponse&gt;</code></summary>
+<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">StatementRowsListAsync</a>(StatementRowsListLedgerRequest { ... }) -> WithRawResponseTask&lt;StatementRowsListLedgerResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -13311,8 +13133,8 @@ await client.Ledger.NationalStatementLayoutsAvailableToTheCompanyAsync(
 <dd>
 
 ```csharp
-await client.Ledger.AccountsPlacedOnTheRowsOfAStatementLayoutWithTheRowTotalsOfAPeriodAsync(
-    new PostV1LedgerStatementRowsListRequest { Scheme = "scheme" }
+await client.Ledger.StatementRowsListAsync(
+    new StatementRowsListLedgerRequest { Scheme = "scheme" }
 );
 ```
 </dd>
@@ -13328,7 +13150,7 @@ await client.Ledger.AccountsPlacedOnTheRowsOfAStatementLayoutWithTheRowTotalsOfA
 <dl>
 <dd>
 
-**request:** `PostV1LedgerStatementRowsListRequest` 
+**request:** `StatementRowsListLedgerRequest` 
     
 </dd>
 </dl>
@@ -13340,7 +13162,7 @@ await client.Ledger.AccountsPlacedOnTheRowsOfAStatementLayoutWithTheRowTotalsOfA
 </dl>
 </details>
 
-<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">MapAnAccountOrAnAccountCodePrefixToARowOfAStatementLayoutAsync</a>(PostV1LedgerStatementRowsSetRequest { ... }) -> WithRawResponseTask&lt;PostV1LedgerStatementRowsSetResponse&gt;</code></summary>
+<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">StatementRowsSetAsync</a>(StatementRowsSetLedgerRequest { ... }) -> WithRawResponseTask&lt;StatementRowsSetLedgerResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -13367,8 +13189,8 @@ A mapping on a code prefix covers every account whose code starts with it; the l
 <dd>
 
 ```csharp
-await client.Ledger.MapAnAccountOrAnAccountCodePrefixToARowOfAStatementLayoutAsync(
-    new PostV1LedgerStatementRowsSetRequest { Scheme = "scheme", AccountCode = "accountCode" }
+await client.Ledger.StatementRowsSetAsync(
+    new StatementRowsSetLedgerRequest { Scheme = "scheme", AccountCode = "accountCode" }
 );
 ```
 </dd>
@@ -13384,7 +13206,7 @@ await client.Ledger.MapAnAccountOrAnAccountCodePrefixToARowOfAStatementLayoutAsy
 <dl>
 <dd>
 
-**request:** `PostV1LedgerStatementRowsSetRequest` 
+**request:** `StatementRowsSetLedgerRequest` 
     
 </dd>
 </dl>
@@ -13396,7 +13218,8 @@ await client.Ledger.MapAnAccountOrAnAccountCodePrefixToARowOfAStatementLayoutAsy
 </dl>
 </details>
 
-<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">OfficersOfTheCompanyAsync</a>(PostV1OfficersListRequest { ... }) -> WithRawResponseTask&lt;PostV1OfficersListResponse&gt;</code></summary>
+## Officers
+<details><summary><code>client.Officers.<a href="/src/NordletApi/Officers/OfficersClient.cs">ListAsync</a>(ListOfficersRequest { ... }) -> WithRawResponseTask&lt;ListOfficersResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -13423,7 +13246,7 @@ Directors, board members, the company secretary, representatives and liquidators
 <dd>
 
 ```csharp
-await client.Ledger.OfficersOfTheCompanyAsync(new PostV1OfficersListRequest());
+await client.Officers.ListAsync(new ListOfficersRequest());
 ```
 </dd>
 </dl>
@@ -13438,7 +13261,7 @@ await client.Ledger.OfficersOfTheCompanyAsync(new PostV1OfficersListRequest());
 <dl>
 <dd>
 
-**request:** `PostV1OfficersListRequest` 
+**request:** `ListOfficersRequest` 
     
 </dd>
 </dl>
@@ -13450,7 +13273,7 @@ await client.Ledger.OfficersOfTheCompanyAsync(new PostV1OfficersListRequest());
 </dl>
 </details>
 
-<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">RecordAnOfficerOfTheCompanyAsync</a>(PostV1OfficersCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1OfficersCreateResponse&gt;</code></summary>
+<details><summary><code>client.Officers.<a href="/src/NordletApi/Officers/OfficersClient.cs">CreateAsync</a>(CreateOfficersRequest { ... }) -> WithRawResponseTask&lt;CreateOfficersResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -13463,12 +13286,8 @@ await client.Ledger.OfficersOfTheCompanyAsync(new PostV1OfficersListRequest());
 <dd>
 
 ```csharp
-await client.Ledger.RecordAnOfficerOfTheCompanyAsync(
-    new PostV1OfficersCreateRequest
-    {
-        Name = "name",
-        Role = PostV1OfficersCreateRequestRole.Director,
-    }
+await client.Officers.CreateAsync(
+    new CreateOfficersRequest { Name = "name", Role = CreateOfficersRequestRole.Director }
 );
 ```
 </dd>
@@ -13484,7 +13303,7 @@ await client.Ledger.RecordAnOfficerOfTheCompanyAsync(
 <dl>
 <dd>
 
-**request:** `PostV1OfficersCreateRequest` 
+**request:** `CreateOfficersRequest` 
     
 </dd>
 </dl>
@@ -13496,7 +13315,7 @@ await client.Ledger.RecordAnOfficerOfTheCompanyAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">ChangeARecordedOfficerAsync</a>(PostV1OfficersUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1OfficersUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Officers.<a href="/src/NordletApi/Officers/OfficersClient.cs">UpdateAsync</a>(UpdateOfficersRequest { ... }) -> WithRawResponseTask&lt;UpdateOfficersResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -13509,12 +13328,12 @@ await client.Ledger.RecordAnOfficerOfTheCompanyAsync(
 <dd>
 
 ```csharp
-await client.Ledger.ChangeARecordedOfficerAsync(
-    new PostV1OfficersUpdateRequest
+await client.Officers.UpdateAsync(
+    new UpdateOfficersRequest
     {
         Id = "id",
         Name = "name",
-        Role = PostV1OfficersUpdateRequestRole.Director,
+        Role = UpdateOfficersRequestRole.Director,
     }
 );
 ```
@@ -13531,7 +13350,7 @@ await client.Ledger.ChangeARecordedOfficerAsync(
 <dl>
 <dd>
 
-**request:** `PostV1OfficersUpdateRequest` 
+**request:** `UpdateOfficersRequest` 
     
 </dd>
 </dl>
@@ -13543,7 +13362,7 @@ await client.Ledger.ChangeARecordedOfficerAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">RemoveARecordedOfficerAsync</a>(PostV1OfficersDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1OfficersDeleteResponse&gt;</code></summary>
+<details><summary><code>client.Officers.<a href="/src/NordletApi/Officers/OfficersClient.cs">DeleteAsync</a>(DeleteOfficersRequest { ... }) -> WithRawResponseTask&lt;DeleteOfficersResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -13556,7 +13375,7 @@ await client.Ledger.ChangeARecordedOfficerAsync(
 <dd>
 
 ```csharp
-await client.Ledger.RemoveARecordedOfficerAsync(new PostV1OfficersDeleteRequest { Id = "id" });
+await client.Officers.DeleteAsync(new DeleteOfficersRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -13571,7 +13390,7 @@ await client.Ledger.RemoveARecordedOfficerAsync(new PostV1OfficersDeleteRequest 
 <dl>
 <dd>
 
-**request:** `PostV1OfficersDeleteRequest` 
+**request:** `DeleteOfficersRequest` 
     
 </dd>
 </dl>
@@ -13583,8 +13402,8 @@ await client.Ledger.RemoveARecordedOfficerAsync(new PostV1OfficersDeleteRequest 
 </dl>
 </details>
 
-## Migration
-<details><summary><code>client.Migration.<a href="/src/NordletApi/Migration/MigrationClient.cs">CheckAHistoricalBooksPackageWithoutWritingAnythingAsync</a>(PostV1MigrationBooksValidateRequest { ... }) -> WithRawResponseTask&lt;PostV1MigrationBooksValidateResponse&gt;</code></summary>
+## migration
+<details><summary><code>client.Migration.<a href="/src/NordletApi/Migration/MigrationClient.cs">BooksValidateAsync</a>(BooksValidateMigrationRequest { ... }) -> WithRawResponseTask&lt;BooksValidateMigrationResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -13611,8 +13430,8 @@ Runs every check the import runs (accounts, partners, balances, open invoices, a
 <dd>
 
 ```csharp
-await client.Migration.CheckAHistoricalBooksPackageWithoutWritingAnythingAsync(
-    new PostV1MigrationBooksValidateRequest { CutoverDate = "cutoverDate" }
+await client.Migration.BooksValidateAsync(
+    new BooksValidateMigrationRequest { CutoverDate = new DateOnly(2026, 7, 1) }
 );
 ```
 </dd>
@@ -13628,7 +13447,7 @@ await client.Migration.CheckAHistoricalBooksPackageWithoutWritingAnythingAsync(
 <dl>
 <dd>
 
-**request:** `PostV1MigrationBooksValidateRequest` 
+**request:** `BooksValidateMigrationRequest` 
     
 </dd>
 </dl>
@@ -13640,7 +13459,7 @@ await client.Migration.CheckAHistoricalBooksPackageWithoutWritingAnythingAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Migration.<a href="/src/NordletApi/Migration/MigrationClient.cs">ImportHistoricalBooksFromAPreviousAccountingSystemAsync</a>(PostV1MigrationBooksImportRequest { ... }) -> WithRawResponseTask&lt;PostV1MigrationBooksImportResponse&gt;</code></summary>
+<details><summary><code>client.Migration.<a href="/src/NordletApi/Migration/MigrationClient.cs">BooksImportAsync</a>(BooksImportMigrationRequest { ... }) -> WithRawResponseTask&lt;BooksImportMigrationResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -13667,8 +13486,8 @@ Brings a company over from another system in one call: chart of accounts, partne
 <dd>
 
 ```csharp
-await client.Migration.ImportHistoricalBooksFromAPreviousAccountingSystemAsync(
-    new PostV1MigrationBooksImportRequest { CutoverDate = "cutoverDate" }
+await client.Migration.BooksImportAsync(
+    new BooksImportMigrationRequest { CutoverDate = new DateOnly(2026, 7, 1) }
 );
 ```
 </dd>
@@ -13684,7 +13503,7 @@ await client.Migration.ImportHistoricalBooksFromAPreviousAccountingSystemAsync(
 <dl>
 <dd>
 
-**request:** `PostV1MigrationBooksImportRequest` 
+**request:** `BooksImportMigrationRequest` 
     
 </dd>
 </dl>
@@ -13696,8 +13515,8 @@ await client.Migration.ImportHistoricalBooksFromAPreviousAccountingSystemAsync(
 </dl>
 </details>
 
-## Assets
-<details><summary><code>client.Assets.<a href="/src/NordletApi/Assets/AssetsClient.cs">PostV1AssetsGroupsCreateAsync</a>(PostV1AssetsGroupsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1AssetsGroupsCreateResponse&gt;</code></summary>
+## assets
+<details><summary><code>client.Assets.<a href="/src/NordletApi/Assets/AssetsClient.cs">GroupsCreateAsync</a>(GroupsCreateAssetsRequest { ... }) -> WithRawResponseTask&lt;GroupsCreateAssetsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -13710,8 +13529,8 @@ await client.Migration.ImportHistoricalBooksFromAPreviousAccountingSystemAsync(
 <dd>
 
 ```csharp
-await client.Assets.PostV1AssetsGroupsCreateAsync(
-    new PostV1AssetsGroupsCreateRequest
+await client.Assets.GroupsCreateAsync(
+    new GroupsCreateAssetsRequest
     {
         Code = "code",
         Name = "name",
@@ -13733,7 +13552,7 @@ await client.Assets.PostV1AssetsGroupsCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1AssetsGroupsCreateRequest` 
+**request:** `GroupsCreateAssetsRequest` 
     
 </dd>
 </dl>
@@ -13745,7 +13564,7 @@ await client.Assets.PostV1AssetsGroupsCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Assets.<a href="/src/NordletApi/Assets/AssetsClient.cs">PostV1AssetsGroupsListAsync</a>(PostV1AssetsGroupsListRequest { ... }) -> WithRawResponseTask&lt;PostV1AssetsGroupsListResponse&gt;</code></summary>
+<details><summary><code>client.Assets.<a href="/src/NordletApi/Assets/AssetsClient.cs">GroupsListAsync</a>(GroupsListAssetsRequest { ... }) -> WithRawResponseTask&lt;GroupsListAssetsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -13758,7 +13577,7 @@ await client.Assets.PostV1AssetsGroupsCreateAsync(
 <dd>
 
 ```csharp
-await client.Assets.PostV1AssetsGroupsListAsync(new PostV1AssetsGroupsListRequest());
+await client.Assets.GroupsListAsync(new GroupsListAssetsRequest());
 ```
 </dd>
 </dl>
@@ -13773,7 +13592,7 @@ await client.Assets.PostV1AssetsGroupsListAsync(new PostV1AssetsGroupsListReques
 <dl>
 <dd>
 
-**request:** `PostV1AssetsGroupsListRequest` 
+**request:** `GroupsListAssetsRequest` 
     
 </dd>
 </dl>
@@ -13785,7 +13604,7 @@ await client.Assets.PostV1AssetsGroupsListAsync(new PostV1AssetsGroupsListReques
 </dl>
 </details>
 
-<details><summary><code>client.Assets.<a href="/src/NordletApi/Assets/AssetsClient.cs">PostV1AssetsAssetsCreateAsync</a>(PostV1AssetsAssetsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1AssetsAssetsCreateResponse&gt;</code></summary>
+<details><summary><code>client.Assets.<a href="/src/NordletApi/Assets/AssetsClient.cs">AssetsCreateAsync</a>(AssetsCreateAssetsRequest { ... }) -> WithRawResponseTask&lt;AssetsCreateAssetsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -13798,14 +13617,14 @@ await client.Assets.PostV1AssetsGroupsListAsync(new PostV1AssetsGroupsListReques
 <dd>
 
 ```csharp
-await client.Assets.PostV1AssetsAssetsCreateAsync(
-    new PostV1AssetsAssetsCreateRequest
+await client.Assets.AssetsCreateAsync(
+    new AssetsCreateAssetsRequest
     {
         GroupId = "groupId",
         Code = "code",
         Name = "name",
-        AcquisitionDate = "acquisitionDate",
-        AcquisitionCost = "acquisitionCost",
+        AcquisitionDate = new DateOnly(2026, 7, 1),
+        AcquisitionCost = "121.0000",
     }
 );
 ```
@@ -13822,7 +13641,7 @@ await client.Assets.PostV1AssetsAssetsCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1AssetsAssetsCreateRequest` 
+**request:** `AssetsCreateAssetsRequest` 
     
 </dd>
 </dl>
@@ -13834,7 +13653,7 @@ await client.Assets.PostV1AssetsAssetsCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Assets.<a href="/src/NordletApi/Assets/AssetsClient.cs">PostV1AssetsAssetsUpdateAsync</a>(PostV1AssetsAssetsUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1AssetsAssetsUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Assets.<a href="/src/NordletApi/Assets/AssetsClient.cs">AssetsUpdateAsync</a>(AssetsUpdateAssetsRequest { ... }) -> WithRawResponseTask&lt;AssetsUpdateAssetsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -13847,9 +13666,7 @@ await client.Assets.PostV1AssetsAssetsCreateAsync(
 <dd>
 
 ```csharp
-await client.Assets.PostV1AssetsAssetsUpdateAsync(
-    new PostV1AssetsAssetsUpdateRequest { Id = "id" }
-);
+await client.Assets.AssetsUpdateAsync(new AssetsUpdateAssetsRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -13864,7 +13681,7 @@ await client.Assets.PostV1AssetsAssetsUpdateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1AssetsAssetsUpdateRequest` 
+**request:** `AssetsUpdateAssetsRequest` 
     
 </dd>
 </dl>
@@ -13876,7 +13693,7 @@ await client.Assets.PostV1AssetsAssetsUpdateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Assets.<a href="/src/NordletApi/Assets/AssetsClient.cs">PostV1AssetsAssetsInputVatAsync</a>(PostV1AssetsAssetsInputVatRequest { ... }) -> WithRawResponseTask&lt;PostV1AssetsAssetsInputVatResponse&gt;</code></summary>
+<details><summary><code>client.Assets.<a href="/src/NordletApi/Assets/AssetsClient.cs">AssetsInputVatAsync</a>(AssetsInputVatAssetsRequest { ... }) -> WithRawResponseTask&lt;AssetsInputVatAssetsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -13903,18 +13720,18 @@ Record the input VAT facts of a capital good that the annual VAT return needs fo
 <dd>
 
 ```csharp
-await client.Assets.PostV1AssetsAssetsInputVatAsync(
-    new PostV1AssetsAssetsInputVatRequest
+await client.Assets.AssetsInputVatAsync(
+    new AssetsInputVatAssetsRequest
     {
         Id = "id",
         InputVatRealEstate = true,
-        InputVatUseChanges = new List<PostV1AssetsAssetsInputVatRequestInputVatUseChangesItem>()
+        InputVatUseChanges = new List<AssetsInputVatAssetsRequestInputVatUseChangesItem>()
         {
-            new PostV1AssetsAssetsInputVatRequestInputVatUseChangesItem
+            new AssetsInputVatAssetsRequestInputVatUseChangesItem
             {
                 Year = 1000000,
-                Percent = "percent",
-                Reason = PostV1AssetsAssetsInputVatRequestInputVatUseChangesItemReason.UseChange,
+                Percent = "121.00",
+                Reason = AssetsInputVatAssetsRequestInputVatUseChangesItemReason.UseChange,
             },
         },
     }
@@ -13933,7 +13750,7 @@ await client.Assets.PostV1AssetsAssetsInputVatAsync(
 <dl>
 <dd>
 
-**request:** `PostV1AssetsAssetsInputVatRequest` 
+**request:** `AssetsInputVatAssetsRequest` 
     
 </dd>
 </dl>
@@ -13945,7 +13762,7 @@ await client.Assets.PostV1AssetsAssetsInputVatAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Assets.<a href="/src/NordletApi/Assets/AssetsClient.cs">PostV1AssetsAssetsGetAsync</a>(PostV1AssetsAssetsGetRequest { ... }) -> WithRawResponseTask&lt;PostV1AssetsAssetsGetResponse&gt;</code></summary>
+<details><summary><code>client.Assets.<a href="/src/NordletApi/Assets/AssetsClient.cs">AssetsGetAsync</a>(AssetsGetAssetsRequest { ... }) -> WithRawResponseTask&lt;AssetsGetAssetsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -13958,7 +13775,7 @@ await client.Assets.PostV1AssetsAssetsInputVatAsync(
 <dd>
 
 ```csharp
-await client.Assets.PostV1AssetsAssetsGetAsync(new PostV1AssetsAssetsGetRequest { Id = "id" });
+await client.Assets.AssetsGetAsync(new AssetsGetAssetsRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -13973,7 +13790,7 @@ await client.Assets.PostV1AssetsAssetsGetAsync(new PostV1AssetsAssetsGetRequest 
 <dl>
 <dd>
 
-**request:** `PostV1AssetsAssetsGetRequest` 
+**request:** `AssetsGetAssetsRequest` 
     
 </dd>
 </dl>
@@ -13985,7 +13802,7 @@ await client.Assets.PostV1AssetsAssetsGetAsync(new PostV1AssetsAssetsGetRequest 
 </dl>
 </details>
 
-<details><summary><code>client.Assets.<a href="/src/NordletApi/Assets/AssetsClient.cs">PostV1AssetsAssetsListAsync</a>(PostV1AssetsAssetsListRequest { ... }) -> WithRawResponseTask&lt;PostV1AssetsAssetsListResponse&gt;</code></summary>
+<details><summary><code>client.Assets.<a href="/src/NordletApi/Assets/AssetsClient.cs">AssetsListAsync</a>(AssetsListAssetsRequest { ... }) -> WithRawResponseTask&lt;AssetsListAssetsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -13998,7 +13815,7 @@ await client.Assets.PostV1AssetsAssetsGetAsync(new PostV1AssetsAssetsGetRequest 
 <dd>
 
 ```csharp
-await client.Assets.PostV1AssetsAssetsListAsync(new PostV1AssetsAssetsListRequest());
+await client.Assets.AssetsListAsync(new AssetsListAssetsRequest());
 ```
 </dd>
 </dl>
@@ -14013,7 +13830,7 @@ await client.Assets.PostV1AssetsAssetsListAsync(new PostV1AssetsAssetsListReques
 <dl>
 <dd>
 
-**request:** `PostV1AssetsAssetsListRequest` 
+**request:** `AssetsListAssetsRequest` 
     
 </dd>
 </dl>
@@ -14025,7 +13842,7 @@ await client.Assets.PostV1AssetsAssetsListAsync(new PostV1AssetsAssetsListReques
 </dl>
 </details>
 
-<details><summary><code>client.Assets.<a href="/src/NordletApi/Assets/AssetsClient.cs">PostV1AssetsAssetsModernizeAsync</a>(PostV1AssetsAssetsModernizeRequest { ... }) -> WithRawResponseTask&lt;PostV1AssetsAssetsModernizeResponse&gt;</code></summary>
+<details><summary><code>client.Assets.<a href="/src/NordletApi/Assets/AssetsClient.cs">AssetsModernizeAsync</a>(AssetsModernizeAssetsRequest { ... }) -> WithRawResponseTask&lt;AssetsModernizeAssetsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -14038,12 +13855,12 @@ await client.Assets.PostV1AssetsAssetsListAsync(new PostV1AssetsAssetsListReques
 <dd>
 
 ```csharp
-await client.Assets.PostV1AssetsAssetsModernizeAsync(
-    new PostV1AssetsAssetsModernizeRequest
+await client.Assets.AssetsModernizeAsync(
+    new AssetsModernizeAssetsRequest
     {
         Id = "id",
-        Date = "date",
-        Amount = "amount",
+        Date = new DateOnly(2026, 7, 1),
+        Amount = "121.0000",
     }
 );
 ```
@@ -14060,7 +13877,7 @@ await client.Assets.PostV1AssetsAssetsModernizeAsync(
 <dl>
 <dd>
 
-**request:** `PostV1AssetsAssetsModernizeRequest` 
+**request:** `AssetsModernizeAssetsRequest` 
     
 </dd>
 </dl>
@@ -14072,9 +13889,23 @@ await client.Assets.PostV1AssetsAssetsModernizeAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Assets.<a href="/src/NordletApi/Assets/AssetsClient.cs">PostV1AssetsDepreciationPreviewAsync</a>(PostV1AssetsDepreciationPreviewRequest { ... }) -> WithRawResponseTask&lt;PostV1AssetsDepreciationPreviewResponse&gt;</code></summary>
+<details><summary><code>client.Assets.<a href="/src/NordletApi/Assets/AssetsClient.cs">AssetsDisposeAsync</a>(AssetsDisposeAssetsRequest { ... }) -> WithRawResponseTask&lt;AssetsDisposeAssetsResponse&gt;</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Dispose of a fixed asset (sold, scrapped or written off). Removes its cost and accumulated depreciation, books the net book value as a disposal loss and the proceeds as a disposal gain (posting rules assets.disposalLoss, assets.disposalGain, assets.disposalProceeds), and stops its depreciation. Depreciation must be posted for every month before the disposal month.
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -14085,8 +13916,13 @@ await client.Assets.PostV1AssetsAssetsModernizeAsync(
 <dd>
 
 ```csharp
-await client.Assets.PostV1AssetsDepreciationPreviewAsync(
-    new PostV1AssetsDepreciationPreviewRequest { Year = 1000000, Month = 1000000 }
+await client.Assets.AssetsDisposeAsync(
+    new AssetsDisposeAssetsRequest
+    {
+        Id = "id",
+        Date = new DateOnly(2026, 7, 1),
+        Reason = AssetsDisposeAssetsRequestReason.Sold,
+    }
 );
 ```
 </dd>
@@ -14102,7 +13938,7 @@ await client.Assets.PostV1AssetsDepreciationPreviewAsync(
 <dl>
 <dd>
 
-**request:** `PostV1AssetsDepreciationPreviewRequest` 
+**request:** `AssetsDisposeAssetsRequest` 
     
 </dd>
 </dl>
@@ -14114,7 +13950,7 @@ await client.Assets.PostV1AssetsDepreciationPreviewAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Assets.<a href="/src/NordletApi/Assets/AssetsClient.cs">PostV1AssetsDepreciationPostAsync</a>(PostV1AssetsDepreciationPostRequest { ... }) -> WithRawResponseTask&lt;PostV1AssetsDepreciationPostResponse&gt;</code></summary>
+<details><summary><code>client.Assets.<a href="/src/NordletApi/Assets/AssetsClient.cs">DepreciationPreviewAsync</a>(DepreciationPreviewAssetsRequest { ... }) -> WithRawResponseTask&lt;DepreciationPreviewAssetsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -14127,8 +13963,8 @@ await client.Assets.PostV1AssetsDepreciationPreviewAsync(
 <dd>
 
 ```csharp
-await client.Assets.PostV1AssetsDepreciationPostAsync(
-    new PostV1AssetsDepreciationPostRequest { Year = 1000000, Month = 1000000 }
+await client.Assets.DepreciationPreviewAsync(
+    new DepreciationPreviewAssetsRequest { Year = 1000000, Month = 1000000 }
 );
 ```
 </dd>
@@ -14144,7 +13980,7 @@ await client.Assets.PostV1AssetsDepreciationPostAsync(
 <dl>
 <dd>
 
-**request:** `PostV1AssetsDepreciationPostRequest` 
+**request:** `DepreciationPreviewAssetsRequest` 
     
 </dd>
 </dl>
@@ -14156,8 +13992,7 @@ await client.Assets.PostV1AssetsDepreciationPostAsync(
 </dl>
 </details>
 
-## Hr
-<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">PostV1HrPositionsCreateAsync</a>(PostV1HrPositionsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1HrPositionsCreateResponse&gt;</code></summary>
+<details><summary><code>client.Assets.<a href="/src/NordletApi/Assets/AssetsClient.cs">DepreciationPostAsync</a>(DepreciationPostAssetsRequest { ... }) -> WithRawResponseTask&lt;DepreciationPostAssetsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -14170,128 +14005,8 @@ await client.Assets.PostV1AssetsDepreciationPostAsync(
 <dd>
 
 ```csharp
-await client.Hr.PostV1HrPositionsCreateAsync(new PostV1HrPositionsCreateRequest { Name = "name" });
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1HrPositionsCreateRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">PostV1HrPositionsUpdateAsync</a>(PostV1HrPositionsUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1HrPositionsUpdateResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Hr.PostV1HrPositionsUpdateAsync(new PostV1HrPositionsUpdateRequest { Id = "id" });
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1HrPositionsUpdateRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">PostV1HrPositionsListAsync</a>(PostV1HrPositionsListRequest { ... }) -> WithRawResponseTask&lt;PostV1HrPositionsListResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Hr.PostV1HrPositionsListAsync(new PostV1HrPositionsListRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1HrPositionsListRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">PostV1HrEmployeesCreateAsync</a>(PostV1HrEmployeesCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1HrEmployeesCreateResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Hr.PostV1HrEmployeesCreateAsync(
-    new PostV1HrEmployeesCreateRequest { FirstName = "firstName", LastName = "lastName" }
+await client.Assets.DepreciationPostAsync(
+    new DepreciationPostAssetsRequest { Year = 1000000, Month = 1000000 }
 );
 ```
 </dd>
@@ -14307,7 +14022,7 @@ await client.Hr.PostV1HrEmployeesCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1HrEmployeesCreateRequest` 
+**request:** `DepreciationPostAssetsRequest` 
     
 </dd>
 </dl>
@@ -14319,7 +14034,8 @@ await client.Hr.PostV1HrEmployeesCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">PostV1HrEmployeesUpdateAsync</a>(PostV1HrEmployeesUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1HrEmployeesUpdateResponse&gt;</code></summary>
+## hr
+<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">PositionsCreateAsync</a>(PositionsCreateHrRequest { ... }) -> WithRawResponseTask&lt;PositionsCreateHrResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -14332,7 +14048,7 @@ await client.Hr.PostV1HrEmployeesCreateAsync(
 <dd>
 
 ```csharp
-await client.Hr.PostV1HrEmployeesUpdateAsync(new PostV1HrEmployeesUpdateRequest { Id = "id" });
+await client.Hr.PositionsCreateAsync(new PositionsCreateHrRequest { Name = "name" });
 ```
 </dd>
 </dl>
@@ -14347,7 +14063,7 @@ await client.Hr.PostV1HrEmployeesUpdateAsync(new PostV1HrEmployeesUpdateRequest 
 <dl>
 <dd>
 
-**request:** `PostV1HrEmployeesUpdateRequest` 
+**request:** `PositionsCreateHrRequest` 
     
 </dd>
 </dl>
@@ -14359,7 +14075,7 @@ await client.Hr.PostV1HrEmployeesUpdateAsync(new PostV1HrEmployeesUpdateRequest 
 </dl>
 </details>
 
-<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">PostV1HrEmployeesGetAsync</a>(PostV1HrEmployeesGetRequest { ... }) -> WithRawResponseTask&lt;PostV1HrEmployeesGetResponse&gt;</code></summary>
+<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">PositionsUpdateAsync</a>(PositionsUpdateHrRequest { ... }) -> WithRawResponseTask&lt;PositionsUpdateHrResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -14372,7 +14088,7 @@ await client.Hr.PostV1HrEmployeesUpdateAsync(new PostV1HrEmployeesUpdateRequest 
 <dd>
 
 ```csharp
-await client.Hr.PostV1HrEmployeesGetAsync(new PostV1HrEmployeesGetRequest { Id = "id" });
+await client.Hr.PositionsUpdateAsync(new PositionsUpdateHrRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -14387,7 +14103,7 @@ await client.Hr.PostV1HrEmployeesGetAsync(new PostV1HrEmployeesGetRequest { Id =
 <dl>
 <dd>
 
-**request:** `PostV1HrEmployeesGetRequest` 
+**request:** `PositionsUpdateHrRequest` 
     
 </dd>
 </dl>
@@ -14399,7 +14115,169 @@ await client.Hr.PostV1HrEmployeesGetAsync(new PostV1HrEmployeesGetRequest { Id =
 </dl>
 </details>
 
-<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">ExtraEmployeeDetailsTheCountryOfTheCompanyAsksForAsync</a>(PostV1HrEmployeesFieldsRequest { ... }) -> WithRawResponseTask&lt;PostV1HrEmployeesFieldsResponse&gt;</code></summary>
+<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">PositionsListAsync</a>(PositionsListHrRequest { ... }) -> WithRawResponseTask&lt;PositionsListHrResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Hr.PositionsListAsync(new PositionsListHrRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PositionsListHrRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">EmployeesCreateAsync</a>(EmployeesCreateHrRequest { ... }) -> WithRawResponseTask&lt;EmployeesCreateHrResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Hr.EmployeesCreateAsync(
+    new EmployeesCreateHrRequest { FirstName = "firstName", LastName = "lastName" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `EmployeesCreateHrRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">EmployeesUpdateAsync</a>(EmployeesUpdateHrRequest { ... }) -> WithRawResponseTask&lt;EmployeesUpdateHrResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Hr.EmployeesUpdateAsync(new EmployeesUpdateHrRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `EmployeesUpdateHrRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">EmployeesGetAsync</a>(EmployeesGetHrRequest { ... }) -> WithRawResponseTask&lt;EmployeesGetHrResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Hr.EmployeesGetAsync(new EmployeesGetHrRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `EmployeesGetHrRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">EmployeesFieldsAsync</a>(EmployeesFieldsHrRequest { ... }) -> WithRawResponseTask&lt;EmployeesFieldsHrResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -14426,9 +14304,7 @@ Attributes a filing of the company country needs about a person that the shared 
 <dd>
 
 ```csharp
-await client.Hr.ExtraEmployeeDetailsTheCountryOfTheCompanyAsksForAsync(
-    new PostV1HrEmployeesFieldsRequest()
-);
+await client.Hr.EmployeesFieldsAsync(new EmployeesFieldsHrRequest());
 ```
 </dd>
 </dl>
@@ -14443,7 +14319,7 @@ await client.Hr.ExtraEmployeeDetailsTheCountryOfTheCompanyAsksForAsync(
 <dl>
 <dd>
 
-**request:** `PostV1HrEmployeesFieldsRequest` 
+**request:** `EmployeesFieldsHrRequest` 
     
 </dd>
 </dl>
@@ -14455,7 +14331,7 @@ await client.Hr.ExtraEmployeeDetailsTheCountryOfTheCompanyAsksForAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">PostV1HrEmployeesListAsync</a>(PostV1HrEmployeesListRequest { ... }) -> WithRawResponseTask&lt;PostV1HrEmployeesListResponse&gt;</code></summary>
+<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">EmployeesListAsync</a>(EmployeesListHrRequest { ... }) -> WithRawResponseTask&lt;EmployeesListHrResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -14468,7 +14344,7 @@ await client.Hr.ExtraEmployeeDetailsTheCountryOfTheCompanyAsksForAsync(
 <dd>
 
 ```csharp
-await client.Hr.PostV1HrEmployeesListAsync(new PostV1HrEmployeesListRequest());
+await client.Hr.EmployeesListAsync(new EmployeesListHrRequest());
 ```
 </dd>
 </dl>
@@ -14483,7 +14359,7 @@ await client.Hr.PostV1HrEmployeesListAsync(new PostV1HrEmployeesListRequest());
 <dl>
 <dd>
 
-**request:** `PostV1HrEmployeesListRequest` 
+**request:** `EmployeesListHrRequest` 
     
 </dd>
 </dl>
@@ -14495,7 +14371,7 @@ await client.Hr.PostV1HrEmployeesListAsync(new PostV1HrEmployeesListRequest());
 </dl>
 </details>
 
-<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">PostV1HrEmployeesDeleteAsync</a>(PostV1HrEmployeesDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1HrEmployeesDeleteResponse&gt;</code></summary>
+<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">EmployeesDeleteAsync</a>(EmployeesDeleteHrRequest { ... }) -> WithRawResponseTask&lt;EmployeesDeleteHrResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -14508,7 +14384,7 @@ await client.Hr.PostV1HrEmployeesListAsync(new PostV1HrEmployeesListRequest());
 <dd>
 
 ```csharp
-await client.Hr.PostV1HrEmployeesDeleteAsync(new PostV1HrEmployeesDeleteRequest { Id = "id" });
+await client.Hr.EmployeesDeleteAsync(new EmployeesDeleteHrRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -14523,7 +14399,7 @@ await client.Hr.PostV1HrEmployeesDeleteAsync(new PostV1HrEmployeesDeleteRequest 
 <dl>
 <dd>
 
-**request:** `PostV1HrEmployeesDeleteRequest` 
+**request:** `EmployeesDeleteHrRequest` 
     
 </dd>
 </dl>
@@ -14535,7 +14411,7 @@ await client.Hr.PostV1HrEmployeesDeleteAsync(new PostV1HrEmployeesDeleteRequest 
 </dl>
 </details>
 
-<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">BlankAnEmployeesPersonalDataAndHideTheRecordAsync</a>(PostV1HrEmployeesAnonymizeRequest { ... }) -> WithRawResponseTask&lt;PostV1HrEmployeesAnonymizeResponse&gt;</code></summary>
+<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">EmployeesAnonymizeAsync</a>(EmployeesAnonymizeHrRequest { ... }) -> WithRawResponseTask&lt;EmployeesAnonymizeHrResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -14562,9 +14438,7 @@ Replaces the name with a placeholder and removes personal code, birth date, cont
 <dd>
 
 ```csharp
-await client.Hr.BlankAnEmployeesPersonalDataAndHideTheRecordAsync(
-    new PostV1HrEmployeesAnonymizeRequest { Id = "id" }
-);
+await client.Hr.EmployeesAnonymizeAsync(new EmployeesAnonymizeHrRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -14579,7 +14453,7 @@ await client.Hr.BlankAnEmployeesPersonalDataAndHideTheRecordAsync(
 <dl>
 <dd>
 
-**request:** `PostV1HrEmployeesAnonymizeRequest` 
+**request:** `EmployeesAnonymizeHrRequest` 
     
 </dd>
 </dl>
@@ -14591,7 +14465,7 @@ await client.Hr.BlankAnEmployeesPersonalDataAndHideTheRecordAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">PostV1HrContractsCreateAsync</a>(PostV1HrContractsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1HrContractsCreateResponse&gt;</code></summary>
+<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">ContractsCreateAsync</a>(ContractsCreateHrRequest { ... }) -> WithRawResponseTask&lt;ContractsCreateHrResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -14604,12 +14478,12 @@ await client.Hr.BlankAnEmployeesPersonalDataAndHideTheRecordAsync(
 <dd>
 
 ```csharp
-await client.Hr.PostV1HrContractsCreateAsync(
-    new PostV1HrContractsCreateRequest
+await client.Hr.ContractsCreateAsync(
+    new ContractsCreateHrRequest
     {
         EmployeeId = "employeeId",
-        StartDate = "startDate",
-        BaseSalary = "baseSalary",
+        StartDate = new DateOnly(2026, 7, 1),
+        BaseSalary = "121.0000",
     }
 );
 ```
@@ -14626,7 +14500,7 @@ await client.Hr.PostV1HrContractsCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1HrContractsCreateRequest` 
+**request:** `ContractsCreateHrRequest` 
     
 </dd>
 </dl>
@@ -14638,7 +14512,7 @@ await client.Hr.PostV1HrContractsCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">PostV1HrContractsEndAsync</a>(PostV1HrContractsEndRequest { ... }) -> WithRawResponseTask&lt;PostV1HrContractsEndResponse&gt;</code></summary>
+<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">ContractsEndAsync</a>(ContractsEndHrRequest { ... }) -> WithRawResponseTask&lt;ContractsEndHrResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -14651,8 +14525,8 @@ await client.Hr.PostV1HrContractsCreateAsync(
 <dd>
 
 ```csharp
-await client.Hr.PostV1HrContractsEndAsync(
-    new PostV1HrContractsEndRequest { Id = "id", EndDate = "endDate" }
+await client.Hr.ContractsEndAsync(
+    new ContractsEndHrRequest { Id = "id", EndDate = new DateOnly(2026, 7, 1) }
 );
 ```
 </dd>
@@ -14668,7 +14542,7 @@ await client.Hr.PostV1HrContractsEndAsync(
 <dl>
 <dd>
 
-**request:** `PostV1HrContractsEndRequest` 
+**request:** `ContractsEndHrRequest` 
     
 </dd>
 </dl>
@@ -14680,7 +14554,7 @@ await client.Hr.PostV1HrContractsEndAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">PostV1HrContractsListAsync</a>(PostV1HrContractsListRequest { ... }) -> WithRawResponseTask&lt;PostV1HrContractsListResponse&gt;</code></summary>
+<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">ContractsListAsync</a>(ContractsListHrRequest { ... }) -> WithRawResponseTask&lt;ContractsListHrResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -14693,7 +14567,7 @@ await client.Hr.PostV1HrContractsEndAsync(
 <dd>
 
 ```csharp
-await client.Hr.PostV1HrContractsListAsync(new PostV1HrContractsListRequest());
+await client.Hr.ContractsListAsync(new ContractsListHrRequest());
 ```
 </dd>
 </dl>
@@ -14708,7 +14582,7 @@ await client.Hr.PostV1HrContractsListAsync(new PostV1HrContractsListRequest());
 <dl>
 <dd>
 
-**request:** `PostV1HrContractsListRequest` 
+**request:** `ContractsListHrRequest` 
     
 </dd>
 </dl>
@@ -14720,7 +14594,7 @@ await client.Hr.PostV1HrContractsListAsync(new PostV1HrContractsListRequest());
 </dl>
 </details>
 
-<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">PostV1HrLeaveBalancesSetAsync</a>(PostV1HrLeaveBalancesSetRequest { ... }) -> WithRawResponseTask&lt;PostV1HrLeaveBalancesSetResponse&gt;</code></summary>
+<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">LeaveBalancesSetAsync</a>(LeaveBalancesSetHrRequest { ... }) -> WithRawResponseTask&lt;LeaveBalancesSetHrResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -14733,12 +14607,12 @@ await client.Hr.PostV1HrContractsListAsync(new PostV1HrContractsListRequest());
 <dd>
 
 ```csharp
-await client.Hr.PostV1HrLeaveBalancesSetAsync(
-    new PostV1HrLeaveBalancesSetRequest
+await client.Hr.LeaveBalancesSetAsync(
+    new LeaveBalancesSetHrRequest
     {
         EmployeeId = "employeeId",
         Year = 1000000,
-        EntitledDays = "entitledDays",
+        EntitledDays = "121.00",
     }
 );
 ```
@@ -14755,7 +14629,7 @@ await client.Hr.PostV1HrLeaveBalancesSetAsync(
 <dl>
 <dd>
 
-**request:** `PostV1HrLeaveBalancesSetRequest` 
+**request:** `LeaveBalancesSetHrRequest` 
     
 </dd>
 </dl>
@@ -14767,7 +14641,7 @@ await client.Hr.PostV1HrLeaveBalancesSetAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">PostV1HrLeaveBalancesListAsync</a>(PostV1HrLeaveBalancesListRequest { ... }) -> WithRawResponseTask&lt;PostV1HrLeaveBalancesListResponse&gt;</code></summary>
+<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">LeaveBalancesListAsync</a>(LeaveBalancesListHrRequest { ... }) -> WithRawResponseTask&lt;LeaveBalancesListHrResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -14780,7 +14654,7 @@ await client.Hr.PostV1HrLeaveBalancesSetAsync(
 <dd>
 
 ```csharp
-await client.Hr.PostV1HrLeaveBalancesListAsync(new PostV1HrLeaveBalancesListRequest());
+await client.Hr.LeaveBalancesListAsync(new LeaveBalancesListHrRequest());
 ```
 </dd>
 </dl>
@@ -14795,7 +14669,7 @@ await client.Hr.PostV1HrLeaveBalancesListAsync(new PostV1HrLeaveBalancesListRequ
 <dl>
 <dd>
 
-**request:** `PostV1HrLeaveBalancesListRequest` 
+**request:** `LeaveBalancesListHrRequest` 
     
 </dd>
 </dl>
@@ -14807,7 +14681,7 @@ await client.Hr.PostV1HrLeaveBalancesListAsync(new PostV1HrLeaveBalancesListRequ
 </dl>
 </details>
 
-<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">PostV1HrIncapacityCertificatesCreateAsync</a>(PostV1HrIncapacityCertificatesCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1HrIncapacityCertificatesCreateResponse&gt;</code></summary>
+<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">IncapacityCertificatesCreateAsync</a>(IncapacityCertificatesCreateHrRequest { ... }) -> WithRawResponseTask&lt;IncapacityCertificatesCreateHrResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -14820,13 +14694,13 @@ await client.Hr.PostV1HrLeaveBalancesListAsync(new PostV1HrLeaveBalancesListRequ
 <dd>
 
 ```csharp
-await client.Hr.PostV1HrIncapacityCertificatesCreateAsync(
-    new PostV1HrIncapacityCertificatesCreateRequest
+await client.Hr.IncapacityCertificatesCreateAsync(
+    new IncapacityCertificatesCreateHrRequest
     {
         EmployeeId = "employeeId",
         Number = "number",
-        FromDate = "fromDate",
-        ToDate = "toDate",
+        FromDate = new DateOnly(2026, 7, 1),
+        ToDate = new DateOnly(2026, 7, 1),
     }
 );
 ```
@@ -14843,7 +14717,7 @@ await client.Hr.PostV1HrIncapacityCertificatesCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1HrIncapacityCertificatesCreateRequest` 
+**request:** `IncapacityCertificatesCreateHrRequest` 
     
 </dd>
 </dl>
@@ -14855,7 +14729,7 @@ await client.Hr.PostV1HrIncapacityCertificatesCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">PostV1HrIncapacityCertificatesListAsync</a>(PostV1HrIncapacityCertificatesListRequest { ... }) -> WithRawResponseTask&lt;PostV1HrIncapacityCertificatesListResponse&gt;</code></summary>
+<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">IncapacityCertificatesListAsync</a>(IncapacityCertificatesListHrRequest { ... }) -> WithRawResponseTask&lt;IncapacityCertificatesListHrResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -14868,9 +14742,7 @@ await client.Hr.PostV1HrIncapacityCertificatesCreateAsync(
 <dd>
 
 ```csharp
-await client.Hr.PostV1HrIncapacityCertificatesListAsync(
-    new PostV1HrIncapacityCertificatesListRequest()
-);
+await client.Hr.IncapacityCertificatesListAsync(new IncapacityCertificatesListHrRequest());
 ```
 </dd>
 </dl>
@@ -14885,7 +14757,7 @@ await client.Hr.PostV1HrIncapacityCertificatesListAsync(
 <dl>
 <dd>
 
-**request:** `PostV1HrIncapacityCertificatesListRequest` 
+**request:** `IncapacityCertificatesListHrRequest` 
     
 </dd>
 </dl>
@@ -14897,7 +14769,7 @@ await client.Hr.PostV1HrIncapacityCertificatesListAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">PostV1HrEmployeesRecordsCreateAsync</a>(PostV1HrEmployeesRecordsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1HrEmployeesRecordsCreateResponse&gt;</code></summary>
+<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">EmployeesRecordsCreateAsync</a>(EmployeesRecordsCreateHrRequest { ... }) -> WithRawResponseTask&lt;EmployeesRecordsCreateHrResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -14910,11 +14782,11 @@ await client.Hr.PostV1HrIncapacityCertificatesListAsync(
 <dd>
 
 ```csharp
-await client.Hr.PostV1HrEmployeesRecordsCreateAsync(
-    new PostV1HrEmployeesRecordsCreateRequest
+await client.Hr.EmployeesRecordsCreateAsync(
+    new EmployeesRecordsCreateHrRequest
     {
         EmployeeId = "employeeId",
-        Type = PostV1HrEmployeesRecordsCreateRequestType.Education,
+        Type = EmployeesRecordsCreateHrRequestType.Education,
         Title = "title",
     }
 );
@@ -14932,7 +14804,7 @@ await client.Hr.PostV1HrEmployeesRecordsCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1HrEmployeesRecordsCreateRequest` 
+**request:** `EmployeesRecordsCreateHrRequest` 
     
 </dd>
 </dl>
@@ -14944,7 +14816,7 @@ await client.Hr.PostV1HrEmployeesRecordsCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">PostV1HrEmployeesRecordsUpdateAsync</a>(PostV1HrEmployeesRecordsUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1HrEmployeesRecordsUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">EmployeesRecordsUpdateAsync</a>(EmployeesRecordsUpdateHrRequest { ... }) -> WithRawResponseTask&lt;EmployeesRecordsUpdateHrResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -14957,8 +14829,128 @@ await client.Hr.PostV1HrEmployeesRecordsCreateAsync(
 <dd>
 
 ```csharp
-await client.Hr.PostV1HrEmployeesRecordsUpdateAsync(
-    new PostV1HrEmployeesRecordsUpdateRequest { Id = "id" }
+await client.Hr.EmployeesRecordsUpdateAsync(new EmployeesRecordsUpdateHrRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `EmployeesRecordsUpdateHrRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">EmployeesRecordsDeleteAsync</a>(EmployeesRecordsDeleteHrRequest { ... }) -> WithRawResponseTask&lt;EmployeesRecordsDeleteHrResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Hr.EmployeesRecordsDeleteAsync(new EmployeesRecordsDeleteHrRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `EmployeesRecordsDeleteHrRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">EmployeesRecordsListAsync</a>(EmployeesRecordsListHrRequest { ... }) -> WithRawResponseTask&lt;EmployeesRecordsListHrResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Hr.EmployeesRecordsListAsync(new EmployeesRecordsListHrRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `EmployeesRecordsListHrRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">EmployeesAttachmentsListAsync</a>(EmployeesAttachmentsListHrRequest { ... }) -> WithRawResponseTask&lt;EmployeesAttachmentsListHrResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Hr.EmployeesAttachmentsListAsync(
+    new EmployeesAttachmentsListHrRequest { EmployeeId = "employeeId" }
 );
 ```
 </dd>
@@ -14974,7 +14966,7 @@ await client.Hr.PostV1HrEmployeesRecordsUpdateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1HrEmployeesRecordsUpdateRequest` 
+**request:** `EmployeesAttachmentsListHrRequest` 
     
 </dd>
 </dl>
@@ -14986,7 +14978,7 @@ await client.Hr.PostV1HrEmployeesRecordsUpdateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">PostV1HrEmployeesRecordsDeleteAsync</a>(PostV1HrEmployeesRecordsDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1HrEmployeesRecordsDeleteResponse&gt;</code></summary>
+<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">TimesheetsGenerateAsync</a>(TimesheetsGenerateHrRequest { ... }) -> WithRawResponseTask&lt;TimesheetsGenerateHrResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -14999,8 +14991,8 @@ await client.Hr.PostV1HrEmployeesRecordsUpdateAsync(
 <dd>
 
 ```csharp
-await client.Hr.PostV1HrEmployeesRecordsDeleteAsync(
-    new PostV1HrEmployeesRecordsDeleteRequest { Id = "id" }
+await client.Hr.TimesheetsGenerateAsync(
+    new TimesheetsGenerateHrRequest { Year = 1000000, Month = 1000000 }
 );
 ```
 </dd>
@@ -15016,7 +15008,7 @@ await client.Hr.PostV1HrEmployeesRecordsDeleteAsync(
 <dl>
 <dd>
 
-**request:** `PostV1HrEmployeesRecordsDeleteRequest` 
+**request:** `TimesheetsGenerateHrRequest` 
     
 </dd>
 </dl>
@@ -15028,7 +15020,7 @@ await client.Hr.PostV1HrEmployeesRecordsDeleteAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">PostV1HrEmployeesRecordsListAsync</a>(PostV1HrEmployeesRecordsListRequest { ... }) -> WithRawResponseTask&lt;PostV1HrEmployeesRecordsListResponse&gt;</code></summary>
+<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">TimesheetsUpsertAsync</a>(TimesheetsUpsertHrRequest { ... }) -> WithRawResponseTask&lt;TimesheetsUpsertHrResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -15041,143 +15033,19 @@ await client.Hr.PostV1HrEmployeesRecordsDeleteAsync(
 <dd>
 
 ```csharp
-await client.Hr.PostV1HrEmployeesRecordsListAsync(new PostV1HrEmployeesRecordsListRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1HrEmployeesRecordsListRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">PostV1HrEmployeesAttachmentsListAsync</a>(PostV1HrEmployeesAttachmentsListRequest { ... }) -> WithRawResponseTask&lt;PostV1HrEmployeesAttachmentsListResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Hr.PostV1HrEmployeesAttachmentsListAsync(
-    new PostV1HrEmployeesAttachmentsListRequest { EmployeeId = "employeeId" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1HrEmployeesAttachmentsListRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">PostV1HrTimesheetsGenerateAsync</a>(PostV1HrTimesheetsGenerateRequest { ... }) -> WithRawResponseTask&lt;PostV1HrTimesheetsGenerateResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Hr.PostV1HrTimesheetsGenerateAsync(
-    new PostV1HrTimesheetsGenerateRequest { Year = 1000000, Month = 1000000 }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1HrTimesheetsGenerateRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">PostV1HrTimesheetsUpsertAsync</a>(PostV1HrTimesheetsUpsertRequest { ... }) -> WithRawResponseTask&lt;PostV1HrTimesheetsUpsertResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Hr.PostV1HrTimesheetsUpsertAsync(
-    new PostV1HrTimesheetsUpsertRequest
+await client.Hr.TimesheetsUpsertAsync(
+    new TimesheetsUpsertHrRequest
     {
         EmployeeId = "employeeId",
         Year = 1000000,
         Month = 1000000,
-        Days = new List<PostV1HrTimesheetsUpsertRequestDaysItem>()
+        Days = new List<TimesheetsUpsertHrRequestDaysItem>()
         {
-            new PostV1HrTimesheetsUpsertRequestDaysItem
+            new TimesheetsUpsertHrRequestDaysItem
             {
                 Day = 1000000,
-                Hours = "hours",
-                Type = PostV1HrTimesheetsUpsertRequestDaysItemType.Work,
+                Hours = "121.00",
+                Type = TimesheetsUpsertHrRequestDaysItemType.Work,
             },
         },
     }
@@ -15196,7 +15064,7 @@ await client.Hr.PostV1HrTimesheetsUpsertAsync(
 <dl>
 <dd>
 
-**request:** `PostV1HrTimesheetsUpsertRequest` 
+**request:** `TimesheetsUpsertHrRequest` 
     
 </dd>
 </dl>
@@ -15208,7 +15076,7 @@ await client.Hr.PostV1HrTimesheetsUpsertAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">PostV1HrTimesheetsGetAsync</a>(PostV1HrTimesheetsGetRequest { ... }) -> WithRawResponseTask&lt;PostV1HrTimesheetsGetResponse&gt;</code></summary>
+<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">TimesheetsGetAsync</a>(TimesheetsGetHrRequest { ... }) -> WithRawResponseTask&lt;TimesheetsGetHrResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -15221,8 +15089,8 @@ await client.Hr.PostV1HrTimesheetsUpsertAsync(
 <dd>
 
 ```csharp
-await client.Hr.PostV1HrTimesheetsGetAsync(
-    new PostV1HrTimesheetsGetRequest
+await client.Hr.TimesheetsGetAsync(
+    new TimesheetsGetHrRequest
     {
         EmployeeId = "employeeId",
         Year = 1000000,
@@ -15243,7 +15111,7 @@ await client.Hr.PostV1HrTimesheetsGetAsync(
 <dl>
 <dd>
 
-**request:** `PostV1HrTimesheetsGetRequest` 
+**request:** `TimesheetsGetHrRequest` 
     
 </dd>
 </dl>
@@ -15255,7 +15123,7 @@ await client.Hr.PostV1HrTimesheetsGetAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">PostV1HrTimesheetsListAsync</a>(PostV1HrTimesheetsListRequest { ... }) -> WithRawResponseTask&lt;PostV1HrTimesheetsListResponse&gt;</code></summary>
+<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">TimesheetsListAsync</a>(TimesheetsListHrRequest { ... }) -> WithRawResponseTask&lt;TimesheetsListHrResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -15268,8 +15136,8 @@ await client.Hr.PostV1HrTimesheetsGetAsync(
 <dd>
 
 ```csharp
-await client.Hr.PostV1HrTimesheetsListAsync(
-    new PostV1HrTimesheetsListRequest { Year = 1000000, Month = 1000000 }
+await client.Hr.TimesheetsListAsync(
+    new TimesheetsListHrRequest { Year = 1000000, Month = 1000000 }
 );
 ```
 </dd>
@@ -15285,7 +15153,7 @@ await client.Hr.PostV1HrTimesheetsListAsync(
 <dl>
 <dd>
 
-**request:** `PostV1HrTimesheetsListRequest` 
+**request:** `TimesheetsListHrRequest` 
     
 </dd>
 </dl>
@@ -15297,7 +15165,7 @@ await client.Hr.PostV1HrTimesheetsListAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">PostV1HrTimesheetsDeleteAsync</a>(PostV1HrTimesheetsDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1HrTimesheetsDeleteResponse&gt;</code></summary>
+<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">TimesheetsDeleteAsync</a>(TimesheetsDeleteHrRequest { ... }) -> WithRawResponseTask&lt;TimesheetsDeleteHrResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -15310,7 +15178,7 @@ await client.Hr.PostV1HrTimesheetsListAsync(
 <dd>
 
 ```csharp
-await client.Hr.PostV1HrTimesheetsDeleteAsync(new PostV1HrTimesheetsDeleteRequest { Id = "id" });
+await client.Hr.TimesheetsDeleteAsync(new TimesheetsDeleteHrRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -15325,7 +15193,7 @@ await client.Hr.PostV1HrTimesheetsDeleteAsync(new PostV1HrTimesheetsDeleteReques
 <dl>
 <dd>
 
-**request:** `PostV1HrTimesheetsDeleteRequest` 
+**request:** `TimesheetsDeleteHrRequest` 
     
 </dd>
 </dl>
@@ -15337,8 +15205,8 @@ await client.Hr.PostV1HrTimesheetsDeleteAsync(new PostV1HrTimesheetsDeleteReques
 </dl>
 </details>
 
-## Fleet
-<details><summary><code>client.Fleet.<a href="/src/NordletApi/Fleet/FleetClient.cs">PostV1FleetVehiclesCreateAsync</a>(PostV1FleetVehiclesCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1FleetVehiclesCreateResponse&gt;</code></summary>
+## fleet
+<details><summary><code>client.Fleet.<a href="/src/NordletApi/Fleet/FleetClient.cs">VehiclesCreateAsync</a>(VehiclesCreateFleetRequest { ... }) -> WithRawResponseTask&lt;VehiclesCreateFleetResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -15351,8 +15219,8 @@ await client.Hr.PostV1HrTimesheetsDeleteAsync(new PostV1HrTimesheetsDeleteReques
 <dd>
 
 ```csharp
-await client.Fleet.PostV1FleetVehiclesCreateAsync(
-    new PostV1FleetVehiclesCreateRequest
+await client.Fleet.VehiclesCreateAsync(
+    new VehiclesCreateFleetRequest
     {
         PlateNumber = "plateNumber",
         Make = "make",
@@ -15373,7 +15241,7 @@ await client.Fleet.PostV1FleetVehiclesCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1FleetVehiclesCreateRequest` 
+**request:** `VehiclesCreateFleetRequest` 
     
 </dd>
 </dl>
@@ -15385,7 +15253,7 @@ await client.Fleet.PostV1FleetVehiclesCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Fleet.<a href="/src/NordletApi/Fleet/FleetClient.cs">PostV1FleetVehiclesUpdateAsync</a>(PostV1FleetVehiclesUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1FleetVehiclesUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Fleet.<a href="/src/NordletApi/Fleet/FleetClient.cs">VehiclesUpdateAsync</a>(VehiclesUpdateFleetRequest { ... }) -> WithRawResponseTask&lt;VehiclesUpdateFleetResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -15398,9 +15266,7 @@ await client.Fleet.PostV1FleetVehiclesCreateAsync(
 <dd>
 
 ```csharp
-await client.Fleet.PostV1FleetVehiclesUpdateAsync(
-    new PostV1FleetVehiclesUpdateRequest { Id = "id" }
-);
+await client.Fleet.VehiclesUpdateAsync(new VehiclesUpdateFleetRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -15415,7 +15281,7 @@ await client.Fleet.PostV1FleetVehiclesUpdateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1FleetVehiclesUpdateRequest` 
+**request:** `VehiclesUpdateFleetRequest` 
     
 </dd>
 </dl>
@@ -15427,7 +15293,7 @@ await client.Fleet.PostV1FleetVehiclesUpdateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Fleet.<a href="/src/NordletApi/Fleet/FleetClient.cs">PostV1FleetVehiclesGetAsync</a>(PostV1FleetVehiclesGetRequest { ... }) -> WithRawResponseTask&lt;PostV1FleetVehiclesGetResponse&gt;</code></summary>
+<details><summary><code>client.Fleet.<a href="/src/NordletApi/Fleet/FleetClient.cs">VehiclesGetAsync</a>(VehiclesGetFleetRequest { ... }) -> WithRawResponseTask&lt;VehiclesGetFleetResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -15440,7 +15306,7 @@ await client.Fleet.PostV1FleetVehiclesUpdateAsync(
 <dd>
 
 ```csharp
-await client.Fleet.PostV1FleetVehiclesGetAsync(new PostV1FleetVehiclesGetRequest { Id = "id" });
+await client.Fleet.VehiclesGetAsync(new VehiclesGetFleetRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -15455,7 +15321,7 @@ await client.Fleet.PostV1FleetVehiclesGetAsync(new PostV1FleetVehiclesGetRequest
 <dl>
 <dd>
 
-**request:** `PostV1FleetVehiclesGetRequest` 
+**request:** `VehiclesGetFleetRequest` 
     
 </dd>
 </dl>
@@ -15467,7 +15333,7 @@ await client.Fleet.PostV1FleetVehiclesGetAsync(new PostV1FleetVehiclesGetRequest
 </dl>
 </details>
 
-<details><summary><code>client.Fleet.<a href="/src/NordletApi/Fleet/FleetClient.cs">PostV1FleetVehiclesListAsync</a>(PostV1FleetVehiclesListRequest { ... }) -> WithRawResponseTask&lt;PostV1FleetVehiclesListResponse&gt;</code></summary>
+<details><summary><code>client.Fleet.<a href="/src/NordletApi/Fleet/FleetClient.cs">VehiclesListAsync</a>(VehiclesListFleetRequest { ... }) -> WithRawResponseTask&lt;VehiclesListFleetResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -15480,7 +15346,7 @@ await client.Fleet.PostV1FleetVehiclesGetAsync(new PostV1FleetVehiclesGetRequest
 <dd>
 
 ```csharp
-await client.Fleet.PostV1FleetVehiclesListAsync(new PostV1FleetVehiclesListRequest());
+await client.Fleet.VehiclesListAsync(new VehiclesListFleetRequest());
 ```
 </dd>
 </dl>
@@ -15495,7 +15361,7 @@ await client.Fleet.PostV1FleetVehiclesListAsync(new PostV1FleetVehiclesListReque
 <dl>
 <dd>
 
-**request:** `PostV1FleetVehiclesListRequest` 
+**request:** `VehiclesListFleetRequest` 
     
 </dd>
 </dl>
@@ -15507,7 +15373,7 @@ await client.Fleet.PostV1FleetVehiclesListAsync(new PostV1FleetVehiclesListReque
 </dl>
 </details>
 
-<details><summary><code>client.Fleet.<a href="/src/NordletApi/Fleet/FleetClient.cs">PostV1FleetAssignmentsCreateAsync</a>(PostV1FleetAssignmentsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1FleetAssignmentsCreateResponse&gt;</code></summary>
+<details><summary><code>client.Fleet.<a href="/src/NordletApi/Fleet/FleetClient.cs">AssignmentsCreateAsync</a>(AssignmentsCreateFleetRequest { ... }) -> WithRawResponseTask&lt;AssignmentsCreateFleetResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -15520,12 +15386,12 @@ await client.Fleet.PostV1FleetVehiclesListAsync(new PostV1FleetVehiclesListReque
 <dd>
 
 ```csharp
-await client.Fleet.PostV1FleetAssignmentsCreateAsync(
-    new PostV1FleetAssignmentsCreateRequest
+await client.Fleet.AssignmentsCreateAsync(
+    new AssignmentsCreateFleetRequest
     {
         VehicleId = "vehicleId",
         EmployeeId = "employeeId",
-        FromDate = "fromDate",
+        FromDate = new DateOnly(2026, 7, 1),
     }
 );
 ```
@@ -15542,7 +15408,7 @@ await client.Fleet.PostV1FleetAssignmentsCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1FleetAssignmentsCreateRequest` 
+**request:** `AssignmentsCreateFleetRequest` 
     
 </dd>
 </dl>
@@ -15554,7 +15420,7 @@ await client.Fleet.PostV1FleetAssignmentsCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Fleet.<a href="/src/NordletApi/Fleet/FleetClient.cs">PostV1FleetAssignmentsEndAsync</a>(PostV1FleetAssignmentsEndRequest { ... }) -> WithRawResponseTask&lt;PostV1FleetAssignmentsEndResponse&gt;</code></summary>
+<details><summary><code>client.Fleet.<a href="/src/NordletApi/Fleet/FleetClient.cs">AssignmentsEndAsync</a>(AssignmentsEndFleetRequest { ... }) -> WithRawResponseTask&lt;AssignmentsEndFleetResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -15567,8 +15433,8 @@ await client.Fleet.PostV1FleetAssignmentsCreateAsync(
 <dd>
 
 ```csharp
-await client.Fleet.PostV1FleetAssignmentsEndAsync(
-    new PostV1FleetAssignmentsEndRequest { Id = "id", ToDate = "toDate" }
+await client.Fleet.AssignmentsEndAsync(
+    new AssignmentsEndFleetRequest { Id = "id", ToDate = new DateOnly(2026, 7, 1) }
 );
 ```
 </dd>
@@ -15584,7 +15450,7 @@ await client.Fleet.PostV1FleetAssignmentsEndAsync(
 <dl>
 <dd>
 
-**request:** `PostV1FleetAssignmentsEndRequest` 
+**request:** `AssignmentsEndFleetRequest` 
     
 </dd>
 </dl>
@@ -15596,7 +15462,7 @@ await client.Fleet.PostV1FleetAssignmentsEndAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Fleet.<a href="/src/NordletApi/Fleet/FleetClient.cs">PostV1FleetAssignmentsListAsync</a>(PostV1FleetAssignmentsListRequest { ... }) -> WithRawResponseTask&lt;PostV1FleetAssignmentsListResponse&gt;</code></summary>
+<details><summary><code>client.Fleet.<a href="/src/NordletApi/Fleet/FleetClient.cs">AssignmentsListAsync</a>(AssignmentsListFleetRequest { ... }) -> WithRawResponseTask&lt;AssignmentsListFleetResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -15609,7 +15475,7 @@ await client.Fleet.PostV1FleetAssignmentsEndAsync(
 <dd>
 
 ```csharp
-await client.Fleet.PostV1FleetAssignmentsListAsync(new PostV1FleetAssignmentsListRequest());
+await client.Fleet.AssignmentsListAsync(new AssignmentsListFleetRequest());
 ```
 </dd>
 </dl>
@@ -15624,7 +15490,7 @@ await client.Fleet.PostV1FleetAssignmentsListAsync(new PostV1FleetAssignmentsLis
 <dl>
 <dd>
 
-**request:** `PostV1FleetAssignmentsListRequest` 
+**request:** `AssignmentsListFleetRequest` 
     
 </dd>
 </dl>
@@ -15636,7 +15502,7 @@ await client.Fleet.PostV1FleetAssignmentsListAsync(new PostV1FleetAssignmentsLis
 </dl>
 </details>
 
-<details><summary><code>client.Fleet.<a href="/src/NordletApi/Fleet/FleetClient.cs">PostV1FleetNaturaPreviewAsync</a>(PostV1FleetNaturaPreviewRequest { ... }) -> WithRawResponseTask&lt;PostV1FleetNaturaPreviewResponse&gt;</code></summary>
+<details><summary><code>client.Fleet.<a href="/src/NordletApi/Fleet/FleetClient.cs">NaturaPreviewAsync</a>(NaturaPreviewFleetRequest { ... }) -> WithRawResponseTask&lt;NaturaPreviewFleetResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -15649,8 +15515,8 @@ await client.Fleet.PostV1FleetAssignmentsListAsync(new PostV1FleetAssignmentsLis
 <dd>
 
 ```csharp
-await client.Fleet.PostV1FleetNaturaPreviewAsync(
-    new PostV1FleetNaturaPreviewRequest { Year = 1000000, Month = 1000000 }
+await client.Fleet.NaturaPreviewAsync(
+    new NaturaPreviewFleetRequest { Year = 1000000, Month = 1000000 }
 );
 ```
 </dd>
@@ -15666,7 +15532,7 @@ await client.Fleet.PostV1FleetNaturaPreviewAsync(
 <dl>
 <dd>
 
-**request:** `PostV1FleetNaturaPreviewRequest` 
+**request:** `NaturaPreviewFleetRequest` 
     
 </dd>
 </dl>
@@ -15678,8 +15544,8 @@ await client.Fleet.PostV1FleetNaturaPreviewAsync(
 </dl>
 </details>
 
-## Payroll
-<details><summary><code>client.Payroll.<a href="/src/NordletApi/Payroll/PayrollClient.cs">PostV1PayrollDepartmentsCreateAsync</a>(PostV1PayrollDepartmentsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1PayrollDepartmentsCreateResponse&gt;</code></summary>
+## payroll
+<details><summary><code>client.Payroll.<a href="/src/NordletApi/Payroll/PayrollClient.cs">DepartmentsCreateAsync</a>(DepartmentsCreatePayrollRequest { ... }) -> WithRawResponseTask&lt;DepartmentsCreatePayrollResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -15692,8 +15558,8 @@ await client.Fleet.PostV1FleetNaturaPreviewAsync(
 <dd>
 
 ```csharp
-await client.Payroll.PostV1PayrollDepartmentsCreateAsync(
-    new PostV1PayrollDepartmentsCreateRequest { Code = "code", Name = "name" }
+await client.Payroll.DepartmentsCreateAsync(
+    new DepartmentsCreatePayrollRequest { Code = "code", Name = "name" }
 );
 ```
 </dd>
@@ -15709,7 +15575,7 @@ await client.Payroll.PostV1PayrollDepartmentsCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PayrollDepartmentsCreateRequest` 
+**request:** `DepartmentsCreatePayrollRequest` 
     
 </dd>
 </dl>
@@ -15721,7 +15587,7 @@ await client.Payroll.PostV1PayrollDepartmentsCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Payroll.<a href="/src/NordletApi/Payroll/PayrollClient.cs">PostV1PayrollDepartmentsListAsync</a>(PostV1PayrollDepartmentsListRequest { ... }) -> WithRawResponseTask&lt;PostV1PayrollDepartmentsListResponse&gt;</code></summary>
+<details><summary><code>client.Payroll.<a href="/src/NordletApi/Payroll/PayrollClient.cs">DepartmentsListAsync</a>(DepartmentsListPayrollRequest { ... }) -> WithRawResponseTask&lt;DepartmentsListPayrollResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -15734,7 +15600,7 @@ await client.Payroll.PostV1PayrollDepartmentsCreateAsync(
 <dd>
 
 ```csharp
-await client.Payroll.PostV1PayrollDepartmentsListAsync(new PostV1PayrollDepartmentsListRequest());
+await client.Payroll.DepartmentsListAsync(new DepartmentsListPayrollRequest());
 ```
 </dd>
 </dl>
@@ -15749,7 +15615,7 @@ await client.Payroll.PostV1PayrollDepartmentsListAsync(new PostV1PayrollDepartme
 <dl>
 <dd>
 
-**request:** `PostV1PayrollDepartmentsListRequest` 
+**request:** `DepartmentsListPayrollRequest` 
     
 </dd>
 </dl>
@@ -15761,7 +15627,7 @@ await client.Payroll.PostV1PayrollDepartmentsListAsync(new PostV1PayrollDepartme
 </dl>
 </details>
 
-<details><summary><code>client.Payroll.<a href="/src/NordletApi/Payroll/PayrollClient.cs">PostV1PayrollSchedulesCreateAsync</a>(PostV1PayrollSchedulesCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1PayrollSchedulesCreateResponse&gt;</code></summary>
+<details><summary><code>client.Payroll.<a href="/src/NordletApi/Payroll/PayrollClient.cs">SchedulesCreateAsync</a>(SchedulesCreatePayrollRequest { ... }) -> WithRawResponseTask&lt;SchedulesCreatePayrollResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -15774,8 +15640,8 @@ await client.Payroll.PostV1PayrollDepartmentsListAsync(new PostV1PayrollDepartme
 <dd>
 
 ```csharp
-await client.Payroll.PostV1PayrollSchedulesCreateAsync(
-    new PostV1PayrollSchedulesCreateRequest { Code = "code", Name = "name" }
+await client.Payroll.SchedulesCreateAsync(
+    new SchedulesCreatePayrollRequest { Code = "code", Name = "name" }
 );
 ```
 </dd>
@@ -15791,7 +15657,7 @@ await client.Payroll.PostV1PayrollSchedulesCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PayrollSchedulesCreateRequest` 
+**request:** `SchedulesCreatePayrollRequest` 
     
 </dd>
 </dl>
@@ -15803,7 +15669,7 @@ await client.Payroll.PostV1PayrollSchedulesCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Payroll.<a href="/src/NordletApi/Payroll/PayrollClient.cs">PostV1PayrollSchedulesListAsync</a>(PostV1PayrollSchedulesListRequest { ... }) -> WithRawResponseTask&lt;PostV1PayrollSchedulesListResponse&gt;</code></summary>
+<details><summary><code>client.Payroll.<a href="/src/NordletApi/Payroll/PayrollClient.cs">SchedulesListAsync</a>(SchedulesListPayrollRequest { ... }) -> WithRawResponseTask&lt;SchedulesListPayrollResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -15816,7 +15682,7 @@ await client.Payroll.PostV1PayrollSchedulesCreateAsync(
 <dd>
 
 ```csharp
-await client.Payroll.PostV1PayrollSchedulesListAsync(new PostV1PayrollSchedulesListRequest());
+await client.Payroll.SchedulesListAsync(new SchedulesListPayrollRequest());
 ```
 </dd>
 </dl>
@@ -15831,7 +15697,7 @@ await client.Payroll.PostV1PayrollSchedulesListAsync(new PostV1PayrollSchedulesL
 <dl>
 <dd>
 
-**request:** `PostV1PayrollSchedulesListRequest` 
+**request:** `SchedulesListPayrollRequest` 
     
 </dd>
 </dl>
@@ -15843,7 +15709,7 @@ await client.Payroll.PostV1PayrollSchedulesListAsync(new PostV1PayrollSchedulesL
 </dl>
 </details>
 
-<details><summary><code>client.Payroll.<a href="/src/NordletApi/Payroll/PayrollClient.cs">CalculateOneEmployeePaymentUnderTheRulesOfTheCompanyCountryAsync</a>(PostV1PayrollCalcRequest { ... }) -> WithRawResponseTask&lt;PostV1PayrollCalcResponse&gt;</code></summary>
+<details><summary><code>client.Payroll.<a href="/src/NordletApi/Payroll/PayrollClient.cs">CalcAsync</a>(CalcPayrollRequest { ... }) -> WithRawResponseTask&lt;CalcPayrollResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -15856,8 +15722,8 @@ await client.Payroll.PostV1PayrollSchedulesListAsync(new PostV1PayrollSchedulesL
 <dd>
 
 ```csharp
-await client.Payroll.CalculateOneEmployeePaymentUnderTheRulesOfTheCompanyCountryAsync(
-    new PostV1PayrollCalcRequest { TaxableBase = "taxableBase", Date = "date" }
+await client.Payroll.CalcAsync(
+    new CalcPayrollRequest { TaxableBase = "121.00", Date = new DateOnly(2026, 7, 1) }
 );
 ```
 </dd>
@@ -15873,7 +15739,7 @@ await client.Payroll.CalculateOneEmployeePaymentUnderTheRulesOfTheCompanyCountry
 <dl>
 <dd>
 
-**request:** `PostV1PayrollCalcRequest` 
+**request:** `CalcPayrollRequest` 
     
 </dd>
 </dl>
@@ -15885,7 +15751,7 @@ await client.Payroll.CalculateOneEmployeePaymentUnderTheRulesOfTheCompanyCountry
 </dl>
 </details>
 
-<details><summary><code>client.Payroll.<a href="/src/NordletApi/Payroll/PayrollClient.cs">PostV1PayrollRunsCreateAsync</a>(PostV1PayrollRunsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1PayrollRunsCreateResponse&gt;</code></summary>
+<details><summary><code>client.Payroll.<a href="/src/NordletApi/Payroll/PayrollClient.cs">RunsCreateAsync</a>(RunsCreatePayrollRequest { ... }) -> WithRawResponseTask&lt;RunsCreatePayrollResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -15898,8 +15764,8 @@ await client.Payroll.CalculateOneEmployeePaymentUnderTheRulesOfTheCompanyCountry
 <dd>
 
 ```csharp
-await client.Payroll.PostV1PayrollRunsCreateAsync(
-    new PostV1PayrollRunsCreateRequest { Year = 1000000, Month = 1000000 }
+await client.Payroll.RunsCreateAsync(
+    new RunsCreatePayrollRequest { Year = 1000000, Month = 1000000 }
 );
 ```
 </dd>
@@ -15915,7 +15781,7 @@ await client.Payroll.PostV1PayrollRunsCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PayrollRunsCreateRequest` 
+**request:** `RunsCreatePayrollRequest` 
     
 </dd>
 </dl>
@@ -15927,7 +15793,7 @@ await client.Payroll.PostV1PayrollRunsCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Payroll.<a href="/src/NordletApi/Payroll/PayrollClient.cs">PostV1PayrollRunsGetAsync</a>(PostV1PayrollRunsGetRequest { ... }) -> WithRawResponseTask&lt;PostV1PayrollRunsGetResponse&gt;</code></summary>
+<details><summary><code>client.Payroll.<a href="/src/NordletApi/Payroll/PayrollClient.cs">RunsGetAsync</a>(RunsGetPayrollRequest { ... }) -> WithRawResponseTask&lt;RunsGetPayrollResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -15940,7 +15806,7 @@ await client.Payroll.PostV1PayrollRunsCreateAsync(
 <dd>
 
 ```csharp
-await client.Payroll.PostV1PayrollRunsGetAsync(new PostV1PayrollRunsGetRequest { Id = "id" });
+await client.Payroll.RunsGetAsync(new RunsGetPayrollRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -15955,7 +15821,7 @@ await client.Payroll.PostV1PayrollRunsGetAsync(new PostV1PayrollRunsGetRequest {
 <dl>
 <dd>
 
-**request:** `PostV1PayrollRunsGetRequest` 
+**request:** `RunsGetPayrollRequest` 
     
 </dd>
 </dl>
@@ -15967,7 +15833,7 @@ await client.Payroll.PostV1PayrollRunsGetAsync(new PostV1PayrollRunsGetRequest {
 </dl>
 </details>
 
-<details><summary><code>client.Payroll.<a href="/src/NordletApi/Payroll/PayrollClient.cs">PostV1PayrollRunsListAsync</a>(PostV1PayrollRunsListRequest { ... }) -> WithRawResponseTask&lt;PostV1PayrollRunsListResponse&gt;</code></summary>
+<details><summary><code>client.Payroll.<a href="/src/NordletApi/Payroll/PayrollClient.cs">RunsListAsync</a>(RunsListPayrollRequest { ... }) -> WithRawResponseTask&lt;RunsListPayrollResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -15980,7 +15846,7 @@ await client.Payroll.PostV1PayrollRunsGetAsync(new PostV1PayrollRunsGetRequest {
 <dd>
 
 ```csharp
-await client.Payroll.PostV1PayrollRunsListAsync(new PostV1PayrollRunsListRequest());
+await client.Payroll.RunsListAsync(new RunsListPayrollRequest());
 ```
 </dd>
 </dl>
@@ -15995,7 +15861,7 @@ await client.Payroll.PostV1PayrollRunsListAsync(new PostV1PayrollRunsListRequest
 <dl>
 <dd>
 
-**request:** `PostV1PayrollRunsListRequest` 
+**request:** `RunsListPayrollRequest` 
     
 </dd>
 </dl>
@@ -16007,7 +15873,7 @@ await client.Payroll.PostV1PayrollRunsListAsync(new PostV1PayrollRunsListRequest
 </dl>
 </details>
 
-<details><summary><code>client.Payroll.<a href="/src/NordletApi/Payroll/PayrollClient.cs">RecordTheTimeAPersonWorkedInAPayrollLineAsync</a>(PostV1PayrollLinesAttendanceRequest { ... }) -> WithRawResponseTask&lt;PostV1PayrollLinesAttendanceResponse&gt;</code></summary>
+<details><summary><code>client.Payroll.<a href="/src/NordletApi/Payroll/PayrollClient.cs">LinesAttendanceAsync</a>(LinesAttendancePayrollRequest { ... }) -> WithRawResponseTask&lt;LinesAttendancePayrollResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -16034,8 +15900,128 @@ The days and hours worked, the days on the register and the average hourly earni
 <dd>
 
 ```csharp
-await client.Payroll.RecordTheTimeAPersonWorkedInAPayrollLineAsync(
-    new PostV1PayrollLinesAttendanceRequest { Id = "id" }
+await client.Payroll.LinesAttendanceAsync(new LinesAttendancePayrollRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `LinesAttendancePayrollRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Payroll.<a href="/src/NordletApi/Payroll/PayrollClient.cs">RunsApproveAsync</a>(RunsApprovePayrollRequest { ... }) -> WithRawResponseTask&lt;RunsApprovePayrollResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Payroll.RunsApproveAsync(new RunsApprovePayrollRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `RunsApprovePayrollRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Payroll.<a href="/src/NordletApi/Payroll/PayrollClient.cs">RunsCancelAsync</a>(RunsCancelPayrollRequest { ... }) -> WithRawResponseTask&lt;RunsCancelPayrollResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Payroll.RunsCancelAsync(new RunsCancelPayrollRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `RunsCancelPayrollRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Payroll.<a href="/src/NordletApi/Payroll/PayrollClient.cs">PaymentsExportAsync</a>(PaymentsExportPayrollRequest { ... }) -> WithRawResponseTask&lt;PaymentsExportPayrollResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Payroll.PaymentsExportAsync(
+    new PaymentsExportPayrollRequest { RunId = "runId", BankAccountId = "bankAccountId" }
 );
 ```
 </dd>
@@ -16051,7 +16037,7 @@ await client.Payroll.RecordTheTimeAPersonWorkedInAPayrollLineAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PayrollLinesAttendanceRequest` 
+**request:** `PaymentsExportPayrollRequest` 
     
 </dd>
 </dl>
@@ -16063,7 +16049,8 @@ await client.Payroll.RecordTheTimeAPersonWorkedInAPayrollLineAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Payroll.<a href="/src/NordletApi/Payroll/PayrollClient.cs">PostV1PayrollRunsApproveAsync</a>(PostV1PayrollRunsApproveRequest { ... }) -> WithRawResponseTask&lt;PostV1PayrollRunsApproveResponse&gt;</code></summary>
+## agreements
+<details><summary><code>client.Agreements.<a href="/src/NordletApi/Agreements/AgreementsClient.cs">TypesCreateAsync</a>(TypesCreateAgreementsRequest { ... }) -> WithRawResponseTask&lt;TypesCreateAgreementsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -16076,8 +16063,8 @@ await client.Payroll.RecordTheTimeAPersonWorkedInAPayrollLineAsync(
 <dd>
 
 ```csharp
-await client.Payroll.PostV1PayrollRunsApproveAsync(
-    new PostV1PayrollRunsApproveRequest { Id = "id" }
+await client.Agreements.TypesCreateAsync(
+    new TypesCreateAgreementsRequest { Code = "code", Name = "name" }
 );
 ```
 </dd>
@@ -16093,7 +16080,7 @@ await client.Payroll.PostV1PayrollRunsApproveAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PayrollRunsApproveRequest` 
+**request:** `TypesCreateAgreementsRequest` 
     
 </dd>
 </dl>
@@ -16105,7 +16092,7 @@ await client.Payroll.PostV1PayrollRunsApproveAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Payroll.<a href="/src/NordletApi/Payroll/PayrollClient.cs">PostV1PayrollRunsCancelAsync</a>(PostV1PayrollRunsCancelRequest { ... }) -> WithRawResponseTask&lt;PostV1PayrollRunsCancelResponse&gt;</code></summary>
+<details><summary><code>client.Agreements.<a href="/src/NordletApi/Agreements/AgreementsClient.cs">TypesListAsync</a>(TypesListAgreementsRequest { ... }) -> WithRawResponseTask&lt;TypesListAgreementsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -16118,7 +16105,7 @@ await client.Payroll.PostV1PayrollRunsApproveAsync(
 <dd>
 
 ```csharp
-await client.Payroll.PostV1PayrollRunsCancelAsync(new PostV1PayrollRunsCancelRequest { Id = "id" });
+await client.Agreements.TypesListAsync(new TypesListAgreementsRequest());
 ```
 </dd>
 </dl>
@@ -16133,7 +16120,7 @@ await client.Payroll.PostV1PayrollRunsCancelAsync(new PostV1PayrollRunsCancelReq
 <dl>
 <dd>
 
-**request:** `PostV1PayrollRunsCancelRequest` 
+**request:** `TypesListAgreementsRequest` 
     
 </dd>
 </dl>
@@ -16145,7 +16132,7 @@ await client.Payroll.PostV1PayrollRunsCancelAsync(new PostV1PayrollRunsCancelReq
 </dl>
 </details>
 
-<details><summary><code>client.Payroll.<a href="/src/NordletApi/Payroll/PayrollClient.cs">PostV1PayrollPaymentsExportAsync</a>(PostV1PayrollPaymentsExportRequest { ... }) -> WithRawResponseTask&lt;PostV1PayrollPaymentsExportResponse&gt;</code></summary>
+<details><summary><code>client.Agreements.<a href="/src/NordletApi/Agreements/AgreementsClient.cs">AgreementsCreateAsync</a>(AgreementsCreateAgreementsRequest { ... }) -> WithRawResponseTask&lt;AgreementsCreateAgreementsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -16158,8 +16145,12 @@ await client.Payroll.PostV1PayrollRunsCancelAsync(new PostV1PayrollRunsCancelReq
 <dd>
 
 ```csharp
-await client.Payroll.PostV1PayrollPaymentsExportAsync(
-    new PostV1PayrollPaymentsExportRequest { RunId = "runId", BankAccountId = "bankAccountId" }
+await client.Agreements.AgreementsCreateAsync(
+    new AgreementsCreateAgreementsRequest
+    {
+        Number = "number",
+        StartDate = new DateOnly(2026, 7, 1),
+    }
 );
 ```
 </dd>
@@ -16175,7 +16166,7 @@ await client.Payroll.PostV1PayrollPaymentsExportAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PayrollPaymentsExportRequest` 
+**request:** `AgreementsCreateAgreementsRequest` 
     
 </dd>
 </dl>
@@ -16187,8 +16178,7 @@ await client.Payroll.PostV1PayrollPaymentsExportAsync(
 </dl>
 </details>
 
-## Agreements
-<details><summary><code>client.Agreements.<a href="/src/NordletApi/Agreements/AgreementsClient.cs">PostV1AgreementsTypesCreateAsync</a>(PostV1AgreementsTypesCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1AgreementsTypesCreateResponse&gt;</code></summary>
+<details><summary><code>client.Agreements.<a href="/src/NordletApi/Agreements/AgreementsClient.cs">AgreementsGetAsync</a>(AgreementsGetAgreementsRequest { ... }) -> WithRawResponseTask&lt;AgreementsGetAgreementsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -16201,8 +16191,168 @@ await client.Payroll.PostV1PayrollPaymentsExportAsync(
 <dd>
 
 ```csharp
-await client.Agreements.PostV1AgreementsTypesCreateAsync(
-    new PostV1AgreementsTypesCreateRequest { Code = "code", Name = "name" }
+await client.Agreements.AgreementsGetAsync(new AgreementsGetAgreementsRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `AgreementsGetAgreementsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Agreements.<a href="/src/NordletApi/Agreements/AgreementsClient.cs">AgreementsUpdateAsync</a>(AgreementsUpdateAgreementsRequest { ... }) -> WithRawResponseTask&lt;AgreementsUpdateAgreementsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Agreements.AgreementsUpdateAsync(new AgreementsUpdateAgreementsRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `AgreementsUpdateAgreementsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Agreements.<a href="/src/NordletApi/Agreements/AgreementsClient.cs">AgreementsDeleteAsync</a>(AgreementsDeleteAgreementsRequest { ... }) -> WithRawResponseTask&lt;AgreementsDeleteAgreementsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Agreements.AgreementsDeleteAsync(new AgreementsDeleteAgreementsRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `AgreementsDeleteAgreementsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Agreements.<a href="/src/NordletApi/Agreements/AgreementsClient.cs">AgreementsListAsync</a>(AgreementsListAgreementsRequest { ... }) -> WithRawResponseTask&lt;AgreementsListAgreementsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Agreements.AgreementsListAsync(new AgreementsListAgreementsRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `AgreementsListAgreementsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Agreements.<a href="/src/NordletApi/Agreements/AgreementsClient.cs">AgreementsGenerateInvoiceAsync</a>(AgreementsGenerateInvoiceAgreementsRequest { ... }) -> WithRawResponseTask&lt;AgreementsGenerateInvoiceAgreementsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Agreements.AgreementsGenerateInvoiceAsync(
+    new AgreementsGenerateInvoiceAgreementsRequest { Id = "id" }
 );
 ```
 </dd>
@@ -16218,7 +16368,7 @@ await client.Agreements.PostV1AgreementsTypesCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1AgreementsTypesCreateRequest` 
+**request:** `AgreementsGenerateInvoiceAgreementsRequest` 
     
 </dd>
 </dl>
@@ -16230,7 +16380,7 @@ await client.Agreements.PostV1AgreementsTypesCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Agreements.<a href="/src/NordletApi/Agreements/AgreementsClient.cs">PostV1AgreementsTypesListAsync</a>(PostV1AgreementsTypesListRequest { ... }) -> WithRawResponseTask&lt;PostV1AgreementsTypesListResponse&gt;</code></summary>
+<details><summary><code>client.Agreements.<a href="/src/NordletApi/Agreements/AgreementsClient.cs">AgreementsBillingRunAsync</a>(AgreementsBillingRunAgreementsRequest { ... }) -> WithRawResponseTask&lt;AgreementsBillingRunAgreementsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -16243,7 +16393,7 @@ await client.Agreements.PostV1AgreementsTypesCreateAsync(
 <dd>
 
 ```csharp
-await client.Agreements.PostV1AgreementsTypesListAsync(new PostV1AgreementsTypesListRequest());
+await client.Agreements.AgreementsBillingRunAsync(new AgreementsBillingRunAgreementsRequest());
 ```
 </dd>
 </dl>
@@ -16258,7 +16408,7 @@ await client.Agreements.PostV1AgreementsTypesListAsync(new PostV1AgreementsTypes
 <dl>
 <dd>
 
-**request:** `PostV1AgreementsTypesListRequest` 
+**request:** `AgreementsBillingRunAgreementsRequest` 
     
 </dd>
 </dl>
@@ -16270,7 +16420,7 @@ await client.Agreements.PostV1AgreementsTypesListAsync(new PostV1AgreementsTypes
 </dl>
 </details>
 
-<details><summary><code>client.Agreements.<a href="/src/NordletApi/Agreements/AgreementsClient.cs">PostV1AgreementsAgreementsCreateAsync</a>(PostV1AgreementsAgreementsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1AgreementsAgreementsCreateResponse&gt;</code></summary>
+<details><summary><code>client.Agreements.<a href="/src/NordletApi/Agreements/AgreementsClient.cs">InsurancePoliciesCreateAsync</a>(InsurancePoliciesCreateAgreementsRequest { ... }) -> WithRawResponseTask&lt;InsurancePoliciesCreateAgreementsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -16283,307 +16433,13 @@ await client.Agreements.PostV1AgreementsTypesListAsync(new PostV1AgreementsTypes
 <dd>
 
 ```csharp
-await client.Agreements.PostV1AgreementsAgreementsCreateAsync(
-    new PostV1AgreementsAgreementsCreateRequest { Number = "number", StartDate = "startDate" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1AgreementsAgreementsCreateRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Agreements.<a href="/src/NordletApi/Agreements/AgreementsClient.cs">PostV1AgreementsAgreementsGetAsync</a>(PostV1AgreementsAgreementsGetRequest { ... }) -> WithRawResponseTask&lt;PostV1AgreementsAgreementsGetResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Agreements.PostV1AgreementsAgreementsGetAsync(
-    new PostV1AgreementsAgreementsGetRequest { Id = "id" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1AgreementsAgreementsGetRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Agreements.<a href="/src/NordletApi/Agreements/AgreementsClient.cs">PostV1AgreementsAgreementsUpdateAsync</a>(PostV1AgreementsAgreementsUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1AgreementsAgreementsUpdateResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Agreements.PostV1AgreementsAgreementsUpdateAsync(
-    new PostV1AgreementsAgreementsUpdateRequest { Id = "id" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1AgreementsAgreementsUpdateRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Agreements.<a href="/src/NordletApi/Agreements/AgreementsClient.cs">PostV1AgreementsAgreementsDeleteAsync</a>(PostV1AgreementsAgreementsDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1AgreementsAgreementsDeleteResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Agreements.PostV1AgreementsAgreementsDeleteAsync(
-    new PostV1AgreementsAgreementsDeleteRequest { Id = "id" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1AgreementsAgreementsDeleteRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Agreements.<a href="/src/NordletApi/Agreements/AgreementsClient.cs">PostV1AgreementsAgreementsListAsync</a>(PostV1AgreementsAgreementsListRequest { ... }) -> WithRawResponseTask&lt;PostV1AgreementsAgreementsListResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Agreements.PostV1AgreementsAgreementsListAsync(
-    new PostV1AgreementsAgreementsListRequest()
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1AgreementsAgreementsListRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Agreements.<a href="/src/NordletApi/Agreements/AgreementsClient.cs">PostV1AgreementsAgreementsGenerateInvoiceAsync</a>(PostV1AgreementsAgreementsGenerateInvoiceRequest { ... }) -> WithRawResponseTask&lt;PostV1AgreementsAgreementsGenerateInvoiceResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Agreements.PostV1AgreementsAgreementsGenerateInvoiceAsync(
-    new PostV1AgreementsAgreementsGenerateInvoiceRequest { Id = "id" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1AgreementsAgreementsGenerateInvoiceRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Agreements.<a href="/src/NordletApi/Agreements/AgreementsClient.cs">PostV1AgreementsAgreementsBillingRunAsync</a>(PostV1AgreementsAgreementsBillingRunRequest { ... }) -> WithRawResponseTask&lt;PostV1AgreementsAgreementsBillingRunResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Agreements.PostV1AgreementsAgreementsBillingRunAsync(
-    new PostV1AgreementsAgreementsBillingRunRequest()
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1AgreementsAgreementsBillingRunRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Agreements.<a href="/src/NordletApi/Agreements/AgreementsClient.cs">PostV1AgreementsInsurancePoliciesCreateAsync</a>(PostV1AgreementsInsurancePoliciesCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1AgreementsInsurancePoliciesCreateResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Agreements.PostV1AgreementsInsurancePoliciesCreateAsync(
-    new PostV1AgreementsInsurancePoliciesCreateRequest
+await client.Agreements.InsurancePoliciesCreateAsync(
+    new InsurancePoliciesCreateAgreementsRequest
     {
         PolicyNumber = "policyNumber",
         InsuredObject = "insuredObject",
-        FromDate = "fromDate",
-        ToDate = "toDate",
+        FromDate = new DateOnly(2026, 7, 1),
+        ToDate = new DateOnly(2026, 7, 1),
     }
 );
 ```
@@ -16600,7 +16456,7 @@ await client.Agreements.PostV1AgreementsInsurancePoliciesCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1AgreementsInsurancePoliciesCreateRequest` 
+**request:** `InsurancePoliciesCreateAgreementsRequest` 
     
 </dd>
 </dl>
@@ -16612,7 +16468,7 @@ await client.Agreements.PostV1AgreementsInsurancePoliciesCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Agreements.<a href="/src/NordletApi/Agreements/AgreementsClient.cs">PostV1AgreementsInsurancePoliciesListAsync</a>(PostV1AgreementsInsurancePoliciesListRequest { ... }) -> WithRawResponseTask&lt;PostV1AgreementsInsurancePoliciesListResponse&gt;</code></summary>
+<details><summary><code>client.Agreements.<a href="/src/NordletApi/Agreements/AgreementsClient.cs">InsurancePoliciesListAsync</a>(InsurancePoliciesListAgreementsRequest { ... }) -> WithRawResponseTask&lt;InsurancePoliciesListAgreementsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -16625,8 +16481,48 @@ await client.Agreements.PostV1AgreementsInsurancePoliciesCreateAsync(
 <dd>
 
 ```csharp
-await client.Agreements.PostV1AgreementsInsurancePoliciesListAsync(
-    new PostV1AgreementsInsurancePoliciesListRequest()
+await client.Agreements.InsurancePoliciesListAsync(new InsurancePoliciesListAgreementsRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `InsurancePoliciesListAgreementsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Agreements.<a href="/src/NordletApi/Agreements/AgreementsClient.cs">InsurancePoliciesDeleteAsync</a>(InsurancePoliciesDeleteAgreementsRequest { ... }) -> WithRawResponseTask&lt;InsurancePoliciesDeleteAgreementsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Agreements.InsurancePoliciesDeleteAsync(
+    new InsurancePoliciesDeleteAgreementsRequest { Id = "id" }
 );
 ```
 </dd>
@@ -16642,7 +16538,7 @@ await client.Agreements.PostV1AgreementsInsurancePoliciesListAsync(
 <dl>
 <dd>
 
-**request:** `PostV1AgreementsInsurancePoliciesListRequest` 
+**request:** `InsurancePoliciesDeleteAgreementsRequest` 
     
 </dd>
 </dl>
@@ -16654,7 +16550,8 @@ await client.Agreements.PostV1AgreementsInsurancePoliciesListAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Agreements.<a href="/src/NordletApi/Agreements/AgreementsClient.cs">PostV1AgreementsInsurancePoliciesDeleteAsync</a>(PostV1AgreementsInsurancePoliciesDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1AgreementsInsurancePoliciesDeleteResponse&gt;</code></summary>
+## inventory
+<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">SettingsGetAsync</a>(SettingsGetInventoryRequest { ... }) -> WithRawResponseTask&lt;SettingsGetInventoryResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -16667,9 +16564,7 @@ await client.Agreements.PostV1AgreementsInsurancePoliciesListAsync(
 <dd>
 
 ```csharp
-await client.Agreements.PostV1AgreementsInsurancePoliciesDeleteAsync(
-    new PostV1AgreementsInsurancePoliciesDeleteRequest { Id = "id" }
-);
+await client.Inventory.SettingsGetAsync(new SettingsGetInventoryRequest());
 ```
 </dd>
 </dl>
@@ -16684,7 +16579,7 @@ await client.Agreements.PostV1AgreementsInsurancePoliciesDeleteAsync(
 <dl>
 <dd>
 
-**request:** `PostV1AgreementsInsurancePoliciesDeleteRequest` 
+**request:** `SettingsGetInventoryRequest` 
     
 </dd>
 </dl>
@@ -16696,8 +16591,7 @@ await client.Agreements.PostV1AgreementsInsurancePoliciesDeleteAsync(
 </dl>
 </details>
 
-## Inventory
-<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">PostV1InventorySettingsGetAsync</a>(PostV1InventorySettingsGetRequest { ... }) -> WithRawResponseTask&lt;PostV1InventorySettingsGetResponse&gt;</code></summary>
+<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">SettingsUpdateAsync</a>(SettingsUpdateInventoryRequest { ... }) -> WithRawResponseTask&lt;SettingsUpdateInventoryResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -16710,50 +16604,10 @@ await client.Agreements.PostV1AgreementsInsurancePoliciesDeleteAsync(
 <dd>
 
 ```csharp
-await client.Inventory.PostV1InventorySettingsGetAsync(new PostV1InventorySettingsGetRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1InventorySettingsGetRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">PostV1InventorySettingsUpdateAsync</a>(PostV1InventorySettingsUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1InventorySettingsUpdateResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Inventory.PostV1InventorySettingsUpdateAsync(
-    new PostV1InventorySettingsUpdateRequest
+await client.Inventory.SettingsUpdateAsync(
+    new SettingsUpdateInventoryRequest
     {
-        NegativeStockPolicy = PostV1InventorySettingsUpdateRequestNegativeStockPolicy.Reject,
+        NegativeStockPolicy = SettingsUpdateInventoryRequestNegativeStockPolicy.Reject,
     }
 );
 ```
@@ -16770,7 +16624,7 @@ await client.Inventory.PostV1InventorySettingsUpdateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1InventorySettingsUpdateRequest` 
+**request:** `SettingsUpdateInventoryRequest` 
     
 </dd>
 </dl>
@@ -16782,7 +16636,7 @@ await client.Inventory.PostV1InventorySettingsUpdateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">PostV1InventoryWarehousesCreateAsync</a>(PostV1InventoryWarehousesCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1InventoryWarehousesCreateResponse&gt;</code></summary>
+<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">WarehousesCreateAsync</a>(WarehousesCreateInventoryRequest { ... }) -> WithRawResponseTask&lt;WarehousesCreateInventoryResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -16795,8 +16649,8 @@ await client.Inventory.PostV1InventorySettingsUpdateAsync(
 <dd>
 
 ```csharp
-await client.Inventory.PostV1InventoryWarehousesCreateAsync(
-    new PostV1InventoryWarehousesCreateRequest { Code = "code", Name = "name" }
+await client.Inventory.WarehousesCreateAsync(
+    new WarehousesCreateInventoryRequest { Code = "code", Name = "name" }
 );
 ```
 </dd>
@@ -16812,7 +16666,7 @@ await client.Inventory.PostV1InventoryWarehousesCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1InventoryWarehousesCreateRequest` 
+**request:** `WarehousesCreateInventoryRequest` 
     
 </dd>
 </dl>
@@ -16824,7 +16678,7 @@ await client.Inventory.PostV1InventoryWarehousesCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">PostV1InventoryWarehousesListAsync</a>(PostV1InventoryWarehousesListRequest { ... }) -> WithRawResponseTask&lt;PostV1InventoryWarehousesListResponse&gt;</code></summary>
+<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">WarehousesListAsync</a>(WarehousesListInventoryRequest { ... }) -> WithRawResponseTask&lt;WarehousesListInventoryResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -16837,9 +16691,7 @@ await client.Inventory.PostV1InventoryWarehousesCreateAsync(
 <dd>
 
 ```csharp
-await client.Inventory.PostV1InventoryWarehousesListAsync(
-    new PostV1InventoryWarehousesListRequest()
-);
+await client.Inventory.WarehousesListAsync(new WarehousesListInventoryRequest());
 ```
 </dd>
 </dl>
@@ -16854,7 +16706,7 @@ await client.Inventory.PostV1InventoryWarehousesListAsync(
 <dl>
 <dd>
 
-**request:** `PostV1InventoryWarehousesListRequest` 
+**request:** `WarehousesListInventoryRequest` 
     
 </dd>
 </dl>
@@ -16866,7 +16718,7 @@ await client.Inventory.PostV1InventoryWarehousesListAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">PostV1InventoryStockReceiveAsync</a>(PostV1InventoryStockReceiveRequest { ... }) -> WithRawResponseTask&lt;PostV1InventoryStockReceiveResponse&gt;</code></summary>
+<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">StockReceiveAsync</a>(StockReceiveInventoryRequest { ... }) -> WithRawResponseTask&lt;StockReceiveInventoryResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -16879,14 +16731,14 @@ await client.Inventory.PostV1InventoryWarehousesListAsync(
 <dd>
 
 ```csharp
-await client.Inventory.PostV1InventoryStockReceiveAsync(
-    new PostV1InventoryStockReceiveRequest
+await client.Inventory.StockReceiveAsync(
+    new StockReceiveInventoryRequest
     {
         WarehouseId = "warehouseId",
         ItemId = "itemId",
-        Date = "date",
-        Quantity = "quantity",
-        UnitCost = "unitCost",
+        Date = new DateOnly(2026, 7, 1),
+        Quantity = "121.0000",
+        UnitCost = "121.000000",
     }
 );
 ```
@@ -16903,7 +16755,7 @@ await client.Inventory.PostV1InventoryStockReceiveAsync(
 <dl>
 <dd>
 
-**request:** `PostV1InventoryStockReceiveRequest` 
+**request:** `StockReceiveInventoryRequest` 
     
 </dd>
 </dl>
@@ -16915,7 +16767,7 @@ await client.Inventory.PostV1InventoryStockReceiveAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">PostV1InventoryStockWriteOffAsync</a>(PostV1InventoryStockWriteOffRequest { ... }) -> WithRawResponseTask&lt;PostV1InventoryStockWriteOffResponse&gt;</code></summary>
+<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">StockWriteOffAsync</a>(StockWriteOffInventoryRequest { ... }) -> WithRawResponseTask&lt;StockWriteOffInventoryResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -16928,13 +16780,13 @@ await client.Inventory.PostV1InventoryStockReceiveAsync(
 <dd>
 
 ```csharp
-await client.Inventory.PostV1InventoryStockWriteOffAsync(
-    new PostV1InventoryStockWriteOffRequest
+await client.Inventory.StockWriteOffAsync(
+    new StockWriteOffInventoryRequest
     {
         WarehouseId = "warehouseId",
         ItemId = "itemId",
-        Date = "date",
-        Quantity = "quantity",
+        Date = new DateOnly(2026, 7, 1),
+        Quantity = "121.0000",
     }
 );
 ```
@@ -16951,7 +16803,7 @@ await client.Inventory.PostV1InventoryStockWriteOffAsync(
 <dl>
 <dd>
 
-**request:** `PostV1InventoryStockWriteOffRequest` 
+**request:** `StockWriteOffInventoryRequest` 
     
 </dd>
 </dl>
@@ -16963,7 +16815,7 @@ await client.Inventory.PostV1InventoryStockWriteOffAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">PostV1InventoryStockTransferAsync</a>(PostV1InventoryStockTransferRequest { ... }) -> WithRawResponseTask&lt;PostV1InventoryStockTransferResponse&gt;</code></summary>
+<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">StockTransferAsync</a>(StockTransferInventoryRequest { ... }) -> WithRawResponseTask&lt;StockTransferInventoryResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -16976,14 +16828,14 @@ await client.Inventory.PostV1InventoryStockWriteOffAsync(
 <dd>
 
 ```csharp
-await client.Inventory.PostV1InventoryStockTransferAsync(
-    new PostV1InventoryStockTransferRequest
+await client.Inventory.StockTransferAsync(
+    new StockTransferInventoryRequest
     {
         FromWarehouseId = "fromWarehouseId",
         ToWarehouseId = "toWarehouseId",
         ItemId = "itemId",
-        Date = "date",
-        Quantity = "quantity",
+        Date = new DateOnly(2026, 7, 1),
+        Quantity = "121.0000",
     }
 );
 ```
@@ -17000,7 +16852,7 @@ await client.Inventory.PostV1InventoryStockTransferAsync(
 <dl>
 <dd>
 
-**request:** `PostV1InventoryStockTransferRequest` 
+**request:** `StockTransferInventoryRequest` 
     
 </dd>
 </dl>
@@ -17012,7 +16864,7 @@ await client.Inventory.PostV1InventoryStockTransferAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">PostV1InventoryStockTakeAsync</a>(PostV1InventoryStockTakeRequest { ... }) -> WithRawResponseTask&lt;PostV1InventoryStockTakeResponse&gt;</code></summary>
+<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">StockTakeAsync</a>(StockTakeInventoryRequest { ... }) -> WithRawResponseTask&lt;StockTakeInventoryResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -17025,14 +16877,14 @@ await client.Inventory.PostV1InventoryStockTransferAsync(
 <dd>
 
 ```csharp
-await client.Inventory.PostV1InventoryStockTakeAsync(
-    new PostV1InventoryStockTakeRequest
+await client.Inventory.StockTakeAsync(
+    new StockTakeInventoryRequest
     {
         WarehouseId = "warehouseId",
-        Date = "date",
-        Lines = new List<PostV1InventoryStockTakeRequestLinesItem>()
+        Date = new DateOnly(2026, 7, 1),
+        Lines = new List<StockTakeInventoryRequestLinesItem>()
         {
-            new PostV1InventoryStockTakeRequestLinesItem { CountedQty = "countedQty" },
+            new StockTakeInventoryRequestLinesItem { CountedQty = "121.0000" },
         },
     }
 );
@@ -17050,7 +16902,7 @@ await client.Inventory.PostV1InventoryStockTakeAsync(
 <dl>
 <dd>
 
-**request:** `PostV1InventoryStockTakeRequest` 
+**request:** `StockTakeInventoryRequest` 
     
 </dd>
 </dl>
@@ -17062,7 +16914,7 @@ await client.Inventory.PostV1InventoryStockTakeAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">PostV1InventoryStockLevelsAsync</a>(PostV1InventoryStockLevelsRequest { ... }) -> WithRawResponseTask&lt;PostV1InventoryStockLevelsResponse&gt;</code></summary>
+<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">StockLevelsAsync</a>(StockLevelsInventoryRequest { ... }) -> WithRawResponseTask&lt;StockLevelsInventoryResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -17075,7 +16927,7 @@ await client.Inventory.PostV1InventoryStockTakeAsync(
 <dd>
 
 ```csharp
-await client.Inventory.PostV1InventoryStockLevelsAsync(new PostV1InventoryStockLevelsRequest());
+await client.Inventory.StockLevelsAsync(new StockLevelsInventoryRequest());
 ```
 </dd>
 </dl>
@@ -17090,7 +16942,7 @@ await client.Inventory.PostV1InventoryStockLevelsAsync(new PostV1InventoryStockL
 <dl>
 <dd>
 
-**request:** `PostV1InventoryStockLevelsRequest` 
+**request:** `StockLevelsInventoryRequest` 
     
 </dd>
 </dl>
@@ -17102,7 +16954,7 @@ await client.Inventory.PostV1InventoryStockLevelsAsync(new PostV1InventoryStockL
 </dl>
 </details>
 
-<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">PostV1InventoryStockMovementsListAsync</a>(PostV1InventoryStockMovementsListRequest { ... }) -> WithRawResponseTask&lt;PostV1InventoryStockMovementsListResponse&gt;</code></summary>
+<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">StockMovementsListAsync</a>(StockMovementsListInventoryRequest { ... }) -> WithRawResponseTask&lt;StockMovementsListInventoryResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -17115,8 +16967,168 @@ await client.Inventory.PostV1InventoryStockLevelsAsync(new PostV1InventoryStockL
 <dd>
 
 ```csharp
-await client.Inventory.PostV1InventoryStockMovementsListAsync(
-    new PostV1InventoryStockMovementsListRequest()
+await client.Inventory.StockMovementsListAsync(new StockMovementsListInventoryRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `StockMovementsListInventoryRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">LotsListAsync</a>(LotsListInventoryRequest { ... }) -> WithRawResponseTask&lt;LotsListInventoryResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Inventory.LotsListAsync(new LotsListInventoryRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `LotsListInventoryRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">LotsGetAsync</a>(LotsGetInventoryRequest { ... }) -> WithRawResponseTask&lt;LotsGetInventoryResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Inventory.LotsGetAsync(new LotsGetInventoryRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `LotsGetInventoryRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">LotsUpdateAsync</a>(LotsUpdateInventoryRequest { ... }) -> WithRawResponseTask&lt;LotsUpdateInventoryResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Inventory.LotsUpdateAsync(new LotsUpdateInventoryRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `LotsUpdateInventoryRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">LandedCostsCreateAsync</a>(LandedCostsCreateInventoryRequest { ... }) -> WithRawResponseTask&lt;LandedCostsCreateInventoryResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Inventory.LandedCostsCreateAsync(
+    new LandedCostsCreateInventoryRequest { Date = new DateOnly(2026, 7, 1), Amount = "121.000000" }
 );
 ```
 </dd>
@@ -17132,7 +17144,7 @@ await client.Inventory.PostV1InventoryStockMovementsListAsync(
 <dl>
 <dd>
 
-**request:** `PostV1InventoryStockMovementsListRequest` 
+**request:** `LandedCostsCreateInventoryRequest` 
     
 </dd>
 </dl>
@@ -17144,7 +17156,7 @@ await client.Inventory.PostV1InventoryStockMovementsListAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">PostV1InventoryLotsListAsync</a>(PostV1InventoryLotsListRequest { ... }) -> WithRawResponseTask&lt;PostV1InventoryLotsListResponse&gt;</code></summary>
+<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">LandedCostsGetAsync</a>(LandedCostsGetInventoryRequest { ... }) -> WithRawResponseTask&lt;LandedCostsGetInventoryResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -17157,7 +17169,7 @@ await client.Inventory.PostV1InventoryStockMovementsListAsync(
 <dd>
 
 ```csharp
-await client.Inventory.PostV1InventoryLotsListAsync(new PostV1InventoryLotsListRequest());
+await client.Inventory.LandedCostsGetAsync(new LandedCostsGetInventoryRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -17172,7 +17184,7 @@ await client.Inventory.PostV1InventoryLotsListAsync(new PostV1InventoryLotsListR
 <dl>
 <dd>
 
-**request:** `PostV1InventoryLotsListRequest` 
+**request:** `LandedCostsGetInventoryRequest` 
     
 </dd>
 </dl>
@@ -17184,7 +17196,7 @@ await client.Inventory.PostV1InventoryLotsListAsync(new PostV1InventoryLotsListR
 </dl>
 </details>
 
-<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">PostV1InventoryLotsGetAsync</a>(PostV1InventoryLotsGetRequest { ... }) -> WithRawResponseTask&lt;PostV1InventoryLotsGetResponse&gt;</code></summary>
+<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">LandedCostsListAsync</a>(LandedCostsListInventoryRequest { ... }) -> WithRawResponseTask&lt;LandedCostsListInventoryResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -17197,7 +17209,7 @@ await client.Inventory.PostV1InventoryLotsListAsync(new PostV1InventoryLotsListR
 <dd>
 
 ```csharp
-await client.Inventory.PostV1InventoryLotsGetAsync(new PostV1InventoryLotsGetRequest { Id = "id" });
+await client.Inventory.LandedCostsListAsync(new LandedCostsListInventoryRequest());
 ```
 </dd>
 </dl>
@@ -17212,7 +17224,7 @@ await client.Inventory.PostV1InventoryLotsGetAsync(new PostV1InventoryLotsGetReq
 <dl>
 <dd>
 
-**request:** `PostV1InventoryLotsGetRequest` 
+**request:** `LandedCostsListInventoryRequest` 
     
 </dd>
 </dl>
@@ -17224,7 +17236,7 @@ await client.Inventory.PostV1InventoryLotsGetAsync(new PostV1InventoryLotsGetReq
 </dl>
 </details>
 
-<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">PostV1InventoryLotsUpdateAsync</a>(PostV1InventoryLotsUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1InventoryLotsUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">ReorderRulesCreateAsync</a>(ReorderRulesCreateInventoryRequest { ... }) -> WithRawResponseTask&lt;ReorderRulesCreateInventoryResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -17237,8 +17249,8 @@ await client.Inventory.PostV1InventoryLotsGetAsync(new PostV1InventoryLotsGetReq
 <dd>
 
 ```csharp
-await client.Inventory.PostV1InventoryLotsUpdateAsync(
-    new PostV1InventoryLotsUpdateRequest { Id = "id" }
+await client.Inventory.ReorderRulesCreateAsync(
+    new ReorderRulesCreateInventoryRequest { ItemId = "itemId", MinQty = "121.0000" }
 );
 ```
 </dd>
@@ -17254,7 +17266,7 @@ await client.Inventory.PostV1InventoryLotsUpdateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1InventoryLotsUpdateRequest` 
+**request:** `ReorderRulesCreateInventoryRequest` 
     
 </dd>
 </dl>
@@ -17266,7 +17278,7 @@ await client.Inventory.PostV1InventoryLotsUpdateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">PostV1InventoryLandedCostsCreateAsync</a>(PostV1InventoryLandedCostsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1InventoryLandedCostsCreateResponse&gt;</code></summary>
+<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">ReorderRulesUpdateAsync</a>(ReorderRulesUpdateInventoryRequest { ... }) -> WithRawResponseTask&lt;ReorderRulesUpdateInventoryResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -17279,8 +17291,8 @@ await client.Inventory.PostV1InventoryLotsUpdateAsync(
 <dd>
 
 ```csharp
-await client.Inventory.PostV1InventoryLandedCostsCreateAsync(
-    new PostV1InventoryLandedCostsCreateRequest { Date = "date", Amount = "amount" }
+await client.Inventory.ReorderRulesUpdateAsync(
+    new ReorderRulesUpdateInventoryRequest { Id = "id" }
 );
 ```
 </dd>
@@ -17296,7 +17308,7 @@ await client.Inventory.PostV1InventoryLandedCostsCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1InventoryLandedCostsCreateRequest` 
+**request:** `ReorderRulesUpdateInventoryRequest` 
     
 </dd>
 </dl>
@@ -17308,7 +17320,7 @@ await client.Inventory.PostV1InventoryLandedCostsCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">PostV1InventoryLandedCostsGetAsync</a>(PostV1InventoryLandedCostsGetRequest { ... }) -> WithRawResponseTask&lt;PostV1InventoryLandedCostsGetResponse&gt;</code></summary>
+<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">ReorderRulesDeleteAsync</a>(ReorderRulesDeleteInventoryRequest { ... }) -> WithRawResponseTask&lt;ReorderRulesDeleteInventoryResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -17321,8 +17333,8 @@ await client.Inventory.PostV1InventoryLandedCostsCreateAsync(
 <dd>
 
 ```csharp
-await client.Inventory.PostV1InventoryLandedCostsGetAsync(
-    new PostV1InventoryLandedCostsGetRequest { Id = "id" }
+await client.Inventory.ReorderRulesDeleteAsync(
+    new ReorderRulesDeleteInventoryRequest { Id = "id" }
 );
 ```
 </dd>
@@ -17338,7 +17350,7 @@ await client.Inventory.PostV1InventoryLandedCostsGetAsync(
 <dl>
 <dd>
 
-**request:** `PostV1InventoryLandedCostsGetRequest` 
+**request:** `ReorderRulesDeleteInventoryRequest` 
     
 </dd>
 </dl>
@@ -17350,7 +17362,7 @@ await client.Inventory.PostV1InventoryLandedCostsGetAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">PostV1InventoryLandedCostsListAsync</a>(PostV1InventoryLandedCostsListRequest { ... }) -> WithRawResponseTask&lt;PostV1InventoryLandedCostsListResponse&gt;</code></summary>
+<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">ReorderRulesListAsync</a>(ReorderRulesListInventoryRequest { ... }) -> WithRawResponseTask&lt;ReorderRulesListInventoryResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -17363,8 +17375,89 @@ await client.Inventory.PostV1InventoryLandedCostsGetAsync(
 <dd>
 
 ```csharp
-await client.Inventory.PostV1InventoryLandedCostsListAsync(
-    new PostV1InventoryLandedCostsListRequest()
+await client.Inventory.ReorderRulesListAsync(new ReorderRulesListInventoryRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ReorderRulesListInventoryRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">ReorderRulesCheckAsync</a>(ReorderRulesCheckInventoryRequest { ... }) -> WithRawResponseTask&lt;ReorderRulesCheckInventoryResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Inventory.ReorderRulesCheckAsync(new ReorderRulesCheckInventoryRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ReorderRulesCheckInventoryRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## production
+<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">WorkCentersCreateAsync</a>(WorkCentersCreateProductionRequest { ... }) -> WithRawResponseTask&lt;WorkCentersCreateProductionResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Production.WorkCentersCreateAsync(
+    new WorkCentersCreateProductionRequest { Code = "code", Name = "name" }
 );
 ```
 </dd>
@@ -17380,7 +17473,7 @@ await client.Inventory.PostV1InventoryLandedCostsListAsync(
 <dl>
 <dd>
 
-**request:** `PostV1InventoryLandedCostsListRequest` 
+**request:** `WorkCentersCreateProductionRequest` 
     
 </dd>
 </dl>
@@ -17392,7 +17485,7 @@ await client.Inventory.PostV1InventoryLandedCostsListAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">PostV1InventoryReorderRulesCreateAsync</a>(PostV1InventoryReorderRulesCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1InventoryReorderRulesCreateResponse&gt;</code></summary>
+<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">WorkCentersUpdateAsync</a>(WorkCentersUpdateProductionRequest { ... }) -> WithRawResponseTask&lt;WorkCentersUpdateProductionResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -17405,8 +17498,8 @@ await client.Inventory.PostV1InventoryLandedCostsListAsync(
 <dd>
 
 ```csharp
-await client.Inventory.PostV1InventoryReorderRulesCreateAsync(
-    new PostV1InventoryReorderRulesCreateRequest { ItemId = "itemId", MinQty = "minQty" }
+await client.Production.WorkCentersUpdateAsync(
+    new WorkCentersUpdateProductionRequest { Id = "id" }
 );
 ```
 </dd>
@@ -17422,7 +17515,7 @@ await client.Inventory.PostV1InventoryReorderRulesCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1InventoryReorderRulesCreateRequest` 
+**request:** `WorkCentersUpdateProductionRequest` 
     
 </dd>
 </dl>
@@ -17434,7 +17527,7 @@ await client.Inventory.PostV1InventoryReorderRulesCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">PostV1InventoryReorderRulesUpdateAsync</a>(PostV1InventoryReorderRulesUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1InventoryReorderRulesUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">WorkCentersListAsync</a>(WorkCentersListProductionRequest { ... }) -> WithRawResponseTask&lt;WorkCentersListProductionResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -17447,9 +17540,7 @@ await client.Inventory.PostV1InventoryReorderRulesCreateAsync(
 <dd>
 
 ```csharp
-await client.Inventory.PostV1InventoryReorderRulesUpdateAsync(
-    new PostV1InventoryReorderRulesUpdateRequest { Id = "id" }
-);
+await client.Production.WorkCentersListAsync(new WorkCentersListProductionRequest());
 ```
 </dd>
 </dl>
@@ -17464,7 +17555,7 @@ await client.Inventory.PostV1InventoryReorderRulesUpdateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1InventoryReorderRulesUpdateRequest` 
+**request:** `WorkCentersListProductionRequest` 
     
 </dd>
 </dl>
@@ -17476,7 +17567,7 @@ await client.Inventory.PostV1InventoryReorderRulesUpdateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">PostV1InventoryReorderRulesDeleteAsync</a>(PostV1InventoryReorderRulesDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1InventoryReorderRulesDeleteResponse&gt;</code></summary>
+<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">RoutingsCreateAsync</a>(RoutingsCreateProductionRequest { ... }) -> WithRawResponseTask&lt;RoutingsCreateProductionResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -17489,267 +17580,14 @@ await client.Inventory.PostV1InventoryReorderRulesUpdateAsync(
 <dd>
 
 ```csharp
-await client.Inventory.PostV1InventoryReorderRulesDeleteAsync(
-    new PostV1InventoryReorderRulesDeleteRequest { Id = "id" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1InventoryReorderRulesDeleteRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">PostV1InventoryReorderRulesListAsync</a>(PostV1InventoryReorderRulesListRequest { ... }) -> WithRawResponseTask&lt;PostV1InventoryReorderRulesListResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Inventory.PostV1InventoryReorderRulesListAsync(
-    new PostV1InventoryReorderRulesListRequest()
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1InventoryReorderRulesListRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">PostV1InventoryReorderRulesCheckAsync</a>(PostV1InventoryReorderRulesCheckRequest { ... }) -> WithRawResponseTask&lt;PostV1InventoryReorderRulesCheckResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Inventory.PostV1InventoryReorderRulesCheckAsync(
-    new PostV1InventoryReorderRulesCheckRequest()
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1InventoryReorderRulesCheckRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-## Production
-<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">PostV1ProductionWorkCentersCreateAsync</a>(PostV1ProductionWorkCentersCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1ProductionWorkCentersCreateResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Production.PostV1ProductionWorkCentersCreateAsync(
-    new PostV1ProductionWorkCentersCreateRequest { Code = "code", Name = "name" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1ProductionWorkCentersCreateRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">PostV1ProductionWorkCentersUpdateAsync</a>(PostV1ProductionWorkCentersUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1ProductionWorkCentersUpdateResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Production.PostV1ProductionWorkCentersUpdateAsync(
-    new PostV1ProductionWorkCentersUpdateRequest { Id = "id" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1ProductionWorkCentersUpdateRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">PostV1ProductionWorkCentersListAsync</a>(PostV1ProductionWorkCentersListRequest { ... }) -> WithRawResponseTask&lt;PostV1ProductionWorkCentersListResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Production.PostV1ProductionWorkCentersListAsync(
-    new PostV1ProductionWorkCentersListRequest()
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1ProductionWorkCentersListRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">PostV1ProductionRoutingsCreateAsync</a>(PostV1ProductionRoutingsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1ProductionRoutingsCreateResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Production.PostV1ProductionRoutingsCreateAsync(
-    new PostV1ProductionRoutingsCreateRequest
+await client.Production.RoutingsCreateAsync(
+    new RoutingsCreateProductionRequest
     {
         Code = "code",
         Name = "name",
-        Operations = new List<PostV1ProductionRoutingsCreateRequestOperationsItem>()
+        Operations = new List<RoutingsCreateProductionRequestOperationsItem>()
         {
-            new PostV1ProductionRoutingsCreateRequestOperationsItem
+            new RoutingsCreateProductionRequestOperationsItem
             {
                 Sequence = 1000000,
                 Name = "name",
@@ -17772,7 +17610,7 @@ await client.Production.PostV1ProductionRoutingsCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ProductionRoutingsCreateRequest` 
+**request:** `RoutingsCreateProductionRequest` 
     
 </dd>
 </dl>
@@ -17784,7 +17622,7 @@ await client.Production.PostV1ProductionRoutingsCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">PostV1ProductionRoutingsGetAsync</a>(PostV1ProductionRoutingsGetRequest { ... }) -> WithRawResponseTask&lt;PostV1ProductionRoutingsGetResponse&gt;</code></summary>
+<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">RoutingsGetAsync</a>(RoutingsGetProductionRequest { ... }) -> WithRawResponseTask&lt;RoutingsGetProductionResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -17797,9 +17635,7 @@ await client.Production.PostV1ProductionRoutingsCreateAsync(
 <dd>
 
 ```csharp
-await client.Production.PostV1ProductionRoutingsGetAsync(
-    new PostV1ProductionRoutingsGetRequest { Id = "id" }
-);
+await client.Production.RoutingsGetAsync(new RoutingsGetProductionRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -17814,7 +17650,7 @@ await client.Production.PostV1ProductionRoutingsGetAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ProductionRoutingsGetRequest` 
+**request:** `RoutingsGetProductionRequest` 
     
 </dd>
 </dl>
@@ -17826,7 +17662,7 @@ await client.Production.PostV1ProductionRoutingsGetAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">PostV1ProductionRoutingsListAsync</a>(PostV1ProductionRoutingsListRequest { ... }) -> WithRawResponseTask&lt;PostV1ProductionRoutingsListResponse&gt;</code></summary>
+<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">RoutingsListAsync</a>(RoutingsListProductionRequest { ... }) -> WithRawResponseTask&lt;RoutingsListProductionResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -17839,9 +17675,7 @@ await client.Production.PostV1ProductionRoutingsGetAsync(
 <dd>
 
 ```csharp
-await client.Production.PostV1ProductionRoutingsListAsync(
-    new PostV1ProductionRoutingsListRequest()
-);
+await client.Production.RoutingsListAsync(new RoutingsListProductionRequest());
 ```
 </dd>
 </dl>
@@ -17856,7 +17690,7 @@ await client.Production.PostV1ProductionRoutingsListAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ProductionRoutingsListRequest` 
+**request:** `RoutingsListProductionRequest` 
     
 </dd>
 </dl>
@@ -17868,7 +17702,7 @@ await client.Production.PostV1ProductionRoutingsListAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">PostV1ProductionMaintenanceCreateAsync</a>(PostV1ProductionMaintenanceCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1ProductionMaintenanceCreateResponse&gt;</code></summary>
+<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">MaintenanceCreateAsync</a>(MaintenanceCreateProductionRequest { ... }) -> WithRawResponseTask&lt;MaintenanceCreateProductionResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -17881,12 +17715,12 @@ await client.Production.PostV1ProductionRoutingsListAsync(
 <dd>
 
 ```csharp
-await client.Production.PostV1ProductionMaintenanceCreateAsync(
-    new PostV1ProductionMaintenanceCreateRequest
+await client.Production.MaintenanceCreateAsync(
+    new MaintenanceCreateProductionRequest
     {
         WorkCenterId = "workCenterId",
-        Type = PostV1ProductionMaintenanceCreateRequestType.Preventive,
-        PlannedDate = "plannedDate",
+        Type = MaintenanceCreateProductionRequestType.Preventive,
+        PlannedDate = new DateOnly(2026, 7, 1),
     }
 );
 ```
@@ -17903,7 +17737,7 @@ await client.Production.PostV1ProductionMaintenanceCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ProductionMaintenanceCreateRequest` 
+**request:** `MaintenanceCreateProductionRequest` 
     
 </dd>
 </dl>
@@ -17915,7 +17749,7 @@ await client.Production.PostV1ProductionMaintenanceCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">PostV1ProductionMaintenanceCompleteAsync</a>(PostV1ProductionMaintenanceCompleteRequest { ... }) -> WithRawResponseTask&lt;PostV1ProductionMaintenanceCompleteResponse&gt;</code></summary>
+<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">MaintenanceCompleteAsync</a>(MaintenanceCompleteProductionRequest { ... }) -> WithRawResponseTask&lt;MaintenanceCompleteProductionResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -17928,8 +17762,8 @@ await client.Production.PostV1ProductionMaintenanceCreateAsync(
 <dd>
 
 ```csharp
-await client.Production.PostV1ProductionMaintenanceCompleteAsync(
-    new PostV1ProductionMaintenanceCompleteRequest { Id = "id", CompletedDate = "completedDate" }
+await client.Production.MaintenanceCompleteAsync(
+    new MaintenanceCompleteProductionRequest { Id = "id", CompletedDate = new DateOnly(2026, 7, 1) }
 );
 ```
 </dd>
@@ -17945,7 +17779,7 @@ await client.Production.PostV1ProductionMaintenanceCompleteAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ProductionMaintenanceCompleteRequest` 
+**request:** `MaintenanceCompleteProductionRequest` 
     
 </dd>
 </dl>
@@ -17957,7 +17791,7 @@ await client.Production.PostV1ProductionMaintenanceCompleteAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">PostV1ProductionMaintenanceCancelAsync</a>(PostV1ProductionMaintenanceCancelRequest { ... }) -> WithRawResponseTask&lt;PostV1ProductionMaintenanceCancelResponse&gt;</code></summary>
+<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">MaintenanceCancelAsync</a>(MaintenanceCancelProductionRequest { ... }) -> WithRawResponseTask&lt;MaintenanceCancelProductionResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -17970,8 +17804,8 @@ await client.Production.PostV1ProductionMaintenanceCompleteAsync(
 <dd>
 
 ```csharp
-await client.Production.PostV1ProductionMaintenanceCancelAsync(
-    new PostV1ProductionMaintenanceCancelRequest { Id = "id" }
+await client.Production.MaintenanceCancelAsync(
+    new MaintenanceCancelProductionRequest { Id = "id" }
 );
 ```
 </dd>
@@ -17987,7 +17821,7 @@ await client.Production.PostV1ProductionMaintenanceCancelAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ProductionMaintenanceCancelRequest` 
+**request:** `MaintenanceCancelProductionRequest` 
     
 </dd>
 </dl>
@@ -17999,7 +17833,7 @@ await client.Production.PostV1ProductionMaintenanceCancelAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">PostV1ProductionMaintenanceListAsync</a>(PostV1ProductionMaintenanceListRequest { ... }) -> WithRawResponseTask&lt;PostV1ProductionMaintenanceListResponse&gt;</code></summary>
+<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">MaintenanceListAsync</a>(MaintenanceListProductionRequest { ... }) -> WithRawResponseTask&lt;MaintenanceListProductionResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -18012,9 +17846,7 @@ await client.Production.PostV1ProductionMaintenanceCancelAsync(
 <dd>
 
 ```csharp
-await client.Production.PostV1ProductionMaintenanceListAsync(
-    new PostV1ProductionMaintenanceListRequest()
-);
+await client.Production.MaintenanceListAsync(new MaintenanceListProductionRequest());
 ```
 </dd>
 </dl>
@@ -18029,7 +17861,7 @@ await client.Production.PostV1ProductionMaintenanceListAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ProductionMaintenanceListRequest` 
+**request:** `MaintenanceListProductionRequest` 
     
 </dd>
 </dl>
@@ -18041,7 +17873,7 @@ await client.Production.PostV1ProductionMaintenanceListAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">PostV1ProductionBomsCreateAsync</a>(PostV1ProductionBomsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1ProductionBomsCreateResponse&gt;</code></summary>
+<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">BomsCreateAsync</a>(BomsCreateProductionRequest { ... }) -> WithRawResponseTask&lt;BomsCreateProductionResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -18054,18 +17886,18 @@ await client.Production.PostV1ProductionMaintenanceListAsync(
 <dd>
 
 ```csharp
-await client.Production.PostV1ProductionBomsCreateAsync(
-    new PostV1ProductionBomsCreateRequest
+await client.Production.BomsCreateAsync(
+    new BomsCreateProductionRequest
     {
         Code = "code",
         Name = "name",
         FinishedItemId = "finishedItemId",
-        Lines = new List<PostV1ProductionBomsCreateRequestLinesItem>()
+        Lines = new List<BomsCreateProductionRequestLinesItem>()
         {
-            new PostV1ProductionBomsCreateRequestLinesItem
+            new BomsCreateProductionRequestLinesItem
             {
                 ComponentItemId = "componentItemId",
-                Quantity = "quantity",
+                Quantity = "121.0000",
             },
         },
     }
@@ -18084,7 +17916,7 @@ await client.Production.PostV1ProductionBomsCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ProductionBomsCreateRequest` 
+**request:** `BomsCreateProductionRequest` 
     
 </dd>
 </dl>
@@ -18096,7 +17928,7 @@ await client.Production.PostV1ProductionBomsCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">PostV1ProductionBomsGetAsync</a>(PostV1ProductionBomsGetRequest { ... }) -> WithRawResponseTask&lt;PostV1ProductionBomsGetResponse&gt;</code></summary>
+<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">BomsGetAsync</a>(BomsGetProductionRequest { ... }) -> WithRawResponseTask&lt;BomsGetProductionResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -18109,9 +17941,7 @@ await client.Production.PostV1ProductionBomsCreateAsync(
 <dd>
 
 ```csharp
-await client.Production.PostV1ProductionBomsGetAsync(
-    new PostV1ProductionBomsGetRequest { Id = "id" }
-);
+await client.Production.BomsGetAsync(new BomsGetProductionRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -18126,7 +17956,7 @@ await client.Production.PostV1ProductionBomsGetAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ProductionBomsGetRequest` 
+**request:** `BomsGetProductionRequest` 
     
 </dd>
 </dl>
@@ -18138,7 +17968,7 @@ await client.Production.PostV1ProductionBomsGetAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">PostV1ProductionBomsListAsync</a>(PostV1ProductionBomsListRequest { ... }) -> WithRawResponseTask&lt;PostV1ProductionBomsListResponse&gt;</code></summary>
+<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">BomsListAsync</a>(BomsListProductionRequest { ... }) -> WithRawResponseTask&lt;BomsListProductionResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -18151,7 +17981,7 @@ await client.Production.PostV1ProductionBomsGetAsync(
 <dd>
 
 ```csharp
-await client.Production.PostV1ProductionBomsListAsync(new PostV1ProductionBomsListRequest());
+await client.Production.BomsListAsync(new BomsListProductionRequest());
 ```
 </dd>
 </dl>
@@ -18166,7 +17996,7 @@ await client.Production.PostV1ProductionBomsListAsync(new PostV1ProductionBomsLi
 <dl>
 <dd>
 
-**request:** `PostV1ProductionBomsListRequest` 
+**request:** `BomsListProductionRequest` 
     
 </dd>
 </dl>
@@ -18178,7 +18008,7 @@ await client.Production.PostV1ProductionBomsListAsync(new PostV1ProductionBomsLi
 </dl>
 </details>
 
-<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">PostV1ProductionOrdersCreateAsync</a>(PostV1ProductionOrdersCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1ProductionOrdersCreateResponse&gt;</code></summary>
+<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">OrdersCreateAsync</a>(OrdersCreateProductionRequest { ... }) -> WithRawResponseTask&lt;OrdersCreateProductionResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -18191,13 +18021,13 @@ await client.Production.PostV1ProductionBomsListAsync(new PostV1ProductionBomsLi
 <dd>
 
 ```csharp
-await client.Production.PostV1ProductionOrdersCreateAsync(
-    new PostV1ProductionOrdersCreateRequest
+await client.Production.OrdersCreateAsync(
+    new OrdersCreateProductionRequest
     {
         BomId = "bomId",
         WarehouseId = "warehouseId",
-        Quantity = "quantity",
-        Date = "date",
+        Quantity = "121.0000",
+        Date = new DateOnly(2026, 7, 1),
     }
 );
 ```
@@ -18214,7 +18044,7 @@ await client.Production.PostV1ProductionOrdersCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ProductionOrdersCreateRequest` 
+**request:** `OrdersCreateProductionRequest` 
     
 </dd>
 </dl>
@@ -18226,7 +18056,7 @@ await client.Production.PostV1ProductionOrdersCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">PostV1ProductionOrdersRecordOperationAsync</a>(PostV1ProductionOrdersRecordOperationRequest { ... }) -> WithRawResponseTask&lt;PostV1ProductionOrdersRecordOperationResponse&gt;</code></summary>
+<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">OrdersRecordOperationAsync</a>(OrdersRecordOperationProductionRequest { ... }) -> WithRawResponseTask&lt;OrdersRecordOperationProductionResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -18239,8 +18069,8 @@ await client.Production.PostV1ProductionOrdersCreateAsync(
 <dd>
 
 ```csharp
-await client.Production.PostV1ProductionOrdersRecordOperationAsync(
-    new PostV1ProductionOrdersRecordOperationRequest { Id = "id", ActualMinutes = "actualMinutes" }
+await client.Production.OrdersRecordOperationAsync(
+    new OrdersRecordOperationProductionRequest { Id = "id", ActualMinutes = "121.00" }
 );
 ```
 </dd>
@@ -18256,7 +18086,7 @@ await client.Production.PostV1ProductionOrdersRecordOperationAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ProductionOrdersRecordOperationRequest` 
+**request:** `OrdersRecordOperationProductionRequest` 
     
 </dd>
 </dl>
@@ -18268,7 +18098,7 @@ await client.Production.PostV1ProductionOrdersRecordOperationAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">PostV1ProductionQualityChecksAddAsync</a>(PostV1ProductionQualityChecksAddRequest { ... }) -> WithRawResponseTask&lt;PostV1ProductionQualityChecksAddResponse&gt;</code></summary>
+<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">QualityChecksAddAsync</a>(QualityChecksAddProductionRequest { ... }) -> WithRawResponseTask&lt;QualityChecksAddProductionResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -18281,8 +18111,8 @@ await client.Production.PostV1ProductionOrdersRecordOperationAsync(
 <dd>
 
 ```csharp
-await client.Production.PostV1ProductionQualityChecksAddAsync(
-    new PostV1ProductionQualityChecksAddRequest { OrderId = "orderId", Name = "name" }
+await client.Production.QualityChecksAddAsync(
+    new QualityChecksAddProductionRequest { OrderId = "orderId", Name = "name" }
 );
 ```
 </dd>
@@ -18298,7 +18128,7 @@ await client.Production.PostV1ProductionQualityChecksAddAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ProductionQualityChecksAddRequest` 
+**request:** `QualityChecksAddProductionRequest` 
     
 </dd>
 </dl>
@@ -18310,7 +18140,7 @@ await client.Production.PostV1ProductionQualityChecksAddAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">PostV1ProductionQualityChecksRecordAsync</a>(PostV1ProductionQualityChecksRecordRequest { ... }) -> WithRawResponseTask&lt;PostV1ProductionQualityChecksRecordResponse&gt;</code></summary>
+<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">QualityChecksRecordAsync</a>(QualityChecksRecordProductionRequest { ... }) -> WithRawResponseTask&lt;QualityChecksRecordProductionResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -18323,11 +18153,11 @@ await client.Production.PostV1ProductionQualityChecksAddAsync(
 <dd>
 
 ```csharp
-await client.Production.PostV1ProductionQualityChecksRecordAsync(
-    new PostV1ProductionQualityChecksRecordRequest
+await client.Production.QualityChecksRecordAsync(
+    new QualityChecksRecordProductionRequest
     {
         Id = "id",
-        Result = PostV1ProductionQualityChecksRecordRequestResult.Passed,
+        Result = QualityChecksRecordProductionRequestResult.Passed,
     }
 );
 ```
@@ -18344,7 +18174,7 @@ await client.Production.PostV1ProductionQualityChecksRecordAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ProductionQualityChecksRecordRequest` 
+**request:** `QualityChecksRecordProductionRequest` 
     
 </dd>
 </dl>
@@ -18356,7 +18186,7 @@ await client.Production.PostV1ProductionQualityChecksRecordAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">PostV1ProductionQualityChecksListAsync</a>(PostV1ProductionQualityChecksListRequest { ... }) -> WithRawResponseTask&lt;PostV1ProductionQualityChecksListResponse&gt;</code></summary>
+<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">QualityChecksListAsync</a>(QualityChecksListProductionRequest { ... }) -> WithRawResponseTask&lt;QualityChecksListProductionResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -18369,9 +18199,7 @@ await client.Production.PostV1ProductionQualityChecksRecordAsync(
 <dd>
 
 ```csharp
-await client.Production.PostV1ProductionQualityChecksListAsync(
-    new PostV1ProductionQualityChecksListRequest()
-);
+await client.Production.QualityChecksListAsync(new QualityChecksListProductionRequest());
 ```
 </dd>
 </dl>
@@ -18386,7 +18214,7 @@ await client.Production.PostV1ProductionQualityChecksListAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ProductionQualityChecksListRequest` 
+**request:** `QualityChecksListProductionRequest` 
     
 </dd>
 </dl>
@@ -18398,7 +18226,7 @@ await client.Production.PostV1ProductionQualityChecksListAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">PostV1ProductionOrdersCompleteAsync</a>(PostV1ProductionOrdersCompleteRequest { ... }) -> WithRawResponseTask&lt;PostV1ProductionOrdersCompleteResponse&gt;</code></summary>
+<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">OrdersCompleteAsync</a>(OrdersCompleteProductionRequest { ... }) -> WithRawResponseTask&lt;OrdersCompleteProductionResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -18411,9 +18239,7 @@ await client.Production.PostV1ProductionQualityChecksListAsync(
 <dd>
 
 ```csharp
-await client.Production.PostV1ProductionOrdersCompleteAsync(
-    new PostV1ProductionOrdersCompleteRequest { Id = "id" }
-);
+await client.Production.OrdersCompleteAsync(new OrdersCompleteProductionRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -18428,7 +18254,7 @@ await client.Production.PostV1ProductionOrdersCompleteAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ProductionOrdersCompleteRequest` 
+**request:** `OrdersCompleteProductionRequest` 
     
 </dd>
 </dl>
@@ -18440,7 +18266,7 @@ await client.Production.PostV1ProductionOrdersCompleteAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">PostV1ProductionOrdersGetAsync</a>(PostV1ProductionOrdersGetRequest { ... }) -> WithRawResponseTask&lt;PostV1ProductionOrdersGetResponse&gt;</code></summary>
+<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">OrdersGetAsync</a>(OrdersGetProductionRequest { ... }) -> WithRawResponseTask&lt;OrdersGetProductionResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -18453,9 +18279,7 @@ await client.Production.PostV1ProductionOrdersCompleteAsync(
 <dd>
 
 ```csharp
-await client.Production.PostV1ProductionOrdersGetAsync(
-    new PostV1ProductionOrdersGetRequest { Id = "id" }
-);
+await client.Production.OrdersGetAsync(new OrdersGetProductionRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -18470,7 +18294,7 @@ await client.Production.PostV1ProductionOrdersGetAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ProductionOrdersGetRequest` 
+**request:** `OrdersGetProductionRequest` 
     
 </dd>
 </dl>
@@ -18482,7 +18306,7 @@ await client.Production.PostV1ProductionOrdersGetAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">PostV1ProductionOrdersListAsync</a>(PostV1ProductionOrdersListRequest { ... }) -> WithRawResponseTask&lt;PostV1ProductionOrdersListResponse&gt;</code></summary>
+<details><summary><code>client.Production.<a href="/src/NordletApi/Production/ProductionClient.cs">OrdersListAsync</a>(OrdersListProductionRequest { ... }) -> WithRawResponseTask&lt;OrdersListProductionResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -18495,7 +18319,7 @@ await client.Production.PostV1ProductionOrdersGetAsync(
 <dd>
 
 ```csharp
-await client.Production.PostV1ProductionOrdersListAsync(new PostV1ProductionOrdersListRequest());
+await client.Production.OrdersListAsync(new OrdersListProductionRequest());
 ```
 </dd>
 </dl>
@@ -18510,7 +18334,7 @@ await client.Production.PostV1ProductionOrdersListAsync(new PostV1ProductionOrde
 <dl>
 <dd>
 
-**request:** `PostV1ProductionOrdersListRequest` 
+**request:** `OrdersListProductionRequest` 
     
 </dd>
 </dl>
@@ -18522,8 +18346,8 @@ await client.Production.PostV1ProductionOrdersListAsync(new PostV1ProductionOrde
 </dl>
 </details>
 
-## Ecommerce
-<details><summary><code>client.Ecommerce.<a href="/src/NordletApi/Ecommerce/EcommerceClient.cs">PostV1EcommerceOrdersCreateAsync</a>(PostV1EcommerceOrdersCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1EcommerceOrdersCreateResponse&gt;</code></summary>
+## ecommerce
+<details><summary><code>client.Ecommerce.<a href="/src/NordletApi/Ecommerce/EcommerceClient.cs">OrdersCreateAsync</a>(OrdersCreateEcommerceRequest { ... }) -> WithRawResponseTask&lt;OrdersCreateEcommerceResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -18536,16 +18360,16 @@ await client.Production.PostV1ProductionOrdersListAsync(new PostV1ProductionOrde
 <dd>
 
 ```csharp
-await client.Ecommerce.PostV1EcommerceOrdersCreateAsync(
-    new PostV1EcommerceOrdersCreateRequest
+await client.Ecommerce.OrdersCreateAsync(
+    new OrdersCreateEcommerceRequest
     {
-        Lines = new List<PostV1EcommerceOrdersCreateRequestLinesItem>()
+        Lines = new List<OrdersCreateEcommerceRequestLinesItem>()
         {
-            new PostV1EcommerceOrdersCreateRequestLinesItem
+            new OrdersCreateEcommerceRequestLinesItem
             {
                 Description = "description",
-                Quantity = "quantity",
-                UnitPriceExclVat = "unitPriceExclVat",
+                Quantity = "121.0000",
+                UnitPriceExclVat = "121.0000",
             },
         },
     }
@@ -18564,7 +18388,7 @@ await client.Ecommerce.PostV1EcommerceOrdersCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1EcommerceOrdersCreateRequest` 
+**request:** `OrdersCreateEcommerceRequest` 
     
 </dd>
 </dl>
@@ -18576,7 +18400,7 @@ await client.Ecommerce.PostV1EcommerceOrdersCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Ecommerce.<a href="/src/NordletApi/Ecommerce/EcommerceClient.cs">PostV1EcommerceOrdersGetAsync</a>(PostV1EcommerceOrdersGetRequest { ... }) -> WithRawResponseTask&lt;PostV1EcommerceOrdersGetResponse&gt;</code></summary>
+<details><summary><code>client.Ecommerce.<a href="/src/NordletApi/Ecommerce/EcommerceClient.cs">OrdersGetAsync</a>(OrdersGetEcommerceRequest { ... }) -> WithRawResponseTask&lt;OrdersGetEcommerceResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -18589,9 +18413,7 @@ await client.Ecommerce.PostV1EcommerceOrdersCreateAsync(
 <dd>
 
 ```csharp
-await client.Ecommerce.PostV1EcommerceOrdersGetAsync(
-    new PostV1EcommerceOrdersGetRequest { Id = "id" }
-);
+await client.Ecommerce.OrdersGetAsync(new OrdersGetEcommerceRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -18606,7 +18428,7 @@ await client.Ecommerce.PostV1EcommerceOrdersGetAsync(
 <dl>
 <dd>
 
-**request:** `PostV1EcommerceOrdersGetRequest` 
+**request:** `OrdersGetEcommerceRequest` 
     
 </dd>
 </dl>
@@ -18618,7 +18440,7 @@ await client.Ecommerce.PostV1EcommerceOrdersGetAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Ecommerce.<a href="/src/NordletApi/Ecommerce/EcommerceClient.cs">PostV1EcommerceOrdersListAsync</a>(PostV1EcommerceOrdersListRequest { ... }) -> WithRawResponseTask&lt;PostV1EcommerceOrdersListResponse&gt;</code></summary>
+<details><summary><code>client.Ecommerce.<a href="/src/NordletApi/Ecommerce/EcommerceClient.cs">OrdersListAsync</a>(OrdersListEcommerceRequest { ... }) -> WithRawResponseTask&lt;OrdersListEcommerceResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -18631,7 +18453,7 @@ await client.Ecommerce.PostV1EcommerceOrdersGetAsync(
 <dd>
 
 ```csharp
-await client.Ecommerce.PostV1EcommerceOrdersListAsync(new PostV1EcommerceOrdersListRequest());
+await client.Ecommerce.OrdersListAsync(new OrdersListEcommerceRequest());
 ```
 </dd>
 </dl>
@@ -18646,7 +18468,7 @@ await client.Ecommerce.PostV1EcommerceOrdersListAsync(new PostV1EcommerceOrdersL
 <dl>
 <dd>
 
-**request:** `PostV1EcommerceOrdersListRequest` 
+**request:** `OrdersListEcommerceRequest` 
     
 </dd>
 </dl>
@@ -18658,7 +18480,7 @@ await client.Ecommerce.PostV1EcommerceOrdersListAsync(new PostV1EcommerceOrdersL
 </dl>
 </details>
 
-<details><summary><code>client.Ecommerce.<a href="/src/NordletApi/Ecommerce/EcommerceClient.cs">PostV1EcommerceOrdersReserveAsync</a>(PostV1EcommerceOrdersReserveRequest { ... }) -> WithRawResponseTask&lt;PostV1EcommerceOrdersReserveResponse&gt;</code></summary>
+<details><summary><code>client.Ecommerce.<a href="/src/NordletApi/Ecommerce/EcommerceClient.cs">OrdersReserveAsync</a>(OrdersReserveEcommerceRequest { ... }) -> WithRawResponseTask&lt;OrdersReserveEcommerceResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -18671,9 +18493,7 @@ await client.Ecommerce.PostV1EcommerceOrdersListAsync(new PostV1EcommerceOrdersL
 <dd>
 
 ```csharp
-await client.Ecommerce.PostV1EcommerceOrdersReserveAsync(
-    new PostV1EcommerceOrdersReserveRequest { Id = "id" }
-);
+await client.Ecommerce.OrdersReserveAsync(new OrdersReserveEcommerceRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -18688,7 +18508,7 @@ await client.Ecommerce.PostV1EcommerceOrdersReserveAsync(
 <dl>
 <dd>
 
-**request:** `PostV1EcommerceOrdersReserveRequest` 
+**request:** `OrdersReserveEcommerceRequest` 
     
 </dd>
 </dl>
@@ -18700,7 +18520,7 @@ await client.Ecommerce.PostV1EcommerceOrdersReserveAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Ecommerce.<a href="/src/NordletApi/Ecommerce/EcommerceClient.cs">PostV1EcommerceOrdersFulfillAsync</a>(PostV1EcommerceOrdersFulfillRequest { ... }) -> WithRawResponseTask&lt;PostV1EcommerceOrdersFulfillResponse&gt;</code></summary>
+<details><summary><code>client.Ecommerce.<a href="/src/NordletApi/Ecommerce/EcommerceClient.cs">OrdersFulfillAsync</a>(OrdersFulfillEcommerceRequest { ... }) -> WithRawResponseTask&lt;OrdersFulfillEcommerceResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -18713,9 +18533,7 @@ await client.Ecommerce.PostV1EcommerceOrdersReserveAsync(
 <dd>
 
 ```csharp
-await client.Ecommerce.PostV1EcommerceOrdersFulfillAsync(
-    new PostV1EcommerceOrdersFulfillRequest { Id = "id" }
-);
+await client.Ecommerce.OrdersFulfillAsync(new OrdersFulfillEcommerceRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -18730,7 +18548,7 @@ await client.Ecommerce.PostV1EcommerceOrdersFulfillAsync(
 <dl>
 <dd>
 
-**request:** `PostV1EcommerceOrdersFulfillRequest` 
+**request:** `OrdersFulfillEcommerceRequest` 
     
 </dd>
 </dl>
@@ -18742,7 +18560,7 @@ await client.Ecommerce.PostV1EcommerceOrdersFulfillAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Ecommerce.<a href="/src/NordletApi/Ecommerce/EcommerceClient.cs">PostV1EcommerceOrdersCancelAsync</a>(PostV1EcommerceOrdersCancelRequest { ... }) -> WithRawResponseTask&lt;PostV1EcommerceOrdersCancelResponse&gt;</code></summary>
+<details><summary><code>client.Ecommerce.<a href="/src/NordletApi/Ecommerce/EcommerceClient.cs">OrdersCancelAsync</a>(OrdersCancelEcommerceRequest { ... }) -> WithRawResponseTask&lt;OrdersCancelEcommerceResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -18755,9 +18573,7 @@ await client.Ecommerce.PostV1EcommerceOrdersFulfillAsync(
 <dd>
 
 ```csharp
-await client.Ecommerce.PostV1EcommerceOrdersCancelAsync(
-    new PostV1EcommerceOrdersCancelRequest { Id = "id" }
-);
+await client.Ecommerce.OrdersCancelAsync(new OrdersCancelEcommerceRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -18772,7 +18588,7 @@ await client.Ecommerce.PostV1EcommerceOrdersCancelAsync(
 <dl>
 <dd>
 
-**request:** `PostV1EcommerceOrdersCancelRequest` 
+**request:** `OrdersCancelEcommerceRequest` 
     
 </dd>
 </dl>
@@ -18784,7 +18600,7 @@ await client.Ecommerce.PostV1EcommerceOrdersCancelAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Ecommerce.<a href="/src/NordletApi/Ecommerce/EcommerceClient.cs">PostV1EcommerceProductsListAsync</a>(PostV1EcommerceProductsListRequest { ... }) -> WithRawResponseTask&lt;PostV1EcommerceProductsListResponse&gt;</code></summary>
+<details><summary><code>client.Ecommerce.<a href="/src/NordletApi/Ecommerce/EcommerceClient.cs">ProductsListAsync</a>(ProductsListEcommerceRequest { ... }) -> WithRawResponseTask&lt;ProductsListEcommerceResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -18797,7 +18613,7 @@ await client.Ecommerce.PostV1EcommerceOrdersCancelAsync(
 <dd>
 
 ```csharp
-await client.Ecommerce.PostV1EcommerceProductsListAsync(new PostV1EcommerceProductsListRequest());
+await client.Ecommerce.ProductsListAsync(new ProductsListEcommerceRequest());
 ```
 </dd>
 </dl>
@@ -18812,7 +18628,7 @@ await client.Ecommerce.PostV1EcommerceProductsListAsync(new PostV1EcommerceProdu
 <dl>
 <dd>
 
-**request:** `PostV1EcommerceProductsListRequest` 
+**request:** `ProductsListEcommerceRequest` 
     
 </dd>
 </dl>
@@ -18824,7 +18640,7 @@ await client.Ecommerce.PostV1EcommerceProductsListAsync(new PostV1EcommerceProdu
 </dl>
 </details>
 
-<details><summary><code>client.Ecommerce.<a href="/src/NordletApi/Ecommerce/EcommerceClient.cs">PostV1EcommerceStockListAsync</a>(PostV1EcommerceStockListRequest { ... }) -> WithRawResponseTask&lt;PostV1EcommerceStockListResponse&gt;</code></summary>
+<details><summary><code>client.Ecommerce.<a href="/src/NordletApi/Ecommerce/EcommerceClient.cs">StockListAsync</a>(StockListEcommerceRequest { ... }) -> WithRawResponseTask&lt;StockListEcommerceResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -18837,7 +18653,7 @@ await client.Ecommerce.PostV1EcommerceProductsListAsync(new PostV1EcommerceProdu
 <dd>
 
 ```csharp
-await client.Ecommerce.PostV1EcommerceStockListAsync(new PostV1EcommerceStockListRequest());
+await client.Ecommerce.StockListAsync(new StockListEcommerceRequest());
 ```
 </dd>
 </dl>
@@ -18852,7 +18668,7 @@ await client.Ecommerce.PostV1EcommerceStockListAsync(new PostV1EcommerceStockLis
 <dl>
 <dd>
 
-**request:** `PostV1EcommerceStockListRequest` 
+**request:** `StockListEcommerceRequest` 
     
 </dd>
 </dl>
@@ -18864,8 +18680,8 @@ await client.Ecommerce.PostV1EcommerceStockListAsync(new PostV1EcommerceStockLis
 </dl>
 </details>
 
-## Cash
-<details><summary><code>client.Cash.<a href="/src/NordletApi/Cash/CashClient.cs">PostV1CashOrdersCreateAsync</a>(PostV1CashOrdersCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1CashOrdersCreateResponse&gt;</code></summary>
+## cash
+<details><summary><code>client.Cash.<a href="/src/NordletApi/Cash/CashClient.cs">OrdersCreateAsync</a>(OrdersCreateCashRequest { ... }) -> WithRawResponseTask&lt;OrdersCreateCashResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -18878,12 +18694,12 @@ await client.Ecommerce.PostV1EcommerceStockListAsync(new PostV1EcommerceStockLis
 <dd>
 
 ```csharp
-await client.Cash.PostV1CashOrdersCreateAsync(
-    new PostV1CashOrdersCreateRequest
+await client.Cash.OrdersCreateAsync(
+    new OrdersCreateCashRequest
     {
-        Type = PostV1CashOrdersCreateRequestType.Receipt,
-        Date = "date",
-        Amount = "amount",
+        Type = OrdersCreateCashRequestType.Receipt,
+        Date = new DateOnly(2026, 7, 1),
+        Amount = "121.0000",
         Purpose = "purpose",
         CounterAccountCode = "counterAccountCode",
     }
@@ -18902,7 +18718,7 @@ await client.Cash.PostV1CashOrdersCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1CashOrdersCreateRequest` 
+**request:** `OrdersCreateCashRequest` 
     
 </dd>
 </dl>
@@ -18914,7 +18730,7 @@ await client.Cash.PostV1CashOrdersCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Cash.<a href="/src/NordletApi/Cash/CashClient.cs">PostV1CashOrdersGetAsync</a>(PostV1CashOrdersGetRequest { ... }) -> WithRawResponseTask&lt;PostV1CashOrdersGetResponse&gt;</code></summary>
+<details><summary><code>client.Cash.<a href="/src/NordletApi/Cash/CashClient.cs">OrdersGetAsync</a>(OrdersGetCashRequest { ... }) -> WithRawResponseTask&lt;OrdersGetCashResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -18927,7 +18743,7 @@ await client.Cash.PostV1CashOrdersCreateAsync(
 <dd>
 
 ```csharp
-await client.Cash.PostV1CashOrdersGetAsync(new PostV1CashOrdersGetRequest { Id = "id" });
+await client.Cash.OrdersGetAsync(new OrdersGetCashRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -18942,7 +18758,7 @@ await client.Cash.PostV1CashOrdersGetAsync(new PostV1CashOrdersGetRequest { Id =
 <dl>
 <dd>
 
-**request:** `PostV1CashOrdersGetRequest` 
+**request:** `OrdersGetCashRequest` 
     
 </dd>
 </dl>
@@ -18954,7 +18770,7 @@ await client.Cash.PostV1CashOrdersGetAsync(new PostV1CashOrdersGetRequest { Id =
 </dl>
 </details>
 
-<details><summary><code>client.Cash.<a href="/src/NordletApi/Cash/CashClient.cs">PostV1CashOrdersListAsync</a>(PostV1CashOrdersListRequest { ... }) -> WithRawResponseTask&lt;PostV1CashOrdersListResponse&gt;</code></summary>
+<details><summary><code>client.Cash.<a href="/src/NordletApi/Cash/CashClient.cs">OrdersListAsync</a>(OrdersListCashRequest { ... }) -> WithRawResponseTask&lt;OrdersListCashResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -18967,7 +18783,7 @@ await client.Cash.PostV1CashOrdersGetAsync(new PostV1CashOrdersGetRequest { Id =
 <dd>
 
 ```csharp
-await client.Cash.PostV1CashOrdersListAsync(new PostV1CashOrdersListRequest());
+await client.Cash.OrdersListAsync(new OrdersListCashRequest());
 ```
 </dd>
 </dl>
@@ -18982,7 +18798,7 @@ await client.Cash.PostV1CashOrdersListAsync(new PostV1CashOrdersListRequest());
 <dl>
 <dd>
 
-**request:** `PostV1CashOrdersListRequest` 
+**request:** `OrdersListCashRequest` 
     
 </dd>
 </dl>
@@ -18994,7 +18810,7 @@ await client.Cash.PostV1CashOrdersListAsync(new PostV1CashOrdersListRequest());
 </dl>
 </details>
 
-<details><summary><code>client.Cash.<a href="/src/NordletApi/Cash/CashClient.cs">PostV1CashBalanceAsync</a>(PostV1CashBalanceRequest { ... }) -> WithRawResponseTask&lt;PostV1CashBalanceResponse&gt;</code></summary>
+<details><summary><code>client.Cash.<a href="/src/NordletApi/Cash/CashClient.cs">BalanceAsync</a>(BalanceCashRequest { ... }) -> WithRawResponseTask&lt;BalanceCashResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -19007,7 +18823,7 @@ await client.Cash.PostV1CashOrdersListAsync(new PostV1CashOrdersListRequest());
 <dd>
 
 ```csharp
-await client.Cash.PostV1CashBalanceAsync(new PostV1CashBalanceRequest());
+await client.Cash.BalanceAsync(new BalanceCashRequest());
 ```
 </dd>
 </dl>
@@ -19022,7 +18838,7 @@ await client.Cash.PostV1CashBalanceAsync(new PostV1CashBalanceRequest());
 <dl>
 <dd>
 
-**request:** `PostV1CashBalanceRequest` 
+**request:** `BalanceCashRequest` 
     
 </dd>
 </dl>
@@ -19034,7 +18850,7 @@ await client.Cash.PostV1CashBalanceAsync(new PostV1CashBalanceRequest());
 </dl>
 </details>
 
-<details><summary><code>client.Cash.<a href="/src/NordletApi/Cash/CashClient.cs">PostV1CashAdvanceHoldersBalancesAsync</a>(PostV1CashAdvanceHoldersBalancesRequest { ... }) -> WithRawResponseTask&lt;PostV1CashAdvanceHoldersBalancesResponse&gt;</code></summary>
+<details><summary><code>client.Cash.<a href="/src/NordletApi/Cash/CashClient.cs">AdvanceHoldersBalancesAsync</a>(AdvanceHoldersBalancesCashRequest { ... }) -> WithRawResponseTask&lt;AdvanceHoldersBalancesCashResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -19047,9 +18863,7 @@ await client.Cash.PostV1CashBalanceAsync(new PostV1CashBalanceRequest());
 <dd>
 
 ```csharp
-await client.Cash.PostV1CashAdvanceHoldersBalancesAsync(
-    new PostV1CashAdvanceHoldersBalancesRequest()
-);
+await client.Cash.AdvanceHoldersBalancesAsync(new AdvanceHoldersBalancesCashRequest());
 ```
 </dd>
 </dl>
@@ -19064,7 +18878,7 @@ await client.Cash.PostV1CashAdvanceHoldersBalancesAsync(
 <dl>
 <dd>
 
-**request:** `PostV1CashAdvanceHoldersBalancesRequest` 
+**request:** `AdvanceHoldersBalancesCashRequest` 
     
 </dd>
 </dl>
@@ -19076,8 +18890,8 @@ await client.Cash.PostV1CashAdvanceHoldersBalancesAsync(
 </dl>
 </details>
 
-## Projects
-<details><summary><code>client.Projects.<a href="/src/NordletApi/Projects/ProjectsClient.cs">PostV1ProjectsCreateAsync</a>(PostV1ProjectsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1ProjectsCreateResponse&gt;</code></summary>
+## projects
+<details><summary><code>client.Projects.<a href="/src/NordletApi/Projects/ProjectsClient.cs">CreateAsync</a>(CreateProjectsRequest { ... }) -> WithRawResponseTask&lt;CreateProjectsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -19090,9 +18904,7 @@ await client.Cash.PostV1CashAdvanceHoldersBalancesAsync(
 <dd>
 
 ```csharp
-await client.Projects.PostV1ProjectsCreateAsync(
-    new PostV1ProjectsCreateRequest { Code = "code", Name = "name" }
-);
+await client.Projects.CreateAsync(new CreateProjectsRequest { Code = "code", Name = "name" });
 ```
 </dd>
 </dl>
@@ -19107,7 +18919,7 @@ await client.Projects.PostV1ProjectsCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ProjectsCreateRequest` 
+**request:** `CreateProjectsRequest` 
     
 </dd>
 </dl>
@@ -19119,7 +18931,7 @@ await client.Projects.PostV1ProjectsCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Projects.<a href="/src/NordletApi/Projects/ProjectsClient.cs">PostV1ProjectsUpdateAsync</a>(PostV1ProjectsUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1ProjectsUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Projects.<a href="/src/NordletApi/Projects/ProjectsClient.cs">UpdateAsync</a>(UpdateProjectsRequest { ... }) -> WithRawResponseTask&lt;UpdateProjectsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -19132,7 +18944,7 @@ await client.Projects.PostV1ProjectsCreateAsync(
 <dd>
 
 ```csharp
-await client.Projects.PostV1ProjectsUpdateAsync(new PostV1ProjectsUpdateRequest { Id = "id" });
+await client.Projects.UpdateAsync(new UpdateProjectsRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -19147,7 +18959,7 @@ await client.Projects.PostV1ProjectsUpdateAsync(new PostV1ProjectsUpdateRequest 
 <dl>
 <dd>
 
-**request:** `PostV1ProjectsUpdateRequest` 
+**request:** `UpdateProjectsRequest` 
     
 </dd>
 </dl>
@@ -19159,7 +18971,7 @@ await client.Projects.PostV1ProjectsUpdateAsync(new PostV1ProjectsUpdateRequest 
 </dl>
 </details>
 
-<details><summary><code>client.Projects.<a href="/src/NordletApi/Projects/ProjectsClient.cs">PostV1ProjectsGetAsync</a>(PostV1ProjectsGetRequest { ... }) -> WithRawResponseTask&lt;PostV1ProjectsGetResponse&gt;</code></summary>
+<details><summary><code>client.Projects.<a href="/src/NordletApi/Projects/ProjectsClient.cs">GetAsync</a>(GetProjectsRequest { ... }) -> WithRawResponseTask&lt;GetProjectsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -19172,7 +18984,7 @@ await client.Projects.PostV1ProjectsUpdateAsync(new PostV1ProjectsUpdateRequest 
 <dd>
 
 ```csharp
-await client.Projects.PostV1ProjectsGetAsync(new PostV1ProjectsGetRequest { Id = "id" });
+await client.Projects.GetAsync(new GetProjectsRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -19187,7 +18999,7 @@ await client.Projects.PostV1ProjectsGetAsync(new PostV1ProjectsGetRequest { Id =
 <dl>
 <dd>
 
-**request:** `PostV1ProjectsGetRequest` 
+**request:** `GetProjectsRequest` 
     
 </dd>
 </dl>
@@ -19199,7 +19011,7 @@ await client.Projects.PostV1ProjectsGetAsync(new PostV1ProjectsGetRequest { Id =
 </dl>
 </details>
 
-<details><summary><code>client.Projects.<a href="/src/NordletApi/Projects/ProjectsClient.cs">PostV1ProjectsListAsync</a>(PostV1ProjectsListRequest { ... }) -> WithRawResponseTask&lt;PostV1ProjectsListResponse&gt;</code></summary>
+<details><summary><code>client.Projects.<a href="/src/NordletApi/Projects/ProjectsClient.cs">ListAsync</a>(ListProjectsRequest { ... }) -> WithRawResponseTask&lt;ListProjectsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -19212,7 +19024,7 @@ await client.Projects.PostV1ProjectsGetAsync(new PostV1ProjectsGetRequest { Id =
 <dd>
 
 ```csharp
-await client.Projects.PostV1ProjectsListAsync(new PostV1ProjectsListRequest());
+await client.Projects.ListAsync(new ListProjectsRequest());
 ```
 </dd>
 </dl>
@@ -19227,7 +19039,7 @@ await client.Projects.PostV1ProjectsListAsync(new PostV1ProjectsListRequest());
 <dl>
 <dd>
 
-**request:** `PostV1ProjectsListRequest` 
+**request:** `ListProjectsRequest` 
     
 </dd>
 </dl>
@@ -19239,7 +19051,7 @@ await client.Projects.PostV1ProjectsListAsync(new PostV1ProjectsListRequest());
 </dl>
 </details>
 
-<details><summary><code>client.Projects.<a href="/src/NordletApi/Projects/ProjectsClient.cs">PostV1ProjectsTimeEntriesCreateAsync</a>(PostV1ProjectsTimeEntriesCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1ProjectsTimeEntriesCreateResponse&gt;</code></summary>
+<details><summary><code>client.Projects.<a href="/src/NordletApi/Projects/ProjectsClient.cs">TimeEntriesCreateAsync</a>(TimeEntriesCreateProjectsRequest { ... }) -> WithRawResponseTask&lt;TimeEntriesCreateProjectsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -19252,12 +19064,12 @@ await client.Projects.PostV1ProjectsListAsync(new PostV1ProjectsListRequest());
 <dd>
 
 ```csharp
-await client.Projects.PostV1ProjectsTimeEntriesCreateAsync(
-    new PostV1ProjectsTimeEntriesCreateRequest
+await client.Projects.TimeEntriesCreateAsync(
+    new TimeEntriesCreateProjectsRequest
     {
         ProjectId = "projectId",
-        Date = "date",
-        Hours = "hours",
+        Date = new DateOnly(2026, 7, 1),
+        Hours = "121.00",
     }
 );
 ```
@@ -19274,7 +19086,7 @@ await client.Projects.PostV1ProjectsTimeEntriesCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ProjectsTimeEntriesCreateRequest` 
+**request:** `TimeEntriesCreateProjectsRequest` 
     
 </dd>
 </dl>
@@ -19286,7 +19098,7 @@ await client.Projects.PostV1ProjectsTimeEntriesCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Projects.<a href="/src/NordletApi/Projects/ProjectsClient.cs">PostV1ProjectsTimeEntriesUpdateAsync</a>(PostV1ProjectsTimeEntriesUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1ProjectsTimeEntriesUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Projects.<a href="/src/NordletApi/Projects/ProjectsClient.cs">TimeEntriesUpdateAsync</a>(TimeEntriesUpdateProjectsRequest { ... }) -> WithRawResponseTask&lt;TimeEntriesUpdateProjectsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -19299,8 +19111,128 @@ await client.Projects.PostV1ProjectsTimeEntriesCreateAsync(
 <dd>
 
 ```csharp
-await client.Projects.PostV1ProjectsTimeEntriesUpdateAsync(
-    new PostV1ProjectsTimeEntriesUpdateRequest { Id = "id" }
+await client.Projects.TimeEntriesUpdateAsync(new TimeEntriesUpdateProjectsRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `TimeEntriesUpdateProjectsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Projects.<a href="/src/NordletApi/Projects/ProjectsClient.cs">TimeEntriesDeleteAsync</a>(TimeEntriesDeleteProjectsRequest { ... }) -> WithRawResponseTask&lt;TimeEntriesDeleteProjectsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Projects.TimeEntriesDeleteAsync(new TimeEntriesDeleteProjectsRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `TimeEntriesDeleteProjectsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Projects.<a href="/src/NordletApi/Projects/ProjectsClient.cs">TimeEntriesListAsync</a>(TimeEntriesListProjectsRequest { ... }) -> WithRawResponseTask&lt;TimeEntriesListProjectsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Projects.TimeEntriesListAsync(new TimeEntriesListProjectsRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `TimeEntriesListProjectsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Projects.<a href="/src/NordletApi/Projects/ProjectsClient.cs">TimeEntriesBillAsync</a>(TimeEntriesBillProjectsRequest { ... }) -> WithRawResponseTask&lt;TimeEntriesBillProjectsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Projects.TimeEntriesBillAsync(
+    new TimeEntriesBillProjectsRequest { ProjectId = "projectId" }
 );
 ```
 </dd>
@@ -19316,7 +19248,7 @@ await client.Projects.PostV1ProjectsTimeEntriesUpdateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ProjectsTimeEntriesUpdateRequest` 
+**request:** `TimeEntriesBillProjectsRequest` 
     
 </dd>
 </dl>
@@ -19328,7 +19260,7 @@ await client.Projects.PostV1ProjectsTimeEntriesUpdateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Projects.<a href="/src/NordletApi/Projects/ProjectsClient.cs">PostV1ProjectsTimeEntriesDeleteAsync</a>(PostV1ProjectsTimeEntriesDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1ProjectsTimeEntriesDeleteResponse&gt;</code></summary>
+<details><summary><code>client.Projects.<a href="/src/NordletApi/Projects/ProjectsClient.cs">ReportAsync</a>(ReportProjectsRequest { ... }) -> WithRawResponseTask&lt;ReportProjectsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -19341,9 +19273,7 @@ await client.Projects.PostV1ProjectsTimeEntriesUpdateAsync(
 <dd>
 
 ```csharp
-await client.Projects.PostV1ProjectsTimeEntriesDeleteAsync(
-    new PostV1ProjectsTimeEntriesDeleteRequest { Id = "id" }
-);
+await client.Projects.ReportAsync(new ReportProjectsRequest());
 ```
 </dd>
 </dl>
@@ -19358,7 +19288,7 @@ await client.Projects.PostV1ProjectsTimeEntriesDeleteAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ProjectsTimeEntriesDeleteRequest` 
+**request:** `ReportProjectsRequest` 
     
 </dd>
 </dl>
@@ -19370,7 +19300,8 @@ await client.Projects.PostV1ProjectsTimeEntriesDeleteAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Projects.<a href="/src/NordletApi/Projects/ProjectsClient.cs">PostV1ProjectsTimeEntriesListAsync</a>(PostV1ProjectsTimeEntriesListRequest { ... }) -> WithRawResponseTask&lt;PostV1ProjectsTimeEntriesListResponse&gt;</code></summary>
+## transport
+<details><summary><code>client.Transport.<a href="/src/NordletApi/Transport/TransportClient.cs">WaybillsCreateAsync</a>(WaybillsCreateTransportRequest { ... }) -> WithRawResponseTask&lt;WaybillsCreateTransportResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -19383,133 +19314,8 @@ await client.Projects.PostV1ProjectsTimeEntriesDeleteAsync(
 <dd>
 
 ```csharp
-await client.Projects.PostV1ProjectsTimeEntriesListAsync(
-    new PostV1ProjectsTimeEntriesListRequest()
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1ProjectsTimeEntriesListRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Projects.<a href="/src/NordletApi/Projects/ProjectsClient.cs">PostV1ProjectsTimeEntriesBillAsync</a>(PostV1ProjectsTimeEntriesBillRequest { ... }) -> WithRawResponseTask&lt;PostV1ProjectsTimeEntriesBillResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Projects.PostV1ProjectsTimeEntriesBillAsync(
-    new PostV1ProjectsTimeEntriesBillRequest { ProjectId = "projectId" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1ProjectsTimeEntriesBillRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Projects.<a href="/src/NordletApi/Projects/ProjectsClient.cs">PostV1ProjectsReportAsync</a>(PostV1ProjectsReportRequest { ... }) -> WithRawResponseTask&lt;PostV1ProjectsReportResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Projects.PostV1ProjectsReportAsync(new PostV1ProjectsReportRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1ProjectsReportRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-## Transport
-<details><summary><code>client.Transport.<a href="/src/NordletApi/Transport/TransportClient.cs">PostV1TransportWaybillsCreateAsync</a>(PostV1TransportWaybillsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1TransportWaybillsCreateResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Transport.PostV1TransportWaybillsCreateAsync(
-    new PostV1TransportWaybillsCreateRequest
+await client.Transport.WaybillsCreateAsync(
+    new WaybillsCreateTransportRequest
     {
         ConsigneePartnerId = "consigneePartnerId",
         DispatchAt = new DateTime(2024, 01, 15, 09, 30, 00, 000),
@@ -19531,7 +19337,7 @@ await client.Transport.PostV1TransportWaybillsCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1TransportWaybillsCreateRequest` 
+**request:** `WaybillsCreateTransportRequest` 
     
 </dd>
 </dl>
@@ -19543,7 +19349,7 @@ await client.Transport.PostV1TransportWaybillsCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Transport.<a href="/src/NordletApi/Transport/TransportClient.cs">PostV1TransportWaybillsUpdateAsync</a>(PostV1TransportWaybillsUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1TransportWaybillsUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Transport.<a href="/src/NordletApi/Transport/TransportClient.cs">WaybillsUpdateAsync</a>(WaybillsUpdateTransportRequest { ... }) -> WithRawResponseTask&lt;WaybillsUpdateTransportResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -19556,8 +19362,209 @@ await client.Transport.PostV1TransportWaybillsCreateAsync(
 <dd>
 
 ```csharp
-await client.Transport.PostV1TransportWaybillsUpdateAsync(
-    new PostV1TransportWaybillsUpdateRequest { Id = "id" }
+await client.Transport.WaybillsUpdateAsync(new WaybillsUpdateTransportRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `WaybillsUpdateTransportRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Transport.<a href="/src/NordletApi/Transport/TransportClient.cs">WaybillsIssueAsync</a>(WaybillsIssueTransportRequest { ... }) -> WithRawResponseTask&lt;WaybillsIssueTransportResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Transport.WaybillsIssueAsync(new WaybillsIssueTransportRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `WaybillsIssueTransportRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Transport.<a href="/src/NordletApi/Transport/TransportClient.cs">WaybillsCancelAsync</a>(WaybillsCancelTransportRequest { ... }) -> WithRawResponseTask&lt;WaybillsCancelTransportResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Transport.WaybillsCancelAsync(new WaybillsCancelTransportRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `WaybillsCancelTransportRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Transport.<a href="/src/NordletApi/Transport/TransportClient.cs">WaybillsGetAsync</a>(WaybillsGetTransportRequest { ... }) -> WithRawResponseTask&lt;WaybillsGetTransportResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Transport.WaybillsGetAsync(new WaybillsGetTransportRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `WaybillsGetTransportRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Transport.<a href="/src/NordletApi/Transport/TransportClient.cs">WaybillsListAsync</a>(WaybillsListTransportRequest { ... }) -> WithRawResponseTask&lt;WaybillsListTransportResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Transport.WaybillsListAsync(new WaybillsListTransportRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `WaybillsListTransportRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## pos
+<details><summary><code>client.Pos.<a href="/src/NordletApi/Pos/PosClient.cs">DevicesCreateAsync</a>(DevicesCreatePosRequest { ... }) -> WithRawResponseTask&lt;DevicesCreatePosResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Pos.DevicesCreateAsync(
+    new DevicesCreatePosRequest { Name = "name", SerialNumber = "serialNumber" }
 );
 ```
 </dd>
@@ -19573,7 +19580,7 @@ await client.Transport.PostV1TransportWaybillsUpdateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1TransportWaybillsUpdateRequest` 
+**request:** `DevicesCreatePosRequest` 
     
 </dd>
 </dl>
@@ -19585,7 +19592,7 @@ await client.Transport.PostV1TransportWaybillsUpdateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Transport.<a href="/src/NordletApi/Transport/TransportClient.cs">PostV1TransportWaybillsIssueAsync</a>(PostV1TransportWaybillsIssueRequest { ... }) -> WithRawResponseTask&lt;PostV1TransportWaybillsIssueResponse&gt;</code></summary>
+<details><summary><code>client.Pos.<a href="/src/NordletApi/Pos/PosClient.cs">DevicesUpdateAsync</a>(DevicesUpdatePosRequest { ... }) -> WithRawResponseTask&lt;DevicesUpdatePosResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -19598,9 +19605,7 @@ await client.Transport.PostV1TransportWaybillsUpdateAsync(
 <dd>
 
 ```csharp
-await client.Transport.PostV1TransportWaybillsIssueAsync(
-    new PostV1TransportWaybillsIssueRequest { Id = "id" }
-);
+await client.Pos.DevicesUpdateAsync(new DevicesUpdatePosRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -19615,7 +19620,7 @@ await client.Transport.PostV1TransportWaybillsIssueAsync(
 <dl>
 <dd>
 
-**request:** `PostV1TransportWaybillsIssueRequest` 
+**request:** `DevicesUpdatePosRequest` 
     
 </dd>
 </dl>
@@ -19627,7 +19632,7 @@ await client.Transport.PostV1TransportWaybillsIssueAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Transport.<a href="/src/NordletApi/Transport/TransportClient.cs">PostV1TransportWaybillsCancelAsync</a>(PostV1TransportWaybillsCancelRequest { ... }) -> WithRawResponseTask&lt;PostV1TransportWaybillsCancelResponse&gt;</code></summary>
+<details><summary><code>client.Pos.<a href="/src/NordletApi/Pos/PosClient.cs">DevicesListAsync</a>(DevicesListPosRequest { ... }) -> WithRawResponseTask&lt;DevicesListPosResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -19640,9 +19645,7 @@ await client.Transport.PostV1TransportWaybillsIssueAsync(
 <dd>
 
 ```csharp
-await client.Transport.PostV1TransportWaybillsCancelAsync(
-    new PostV1TransportWaybillsCancelRequest { Id = "id" }
-);
+await client.Pos.DevicesListAsync(new DevicesListPosRequest());
 ```
 </dd>
 </dl>
@@ -19657,7 +19660,7 @@ await client.Transport.PostV1TransportWaybillsCancelAsync(
 <dl>
 <dd>
 
-**request:** `PostV1TransportWaybillsCancelRequest` 
+**request:** `DevicesListPosRequest` 
     
 </dd>
 </dl>
@@ -19669,7 +19672,7 @@ await client.Transport.PostV1TransportWaybillsCancelAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Transport.<a href="/src/NordletApi/Transport/TransportClient.cs">PostV1TransportWaybillsGetAsync</a>(PostV1TransportWaybillsGetRequest { ... }) -> WithRawResponseTask&lt;PostV1TransportWaybillsGetResponse&gt;</code></summary>
+<details><summary><code>client.Pos.<a href="/src/NordletApi/Pos/PosClient.cs">ReportsCreateAsync</a>(ReportsCreatePosRequest { ... }) -> WithRawResponseTask&lt;ReportsCreatePosResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -19682,223 +19685,18 @@ await client.Transport.PostV1TransportWaybillsCancelAsync(
 <dd>
 
 ```csharp
-await client.Transport.PostV1TransportWaybillsGetAsync(
-    new PostV1TransportWaybillsGetRequest { Id = "id" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1TransportWaybillsGetRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Transport.<a href="/src/NordletApi/Transport/TransportClient.cs">PostV1TransportWaybillsListAsync</a>(PostV1TransportWaybillsListRequest { ... }) -> WithRawResponseTask&lt;PostV1TransportWaybillsListResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Transport.PostV1TransportWaybillsListAsync(new PostV1TransportWaybillsListRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1TransportWaybillsListRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-## Pos
-<details><summary><code>client.Pos.<a href="/src/NordletApi/Pos/PosClient.cs">PostV1PosDevicesCreateAsync</a>(PostV1PosDevicesCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1PosDevicesCreateResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Pos.PostV1PosDevicesCreateAsync(
-    new PostV1PosDevicesCreateRequest { Name = "name", SerialNumber = "serialNumber" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1PosDevicesCreateRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Pos.<a href="/src/NordletApi/Pos/PosClient.cs">PostV1PosDevicesUpdateAsync</a>(PostV1PosDevicesUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1PosDevicesUpdateResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Pos.PostV1PosDevicesUpdateAsync(new PostV1PosDevicesUpdateRequest { Id = "id" });
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1PosDevicesUpdateRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Pos.<a href="/src/NordletApi/Pos/PosClient.cs">PostV1PosDevicesListAsync</a>(PostV1PosDevicesListRequest { ... }) -> WithRawResponseTask&lt;PostV1PosDevicesListResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Pos.PostV1PosDevicesListAsync(new PostV1PosDevicesListRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1PosDevicesListRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Pos.<a href="/src/NordletApi/Pos/PosClient.cs">PostV1PosReportsCreateAsync</a>(PostV1PosReportsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1PosReportsCreateResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Pos.PostV1PosReportsCreateAsync(
-    new PostV1PosReportsCreateRequest
+await client.Pos.ReportsCreateAsync(
+    new ReportsCreatePosRequest
     {
         ReportNumber = "reportNumber",
-        Date = "date",
-        VatLines = new List<PostV1PosReportsCreateRequestVatLinesItem>()
+        Date = new DateOnly(2026, 7, 1),
+        VatLines = new List<ReportsCreatePosRequestVatLinesItem>()
         {
-            new PostV1PosReportsCreateRequestVatLinesItem
+            new ReportsCreatePosRequestVatLinesItem
             {
-                VatRatePercent = "vatRatePercent",
-                NetAmount = "netAmount",
-                VatAmount = "vatAmount",
+                VatRatePercent = "121.00",
+                NetAmount = "121.0000",
+                VatAmount = "121.0000",
             },
         },
     }
@@ -19917,7 +19715,7 @@ await client.Pos.PostV1PosReportsCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PosReportsCreateRequest` 
+**request:** `ReportsCreatePosRequest` 
     
 </dd>
 </dl>
@@ -19929,7 +19727,7 @@ await client.Pos.PostV1PosReportsCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Pos.<a href="/src/NordletApi/Pos/PosClient.cs">PostV1PosReportsGetAsync</a>(PostV1PosReportsGetRequest { ... }) -> WithRawResponseTask&lt;PostV1PosReportsGetResponse&gt;</code></summary>
+<details><summary><code>client.Pos.<a href="/src/NordletApi/Pos/PosClient.cs">ReportsGetAsync</a>(ReportsGetPosRequest { ... }) -> WithRawResponseTask&lt;ReportsGetPosResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -19942,7 +19740,7 @@ await client.Pos.PostV1PosReportsCreateAsync(
 <dd>
 
 ```csharp
-await client.Pos.PostV1PosReportsGetAsync(new PostV1PosReportsGetRequest { Id = "id" });
+await client.Pos.ReportsGetAsync(new ReportsGetPosRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -19957,7 +19755,7 @@ await client.Pos.PostV1PosReportsGetAsync(new PostV1PosReportsGetRequest { Id = 
 <dl>
 <dd>
 
-**request:** `PostV1PosReportsGetRequest` 
+**request:** `ReportsGetPosRequest` 
     
 </dd>
 </dl>
@@ -19969,7 +19767,7 @@ await client.Pos.PostV1PosReportsGetAsync(new PostV1PosReportsGetRequest { Id = 
 </dl>
 </details>
 
-<details><summary><code>client.Pos.<a href="/src/NordletApi/Pos/PosClient.cs">PostV1PosReportsListAsync</a>(PostV1PosReportsListRequest { ... }) -> WithRawResponseTask&lt;PostV1PosReportsListResponse&gt;</code></summary>
+<details><summary><code>client.Pos.<a href="/src/NordletApi/Pos/PosClient.cs">ReportsListAsync</a>(ReportsListPosRequest { ... }) -> WithRawResponseTask&lt;ReportsListPosResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -19982,7 +19780,7 @@ await client.Pos.PostV1PosReportsGetAsync(new PostV1PosReportsGetRequest { Id = 
 <dd>
 
 ```csharp
-await client.Pos.PostV1PosReportsListAsync(new PostV1PosReportsListRequest());
+await client.Pos.ReportsListAsync(new ReportsListPosRequest());
 ```
 </dd>
 </dl>
@@ -19997,7 +19795,7 @@ await client.Pos.PostV1PosReportsListAsync(new PostV1PosReportsListRequest());
 <dl>
 <dd>
 
-**request:** `PostV1PosReportsListRequest` 
+**request:** `ReportsListPosRequest` 
     
 </dd>
 </dl>
@@ -20009,8 +19807,8 @@ await client.Pos.PostV1PosReportsListAsync(new PostV1PosReportsListRequest());
 </dl>
 </details>
 
-## Calendar
-<details><summary><code>client.Calendar.<a href="/src/NordletApi/Calendar/CalendarClient.cs">PostV1CalendarListAsync</a>(PostV1CalendarListRequest { ... }) -> WithRawResponseTask&lt;PostV1CalendarListResponse&gt;</code></summary>
+## calendar
+<details><summary><code>client.Calendar.<a href="/src/NordletApi/Calendar/CalendarClient.cs">ListAsync</a>(ListCalendarRequest { ... }) -> WithRawResponseTask&lt;ListCalendarResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -20023,7 +19821,7 @@ await client.Pos.PostV1PosReportsListAsync(new PostV1PosReportsListRequest());
 <dd>
 
 ```csharp
-await client.Calendar.PostV1CalendarListAsync(new PostV1CalendarListRequest());
+await client.Calendar.ListAsync(new ListCalendarRequest());
 ```
 </dd>
 </dl>
@@ -20038,7 +19836,7 @@ await client.Calendar.PostV1CalendarListAsync(new PostV1CalendarListRequest());
 <dl>
 <dd>
 
-**request:** `PostV1CalendarListRequest` 
+**request:** `ListCalendarRequest` 
     
 </dd>
 </dl>
@@ -20050,7 +19848,7 @@ await client.Calendar.PostV1CalendarListAsync(new PostV1CalendarListRequest());
 </dl>
 </details>
 
-<details><summary><code>client.Calendar.<a href="/src/NordletApi/Calendar/CalendarClient.cs">PostV1CalendarGetAsync</a>(PostV1CalendarGetRequest { ... }) -> WithRawResponseTask&lt;PostV1CalendarGetResponse&gt;</code></summary>
+<details><summary><code>client.Calendar.<a href="/src/NordletApi/Calendar/CalendarClient.cs">GetAsync</a>(GetCalendarRequest { ... }) -> WithRawResponseTask&lt;GetCalendarResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -20063,7 +19861,7 @@ await client.Calendar.PostV1CalendarListAsync(new PostV1CalendarListRequest());
 <dd>
 
 ```csharp
-await client.Calendar.PostV1CalendarGetAsync(new PostV1CalendarGetRequest { Key = "key" });
+await client.Calendar.GetAsync(new GetCalendarRequest { Key = "key" });
 ```
 </dd>
 </dl>
@@ -20078,7 +19876,7 @@ await client.Calendar.PostV1CalendarGetAsync(new PostV1CalendarGetRequest { Key 
 <dl>
 <dd>
 
-**request:** `PostV1CalendarGetRequest` 
+**request:** `GetCalendarRequest` 
     
 </dd>
 </dl>
@@ -20090,9 +19888,23 @@ await client.Calendar.PostV1CalendarGetAsync(new PostV1CalendarGetRequest { Key 
 </dl>
 </details>
 
-<details><summary><code>client.Calendar.<a href="/src/NordletApi/Calendar/CalendarClient.cs">GenerateTheFilingForADeadlineAndSendItToTheAdministrationAsync</a>(PostV1CalendarSubmitRequest { ... }) -> WithRawResponseTask&lt;PostV1CalendarSubmitResponse&gt;</code></summary>
+<details><summary><code>client.Calendar.<a href="/src/NordletApi/Calendar/CalendarClient.cs">SubmitAsync</a>(SubmitCalendarRequest { ... }) -> WithRawResponseTask&lt;SubmitCalendarResponse&gt;</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+With amend: true the return is filed again as a correction of the one already submitted or accepted for the period; only returns whose format has a correction mark accept it.
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -20103,9 +19915,7 @@ await client.Calendar.PostV1CalendarGetAsync(new PostV1CalendarGetRequest { Key 
 <dd>
 
 ```csharp
-await client.Calendar.GenerateTheFilingForADeadlineAndSendItToTheAdministrationAsync(
-    new PostV1CalendarSubmitRequest { Key = "key" }
-);
+await client.Calendar.SubmitAsync(new SubmitCalendarRequest { Key = "key" });
 ```
 </dd>
 </dl>
@@ -20120,7 +19930,7 @@ await client.Calendar.GenerateTheFilingForADeadlineAndSendItToTheAdministrationA
 <dl>
 <dd>
 
-**request:** `PostV1CalendarSubmitRequest` 
+**request:** `SubmitCalendarRequest` 
     
 </dd>
 </dl>
@@ -20132,7 +19942,7 @@ await client.Calendar.GenerateTheFilingForADeadlineAndSendItToTheAdministrationA
 </dl>
 </details>
 
-<details><summary><code>client.Calendar.<a href="/src/NordletApi/Calendar/CalendarClient.cs">GenerateTheFileOfADeadlineForTheCompanyToSendItselfAsync</a>(PostV1CalendarDownloadRequest { ... }) -> WithRawResponseTask&lt;PostV1CalendarDownloadResponse&gt;</code></summary>
+<details><summary><code>client.Calendar.<a href="/src/NordletApi/Calendar/CalendarClient.cs">DownloadAsync</a>(DownloadCalendarRequest { ... }) -> WithRawResponseTask&lt;DownloadCalendarResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -20159,8 +19969,48 @@ Builds the file of a deadline whose format Nordlet produces but whose administra
 <dd>
 
 ```csharp
-await client.Calendar.GenerateTheFileOfADeadlineForTheCompanyToSendItselfAsync(
-    new PostV1CalendarDownloadRequest { Key = "key" }
+await client.Calendar.DownloadAsync(new DownloadCalendarRequest { Key = "key" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `DownloadCalendarRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Calendar.<a href="/src/NordletApi/Calendar/CalendarClient.cs">CreateAsync</a>(CreateCalendarRequest { ... }) -> WithRawResponseTask&lt;CreateCalendarResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Calendar.CreateAsync(
+    new CreateCalendarRequest { Title = "title", DueDate = new DateOnly(2026, 7, 1) }
 );
 ```
 </dd>
@@ -20176,7 +20026,7 @@ await client.Calendar.GenerateTheFileOfADeadlineForTheCompanyToSendItselfAsync(
 <dl>
 <dd>
 
-**request:** `PostV1CalendarDownloadRequest` 
+**request:** `CreateCalendarRequest` 
     
 </dd>
 </dl>
@@ -20188,7 +20038,7 @@ await client.Calendar.GenerateTheFileOfADeadlineForTheCompanyToSendItselfAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Calendar.<a href="/src/NordletApi/Calendar/CalendarClient.cs">PostV1CalendarCreateAsync</a>(PostV1CalendarCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1CalendarCreateResponse&gt;</code></summary>
+<details><summary><code>client.Calendar.<a href="/src/NordletApi/Calendar/CalendarClient.cs">UpdateAsync</a>(UpdateCalendarRequest { ... }) -> WithRawResponseTask&lt;UpdateCalendarResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -20201,9 +20051,7 @@ await client.Calendar.GenerateTheFileOfADeadlineForTheCompanyToSendItselfAsync(
 <dd>
 
 ```csharp
-await client.Calendar.PostV1CalendarCreateAsync(
-    new PostV1CalendarCreateRequest { Title = "title", DueDate = "dueDate" }
-);
+await client.Calendar.UpdateAsync(new UpdateCalendarRequest { Key = "key" });
 ```
 </dd>
 </dl>
@@ -20218,7 +20066,7 @@ await client.Calendar.PostV1CalendarCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1CalendarCreateRequest` 
+**request:** `UpdateCalendarRequest` 
     
 </dd>
 </dl>
@@ -20230,7 +20078,7 @@ await client.Calendar.PostV1CalendarCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Calendar.<a href="/src/NordletApi/Calendar/CalendarClient.cs">PostV1CalendarUpdateAsync</a>(PostV1CalendarUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1CalendarUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Calendar.<a href="/src/NordletApi/Calendar/CalendarClient.cs">DeleteAsync</a>(DeleteCalendarRequest { ... }) -> WithRawResponseTask&lt;DeleteCalendarResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -20243,7 +20091,7 @@ await client.Calendar.PostV1CalendarCreateAsync(
 <dd>
 
 ```csharp
-await client.Calendar.PostV1CalendarUpdateAsync(new PostV1CalendarUpdateRequest { Key = "key" });
+await client.Calendar.DeleteAsync(new DeleteCalendarRequest { Key = "key" });
 ```
 </dd>
 </dl>
@@ -20258,7 +20106,7 @@ await client.Calendar.PostV1CalendarUpdateAsync(new PostV1CalendarUpdateRequest 
 <dl>
 <dd>
 
-**request:** `PostV1CalendarUpdateRequest` 
+**request:** `DeleteCalendarRequest` 
     
 </dd>
 </dl>
@@ -20270,7 +20118,8 @@ await client.Calendar.PostV1CalendarUpdateAsync(new PostV1CalendarUpdateRequest 
 </dl>
 </details>
 
-<details><summary><code>client.Calendar.<a href="/src/NordletApi/Calendar/CalendarClient.cs">PostV1CalendarDeleteAsync</a>(PostV1CalendarDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1CalendarDeleteResponse&gt;</code></summary>
+## audit
+<details><summary><code>client.Audit.<a href="/src/NordletApi/Audit/AuditClient.cs">ListAsync</a>(ListAuditRequest { ... }) -> WithRawResponseTask&lt;ListAuditResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -20283,7 +20132,7 @@ await client.Calendar.PostV1CalendarUpdateAsync(new PostV1CalendarUpdateRequest 
 <dd>
 
 ```csharp
-await client.Calendar.PostV1CalendarDeleteAsync(new PostV1CalendarDeleteRequest { Key = "key" });
+await client.Audit.ListAsync(new ListAuditRequest());
 ```
 </dd>
 </dl>
@@ -20298,7 +20147,7 @@ await client.Calendar.PostV1CalendarDeleteAsync(new PostV1CalendarDeleteRequest 
 <dl>
 <dd>
 
-**request:** `PostV1CalendarDeleteRequest` 
+**request:** `ListAuditRequest` 
     
 </dd>
 </dl>
@@ -20310,8 +20159,8 @@ await client.Calendar.PostV1CalendarDeleteAsync(new PostV1CalendarDeleteRequest 
 </dl>
 </details>
 
-## Audit
-<details><summary><code>client.Audit.<a href="/src/NordletApi/Audit/AuditClient.cs">PostV1AuditListAsync</a>(PostV1AuditListRequest { ... }) -> WithRawResponseTask&lt;PostV1AuditListResponse&gt;</code></summary>
+## webhooks
+<details><summary><code>client.Webhooks.<a href="/src/NordletApi/Webhooks/WebhooksClient.cs">SubscriptionsCreateAsync</a>(SubscriptionsCreateWebhooksRequest { ... }) -> WithRawResponseTask&lt;SubscriptionsCreateWebhooksResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -20324,52 +20173,14 @@ await client.Calendar.PostV1CalendarDeleteAsync(new PostV1CalendarDeleteRequest 
 <dd>
 
 ```csharp
-await client.Audit.PostV1AuditListAsync(new PostV1AuditListRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1AuditListRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-## Webhooks
-<details><summary><code>client.Webhooks.<a href="/src/NordletApi/Webhooks/WebhooksClient.cs">PostV1WebhooksSubscriptionsCreateAsync</a>(PostV1WebhooksSubscriptionsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1WebhooksSubscriptionsCreateResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Webhooks.PostV1WebhooksSubscriptionsCreateAsync(
-    new PostV1WebhooksSubscriptionsCreateRequest
+await client.Webhooks.SubscriptionsCreateAsync(
+    new SubscriptionsCreateWebhooksRequest
     {
         Url = "url",
-        Events = new List<string>() { "events" },
+        Events = new List<SubscriptionsCreateWebhooksRequestEventsItem>()
+        {
+            SubscriptionsCreateWebhooksRequestEventsItem.AgreementInvoiceGenerated,
+        },
     }
 );
 ```
@@ -20386,7 +20197,7 @@ await client.Webhooks.PostV1WebhooksSubscriptionsCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1WebhooksSubscriptionsCreateRequest` 
+**request:** `SubscriptionsCreateWebhooksRequest` 
     
 </dd>
 </dl>
@@ -20398,7 +20209,7 @@ await client.Webhooks.PostV1WebhooksSubscriptionsCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Webhooks.<a href="/src/NordletApi/Webhooks/WebhooksClient.cs">PostV1WebhooksSubscriptionsListAsync</a>(PostV1WebhooksSubscriptionsListRequest { ... }) -> WithRawResponseTask&lt;PostV1WebhooksSubscriptionsListResponse&gt;</code></summary>
+<details><summary><code>client.Webhooks.<a href="/src/NordletApi/Webhooks/WebhooksClient.cs">SubscriptionsListAsync</a>(SubscriptionsListWebhooksRequest { ... }) -> WithRawResponseTask&lt;SubscriptionsListWebhooksResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -20411,8 +20222,48 @@ await client.Webhooks.PostV1WebhooksSubscriptionsCreateAsync(
 <dd>
 
 ```csharp
-await client.Webhooks.PostV1WebhooksSubscriptionsListAsync(
-    new PostV1WebhooksSubscriptionsListRequest()
+await client.Webhooks.SubscriptionsListAsync(new SubscriptionsListWebhooksRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `SubscriptionsListWebhooksRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Webhooks.<a href="/src/NordletApi/Webhooks/WebhooksClient.cs">SubscriptionsUpdateAsync</a>(SubscriptionsUpdateWebhooksRequest { ... }) -> WithRawResponseTask&lt;SubscriptionsUpdateWebhooksResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Webhooks.SubscriptionsUpdateAsync(
+    new SubscriptionsUpdateWebhooksRequest { Id = "id" }
 );
 ```
 </dd>
@@ -20428,7 +20279,7 @@ await client.Webhooks.PostV1WebhooksSubscriptionsListAsync(
 <dl>
 <dd>
 
-**request:** `PostV1WebhooksSubscriptionsListRequest` 
+**request:** `SubscriptionsUpdateWebhooksRequest` 
     
 </dd>
 </dl>
@@ -20440,7 +20291,7 @@ await client.Webhooks.PostV1WebhooksSubscriptionsListAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Webhooks.<a href="/src/NordletApi/Webhooks/WebhooksClient.cs">PostV1WebhooksSubscriptionsUpdateAsync</a>(PostV1WebhooksSubscriptionsUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1WebhooksSubscriptionsUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Webhooks.<a href="/src/NordletApi/Webhooks/WebhooksClient.cs">SubscriptionsDeleteAsync</a>(SubscriptionsDeleteWebhooksRequest { ... }) -> WithRawResponseTask&lt;SubscriptionsDeleteWebhooksResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -20453,8 +20304,8 @@ await client.Webhooks.PostV1WebhooksSubscriptionsListAsync(
 <dd>
 
 ```csharp
-await client.Webhooks.PostV1WebhooksSubscriptionsUpdateAsync(
-    new PostV1WebhooksSubscriptionsUpdateRequest { Id = "id" }
+await client.Webhooks.SubscriptionsDeleteAsync(
+    new SubscriptionsDeleteWebhooksRequest { Id = "id" }
 );
 ```
 </dd>
@@ -20470,7 +20321,7 @@ await client.Webhooks.PostV1WebhooksSubscriptionsUpdateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1WebhooksSubscriptionsUpdateRequest` 
+**request:** `SubscriptionsDeleteWebhooksRequest` 
     
 </dd>
 </dl>
@@ -20482,7 +20333,7 @@ await client.Webhooks.PostV1WebhooksSubscriptionsUpdateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Webhooks.<a href="/src/NordletApi/Webhooks/WebhooksClient.cs">PostV1WebhooksSubscriptionsDeleteAsync</a>(PostV1WebhooksSubscriptionsDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1WebhooksSubscriptionsDeleteResponse&gt;</code></summary>
+<details><summary><code>client.Webhooks.<a href="/src/NordletApi/Webhooks/WebhooksClient.cs">DeliveriesListAsync</a>(DeliveriesListWebhooksRequest { ... }) -> WithRawResponseTask&lt;DeliveriesListWebhooksResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -20495,8 +20346,48 @@ await client.Webhooks.PostV1WebhooksSubscriptionsUpdateAsync(
 <dd>
 
 ```csharp
-await client.Webhooks.PostV1WebhooksSubscriptionsDeleteAsync(
-    new PostV1WebhooksSubscriptionsDeleteRequest { Id = "id" }
+await client.Webhooks.DeliveriesListAsync(new DeliveriesListWebhooksRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `DeliveriesListWebhooksRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Webhooks.<a href="/src/NordletApi/Webhooks/WebhooksClient.cs">DeliveriesRedeliverAsync</a>(DeliveriesRedeliverWebhooksRequest { ... }) -> WithRawResponseTask&lt;DeliveriesRedeliverWebhooksResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Webhooks.DeliveriesRedeliverAsync(
+    new DeliveriesRedeliverWebhooksRequest { Id = "id" }
 );
 ```
 </dd>
@@ -20512,7 +20403,7 @@ await client.Webhooks.PostV1WebhooksSubscriptionsDeleteAsync(
 <dl>
 <dd>
 
-**request:** `PostV1WebhooksSubscriptionsDeleteRequest` 
+**request:** `DeliveriesRedeliverWebhooksRequest` 
     
 </dd>
 </dl>
@@ -20524,7 +20415,8 @@ await client.Webhooks.PostV1WebhooksSubscriptionsDeleteAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Webhooks.<a href="/src/NordletApi/Webhooks/WebhooksClient.cs">PostV1WebhooksDeliveriesListAsync</a>(PostV1WebhooksDeliveriesListRequest { ... }) -> WithRawResponseTask&lt;PostV1WebhooksDeliveriesListResponse&gt;</code></summary>
+## bank
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">AccountsCreateAsync</a>(AccountsCreateBankRequest { ... }) -> WithRawResponseTask&lt;AccountsCreateBankResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -20537,7 +20429,7 @@ await client.Webhooks.PostV1WebhooksSubscriptionsDeleteAsync(
 <dd>
 
 ```csharp
-await client.Webhooks.PostV1WebhooksDeliveriesListAsync(new PostV1WebhooksDeliveriesListRequest());
+await client.Bank.AccountsCreateAsync(new AccountsCreateBankRequest { Name = "name" });
 ```
 </dd>
 </dl>
@@ -20552,7 +20444,7 @@ await client.Webhooks.PostV1WebhooksDeliveriesListAsync(new PostV1WebhooksDelive
 <dl>
 <dd>
 
-**request:** `PostV1WebhooksDeliveriesListRequest` 
+**request:** `AccountsCreateBankRequest` 
     
 </dd>
 </dl>
@@ -20564,7 +20456,7 @@ await client.Webhooks.PostV1WebhooksDeliveriesListAsync(new PostV1WebhooksDelive
 </dl>
 </details>
 
-<details><summary><code>client.Webhooks.<a href="/src/NordletApi/Webhooks/WebhooksClient.cs">PostV1WebhooksDeliveriesRedeliverAsync</a>(PostV1WebhooksDeliveriesRedeliverRequest { ... }) -> WithRawResponseTask&lt;PostV1WebhooksDeliveriesRedeliverResponse&gt;</code></summary>
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">AccountsListAsync</a>(AccountsListBankRequest { ... }) -> WithRawResponseTask&lt;AccountsListBankResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -20577,9 +20469,7 @@ await client.Webhooks.PostV1WebhooksDeliveriesListAsync(new PostV1WebhooksDelive
 <dd>
 
 ```csharp
-await client.Webhooks.PostV1WebhooksDeliveriesRedeliverAsync(
-    new PostV1WebhooksDeliveriesRedeliverRequest { Id = "id" }
-);
+await client.Bank.AccountsListAsync(new AccountsListBankRequest());
 ```
 </dd>
 </dl>
@@ -20594,7 +20484,7 @@ await client.Webhooks.PostV1WebhooksDeliveriesRedeliverAsync(
 <dl>
 <dd>
 
-**request:** `PostV1WebhooksDeliveriesRedeliverRequest` 
+**request:** `AccountsListBankRequest` 
     
 </dd>
 </dl>
@@ -20606,8 +20496,7 @@ await client.Webhooks.PostV1WebhooksDeliveriesRedeliverAsync(
 </dl>
 </details>
 
-## Bank
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankAccountsCreateAsync</a>(PostV1BankAccountsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1BankAccountsCreateResponse&gt;</code></summary>
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">AccountsUpdateAsync</a>(AccountsUpdateBankRequest { ... }) -> WithRawResponseTask&lt;AccountsUpdateBankResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -20620,9 +20509,7 @@ await client.Webhooks.PostV1WebhooksDeliveriesRedeliverAsync(
 <dd>
 
 ```csharp
-await client.Bank.PostV1BankAccountsCreateAsync(
-    new PostV1BankAccountsCreateRequest { Name = "name" }
-);
+await client.Bank.AccountsUpdateAsync(new AccountsUpdateBankRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -20637,7 +20524,7 @@ await client.Bank.PostV1BankAccountsCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1BankAccountsCreateRequest` 
+**request:** `AccountsUpdateBankRequest` 
     
 </dd>
 </dl>
@@ -20649,7 +20536,7 @@ await client.Bank.PostV1BankAccountsCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankAccountsListAsync</a>(PostV1BankAccountsListRequest { ... }) -> WithRawResponseTask&lt;PostV1BankAccountsListResponse&gt;</code></summary>
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">TransactionsImportAsync</a>(TransactionsImportBankRequest { ... }) -> WithRawResponseTask&lt;TransactionsImportBankResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -20662,96 +20549,16 @@ await client.Bank.PostV1BankAccountsCreateAsync(
 <dd>
 
 ```csharp
-await client.Bank.PostV1BankAccountsListAsync(new PostV1BankAccountsListRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1BankAccountsListRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankAccountsUpdateAsync</a>(PostV1BankAccountsUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1BankAccountsUpdateResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Bank.PostV1BankAccountsUpdateAsync(new PostV1BankAccountsUpdateRequest { Id = "id" });
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1BankAccountsUpdateRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankTransactionsImportAsync</a>(PostV1BankTransactionsImportRequest { ... }) -> WithRawResponseTask&lt;PostV1BankTransactionsImportResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Bank.PostV1BankTransactionsImportAsync(
-    new PostV1BankTransactionsImportRequest
+await client.Bank.TransactionsImportAsync(
+    new TransactionsImportBankRequest
     {
         BankAccountId = "bankAccountId",
-        Transactions = new List<PostV1BankTransactionsImportRequestTransactionsItem>()
+        Transactions = new List<TransactionsImportBankRequestTransactionsItem>()
         {
-            new PostV1BankTransactionsImportRequestTransactionsItem
+            new TransactionsImportBankRequestTransactionsItem
             {
-                Date = "date",
-                Amount = "amount",
+                Date = new DateOnly(2026, 7, 1),
+                Amount = "-121.0000",
             },
         },
     }
@@ -20770,7 +20577,7 @@ await client.Bank.PostV1BankTransactionsImportAsync(
 <dl>
 <dd>
 
-**request:** `PostV1BankTransactionsImportRequest` 
+**request:** `TransactionsImportBankRequest` 
     
 </dd>
 </dl>
@@ -20782,7 +20589,7 @@ await client.Bank.PostV1BankTransactionsImportAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankStatementsImportAsync</a>(PostV1BankStatementsImportRequest { ... }) -> WithRawResponseTask&lt;PostV1BankStatementsImportResponse&gt;</code></summary>
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">StatementsImportAsync</a>(StatementsImportBankRequest { ... }) -> WithRawResponseTask&lt;StatementsImportBankResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -20795,8 +20602,8 @@ await client.Bank.PostV1BankTransactionsImportAsync(
 <dd>
 
 ```csharp
-await client.Bank.PostV1BankStatementsImportAsync(
-    new PostV1BankStatementsImportRequest { BankAccountId = "bankAccountId", Content = "content" }
+await client.Bank.StatementsImportAsync(
+    new StatementsImportBankRequest { BankAccountId = "bankAccountId", Content = "content" }
 );
 ```
 </dd>
@@ -20812,7 +20619,7 @@ await client.Bank.PostV1BankStatementsImportAsync(
 <dl>
 <dd>
 
-**request:** `PostV1BankStatementsImportRequest` 
+**request:** `StatementsImportBankRequest` 
     
 </dd>
 </dl>
@@ -20824,7 +20631,7 @@ await client.Bank.PostV1BankStatementsImportAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankTransactionsListAsync</a>(PostV1BankTransactionsListRequest { ... }) -> WithRawResponseTask&lt;PostV1BankTransactionsListResponse&gt;</code></summary>
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">TransactionsListAsync</a>(TransactionsListBankRequest { ... }) -> WithRawResponseTask&lt;TransactionsListBankResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -20837,7 +20644,7 @@ await client.Bank.PostV1BankStatementsImportAsync(
 <dd>
 
 ```csharp
-await client.Bank.PostV1BankTransactionsListAsync(new PostV1BankTransactionsListRequest());
+await client.Bank.TransactionsListAsync(new TransactionsListBankRequest());
 ```
 </dd>
 </dl>
@@ -20852,7 +20659,7 @@ await client.Bank.PostV1BankTransactionsListAsync(new PostV1BankTransactionsList
 <dl>
 <dd>
 
-**request:** `PostV1BankTransactionsListRequest` 
+**request:** `TransactionsListBankRequest` 
     
 </dd>
 </dl>
@@ -20864,7 +20671,7 @@ await client.Bank.PostV1BankTransactionsListAsync(new PostV1BankTransactionsList
 </dl>
 </details>
 
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankTransactionsMatchAsync</a>(PostV1BankTransactionsMatchRequest { ... }) -> WithRawResponseTask&lt;PostV1BankTransactionsMatchResponse&gt;</code></summary>
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">TransactionsMatchAsync</a>(TransactionsMatchBankRequest { ... }) -> WithRawResponseTask&lt;TransactionsMatchBankResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -20877,11 +20684,11 @@ await client.Bank.PostV1BankTransactionsListAsync(new PostV1BankTransactionsList
 <dd>
 
 ```csharp
-await client.Bank.PostV1BankTransactionsMatchAsync(
-    new PostV1BankTransactionsMatchRequest
+await client.Bank.TransactionsMatchAsync(
+    new TransactionsMatchBankRequest
     {
         TransactionId = "transactionId",
-        DocumentType = PostV1BankTransactionsMatchRequestDocumentType.SaleInvoice,
+        DocumentType = TransactionsMatchBankRequestDocumentType.SaleInvoice,
         DocumentId = "documentId",
     }
 );
@@ -20899,7 +20706,7 @@ await client.Bank.PostV1BankTransactionsMatchAsync(
 <dl>
 <dd>
 
-**request:** `PostV1BankTransactionsMatchRequest` 
+**request:** `TransactionsMatchBankRequest` 
     
 </dd>
 </dl>
@@ -20911,7 +20718,63 @@ await client.Bank.PostV1BankTransactionsMatchAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankTransactionsRecordAsync</a>(PostV1BankTransactionsRecordRequest { ... }) -> WithRawResponseTask&lt;PostV1BankTransactionsRecordResponse&gt;</code></summary>
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">TransactionsUnmatchAsync</a>(TransactionsUnmatchBankRequest { ... }) -> WithRawResponseTask&lt;TransactionsUnmatchBankResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Undo a match. A payment matched to an invoice, or a line posted by an import template, gets a reversing journal transaction dated date (default: today) and the invoice paid amount and payment status are restored; a line linked to a payment-provider settlement is only unlinked. The line returns to status new.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Bank.TransactionsUnmatchAsync(
+    new TransactionsUnmatchBankRequest { TransactionId = "transactionId" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `TransactionsUnmatchBankRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">TransactionsRecordAsync</a>(TransactionsRecordBankRequest { ... }) -> WithRawResponseTask&lt;TransactionsRecordBankResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -20924,13 +20787,13 @@ await client.Bank.PostV1BankTransactionsMatchAsync(
 <dd>
 
 ```csharp
-await client.Bank.PostV1BankTransactionsRecordAsync(
-    new PostV1BankTransactionsRecordRequest
+await client.Bank.TransactionsRecordAsync(
+    new TransactionsRecordBankRequest
     {
         BankAccountId = "bankAccountId",
-        Date = "date",
-        Amount = "amount",
-        DocumentType = PostV1BankTransactionsRecordRequestDocumentType.SaleInvoice,
+        Date = new DateOnly(2026, 7, 1),
+        Amount = "121.0000",
+        DocumentType = TransactionsRecordBankRequestDocumentType.SaleInvoice,
         DocumentId = "documentId",
     }
 );
@@ -20948,7 +20811,7 @@ await client.Bank.PostV1BankTransactionsRecordAsync(
 <dl>
 <dd>
 
-**request:** `PostV1BankTransactionsRecordRequest` 
+**request:** `TransactionsRecordBankRequest` 
     
 </dd>
 </dl>
@@ -20960,7 +20823,7 @@ await client.Bank.PostV1BankTransactionsRecordAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankPaymentsExportAsync</a>(PostV1BankPaymentsExportRequest { ... }) -> WithRawResponseTask&lt;PostV1BankPaymentsExportResponse&gt;</code></summary>
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PaymentsExportAsync</a>(PaymentsExportBankRequest { ... }) -> WithRawResponseTask&lt;PaymentsExportBankResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -20973,8 +20836,8 @@ await client.Bank.PostV1BankTransactionsRecordAsync(
 <dd>
 
 ```csharp
-await client.Bank.PostV1BankPaymentsExportAsync(
-    new PostV1BankPaymentsExportRequest
+await client.Bank.PaymentsExportAsync(
+    new PaymentsExportBankRequest
     {
         BankAccountId = "bankAccountId",
         PurchaseInvoiceIds = new List<string>() { "purchaseInvoiceIds" },
@@ -20994,7 +20857,7 @@ await client.Bank.PostV1BankPaymentsExportAsync(
 <dl>
 <dd>
 
-**request:** `PostV1BankPaymentsExportRequest` 
+**request:** `PaymentsExportBankRequest` 
     
 </dd>
 </dl>
@@ -21006,7 +20869,7 @@ await client.Bank.PostV1BankPaymentsExportAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">CreateABankImportTemplateFieldsDefaultToTheTypesStandardFieldListAsync</a>(PostV1BankImportTemplatesCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1BankImportTemplatesCreateResponse&gt;</code></summary>
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">ImportTemplatesCreateAsync</a>(ImportTemplatesCreateBankRequest { ... }) -> WithRawResponseTask&lt;ImportTemplatesCreateBankResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -21019,11 +20882,11 @@ await client.Bank.PostV1BankPaymentsExportAsync(
 <dd>
 
 ```csharp
-await client.Bank.CreateABankImportTemplateFieldsDefaultToTheTypesStandardFieldListAsync(
-    new PostV1BankImportTemplatesCreateRequest
+await client.Bank.ImportTemplatesCreateAsync(
+    new ImportTemplatesCreateBankRequest
     {
         Name = "name",
-        Type = PostV1BankImportTemplatesCreateRequestType.Stripe,
+        Type = ImportTemplatesCreateBankRequestType.Stripe,
     }
 );
 ```
@@ -21040,7 +20903,7 @@ await client.Bank.CreateABankImportTemplateFieldsDefaultToTheTypesStandardFieldL
 <dl>
 <dd>
 
-**request:** `PostV1BankImportTemplatesCreateRequest` 
+**request:** `ImportTemplatesCreateBankRequest` 
     
 </dd>
 </dl>
@@ -21052,7 +20915,7 @@ await client.Bank.CreateABankImportTemplateFieldsDefaultToTheTypesStandardFieldL
 </dl>
 </details>
 
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankImportTemplatesUpdateAsync</a>(PostV1BankImportTemplatesUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1BankImportTemplatesUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">ImportTemplatesUpdateAsync</a>(ImportTemplatesUpdateBankRequest { ... }) -> WithRawResponseTask&lt;ImportTemplatesUpdateBankResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -21065,8 +20928,168 @@ await client.Bank.CreateABankImportTemplateFieldsDefaultToTheTypesStandardFieldL
 <dd>
 
 ```csharp
-await client.Bank.PostV1BankImportTemplatesUpdateAsync(
-    new PostV1BankImportTemplatesUpdateRequest { Id = "id" }
+await client.Bank.ImportTemplatesUpdateAsync(new ImportTemplatesUpdateBankRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ImportTemplatesUpdateBankRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">ImportTemplatesDeleteAsync</a>(ImportTemplatesDeleteBankRequest { ... }) -> WithRawResponseTask&lt;ImportTemplatesDeleteBankResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Bank.ImportTemplatesDeleteAsync(new ImportTemplatesDeleteBankRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ImportTemplatesDeleteBankRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">ImportTemplatesGetAsync</a>(ImportTemplatesGetBankRequest { ... }) -> WithRawResponseTask&lt;ImportTemplatesGetBankResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Bank.ImportTemplatesGetAsync(new ImportTemplatesGetBankRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ImportTemplatesGetBankRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">ImportTemplatesListAsync</a>(ImportTemplatesListBankRequest { ... }) -> WithRawResponseTask&lt;ImportTemplatesListBankResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Bank.ImportTemplatesListAsync(new ImportTemplatesListBankRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ImportTemplatesListBankRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">MatchRulesCreateAsync</a>(MatchRulesCreateBankRequest { ... }) -> WithRawResponseTask&lt;MatchRulesCreateBankResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Bank.MatchRulesCreateAsync(
+    new MatchRulesCreateBankRequest { Name = "name", Pattern = "pattern" }
 );
 ```
 </dd>
@@ -21082,7 +21105,7 @@ await client.Bank.PostV1BankImportTemplatesUpdateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1BankImportTemplatesUpdateRequest` 
+**request:** `MatchRulesCreateBankRequest` 
     
 </dd>
 </dl>
@@ -21094,7 +21117,7 @@ await client.Bank.PostV1BankImportTemplatesUpdateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankImportTemplatesDeleteAsync</a>(PostV1BankImportTemplatesDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1BankImportTemplatesDeleteResponse&gt;</code></summary>
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">MatchRulesUpdateAsync</a>(MatchRulesUpdateBankRequest { ... }) -> WithRawResponseTask&lt;MatchRulesUpdateBankResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -21107,9 +21130,7 @@ await client.Bank.PostV1BankImportTemplatesUpdateAsync(
 <dd>
 
 ```csharp
-await client.Bank.PostV1BankImportTemplatesDeleteAsync(
-    new PostV1BankImportTemplatesDeleteRequest { Id = "id" }
-);
+await client.Bank.MatchRulesUpdateAsync(new MatchRulesUpdateBankRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -21124,7 +21145,7 @@ await client.Bank.PostV1BankImportTemplatesDeleteAsync(
 <dl>
 <dd>
 
-**request:** `PostV1BankImportTemplatesDeleteRequest` 
+**request:** `MatchRulesUpdateBankRequest` 
     
 </dd>
 </dl>
@@ -21136,7 +21157,7 @@ await client.Bank.PostV1BankImportTemplatesDeleteAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankImportTemplatesGetAsync</a>(PostV1BankImportTemplatesGetRequest { ... }) -> WithRawResponseTask&lt;PostV1BankImportTemplatesGetResponse&gt;</code></summary>
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">MatchRulesDeleteAsync</a>(MatchRulesDeleteBankRequest { ... }) -> WithRawResponseTask&lt;MatchRulesDeleteBankResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -21149,9 +21170,7 @@ await client.Bank.PostV1BankImportTemplatesDeleteAsync(
 <dd>
 
 ```csharp
-await client.Bank.PostV1BankImportTemplatesGetAsync(
-    new PostV1BankImportTemplatesGetRequest { Id = "id" }
-);
+await client.Bank.MatchRulesDeleteAsync(new MatchRulesDeleteBankRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -21166,7 +21185,7 @@ await client.Bank.PostV1BankImportTemplatesGetAsync(
 <dl>
 <dd>
 
-**request:** `PostV1BankImportTemplatesGetRequest` 
+**request:** `MatchRulesDeleteBankRequest` 
     
 </dd>
 </dl>
@@ -21178,7 +21197,7 @@ await client.Bank.PostV1BankImportTemplatesGetAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankImportTemplatesListAsync</a>(PostV1BankImportTemplatesListRequest { ... }) -> WithRawResponseTask&lt;PostV1BankImportTemplatesListResponse&gt;</code></summary>
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">MatchRulesListAsync</a>(MatchRulesListBankRequest { ... }) -> WithRawResponseTask&lt;MatchRulesListBankResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -21191,7 +21210,7 @@ await client.Bank.PostV1BankImportTemplatesGetAsync(
 <dd>
 
 ```csharp
-await client.Bank.PostV1BankImportTemplatesListAsync(new PostV1BankImportTemplatesListRequest());
+await client.Bank.MatchRulesListAsync(new MatchRulesListBankRequest());
 ```
 </dd>
 </dl>
@@ -21206,7 +21225,7 @@ await client.Bank.PostV1BankImportTemplatesListAsync(new PostV1BankImportTemplat
 <dl>
 <dd>
 
-**request:** `PostV1BankImportTemplatesListRequest` 
+**request:** `MatchRulesListBankRequest` 
     
 </dd>
 </dl>
@@ -21218,7 +21237,7 @@ await client.Bank.PostV1BankImportTemplatesListAsync(new PostV1BankImportTemplat
 </dl>
 </details>
 
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankMatchRulesCreateAsync</a>(PostV1BankMatchRulesCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1BankMatchRulesCreateResponse&gt;</code></summary>
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">MandatesCreateAsync</a>(MandatesCreateBankRequest { ... }) -> WithRawResponseTask&lt;MandatesCreateBankResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -21231,178 +21250,12 @@ await client.Bank.PostV1BankImportTemplatesListAsync(new PostV1BankImportTemplat
 <dd>
 
 ```csharp
-await client.Bank.PostV1BankMatchRulesCreateAsync(
-    new PostV1BankMatchRulesCreateRequest { Name = "name", Pattern = "pattern" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1BankMatchRulesCreateRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankMatchRulesUpdateAsync</a>(PostV1BankMatchRulesUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1BankMatchRulesUpdateResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Bank.PostV1BankMatchRulesUpdateAsync(
-    new PostV1BankMatchRulesUpdateRequest { Id = "id" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1BankMatchRulesUpdateRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankMatchRulesDeleteAsync</a>(PostV1BankMatchRulesDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1BankMatchRulesDeleteResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Bank.PostV1BankMatchRulesDeleteAsync(
-    new PostV1BankMatchRulesDeleteRequest { Id = "id" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1BankMatchRulesDeleteRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankMatchRulesListAsync</a>(PostV1BankMatchRulesListRequest { ... }) -> WithRawResponseTask&lt;PostV1BankMatchRulesListResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Bank.PostV1BankMatchRulesListAsync(new PostV1BankMatchRulesListRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1BankMatchRulesListRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankMandatesCreateAsync</a>(PostV1BankMandatesCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1BankMandatesCreateResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Bank.PostV1BankMandatesCreateAsync(
-    new PostV1BankMandatesCreateRequest
+await client.Bank.MandatesCreateAsync(
+    new MandatesCreateBankRequest
     {
         PartnerId = "partnerId",
         Iban = "iban",
-        SignatureDate = "signatureDate",
+        SignatureDate = new DateOnly(2026, 7, 1),
     }
 );
 ```
@@ -21419,7 +21272,7 @@ await client.Bank.PostV1BankMandatesCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1BankMandatesCreateRequest` 
+**request:** `MandatesCreateBankRequest` 
     
 </dd>
 </dl>
@@ -21431,7 +21284,7 @@ await client.Bank.PostV1BankMandatesCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankMandatesUpdateAsync</a>(PostV1BankMandatesUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1BankMandatesUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">MandatesUpdateAsync</a>(MandatesUpdateBankRequest { ... }) -> WithRawResponseTask&lt;MandatesUpdateBankResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -21444,7 +21297,7 @@ await client.Bank.PostV1BankMandatesCreateAsync(
 <dd>
 
 ```csharp
-await client.Bank.PostV1BankMandatesUpdateAsync(new PostV1BankMandatesUpdateRequest { Id = "id" });
+await client.Bank.MandatesUpdateAsync(new MandatesUpdateBankRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -21459,7 +21312,7 @@ await client.Bank.PostV1BankMandatesUpdateAsync(new PostV1BankMandatesUpdateRequ
 <dl>
 <dd>
 
-**request:** `PostV1BankMandatesUpdateRequest` 
+**request:** `MandatesUpdateBankRequest` 
     
 </dd>
 </dl>
@@ -21471,7 +21324,7 @@ await client.Bank.PostV1BankMandatesUpdateAsync(new PostV1BankMandatesUpdateRequ
 </dl>
 </details>
 
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankMandatesCancelAsync</a>(PostV1BankMandatesCancelRequest { ... }) -> WithRawResponseTask&lt;PostV1BankMandatesCancelResponse&gt;</code></summary>
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">MandatesCancelAsync</a>(MandatesCancelBankRequest { ... }) -> WithRawResponseTask&lt;MandatesCancelBankResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -21484,7 +21337,7 @@ await client.Bank.PostV1BankMandatesUpdateAsync(new PostV1BankMandatesUpdateRequ
 <dd>
 
 ```csharp
-await client.Bank.PostV1BankMandatesCancelAsync(new PostV1BankMandatesCancelRequest { Id = "id" });
+await client.Bank.MandatesCancelAsync(new MandatesCancelBankRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -21499,7 +21352,7 @@ await client.Bank.PostV1BankMandatesCancelAsync(new PostV1BankMandatesCancelRequ
 <dl>
 <dd>
 
-**request:** `PostV1BankMandatesCancelRequest` 
+**request:** `MandatesCancelBankRequest` 
     
 </dd>
 </dl>
@@ -21511,7 +21364,7 @@ await client.Bank.PostV1BankMandatesCancelAsync(new PostV1BankMandatesCancelRequ
 </dl>
 </details>
 
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankMandatesGetAsync</a>(PostV1BankMandatesGetRequest { ... }) -> WithRawResponseTask&lt;PostV1BankMandatesGetResponse&gt;</code></summary>
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">MandatesGetAsync</a>(MandatesGetBankRequest { ... }) -> WithRawResponseTask&lt;MandatesGetBankResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -21524,7 +21377,7 @@ await client.Bank.PostV1BankMandatesCancelAsync(new PostV1BankMandatesCancelRequ
 <dd>
 
 ```csharp
-await client.Bank.PostV1BankMandatesGetAsync(new PostV1BankMandatesGetRequest { Id = "id" });
+await client.Bank.MandatesGetAsync(new MandatesGetBankRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -21539,7 +21392,7 @@ await client.Bank.PostV1BankMandatesGetAsync(new PostV1BankMandatesGetRequest { 
 <dl>
 <dd>
 
-**request:** `PostV1BankMandatesGetRequest` 
+**request:** `MandatesGetBankRequest` 
     
 </dd>
 </dl>
@@ -21551,7 +21404,7 @@ await client.Bank.PostV1BankMandatesGetAsync(new PostV1BankMandatesGetRequest { 
 </dl>
 </details>
 
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankMandatesListAsync</a>(PostV1BankMandatesListRequest { ... }) -> WithRawResponseTask&lt;PostV1BankMandatesListResponse&gt;</code></summary>
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">MandatesListAsync</a>(MandatesListBankRequest { ... }) -> WithRawResponseTask&lt;MandatesListBankResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -21564,7 +21417,7 @@ await client.Bank.PostV1BankMandatesGetAsync(new PostV1BankMandatesGetRequest { 
 <dd>
 
 ```csharp
-await client.Bank.PostV1BankMandatesListAsync(new PostV1BankMandatesListRequest());
+await client.Bank.MandatesListAsync(new MandatesListBankRequest());
 ```
 </dd>
 </dl>
@@ -21579,7 +21432,7 @@ await client.Bank.PostV1BankMandatesListAsync(new PostV1BankMandatesListRequest(
 <dl>
 <dd>
 
-**request:** `PostV1BankMandatesListRequest` 
+**request:** `MandatesListBankRequest` 
     
 </dd>
 </dl>
@@ -21591,7 +21444,7 @@ await client.Bank.PostV1BankMandatesListAsync(new PostV1BankMandatesListRequest(
 </dl>
 </details>
 
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankDirectDebitsExportAsync</a>(PostV1BankDirectDebitsExportRequest { ... }) -> WithRawResponseTask&lt;PostV1BankDirectDebitsExportResponse&gt;</code></summary>
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">DirectDebitsExportAsync</a>(DirectDebitsExportBankRequest { ... }) -> WithRawResponseTask&lt;DirectDebitsExportBankResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -21604,8 +21457,8 @@ await client.Bank.PostV1BankMandatesListAsync(new PostV1BankMandatesListRequest(
 <dd>
 
 ```csharp
-await client.Bank.PostV1BankDirectDebitsExportAsync(
-    new PostV1BankDirectDebitsExportRequest
+await client.Bank.DirectDebitsExportAsync(
+    new DirectDebitsExportBankRequest
     {
         BankAccountId = "bankAccountId",
         SaleInvoiceIds = new List<string>() { "saleInvoiceIds" },
@@ -21625,7 +21478,7 @@ await client.Bank.PostV1BankDirectDebitsExportAsync(
 <dl>
 <dd>
 
-**request:** `PostV1BankDirectDebitsExportRequest` 
+**request:** `DirectDebitsExportBankRequest` 
     
 </dd>
 </dl>
@@ -21637,7 +21490,7 @@ await client.Bank.PostV1BankDirectDebitsExportAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankTransactionsSuggestMatchesAsync</a>(PostV1BankTransactionsSuggestMatchesRequest { ... }) -> WithRawResponseTask&lt;PostV1BankTransactionsSuggestMatchesResponse&gt;</code></summary>
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">TransactionsSuggestMatchesAsync</a>(TransactionsSuggestMatchesBankRequest { ... }) -> WithRawResponseTask&lt;TransactionsSuggestMatchesBankResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -21650,8 +21503,8 @@ await client.Bank.PostV1BankDirectDebitsExportAsync(
 <dd>
 
 ```csharp
-await client.Bank.PostV1BankTransactionsSuggestMatchesAsync(
-    new PostV1BankTransactionsSuggestMatchesRequest { TransactionId = "transactionId" }
+await client.Bank.TransactionsSuggestMatchesAsync(
+    new TransactionsSuggestMatchesBankRequest { TransactionId = "transactionId" }
 );
 ```
 </dd>
@@ -21667,7 +21520,7 @@ await client.Bank.PostV1BankTransactionsSuggestMatchesAsync(
 <dl>
 <dd>
 
-**request:** `PostV1BankTransactionsSuggestMatchesRequest` 
+**request:** `TransactionsSuggestMatchesBankRequest` 
     
 </dd>
 </dl>
@@ -21679,7 +21532,7 @@ await client.Bank.PostV1BankTransactionsSuggestMatchesAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankSettlementsImportAsync</a>(PostV1BankSettlementsImportRequest { ... }) -> WithRawResponseTask&lt;PostV1BankSettlementsImportResponse&gt;</code></summary>
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">SettlementsImportAsync</a>(SettlementsImportBankRequest { ... }) -> WithRawResponseTask&lt;SettlementsImportBankResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -21692,8 +21545,8 @@ await client.Bank.PostV1BankTransactionsSuggestMatchesAsync(
 <dd>
 
 ```csharp
-await client.Bank.PostV1BankSettlementsImportAsync(
-    new PostV1BankSettlementsImportRequest { BankAccountId = "bankAccountId", Content = "content" }
+await client.Bank.SettlementsImportAsync(
+    new SettlementsImportBankRequest { BankAccountId = "bankAccountId", Content = "content" }
 );
 ```
 </dd>
@@ -21709,7 +21562,7 @@ await client.Bank.PostV1BankSettlementsImportAsync(
 <dl>
 <dd>
 
-**request:** `PostV1BankSettlementsImportRequest` 
+**request:** `SettlementsImportBankRequest` 
     
 </dd>
 </dl>
@@ -21721,7 +21574,7 @@ await client.Bank.PostV1BankSettlementsImportAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankSettlementsListAsync</a>(PostV1BankSettlementsListRequest { ... }) -> WithRawResponseTask&lt;PostV1BankSettlementsListResponse&gt;</code></summary>
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">SettlementsListAsync</a>(SettlementsListBankRequest { ... }) -> WithRawResponseTask&lt;SettlementsListBankResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -21734,7 +21587,7 @@ await client.Bank.PostV1BankSettlementsImportAsync(
 <dd>
 
 ```csharp
-await client.Bank.PostV1BankSettlementsListAsync(new PostV1BankSettlementsListRequest());
+await client.Bank.SettlementsListAsync(new SettlementsListBankRequest());
 ```
 </dd>
 </dl>
@@ -21749,7 +21602,7 @@ await client.Bank.PostV1BankSettlementsListAsync(new PostV1BankSettlementsListRe
 <dl>
 <dd>
 
-**request:** `PostV1BankSettlementsListRequest` 
+**request:** `SettlementsListBankRequest` 
     
 </dd>
 </dl>
@@ -21761,7 +21614,7 @@ await client.Bank.PostV1BankSettlementsListAsync(new PostV1BankSettlementsListRe
 </dl>
 </details>
 
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankSettlementsGetAsync</a>(PostV1BankSettlementsGetRequest { ... }) -> WithRawResponseTask&lt;PostV1BankSettlementsGetResponse&gt;</code></summary>
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">SettlementsGetAsync</a>(SettlementsGetBankRequest { ... }) -> WithRawResponseTask&lt;SettlementsGetBankResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -21774,7 +21627,7 @@ await client.Bank.PostV1BankSettlementsListAsync(new PostV1BankSettlementsListRe
 <dd>
 
 ```csharp
-await client.Bank.PostV1BankSettlementsGetAsync(new PostV1BankSettlementsGetRequest { Id = "id" });
+await client.Bank.SettlementsGetAsync(new SettlementsGetBankRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -21789,7 +21642,7 @@ await client.Bank.PostV1BankSettlementsGetAsync(new PostV1BankSettlementsGetRequ
 <dl>
 <dd>
 
-**request:** `PostV1BankSettlementsGetRequest` 
+**request:** `SettlementsGetBankRequest` 
     
 </dd>
 </dl>
@@ -21801,7 +21654,7 @@ await client.Bank.PostV1BankSettlementsGetAsync(new PostV1BankSettlementsGetRequ
 </dl>
 </details>
 
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankSettlementsMatchAsync</a>(PostV1BankSettlementsMatchRequest { ... }) -> WithRawResponseTask&lt;PostV1BankSettlementsMatchResponse&gt;</code></summary>
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">SettlementsMatchAsync</a>(SettlementsMatchBankRequest { ... }) -> WithRawResponseTask&lt;SettlementsMatchBankResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -21814,9 +21667,7 @@ await client.Bank.PostV1BankSettlementsGetAsync(new PostV1BankSettlementsGetRequ
 <dd>
 
 ```csharp
-await client.Bank.PostV1BankSettlementsMatchAsync(
-    new PostV1BankSettlementsMatchRequest { LineId = "lineId" }
-);
+await client.Bank.SettlementsMatchAsync(new SettlementsMatchBankRequest { LineId = "lineId" });
 ```
 </dd>
 </dl>
@@ -21831,7 +21682,7 @@ await client.Bank.PostV1BankSettlementsMatchAsync(
 <dl>
 <dd>
 
-**request:** `PostV1BankSettlementsMatchRequest` 
+**request:** `SettlementsMatchBankRequest` 
     
 </dd>
 </dl>
@@ -21843,7 +21694,7 @@ await client.Bank.PostV1BankSettlementsMatchAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">SetWhatTheMarketplaceKeepsFromOneSettlementLineAsARateOrAsAnAmountAsync</a>(PostV1BankSettlementsCommissionRequest { ... }) -> WithRawResponseTask&lt;PostV1BankSettlementsCommissionResponse&gt;</code></summary>
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">SettlementsCommissionAsync</a>(SettlementsCommissionBankRequest { ... }) -> WithRawResponseTask&lt;SettlementsCommissionBankResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -21870,8 +21721,8 @@ A line with its own rate or amount is split with that value when the batch is po
 <dd>
 
 ```csharp
-await client.Bank.SetWhatTheMarketplaceKeepsFromOneSettlementLineAsARateOrAsAnAmountAsync(
-    new PostV1BankSettlementsCommissionRequest { LineId = "lineId" }
+await client.Bank.SettlementsCommissionAsync(
+    new SettlementsCommissionBankRequest { LineId = "lineId" }
 );
 ```
 </dd>
@@ -21887,7 +21738,7 @@ await client.Bank.SetWhatTheMarketplaceKeepsFromOneSettlementLineAsARateOrAsAnAm
 <dl>
 <dd>
 
-**request:** `PostV1BankSettlementsCommissionRequest` 
+**request:** `SettlementsCommissionBankRequest` 
     
 </dd>
 </dl>
@@ -21899,7 +21750,7 @@ await client.Bank.SetWhatTheMarketplaceKeepsFromOneSettlementLineAsARateOrAsAnAm
 </dl>
 </details>
 
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankSettlementsLinkAsync</a>(PostV1BankSettlementsLinkRequest { ... }) -> WithRawResponseTask&lt;PostV1BankSettlementsLinkResponse&gt;</code></summary>
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">SettlementsLinkAsync</a>(SettlementsLinkBankRequest { ... }) -> WithRawResponseTask&lt;SettlementsLinkBankResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -21926,8 +21777,8 @@ Attach the incoming bank-statement line that carries this payout to the settleme
 <dd>
 
 ```csharp
-await client.Bank.PostV1BankSettlementsLinkAsync(
-    new PostV1BankSettlementsLinkRequest { Id = "id", BankTransactionId = "bankTransactionId" }
+await client.Bank.SettlementsLinkAsync(
+    new SettlementsLinkBankRequest { Id = "id", BankTransactionId = "bankTransactionId" }
 );
 ```
 </dd>
@@ -21943,7 +21794,7 @@ await client.Bank.PostV1BankSettlementsLinkAsync(
 <dl>
 <dd>
 
-**request:** `PostV1BankSettlementsLinkRequest` 
+**request:** `SettlementsLinkBankRequest` 
     
 </dd>
 </dl>
@@ -21955,7 +21806,7 @@ await client.Bank.PostV1BankSettlementsLinkAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankSettlementsUnlinkAsync</a>(PostV1BankSettlementsUnlinkRequest { ... }) -> WithRawResponseTask&lt;PostV1BankSettlementsUnlinkResponse&gt;</code></summary>
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">SettlementsUnlinkAsync</a>(SettlementsUnlinkBankRequest { ... }) -> WithRawResponseTask&lt;SettlementsUnlinkBankResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -21982,8 +21833,128 @@ Detach the bank-statement line from the settlement batch and return the line to 
 <dd>
 
 ```csharp
-await client.Bank.PostV1BankSettlementsUnlinkAsync(
-    new PostV1BankSettlementsUnlinkRequest { Id = "id" }
+await client.Bank.SettlementsUnlinkAsync(new SettlementsUnlinkBankRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `SettlementsUnlinkBankRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">SettlementsPostAsync</a>(SettlementsPostBankRequest { ... }) -> WithRawResponseTask&lt;SettlementsPostBankResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Bank.SettlementsPostAsync(new SettlementsPostBankRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `SettlementsPostBankRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">FeedsBanksListAsync</a>(FeedsBanksListBankRequest { ... }) -> WithRawResponseTask&lt;FeedsBanksListBankResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Bank.FeedsBanksListAsync(new FeedsBanksListBankRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `FeedsBanksListBankRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">FeedsConnectionsStartAsync</a>(FeedsConnectionsStartBankRequest { ... }) -> WithRawResponseTask&lt;FeedsConnectionsStartBankResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Bank.FeedsConnectionsStartAsync(
+    new FeedsConnectionsStartBankRequest { AspspName = "aspspName", AspspCountry = "aspspCountry" }
 );
 ```
 </dd>
@@ -21999,7 +21970,7 @@ await client.Bank.PostV1BankSettlementsUnlinkAsync(
 <dl>
 <dd>
 
-**request:** `PostV1BankSettlementsUnlinkRequest` 
+**request:** `FeedsConnectionsStartBankRequest` 
     
 </dd>
 </dl>
@@ -22011,7 +21982,7 @@ await client.Bank.PostV1BankSettlementsUnlinkAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankSettlementsPostAsync</a>(PostV1BankSettlementsPostRequest { ... }) -> WithRawResponseTask&lt;PostV1BankSettlementsPostResponse&gt;</code></summary>
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">FeedsConnectionsCompleteAsync</a>(FeedsConnectionsCompleteBankRequest { ... }) -> WithRawResponseTask&lt;FeedsConnectionsCompleteBankResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -22024,8 +21995,8 @@ await client.Bank.PostV1BankSettlementsUnlinkAsync(
 <dd>
 
 ```csharp
-await client.Bank.PostV1BankSettlementsPostAsync(
-    new PostV1BankSettlementsPostRequest { Id = "id" }
+await client.Bank.FeedsConnectionsCompleteAsync(
+    new FeedsConnectionsCompleteBankRequest { Reference = "reference", Code = "code" }
 );
 ```
 </dd>
@@ -22041,7 +22012,7 @@ await client.Bank.PostV1BankSettlementsPostAsync(
 <dl>
 <dd>
 
-**request:** `PostV1BankSettlementsPostRequest` 
+**request:** `FeedsConnectionsCompleteBankRequest` 
     
 </dd>
 </dl>
@@ -22053,7 +22024,7 @@ await client.Bank.PostV1BankSettlementsPostAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">ListThePsd2BanksAspsPsAvailableToConnectAsync</a>(PostV1BankFeedsBanksListRequest { ... }) -> WithRawResponseTask&lt;PostV1BankFeedsBanksListResponse&gt;</code></summary>
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">FeedsConnectionsGetAsync</a>(FeedsConnectionsGetBankRequest { ... }) -> WithRawResponseTask&lt;FeedsConnectionsGetBankResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -22066,9 +22037,7 @@ await client.Bank.PostV1BankSettlementsPostAsync(
 <dd>
 
 ```csharp
-await client.Bank.ListThePsd2BanksAspsPsAvailableToConnectAsync(
-    new PostV1BankFeedsBanksListRequest()
-);
+await client.Bank.FeedsConnectionsGetAsync(new FeedsConnectionsGetBankRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -22083,7 +22052,7 @@ await client.Bank.ListThePsd2BanksAspsPsAvailableToConnectAsync(
 <dl>
 <dd>
 
-**request:** `PostV1BankFeedsBanksListRequest` 
+**request:** `FeedsConnectionsGetBankRequest` 
     
 </dd>
 </dl>
@@ -22095,7 +22064,7 @@ await client.Bank.ListThePsd2BanksAspsPsAvailableToConnectAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">BeginBankAuthorizationRedirectTheUserToTheReturnedUrlAsync</a>(PostV1BankFeedsConnectionsStartRequest { ... }) -> WithRawResponseTask&lt;PostV1BankFeedsConnectionsStartResponse&gt;</code></summary>
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">FeedsConnectionsListAsync</a>(FeedsConnectionsListBankRequest { ... }) -> WithRawResponseTask&lt;FeedsConnectionsListBankResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -22108,13 +22077,7 @@ await client.Bank.ListThePsd2BanksAspsPsAvailableToConnectAsync(
 <dd>
 
 ```csharp
-await client.Bank.BeginBankAuthorizationRedirectTheUserToTheReturnedUrlAsync(
-    new PostV1BankFeedsConnectionsStartRequest
-    {
-        AspspName = "aspspName",
-        AspspCountry = "aspspCountry",
-    }
-);
+await client.Bank.FeedsConnectionsListAsync(new FeedsConnectionsListBankRequest());
 ```
 </dd>
 </dl>
@@ -22129,7 +22092,7 @@ await client.Bank.BeginBankAuthorizationRedirectTheUserToTheReturnedUrlAsync(
 <dl>
 <dd>
 
-**request:** `PostV1BankFeedsConnectionsStartRequest` 
+**request:** `FeedsConnectionsListBankRequest` 
     
 </dd>
 </dl>
@@ -22141,7 +22104,7 @@ await client.Bank.BeginBankAuthorizationRedirectTheUserToTheReturnedUrlAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">ExchangeTheRedirectCodeForASessionAndStoreTheBankAccountsItExposesAsync</a>(PostV1BankFeedsConnectionsCompleteRequest { ... }) -> WithRawResponseTask&lt;PostV1BankFeedsConnectionsCompleteResponse&gt;</code></summary>
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">FeedsConnectionsDeleteAsync</a>(FeedsConnectionsDeleteBankRequest { ... }) -> WithRawResponseTask&lt;FeedsConnectionsDeleteBankResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -22154,9 +22117,7 @@ await client.Bank.BeginBankAuthorizationRedirectTheUserToTheReturnedUrlAsync(
 <dd>
 
 ```csharp
-await client.Bank.ExchangeTheRedirectCodeForASessionAndStoreTheBankAccountsItExposesAsync(
-    new PostV1BankFeedsConnectionsCompleteRequest { Reference = "reference", Code = "code" }
-);
+await client.Bank.FeedsConnectionsDeleteAsync(new FeedsConnectionsDeleteBankRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -22171,7 +22132,7 @@ await client.Bank.ExchangeTheRedirectCodeForASessionAndStoreTheBankAccountsItExp
 <dl>
 <dd>
 
-**request:** `PostV1BankFeedsConnectionsCompleteRequest` 
+**request:** `FeedsConnectionsDeleteBankRequest` 
     
 </dd>
 </dl>
@@ -22183,7 +22144,7 @@ await client.Bank.ExchangeTheRedirectCodeForASessionAndStoreTheBankAccountsItExp
 </dl>
 </details>
 
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankFeedsConnectionsGetAsync</a>(PostV1BankFeedsConnectionsGetRequest { ... }) -> WithRawResponseTask&lt;PostV1BankFeedsConnectionsGetResponse&gt;</code></summary>
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">FeedsAccountsLinkAsync</a>(FeedsAccountsLinkBankRequest { ... }) -> WithRawResponseTask&lt;FeedsAccountsLinkBankResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -22196,9 +22157,7 @@ await client.Bank.ExchangeTheRedirectCodeForASessionAndStoreTheBankAccountsItExp
 <dd>
 
 ```csharp
-await client.Bank.PostV1BankFeedsConnectionsGetAsync(
-    new PostV1BankFeedsConnectionsGetRequest { Id = "id" }
-);
+await client.Bank.FeedsAccountsLinkAsync(new FeedsAccountsLinkBankRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -22213,7 +22172,7 @@ await client.Bank.PostV1BankFeedsConnectionsGetAsync(
 <dl>
 <dd>
 
-**request:** `PostV1BankFeedsConnectionsGetRequest` 
+**request:** `FeedsAccountsLinkBankRequest` 
     
 </dd>
 </dl>
@@ -22225,7 +22184,7 @@ await client.Bank.PostV1BankFeedsConnectionsGetAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PostV1BankFeedsConnectionsListAsync</a>(PostV1BankFeedsConnectionsListRequest { ... }) -> WithRawResponseTask&lt;PostV1BankFeedsConnectionsListResponse&gt;</code></summary>
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">FeedsAccountsConfigureAsync</a>(FeedsAccountsConfigureBankRequest { ... }) -> WithRawResponseTask&lt;FeedsAccountsConfigureBankResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -22238,7 +22197,7 @@ await client.Bank.PostV1BankFeedsConnectionsGetAsync(
 <dd>
 
 ```csharp
-await client.Bank.PostV1BankFeedsConnectionsListAsync(new PostV1BankFeedsConnectionsListRequest());
+await client.Bank.FeedsAccountsConfigureAsync(new FeedsAccountsConfigureBankRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -22253,7 +22212,7 @@ await client.Bank.PostV1BankFeedsConnectionsListAsync(new PostV1BankFeedsConnect
 <dl>
 <dd>
 
-**request:** `PostV1BankFeedsConnectionsListRequest` 
+**request:** `FeedsAccountsConfigureBankRequest` 
     
 </dd>
 </dl>
@@ -22265,7 +22224,7 @@ await client.Bank.PostV1BankFeedsConnectionsListAsync(new PostV1BankFeedsConnect
 </dl>
 </details>
 
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">RevokeTheConsentAtTheBankAndDropTheStoredConnectionAsync</a>(PostV1BankFeedsConnectionsDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1BankFeedsConnectionsDeleteResponse&gt;</code></summary>
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">FeedsSyncAsync</a>(FeedsSyncBankRequest { ... }) -> WithRawResponseTask&lt;FeedsSyncBankResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -22278,9 +22237,7 @@ await client.Bank.PostV1BankFeedsConnectionsListAsync(new PostV1BankFeedsConnect
 <dd>
 
 ```csharp
-await client.Bank.RevokeTheConsentAtTheBankAndDropTheStoredConnectionAsync(
-    new PostV1BankFeedsConnectionsDeleteRequest { Id = "id" }
-);
+await client.Bank.FeedsSyncAsync(new FeedsSyncBankRequest { ConnectionId = "connectionId" });
 ```
 </dd>
 </dl>
@@ -22295,7 +22252,7 @@ await client.Bank.RevokeTheConsentAtTheBankAndDropTheStoredConnectionAsync(
 <dl>
 <dd>
 
-**request:** `PostV1BankFeedsConnectionsDeleteRequest` 
+**request:** `FeedsSyncBankRequest` 
     
 </dd>
 </dl>
@@ -22307,7 +22264,8 @@ await client.Bank.RevokeTheConsentAtTheBankAndDropTheStoredConnectionAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PointABankFeedAccountAtALedgerBankAccountSoItsTransactionsCanBeSyncedAsync</a>(PostV1BankFeedsAccountsLinkRequest { ... }) -> WithRawResponseTask&lt;PostV1BankFeedsAccountsLinkResponse&gt;</code></summary>
+## files
+<details><summary><code>client.Files.<a href="/src/NordletApi/Files/FilesClient.cs">UploadAsync</a>(UploadFilesRequest { ... }) -> WithRawResponseTask&lt;UploadFilesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -22320,135 +22278,8 @@ await client.Bank.RevokeTheConsentAtTheBankAndDropTheStoredConnectionAsync(
 <dd>
 
 ```csharp
-await client.Bank.PointABankFeedAccountAtALedgerBankAccountSoItsTransactionsCanBeSyncedAsync(
-    new PostV1BankFeedsAccountsLinkRequest { Id = "id" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1BankFeedsAccountsLinkRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">ChooseTheImportTemplateAppliedOnSyncAndHowOftenTheAccountIsSyncedAutomaticallyAsync</a>(PostV1BankFeedsAccountsConfigureRequest { ... }) -> WithRawResponseTask&lt;PostV1BankFeedsAccountsConfigureResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Bank.ChooseTheImportTemplateAppliedOnSyncAndHowOftenTheAccountIsSyncedAutomaticallyAsync(
-    new PostV1BankFeedsAccountsConfigureRequest { Id = "id" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1BankFeedsAccountsConfigureRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">PullNewTransactionsFromTheBankIntoTheLedgerEmitsBankFeedSyncedAsync</a>(PostV1BankFeedsSyncRequest { ... }) -> WithRawResponseTask&lt;PostV1BankFeedsSyncResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Bank.PullNewTransactionsFromTheBankIntoTheLedgerEmitsBankFeedSyncedAsync(
-    new PostV1BankFeedsSyncRequest { ConnectionId = "connectionId" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1BankFeedsSyncRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-## Files
-<details><summary><code>client.Files.<a href="/src/NordletApi/Files/FilesClient.cs">PostV1FilesUploadAsync</a>(PostV1FilesUploadRequest { ... }) -> WithRawResponseTask&lt;PostV1FilesUploadResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Files.PostV1FilesUploadAsync(
-    new PostV1FilesUploadRequest
+await client.Files.UploadAsync(
+    new UploadFilesRequest
     {
         Entity = "entity",
         FileName = "fileName",
@@ -22470,7 +22301,7 @@ await client.Files.PostV1FilesUploadAsync(
 <dl>
 <dd>
 
-**request:** `PostV1FilesUploadRequest` 
+**request:** `UploadFilesRequest` 
     
 </dd>
 </dl>
@@ -22482,7 +22313,7 @@ await client.Files.PostV1FilesUploadAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Files.<a href="/src/NordletApi/Files/FilesClient.cs">PostV1FilesGetAsync</a>(PostV1FilesGetRequest { ... }) -> WithRawResponseTask&lt;PostV1FilesGetResponse&gt;</code></summary>
+<details><summary><code>client.Files.<a href="/src/NordletApi/Files/FilesClient.cs">GetAsync</a>(GetFilesRequest { ... }) -> WithRawResponseTask&lt;GetFilesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -22495,7 +22326,7 @@ await client.Files.PostV1FilesUploadAsync(
 <dd>
 
 ```csharp
-await client.Files.PostV1FilesGetAsync(new PostV1FilesGetRequest { Id = "id" });
+await client.Files.GetAsync(new GetFilesRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -22510,7 +22341,7 @@ await client.Files.PostV1FilesGetAsync(new PostV1FilesGetRequest { Id = "id" });
 <dl>
 <dd>
 
-**request:** `PostV1FilesGetRequest` 
+**request:** `GetFilesRequest` 
     
 </dd>
 </dl>
@@ -22522,7 +22353,7 @@ await client.Files.PostV1FilesGetAsync(new PostV1FilesGetRequest { Id = "id" });
 </dl>
 </details>
 
-<details><summary><code>client.Files.<a href="/src/NordletApi/Files/FilesClient.cs">PostV1FilesListAsync</a>(PostV1FilesListRequest { ... }) -> WithRawResponseTask&lt;PostV1FilesListResponse&gt;</code></summary>
+<details><summary><code>client.Files.<a href="/src/NordletApi/Files/FilesClient.cs">ListAsync</a>(ListFilesRequest { ... }) -> WithRawResponseTask&lt;ListFilesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -22535,7 +22366,7 @@ await client.Files.PostV1FilesGetAsync(new PostV1FilesGetRequest { Id = "id" });
 <dd>
 
 ```csharp
-await client.Files.PostV1FilesListAsync(new PostV1FilesListRequest());
+await client.Files.ListAsync(new ListFilesRequest());
 ```
 </dd>
 </dl>
@@ -22550,7 +22381,7 @@ await client.Files.PostV1FilesListAsync(new PostV1FilesListRequest());
 <dl>
 <dd>
 
-**request:** `PostV1FilesListRequest` 
+**request:** `ListFilesRequest` 
     
 </dd>
 </dl>
@@ -22562,7 +22393,7 @@ await client.Files.PostV1FilesListAsync(new PostV1FilesListRequest());
 </dl>
 </details>
 
-<details><summary><code>client.Files.<a href="/src/NordletApi/Files/FilesClient.cs">PostV1FilesDeleteAsync</a>(PostV1FilesDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1FilesDeleteResponse&gt;</code></summary>
+<details><summary><code>client.Files.<a href="/src/NordletApi/Files/FilesClient.cs">DeleteAsync</a>(DeleteFilesRequest { ... }) -> WithRawResponseTask&lt;DeleteFilesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -22575,7 +22406,7 @@ await client.Files.PostV1FilesListAsync(new PostV1FilesListRequest());
 <dd>
 
 ```csharp
-await client.Files.PostV1FilesDeleteAsync(new PostV1FilesDeleteRequest { Id = "id" });
+await client.Files.DeleteAsync(new DeleteFilesRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -22590,7 +22421,7 @@ await client.Files.PostV1FilesDeleteAsync(new PostV1FilesDeleteRequest { Id = "i
 <dl>
 <dd>
 
-**request:** `PostV1FilesDeleteRequest` 
+**request:** `DeleteFilesRequest` 
     
 </dd>
 </dl>
@@ -22602,8 +22433,8 @@ await client.Files.PostV1FilesDeleteAsync(new PostV1FilesDeleteRequest { Id = "i
 </dl>
 </details>
 
-## Reports
-<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">PostV1ReportsTrialBalanceAsync</a>(PostV1ReportsTrialBalanceRequest { ... }) -> WithRawResponseTask&lt;PostV1ReportsTrialBalanceResponse&gt;</code></summary>
+## reports
+<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">TrialBalanceAsync</a>(TrialBalanceReportsRequest { ... }) -> WithRawResponseTask&lt;TrialBalanceReportsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -22616,180 +22447,11 @@ await client.Files.PostV1FilesDeleteAsync(new PostV1FilesDeleteRequest { Id = "i
 <dd>
 
 ```csharp
-await client.Reports.PostV1ReportsTrialBalanceAsync(
-    new PostV1ReportsTrialBalanceRequest { FromDate = "fromDate", ToDate = "toDate" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1ReportsTrialBalanceRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">PostV1ReportsSizeCategoryAsync</a>(PostV1ReportsSizeCategoryRequest { ... }) -> WithRawResponseTask&lt;PostV1ReportsSizeCategoryResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Reports.PostV1ReportsSizeCategoryAsync(
-    new PostV1ReportsSizeCategoryRequest { Year = 1000000 }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1ReportsSizeCategoryRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">PostV1ReportsFinancialStatementsAsync</a>(PostV1ReportsFinancialStatementsRequest { ... }) -> WithRawResponseTask&lt;PostV1ReportsFinancialStatementsResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Reports.PostV1ReportsFinancialStatementsAsync(
-    new PostV1ReportsFinancialStatementsRequest { FromDate = "fromDate", ToDate = "toDate" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1ReportsFinancialStatementsRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">PostV1ReportsGeneralJournalAsync</a>(PostV1ReportsGeneralJournalRequest { ... }) -> WithRawResponseTask&lt;PostV1ReportsGeneralJournalResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Reports.PostV1ReportsGeneralJournalAsync(
-    new PostV1ReportsGeneralJournalRequest { FromDate = "fromDate", ToDate = "toDate" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1ReportsGeneralJournalRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">PostV1ReportsGlDetailAsync</a>(PostV1ReportsGlDetailRequest { ... }) -> WithRawResponseTask&lt;PostV1ReportsGlDetailResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Reports.PostV1ReportsGlDetailAsync(
-    new PostV1ReportsGlDetailRequest
+await client.Reports.TrialBalanceAsync(
+    new TrialBalanceReportsRequest
     {
-        AccountCode = "accountCode",
-        FromDate = "fromDate",
-        ToDate = "toDate",
+        FromDate = new DateOnly(2026, 7, 1),
+        ToDate = new DateOnly(2026, 7, 1),
     }
 );
 ```
@@ -22806,7 +22468,7 @@ await client.Reports.PostV1ReportsGlDetailAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ReportsGlDetailRequest` 
+**request:** `TrialBalanceReportsRequest` 
     
 </dd>
 </dl>
@@ -22818,7 +22480,7 @@ await client.Reports.PostV1ReportsGlDetailAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">PostV1ReportsPartnerBalancesAsync</a>(PostV1ReportsPartnerBalancesRequest { ... }) -> WithRawResponseTask&lt;PostV1ReportsPartnerBalancesResponse&gt;</code></summary>
+<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">SizeCategoryAsync</a>(SizeCategoryReportsRequest { ... }) -> WithRawResponseTask&lt;SizeCategoryReportsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -22831,7 +22493,7 @@ await client.Reports.PostV1ReportsGlDetailAsync(
 <dd>
 
 ```csharp
-await client.Reports.PostV1ReportsPartnerBalancesAsync(new PostV1ReportsPartnerBalancesRequest());
+await client.Reports.SizeCategoryAsync(new SizeCategoryReportsRequest { Year = 1000000 });
 ```
 </dd>
 </dl>
@@ -22846,7 +22508,7 @@ await client.Reports.PostV1ReportsPartnerBalancesAsync(new PostV1ReportsPartnerB
 <dl>
 <dd>
 
-**request:** `PostV1ReportsPartnerBalancesRequest` 
+**request:** `SizeCategoryReportsRequest` 
     
 </dd>
 </dl>
@@ -22858,7 +22520,7 @@ await client.Reports.PostV1ReportsPartnerBalancesAsync(new PostV1ReportsPartnerB
 </dl>
 </details>
 
-<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">PostV1ReportsDebtAgingAsync</a>(PostV1ReportsDebtAgingRequest { ... }) -> WithRawResponseTask&lt;PostV1ReportsDebtAgingResponse&gt;</code></summary>
+<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">FinancialStatementsAsync</a>(FinancialStatementsReportsRequest { ... }) -> WithRawResponseTask&lt;FinancialStatementsReportsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -22871,88 +22533,12 @@ await client.Reports.PostV1ReportsPartnerBalancesAsync(new PostV1ReportsPartnerB
 <dd>
 
 ```csharp
-await client.Reports.PostV1ReportsDebtAgingAsync(new PostV1ReportsDebtAgingRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1ReportsDebtAgingRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">PostV1ReportsMonthlySummaryAsync</a>(PostV1ReportsMonthlySummaryRequest { ... }) -> WithRawResponseTask&lt;PostV1ReportsMonthlySummaryResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Reports.PostV1ReportsMonthlySummaryAsync(new PostV1ReportsMonthlySummaryRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1ReportsMonthlySummaryRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">PostV1ReportsStockBalanceAsync</a>(PostV1ReportsStockBalanceRequest { ... }) -> WithRawResponseTask&lt;PostV1ReportsStockBalanceResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Reports.PostV1ReportsStockBalanceAsync(
-    new PostV1ReportsStockBalanceRequest { AsOf = "asOf" }
+await client.Reports.FinancialStatementsAsync(
+    new FinancialStatementsReportsRequest
+    {
+        FromDate = new DateOnly(2026, 7, 1),
+        ToDate = new DateOnly(2026, 7, 1),
+    }
 );
 ```
 </dd>
@@ -22968,7 +22554,7 @@ await client.Reports.PostV1ReportsStockBalanceAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ReportsStockBalanceRequest` 
+**request:** `FinancialStatementsReportsRequest` 
     
 </dd>
 </dl>
@@ -22980,7 +22566,7 @@ await client.Reports.PostV1ReportsStockBalanceAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">PostV1ReportsStockMovementAsync</a>(PostV1ReportsStockMovementRequest { ... }) -> WithRawResponseTask&lt;PostV1ReportsStockMovementResponse&gt;</code></summary>
+<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">GeneralJournalAsync</a>(GeneralJournalReportsRequest { ... }) -> WithRawResponseTask&lt;GeneralJournalReportsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -22993,8 +22579,12 @@ await client.Reports.PostV1ReportsStockBalanceAsync(
 <dd>
 
 ```csharp
-await client.Reports.PostV1ReportsStockMovementAsync(
-    new PostV1ReportsStockMovementRequest { FromDate = "fromDate", ToDate = "toDate" }
+await client.Reports.GeneralJournalAsync(
+    new GeneralJournalReportsRequest
+    {
+        FromDate = new DateOnly(2026, 7, 1),
+        ToDate = new DateOnly(2026, 7, 1),
+    }
 );
 ```
 </dd>
@@ -23010,7 +22600,7 @@ await client.Reports.PostV1ReportsStockMovementAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ReportsStockMovementRequest` 
+**request:** `GeneralJournalReportsRequest` 
     
 </dd>
 </dl>
@@ -23022,7 +22612,7 @@ await client.Reports.PostV1ReportsStockMovementAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">PostV1ReportsVatSummaryAsync</a>(PostV1ReportsVatSummaryRequest { ... }) -> WithRawResponseTask&lt;PostV1ReportsVatSummaryResponse&gt;</code></summary>
+<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">GlDetailAsync</a>(GlDetailReportsRequest { ... }) -> WithRawResponseTask&lt;GlDetailReportsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -23035,8 +22625,13 @@ await client.Reports.PostV1ReportsStockMovementAsync(
 <dd>
 
 ```csharp
-await client.Reports.PostV1ReportsVatSummaryAsync(
-    new PostV1ReportsVatSummaryRequest { FromDate = "fromDate", ToDate = "toDate" }
+await client.Reports.GlDetailAsync(
+    new GlDetailReportsRequest
+    {
+        AccountCode = "accountCode",
+        FromDate = new DateOnly(2026, 7, 1),
+        ToDate = new DateOnly(2026, 7, 1),
+    }
 );
 ```
 </dd>
@@ -23052,7 +22647,7 @@ await client.Reports.PostV1ReportsVatSummaryAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ReportsVatSummaryRequest` 
+**request:** `GlDetailReportsRequest` 
     
 </dd>
 </dl>
@@ -23064,7 +22659,7 @@ await client.Reports.PostV1ReportsVatSummaryAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">PostV1ReportsCashFlowAsync</a>(PostV1ReportsCashFlowRequest { ... }) -> WithRawResponseTask&lt;PostV1ReportsCashFlowResponse&gt;</code></summary>
+<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">PartnerBalancesAsync</a>(PartnerBalancesReportsRequest { ... }) -> WithRawResponseTask&lt;PartnerBalancesReportsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -23077,8 +22672,128 @@ await client.Reports.PostV1ReportsVatSummaryAsync(
 <dd>
 
 ```csharp
-await client.Reports.PostV1ReportsCashFlowAsync(
-    new PostV1ReportsCashFlowRequest { FromDate = "fromDate", ToDate = "toDate" }
+await client.Reports.PartnerBalancesAsync(new PartnerBalancesReportsRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PartnerBalancesReportsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">DebtAgingAsync</a>(DebtAgingReportsRequest { ... }) -> WithRawResponseTask&lt;DebtAgingReportsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Reports.DebtAgingAsync(new DebtAgingReportsRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `DebtAgingReportsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">MonthlySummaryAsync</a>(MonthlySummaryReportsRequest { ... }) -> WithRawResponseTask&lt;MonthlySummaryReportsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Reports.MonthlySummaryAsync(new MonthlySummaryReportsRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `MonthlySummaryReportsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">StockBalanceAsync</a>(StockBalanceReportsRequest { ... }) -> WithRawResponseTask&lt;StockBalanceReportsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Reports.StockBalanceAsync(
+    new StockBalanceReportsRequest { AsOf = new DateOnly(2026, 7, 1) }
 );
 ```
 </dd>
@@ -23094,7 +22809,7 @@ await client.Reports.PostV1ReportsCashFlowAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ReportsCashFlowRequest` 
+**request:** `StockBalanceReportsRequest` 
     
 </dd>
 </dl>
@@ -23106,7 +22821,7 @@ await client.Reports.PostV1ReportsCashFlowAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">PostV1ReportsStockAgingAsync</a>(PostV1ReportsStockAgingRequest { ... }) -> WithRawResponseTask&lt;PostV1ReportsStockAgingResponse&gt;</code></summary>
+<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">StockMovementAsync</a>(StockMovementReportsRequest { ... }) -> WithRawResponseTask&lt;StockMovementReportsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -23119,8 +22834,12 @@ await client.Reports.PostV1ReportsCashFlowAsync(
 <dd>
 
 ```csharp
-await client.Reports.PostV1ReportsStockAgingAsync(
-    new PostV1ReportsStockAgingRequest { AsOf = "asOf" }
+await client.Reports.StockMovementAsync(
+    new StockMovementReportsRequest
+    {
+        FromDate = new DateOnly(2026, 7, 1),
+        ToDate = new DateOnly(2026, 7, 1),
+    }
 );
 ```
 </dd>
@@ -23136,7 +22855,7 @@ await client.Reports.PostV1ReportsStockAgingAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ReportsStockAgingRequest` 
+**request:** `StockMovementReportsRequest` 
     
 </dd>
 </dl>
@@ -23148,7 +22867,7 @@ await client.Reports.PostV1ReportsStockAgingAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">PostV1ReportsStockShortageAsync</a>(PostV1ReportsStockShortageRequest { ... }) -> WithRawResponseTask&lt;PostV1ReportsStockShortageResponse&gt;</code></summary>
+<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">VatSummaryAsync</a>(VatSummaryReportsRequest { ... }) -> WithRawResponseTask&lt;VatSummaryReportsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -23161,7 +22880,13 @@ await client.Reports.PostV1ReportsStockAgingAsync(
 <dd>
 
 ```csharp
-await client.Reports.PostV1ReportsStockShortageAsync(new PostV1ReportsStockShortageRequest());
+await client.Reports.VatSummaryAsync(
+    new VatSummaryReportsRequest
+    {
+        FromDate = new DateOnly(2026, 7, 1),
+        ToDate = new DateOnly(2026, 7, 1),
+    }
+);
 ```
 </dd>
 </dl>
@@ -23176,7 +22901,7 @@ await client.Reports.PostV1ReportsStockShortageAsync(new PostV1ReportsStockShort
 <dl>
 <dd>
 
-**request:** `PostV1ReportsStockShortageRequest` 
+**request:** `VatSummaryReportsRequest` 
     
 </dd>
 </dl>
@@ -23188,7 +22913,135 @@ await client.Reports.PostV1ReportsStockShortageAsync(new PostV1ReportsStockShort
 </dl>
 </details>
 
-<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">PostV1ReportsSieAsync</a>(PostV1ReportsSieRequest { ... }) -> WithRawResponseTask&lt;PostV1ReportsSieResponse&gt;</code></summary>
+<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">CashFlowAsync</a>(CashFlowReportsRequest { ... }) -> WithRawResponseTask&lt;CashFlowReportsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Reports.CashFlowAsync(
+    new CashFlowReportsRequest
+    {
+        FromDate = new DateOnly(2026, 7, 1),
+        ToDate = new DateOnly(2026, 7, 1),
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `CashFlowReportsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">StockAgingAsync</a>(StockAgingReportsRequest { ... }) -> WithRawResponseTask&lt;StockAgingReportsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Reports.StockAgingAsync(
+    new StockAgingReportsRequest { AsOf = new DateOnly(2026, 7, 1) }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `StockAgingReportsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">StockShortageAsync</a>(StockShortageReportsRequest { ... }) -> WithRawResponseTask&lt;StockShortageReportsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Reports.StockShortageAsync(new StockShortageReportsRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `StockShortageReportsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">SieAsync</a>(SieReportsRequest { ... }) -> WithRawResponseTask&lt;SieReportsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -23215,8 +23068,8 @@ Export the ledger of one financial year as an SIE file (the Swedish standard acc
 <dd>
 
 ```csharp
-await client.Reports.PostV1ReportsSieAsync(
-    new PostV1ReportsSieRequest { FromDate = "fromDate", ToDate = "toDate" }
+await client.Reports.SieAsync(
+    new SieReportsRequest { FromDate = new DateOnly(2026, 7, 1), ToDate = new DateOnly(2026, 7, 1) }
 );
 ```
 </dd>
@@ -23232,7 +23085,7 @@ await client.Reports.PostV1ReportsSieAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ReportsSieRequest` 
+**request:** `SieReportsRequest` 
     
 </dd>
 </dl>
@@ -23244,7 +23097,7 @@ await client.Reports.PostV1ReportsSieAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">PostV1ReportsDatevAsync</a>(PostV1ReportsDatevRequest { ... }) -> WithRawResponseTask&lt;PostV1ReportsDatevResponse&gt;</code></summary>
+<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">DatevAsync</a>(DatevReportsRequest { ... }) -> WithRawResponseTask&lt;DatevReportsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -23271,8 +23124,12 @@ Export the posted ledger of a period as a DATEV Buchungsstapel file (DATEV forma
 <dd>
 
 ```csharp
-await client.Reports.PostV1ReportsDatevAsync(
-    new PostV1ReportsDatevRequest { FromDate = "fromDate", ToDate = "toDate" }
+await client.Reports.DatevAsync(
+    new DatevReportsRequest
+    {
+        FromDate = new DateOnly(2026, 7, 1),
+        ToDate = new DateOnly(2026, 7, 1),
+    }
 );
 ```
 </dd>
@@ -23288,7 +23145,7 @@ await client.Reports.PostV1ReportsDatevAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ReportsDatevRequest` 
+**request:** `DatevReportsRequest` 
     
 </dd>
 </dl>
@@ -23300,7 +23157,7 @@ await client.Reports.PostV1ReportsDatevAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">PostV1ReportsFecAsync</a>(PostV1ReportsFecRequest { ... }) -> WithRawResponseTask&lt;PostV1ReportsFecResponse&gt;</code></summary>
+<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">FecAsync</a>(FecReportsRequest { ... }) -> WithRawResponseTask&lt;FecReportsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -23327,8 +23184,8 @@ Export the posted ledger of a period as a French FEC file (fichier des écriture
 <dd>
 
 ```csharp
-await client.Reports.PostV1ReportsFecAsync(
-    new PostV1ReportsFecRequest { FromDate = "fromDate", ToDate = "toDate" }
+await client.Reports.FecAsync(
+    new FecReportsRequest { FromDate = new DateOnly(2026, 7, 1), ToDate = new DateOnly(2026, 7, 1) }
 );
 ```
 </dd>
@@ -23344,7 +23201,7 @@ await client.Reports.PostV1ReportsFecAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ReportsFecRequest` 
+**request:** `FecReportsRequest` 
     
 </dd>
 </dl>
@@ -23356,7 +23213,7 @@ await client.Reports.PostV1ReportsFecAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">PostV1ReportsEuPurchasesAsync</a>(PostV1ReportsEuPurchasesRequest { ... }) -> WithRawResponseTask&lt;PostV1ReportsEuPurchasesResponse&gt;</code></summary>
+<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">EuPurchasesAsync</a>(EuPurchasesReportsRequest { ... }) -> WithRawResponseTask&lt;EuPurchasesReportsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -23369,347 +23226,375 @@ await client.Reports.PostV1ReportsFecAsync(
 <dd>
 
 ```csharp
-await client.Reports.PostV1ReportsEuPurchasesAsync(
-    new PostV1ReportsEuPurchasesRequest { FromDate = "fromDate", ToDate = "toDate" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1ReportsEuPurchasesRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">PostV1ReportsVatDetailAsync</a>(PostV1ReportsVatDetailRequest { ... }) -> WithRawResponseTask&lt;PostV1ReportsVatDetailResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Reports.PostV1ReportsVatDetailAsync(
-    new PostV1ReportsVatDetailRequest { FromDate = "fromDate", ToDate = "toDate" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1ReportsVatDetailRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">PostV1ReportsPosSalesAsync</a>(PostV1ReportsPosSalesRequest { ... }) -> WithRawResponseTask&lt;PostV1ReportsPosSalesResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Reports.PostV1ReportsPosSalesAsync(
-    new PostV1ReportsPosSalesRequest { FromDate = "fromDate", ToDate = "toDate" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1ReportsPosSalesRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">PostV1ReportsOnlineSalesAsync</a>(PostV1ReportsOnlineSalesRequest { ... }) -> WithRawResponseTask&lt;PostV1ReportsOnlineSalesResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Reports.PostV1ReportsOnlineSalesAsync(
-    new PostV1ReportsOnlineSalesRequest { FromDate = "fromDate", ToDate = "toDate" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1ReportsOnlineSalesRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">PostV1ReportsOssAsync</a>(PostV1ReportsOssRequest { ... }) -> WithRawResponseTask&lt;PostV1ReportsOssResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Reports.PostV1ReportsOssAsync(
-    new PostV1ReportsOssRequest { FromDate = "fromDate", ToDate = "toDate" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1ReportsOssRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">PostV1ReportsAdvanceReconciliationAsync</a>(PostV1ReportsAdvanceReconciliationRequest { ... }) -> WithRawResponseTask&lt;PostV1ReportsAdvanceReconciliationResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Reports.PostV1ReportsAdvanceReconciliationAsync(
-    new PostV1ReportsAdvanceReconciliationRequest { FromDate = "fromDate", ToDate = "toDate" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1ReportsAdvanceReconciliationRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">PostV1ReportsWriteOffActsAsync</a>(PostV1ReportsWriteOffActsRequest { ... }) -> WithRawResponseTask&lt;PostV1ReportsWriteOffActsResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Reports.PostV1ReportsWriteOffActsAsync(
-    new PostV1ReportsWriteOffActsRequest { FromDate = "fromDate", ToDate = "toDate" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1ReportsWriteOffActsRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">PostV1ReportsCostCentersAsync</a>(PostV1ReportsCostCentersRequest { ... }) -> WithRawResponseTask&lt;PostV1ReportsCostCentersResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Reports.PostV1ReportsCostCentersAsync(
-    new PostV1ReportsCostCentersRequest { FromDate = "fromDate", ToDate = "toDate" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1ReportsCostCentersRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">PostV1ReportsCostCenterActivityAsync</a>(PostV1ReportsCostCenterActivityRequest { ... }) -> WithRawResponseTask&lt;PostV1ReportsCostCenterActivityResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Reports.PostV1ReportsCostCenterActivityAsync(
-    new PostV1ReportsCostCenterActivityRequest
+await client.Reports.EuPurchasesAsync(
+    new EuPurchasesReportsRequest
     {
-        FromDate = "fromDate",
-        ToDate = "toDate",
+        FromDate = new DateOnly(2026, 7, 1),
+        ToDate = new DateOnly(2026, 7, 1),
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `EuPurchasesReportsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">VatDetailAsync</a>(VatDetailReportsRequest { ... }) -> WithRawResponseTask&lt;VatDetailReportsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Reports.VatDetailAsync(
+    new VatDetailReportsRequest
+    {
+        FromDate = new DateOnly(2026, 7, 1),
+        ToDate = new DateOnly(2026, 7, 1),
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `VatDetailReportsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">PosSalesAsync</a>(PosSalesReportsRequest { ... }) -> WithRawResponseTask&lt;PosSalesReportsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Reports.PosSalesAsync(
+    new PosSalesReportsRequest
+    {
+        FromDate = new DateOnly(2026, 7, 1),
+        ToDate = new DateOnly(2026, 7, 1),
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PosSalesReportsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">OnlineSalesAsync</a>(OnlineSalesReportsRequest { ... }) -> WithRawResponseTask&lt;OnlineSalesReportsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Reports.OnlineSalesAsync(
+    new OnlineSalesReportsRequest
+    {
+        FromDate = new DateOnly(2026, 7, 1),
+        ToDate = new DateOnly(2026, 7, 1),
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `OnlineSalesReportsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">OssAsync</a>(OssReportsRequest { ... }) -> WithRawResponseTask&lt;OssReportsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Reports.OssAsync(
+    new OssReportsRequest { FromDate = new DateOnly(2026, 7, 1), ToDate = new DateOnly(2026, 7, 1) }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `OssReportsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">AdvanceReconciliationAsync</a>(AdvanceReconciliationReportsRequest { ... }) -> WithRawResponseTask&lt;AdvanceReconciliationReportsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Reports.AdvanceReconciliationAsync(
+    new AdvanceReconciliationReportsRequest
+    {
+        FromDate = new DateOnly(2026, 7, 1),
+        ToDate = new DateOnly(2026, 7, 1),
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `AdvanceReconciliationReportsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">WriteOffActsAsync</a>(WriteOffActsReportsRequest { ... }) -> WithRawResponseTask&lt;WriteOffActsReportsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Reports.WriteOffActsAsync(
+    new WriteOffActsReportsRequest
+    {
+        FromDate = new DateOnly(2026, 7, 1),
+        ToDate = new DateOnly(2026, 7, 1),
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `WriteOffActsReportsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">CostCentersAsync</a>(CostCentersReportsRequest { ... }) -> WithRawResponseTask&lt;CostCentersReportsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Reports.CostCentersAsync(
+    new CostCentersReportsRequest
+    {
+        FromDate = new DateOnly(2026, 7, 1),
+        ToDate = new DateOnly(2026, 7, 1),
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `CostCentersReportsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">CostCenterActivityAsync</a>(CostCenterActivityReportsRequest { ... }) -> WithRawResponseTask&lt;CostCenterActivityReportsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Reports.CostCenterActivityAsync(
+    new CostCenterActivityReportsRequest
+    {
+        FromDate = new DateOnly(2026, 7, 1),
+        ToDate = new DateOnly(2026, 7, 1),
         CostCenterId = "costCenterId",
     }
 );
@@ -23727,7 +23612,7 @@ await client.Reports.PostV1ReportsCostCenterActivityAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ReportsCostCenterActivityRequest` 
+**request:** `CostCenterActivityReportsRequest` 
     
 </dd>
 </dl>
@@ -23739,7 +23624,7 @@ await client.Reports.PostV1ReportsCostCenterActivityAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">PostV1ReportsCostCenterItemsAsync</a>(PostV1ReportsCostCenterItemsRequest { ... }) -> WithRawResponseTask&lt;PostV1ReportsCostCenterItemsResponse&gt;</code></summary>
+<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">CostCenterItemsAsync</a>(CostCenterItemsReportsRequest { ... }) -> WithRawResponseTask&lt;CostCenterItemsReportsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -23752,8 +23637,12 @@ await client.Reports.PostV1ReportsCostCenterActivityAsync(
 <dd>
 
 ```csharp
-await client.Reports.PostV1ReportsCostCenterItemsAsync(
-    new PostV1ReportsCostCenterItemsRequest { FromDate = "fromDate", ToDate = "toDate" }
+await client.Reports.CostCenterItemsAsync(
+    new CostCenterItemsReportsRequest
+    {
+        FromDate = new DateOnly(2026, 7, 1),
+        ToDate = new DateOnly(2026, 7, 1),
+    }
 );
 ```
 </dd>
@@ -23769,7 +23658,7 @@ await client.Reports.PostV1ReportsCostCenterItemsAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ReportsCostCenterItemsRequest` 
+**request:** `CostCenterItemsReportsRequest` 
     
 </dd>
 </dl>
@@ -23781,7 +23670,7 @@ await client.Reports.PostV1ReportsCostCenterItemsAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">PostV1ReportsJobsCreateAsync</a>(PostV1ReportsJobsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1ReportsJobsCreateResponse&gt;</code></summary>
+<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">JobsCreateAsync</a>(JobsCreateReportsRequest { ... }) -> WithRawResponseTask&lt;JobsCreateReportsResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -23794,8 +23683,129 @@ await client.Reports.PostV1ReportsCostCenterItemsAsync(
 <dd>
 
 ```csharp
-await client.Reports.PostV1ReportsJobsCreateAsync(
-    new PostV1ReportsJobsCreateRequest { ReportType = "reportType" }
+await client.Reports.JobsCreateAsync(new JobsCreateReportsRequest { ReportType = "reportType" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `JobsCreateReportsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">JobsGetAsync</a>(JobsGetReportsRequest { ... }) -> WithRawResponseTask&lt;JobsGetReportsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Reports.JobsGetAsync(new JobsGetReportsRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `JobsGetReportsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">JobsListAsync</a>(JobsListReportsRequest { ... }) -> WithRawResponseTask&lt;JobsListReportsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Reports.JobsListAsync(new JobsListReportsRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `JobsListReportsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## consolidation
+<details><summary><code>client.Consolidation.<a href="/src/NordletApi/Consolidation/ConsolidationClient.cs">GroupsCreateAsync</a>(GroupsCreateConsolidationRequest { ... }) -> WithRawResponseTask&lt;GroupsCreateConsolidationResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Consolidation.GroupsCreateAsync(
+    new GroupsCreateConsolidationRequest { Name = "name" }
 );
 ```
 </dd>
@@ -23811,7 +23821,7 @@ await client.Reports.PostV1ReportsJobsCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ReportsJobsCreateRequest` 
+**request:** `GroupsCreateConsolidationRequest` 
     
 </dd>
 </dl>
@@ -23823,7 +23833,7 @@ await client.Reports.PostV1ReportsJobsCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">PostV1ReportsJobsGetAsync</a>(PostV1ReportsJobsGetRequest { ... }) -> WithRawResponseTask&lt;PostV1ReportsJobsGetResponse&gt;</code></summary>
+<details><summary><code>client.Consolidation.<a href="/src/NordletApi/Consolidation/ConsolidationClient.cs">GroupsListAsync</a>(GroupsListConsolidationRequest { ... }) -> WithRawResponseTask&lt;GroupsListConsolidationResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -23836,7 +23846,7 @@ await client.Reports.PostV1ReportsJobsCreateAsync(
 <dd>
 
 ```csharp
-await client.Reports.PostV1ReportsJobsGetAsync(new PostV1ReportsJobsGetRequest { Id = "id" });
+await client.Consolidation.GroupsListAsync(new GroupsListConsolidationRequest());
 ```
 </dd>
 </dl>
@@ -23851,7 +23861,7 @@ await client.Reports.PostV1ReportsJobsGetAsync(new PostV1ReportsJobsGetRequest {
 <dl>
 <dd>
 
-**request:** `PostV1ReportsJobsGetRequest` 
+**request:** `GroupsListConsolidationRequest` 
     
 </dd>
 </dl>
@@ -23863,7 +23873,7 @@ await client.Reports.PostV1ReportsJobsGetAsync(new PostV1ReportsJobsGetRequest {
 </dl>
 </details>
 
-<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">PostV1ReportsJobsListAsync</a>(PostV1ReportsJobsListRequest { ... }) -> WithRawResponseTask&lt;PostV1ReportsJobsListResponse&gt;</code></summary>
+<details><summary><code>client.Consolidation.<a href="/src/NordletApi/Consolidation/ConsolidationClient.cs">GroupsGetAsync</a>(GroupsGetConsolidationRequest { ... }) -> WithRawResponseTask&lt;GroupsGetConsolidationResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -23876,49 +23886,8 @@ await client.Reports.PostV1ReportsJobsGetAsync(new PostV1ReportsJobsGetRequest {
 <dd>
 
 ```csharp
-await client.Reports.PostV1ReportsJobsListAsync(new PostV1ReportsJobsListRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1ReportsJobsListRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-## Consolidation
-<details><summary><code>client.Consolidation.<a href="/src/NordletApi/Consolidation/ConsolidationClient.cs">PostV1ConsolidationGroupsCreateAsync</a>(PostV1ConsolidationGroupsCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1ConsolidationGroupsCreateResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Consolidation.PostV1ConsolidationGroupsCreateAsync(
-    new PostV1ConsolidationGroupsCreateRequest { Name = "name" }
+await client.Consolidation.GroupsGetAsync(
+    new GroupsGetConsolidationRequest { GroupId = "groupId" }
 );
 ```
 </dd>
@@ -23934,7 +23903,7 @@ await client.Consolidation.PostV1ConsolidationGroupsCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ConsolidationGroupsCreateRequest` 
+**request:** `GroupsGetConsolidationRequest` 
     
 </dd>
 </dl>
@@ -23946,7 +23915,7 @@ await client.Consolidation.PostV1ConsolidationGroupsCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Consolidation.<a href="/src/NordletApi/Consolidation/ConsolidationClient.cs">PostV1ConsolidationGroupsListAsync</a>(PostV1ConsolidationGroupsListRequest { ... }) -> WithRawResponseTask&lt;PostV1ConsolidationGroupsListResponse&gt;</code></summary>
+<details><summary><code>client.Consolidation.<a href="/src/NordletApi/Consolidation/ConsolidationClient.cs">GroupsUpdateAsync</a>(GroupsUpdateConsolidationRequest { ... }) -> WithRawResponseTask&lt;GroupsUpdateConsolidationResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -23959,8 +23928,8 @@ await client.Consolidation.PostV1ConsolidationGroupsCreateAsync(
 <dd>
 
 ```csharp
-await client.Consolidation.PostV1ConsolidationGroupsListAsync(
-    new PostV1ConsolidationGroupsListRequest()
+await client.Consolidation.GroupsUpdateAsync(
+    new GroupsUpdateConsolidationRequest { GroupId = "groupId" }
 );
 ```
 </dd>
@@ -23976,7 +23945,7 @@ await client.Consolidation.PostV1ConsolidationGroupsListAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ConsolidationGroupsListRequest` 
+**request:** `GroupsUpdateConsolidationRequest` 
     
 </dd>
 </dl>
@@ -23988,7 +23957,7 @@ await client.Consolidation.PostV1ConsolidationGroupsListAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Consolidation.<a href="/src/NordletApi/Consolidation/ConsolidationClient.cs">PostV1ConsolidationGroupsGetAsync</a>(PostV1ConsolidationGroupsGetRequest { ... }) -> WithRawResponseTask&lt;PostV1ConsolidationGroupsGetResponse&gt;</code></summary>
+<details><summary><code>client.Consolidation.<a href="/src/NordletApi/Consolidation/ConsolidationClient.cs">GroupsDeleteAsync</a>(GroupsDeleteConsolidationRequest { ... }) -> WithRawResponseTask&lt;GroupsDeleteConsolidationResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -24001,8 +23970,8 @@ await client.Consolidation.PostV1ConsolidationGroupsListAsync(
 <dd>
 
 ```csharp
-await client.Consolidation.PostV1ConsolidationGroupsGetAsync(
-    new PostV1ConsolidationGroupsGetRequest { GroupId = "groupId" }
+await client.Consolidation.GroupsDeleteAsync(
+    new GroupsDeleteConsolidationRequest { GroupId = "groupId" }
 );
 ```
 </dd>
@@ -24018,7 +23987,7 @@ await client.Consolidation.PostV1ConsolidationGroupsGetAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ConsolidationGroupsGetRequest` 
+**request:** `GroupsDeleteConsolidationRequest` 
     
 </dd>
 </dl>
@@ -24030,7 +23999,7 @@ await client.Consolidation.PostV1ConsolidationGroupsGetAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Consolidation.<a href="/src/NordletApi/Consolidation/ConsolidationClient.cs">PostV1ConsolidationGroupsUpdateAsync</a>(PostV1ConsolidationGroupsUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1ConsolidationGroupsUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Consolidation.<a href="/src/NordletApi/Consolidation/ConsolidationClient.cs">MembersAddAsync</a>(MembersAddConsolidationRequest { ... }) -> WithRawResponseTask&lt;MembersAddConsolidationResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -24043,8 +24012,8 @@ await client.Consolidation.PostV1ConsolidationGroupsGetAsync(
 <dd>
 
 ```csharp
-await client.Consolidation.PostV1ConsolidationGroupsUpdateAsync(
-    new PostV1ConsolidationGroupsUpdateRequest { GroupId = "groupId" }
+await client.Consolidation.MembersAddAsync(
+    new MembersAddConsolidationRequest { GroupId = "groupId", MemberCompanyId = "memberCompanyId" }
 );
 ```
 </dd>
@@ -24060,7 +24029,7 @@ await client.Consolidation.PostV1ConsolidationGroupsUpdateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ConsolidationGroupsUpdateRequest` 
+**request:** `MembersAddConsolidationRequest` 
     
 </dd>
 </dl>
@@ -24072,7 +24041,7 @@ await client.Consolidation.PostV1ConsolidationGroupsUpdateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Consolidation.<a href="/src/NordletApi/Consolidation/ConsolidationClient.cs">PostV1ConsolidationGroupsDeleteAsync</a>(PostV1ConsolidationGroupsDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1ConsolidationGroupsDeleteResponse&gt;</code></summary>
+<details><summary><code>client.Consolidation.<a href="/src/NordletApi/Consolidation/ConsolidationClient.cs">MembersRemoveAsync</a>(MembersRemoveConsolidationRequest { ... }) -> WithRawResponseTask&lt;MembersRemoveConsolidationResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -24085,50 +24054,8 @@ await client.Consolidation.PostV1ConsolidationGroupsUpdateAsync(
 <dd>
 
 ```csharp
-await client.Consolidation.PostV1ConsolidationGroupsDeleteAsync(
-    new PostV1ConsolidationGroupsDeleteRequest { GroupId = "groupId" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1ConsolidationGroupsDeleteRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Consolidation.<a href="/src/NordletApi/Consolidation/ConsolidationClient.cs">PostV1ConsolidationMembersAddAsync</a>(PostV1ConsolidationMembersAddRequest { ... }) -> WithRawResponseTask&lt;PostV1ConsolidationMembersAddResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Consolidation.PostV1ConsolidationMembersAddAsync(
-    new PostV1ConsolidationMembersAddRequest
+await client.Consolidation.MembersRemoveAsync(
+    new MembersRemoveConsolidationRequest
     {
         GroupId = "groupId",
         MemberCompanyId = "memberCompanyId",
@@ -24148,7 +24075,7 @@ await client.Consolidation.PostV1ConsolidationMembersAddAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ConsolidationMembersAddRequest` 
+**request:** `MembersRemoveConsolidationRequest` 
     
 </dd>
 </dl>
@@ -24160,53 +24087,7 @@ await client.Consolidation.PostV1ConsolidationMembersAddAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Consolidation.<a href="/src/NordletApi/Consolidation/ConsolidationClient.cs">PostV1ConsolidationMembersRemoveAsync</a>(PostV1ConsolidationMembersRemoveRequest { ... }) -> WithRawResponseTask&lt;PostV1ConsolidationMembersRemoveResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Consolidation.PostV1ConsolidationMembersRemoveAsync(
-    new PostV1ConsolidationMembersRemoveRequest
-    {
-        GroupId = "groupId",
-        MemberCompanyId = "memberCompanyId",
-    }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1ConsolidationMembersRemoveRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Consolidation.<a href="/src/NordletApi/Consolidation/ConsolidationClient.cs">PostV1ConsolidationIntercompanyCandidatesAsync</a>(PostV1ConsolidationIntercompanyCandidatesRequest { ... }) -> WithRawResponseTask&lt;PostV1ConsolidationIntercompanyCandidatesResponse&gt;</code></summary>
+<details><summary><code>client.Consolidation.<a href="/src/NordletApi/Consolidation/ConsolidationClient.cs">IntercompanyCandidatesAsync</a>(IntercompanyCandidatesConsolidationRequest { ... }) -> WithRawResponseTask&lt;IntercompanyCandidatesConsolidationResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -24233,8 +24114,8 @@ Partners in member companies that look like other members of the same group (mat
 <dd>
 
 ```csharp
-await client.Consolidation.PostV1ConsolidationIntercompanyCandidatesAsync(
-    new PostV1ConsolidationIntercompanyCandidatesRequest { GroupId = "groupId" }
+await client.Consolidation.IntercompanyCandidatesAsync(
+    new IntercompanyCandidatesConsolidationRequest { GroupId = "groupId" }
 );
 ```
 </dd>
@@ -24250,7 +24131,7 @@ await client.Consolidation.PostV1ConsolidationIntercompanyCandidatesAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ConsolidationIntercompanyCandidatesRequest` 
+**request:** `IntercompanyCandidatesConsolidationRequest` 
     
 </dd>
 </dl>
@@ -24262,7 +24143,7 @@ await client.Consolidation.PostV1ConsolidationIntercompanyCandidatesAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Consolidation.<a href="/src/NordletApi/Consolidation/ConsolidationClient.cs">PostV1ConsolidationIntercompanyLinksSetAsync</a>(PostV1ConsolidationIntercompanyLinksSetRequest { ... }) -> WithRawResponseTask&lt;PostV1ConsolidationIntercompanyLinksSetResponse&gt;</code></summary>
+<details><summary><code>client.Consolidation.<a href="/src/NordletApi/Consolidation/ConsolidationClient.cs">IntercompanyLinksSetAsync</a>(IntercompanyLinksSetConsolidationRequest { ... }) -> WithRawResponseTask&lt;IntercompanyLinksSetConsolidationResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -24289,8 +24170,8 @@ Confirm that a partner record in one member company represents another member co
 <dd>
 
 ```csharp
-await client.Consolidation.PostV1ConsolidationIntercompanyLinksSetAsync(
-    new PostV1ConsolidationIntercompanyLinksSetRequest
+await client.Consolidation.IntercompanyLinksSetAsync(
+    new IntercompanyLinksSetConsolidationRequest
     {
         GroupId = "groupId",
         PartnerId = "partnerId",
@@ -24311,7 +24192,7 @@ await client.Consolidation.PostV1ConsolidationIntercompanyLinksSetAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ConsolidationIntercompanyLinksSetRequest` 
+**request:** `IntercompanyLinksSetConsolidationRequest` 
     
 </dd>
 </dl>
@@ -24323,7 +24204,7 @@ await client.Consolidation.PostV1ConsolidationIntercompanyLinksSetAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Consolidation.<a href="/src/NordletApi/Consolidation/ConsolidationClient.cs">PostV1ConsolidationIntercompanyLinksListAsync</a>(PostV1ConsolidationIntercompanyLinksListRequest { ... }) -> WithRawResponseTask&lt;PostV1ConsolidationIntercompanyLinksListResponse&gt;</code></summary>
+<details><summary><code>client.Consolidation.<a href="/src/NordletApi/Consolidation/ConsolidationClient.cs">IntercompanyLinksListAsync</a>(IntercompanyLinksListConsolidationRequest { ... }) -> WithRawResponseTask&lt;IntercompanyLinksListConsolidationResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -24336,8 +24217,8 @@ await client.Consolidation.PostV1ConsolidationIntercompanyLinksSetAsync(
 <dd>
 
 ```csharp
-await client.Consolidation.PostV1ConsolidationIntercompanyLinksListAsync(
-    new PostV1ConsolidationIntercompanyLinksListRequest { GroupId = "groupId" }
+await client.Consolidation.IntercompanyLinksListAsync(
+    new IntercompanyLinksListConsolidationRequest { GroupId = "groupId" }
 );
 ```
 </dd>
@@ -24353,7 +24234,7 @@ await client.Consolidation.PostV1ConsolidationIntercompanyLinksListAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ConsolidationIntercompanyLinksListRequest` 
+**request:** `IntercompanyLinksListConsolidationRequest` 
     
 </dd>
 </dl>
@@ -24365,7 +24246,7 @@ await client.Consolidation.PostV1ConsolidationIntercompanyLinksListAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Consolidation.<a href="/src/NordletApi/Consolidation/ConsolidationClient.cs">PostV1ConsolidationIntercompanyLinksRemoveAsync</a>(PostV1ConsolidationIntercompanyLinksRemoveRequest { ... }) -> WithRawResponseTask&lt;PostV1ConsolidationIntercompanyLinksRemoveResponse&gt;</code></summary>
+<details><summary><code>client.Consolidation.<a href="/src/NordletApi/Consolidation/ConsolidationClient.cs">IntercompanyLinksRemoveAsync</a>(IntercompanyLinksRemoveConsolidationRequest { ... }) -> WithRawResponseTask&lt;IntercompanyLinksRemoveConsolidationResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -24378,8 +24259,8 @@ await client.Consolidation.PostV1ConsolidationIntercompanyLinksListAsync(
 <dd>
 
 ```csharp
-await client.Consolidation.PostV1ConsolidationIntercompanyLinksRemoveAsync(
-    new PostV1ConsolidationIntercompanyLinksRemoveRequest { GroupId = "groupId", Id = "id" }
+await client.Consolidation.IntercompanyLinksRemoveAsync(
+    new IntercompanyLinksRemoveConsolidationRequest { GroupId = "groupId", Id = "id" }
 );
 ```
 </dd>
@@ -24395,7 +24276,7 @@ await client.Consolidation.PostV1ConsolidationIntercompanyLinksRemoveAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ConsolidationIntercompanyLinksRemoveRequest` 
+**request:** `IntercompanyLinksRemoveConsolidationRequest` 
     
 </dd>
 </dl>
@@ -24407,7 +24288,7 @@ await client.Consolidation.PostV1ConsolidationIntercompanyLinksRemoveAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Consolidation.<a href="/src/NordletApi/Consolidation/ConsolidationClient.cs">PostV1ConsolidationIntercompanyReportAsync</a>(PostV1ConsolidationIntercompanyReportRequest { ... }) -> WithRawResponseTask&lt;PostV1ConsolidationIntercompanyReportResponse&gt;</code></summary>
+<details><summary><code>client.Consolidation.<a href="/src/NordletApi/Consolidation/ConsolidationClient.cs">IntercompanyReportAsync</a>(IntercompanyReportConsolidationRequest { ... }) -> WithRawResponseTask&lt;IntercompanyReportConsolidationResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -24434,12 +24315,12 @@ Intercompany reconciliation for a period: every issued intercompany sale invoice
 <dd>
 
 ```csharp
-await client.Consolidation.PostV1ConsolidationIntercompanyReportAsync(
-    new PostV1ConsolidationIntercompanyReportRequest
+await client.Consolidation.IntercompanyReportAsync(
+    new IntercompanyReportConsolidationRequest
     {
         GroupId = "groupId",
-        FromDate = "fromDate",
-        ToDate = "toDate",
+        FromDate = new DateOnly(2026, 7, 1),
+        ToDate = new DateOnly(2026, 7, 1),
     }
 );
 ```
@@ -24456,7 +24337,7 @@ await client.Consolidation.PostV1ConsolidationIntercompanyReportAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ConsolidationIntercompanyReportRequest` 
+**request:** `IntercompanyReportConsolidationRequest` 
     
 </dd>
 </dl>
@@ -24468,7 +24349,7 @@ await client.Consolidation.PostV1ConsolidationIntercompanyReportAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Consolidation.<a href="/src/NordletApi/Consolidation/ConsolidationClient.cs">PostV1ConsolidationReportAsync</a>(PostV1ConsolidationReportRequest { ... }) -> WithRawResponseTask&lt;PostV1ConsolidationReportResponse&gt;</code></summary>
+<details><summary><code>client.Consolidation.<a href="/src/NordletApi/Consolidation/ConsolidationClient.cs">ReportAsync</a>(ReportConsolidationRequest { ... }) -> WithRawResponseTask&lt;ReportConsolidationResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -24481,12 +24362,12 @@ await client.Consolidation.PostV1ConsolidationIntercompanyReportAsync(
 <dd>
 
 ```csharp
-await client.Consolidation.PostV1ConsolidationReportAsync(
-    new PostV1ConsolidationReportRequest
+await client.Consolidation.ReportAsync(
+    new ReportConsolidationRequest
     {
         GroupId = "groupId",
-        FromDate = "fromDate",
-        ToDate = "toDate",
+        FromDate = new DateOnly(2026, 7, 1),
+        ToDate = new DateOnly(2026, 7, 1),
     }
 );
 ```
@@ -24503,7 +24384,7 @@ await client.Consolidation.PostV1ConsolidationReportAsync(
 <dl>
 <dd>
 
-**request:** `PostV1ConsolidationReportRequest` 
+**request:** `ReportConsolidationRequest` 
     
 </dd>
 </dl>
@@ -24515,8 +24396,8 @@ await client.Consolidation.PostV1ConsolidationReportAsync(
 </dl>
 </details>
 
-## Public
-<details><summary><code>client.Public.<a href="/src/NordletApi/Public/PublicClient.cs">PostV1PublicIntegrationRequestsAsync</a>(PostV1PublicIntegrationRequestsRequest { ... }) -> WithRawResponseTask&lt;PostV1PublicIntegrationRequestsResponse&gt;</code></summary>
+## public
+<details><summary><code>client.Public.<a href="/src/NordletApi/Public/PublicClient.cs">IntegrationRequestsAsync</a>(IntegrationRequestsPublicRequest { ... }) -> WithRawResponseTask&lt;IntegrationRequestsPublicResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -24529,8 +24410,8 @@ await client.Consolidation.PostV1ConsolidationReportAsync(
 <dd>
 
 ```csharp
-await client.Public.PostV1PublicIntegrationRequestsAsync(
-    new PostV1PublicIntegrationRequestsRequest
+await client.Public.IntegrationRequestsAsync(
+    new IntegrationRequestsPublicRequest
     {
         Integration = "integration",
         Name = "name",
@@ -24551,7 +24432,7 @@ await client.Public.PostV1PublicIntegrationRequestsAsync(
 <dl>
 <dd>
 
-**request:** `PostV1PublicIntegrationRequestsRequest` 
+**request:** `IntegrationRequestsPublicRequest` 
     
 </dd>
 </dl>
@@ -24563,7 +24444,7 @@ await client.Public.PostV1PublicIntegrationRequestsAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Public.<a href="/src/NordletApi/Public/PublicClient.cs">GetV1PublicPayTokenAsync</a>(GetV1PublicPayTokenRequest { ... }) -> WithRawResponseTask</code></summary>
+<details><summary><code>client.Public.<a href="/src/NordletApi/Public/PublicClient.cs">PayAsync</a>(PayPublicRequest { ... }) -> WithRawResponseTask</code></summary>
 <dl>
 <dd>
 
@@ -24576,7 +24457,7 @@ await client.Public.PostV1PublicIntegrationRequestsAsync(
 <dd>
 
 ```csharp
-await client.Public.GetV1PublicPayTokenAsync(new GetV1PublicPayTokenRequest { Token = "token" });
+await client.Public.PayAsync(new PayPublicRequest { Token = "token" });
 ```
 </dd>
 </dl>
@@ -24591,7 +24472,7 @@ await client.Public.GetV1PublicPayTokenAsync(new GetV1PublicPayTokenRequest { To
 <dl>
 <dd>
 
-**request:** `GetV1PublicPayTokenRequest` 
+**request:** `PayPublicRequest` 
     
 </dd>
 </dl>
@@ -24603,8 +24484,8 @@ await client.Public.GetV1PublicPayTokenAsync(new GetV1PublicPayTokenRequest { To
 </dl>
 </details>
 
-## Billing
-<details><summary><code>client.Billing.<a href="/src/NordletApi/Billing/BillingClient.cs">PostV1BillingAccountGetAsync</a>(PostV1BillingAccountGetRequest { ... }) -> WithRawResponseTask&lt;PostV1BillingAccountGetResponse&gt;</code></summary>
+## billing
+<details><summary><code>client.Billing.<a href="/src/NordletApi/Billing/BillingClient.cs">AccountGetAsync</a>(AccountGetBillingRequest { ... }) -> WithRawResponseTask&lt;AccountGetBillingResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -24617,7 +24498,7 @@ await client.Public.GetV1PublicPayTokenAsync(new GetV1PublicPayTokenRequest { To
 <dd>
 
 ```csharp
-await client.Billing.PostV1BillingAccountGetAsync(new PostV1BillingAccountGetRequest());
+await client.Billing.AccountGetAsync(new AccountGetBillingRequest());
 ```
 </dd>
 </dl>
@@ -24632,7 +24513,7 @@ await client.Billing.PostV1BillingAccountGetAsync(new PostV1BillingAccountGetReq
 <dl>
 <dd>
 
-**request:** `PostV1BillingAccountGetRequest` 
+**request:** `AccountGetBillingRequest` 
     
 </dd>
 </dl>
@@ -24644,7 +24525,7 @@ await client.Billing.PostV1BillingAccountGetAsync(new PostV1BillingAccountGetReq
 </dl>
 </details>
 
-<details><summary><code>client.Billing.<a href="/src/NordletApi/Billing/BillingClient.cs">PostV1BillingAccountSetPlanAsync</a>(PostV1BillingAccountSetPlanRequest { ... }) -> WithRawResponseTask&lt;PostV1BillingAccountSetPlanResponse&gt;</code></summary>
+<details><summary><code>client.Billing.<a href="/src/NordletApi/Billing/BillingClient.cs">AccountSetPlanAsync</a>(AccountSetPlanBillingRequest { ... }) -> WithRawResponseTask&lt;AccountSetPlanBillingResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -24657,8 +24538,8 @@ await client.Billing.PostV1BillingAccountGetAsync(new PostV1BillingAccountGetReq
 <dd>
 
 ```csharp
-await client.Billing.PostV1BillingAccountSetPlanAsync(
-    new PostV1BillingAccountSetPlanRequest { Plan = PostV1BillingAccountSetPlanRequestPlan.Starter }
+await client.Billing.AccountSetPlanAsync(
+    new AccountSetPlanBillingRequest { Plan = AccountSetPlanBillingRequestPlan.Starter }
 );
 ```
 </dd>
@@ -24674,7 +24555,7 @@ await client.Billing.PostV1BillingAccountSetPlanAsync(
 <dl>
 <dd>
 
-**request:** `PostV1BillingAccountSetPlanRequest` 
+**request:** `AccountSetPlanBillingRequest` 
     
 </dd>
 </dl>
@@ -24686,7 +24567,7 @@ await client.Billing.PostV1BillingAccountSetPlanAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Billing.<a href="/src/NordletApi/Billing/BillingClient.cs">PostV1BillingTopupCreateAsync</a>(PostV1BillingTopupCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1BillingTopupCreateResponse&gt;</code></summary>
+<details><summary><code>client.Billing.<a href="/src/NordletApi/Billing/BillingClient.cs">TopupCreateAsync</a>(TopupCreateBillingRequest { ... }) -> WithRawResponseTask&lt;TopupCreateBillingResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -24699,8 +24580,128 @@ await client.Billing.PostV1BillingAccountSetPlanAsync(
 <dd>
 
 ```csharp
-await client.Billing.PostV1BillingTopupCreateAsync(
-    new PostV1BillingTopupCreateRequest { AmountCents = 1000000 }
+await client.Billing.TopupCreateAsync(new TopupCreateBillingRequest { AmountCents = 1000000 });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `TopupCreateBillingRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Billing.<a href="/src/NordletApi/Billing/BillingClient.cs">PortalCreateAsync</a>(PortalCreateBillingRequest { ... }) -> WithRawResponseTask&lt;PortalCreateBillingResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Billing.PortalCreateAsync(new PortalCreateBillingRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PortalCreateBillingRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Billing.<a href="/src/NordletApi/Billing/BillingClient.cs">TransactionsListAsync</a>(TransactionsListBillingRequest { ... }) -> WithRawResponseTask&lt;TransactionsListBillingResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Billing.TransactionsListAsync(new TransactionsListBillingRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `TransactionsListBillingRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Billing.<a href="/src/NordletApi/Billing/BillingClient.cs">UsageListAsync</a>(UsageListBillingRequest { ... }) -> WithRawResponseTask&lt;UsageListBillingResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Billing.UsageListAsync(
+    new UsageListBillingRequest { From = new DateOnly(2026, 7, 1), To = new DateOnly(2026, 7, 1) }
 );
 ```
 </dd>
@@ -24716,7 +24717,7 @@ await client.Billing.PostV1BillingTopupCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1BillingTopupCreateRequest` 
+**request:** `UsageListBillingRequest` 
     
 </dd>
 </dl>
@@ -24728,7 +24729,8 @@ await client.Billing.PostV1BillingTopupCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Billing.<a href="/src/NordletApi/Billing/BillingClient.cs">PostV1BillingPortalCreateAsync</a>(PostV1BillingPortalCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1BillingPortalCreateResponse&gt;</code></summary>
+## account
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">LoginLinkRequestAsync</a>(LoginLinkRequestAccountRequest { ... }) -> WithRawResponseTask&lt;LoginLinkRequestAccountResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -24741,7 +24743,7 @@ await client.Billing.PostV1BillingTopupCreateAsync(
 <dd>
 
 ```csharp
-await client.Billing.PostV1BillingPortalCreateAsync(new PostV1BillingPortalCreateRequest());
+await client.Account.LoginLinkRequestAsync(new LoginLinkRequestAccountRequest { Email = "email" });
 ```
 </dd>
 </dl>
@@ -24756,7 +24758,7 @@ await client.Billing.PostV1BillingPortalCreateAsync(new PostV1BillingPortalCreat
 <dl>
 <dd>
 
-**request:** `PostV1BillingPortalCreateRequest` 
+**request:** `LoginLinkRequestAccountRequest` 
     
 </dd>
 </dl>
@@ -24768,7 +24770,7 @@ await client.Billing.PostV1BillingPortalCreateAsync(new PostV1BillingPortalCreat
 </dl>
 </details>
 
-<details><summary><code>client.Billing.<a href="/src/NordletApi/Billing/BillingClient.cs">PostV1BillingTransactionsListAsync</a>(PostV1BillingTransactionsListRequest { ... }) -> WithRawResponseTask&lt;PostV1BillingTransactionsListResponse&gt;</code></summary>
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">LoginLinkConsumeAsync</a>(LoginLinkConsumeAccountRequest { ... }) -> WithRawResponseTask&lt;LoginLinkConsumeAccountResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -24781,7 +24783,7 @@ await client.Billing.PostV1BillingPortalCreateAsync(new PostV1BillingPortalCreat
 <dd>
 
 ```csharp
-await client.Billing.PostV1BillingTransactionsListAsync(new PostV1BillingTransactionsListRequest());
+await client.Account.LoginLinkConsumeAsync(new LoginLinkConsumeAccountRequest { Token = "token" });
 ```
 </dd>
 </dl>
@@ -24796,7 +24798,7 @@ await client.Billing.PostV1BillingTransactionsListAsync(new PostV1BillingTransac
 <dl>
 <dd>
 
-**request:** `PostV1BillingTransactionsListRequest` 
+**request:** `LoginLinkConsumeAccountRequest` 
     
 </dd>
 </dl>
@@ -24808,7 +24810,7 @@ await client.Billing.PostV1BillingTransactionsListAsync(new PostV1BillingTransac
 </dl>
 </details>
 
-<details><summary><code>client.Billing.<a href="/src/NordletApi/Billing/BillingClient.cs">PostV1BillingUsageListAsync</a>(PostV1BillingUsageListRequest { ... }) -> WithRawResponseTask&lt;PostV1BillingUsageListResponse&gt;</code></summary>
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">LogoutAsync</a>(LogoutAccountRequest { ... }) -> WithRawResponseTask&lt;LogoutAccountResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -24821,9 +24823,7 @@ await client.Billing.PostV1BillingTransactionsListAsync(new PostV1BillingTransac
 <dd>
 
 ```csharp
-await client.Billing.PostV1BillingUsageListAsync(
-    new PostV1BillingUsageListRequest { From = "from", To = "to" }
-);
+await client.Account.LogoutAsync(new LogoutAccountRequest());
 ```
 </dd>
 </dl>
@@ -24838,7 +24838,7 @@ await client.Billing.PostV1BillingUsageListAsync(
 <dl>
 <dd>
 
-**request:** `PostV1BillingUsageListRequest` 
+**request:** `LogoutAccountRequest` 
     
 </dd>
 </dl>
@@ -24850,8 +24850,7 @@ await client.Billing.PostV1BillingUsageListAsync(
 </dl>
 </details>
 
-## Account
-<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountLoginLinkRequestAsync</a>(PostV1AccountLoginLinkRequestRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountLoginLinkRequestResponse&gt;</code></summary>
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">MeAsync</a>(MeAccountRequest { ... }) -> WithRawResponseTask&lt;MeAccountResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -24864,9 +24863,7 @@ await client.Billing.PostV1BillingUsageListAsync(
 <dd>
 
 ```csharp
-await client.Account.PostV1AccountLoginLinkRequestAsync(
-    new PostV1AccountLoginLinkRequestRequest { Email = "email" }
-);
+await client.Account.MeAsync(new MeAccountRequest());
 ```
 </dd>
 </dl>
@@ -24881,7 +24878,7 @@ await client.Account.PostV1AccountLoginLinkRequestAsync(
 <dl>
 <dd>
 
-**request:** `PostV1AccountLoginLinkRequestRequest` 
+**request:** `MeAccountRequest` 
     
 </dd>
 </dl>
@@ -24893,7 +24890,7 @@ await client.Account.PostV1AccountLoginLinkRequestAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountLoginLinkConsumeAsync</a>(PostV1AccountLoginLinkConsumeRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountLoginLinkConsumeResponse&gt;</code></summary>
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">MembersListAsync</a>(MembersListAccountRequest { ... }) -> WithRawResponseTask&lt;MembersListAccountResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -24906,9 +24903,7 @@ await client.Account.PostV1AccountLoginLinkRequestAsync(
 <dd>
 
 ```csharp
-await client.Account.PostV1AccountLoginLinkConsumeAsync(
-    new PostV1AccountLoginLinkConsumeRequest { Token = "token" }
-);
+await client.Account.MembersListAsync(new MembersListAccountRequest());
 ```
 </dd>
 </dl>
@@ -24923,7 +24918,7 @@ await client.Account.PostV1AccountLoginLinkConsumeAsync(
 <dl>
 <dd>
 
-**request:** `PostV1AccountLoginLinkConsumeRequest` 
+**request:** `MembersListAccountRequest` 
     
 </dd>
 </dl>
@@ -24935,7 +24930,7 @@ await client.Account.PostV1AccountLoginLinkConsumeAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountLogoutAsync</a>(PostV1AccountLogoutRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountLogoutResponse&gt;</code></summary>
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">MembersSetRoleAsync</a>(MembersSetRoleAccountRequest { ... }) -> WithRawResponseTask&lt;MembersSetRoleAccountResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -24948,131 +24943,11 @@ await client.Account.PostV1AccountLoginLinkConsumeAsync(
 <dd>
 
 ```csharp
-await client.Account.PostV1AccountLogoutAsync(new PostV1AccountLogoutRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1AccountLogoutRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountMeAsync</a>(PostV1AccountMeRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountMeResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Account.PostV1AccountMeAsync(new PostV1AccountMeRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1AccountMeRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountMembersListAsync</a>(PostV1AccountMembersListRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountMembersListResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Account.PostV1AccountMembersListAsync(new PostV1AccountMembersListRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1AccountMembersListRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountMembersSetRoleAsync</a>(PostV1AccountMembersSetRoleRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountMembersSetRoleResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Account.PostV1AccountMembersSetRoleAsync(
-    new PostV1AccountMembersSetRoleRequest
+await client.Account.MembersSetRoleAsync(
+    new MembersSetRoleAccountRequest
     {
         UserId = "userId",
-        Role = PostV1AccountMembersSetRoleRequestRole.Admin,
+        Role = MembersSetRoleAccountRequestRole.Admin,
     }
 );
 ```
@@ -25089,7 +24964,7 @@ await client.Account.PostV1AccountMembersSetRoleAsync(
 <dl>
 <dd>
 
-**request:** `PostV1AccountMembersSetRoleRequest` 
+**request:** `MembersSetRoleAccountRequest` 
     
 </dd>
 </dl>
@@ -25101,7 +24976,7 @@ await client.Account.PostV1AccountMembersSetRoleAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountMembersTransferOwnershipAsync</a>(PostV1AccountMembersTransferOwnershipRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountMembersTransferOwnershipResponse&gt;</code></summary>
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">MembersTransferOwnershipAsync</a>(MembersTransferOwnershipAccountRequest { ... }) -> WithRawResponseTask&lt;MembersTransferOwnershipAccountResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -25114,8 +24989,8 @@ await client.Account.PostV1AccountMembersSetRoleAsync(
 <dd>
 
 ```csharp
-await client.Account.PostV1AccountMembersTransferOwnershipAsync(
-    new PostV1AccountMembersTransferOwnershipRequest { UserId = "userId" }
+await client.Account.MembersTransferOwnershipAsync(
+    new MembersTransferOwnershipAccountRequest { UserId = "userId" }
 );
 ```
 </dd>
@@ -25131,7 +25006,7 @@ await client.Account.PostV1AccountMembersTransferOwnershipAsync(
 <dl>
 <dd>
 
-**request:** `PostV1AccountMembersTransferOwnershipRequest` 
+**request:** `MembersTransferOwnershipAccountRequest` 
     
 </dd>
 </dl>
@@ -25143,7 +25018,7 @@ await client.Account.PostV1AccountMembersTransferOwnershipAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountMembersRemoveAsync</a>(PostV1AccountMembersRemoveRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountMembersRemoveResponse&gt;</code></summary>
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">MembersRemoveAsync</a>(MembersRemoveAccountRequest { ... }) -> WithRawResponseTask&lt;MembersRemoveAccountResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -25156,9 +25031,7 @@ await client.Account.PostV1AccountMembersTransferOwnershipAsync(
 <dd>
 
 ```csharp
-await client.Account.PostV1AccountMembersRemoveAsync(
-    new PostV1AccountMembersRemoveRequest { UserId = "userId" }
-);
+await client.Account.MembersRemoveAsync(new MembersRemoveAccountRequest { UserId = "userId" });
 ```
 </dd>
 </dl>
@@ -25173,7 +25046,7 @@ await client.Account.PostV1AccountMembersRemoveAsync(
 <dl>
 <dd>
 
-**request:** `PostV1AccountMembersRemoveRequest` 
+**request:** `MembersRemoveAccountRequest` 
     
 </dd>
 </dl>
@@ -25185,7 +25058,7 @@ await client.Account.PostV1AccountMembersRemoveAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountInvitesCreateAsync</a>(PostV1AccountInvitesCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountInvitesCreateResponse&gt;</code></summary>
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">InvitesCreateAsync</a>(InvitesCreateAccountRequest { ... }) -> WithRawResponseTask&lt;InvitesCreateAccountResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -25198,11 +25071,11 @@ await client.Account.PostV1AccountMembersRemoveAsync(
 <dd>
 
 ```csharp
-await client.Account.PostV1AccountInvitesCreateAsync(
-    new PostV1AccountInvitesCreateRequest
+await client.Account.InvitesCreateAsync(
+    new InvitesCreateAccountRequest
     {
         Email = "email",
-        Role = PostV1AccountInvitesCreateRequestRole.Admin,
+        Role = InvitesCreateAccountRequestRole.Admin,
     }
 );
 ```
@@ -25219,7 +25092,7 @@ await client.Account.PostV1AccountInvitesCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1AccountInvitesCreateRequest` 
+**request:** `InvitesCreateAccountRequest` 
     
 </dd>
 </dl>
@@ -25231,7 +25104,7 @@ await client.Account.PostV1AccountInvitesCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountInvitesListAsync</a>(PostV1AccountInvitesListRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountInvitesListResponse&gt;</code></summary>
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">InvitesListAsync</a>(InvitesListAccountRequest { ... }) -> WithRawResponseTask&lt;InvitesListAccountResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -25244,7 +25117,7 @@ await client.Account.PostV1AccountInvitesCreateAsync(
 <dd>
 
 ```csharp
-await client.Account.PostV1AccountInvitesListAsync(new PostV1AccountInvitesListRequest());
+await client.Account.InvitesListAsync(new InvitesListAccountRequest());
 ```
 </dd>
 </dl>
@@ -25259,7 +25132,7 @@ await client.Account.PostV1AccountInvitesListAsync(new PostV1AccountInvitesListR
 <dl>
 <dd>
 
-**request:** `PostV1AccountInvitesListRequest` 
+**request:** `InvitesListAccountRequest` 
     
 </dd>
 </dl>
@@ -25271,7 +25144,7 @@ await client.Account.PostV1AccountInvitesListAsync(new PostV1AccountInvitesListR
 </dl>
 </details>
 
-<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountInvitesRevokeAsync</a>(PostV1AccountInvitesRevokeRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountInvitesRevokeResponse&gt;</code></summary>
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">InvitesRevokeAsync</a>(InvitesRevokeAccountRequest { ... }) -> WithRawResponseTask&lt;InvitesRevokeAccountResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -25284,8 +25157,128 @@ await client.Account.PostV1AccountInvitesListAsync(new PostV1AccountInvitesListR
 <dd>
 
 ```csharp
-await client.Account.PostV1AccountInvitesRevokeAsync(
-    new PostV1AccountInvitesRevokeRequest { Id = "id" }
+await client.Account.InvitesRevokeAsync(new InvitesRevokeAccountRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `InvitesRevokeAccountRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">InvitesGetAsync</a>(InvitesGetAccountRequest { ... }) -> WithRawResponseTask&lt;InvitesGetAccountResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Account.InvitesGetAsync(new InvitesGetAccountRequest { Token = "token" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `InvitesGetAccountRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">InvitesAcceptAsync</a>(InvitesAcceptAccountRequest { ... }) -> WithRawResponseTask&lt;InvitesAcceptAccountResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Account.InvitesAcceptAsync(new InvitesAcceptAccountRequest { Token = "token" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `InvitesAcceptAccountRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">LocaleSetAsync</a>(LocaleSetAccountRequest { ... }) -> WithRawResponseTask&lt;LocaleSetAccountResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Account.LocaleSetAsync(
+    new LocaleSetAccountRequest { Locale = LocaleSetAccountRequestLocale.En }
 );
 ```
 </dd>
@@ -25301,7 +25294,7 @@ await client.Account.PostV1AccountInvitesRevokeAsync(
 <dl>
 <dd>
 
-**request:** `PostV1AccountInvitesRevokeRequest` 
+**request:** `LocaleSetAccountRequest` 
     
 </dd>
 </dl>
@@ -25313,7 +25306,7 @@ await client.Account.PostV1AccountInvitesRevokeAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountInvitesGetAsync</a>(PostV1AccountInvitesGetRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountInvitesGetResponse&gt;</code></summary>
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">CompaniesCreateAsync</a>(CompaniesCreateAccountRequest { ... }) -> WithRawResponseTask&lt;CompaniesCreateAccountResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -25326,8 +25319,48 @@ await client.Account.PostV1AccountInvitesRevokeAsync(
 <dd>
 
 ```csharp
-await client.Account.PostV1AccountInvitesGetAsync(
-    new PostV1AccountInvitesGetRequest { Token = "token" }
+await client.Account.CompaniesCreateAsync(new CompaniesCreateAccountRequest { Name = "name" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `CompaniesCreateAccountRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">CompaniesSelectAsync</a>(CompaniesSelectAccountRequest { ... }) -> WithRawResponseTask&lt;CompaniesSelectAccountResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Account.CompaniesSelectAsync(
+    new CompaniesSelectAccountRequest { CompanyId = "companyId" }
 );
 ```
 </dd>
@@ -25343,7 +25376,7 @@ await client.Account.PostV1AccountInvitesGetAsync(
 <dl>
 <dd>
 
-**request:** `PostV1AccountInvitesGetRequest` 
+**request:** `CompaniesSelectAccountRequest` 
     
 </dd>
 </dl>
@@ -25355,7 +25388,7 @@ await client.Account.PostV1AccountInvitesGetAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountInvitesAcceptAsync</a>(PostV1AccountInvitesAcceptRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountInvitesAcceptResponse&gt;</code></summary>
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">CompaniesProfileAsync</a>(CompaniesProfileAccountRequest { ... }) -> WithRawResponseTask&lt;CompaniesProfileAccountResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -25368,8 +25401,88 @@ await client.Account.PostV1AccountInvitesGetAsync(
 <dd>
 
 ```csharp
-await client.Account.PostV1AccountInvitesAcceptAsync(
-    new PostV1AccountInvitesAcceptRequest { Token = "token" }
+await client.Account.CompaniesProfileAsync(new CompaniesProfileAccountRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `CompaniesProfileAccountRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">CompaniesUpdateAsync</a>(CompaniesUpdateAccountRequest { ... }) -> WithRawResponseTask&lt;CompaniesUpdateAccountResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Account.CompaniesUpdateAsync(new CompaniesUpdateAccountRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `CompaniesUpdateAccountRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">CompaniesArchiveAsync</a>(CompaniesArchiveAccountRequest { ... }) -> WithRawResponseTask&lt;CompaniesArchiveAccountResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Account.CompaniesArchiveAsync(
+    new CompaniesArchiveAccountRequest { CompanyId = "companyId" }
 );
 ```
 </dd>
@@ -25385,7 +25498,7 @@ await client.Account.PostV1AccountInvitesAcceptAsync(
 <dl>
 <dd>
 
-**request:** `PostV1AccountInvitesAcceptRequest` 
+**request:** `CompaniesArchiveAccountRequest` 
     
 </dd>
 </dl>
@@ -25397,7 +25510,7 @@ await client.Account.PostV1AccountInvitesAcceptAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountLocaleSetAsync</a>(PostV1AccountLocaleSetRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountLocaleSetResponse&gt;</code></summary>
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">CompaniesDeleteAsync</a>(CompaniesDeleteAccountRequest { ... }) -> WithRawResponseTask&lt;CompaniesDeleteAccountResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -25410,8 +25523,8 @@ await client.Account.PostV1AccountInvitesAcceptAsync(
 <dd>
 
 ```csharp
-await client.Account.PostV1AccountLocaleSetAsync(
-    new PostV1AccountLocaleSetRequest { Locale = PostV1AccountLocaleSetRequestLocale.En }
+await client.Account.CompaniesDeleteAsync(
+    new CompaniesDeleteAccountRequest { CompanyId = "companyId" }
 );
 ```
 </dd>
@@ -25427,7 +25540,7 @@ await client.Account.PostV1AccountLocaleSetAsync(
 <dl>
 <dd>
 
-**request:** `PostV1AccountLocaleSetRequest` 
+**request:** `CompaniesDeleteAccountRequest` 
     
 </dd>
 </dl>
@@ -25439,7 +25552,7 @@ await client.Account.PostV1AccountLocaleSetAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountCompaniesCreateAsync</a>(PostV1AccountCompaniesCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountCompaniesCreateResponse&gt;</code></summary>
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">CompaniesActivateAsync</a>(CompaniesActivateAccountRequest { ... }) -> WithRawResponseTask&lt;CompaniesActivateAccountResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -25452,8 +25565,8 @@ await client.Account.PostV1AccountLocaleSetAsync(
 <dd>
 
 ```csharp
-await client.Account.PostV1AccountCompaniesCreateAsync(
-    new PostV1AccountCompaniesCreateRequest { Name = "name" }
+await client.Account.CompaniesActivateAsync(
+    new CompaniesActivateAccountRequest { CompanyId = "companyId" }
 );
 ```
 </dd>
@@ -25469,7 +25582,7 @@ await client.Account.PostV1AccountCompaniesCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1AccountCompaniesCreateRequest` 
+**request:** `CompaniesActivateAccountRequest` 
     
 </dd>
 </dl>
@@ -25481,7 +25594,7 @@ await client.Account.PostV1AccountCompaniesCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountCompaniesSelectAsync</a>(PostV1AccountCompaniesSelectRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountCompaniesSelectResponse&gt;</code></summary>
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">ApiKeysCreateAsync</a>(ApiKeysCreateAccountRequest { ... }) -> WithRawResponseTask&lt;ApiKeysCreateAccountResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -25494,8 +25607,168 @@ await client.Account.PostV1AccountCompaniesCreateAsync(
 <dd>
 
 ```csharp
-await client.Account.PostV1AccountCompaniesSelectAsync(
-    new PostV1AccountCompaniesSelectRequest { CompanyId = "companyId" }
+await client.Account.ApiKeysCreateAsync(new ApiKeysCreateAccountRequest { Name = "name" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ApiKeysCreateAccountRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">ApiKeysListAsync</a>(ApiKeysListAccountRequest { ... }) -> WithRawResponseTask&lt;ApiKeysListAccountResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Account.ApiKeysListAsync(new ApiKeysListAccountRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ApiKeysListAccountRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">ApiKeysRotateAsync</a>(ApiKeysRotateAccountRequest { ... }) -> WithRawResponseTask&lt;ApiKeysRotateAccountResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Account.ApiKeysRotateAsync(new ApiKeysRotateAccountRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ApiKeysRotateAccountRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">ApiKeysRevokeAsync</a>(ApiKeysRevokeAccountRequest { ... }) -> WithRawResponseTask&lt;ApiKeysRevokeAccountResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Account.ApiKeysRevokeAsync(new ApiKeysRevokeAccountRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ApiKeysRevokeAccountRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">ConsentAcceptAsync</a>(ConsentAcceptAccountRequest { ... }) -> WithRawResponseTask&lt;ConsentAcceptAccountResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Account.ConsentAcceptAsync(
+    new ConsentAcceptAccountRequest { AcceptTerms = true, AcceptDpa = true }
 );
 ```
 </dd>
@@ -25511,7 +25784,7 @@ await client.Account.PostV1AccountCompaniesSelectAsync(
 <dl>
 <dd>
 
-**request:** `PostV1AccountCompaniesSelectRequest` 
+**request:** `ConsentAcceptAccountRequest` 
     
 </dd>
 </dl>
@@ -25523,7 +25796,7 @@ await client.Account.PostV1AccountCompaniesSelectAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountCompaniesProfileAsync</a>(PostV1AccountCompaniesProfileRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountCompaniesProfileResponse&gt;</code></summary>
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">ProfileUpdateAsync</a>(ProfileUpdateAccountRequest { ... }) -> WithRawResponseTask&lt;ProfileUpdateAccountResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -25536,7 +25809,7 @@ await client.Account.PostV1AccountCompaniesSelectAsync(
 <dd>
 
 ```csharp
-await client.Account.PostV1AccountCompaniesProfileAsync(new PostV1AccountCompaniesProfileRequest());
+await client.Account.ProfileUpdateAsync(new ProfileUpdateAccountRequest());
 ```
 </dd>
 </dl>
@@ -25551,7 +25824,7 @@ await client.Account.PostV1AccountCompaniesProfileAsync(new PostV1AccountCompani
 <dl>
 <dd>
 
-**request:** `PostV1AccountCompaniesProfileRequest` 
+**request:** `ProfileUpdateAccountRequest` 
     
 </dd>
 </dl>
@@ -25563,7 +25836,7 @@ await client.Account.PostV1AccountCompaniesProfileAsync(new PostV1AccountCompani
 </dl>
 </details>
 
-<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountCompaniesUpdateAsync</a>(PostV1AccountCompaniesUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountCompaniesUpdateResponse&gt;</code></summary>
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">EmailChangeRequestAsync</a>(EmailChangeRequestAccountRequest { ... }) -> WithRawResponseTask&lt;EmailChangeRequestAccountResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -25576,48 +25849,8 @@ await client.Account.PostV1AccountCompaniesProfileAsync(new PostV1AccountCompani
 <dd>
 
 ```csharp
-await client.Account.PostV1AccountCompaniesUpdateAsync(new PostV1AccountCompaniesUpdateRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1AccountCompaniesUpdateRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountCompaniesArchiveAsync</a>(PostV1AccountCompaniesArchiveRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountCompaniesArchiveResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Account.PostV1AccountCompaniesArchiveAsync(
-    new PostV1AccountCompaniesArchiveRequest { CompanyId = "companyId" }
+await client.Account.EmailChangeRequestAsync(
+    new EmailChangeRequestAccountRequest { NewEmail = "newEmail" }
 );
 ```
 </dd>
@@ -25633,7 +25866,7 @@ await client.Account.PostV1AccountCompaniesArchiveAsync(
 <dl>
 <dd>
 
-**request:** `PostV1AccountCompaniesArchiveRequest` 
+**request:** `EmailChangeRequestAccountRequest` 
     
 </dd>
 </dl>
@@ -25645,7 +25878,7 @@ await client.Account.PostV1AccountCompaniesArchiveAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountCompaniesDeleteAsync</a>(PostV1AccountCompaniesDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountCompaniesDeleteResponse&gt;</code></summary>
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">SessionsListAsync</a>(SessionsListAccountRequest { ... }) -> WithRawResponseTask&lt;SessionsListAccountResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -25658,9 +25891,7 @@ await client.Account.PostV1AccountCompaniesArchiveAsync(
 <dd>
 
 ```csharp
-await client.Account.PostV1AccountCompaniesDeleteAsync(
-    new PostV1AccountCompaniesDeleteRequest { CompanyId = "companyId" }
-);
+await client.Account.SessionsListAsync(new SessionsListAccountRequest());
 ```
 </dd>
 </dl>
@@ -25675,7 +25906,7 @@ await client.Account.PostV1AccountCompaniesDeleteAsync(
 <dl>
 <dd>
 
-**request:** `PostV1AccountCompaniesDeleteRequest` 
+**request:** `SessionsListAccountRequest` 
     
 </dd>
 </dl>
@@ -25687,7 +25918,7 @@ await client.Account.PostV1AccountCompaniesDeleteAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountCompaniesActivateAsync</a>(PostV1AccountCompaniesActivateRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountCompaniesActivateResponse&gt;</code></summary>
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">SessionsRevokeAsync</a>(SessionsRevokeAccountRequest { ... }) -> WithRawResponseTask&lt;SessionsRevokeAccountResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -25700,9 +25931,7 @@ await client.Account.PostV1AccountCompaniesDeleteAsync(
 <dd>
 
 ```csharp
-await client.Account.PostV1AccountCompaniesActivateAsync(
-    new PostV1AccountCompaniesActivateRequest { CompanyId = "companyId" }
-);
+await client.Account.SessionsRevokeAsync(new SessionsRevokeAccountRequest { Id = "id" });
 ```
 </dd>
 </dl>
@@ -25717,7 +25946,7 @@ await client.Account.PostV1AccountCompaniesActivateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1AccountCompaniesActivateRequest` 
+**request:** `SessionsRevokeAccountRequest` 
     
 </dd>
 </dl>
@@ -25729,7 +25958,7 @@ await client.Account.PostV1AccountCompaniesActivateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountApiKeysCreateAsync</a>(PostV1AccountApiKeysCreateRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountApiKeysCreateResponse&gt;</code></summary>
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">SessionsRevokeOthersAsync</a>(SessionsRevokeOthersAccountRequest { ... }) -> WithRawResponseTask&lt;SessionsRevokeOthersAccountResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -25742,9 +25971,7 @@ await client.Account.PostV1AccountCompaniesActivateAsync(
 <dd>
 
 ```csharp
-await client.Account.PostV1AccountApiKeysCreateAsync(
-    new PostV1AccountApiKeysCreateRequest { Name = "name" }
-);
+await client.Account.SessionsRevokeOthersAsync(new SessionsRevokeOthersAccountRequest());
 ```
 </dd>
 </dl>
@@ -25759,7 +25986,7 @@ await client.Account.PostV1AccountApiKeysCreateAsync(
 <dl>
 <dd>
 
-**request:** `PostV1AccountApiKeysCreateRequest` 
+**request:** `SessionsRevokeOthersAccountRequest` 
     
 </dd>
 </dl>
@@ -25771,7 +25998,7 @@ await client.Account.PostV1AccountApiKeysCreateAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountApiKeysListAsync</a>(PostV1AccountApiKeysListRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountApiKeysListResponse&gt;</code></summary>
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">ExportAsync</a>(ExportAccountRequest { ... }) -> WithRawResponseTask&lt;ExportAccountResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -25784,7 +26011,7 @@ await client.Account.PostV1AccountApiKeysCreateAsync(
 <dd>
 
 ```csharp
-await client.Account.PostV1AccountApiKeysListAsync(new PostV1AccountApiKeysListRequest());
+await client.Account.ExportAsync(new ExportAccountRequest());
 ```
 </dd>
 </dl>
@@ -25799,7 +26026,7 @@ await client.Account.PostV1AccountApiKeysListAsync(new PostV1AccountApiKeysListR
 <dl>
 <dd>
 
-**request:** `PostV1AccountApiKeysListRequest` 
+**request:** `ExportAccountRequest` 
     
 </dd>
 </dl>
@@ -25811,381 +26038,7 @@ await client.Account.PostV1AccountApiKeysListAsync(new PostV1AccountApiKeysListR
 </dl>
 </details>
 
-<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">IssueAReplacementForAnApiKeyAndSetTheOldOneToStopWorkingAfterAShortOverlapAsync</a>(PostV1AccountApiKeysRotateRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountApiKeysRotateResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Account.IssueAReplacementForAnApiKeyAndSetTheOldOneToStopWorkingAfterAShortOverlapAsync(
-    new PostV1AccountApiKeysRotateRequest { Id = "id" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1AccountApiKeysRotateRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountApiKeysRevokeAsync</a>(PostV1AccountApiKeysRevokeRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountApiKeysRevokeResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Account.PostV1AccountApiKeysRevokeAsync(
-    new PostV1AccountApiKeysRevokeRequest { Id = "id" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1AccountApiKeysRevokeRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountConsentAcceptAsync</a>(PostV1AccountConsentAcceptRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountConsentAcceptResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Account.PostV1AccountConsentAcceptAsync(
-    new PostV1AccountConsentAcceptRequest { AcceptTerms = true, AcceptDpa = true }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1AccountConsentAcceptRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountProfileUpdateAsync</a>(PostV1AccountProfileUpdateRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountProfileUpdateResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Account.PostV1AccountProfileUpdateAsync(new PostV1AccountProfileUpdateRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1AccountProfileUpdateRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountEmailChangeRequestAsync</a>(PostV1AccountEmailChangeRequestRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountEmailChangeRequestResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Account.PostV1AccountEmailChangeRequestAsync(
-    new PostV1AccountEmailChangeRequestRequest { NewEmail = "newEmail" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1AccountEmailChangeRequestRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountSessionsListAsync</a>(PostV1AccountSessionsListRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountSessionsListResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Account.PostV1AccountSessionsListAsync(new PostV1AccountSessionsListRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1AccountSessionsListRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountSessionsRevokeAsync</a>(PostV1AccountSessionsRevokeRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountSessionsRevokeResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Account.PostV1AccountSessionsRevokeAsync(
-    new PostV1AccountSessionsRevokeRequest { Id = "id" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1AccountSessionsRevokeRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountSessionsRevokeOthersAsync</a>(PostV1AccountSessionsRevokeOthersRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountSessionsRevokeOthersResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Account.PostV1AccountSessionsRevokeOthersAsync(
-    new PostV1AccountSessionsRevokeOthersRequest()
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1AccountSessionsRevokeOthersRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">DownloadEverythingNordletStoresAboutTheSignedInUserAsync</a>(PostV1AccountExportRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountExportResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Account.DownloadEverythingNordletStoresAboutTheSignedInUserAsync(
-    new PostV1AccountExportRequest()
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1AccountExportRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">DeleteTheSignedInUserAccountAsync</a>(PostV1AccountDeleteRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountDeleteResponse&gt;</code></summary>
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">DeleteAsync</a>(DeleteAccountRequest { ... }) -> WithRawResponseTask&lt;DeleteAccountResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -26212,8 +26065,128 @@ Removes the user: sessions, sign-in links, memberships and pending invitations a
 <dd>
 
 ```csharp
-await client.Account.DeleteTheSignedInUserAccountAsync(
-    new PostV1AccountDeleteRequest { ConfirmEmail = "confirmEmail" }
+await client.Account.DeleteAsync(new DeleteAccountRequest { ConfirmEmail = "confirmEmail" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `DeleteAccountRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">ReferralGetAsync</a>(ReferralGetAccountRequest { ... }) -> WithRawResponseTask&lt;ReferralGetAccountResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Account.ReferralGetAsync(new ReferralGetAccountRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ReferralGetAccountRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">ReferralConvertAsync</a>(ReferralConvertAccountRequest { ... }) -> WithRawResponseTask&lt;ReferralConvertAccountResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Account.ReferralConvertAsync(new ReferralConvertAccountRequest { Points = 1000000 });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ReferralConvertAccountRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">TableSettingsGetAsync</a>(TableSettingsGetAccountRequest { ... }) -> WithRawResponseTask&lt;TableSettingsGetAccountResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Account.TableSettingsGetAsync(
+    new TableSettingsGetAccountRequest { TableKey = "tableKey" }
 );
 ```
 </dd>
@@ -26229,7 +26202,7 @@ await client.Account.DeleteTheSignedInUserAccountAsync(
 <dl>
 <dd>
 
-**request:** `PostV1AccountDeleteRequest` 
+**request:** `TableSettingsGetAccountRequest` 
     
 </dd>
 </dl>
@@ -26241,7 +26214,7 @@ await client.Account.DeleteTheSignedInUserAccountAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountReferralGetAsync</a>(PostV1AccountReferralGetRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountReferralGetResponse&gt;</code></summary>
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">TableSettingsSetAsync</a>(TableSettingsSetAccountRequest { ... }) -> WithRawResponseTask&lt;TableSettingsSetAccountResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -26254,48 +26227,8 @@ await client.Account.DeleteTheSignedInUserAccountAsync(
 <dd>
 
 ```csharp
-await client.Account.PostV1AccountReferralGetAsync(new PostV1AccountReferralGetRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1AccountReferralGetRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountReferralConvertAsync</a>(PostV1AccountReferralConvertRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountReferralConvertResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Account.PostV1AccountReferralConvertAsync(
-    new PostV1AccountReferralConvertRequest { Points = 1000000 }
+await client.Account.TableSettingsSetAsync(
+    new TableSettingsSetAccountRequest { TableKey = "tableKey" }
 );
 ```
 </dd>
@@ -26311,7 +26244,7 @@ await client.Account.PostV1AccountReferralConvertAsync(
 <dl>
 <dd>
 
-**request:** `PostV1AccountReferralConvertRequest` 
+**request:** `TableSettingsSetAccountRequest` 
     
 </dd>
 </dl>
@@ -26323,7 +26256,7 @@ await client.Account.PostV1AccountReferralConvertAsync(
 </dl>
 </details>
 
-<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountTableSettingsGetAsync</a>(PostV1AccountTableSettingsGetRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountTableSettingsGetResponse&gt;</code></summary>
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">TableSettingsListAsync</a>(TableSettingsListAccountRequest { ... }) -> WithRawResponseTask&lt;TableSettingsListAccountResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -26336,9 +26269,7 @@ await client.Account.PostV1AccountReferralConvertAsync(
 <dd>
 
 ```csharp
-await client.Account.PostV1AccountTableSettingsGetAsync(
-    new PostV1AccountTableSettingsGetRequest { TableKey = "tableKey" }
-);
+await client.Account.TableSettingsListAsync(new TableSettingsListAccountRequest());
 ```
 </dd>
 </dl>
@@ -26353,91 +26284,7 @@ await client.Account.PostV1AccountTableSettingsGetAsync(
 <dl>
 <dd>
 
-**request:** `PostV1AccountTableSettingsGetRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountTableSettingsSetAsync</a>(PostV1AccountTableSettingsSetRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountTableSettingsSetResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Account.PostV1AccountTableSettingsSetAsync(
-    new PostV1AccountTableSettingsSetRequest { TableKey = "tableKey" }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1AccountTableSettingsSetRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">PostV1AccountTableSettingsListAsync</a>(PostV1AccountTableSettingsListRequest { ... }) -> WithRawResponseTask&lt;PostV1AccountTableSettingsListResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Account.PostV1AccountTableSettingsListAsync(
-    new PostV1AccountTableSettingsListRequest()
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `PostV1AccountTableSettingsListRequest` 
+**request:** `TableSettingsListAccountRequest` 
     
 </dd>
 </dl>
