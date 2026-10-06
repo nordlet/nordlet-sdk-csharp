@@ -24,6 +24,7 @@ public class RunsListTest : BaseMockServerTest
                   "year": 1000000,
                   "month": 1000000,
                   "countryCode": "countryCode",
+                  "payDate": "2023-01-15",
                   "status": "draft",
                   "grossTotal": "grossTotal",
                   "taxAllowanceTotal": "taxAllowanceTotal",
@@ -61,6 +62,7 @@ public class RunsListTest : BaseMockServerTest
                   "year": 1000000,
                   "month": 1000000,
                   "countryCode": "countryCode",
+                  "payDate": "2023-01-15",
                   "status": "draft",
                   "grossTotal": "grossTotal",
                   "taxAllowanceTotal": "taxAllowanceTotal",
@@ -99,6 +101,11 @@ public class RunsListTest : BaseMockServerTest
               "total": 1000000,
               "totals": {
                 "totals": "totals"
+              },
+              "totalsByCurrency": {
+                "totalsByCurrency": {
+                  "totalsByCurrency": "totalsByCurrency"
+                }
               }
             }
             """;
@@ -147,6 +154,7 @@ public class RunsListTest : BaseMockServerTest
                   "year": 1000000,
                   "month": 1000000,
                   "countryCode": "countryCode",
+                  "payDate": "2026-07-01",
                   "status": "draft",
                   "grossTotal": "grossTotal",
                   "taxAllowanceTotal": "taxAllowanceTotal",
@@ -175,6 +183,11 @@ public class RunsListTest : BaseMockServerTest
               "total": 1000000,
               "totals": {
                 "key": "value"
+              },
+              "totalsByCurrency": {
+                "key": {
+                  "key": "value"
+                }
               }
             }
             """;

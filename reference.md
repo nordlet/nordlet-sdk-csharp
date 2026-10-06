@@ -3197,6 +3197,206 @@ await client.Leads.SourcesOptionsAsync(new SourcesOptionsLeadsRequest());
 </dl>
 </details>
 
+<details><summary><code>client.Leads.<a href="/src/NordletApi/Leads/LeadsClient.cs">TypesCreateAsync</a>(TypesCreateLeadsRequest { ... }) -> WithRawResponseTask&lt;TypesCreateLeadsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Leads.TypesCreateAsync(new TypesCreateLeadsRequest { Name = "name" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `TypesCreateLeadsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Leads.<a href="/src/NordletApi/Leads/LeadsClient.cs">TypesUpdateAsync</a>(TypesUpdateLeadsRequest { ... }) -> WithRawResponseTask&lt;TypesUpdateLeadsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Leads.TypesUpdateAsync(new TypesUpdateLeadsRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `TypesUpdateLeadsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Leads.<a href="/src/NordletApi/Leads/LeadsClient.cs">TypesDeleteAsync</a>(TypesDeleteLeadsRequest { ... }) -> WithRawResponseTask&lt;TypesDeleteLeadsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Leads.TypesDeleteAsync(new TypesDeleteLeadsRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `TypesDeleteLeadsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Leads.<a href="/src/NordletApi/Leads/LeadsClient.cs">TypesListAsync</a>(TypesListLeadsRequest { ... }) -> WithRawResponseTask&lt;TypesListLeadsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Leads.TypesListAsync(new TypesListLeadsRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `TypesListLeadsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Leads.<a href="/src/NordletApi/Leads/LeadsClient.cs">TypesOptionsAsync</a>(TypesOptionsLeadsRequest { ... }) -> WithRawResponseTask&lt;TypesOptionsLeadsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Leads.TypesOptionsAsync(new TypesOptionsLeadsRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `TypesOptionsLeadsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.Leads.<a href="/src/NordletApi/Leads/LeadsClient.cs">ConvertAsync</a>(ConvertLeadsRequest { ... }) -> WithRawResponseTask&lt;ConvertLeadsResponse&gt;</code></summary>
 <dl>
 <dd>
@@ -10391,7 +10591,7 @@ await client.Declarations.IeCt1GenerateAsync(
 <dl>
 <dd>
 
-Build the working paper for the Form B1 annual return of a financial year — company details, registered office, directors and secretary from Settings → Officers, the members from Settings → Shareholders, the issued share capital and the figures of the financial statements — in the order the CORE screens ask for them. The CRO publishes no file format for the B1, so it is keyed into CORE.
+Build the working paper for the Form B1 annual return of a financial year - company details, registered office, directors and secretary from Settings → Officers, the members from Settings → Shareholders, the issued share capital and the figures of the financial statements - in the order the CORE screens ask for them. The CRO publishes no file format for the B1, so it is keyed into CORE.
 </dd>
 </dl>
 </dd>
@@ -13471,7 +13671,7 @@ await client.Migration.BooksValidateAsync(
 <dl>
 <dd>
 
-Brings a company over from another system in one call: chart of accounts, partners, items, opening balances (or the full journal history), open customer and supplier invoices, fixed assets with their accumulated depreciation, and stock on hand. The whole package is written in one database transaction — if any row fails, nothing is stored.
+Brings a company over from another system in one call: chart of accounts, partners, items, opening balances (or the full journal history), open customer and supplier invoices, fixed assets with their accumulated depreciation, and stock on hand. The whole package is written in one database transaction - if any row fails, nothing is stored.
 </dd>
 </dl>
 </dd>
@@ -21433,6 +21633,46 @@ await client.Bank.MandatesListAsync(new MandatesListBankRequest());
 <dd>
 
 **request:** `MandatesListBankRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">DirectDebitsCandidatesAsync</a>(DirectDebitsCandidatesBankRequest { ... }) -> WithRawResponseTask&lt;DirectDebitsCandidatesBankResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Bank.DirectDebitsCandidatesAsync(new DirectDebitsCandidatesBankRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `DirectDebitsCandidatesBankRequest` 
     
 </dd>
 </dl>

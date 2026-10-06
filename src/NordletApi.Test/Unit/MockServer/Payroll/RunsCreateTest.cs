@@ -25,6 +25,7 @@ public class RunsCreateTest : BaseMockServerTest
               "year": 1000000,
               "month": 1000000,
               "countryCode": "countryCode",
+              "payDate": "2023-01-15",
               "status": "draft",
               "grossTotal": "grossTotal",
               "taxAllowanceTotal": "taxAllowanceTotal",
@@ -198,6 +199,7 @@ public class RunsCreateTest : BaseMockServerTest
                 GrossOverrides = null,
                 Lines = null,
                 Notes = null,
+                PayDate = null,
             }
         );
         JsonAssert.AreEqual(response, mockResponse);
@@ -219,6 +221,7 @@ public class RunsCreateTest : BaseMockServerTest
               "year": 1000000,
               "month": 1000000,
               "countryCode": "countryCode",
+              "payDate": "2026-07-01",
               "status": "draft",
               "grossTotal": "grossTotal",
               "taxAllowanceTotal": "taxAllowanceTotal",

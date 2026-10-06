@@ -149,6 +149,12 @@ public partial interface IBankClient
         CancellationToken cancellationToken = default
     );
 
+    WithRawResponseTask<DirectDebitsCandidatesBankResponse> DirectDebitsCandidatesAsync(
+        DirectDebitsCandidatesBankRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
     WithRawResponseTask<DirectDebitsExportBankResponse> DirectDebitsExportAsync(
         DirectDebitsExportBankRequest request,
         RequestOptions? options = null,

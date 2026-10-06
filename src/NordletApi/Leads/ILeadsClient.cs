@@ -86,6 +86,36 @@ public partial interface ILeadsClient
         CancellationToken cancellationToken = default
     );
 
+    WithRawResponseTask<TypesCreateLeadsResponse> TypesCreateAsync(
+        TypesCreateLeadsRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<TypesUpdateLeadsResponse> TypesUpdateAsync(
+        TypesUpdateLeadsRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<TypesDeleteLeadsResponse> TypesDeleteAsync(
+        TypesDeleteLeadsRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<TypesListLeadsResponse> TypesListAsync(
+        TypesListLeadsRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<TypesOptionsLeadsResponse> TypesOptionsAsync(
+        TypesOptionsLeadsRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
     /// <summary>
     /// Create a customer partner from the lead, move the lead files to the partner, copy the lead notes into the partner notes and mark the lead as converted.
     /// </summary>

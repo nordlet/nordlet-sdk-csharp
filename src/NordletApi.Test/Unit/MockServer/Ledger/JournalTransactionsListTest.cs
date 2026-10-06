@@ -28,7 +28,8 @@ public class JournalTransactionsListTest : BaseMockServerTest
                   "partnerId": "x",
                   "status": "draft",
                   "createdAt": "2024-01-15T09:30:00.000Z",
-                  "postedAt": "2024-01-15T09:30:00.000Z"
+                  "postedAt": "2024-01-15T09:30:00.000Z",
+                  "partnerName": "partnerName"
                 },
                 {
                   "id": "x",
@@ -39,7 +40,8 @@ public class JournalTransactionsListTest : BaseMockServerTest
                   "partnerId": "x",
                   "status": "draft",
                   "createdAt": "2024-01-15T09:30:00.000Z",
-                  "postedAt": "2024-01-15T09:30:00.000Z"
+                  "postedAt": "2024-01-15T09:30:00.000Z",
+                  "partnerName": "partnerName"
                 }
               ],
               "page": 1000000,
@@ -47,6 +49,11 @@ public class JournalTransactionsListTest : BaseMockServerTest
               "total": 1000000,
               "totals": {
                 "totals": "totals"
+              },
+              "totalsByCurrency": {
+                "totalsByCurrency": {
+                  "totalsByCurrency": "totalsByCurrency"
+                }
               }
             }
             """;
@@ -99,7 +106,8 @@ public class JournalTransactionsListTest : BaseMockServerTest
                   "partnerId": "partnerId",
                   "status": "draft",
                   "createdAt": "2026-07-01T09:30:00.000Z",
-                  "postedAt": "2026-07-01T09:30:00.000Z"
+                  "postedAt": "2026-07-01T09:30:00.000Z",
+                  "partnerName": "partnerName"
                 }
               ],
               "page": 1000000,
@@ -107,6 +115,11 @@ public class JournalTransactionsListTest : BaseMockServerTest
               "total": 1000000,
               "totals": {
                 "key": "value"
+              },
+              "totalsByCurrency": {
+                "key": {
+                  "key": "value"
+                }
               }
             }
             """;

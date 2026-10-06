@@ -36,7 +36,7 @@ public record InvoicesEinvoiceSendSalesResponse : IJsonOnDeserialized
     public string? Detail { get; set; }
 
     [JsonPropertyName("fileId")]
-    public required string FileId { get; set; }
+    public string? FileId { get; set; }
 
     [JsonPropertyName("warnings")]
     public IEnumerable<string> Warnings { get; set; } = new List<string>();

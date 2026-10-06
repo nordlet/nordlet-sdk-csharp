@@ -23,18 +23,13 @@ public record DebtRemindersPreviewPartnersResponseRowsItem : IJsonOnDeserialized
     [JsonPropertyName("locale")]
     public required DebtRemindersPreviewPartnersResponseRowsItemLocale Locale { get; set; }
 
-    [JsonPropertyName("currency")]
-    public required string Currency { get; set; }
-
     [JsonPropertyName("invoices")]
     public IEnumerable<DebtRemindersPreviewPartnersResponseRowsItemInvoicesItem> Invoices { get; set; } =
         new List<DebtRemindersPreviewPartnersResponseRowsItemInvoicesItem>();
 
-    [JsonPropertyName("totalDue")]
-    public required string TotalDue { get; set; }
-
-    [JsonPropertyName("interestDue")]
-    public required string InterestDue { get; set; }
+    [JsonPropertyName("totals")]
+    public IEnumerable<DebtRemindersPreviewPartnersResponseRowsItemTotalsItem> Totals { get; set; } =
+        new List<DebtRemindersPreviewPartnersResponseRowsItemTotalsItem>();
 
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();

@@ -33,7 +33,11 @@ public class PartnerBalancesTest : BaseMockServerTest
                   "payable": "payable",
                   "net": "net"
                 }
-              ]
+              ],
+              "totals": {
+                "receivable": "receivable",
+                "payable": "payable"
+              }
             }
             """;
 
@@ -76,7 +80,11 @@ public class PartnerBalancesTest : BaseMockServerTest
                   "payable": "payable",
                   "net": "net"
                 }
-              ]
+              ],
+              "totals": {
+                "receivable": "receivable",
+                "payable": "payable"
+              }
             }
             """;
 

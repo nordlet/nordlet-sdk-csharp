@@ -30,6 +30,9 @@ public record UpdateLeadsRequest
     [JsonPropertyName("sourceId")]
     public string? SourceId { get; set; }
 
+    [JsonPropertyName("typeId")]
+    public string? TypeId { get; set; }
+
     [JsonPropertyName("status")]
     public UpdateLeadsRequestStatus? Status { get; set; }
 

@@ -24,6 +24,9 @@ public record RunsCreatePayrollRequest
     [JsonPropertyName("notes")]
     public string? Notes { get; set; }
 
+    [JsonPropertyName("payDate")]
+    public DateOnly? PayDate { get; set; }
+
     /// <inheritdoc />
     public override string ToString()
     {

@@ -15,6 +15,9 @@ public record PartnerBalancesReportsResponse : IJsonOnDeserialized
     public IEnumerable<PartnerBalancesReportsResponseRowsItem> Rows { get; set; } =
         new List<PartnerBalancesReportsResponseRowsItem>();
 
+    [JsonPropertyName("totals")]
+    public required PartnerBalancesReportsResponseTotals Totals { get; set; }
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

@@ -43,6 +43,11 @@ public class ReceiptsListTest : BaseMockServerTest
               "total": 1000000,
               "totals": {
                 "totals": "totals"
+              },
+              "totalsByCurrency": {
+                "totalsByCurrency": {
+                  "totalsByCurrency": "totalsByCurrency"
+                }
               }
             }
             """;
@@ -101,6 +106,11 @@ public class ReceiptsListTest : BaseMockServerTest
               "total": 1000000,
               "totals": {
                 "key": "value"
+              },
+              "totalsByCurrency": {
+                "key": {
+                  "key": "value"
+                }
               }
             }
             """;

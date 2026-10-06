@@ -23,6 +23,9 @@ public record RunsListPayrollResponseRowsItem : IJsonOnDeserialized
     [JsonPropertyName("countryCode")]
     public required string CountryCode { get; set; }
 
+    [JsonPropertyName("payDate")]
+    public DateOnly? PayDate { get; set; }
+
     [JsonPropertyName("status")]
     public required RunsListPayrollResponseRowsItemStatus Status { get; set; }
 

@@ -24,13 +24,13 @@ public class DebtRemindersPreviewTest : BaseMockServerTest
                   "partnerName": "partnerName",
                   "email": "email",
                   "locale": "en",
-                  "currency": "currency",
                   "invoices": [
                     {
                       "id": "x",
                       "fullNumber": "fullNumber",
                       "issueDate": "2023-01-15",
                       "dueDate": "2023-01-15",
+                      "currency": "currency",
                       "remaining": "remaining",
                       "daysLate": 1000000,
                       "interest": "interest"
@@ -40,26 +40,37 @@ public class DebtRemindersPreviewTest : BaseMockServerTest
                       "fullNumber": "fullNumber",
                       "issueDate": "2023-01-15",
                       "dueDate": "2023-01-15",
+                      "currency": "currency",
                       "remaining": "remaining",
                       "daysLate": 1000000,
                       "interest": "interest"
                     }
                   ],
-                  "totalDue": "totalDue",
-                  "interestDue": "interestDue"
+                  "totals": [
+                    {
+                      "currency": "currency",
+                      "totalDue": "totalDue",
+                      "interestDue": "interestDue"
+                    },
+                    {
+                      "currency": "currency",
+                      "totalDue": "totalDue",
+                      "interestDue": "interestDue"
+                    }
+                  ]
                 },
                 {
                   "partnerId": "x",
                   "partnerName": "partnerName",
                   "email": "email",
                   "locale": "en",
-                  "currency": "currency",
                   "invoices": [
                     {
                       "id": "x",
                       "fullNumber": "fullNumber",
                       "issueDate": "2023-01-15",
                       "dueDate": "2023-01-15",
+                      "currency": "currency",
                       "remaining": "remaining",
                       "daysLate": 1000000,
                       "interest": "interest"
@@ -69,13 +80,24 @@ public class DebtRemindersPreviewTest : BaseMockServerTest
                       "fullNumber": "fullNumber",
                       "issueDate": "2023-01-15",
                       "dueDate": "2023-01-15",
+                      "currency": "currency",
                       "remaining": "remaining",
                       "daysLate": 1000000,
                       "interest": "interest"
                     }
                   ],
-                  "totalDue": "totalDue",
-                  "interestDue": "interestDue"
+                  "totals": [
+                    {
+                      "currency": "currency",
+                      "totalDue": "totalDue",
+                      "interestDue": "interestDue"
+                    },
+                    {
+                      "currency": "currency",
+                      "totalDue": "totalDue",
+                      "interestDue": "interestDue"
+                    }
+                  ]
                 }
               ]
             }
@@ -118,20 +140,25 @@ public class DebtRemindersPreviewTest : BaseMockServerTest
                   "partnerName": "partnerName",
                   "email": "email",
                   "locale": "en",
-                  "currency": "currency",
                   "invoices": [
                     {
                       "id": "id",
                       "fullNumber": "fullNumber",
                       "issueDate": "2026-07-01",
                       "dueDate": "2026-07-01",
+                      "currency": "currency",
                       "remaining": "remaining",
                       "daysLate": 1000000,
                       "interest": "interest"
                     }
                   ],
-                  "totalDue": "totalDue",
-                  "interestDue": "interestDue"
+                  "totals": [
+                    {
+                      "currency": "currency",
+                      "totalDue": "totalDue",
+                      "interestDue": "interestDue"
+                    }
+                  ]
                 }
               ]
             }

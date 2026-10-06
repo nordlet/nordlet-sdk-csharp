@@ -29,6 +29,8 @@ public class ListTest : BaseMockServerTest
                   "countryCode": "countryCode",
                   "sourceId": "x",
                   "sourceName": "sourceName",
+                  "typeId": "x",
+                  "typeName": "typeName",
                   "status": "new",
                   "estimatedValue": "estimatedValue",
                   "currency": "currency",
@@ -49,6 +51,8 @@ public class ListTest : BaseMockServerTest
                   "countryCode": "countryCode",
                   "sourceId": "x",
                   "sourceName": "sourceName",
+                  "typeId": "x",
+                  "typeName": "typeName",
                   "status": "new",
                   "estimatedValue": "estimatedValue",
                   "currency": "currency",
@@ -65,6 +69,11 @@ public class ListTest : BaseMockServerTest
               "total": 1000000,
               "totals": {
                 "totals": "totals"
+              },
+              "totalsByCurrency": {
+                "totalsByCurrency": {
+                  "totalsByCurrency": "totalsByCurrency"
+                }
               }
             }
             """;
@@ -118,6 +127,8 @@ public class ListTest : BaseMockServerTest
                   "countryCode": "countryCode",
                   "sourceId": "sourceId",
                   "sourceName": "sourceName",
+                  "typeId": "typeId",
+                  "typeName": "typeName",
                   "status": "new",
                   "estimatedValue": "estimatedValue",
                   "currency": "currency",
@@ -134,6 +145,11 @@ public class ListTest : BaseMockServerTest
               "total": 1000000,
               "totals": {
                 "key": "value"
+              },
+              "totalsByCurrency": {
+                "key": {
+                  "key": "value"
+                }
               }
             }
             """;

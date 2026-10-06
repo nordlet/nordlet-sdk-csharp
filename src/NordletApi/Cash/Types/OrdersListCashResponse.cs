@@ -27,6 +27,12 @@ public record OrdersListCashResponse : IJsonOnDeserialized
     [JsonPropertyName("totals")]
     public Dictionary<string, string>? Totals { get; set; }
 
+    /// <summary>
+    /// The requested totals split by currency code, present when the listed records carry a currency
+    /// </summary>
+    [JsonPropertyName("totalsByCurrency")]
+    public Dictionary<string, Dictionary<string, string>>? TotalsByCurrency { get; set; }
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

@@ -27,6 +27,9 @@ public record CreateLeadsRequest
     [JsonPropertyName("sourceId")]
     public string? SourceId { get; set; }
 
+    [JsonPropertyName("typeId")]
+    public string? TypeId { get; set; }
+
     [JsonPropertyName("status")]
     public CreateLeadsRequestStatus? Status { get; set; }
 

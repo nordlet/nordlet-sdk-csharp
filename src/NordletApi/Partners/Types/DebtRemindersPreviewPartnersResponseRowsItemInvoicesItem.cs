@@ -23,6 +23,9 @@ public record DebtRemindersPreviewPartnersResponseRowsItemInvoicesItem : IJsonOn
     [JsonPropertyName("dueDate")]
     public required DateOnly DueDate { get; set; }
 
+    [JsonPropertyName("currency")]
+    public required string Currency { get; set; }
+
     [JsonPropertyName("remaining")]
     public required string Remaining { get; set; }
 

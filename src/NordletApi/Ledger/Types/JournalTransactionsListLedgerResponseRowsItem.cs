@@ -38,6 +38,9 @@ public record JournalTransactionsListLedgerResponseRowsItem : IJsonOnDeserialize
     [JsonPropertyName("postedAt")]
     public DateTime? PostedAt { get; set; }
 
+    [JsonPropertyName("partnerName")]
+    public string? PartnerName { get; set; }
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

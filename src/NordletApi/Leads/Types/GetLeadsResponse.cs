@@ -38,6 +38,12 @@ public record GetLeadsResponse : IJsonOnDeserialized
     [JsonPropertyName("sourceName")]
     public string? SourceName { get; set; }
 
+    [JsonPropertyName("typeId")]
+    public string? TypeId { get; set; }
+
+    [JsonPropertyName("typeName")]
+    public string? TypeName { get; set; }
+
     [JsonPropertyName("status")]
     public required GetLeadsResponseStatus Status { get; set; }
 

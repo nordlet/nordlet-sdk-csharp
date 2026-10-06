@@ -21,7 +21,7 @@ public record InvoicesPeppolSendSalesResponse : IJsonOnDeserialized
     public required string ReceiverId { get; set; }
 
     [JsonPropertyName("fileId")]
-    public required string FileId { get; set; }
+    public string? FileId { get; set; }
 
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
