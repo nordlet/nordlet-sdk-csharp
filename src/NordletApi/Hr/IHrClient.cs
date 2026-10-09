@@ -110,6 +110,54 @@ public partial interface IHrClient
         CancellationToken cancellationToken = default
     );
 
+    WithRawResponseTask<PerDiemRatesCreateHrResponse> PerDiemRatesCreateAsync(
+        PerDiemRatesCreateHrRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PerDiemRatesListHrResponse> PerDiemRatesListAsync(
+        PerDiemRatesListHrRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<PerDiemRatesDeleteHrResponse> PerDiemRatesDeleteAsync(
+        PerDiemRatesDeleteHrRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<BusinessTripsCreateHrResponse> BusinessTripsCreateAsync(
+        BusinessTripsCreateHrRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<BusinessTripsGetHrResponse> BusinessTripsGetAsync(
+        BusinessTripsGetHrRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<BusinessTripsListHrResponse> BusinessTripsListAsync(
+        BusinessTripsListHrRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<BusinessTripsApproveHrResponse> BusinessTripsApproveAsync(
+        BusinessTripsApproveHrRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<BusinessTripsDeleteHrResponse> BusinessTripsDeleteAsync(
+        BusinessTripsDeleteHrRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
     WithRawResponseTask<EmployeesRecordsCreateHrResponse> EmployeesRecordsCreateAsync(
         EmployeesRecordsCreateHrRequest request,
         RequestOptions? options = null,

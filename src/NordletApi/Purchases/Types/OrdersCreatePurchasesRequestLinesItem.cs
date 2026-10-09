@@ -45,6 +45,12 @@ public record OrdersCreatePurchasesRequestLinesItem : IJsonOnDeserialized
     [JsonPropertyName("accountCode")]
     public string? AccountCode { get; set; }
 
+    [JsonPropertyName("deferralStartDate")]
+    public DateOnly? DeferralStartDate { get; set; }
+
+    [JsonPropertyName("deferralEndDate")]
+    public DateOnly? DeferralEndDate { get; set; }
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

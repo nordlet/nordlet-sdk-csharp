@@ -32,6 +32,18 @@ public partial interface IPurchasesClient
         CancellationToken cancellationToken = default
     );
 
+    WithRawResponseTask<DeferralsListPurchasesResponse> DeferralsListAsync(
+        DeferralsListPurchasesRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<DeferralsPostPurchasesResponse> DeferralsPostAsync(
+        DeferralsPostPurchasesRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
     WithRawResponseTask<InvoicesListPurchasesResponse> InvoicesListAsync(
         InvoicesListPurchasesRequest request,
         RequestOptions? options = null,

@@ -19,10 +19,16 @@ public record OrdersCreateCashRequest
     public required string Purpose { get; set; }
 
     [JsonPropertyName("counterAccountCode")]
-    public required string CounterAccountCode { get; set; }
+    public string? CounterAccountCode { get; set; }
 
     [JsonPropertyName("cashAccountCode")]
     public string? CashAccountCode { get; set; }
+
+    [JsonPropertyName("saleInvoiceId")]
+    public string? SaleInvoiceId { get; set; }
+
+    [JsonPropertyName("purchaseInvoiceId")]
+    public string? PurchaseInvoiceId { get; set; }
 
     [JsonPropertyName("series")]
     public string? Series { get; set; }

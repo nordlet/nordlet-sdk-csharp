@@ -55,7 +55,10 @@ public class RunsApproveTest : BaseMockServerTest
                 "warnings"
               ],
               "createdAt": "2024-01-15T09:30:00.000Z",
-              "approvedAt": "2024-01-15T09:30:00.000Z"
+              "approvedAt": "2024-01-15T09:30:00.000Z",
+              "reversedAt": "2024-01-15T09:30:00.000Z",
+              "reversalJournalTransactionId": "x",
+              "reversalReason": "reversalReason"
             }
             """;
 
@@ -129,7 +132,10 @@ public class RunsApproveTest : BaseMockServerTest
                 "warnings"
               ],
               "createdAt": "2026-07-01T09:30:00.000Z",
-              "approvedAt": "2026-07-01T09:30:00.000Z"
+              "approvedAt": "2026-07-01T09:30:00.000Z",
+              "reversedAt": "2026-07-01T09:30:00.000Z",
+              "reversalJournalTransactionId": "reversalJournalTransactionId",
+              "reversalReason": "reversalReason"
             }
             """;
 

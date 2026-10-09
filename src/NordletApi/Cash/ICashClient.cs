@@ -26,6 +26,24 @@ public partial interface ICashClient
         CancellationToken cancellationToken = default
     );
 
+    WithRawResponseTask<ExpenseReportsCreateCashResponse> ExpenseReportsCreateAsync(
+        ExpenseReportsCreateCashRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<ExpenseReportsGetCashResponse> ExpenseReportsGetAsync(
+        ExpenseReportsGetCashRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<ExpenseReportsListCashResponse> ExpenseReportsListAsync(
+        ExpenseReportsListCashRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
     WithRawResponseTask<AdvanceHoldersBalancesCashResponse> AdvanceHoldersBalancesAsync(
         AdvanceHoldersBalancesCashRequest request,
         RequestOptions? options = null,

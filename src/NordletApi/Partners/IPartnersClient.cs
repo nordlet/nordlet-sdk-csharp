@@ -140,6 +140,12 @@ public partial interface IPartnersClient
         CancellationToken cancellationToken = default
     );
 
+    WithRawResponseTask<MergePartnersResponse> MergeAsync(
+        MergePartnersRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
     /// <summary>
     /// Removes birth date, self-employment certificate number, email, phone, address, notes, contacts, addresses and bank accounts, then hides the partner. The name, code and VAT number stay because issued invoices must keep identifying the counterparty for the statutory retention period.
     /// </summary>

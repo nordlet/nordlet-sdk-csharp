@@ -60,6 +60,10 @@ public readonly record struct SubscriptionsCreateWebhooksRequestEventsItem : ISt
         Values.PayrollRunApproved
     );
 
+    public static readonly SubscriptionsCreateWebhooksRequestEventsItem PayrollRunReversed = new(
+        Values.PayrollRunReversed
+    );
+
     public static readonly SubscriptionsCreateWebhooksRequestEventsItem PosReportCreated = new(
         Values.PosReportCreated
     );
@@ -289,6 +293,8 @@ public readonly record struct SubscriptionsCreateWebhooksRequestEventsItem : ISt
         public const string PartnerInquiryCreated = "partner_inquiry.created";
 
         public const string PayrollRunApproved = "payroll_run.approved";
+
+        public const string PayrollRunReversed = "payroll_run.reversed";
 
         public const string PosReportCreated = "pos_report.created";
 

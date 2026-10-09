@@ -2,6 +2,18 @@ namespace NordletApi;
 
 public partial interface IAssetsClient
 {
+    WithRawResponseTask<SettingsGetAssetsResponse> SettingsGetAsync(
+        SettingsGetAssetsRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<SettingsUpdateAssetsResponse> SettingsUpdateAsync(
+        SettingsUpdateAssetsRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
     WithRawResponseTask<GroupsCreateAssetsResponse> GroupsCreateAsync(
         GroupsCreateAssetsRequest request,
         RequestOptions? options = null,

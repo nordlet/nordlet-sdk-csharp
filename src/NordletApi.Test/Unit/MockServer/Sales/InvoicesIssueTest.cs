@@ -219,6 +219,7 @@ public class InvoicesIssueTest : BaseMockServerTest
                 Series = null,
                 IssueDate = null,
                 WarehouseId = null,
+                ReturnToStock = null,
             }
         );
         JsonAssert.AreEqual(response, mockResponse);

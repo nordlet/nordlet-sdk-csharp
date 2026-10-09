@@ -66,6 +66,15 @@ public record RunsListPayrollResponseRowsItem : IJsonOnDeserialized
     [JsonPropertyName("approvedAt")]
     public DateTime? ApprovedAt { get; set; }
 
+    [JsonPropertyName("reversedAt")]
+    public DateTime? ReversedAt { get; set; }
+
+    [JsonPropertyName("reversalJournalTransactionId")]
+    public string? ReversalJournalTransactionId { get; set; }
+
+    [JsonPropertyName("reversalReason")]
+    public string? ReversalReason { get; set; }
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

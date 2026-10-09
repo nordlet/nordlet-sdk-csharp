@@ -2,6 +2,18 @@ namespace NordletApi;
 
 public partial interface IAgreementsClient
 {
+    WithRawResponseTask<SettingsGetAgreementsResponse> SettingsGetAsync(
+        SettingsGetAgreementsRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<SettingsUpdateAgreementsResponse> SettingsUpdateAsync(
+        SettingsUpdateAgreementsRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
     WithRawResponseTask<TypesCreateAgreementsResponse> TypesCreateAsync(
         TypesCreateAgreementsRequest request,
         RequestOptions? options = null,

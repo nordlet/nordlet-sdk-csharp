@@ -17,8 +17,7 @@ public class OrdersCreateTest : BaseMockServerTest
               "type": "receipt",
               "date": "2023-01-15",
               "amount": "amount",
-              "purpose": "x",
-              "counterAccountCode": "x"
+              "purpose": "x"
             }
             """;
 
@@ -38,6 +37,8 @@ public class OrdersCreateTest : BaseMockServerTest
               "cashAccountCode": "cashAccountCode",
               "counterAccountCode": "counterAccountCode",
               "journalTransactionId": "x",
+              "saleInvoiceId": "x",
+              "purchaseInvoiceId": "x",
               "notes": "notes",
               "createdAt": "2024-01-15T09:30:00.000Z"
             }
@@ -66,8 +67,10 @@ public class OrdersCreateTest : BaseMockServerTest
                 Date = new DateOnly(2023, 1, 15),
                 Amount = "amount",
                 Purpose = "x",
-                CounterAccountCode = "x",
+                CounterAccountCode = null,
                 CashAccountCode = null,
+                SaleInvoiceId = null,
+                PurchaseInvoiceId = null,
                 Series = null,
                 PartnerId = null,
                 EmployeeId = null,
@@ -85,8 +88,7 @@ public class OrdersCreateTest : BaseMockServerTest
               "type": "receipt",
               "date": "2026-07-01",
               "amount": "121.0000",
-              "purpose": "purpose",
-              "counterAccountCode": "counterAccountCode"
+              "purpose": "purpose"
             }
             """;
 
@@ -106,6 +108,8 @@ public class OrdersCreateTest : BaseMockServerTest
               "cashAccountCode": "cashAccountCode",
               "counterAccountCode": "counterAccountCode",
               "journalTransactionId": "journalTransactionId",
+              "saleInvoiceId": "saleInvoiceId",
+              "purchaseInvoiceId": "purchaseInvoiceId",
               "notes": "notes",
               "createdAt": "2026-07-01T09:30:00.000Z"
             }
@@ -134,7 +138,6 @@ public class OrdersCreateTest : BaseMockServerTest
                 Date = new DateOnly(2026, 7, 1),
                 Amount = "121.0000",
                 Purpose = "purpose",
-                CounterAccountCode = "counterAccountCode",
             }
         );
         JsonAssert.AreEqual(response, mockResponse);

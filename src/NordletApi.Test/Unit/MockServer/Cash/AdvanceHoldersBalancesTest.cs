@@ -25,6 +25,7 @@ public class AdvanceHoldersBalancesTest : BaseMockServerTest
                   "lastName": "lastName",
                   "issued": "issued",
                   "returned": "returned",
+                  "settled": "settled",
                   "balance": "balance"
                 },
                 {
@@ -33,6 +34,7 @@ public class AdvanceHoldersBalancesTest : BaseMockServerTest
                   "lastName": "lastName",
                   "issued": "issued",
                   "returned": "returned",
+                  "settled": "settled",
                   "balance": "balance"
                 }
               ]
@@ -77,6 +79,7 @@ public class AdvanceHoldersBalancesTest : BaseMockServerTest
                   "lastName": "lastName",
                   "issued": "issued",
                   "returned": "returned",
+                  "settled": "settled",
                   "balance": "balance"
                 }
               ]

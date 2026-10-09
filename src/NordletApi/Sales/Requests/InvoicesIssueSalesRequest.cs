@@ -18,6 +18,9 @@ public record InvoicesIssueSalesRequest
     [JsonPropertyName("warehouseId")]
     public string? WarehouseId { get; set; }
 
+    [JsonPropertyName("returnToStock")]
+    public bool? ReturnToStock { get; set; }
+
     /// <inheritdoc />
     public override string ToString()
     {

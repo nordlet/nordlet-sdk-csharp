@@ -53,6 +53,12 @@ public record OrdersListCashResponseRowsItem : IJsonOnDeserialized
     [JsonPropertyName("journalTransactionId")]
     public string? JournalTransactionId { get; set; }
 
+    [JsonPropertyName("saleInvoiceId")]
+    public string? SaleInvoiceId { get; set; }
+
+    [JsonPropertyName("purchaseInvoiceId")]
+    public string? PurchaseInvoiceId { get; set; }
+
     [JsonPropertyName("notes")]
     public string? Notes { get; set; }
 

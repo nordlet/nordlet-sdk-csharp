@@ -29,6 +29,9 @@ public record AdvanceReconciliationReportsResponseRowsItem : IJsonOnDeserialized
     [JsonPropertyName("returned")]
     public required string Returned { get; set; }
 
+    [JsonPropertyName("settled")]
+    public required string Settled { get; set; }
+
     [JsonPropertyName("closing")]
     public required string Closing { get; set; }
 

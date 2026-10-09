@@ -26,6 +26,9 @@ public record AdvanceHoldersBalancesCashResponseRowsItem : IJsonOnDeserialized
     [JsonPropertyName("returned")]
     public required string Returned { get; set; }
 
+    [JsonPropertyName("settled")]
+    public required string Settled { get; set; }
+
     [JsonPropertyName("balance")]
     public required string Balance { get; set; }
 

@@ -12,6 +12,8 @@ public readonly record struct RunsApprovePayrollResponseStatus : IStringEnum
 
     public static readonly RunsApprovePayrollResponseStatus Approved = new(Values.Approved);
 
+    public static readonly RunsApprovePayrollResponseStatus Reversed = new(Values.Reversed);
+
     public RunsApprovePayrollResponseStatus(string value)
     {
         Value = value;
@@ -112,5 +114,7 @@ public readonly record struct RunsApprovePayrollResponseStatus : IStringEnum
         public const string Draft = "draft";
 
         public const string Approved = "approved";
+
+        public const string Reversed = "reversed";
     }
 }

@@ -129,6 +129,8 @@ public class OrdersCreateTest : BaseMockServerTest
                         CostCenterId = null,
                         ProjectId = null,
                         AccountCode = null,
+                        DeferralStartDate = null,
+                        DeferralEndDate = null,
                     },
                     new OrdersCreatePurchasesRequestLinesItem
                     {
@@ -143,6 +145,8 @@ public class OrdersCreateTest : BaseMockServerTest
                         CostCenterId = null,
                         ProjectId = null,
                         AccountCode = null,
+                        DeferralStartDate = null,
+                        DeferralEndDate = null,
                     },
                 },
             }

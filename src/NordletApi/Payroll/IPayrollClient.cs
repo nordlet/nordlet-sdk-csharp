@@ -65,6 +65,12 @@ public partial interface IPayrollClient
         CancellationToken cancellationToken = default
     );
 
+    WithRawResponseTask<RunsReversePayrollResponse> RunsReverseAsync(
+        RunsReversePayrollRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
     WithRawResponseTask<RunsCancelPayrollResponse> RunsCancelAsync(
         RunsCancelPayrollRequest request,
         RequestOptions? options = null,

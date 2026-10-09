@@ -34,6 +34,8 @@ public class OrdersListTest : BaseMockServerTest
                   "cashAccountCode": "cashAccountCode",
                   "counterAccountCode": "counterAccountCode",
                   "journalTransactionId": "x",
+                  "saleInvoiceId": "x",
+                  "purchaseInvoiceId": "x",
                   "notes": "notes",
                   "createdAt": "2024-01-15T09:30:00.000Z"
                 },
@@ -52,6 +54,8 @@ public class OrdersListTest : BaseMockServerTest
                   "cashAccountCode": "cashAccountCode",
                   "counterAccountCode": "counterAccountCode",
                   "journalTransactionId": "x",
+                  "saleInvoiceId": "x",
+                  "purchaseInvoiceId": "x",
                   "notes": "notes",
                   "createdAt": "2024-01-15T09:30:00.000Z"
                 }
@@ -124,6 +128,8 @@ public class OrdersListTest : BaseMockServerTest
                   "cashAccountCode": "cashAccountCode",
                   "counterAccountCode": "counterAccountCode",
                   "journalTransactionId": "journalTransactionId",
+                  "saleInvoiceId": "saleInvoiceId",
+                  "purchaseInvoiceId": "purchaseInvoiceId",
                   "notes": "notes",
                   "createdAt": "2026-07-01T09:30:00.000Z"
                 }

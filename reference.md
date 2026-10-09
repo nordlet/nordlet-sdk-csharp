@@ -2014,6 +2014,48 @@ await client.Partners.DeleteAsync(new DeletePartnersRequest { Id = "id" });
 </dl>
 </details>
 
+<details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">MergeAsync</a>(MergePartnersRequest { ... }) -> WithRawResponseTask&lt;MergePartnersResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Partners.MergeAsync(
+    new MergePartnersRequest { SourceId = "sourceId", TargetId = "targetId" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `MergePartnersRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.Partners.<a href="/src/NordletApi/Partners/PartnersClient.cs">AnonymizeAsync</a>(AnonymizePartnersRequest { ... }) -> WithRawResponseTask&lt;AnonymizePartnersResponse&gt;</code></summary>
 <dl>
 <dd>
@@ -6692,6 +6734,86 @@ await client.Purchases.InvoicesRegisterAsync(new InvoicesRegisterPurchasesReques
 <dd>
 
 **request:** `InvoicesRegisterPurchasesRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">DeferralsListAsync</a>(DeferralsListPurchasesRequest { ... }) -> WithRawResponseTask&lt;DeferralsListPurchasesResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Purchases.DeferralsListAsync(new DeferralsListPurchasesRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `DeferralsListPurchasesRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">DeferralsPostAsync</a>(DeferralsPostPurchasesRequest { ... }) -> WithRawResponseTask&lt;DeferralsPostPurchasesResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Purchases.DeferralsPostAsync(new DeferralsPostPurchasesRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `DeferralsPostPurchasesRequest` 
     
 </dd>
 </dl>
@@ -13716,6 +13838,88 @@ await client.Migration.BooksImportAsync(
 </details>
 
 ## assets
+<details><summary><code>client.Assets.<a href="/src/NordletApi/Assets/AssetsClient.cs">SettingsGetAsync</a>(SettingsGetAssetsRequest { ... }) -> WithRawResponseTask&lt;SettingsGetAssetsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Assets.SettingsGetAsync(new SettingsGetAssetsRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `SettingsGetAssetsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Assets.<a href="/src/NordletApi/Assets/AssetsClient.cs">SettingsUpdateAsync</a>(SettingsUpdateAssetsRequest { ... }) -> WithRawResponseTask&lt;SettingsUpdateAssetsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Assets.SettingsUpdateAsync(
+    new SettingsUpdateAssetsRequest { AutoDepreciation = true }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `SettingsUpdateAssetsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.Assets.<a href="/src/NordletApi/Assets/AssetsClient.cs">GroupsCreateAsync</a>(GroupsCreateAssetsRequest { ... }) -> WithRawResponseTask&lt;GroupsCreateAssetsResponse&gt;</code></summary>
 <dl>
 <dd>
@@ -14969,6 +15173,342 @@ await client.Hr.IncapacityCertificatesListAsync(new IncapacityCertificatesListHr
 </dl>
 </details>
 
+<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">PerDiemRatesCreateAsync</a>(PerDiemRatesCreateHrRequest { ... }) -> WithRawResponseTask&lt;PerDiemRatesCreateHrResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Hr.PerDiemRatesCreateAsync(
+    new PerDiemRatesCreateHrRequest
+    {
+        CountryCode = "countryCode",
+        DailyAmount = "121.00",
+        ValidFrom = new DateOnly(2026, 7, 1),
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PerDiemRatesCreateHrRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">PerDiemRatesListAsync</a>(PerDiemRatesListHrRequest { ... }) -> WithRawResponseTask&lt;PerDiemRatesListHrResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Hr.PerDiemRatesListAsync(new PerDiemRatesListHrRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PerDiemRatesListHrRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">PerDiemRatesDeleteAsync</a>(PerDiemRatesDeleteHrRequest { ... }) -> WithRawResponseTask&lt;PerDiemRatesDeleteHrResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Hr.PerDiemRatesDeleteAsync(new PerDiemRatesDeleteHrRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PerDiemRatesDeleteHrRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">BusinessTripsCreateAsync</a>(BusinessTripsCreateHrRequest { ... }) -> WithRawResponseTask&lt;BusinessTripsCreateHrResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Hr.BusinessTripsCreateAsync(
+    new BusinessTripsCreateHrRequest
+    {
+        EmployeeId = "employeeId",
+        DestinationCountryCode = "destinationCountryCode",
+        Purpose = "purpose",
+        StartDate = new DateOnly(2026, 7, 1),
+        EndDate = new DateOnly(2026, 7, 1),
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `BusinessTripsCreateHrRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">BusinessTripsGetAsync</a>(BusinessTripsGetHrRequest { ... }) -> WithRawResponseTask&lt;BusinessTripsGetHrResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Hr.BusinessTripsGetAsync(new BusinessTripsGetHrRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `BusinessTripsGetHrRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">BusinessTripsListAsync</a>(BusinessTripsListHrRequest { ... }) -> WithRawResponseTask&lt;BusinessTripsListHrResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Hr.BusinessTripsListAsync(new BusinessTripsListHrRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `BusinessTripsListHrRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">BusinessTripsApproveAsync</a>(BusinessTripsApproveHrRequest { ... }) -> WithRawResponseTask&lt;BusinessTripsApproveHrResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Hr.BusinessTripsApproveAsync(new BusinessTripsApproveHrRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `BusinessTripsApproveHrRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">BusinessTripsDeleteAsync</a>(BusinessTripsDeleteHrRequest { ... }) -> WithRawResponseTask&lt;BusinessTripsDeleteHrResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Hr.BusinessTripsDeleteAsync(new BusinessTripsDeleteHrRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `BusinessTripsDeleteHrRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.Hr.<a href="/src/NordletApi/Hr/HrClient.cs">EmployeesRecordsCreateAsync</a>(EmployeesRecordsCreateHrRequest { ... }) -> WithRawResponseTask&lt;EmployeesRecordsCreateHrResponse&gt;</code></summary>
 <dl>
 <dd>
@@ -16167,6 +16707,48 @@ await client.Payroll.RunsApproveAsync(new RunsApprovePayrollRequest { Id = "id" 
 </dl>
 </details>
 
+<details><summary><code>client.Payroll.<a href="/src/NordletApi/Payroll/PayrollClient.cs">RunsReverseAsync</a>(RunsReversePayrollRequest { ... }) -> WithRawResponseTask&lt;RunsReversePayrollResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Payroll.RunsReverseAsync(
+    new RunsReversePayrollRequest { Id = "id", Reason = "reason" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `RunsReversePayrollRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.Payroll.<a href="/src/NordletApi/Payroll/PayrollClient.cs">RunsCancelAsync</a>(RunsCancelPayrollRequest { ... }) -> WithRawResponseTask&lt;RunsCancelPayrollResponse&gt;</code></summary>
 <dl>
 <dd>
@@ -16250,6 +16832,88 @@ await client.Payroll.PaymentsExportAsync(
 </details>
 
 ## agreements
+<details><summary><code>client.Agreements.<a href="/src/NordletApi/Agreements/AgreementsClient.cs">SettingsGetAsync</a>(SettingsGetAgreementsRequest { ... }) -> WithRawResponseTask&lt;SettingsGetAgreementsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Agreements.SettingsGetAsync(new SettingsGetAgreementsRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `SettingsGetAgreementsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Agreements.<a href="/src/NordletApi/Agreements/AgreementsClient.cs">SettingsUpdateAsync</a>(SettingsUpdateAgreementsRequest { ... }) -> WithRawResponseTask&lt;SettingsUpdateAgreementsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Agreements.SettingsUpdateAsync(
+    new SettingsUpdateAgreementsRequest { AutoBilling = true }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `SettingsUpdateAgreementsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.Agreements.<a href="/src/NordletApi/Agreements/AgreementsClient.cs">TypesCreateAsync</a>(TypesCreateAgreementsRequest { ... }) -> WithRawResponseTask&lt;TypesCreateAgreementsResponse&gt;</code></summary>
 <dl>
 <dd>
@@ -18901,7 +19565,6 @@ await client.Cash.OrdersCreateAsync(
         Date = new DateOnly(2026, 7, 1),
         Amount = "121.0000",
         Purpose = "purpose",
-        CounterAccountCode = "counterAccountCode",
     }
 );
 ```
@@ -19039,6 +19702,141 @@ await client.Cash.BalanceAsync(new BalanceCashRequest());
 <dd>
 
 **request:** `BalanceCashRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Cash.<a href="/src/NordletApi/Cash/CashClient.cs">ExpenseReportsCreateAsync</a>(ExpenseReportsCreateCashRequest { ... }) -> WithRawResponseTask&lt;ExpenseReportsCreateCashResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Cash.ExpenseReportsCreateAsync(
+    new ExpenseReportsCreateCashRequest
+    {
+        EmployeeId = "employeeId",
+        Date = new DateOnly(2026, 7, 1),
+        Lines = new List<ExpenseReportsCreateCashRequestLinesItem>()
+        {
+            new ExpenseReportsCreateCashRequestLinesItem
+            {
+                Description = "description",
+                AccountCode = "accountCode",
+                NetAmount = "121.00",
+            },
+        },
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ExpenseReportsCreateCashRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Cash.<a href="/src/NordletApi/Cash/CashClient.cs">ExpenseReportsGetAsync</a>(ExpenseReportsGetCashRequest { ... }) -> WithRawResponseTask&lt;ExpenseReportsGetCashResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Cash.ExpenseReportsGetAsync(new ExpenseReportsGetCashRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ExpenseReportsGetCashRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Cash.<a href="/src/NordletApi/Cash/CashClient.cs">ExpenseReportsListAsync</a>(ExpenseReportsListCashRequest { ... }) -> WithRawResponseTask&lt;ExpenseReportsListCashResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Cash.ExpenseReportsListAsync(new ExpenseReportsListCashRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ExpenseReportsListCashRequest` 
     
 </dd>
 </dl>
@@ -20007,6 +20805,300 @@ await client.Pos.ReportsListAsync(new ReportsListPosRequest());
 </dl>
 </details>
 
+<details><summary><code>client.Pos.<a href="/src/NordletApi/Pos/PosClient.cs">ShiftsOpenAsync</a>(ShiftsOpenPosRequest { ... }) -> WithRawResponseTask&lt;ShiftsOpenPosResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Pos.ShiftsOpenAsync(new ShiftsOpenPosRequest { DeviceId = "deviceId" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ShiftsOpenPosRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Pos.<a href="/src/NordletApi/Pos/PosClient.cs">ShiftsGetAsync</a>(ShiftsGetPosRequest { ... }) -> WithRawResponseTask&lt;ShiftsGetPosResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Pos.ShiftsGetAsync(new ShiftsGetPosRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ShiftsGetPosRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Pos.<a href="/src/NordletApi/Pos/PosClient.cs">ShiftsListAsync</a>(ShiftsListPosRequest { ... }) -> WithRawResponseTask&lt;ShiftsListPosResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Pos.ShiftsListAsync(new ShiftsListPosRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ShiftsListPosRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Pos.<a href="/src/NordletApi/Pos/PosClient.cs">ReceiptsCreateAsync</a>(ReceiptsCreatePosRequest { ... }) -> WithRawResponseTask&lt;ReceiptsCreatePosResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Pos.ReceiptsCreateAsync(
+    new ReceiptsCreatePosRequest
+    {
+        ShiftId = "shiftId",
+        Lines = new List<ReceiptsCreatePosRequestLinesItem>()
+        {
+            new ReceiptsCreatePosRequestLinesItem
+            {
+                Quantity = "121.0000",
+                UnitPriceInclVat = "121.0000",
+                VatRatePercent = "121.00",
+            },
+        },
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ReceiptsCreatePosRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Pos.<a href="/src/NordletApi/Pos/PosClient.cs">ReceiptsListAsync</a>(ReceiptsListPosRequest { ... }) -> WithRawResponseTask&lt;ReceiptsListPosResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Pos.ReceiptsListAsync(new ReceiptsListPosRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ReceiptsListPosRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Pos.<a href="/src/NordletApi/Pos/PosClient.cs">ReceiptsGetAsync</a>(ReceiptsGetPosRequest { ... }) -> WithRawResponseTask&lt;ReceiptsGetPosResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Pos.ReceiptsGetAsync(new ReceiptsGetPosRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ReceiptsGetPosRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Pos.<a href="/src/NordletApi/Pos/PosClient.cs">ShiftsCloseAsync</a>(ShiftsClosePosRequest { ... }) -> WithRawResponseTask&lt;ShiftsClosePosResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Pos.ShiftsCloseAsync(new ShiftsClosePosRequest { Id = "id", CountedCash = "121.00" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ShiftsClosePosRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 ## calendar
 <details><summary><code>client.Calendar.<a href="/src/NordletApi/Calendar/CalendarClient.cs">ListAsync</a>(ListCalendarRequest { ... }) -> WithRawResponseTask&lt;ListCalendarResponse&gt;</code></summary>
 <dl>
@@ -20907,6 +21999,61 @@ await client.Bank.TransactionsMatchAsync(
 <dd>
 
 **request:** `TransactionsMatchBankRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">TransactionsMatchManyAsync</a>(TransactionsMatchManyBankRequest { ... }) -> WithRawResponseTask&lt;TransactionsMatchManyBankResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Bank.TransactionsMatchManyAsync(
+    new TransactionsMatchManyBankRequest
+    {
+        TransactionId = "transactionId",
+        Allocations = new List<TransactionsMatchManyBankRequestAllocationsItem>()
+        {
+            new TransactionsMatchManyBankRequestAllocationsItem
+            {
+                DocumentType =
+                    TransactionsMatchManyBankRequestAllocationsItemDocumentType.SaleInvoice,
+                DocumentId = "documentId",
+                Amount = "121.0000",
+            },
+        },
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `TransactionsMatchManyBankRequest` 
     
 </dd>
 </dl>

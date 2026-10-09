@@ -31,6 +31,7 @@ public class AdvanceReconciliationTest : BaseMockServerTest
                   "opening": "opening",
                   "issued": "issued",
                   "returned": "returned",
+                  "settled": "settled",
                   "closing": "closing"
                 },
                 {
@@ -40,6 +41,7 @@ public class AdvanceReconciliationTest : BaseMockServerTest
                   "opening": "opening",
                   "issued": "issued",
                   "returned": "returned",
+                  "settled": "settled",
                   "closing": "closing"
                 }
               ]
@@ -94,6 +96,7 @@ public class AdvanceReconciliationTest : BaseMockServerTest
                   "opening": "opening",
                   "issued": "issued",
                   "returned": "returned",
+                  "settled": "settled",
                   "closing": "closing"
                 }
               ]

@@ -44,6 +44,9 @@ public readonly record struct PostingRulesUpdateLedgerRequestRulesItemKey : IStr
     public static readonly PostingRulesUpdateLedgerRequestRulesItemKey PurchasesDefaultExpense =
         new(Values.PurchasesDefaultExpense);
 
+    public static readonly PostingRulesUpdateLedgerRequestRulesItemKey PurchasesPrepaidExpenses =
+        new(Values.PurchasesPrepaidExpenses);
+
     public static readonly PostingRulesUpdateLedgerRequestRulesItemKey InventoryCogs = new(
         Values.InventoryCogs
     );
@@ -104,6 +107,10 @@ public readonly record struct PostingRulesUpdateLedgerRequestRulesItemKey : IStr
 
     public static readonly PostingRulesUpdateLedgerRequestRulesItemKey AssetsDisposalProceeds = new(
         Values.AssetsDisposalProceeds
+    );
+
+    public static readonly PostingRulesUpdateLedgerRequestRulesItemKey CashAdvances = new(
+        Values.CashAdvances
     );
 
     public static readonly PostingRulesUpdateLedgerRequestRulesItemKey ClosingRetainedEarnings =
@@ -230,6 +237,8 @@ public readonly record struct PostingRulesUpdateLedgerRequestRulesItemKey : IStr
 
         public const string PurchasesDefaultExpense = "purchases.defaultExpense";
 
+        public const string PurchasesPrepaidExpenses = "purchases.prepaidExpenses";
+
         public const string InventoryCogs = "inventory.cogs";
 
         public const string InventoryStock = "inventory.stock";
@@ -261,6 +270,8 @@ public readonly record struct PostingRulesUpdateLedgerRequestRulesItemKey : IStr
         public const string AssetsDisposalLoss = "assets.disposalLoss";
 
         public const string AssetsDisposalProceeds = "assets.disposalProceeds";
+
+        public const string CashAdvances = "cash.advances";
 
         public const string ClosingRetainedEarnings = "closing.retainedEarnings";
     }
