@@ -12,6 +12,9 @@ public record JournalTransactionsCreateLedgerRequest
     [JsonPropertyName("description")]
     public string? Description { get; set; }
 
+    [JsonPropertyName("currency")]
+    public string? Currency { get; set; }
+
     [JsonPropertyName("entries")]
     public IEnumerable<JournalTransactionsCreateLedgerRequestEntriesItem> Entries { get; set; } =
         new List<JournalTransactionsCreateLedgerRequestEntriesItem>();

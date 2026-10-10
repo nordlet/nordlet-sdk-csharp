@@ -22,6 +22,7 @@ public class AccountsCreateTest : BaseMockServerTest
             {
               "id": "x",
               "name": "name",
+              "type": "bank",
               "iban": "iban",
               "currency": "currency",
               "accountCode": "accountCode",
@@ -50,6 +51,7 @@ public class AccountsCreateTest : BaseMockServerTest
             new AccountsCreateBankRequest
             {
                 Name = "x",
+                Type = null,
                 Iban = null,
                 Currency = null,
                 AccountCode = null,
@@ -72,6 +74,7 @@ public class AccountsCreateTest : BaseMockServerTest
             {
               "id": "id",
               "name": "name",
+              "type": "bank",
               "iban": "iban",
               "currency": "currency",
               "accountCode": "accountCode",

@@ -26,6 +26,12 @@ public partial interface IInventoryClient
         CancellationToken cancellationToken = default
     );
 
+    WithRawResponseTask<WarehousesUpdateInventoryResponse> WarehousesUpdateAsync(
+        WarehousesUpdateInventoryRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
     WithRawResponseTask<StockReceiveInventoryResponse> StockReceiveAsync(
         StockReceiveInventoryRequest request,
         RequestOptions? options = null,

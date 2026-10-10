@@ -30,6 +30,7 @@ public class DocumentsExtractTest : BaseMockServerTest
               "model": "model",
               "pagesProcessed": 1000000,
               "extraction": {
+                "documentType": "invoice",
                 "supplier": {
                   "name": "name",
                   "code": "code",
@@ -66,11 +67,34 @@ public class DocumentsExtractTest : BaseMockServerTest
                     "lineVat": "lineVat",
                     "lineGross": "lineGross"
                   }
+                ],
+                "oppositeLines": [
+                  {
+                    "description": "description",
+                    "quantity": "quantity",
+                    "unit": "unit",
+                    "unitPriceExclVat": "unitPriceExclVat",
+                    "vatRatePercent": "vatRatePercent",
+                    "lineNet": "lineNet",
+                    "lineVat": "lineVat",
+                    "lineGross": "lineGross"
+                  },
+                  {
+                    "description": "description",
+                    "quantity": "quantity",
+                    "unit": "unit",
+                    "unitPriceExclVat": "unitPriceExclVat",
+                    "vatRatePercent": "vatRatePercent",
+                    "lineNet": "lineNet",
+                    "lineVat": "lineVat",
+                    "lineGross": "lineGross"
+                  }
                 ]
               },
               "matchedPartnerId": "x",
               "purchaseInvoiceId": "x",
               "error": "error",
+              "senderId": "senderId",
               "createdAt": "2024-01-15T09:30:00.000Z",
               "updatedAt": "2024-01-15T09:30:00.000Z",
               "rawText": "rawText"
@@ -120,6 +144,7 @@ public class DocumentsExtractTest : BaseMockServerTest
               "model": "model",
               "pagesProcessed": 1000000,
               "extraction": {
+                "documentType": "invoice",
                 "supplier": {
                   "name": "name",
                   "code": "code",
@@ -140,11 +165,18 @@ public class DocumentsExtractTest : BaseMockServerTest
                     "description": "description",
                     "quantity": "quantity"
                   }
+                ],
+                "oppositeLines": [
+                  {
+                    "description": "description",
+                    "quantity": "quantity"
+                  }
                 ]
               },
               "matchedPartnerId": "matchedPartnerId",
               "purchaseInvoiceId": "purchaseInvoiceId",
               "error": "error",
+              "senderId": "senderId",
               "createdAt": "2026-07-01T09:30:00.000Z",
               "updatedAt": "2026-07-01T09:30:00.000Z",
               "rawText": "rawText"

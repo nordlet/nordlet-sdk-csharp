@@ -37,6 +37,7 @@ public class DocumentsConfirmTest : BaseMockServerTest
                 "model": "model",
                 "pagesProcessed": 1000000,
                 "extraction": {
+                  "documentType": "invoice",
                   "supplier": {
                     "name": "name",
                     "code": "code",
@@ -73,15 +74,109 @@ public class DocumentsConfirmTest : BaseMockServerTest
                       "lineVat": "lineVat",
                       "lineGross": "lineGross"
                     }
+                  ],
+                  "oppositeLines": [
+                    {
+                      "description": "description",
+                      "quantity": "quantity",
+                      "unit": "unit",
+                      "unitPriceExclVat": "unitPriceExclVat",
+                      "vatRatePercent": "vatRatePercent",
+                      "lineNet": "lineNet",
+                      "lineVat": "lineVat",
+                      "lineGross": "lineGross"
+                    },
+                    {
+                      "description": "description",
+                      "quantity": "quantity",
+                      "unit": "unit",
+                      "unitPriceExclVat": "unitPriceExclVat",
+                      "vatRatePercent": "vatRatePercent",
+                      "lineNet": "lineNet",
+                      "lineVat": "lineVat",
+                      "lineGross": "lineGross"
+                    }
                   ]
                 },
                 "matchedPartnerId": "x",
                 "purchaseInvoiceId": "x",
                 "error": "error",
+                "senderId": "senderId",
                 "createdAt": "2024-01-15T09:30:00.000Z",
                 "updatedAt": "2024-01-15T09:30:00.000Z"
               },
               "invoice": {
+                "id": "x",
+                "partnerId": "x",
+                "type": "invoice",
+                "status": "draft",
+                "paymentStatus": "unpaid",
+                "documentNumber": "documentNumber",
+                "documentDate": "2023-01-15",
+                "dueDate": "2023-01-15",
+                "registrationDate": "2023-01-15",
+                "currency": "currency",
+                "netTotal": "netTotal",
+                "vatTotal": "vatTotal",
+                "grossTotal": "grossTotal",
+                "paidAmount": "paidAmount",
+                "journalTransactionId": "x",
+                "creditedInvoiceId": "x",
+                "purchaseOrderId": "x",
+                "operationTypeId": "x",
+                "notes": "notes",
+                "intrastatTransportMode": "intrastatTransportMode",
+                "intrastatDeliveryTerms": "intrastatDeliveryTerms",
+                "intrastatRegion": "intrastatRegion",
+                "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
+                "einvoiceNumber": "einvoiceNumber",
+                "documentRef": "documentRef",
+                "createdAt": "2024-01-15T09:30:00.000Z",
+                "updatedAt": "2024-01-15T09:30:00.000Z",
+                "lines": [
+                  {
+                    "id": "x",
+                    "itemId": "x",
+                    "description": "description",
+                    "unit": "unit",
+                    "quantity": "quantity",
+                    "unitPriceExclVat": "unitPriceExclVat",
+                    "unitPriceInclVat": "unitPriceInclVat",
+                    "vatRatePercent": "vatRatePercent",
+                    "vatClassifierCode": "vatClassifierCode",
+                    "costCenterId": "x",
+                    "projectId": "x",
+                    "accountCode": "accountCode",
+                    "deferralStartDate": "2023-01-15",
+                    "deferralEndDate": "2023-01-15",
+                    "lineNet": "lineNet",
+                    "lineVat": "lineVat",
+                    "lineGross": "lineGross",
+                    "sortOrder": 1000000
+                  },
+                  {
+                    "id": "x",
+                    "itemId": "x",
+                    "description": "description",
+                    "unit": "unit",
+                    "quantity": "quantity",
+                    "unitPriceExclVat": "unitPriceExclVat",
+                    "unitPriceInclVat": "unitPriceInclVat",
+                    "vatRatePercent": "vatRatePercent",
+                    "vatClassifierCode": "vatClassifierCode",
+                    "costCenterId": "x",
+                    "projectId": "x",
+                    "accountCode": "accountCode",
+                    "deferralStartDate": "2023-01-15",
+                    "deferralEndDate": "2023-01-15",
+                    "lineNet": "lineNet",
+                    "lineVat": "lineVat",
+                    "lineGross": "lineGross",
+                    "sortOrder": 1000000
+                  }
+                ]
+              },
+              "oppositeInvoice": {
                 "id": "x",
                 "partnerId": "x",
                 "type": "invoice",
@@ -177,6 +272,7 @@ public class DocumentsConfirmTest : BaseMockServerTest
                 Id = "x",
                 PartnerId = null,
                 NewSupplier = null,
+                Type = null,
                 DocumentNumber = "x",
                 DocumentDate = new DateOnly(2023, 1, 15),
                 DueDate = null,
@@ -217,6 +313,8 @@ public class DocumentsConfirmTest : BaseMockServerTest
                         DeferralEndDate = null,
                     },
                 },
+                OppositeLines = null,
+                OppositeDocumentNumber = null,
             }
         );
         JsonAssert.AreEqual(response, mockResponse);
@@ -249,6 +347,7 @@ public class DocumentsConfirmTest : BaseMockServerTest
                 "model": "model",
                 "pagesProcessed": 1000000,
                 "extraction": {
+                  "documentType": "invoice",
                   "supplier": {},
                   "documentNumber": "documentNumber",
                   "documentDate": "2026-07-01",
@@ -263,15 +362,66 @@ public class DocumentsConfirmTest : BaseMockServerTest
                       "description": "description",
                       "quantity": "quantity"
                     }
+                  ],
+                  "oppositeLines": [
+                    {
+                      "description": "description",
+                      "quantity": "quantity"
+                    }
                   ]
                 },
                 "matchedPartnerId": "matchedPartnerId",
                 "purchaseInvoiceId": "purchaseInvoiceId",
                 "error": "error",
+                "senderId": "senderId",
                 "createdAt": "2026-07-01T09:30:00.000Z",
                 "updatedAt": "2026-07-01T09:30:00.000Z"
               },
               "invoice": {
+                "id": "id",
+                "partnerId": "partnerId",
+                "type": "invoice",
+                "status": "draft",
+                "paymentStatus": "unpaid",
+                "documentNumber": "documentNumber",
+                "documentDate": "2026-07-01",
+                "dueDate": "2026-07-01",
+                "registrationDate": "2026-07-01",
+                "currency": "currency",
+                "netTotal": "netTotal",
+                "vatTotal": "vatTotal",
+                "grossTotal": "grossTotal",
+                "paidAmount": "paidAmount",
+                "journalTransactionId": "journalTransactionId",
+                "creditedInvoiceId": "creditedInvoiceId",
+                "purchaseOrderId": "purchaseOrderId",
+                "operationTypeId": "operationTypeId",
+                "notes": "notes",
+                "intrastatTransportMode": "intrastatTransportMode",
+                "intrastatDeliveryTerms": "intrastatDeliveryTerms",
+                "intrastatRegion": "intrastatRegion",
+                "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
+                "einvoiceNumber": "einvoiceNumber",
+                "documentRef": "documentRef",
+                "createdAt": "2026-07-01T09:30:00.000Z",
+                "updatedAt": "2026-07-01T09:30:00.000Z",
+                "lines": [
+                  {
+                    "id": "id",
+                    "description": "description",
+                    "unit": "unit",
+                    "quantity": "quantity",
+                    "vatRatePercent": "vatRatePercent",
+                    "deferralStartDate": "2026-07-01",
+                    "deferralEndDate": "2026-07-01",
+                    "lineNet": "lineNet",
+                    "lineVat": "lineVat",
+                    "lineGross": "lineGross",
+                    "sortOrder": 1000000
+                  }
+                ]
+              },
+              "oppositeInvoice": {
                 "id": "id",
                 "partnerId": "partnerId",
                 "type": "invoice",

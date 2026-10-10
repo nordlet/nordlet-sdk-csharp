@@ -14,6 +14,9 @@ public record OnlineSalesReportsResponseRowsItem : IJsonOnDeserialized
     [JsonPropertyName("channel")]
     public required string Channel { get; set; }
 
+    [JsonPropertyName("currency")]
+    public required string Currency { get; set; }
+
     [JsonPropertyName("orders")]
     public required long Orders { get; set; }
 

@@ -28,6 +28,7 @@ public class LandedCostsGetTest : BaseMockServerTest
               "sourceInvoiceId": "sourceInvoiceId",
               "notes": "notes",
               "createdAt": "2024-01-15T09:30:00.000Z",
+              "journalTransactionId": "x",
               "lines": [
                 {
                   "movementId": "x",
@@ -84,6 +85,7 @@ public class LandedCostsGetTest : BaseMockServerTest
               "sourceInvoiceId": "sourceInvoiceId",
               "notes": "notes",
               "createdAt": "2026-07-01T09:30:00.000Z",
+              "journalTransactionId": "journalTransactionId",
               "lines": [
                 {
                   "movementId": "movementId",

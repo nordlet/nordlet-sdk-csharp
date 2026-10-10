@@ -9,6 +9,9 @@ public record AccountsCreateBankRequest
     [JsonPropertyName("name")]
     public required string Name { get; set; }
 
+    [JsonPropertyName("type")]
+    public AccountsCreateBankRequestType? Type { get; set; }
+
     [JsonPropertyName("iban")]
     public string? Iban { get; set; }
 

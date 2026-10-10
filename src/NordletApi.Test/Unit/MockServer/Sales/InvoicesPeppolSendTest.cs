@@ -23,6 +23,8 @@ public class InvoicesPeppolSendTest : BaseMockServerTest
               "sent": true,
               "messageId": "messageId",
               "receiverId": "receiverId",
+              "status": "pending",
+              "detail": "detail",
               "fileId": "x"
             }
             """;
@@ -63,6 +65,8 @@ public class InvoicesPeppolSendTest : BaseMockServerTest
               "sent": true,
               "messageId": "messageId",
               "receiverId": "receiverId",
+              "status": "pending",
+              "detail": "detail",
               "fileId": "fileId"
             }
             """;

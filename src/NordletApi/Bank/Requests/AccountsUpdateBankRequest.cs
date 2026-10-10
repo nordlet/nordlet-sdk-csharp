@@ -12,6 +12,9 @@ public record AccountsUpdateBankRequest
     [JsonPropertyName("name")]
     public string? Name { get; set; }
 
+    [JsonPropertyName("type")]
+    public AccountsUpdateBankRequestType? Type { get; set; }
+
     [JsonPropertyName("iban")]
     public string? Iban { get; set; }
 

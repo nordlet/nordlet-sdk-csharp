@@ -72,8 +72,14 @@ public class InvoicesApplyAdvanceTest : BaseMockServerTest
               "einvoiceDetail": "einvoiceDetail",
               "einvoiceSentAt": "2024-01-15T09:30:00.000Z",
               "einvoiceCheckedAt": "2024-01-15T09:30:00.000Z",
+              "peppolMessageId": "peppolMessageId",
+              "peppolStatus": "peppolStatus",
+              "peppolDetail": "peppolDetail",
+              "peppolSentAt": "2024-01-15T09:30:00.000Z",
+              "peppolCheckedAt": "2024-01-15T09:30:00.000Z",
               "createdAt": "2024-01-15T09:30:00.000Z",
               "updatedAt": "2024-01-15T09:30:00.000Z",
+              "advanceAppliedAmount": "advanceAppliedAmount",
               "lines": [
                 {
                   "id": "x",
@@ -219,6 +225,7 @@ public class InvoicesApplyAdvanceTest : BaseMockServerTest
                 AdvanceId = "x",
                 InvoiceId = "x",
                 Date = null,
+                Amount = null,
             }
         );
         JsonAssert.AreEqual(response, mockResponse);
@@ -287,8 +294,14 @@ public class InvoicesApplyAdvanceTest : BaseMockServerTest
               "einvoiceDetail": "einvoiceDetail",
               "einvoiceSentAt": "2026-07-01T09:30:00.000Z",
               "einvoiceCheckedAt": "2026-07-01T09:30:00.000Z",
+              "peppolMessageId": "peppolMessageId",
+              "peppolStatus": "peppolStatus",
+              "peppolDetail": "peppolDetail",
+              "peppolSentAt": "2026-07-01T09:30:00.000Z",
+              "peppolCheckedAt": "2026-07-01T09:30:00.000Z",
               "createdAt": "2026-07-01T09:30:00.000Z",
               "updatedAt": "2026-07-01T09:30:00.000Z",
+              "advanceAppliedAmount": "advanceAppliedAmount",
               "lines": [
                 {
                   "id": "id",

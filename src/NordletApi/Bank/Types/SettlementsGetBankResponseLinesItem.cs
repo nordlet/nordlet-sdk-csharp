@@ -56,6 +56,18 @@ public record SettlementsGetBankResponseLinesItem : IJsonOnDeserialized
     [JsonPropertyName("matchStatus")]
     public required SettlementsGetBankResponseLinesItemMatchStatus MatchStatus { get; set; }
 
+    [JsonPropertyName("clearingBankAccountId")]
+    public string? ClearingBankAccountId { get; set; }
+
+    [JsonPropertyName("clearingBooked")]
+    public string? ClearingBooked { get; set; }
+
+    [JsonPropertyName("clearingDifference")]
+    public string? ClearingDifference { get; set; }
+
+    [JsonPropertyName("clearingUnposted")]
+    public required bool ClearingUnposted { get; set; }
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

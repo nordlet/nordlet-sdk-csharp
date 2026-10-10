@@ -98,6 +98,33 @@ public partial interface IDeclarationsClient
         CancellationToken cancellationToken = default
     );
 
+    WithRawResponseTask<EuOwnGoodsTransfersComputeDeclarationsResponse> EuOwnGoodsTransfersComputeAsync(
+        EuOwnGoodsTransfersComputeDeclarationsRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<EuDigitalReportingListDeclarationsResponse> EuDigitalReportingListAsync(
+        EuDigitalReportingListDeclarationsRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    /// <summary>
+    /// Which platform sellers are reportable for the year (Council Directive (EU) 2021/514, Annex V) and why the others are excluded, the data still missing, and how the company files the report in its Member State.
+    /// </summary>
+    WithRawResponseTask<EuDac7PreviewDeclarationsResponse> EuDac7PreviewAsync(
+        EuDac7PreviewDeclarationsRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<EuDac7XmlDeclarationsResponse> EuDac7XmlAsync(
+        EuDac7XmlDeclarationsRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
     WithRawResponseTask<EuDistanceSalesThresholdGetDeclarationsResponse> EuDistanceSalesThresholdGetAsync(
         EuDistanceSalesThresholdGetDeclarationsRequest request,
         RequestOptions? options = null,
@@ -513,7 +540,7 @@ public partial interface IDeclarationsClient
     );
 
     /// <summary>
-    /// Generate PIT-11(29) for every person on the payroll of one year: the pay, the deductible costs, the advance withheld and the social and health contributions taken off it. One document per person, because that is how the form is filed.
+    /// Generate PIT-11(29) for every person on the payroll of one year: the pay, the deductible costs, the advance withheld and the social and health contributions taken off it. One document per person, because that is how the form is filed, addressed to the tax office of the place of residence of that person (employee field plKodUrzedu); a person without that code is refused with 422.
     /// </summary>
     WithRawResponseTask<PlPit11GenerateDeclarationsResponse> PlPit11GenerateAsync(
         PlPit11GenerateDeclarationsRequest request,

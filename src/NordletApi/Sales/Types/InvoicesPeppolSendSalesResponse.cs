@@ -20,6 +20,12 @@ public record InvoicesPeppolSendSalesResponse : IJsonOnDeserialized
     [JsonPropertyName("receiverId")]
     public required string ReceiverId { get; set; }
 
+    [JsonPropertyName("status")]
+    public required InvoicesPeppolSendSalesResponseStatus Status { get; set; }
+
+    [JsonPropertyName("detail")]
+    public string? Detail { get; set; }
+
     [JsonPropertyName("fileId")]
     public string? FileId { get; set; }
 

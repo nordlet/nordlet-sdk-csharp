@@ -17,6 +17,9 @@ public record AccountsUpdateBankResponse : IJsonOnDeserialized
     [JsonPropertyName("name")]
     public required string Name { get; set; }
 
+    [JsonPropertyName("type")]
+    public required AccountsUpdateBankResponseType Type { get; set; }
+
     [JsonPropertyName("iban")]
     public string? Iban { get; set; }
 

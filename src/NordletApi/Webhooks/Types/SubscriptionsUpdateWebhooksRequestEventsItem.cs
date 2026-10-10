@@ -17,6 +17,9 @@ public readonly record struct SubscriptionsUpdateWebhooksRequestEventsItem : ISt
         Values.BankFeedSynced
     );
 
+    public static readonly SubscriptionsUpdateWebhooksRequestEventsItem DocumentCapturePeppolReceived =
+        new(Values.DocumentCapturePeppolReceived);
+
     public static readonly SubscriptionsUpdateWebhooksRequestEventsItem FilingFailed = new(
         Values.FilingFailed
     );
@@ -118,6 +121,15 @@ public readonly record struct SubscriptionsUpdateWebhooksRequestEventsItem : ISt
     public static readonly SubscriptionsUpdateWebhooksRequestEventsItem SaleInvoicePaid = new(
         Values.SaleInvoicePaid
     );
+
+    public static readonly SubscriptionsUpdateWebhooksRequestEventsItem SaleInvoicePeppolDelivered =
+        new(Values.SaleInvoicePeppolDelivered);
+
+    public static readonly SubscriptionsUpdateWebhooksRequestEventsItem SaleInvoicePeppolFailed =
+        new(Values.SaleInvoicePeppolFailed);
+
+    public static readonly SubscriptionsUpdateWebhooksRequestEventsItem SaleInvoicePeppolRejected =
+        new(Values.SaleInvoicePeppolRejected);
 
     public static readonly SubscriptionsUpdateWebhooksRequestEventsItem SaleInvoicePeppolSent = new(
         Values.SaleInvoicePeppolSent
@@ -272,6 +284,8 @@ public readonly record struct SubscriptionsUpdateWebhooksRequestEventsItem : ISt
 
         public const string BankFeedSynced = "bank_feed.synced";
 
+        public const string DocumentCapturePeppolReceived = "document_capture.peppol_received";
+
         public const string FilingFailed = "filing.failed";
 
         public const string FilingRejected = "filing.rejected";
@@ -325,6 +339,12 @@ public readonly record struct SubscriptionsUpdateWebhooksRequestEventsItem : ISt
         public const string SaleInvoiceIssued = "sale_invoice.issued";
 
         public const string SaleInvoicePaid = "sale_invoice.paid";
+
+        public const string SaleInvoicePeppolDelivered = "sale_invoice.peppol_delivered";
+
+        public const string SaleInvoicePeppolFailed = "sale_invoice.peppol_failed";
+
+        public const string SaleInvoicePeppolRejected = "sale_invoice.peppol_rejected";
 
         public const string SaleInvoicePeppolSent = "sale_invoice.peppol_sent";
 

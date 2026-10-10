@@ -32,8 +32,20 @@ public partial interface ISalesClient
         CancellationToken cancellationToken = default
     );
 
+    /// <summary>
+    /// Send an issued invoice or credit note to the customer over Peppol through the company's own access point (Settings → Compliance → EU; Nordlet supports Recommand, Storecove and e-invoice.be). Without one the call is refused with 422 and the document can only be downloaded with `sales/invoices/peppol-xml`. `status` is `pending` until the receiving access point confirms, then `delivered`; `failed` and `rejected` come with `detail`, and the invoice can then be sent again. Later changes arrive through the access point's webhook and are announced as `sale_invoice.peppol_delivered`, `sale_invoice.peppol_rejected` and `sale_invoice.peppol_failed`.
+    /// </summary>
     WithRawResponseTask<InvoicesPeppolSendSalesResponse> InvoicesPeppolSendAsync(
         InvoicesPeppolSendSalesRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    /// <summary>
+    /// Ask the company's Peppol access point what happened to an invoice sent with `sales/invoices/peppol-send`, and store the answer: `pending`, `delivered` (the receiving access point confirmed it), `rejected` (the receiver refused it, see `detail`) or `failed` (it could not be delivered, see `detail`). The access point's webhook updates the same fields without this call. Storecove has no call for the status of a sent document, so for a Storecove access point this answers 422 and the status comes only from its webhook.
+    /// </summary>
+    WithRawResponseTask<InvoicesPeppolStatusSalesResponse> InvoicesPeppolStatusAsync(
+        InvoicesPeppolStatusSalesRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );

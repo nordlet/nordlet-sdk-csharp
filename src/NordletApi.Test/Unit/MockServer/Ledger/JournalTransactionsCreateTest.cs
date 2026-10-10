@@ -61,6 +61,7 @@ public class JournalTransactionsCreateTest : BaseMockServerTest
             {
                 Date = new DateOnly(2023, 1, 15),
                 Description = null,
+                Currency = null,
                 Entries = new List<JournalTransactionsCreateLedgerRequestEntriesItem>()
                 {
                     new JournalTransactionsCreateLedgerRequestEntriesItem

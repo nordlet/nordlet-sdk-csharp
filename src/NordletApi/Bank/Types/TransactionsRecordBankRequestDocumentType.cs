@@ -18,6 +18,10 @@ public readonly record struct TransactionsRecordBankRequestDocumentType : IStrin
         Values.PurchaseInvoice
     );
 
+    public static readonly TransactionsRecordBankRequestDocumentType PayrollRun = new(
+        Values.PayrollRun
+    );
+
     public TransactionsRecordBankRequestDocumentType(string value)
     {
         Value = value;
@@ -124,5 +128,7 @@ public readonly record struct TransactionsRecordBankRequestDocumentType : IStrin
         public const string SaleInvoice = "sale_invoice";
 
         public const string PurchaseInvoice = "purchase_invoice";
+
+        public const string PayrollRun = "payroll_run";
     }
 }

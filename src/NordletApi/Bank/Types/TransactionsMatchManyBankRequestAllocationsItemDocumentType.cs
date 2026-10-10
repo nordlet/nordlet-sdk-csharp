@@ -17,6 +17,9 @@ public readonly record struct TransactionsMatchManyBankRequestAllocationsItemDoc
     public static readonly TransactionsMatchManyBankRequestAllocationsItemDocumentType PurchaseInvoice =
         new(Values.PurchaseInvoice);
 
+    public static readonly TransactionsMatchManyBankRequestAllocationsItemDocumentType PayrollRun =
+        new(Values.PayrollRun);
+
     public TransactionsMatchManyBankRequestAllocationsItemDocumentType(string value)
     {
         Value = value;
@@ -127,5 +130,7 @@ public readonly record struct TransactionsMatchManyBankRequestAllocationsItemDoc
         public const string SaleInvoice = "sale_invoice";
 
         public const string PurchaseInvoice = "purchase_invoice";
+
+        public const string PayrollRun = "payroll_run";
     }
 }

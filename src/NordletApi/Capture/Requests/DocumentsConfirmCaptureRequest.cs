@@ -15,6 +15,9 @@ public record DocumentsConfirmCaptureRequest
     [JsonPropertyName("newSupplier")]
     public DocumentsConfirmCaptureRequestNewSupplier? NewSupplier { get; set; }
 
+    [JsonPropertyName("type")]
+    public DocumentsConfirmCaptureRequestType? Type { get; set; }
+
     [JsonPropertyName("documentNumber")]
     public required string DocumentNumber { get; set; }
 
@@ -33,6 +36,12 @@ public record DocumentsConfirmCaptureRequest
     [JsonPropertyName("lines")]
     public IEnumerable<DocumentsConfirmCaptureRequestLinesItem> Lines { get; set; } =
         new List<DocumentsConfirmCaptureRequestLinesItem>();
+
+    [JsonPropertyName("oppositeLines")]
+    public IEnumerable<DocumentsConfirmCaptureRequestOppositeLinesItem>? OppositeLines { get; set; }
+
+    [JsonPropertyName("oppositeDocumentNumber")]
+    public string? OppositeDocumentNumber { get; set; }
 
     /// <inheritdoc />
     public override string ToString()

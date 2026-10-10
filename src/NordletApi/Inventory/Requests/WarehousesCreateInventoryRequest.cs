@@ -15,6 +15,9 @@ public record WarehousesCreateInventoryRequest
     [JsonPropertyName("isDefault")]
     public bool? IsDefault { get; set; }
 
+    [JsonPropertyName("countryCode")]
+    public string? CountryCode { get; set; }
+
     /// <inheritdoc />
     public override string ToString()
     {

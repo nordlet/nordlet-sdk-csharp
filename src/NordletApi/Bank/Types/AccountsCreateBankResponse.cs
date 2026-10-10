@@ -17,6 +17,9 @@ public record AccountsCreateBankResponse : IJsonOnDeserialized
     [JsonPropertyName("name")]
     public required string Name { get; set; }
 
+    [JsonPropertyName("type")]
+    public required AccountsCreateBankResponseType Type { get; set; }
+
     [JsonPropertyName("iban")]
     public string? Iban { get; set; }
 

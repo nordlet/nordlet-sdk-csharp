@@ -17,6 +17,9 @@ public record DocumentsConfirmCaptureResponse : IJsonOnDeserialized
     [JsonPropertyName("invoice")]
     public required DocumentsConfirmCaptureResponseInvoice Invoice { get; set; }
 
+    [JsonPropertyName("oppositeInvoice")]
+    public DocumentsConfirmCaptureResponseOppositeInvoice? OppositeInvoice { get; set; }
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

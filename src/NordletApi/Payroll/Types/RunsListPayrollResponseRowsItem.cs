@@ -51,6 +51,9 @@ public record RunsListPayrollResponseRowsItem : IJsonOnDeserialized
     [JsonPropertyName("netTotal")]
     public required string NetTotal { get; set; }
 
+    [JsonPropertyName("paidAmount")]
+    public required string PaidAmount { get; set; }
+
     [JsonPropertyName("journalTransactionId")]
     public string? JournalTransactionId { get; set; }
 

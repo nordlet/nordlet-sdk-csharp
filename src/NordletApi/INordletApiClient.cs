@@ -11,9 +11,11 @@ public partial interface INordletApiClient
     public IDocumentSeriesClient DocumentSeries { get; }
     public IPurchasesClient Purchases { get; }
     public ICaptureClient Capture { get; }
+    public IPeppolClient Peppol { get; }
     public IDeclarationsClient Declarations { get; }
     public ILedgerClient Ledger { get; }
     public IOfficersClient Officers { get; }
+    public IPlatformSellersClient PlatformSellers { get; }
     public IMigrationClient Migration { get; }
     public IAssetsClient Assets { get; }
     public IHrClient Hr { get; }

@@ -22,6 +22,7 @@ public class AccountsUpdateTest : BaseMockServerTest
             {
               "id": "x",
               "name": "name",
+              "type": "bank",
               "iban": "iban",
               "currency": "currency",
               "accountCode": "accountCode",
@@ -51,6 +52,7 @@ public class AccountsUpdateTest : BaseMockServerTest
             {
                 Id = "x",
                 Name = null,
+                Type = null,
                 Iban = null,
                 AccountCode = null,
                 IsActive = null,
@@ -72,6 +74,7 @@ public class AccountsUpdateTest : BaseMockServerTest
             {
               "id": "id",
               "name": "name",
+              "type": "bank",
               "iban": "iban",
               "currency": "currency",
               "accountCode": "accountCode",

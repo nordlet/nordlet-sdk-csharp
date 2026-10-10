@@ -17,6 +17,9 @@ public readonly record struct TransactionsSuggestMatchesBankResponseSuggestionsI
     public static readonly TransactionsSuggestMatchesBankResponseSuggestionsItemDocumentType PurchaseInvoice =
         new(Values.PurchaseInvoice);
 
+    public static readonly TransactionsSuggestMatchesBankResponseSuggestionsItemDocumentType PayrollRun =
+        new(Values.PayrollRun);
+
     public TransactionsSuggestMatchesBankResponseSuggestionsItemDocumentType(string value)
     {
         Value = value;
@@ -131,5 +134,7 @@ public readonly record struct TransactionsSuggestMatchesBankResponseSuggestionsI
         public const string SaleInvoice = "sale_invoice";
 
         public const string PurchaseInvoice = "purchase_invoice";
+
+        public const string PayrollRun = "payroll_run";
     }
 }

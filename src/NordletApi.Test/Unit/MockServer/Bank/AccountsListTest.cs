@@ -22,6 +22,7 @@ public class AccountsListTest : BaseMockServerTest
                 {
                   "id": "x",
                   "name": "name",
+                  "type": "bank",
                   "iban": "iban",
                   "currency": "currency",
                   "accountCode": "accountCode",
@@ -31,6 +32,7 @@ public class AccountsListTest : BaseMockServerTest
                 {
                   "id": "x",
                   "name": "name",
+                  "type": "bank",
                   "iban": "iban",
                   "currency": "currency",
                   "accountCode": "accountCode",
@@ -94,6 +96,7 @@ public class AccountsListTest : BaseMockServerTest
                 {
                   "id": "id",
                   "name": "name",
+                  "type": "bank",
                   "iban": "iban",
                   "currency": "currency",
                   "accountCode": "accountCode",

@@ -35,6 +35,9 @@ public record LandedCostsGetInventoryResponse : IJsonOnDeserialized
     [JsonPropertyName("createdAt")]
     public required DateTime CreatedAt { get; set; }
 
+    [JsonPropertyName("journalTransactionId")]
+    public string? JournalTransactionId { get; set; }
+
     [JsonPropertyName("lines")]
     public IEnumerable<LandedCostsGetInventoryResponseLinesItem> Lines { get; set; } =
         new List<LandedCostsGetInventoryResponseLinesItem>();

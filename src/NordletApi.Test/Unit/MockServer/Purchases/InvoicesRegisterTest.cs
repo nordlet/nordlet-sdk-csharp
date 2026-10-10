@@ -114,6 +114,7 @@ public class InvoicesRegisterTest : BaseMockServerTest
                 Id = "x",
                 RegistrationDate = null,
                 WarehouseId = null,
+                ReturnFromStock = null,
             }
         );
         JsonAssert.AreEqual(response, mockResponse);

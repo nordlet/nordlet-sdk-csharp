@@ -50,6 +50,9 @@ public record DocumentsExtractCaptureResponse : IJsonOnDeserialized
     [JsonPropertyName("error")]
     public string? Error { get; set; }
 
+    [JsonPropertyName("senderId")]
+    public string? SenderId { get; set; }
+
     [JsonPropertyName("createdAt")]
     public required DateTime CreatedAt { get; set; }
 

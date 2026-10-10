@@ -70,6 +70,12 @@ public class VatResolveTest : BaseMockServerTest
                 ActingAsMarketplace = null,
                 SellerEstablishedInEu = null,
                 ImportedConsignmentValueEur = null,
+                ServiceKind = null,
+                ServiceCountryCode = null,
+                UnderlyingSupplierGaveVatNumber = null,
+                UnderlyingSupplierChargesVat = null,
+                GoodsKind = null,
+                GoodsLocationCountryCode = null,
             }
         );
         JsonAssert.AreEqual(response, mockResponse);

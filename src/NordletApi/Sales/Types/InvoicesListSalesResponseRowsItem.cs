@@ -164,6 +164,21 @@ public record InvoicesListSalesResponseRowsItem : IJsonOnDeserialized
     [JsonPropertyName("einvoiceCheckedAt")]
     public DateTime? EinvoiceCheckedAt { get; set; }
 
+    [JsonPropertyName("peppolMessageId")]
+    public string? PeppolMessageId { get; set; }
+
+    [JsonPropertyName("peppolStatus")]
+    public string? PeppolStatus { get; set; }
+
+    [JsonPropertyName("peppolDetail")]
+    public string? PeppolDetail { get; set; }
+
+    [JsonPropertyName("peppolSentAt")]
+    public DateTime? PeppolSentAt { get; set; }
+
+    [JsonPropertyName("peppolCheckedAt")]
+    public DateTime? PeppolCheckedAt { get; set; }
+
     [JsonPropertyName("createdAt")]
     public required DateTime CreatedAt { get; set; }
 

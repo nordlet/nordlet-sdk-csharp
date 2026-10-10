@@ -164,11 +164,32 @@ public record InvoicesUnlockSalesResponse : IJsonOnDeserialized
     [JsonPropertyName("einvoiceCheckedAt")]
     public DateTime? EinvoiceCheckedAt { get; set; }
 
+    [JsonPropertyName("peppolMessageId")]
+    public string? PeppolMessageId { get; set; }
+
+    [JsonPropertyName("peppolStatus")]
+    public string? PeppolStatus { get; set; }
+
+    [JsonPropertyName("peppolDetail")]
+    public string? PeppolDetail { get; set; }
+
+    [JsonPropertyName("peppolSentAt")]
+    public DateTime? PeppolSentAt { get; set; }
+
+    [JsonPropertyName("peppolCheckedAt")]
+    public DateTime? PeppolCheckedAt { get; set; }
+
     [JsonPropertyName("createdAt")]
     public required DateTime CreatedAt { get; set; }
 
     [JsonPropertyName("updatedAt")]
     public required DateTime UpdatedAt { get; set; }
+
+    /// <summary>
+    /// Gross amount of an advance invoice applied to final invoices so far; null on other documents
+    /// </summary>
+    [JsonPropertyName("advanceAppliedAmount")]
+    public string? AdvanceAppliedAmount { get; set; }
 
     [JsonPropertyName("lines")]
     public IEnumerable<InvoicesUnlockSalesResponseLinesItem> Lines { get; set; } =

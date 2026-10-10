@@ -59,6 +59,15 @@ public record SettlementsPostBankResponse : IJsonOnDeserialized
     [JsonPropertyName("unmatchedCount")]
     public required long UnmatchedCount { get; set; }
 
+    [JsonPropertyName("clearedNet")]
+    public string? ClearedNet { get; set; }
+
+    [JsonPropertyName("clearingDifference")]
+    public string? ClearingDifference { get; set; }
+
+    [JsonPropertyName("clearingOpenCount")]
+    public required long ClearingOpenCount { get; set; }
+
     [JsonPropertyName("createdAt")]
     public required DateTime CreatedAt { get; set; }
 

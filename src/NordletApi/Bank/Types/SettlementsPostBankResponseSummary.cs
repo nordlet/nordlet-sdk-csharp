@@ -26,6 +26,9 @@ public record SettlementsPostBankResponseSummary : IJsonOnDeserialized
     [JsonPropertyName("suspenseAmount")]
     public required string SuspenseAmount { get; set; }
 
+    [JsonPropertyName("clearedAmount")]
+    public required string ClearedAmount { get; set; }
+
     [JsonPropertyName("fxRate")]
     public required string FxRate { get; set; }
 

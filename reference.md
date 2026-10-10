@@ -4857,6 +4857,20 @@ await client.Sales.InvoicesPeppolXmlAsync(new InvoicesPeppolXmlSalesRequest { Id
 <dl>
 <dd>
 
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Send an issued invoice or credit note to the customer over Peppol through the company's own access point (Settings → Compliance → EU; Nordlet supports Recommand, Storecove and e-invoice.be). Without one the call is refused with 422 and the document can only be downloaded with `sales/invoices/peppol-xml`. `status` is `pending` until the receiving access point confirms, then `delivered`; `failed` and `rejected` come with `detail`, and the invoice can then be sent again. Later changes arrive through the access point's webhook and are announced as `sale_invoice.peppol_delivered`, `sale_invoice.peppol_rejected` and `sale_invoice.peppol_failed`.
+</dd>
+</dl>
+</dd>
+</dl>
+
 #### 🔌 Usage
 
 <dl>
@@ -4882,6 +4896,60 @@ await client.Sales.InvoicesPeppolSendAsync(new InvoicesPeppolSendSalesRequest { 
 <dd>
 
 **request:** `InvoicesPeppolSendSalesRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">InvoicesPeppolStatusAsync</a>(InvoicesPeppolStatusSalesRequest { ... }) -> WithRawResponseTask&lt;InvoicesPeppolStatusSalesResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Ask the company's Peppol access point what happened to an invoice sent with `sales/invoices/peppol-send`, and store the answer: `pending`, `delivered` (the receiving access point confirmed it), `rejected` (the receiver refused it, see `detail`) or `failed` (it could not be delivered, see `detail`). The access point's webhook updates the same fields without this call. Storecove has no call for the status of a sent document, so for a Storecove access point this answers 422 and the status comes only from its webhook.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Sales.InvoicesPeppolStatusAsync(new InvoicesPeppolStatusSalesRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `InvoicesPeppolStatusSalesRequest` 
     
 </dd>
 </dl>
@@ -7823,6 +7891,20 @@ await client.Capture.DocumentsDeleteAsync(new DocumentsDeleteCaptureRequest { Id
 <dl>
 <dd>
 
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Creates the purchase invoice (or credit note, see `type`) from `lines`. Lines with the opposite sign go in `oppositeLines` and are saved as a second document of the opposite type for the same supplier: a purchase credit note against the new invoice, or a purchase invoice next to the new credit note. It is numbered `oppositeDocumentNumber`, by default the document number followed by "-CR" (credit note) or "-INV" (invoice).
+</dd>
+</dl>
+</dd>
+</dl>
+
 #### 🔌 Usage
 
 <dl>
@@ -7859,6 +7941,107 @@ await client.Capture.DocumentsConfirmAsync(
 <dd>
 
 **request:** `DocumentsConfirmCaptureRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## peppol
+<details><summary><code>client.Peppol.<a href="/src/NordletApi/Peppol/PeppolClient.cs">ParticipantsLookupAsync</a>(ParticipantsLookupPeppolRequest { ... }) -> WithRawResponseTask&lt;ParticipantsLookupPeppolResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Look a receiver up on the Peppol network (SML and SMP) and say which Peppol BIS Billing 3.0 documents it accepts. Give `partnerId` to look up a partner by its Peppol ID, VAT code or registration code, or `participantId` as "<scheme>:<identifier>". Works without an access point.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Peppol.ParticipantsLookupAsync(new ParticipantsLookupPeppolRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ParticipantsLookupPeppolRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Peppol.<a href="/src/NordletApi/Peppol/PeppolClient.cs">WebhooksAsync</a>(WebhooksPeppolRequest { ... }) -> WithRawResponseTask&lt;WebhooksPeppolResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Peppol.WebhooksAsync(
+    new WebhooksPeppolRequest
+    {
+        Provider = WebhooksPeppolRequestProvider.Recommand,
+        CompanyId = "companyId",
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `WebhooksPeppolRequest` 
     
 </dd>
 </dl>
@@ -8556,6 +8739,190 @@ await client.Declarations.EuIossComputeAsync(
 <dd>
 
 **request:** `EuIossComputeDeclarationsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">EuOwnGoodsTransfersComputeAsync</a>(EuOwnGoodsTransfersComputeDeclarationsRequest { ... }) -> WithRawResponseTask&lt;EuOwnGoodsTransfersComputeDeclarationsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.EuOwnGoodsTransfersComputeAsync(
+    new EuOwnGoodsTransfersComputeDeclarationsRequest { Year = 1000000, Month = 1000000 }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `EuOwnGoodsTransfersComputeDeclarationsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">EuDigitalReportingListAsync</a>(EuDigitalReportingListDeclarationsRequest { ... }) -> WithRawResponseTask&lt;EuDigitalReportingListDeclarationsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.EuDigitalReportingListAsync(
+    new EuDigitalReportingListDeclarationsRequest
+    {
+        FromDate = new DateOnly(2026, 7, 1),
+        ToDate = new DateOnly(2026, 7, 1),
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `EuDigitalReportingListDeclarationsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">EuDac7PreviewAsync</a>(EuDac7PreviewDeclarationsRequest { ... }) -> WithRawResponseTask&lt;EuDac7PreviewDeclarationsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Which platform sellers are reportable for the year (Council Directive (EU) 2021/514, Annex V) and why the others are excluded, the data still missing, and how the company files the report in its Member State.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.EuDac7PreviewAsync(
+    new EuDac7PreviewDeclarationsRequest { Year = 1000000 }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `EuDac7PreviewDeclarationsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">EuDac7XmlAsync</a>(EuDac7XmlDeclarationsRequest { ... }) -> WithRawResponseTask&lt;EuDac7XmlDeclarationsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.EuDac7XmlAsync(new EuDac7XmlDeclarationsRequest { Year = 1000000 });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `EuDac7XmlDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -11348,7 +11715,7 @@ await client.Declarations.PlJpkMagGenerateAsync(
 <dl>
 <dd>
 
-Generate PIT-11(29) for every person on the payroll of one year: the pay, the deductible costs, the advance withheld and the social and health contributions taken off it. One document per person, because that is how the form is filed.
+Generate PIT-11(29) for every person on the payroll of one year: the pay, the deductible costs, the advance withheld and the social and health contributions taken off it. One document per person, because that is how the form is filed, addressed to the tax office of the place of residence of that person (employee field plKodUrzedu); a person without that code is refused with 422.
 </dd>
 </dl>
 </dd>
@@ -13713,6 +14080,234 @@ await client.Officers.DeleteAsync(new DeleteOfficersRequest { Id = "id" });
 <dd>
 
 **request:** `DeleteOfficersRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## PlatformSellers
+<details><summary><code>client.PlatformSellers.<a href="/src/NordletApi/PlatformSellers/PlatformSellersClient.cs">ListAsync</a>(ListPlatformSellersRequest { ... }) -> WithRawResponseTask&lt;ListPlatformSellersResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Individuals and entities that sell goods, rent out property or transport, or perform personal services through the platform the company operates. The yearly DAC7 report is built from them.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.PlatformSellers.ListAsync(new ListPlatformSellersRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ListPlatformSellersRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.PlatformSellers.<a href="/src/NordletApi/PlatformSellers/PlatformSellersClient.cs">GetAsync</a>(GetPlatformSellersRequest { ... }) -> WithRawResponseTask&lt;GetPlatformSellersResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.PlatformSellers.GetAsync(new GetPlatformSellersRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `GetPlatformSellersRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.PlatformSellers.<a href="/src/NordletApi/PlatformSellers/PlatformSellersClient.cs">CreateAsync</a>(CreatePlatformSellersRequest { ... }) -> WithRawResponseTask&lt;CreatePlatformSellersResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.PlatformSellers.CreateAsync(
+    new CreatePlatformSellersRequest
+    {
+        Kind = CreatePlatformSellersRequestKind.Individual,
+        Address = new CreatePlatformSellersRequestAddress { CountryCode = "countryCode" },
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `CreatePlatformSellersRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.PlatformSellers.<a href="/src/NordletApi/PlatformSellers/PlatformSellersClient.cs">UpdateAsync</a>(UpdatePlatformSellersRequest { ... }) -> WithRawResponseTask&lt;UpdatePlatformSellersResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.PlatformSellers.UpdateAsync(
+    new UpdatePlatformSellersRequest
+    {
+        Id = "id",
+        Kind = UpdatePlatformSellersRequestKind.Individual,
+        Address = new UpdatePlatformSellersRequestAddress { CountryCode = "countryCode" },
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `UpdatePlatformSellersRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.PlatformSellers.<a href="/src/NordletApi/PlatformSellers/PlatformSellersClient.cs">DeleteAsync</a>(DeletePlatformSellersRequest { ... }) -> WithRawResponseTask&lt;DeletePlatformSellersResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.PlatformSellers.DeleteAsync(new DeletePlatformSellersRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `DeletePlatformSellersRequest` 
     
 </dd>
 </dl>
@@ -17571,6 +18166,46 @@ await client.Inventory.WarehousesListAsync(new WarehousesListInventoryRequest())
 <dd>
 
 **request:** `WarehousesListInventoryRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Inventory.<a href="/src/NordletApi/Inventory/InventoryClient.cs">WarehousesUpdateAsync</a>(WarehousesUpdateInventoryRequest { ... }) -> WithRawResponseTask&lt;WarehousesUpdateInventoryResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Inventory.WarehousesUpdateAsync(new WarehousesUpdateInventoryRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `WarehousesUpdateInventoryRequest` 
     
 </dd>
 </dl>

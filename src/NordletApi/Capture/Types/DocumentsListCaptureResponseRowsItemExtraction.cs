@@ -11,6 +11,9 @@ public record DocumentsListCaptureResponseRowsItemExtraction : IJsonOnDeserializ
     private readonly IDictionary<string, JsonElement> _extensionData =
         new Dictionary<string, JsonElement>();
 
+    [JsonPropertyName("documentType")]
+    public DocumentsListCaptureResponseRowsItemExtractionDocumentType? DocumentType { get; set; }
+
     [JsonPropertyName("supplier")]
     public required DocumentsListCaptureResponseRowsItemExtractionSupplier Supplier { get; set; }
 
@@ -41,6 +44,9 @@ public record DocumentsListCaptureResponseRowsItemExtraction : IJsonOnDeserializ
     [JsonPropertyName("lines")]
     public IEnumerable<DocumentsListCaptureResponseRowsItemExtractionLinesItem> Lines { get; set; } =
         new List<DocumentsListCaptureResponseRowsItemExtractionLinesItem>();
+
+    [JsonPropertyName("oppositeLines")]
+    public IEnumerable<DocumentsListCaptureResponseRowsItemExtractionOppositeLinesItem>? OppositeLines { get; set; }
 
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();

@@ -36,6 +36,9 @@ public class SettlementsPostTest : BaseMockServerTest
               "lineCount": 1000000,
               "matchedCount": 1000000,
               "unmatchedCount": 1000000,
+              "clearedNet": "clearedNet",
+              "clearingDifference": "clearingDifference",
+              "clearingOpenCount": 1000000,
               "createdAt": "2024-01-15T09:30:00.000Z",
               "updatedAt": "2024-01-15T09:30:00.000Z",
               "warnings": [
@@ -48,6 +51,7 @@ public class SettlementsPostTest : BaseMockServerTest
                 "sellerAmount": "sellerAmount",
                 "feeAmount": "feeAmount",
                 "suspenseAmount": "suspenseAmount",
+                "clearedAmount": "clearedAmount",
                 "fxRate": "fxRate",
                 "exchangeDifference": "exchangeDifference"
               }
@@ -108,6 +112,9 @@ public class SettlementsPostTest : BaseMockServerTest
               "lineCount": 1000000,
               "matchedCount": 1000000,
               "unmatchedCount": 1000000,
+              "clearedNet": "clearedNet",
+              "clearingDifference": "clearingDifference",
+              "clearingOpenCount": 1000000,
               "createdAt": "2026-07-01T09:30:00.000Z",
               "updatedAt": "2026-07-01T09:30:00.000Z",
               "warnings": [
@@ -119,6 +126,7 @@ public class SettlementsPostTest : BaseMockServerTest
                 "sellerAmount": "sellerAmount",
                 "feeAmount": "feeAmount",
                 "suspenseAmount": "suspenseAmount",
+                "clearedAmount": "clearedAmount",
                 "fxRate": "fxRate",
                 "exchangeDifference": "exchangeDifference"
               }

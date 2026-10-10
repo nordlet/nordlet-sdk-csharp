@@ -36,6 +36,24 @@ public record VatResolveReferenceRequest
     [JsonPropertyName("importedConsignmentValueEur")]
     public string? ImportedConsignmentValueEur { get; set; }
 
+    [JsonPropertyName("serviceKind")]
+    public VatResolveReferenceRequestServiceKind? ServiceKind { get; set; }
+
+    [JsonPropertyName("serviceCountryCode")]
+    public string? ServiceCountryCode { get; set; }
+
+    [JsonPropertyName("underlyingSupplierGaveVatNumber")]
+    public bool? UnderlyingSupplierGaveVatNumber { get; set; }
+
+    [JsonPropertyName("underlyingSupplierChargesVat")]
+    public bool? UnderlyingSupplierChargesVat { get; set; }
+
+    [JsonPropertyName("goodsKind")]
+    public VatResolveReferenceRequestGoodsKind? GoodsKind { get; set; }
+
+    [JsonPropertyName("goodsLocationCountryCode")]
+    public string? GoodsLocationCountryCode { get; set; }
+
     /// <inheritdoc />
     public override string ToString()
     {

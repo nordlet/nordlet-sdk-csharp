@@ -26,6 +26,7 @@ public class OnlineSalesTest : BaseMockServerTest
               "rows": [
                 {
                   "channel": "channel",
+                  "currency": "currency",
                   "orders": 1000000,
                   "fulfilled": 1000000,
                   "cancelled": 1000000,
@@ -35,6 +36,7 @@ public class OnlineSalesTest : BaseMockServerTest
                 },
                 {
                   "channel": "channel",
+                  "currency": "currency",
                   "orders": 1000000,
                   "fulfilled": 1000000,
                   "cancelled": 1000000,
@@ -89,6 +91,7 @@ public class OnlineSalesTest : BaseMockServerTest
               "rows": [
                 {
                   "channel": "channel",
+                  "currency": "currency",
                   "orders": 1000000,
                   "fulfilled": 1000000,
                   "cancelled": 1000000,

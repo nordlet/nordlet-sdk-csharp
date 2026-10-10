@@ -49,6 +49,7 @@ public class RunsCreateTest : BaseMockServerTest
                 }
               ],
               "netTotal": "netTotal",
+              "paidAmount": "paidAmount",
               "journalTransactionId": "x",
               "notes": "notes",
               "warnings": [
@@ -241,6 +242,7 @@ public class RunsCreateTest : BaseMockServerTest
                 }
               ],
               "netTotal": "netTotal",
+              "paidAmount": "paidAmount",
               "journalTransactionId": "journalTransactionId",
               "notes": "notes",
               "warnings": [

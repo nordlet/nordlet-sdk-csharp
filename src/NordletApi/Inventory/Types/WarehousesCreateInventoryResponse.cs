@@ -23,6 +23,9 @@ public record WarehousesCreateInventoryResponse : IJsonOnDeserialized
     [JsonPropertyName("isDefault")]
     public required bool IsDefault { get; set; }
 
+    [JsonPropertyName("countryCode")]
+    public string? CountryCode { get; set; }
+
     [JsonPropertyName("createdAt")]
     public required DateTime CreatedAt { get; set; }
 

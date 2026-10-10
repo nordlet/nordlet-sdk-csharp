@@ -42,9 +42,11 @@ public partial class NordletApiClient : INordletApiClient
         DocumentSeries = new DocumentSeriesClient(_client);
         Purchases = new PurchasesClient(_client);
         Capture = new CaptureClient(_client);
+        Peppol = new PeppolClient(_client);
         Declarations = new DeclarationsClient(_client);
         Ledger = new LedgerClient(_client);
         Officers = new OfficersClient(_client);
+        PlatformSellers = new PlatformSellersClient(_client);
         Migration = new MigrationClient(_client);
         Assets = new AssetsClient(_client);
         Hr = new HrClient(_client);
@@ -88,11 +90,15 @@ public partial class NordletApiClient : INordletApiClient
 
     public ICaptureClient Capture { get; }
 
+    public IPeppolClient Peppol { get; }
+
     public IDeclarationsClient Declarations { get; }
 
     public ILedgerClient Ledger { get; }
 
     public IOfficersClient Officers { get; }
+
+    public IPlatformSellersClient PlatformSellers { get; }
 
     public IMigrationClient Migration { get; }
 

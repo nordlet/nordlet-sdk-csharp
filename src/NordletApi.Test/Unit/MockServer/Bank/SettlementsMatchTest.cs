@@ -34,7 +34,11 @@ public class SettlementsMatchTest : BaseMockServerTest
               "commissionAmount": "commissionAmount",
               "reference": "reference",
               "matchedInvoiceId": "x",
-              "matchStatus": "unmatched"
+              "matchStatus": "unmatched",
+              "clearingBankAccountId": "x",
+              "clearingBooked": "clearingBooked",
+              "clearingDifference": "clearingDifference",
+              "clearingUnposted": true
             }
             """;
 
@@ -85,7 +89,11 @@ public class SettlementsMatchTest : BaseMockServerTest
               "commissionAmount": "commissionAmount",
               "reference": "reference",
               "matchedInvoiceId": "matchedInvoiceId",
-              "matchStatus": "unmatched"
+              "matchStatus": "unmatched",
+              "clearingBankAccountId": "clearingBankAccountId",
+              "clearingBooked": "clearingBooked",
+              "clearingDifference": "clearingDifference",
+              "clearingUnposted": true
             }
             """;
 
