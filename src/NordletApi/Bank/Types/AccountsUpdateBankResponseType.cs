@@ -12,6 +12,8 @@ public readonly record struct AccountsUpdateBankResponseType : IStringEnum
 
     public static readonly AccountsUpdateBankResponseType Stripe = new(Values.Stripe);
 
+    public static readonly AccountsUpdateBankResponseType Broker = new(Values.Broker);
+
     public AccountsUpdateBankResponseType(string value)
     {
         Value = value;
@@ -112,5 +114,7 @@ public readonly record struct AccountsUpdateBankResponseType : IStringEnum
         public const string Bank = "bank";
 
         public const string Stripe = "stripe";
+
+        public const string Broker = "broker";
     }
 }

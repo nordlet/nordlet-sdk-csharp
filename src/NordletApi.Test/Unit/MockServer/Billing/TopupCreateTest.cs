@@ -42,7 +42,12 @@ public class TopupCreateTest : BaseMockServerTest
             );
 
         var response = await Client.Billing.TopupCreateAsync(
-            new TopupCreateBillingRequest { AmountCents = 1000000, Locale = null }
+            new TopupCreateBillingRequest
+            {
+                AmountCents = 1000000,
+                Locale = null,
+                ReturnTo = null,
+            }
         );
         JsonAssert.AreEqual(response, mockResponse);
     }

@@ -113,6 +113,34 @@ public readonly record struct PostingRulesUpdateLedgerRequestRulesItemKey : IStr
         Values.CashAdvances
     );
 
+    public static readonly PostingRulesUpdateLedgerRequestRulesItemKey SecuritiesInvestments = new(
+        Values.SecuritiesInvestments
+    );
+
+    public static readonly PostingRulesUpdateLedgerRequestRulesItemKey SecuritiesGain = new(
+        Values.SecuritiesGain
+    );
+
+    public static readonly PostingRulesUpdateLedgerRequestRulesItemKey SecuritiesLoss = new(
+        Values.SecuritiesLoss
+    );
+
+    public static readonly PostingRulesUpdateLedgerRequestRulesItemKey SecuritiesDividendIncome =
+        new(Values.SecuritiesDividendIncome);
+
+    public static readonly PostingRulesUpdateLedgerRequestRulesItemKey SecuritiesWithholdingTax =
+        new(Values.SecuritiesWithholdingTax);
+
+    public static readonly PostingRulesUpdateLedgerRequestRulesItemKey SecuritiesInterestIncome =
+        new(Values.SecuritiesInterestIncome);
+
+    public static readonly PostingRulesUpdateLedgerRequestRulesItemKey SecuritiesInterestExpense =
+        new(Values.SecuritiesInterestExpense);
+
+    public static readonly PostingRulesUpdateLedgerRequestRulesItemKey SecuritiesFees = new(
+        Values.SecuritiesFees
+    );
+
     public static readonly PostingRulesUpdateLedgerRequestRulesItemKey ClosingRetainedEarnings =
         new(Values.ClosingRetainedEarnings);
 
@@ -272,6 +300,22 @@ public readonly record struct PostingRulesUpdateLedgerRequestRulesItemKey : IStr
         public const string AssetsDisposalProceeds = "assets.disposalProceeds";
 
         public const string CashAdvances = "cash.advances";
+
+        public const string SecuritiesInvestments = "securities.investments";
+
+        public const string SecuritiesGain = "securities.gain";
+
+        public const string SecuritiesLoss = "securities.loss";
+
+        public const string SecuritiesDividendIncome = "securities.dividendIncome";
+
+        public const string SecuritiesWithholdingTax = "securities.withholdingTax";
+
+        public const string SecuritiesInterestIncome = "securities.interestIncome";
+
+        public const string SecuritiesInterestExpense = "securities.interestExpense";
+
+        public const string SecuritiesFees = "securities.fees";
 
         public const string ClosingRetainedEarnings = "closing.retainedEarnings";
     }

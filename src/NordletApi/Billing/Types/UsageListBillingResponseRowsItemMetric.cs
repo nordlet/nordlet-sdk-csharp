@@ -24,6 +24,10 @@ public readonly record struct UsageListBillingResponseRowsItemMetric : IStringEn
         Values.DatabaseBytes
     );
 
+    public static readonly UsageListBillingResponseRowsItemMetric SaleInvoice = new(
+        Values.SaleInvoice
+    );
+
     public UsageListBillingResponseRowsItemMetric(string value)
     {
         Value = value;
@@ -130,5 +134,7 @@ public readonly record struct UsageListBillingResponseRowsItemMetric : IStringEn
         public const string FileStorageBytes = "file_storage_bytes";
 
         public const string DatabaseBytes = "database_bytes";
+
+        public const string SaleInvoice = "sale_invoice";
     }
 }

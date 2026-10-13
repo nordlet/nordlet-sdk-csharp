@@ -20,6 +20,9 @@ public record MeAccountResponseBilling : IJsonOnDeserialized
     [JsonPropertyName("balanceCents")]
     public required long BalanceCents { get; set; }
 
+    [JsonPropertyName("overdraftAllowanceCents")]
+    public required long OverdraftAllowanceCents { get; set; }
+
     [JsonPropertyName("trialEndsAt")]
     public DateTime? TrialEndsAt { get; set; }
 
@@ -31,6 +34,15 @@ public record MeAccountResponseBilling : IJsonOnDeserialized
 
     [JsonPropertyName("isPayer")]
     public required bool IsPayer { get; set; }
+
+    [JsonPropertyName("planChosen")]
+    public required bool PlanChosen { get; set; }
+
+    [JsonPropertyName("flatRate")]
+    public required bool FlatRate { get; set; }
+
+    [JsonPropertyName("accountType")]
+    public required MeAccountResponseBillingAccountType AccountType { get; set; }
 
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();

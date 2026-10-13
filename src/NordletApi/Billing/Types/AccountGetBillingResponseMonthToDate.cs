@@ -20,6 +20,9 @@ public record AccountGetBillingResponseMonthToDate : IJsonOnDeserialized
     [JsonPropertyName("apiRequests")]
     public required long ApiRequests { get; set; }
 
+    [JsonPropertyName("saleInvoices")]
+    public required long SaleInvoices { get; set; }
+
     [JsonPropertyName("ocrPages")]
     public required long OcrPages { get; set; }
 

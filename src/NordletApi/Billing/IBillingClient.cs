@@ -14,8 +14,44 @@ public partial interface IBillingClient
         CancellationToken cancellationToken = default
     );
 
+    WithRawResponseTask<AccountSetAccountTypeBillingResponse> AccountSetAccountTypeAsync(
+        AccountSetAccountTypeBillingRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<AccountSetAutoTopUpBillingResponse> AccountSetAutoTopUpAsync(
+        AccountSetAutoTopUpBillingRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<AccountSetOverdraftCapBillingResponse> AccountSetOverdraftCapAsync(
+        AccountSetOverdraftCapBillingRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
     WithRawResponseTask<TopupCreateBillingResponse> TopupCreateAsync(
         TopupCreateBillingRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<TopupConfirmBillingResponse> TopupConfirmAsync(
+        TopupConfirmBillingRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<FlatRateCreateBillingResponse> FlatRateCreateAsync(
+        FlatRateCreateBillingRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<FlatRateConfirmBillingResponse> FlatRateConfirmAsync(
+        FlatRateConfirmBillingRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );

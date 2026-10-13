@@ -230,6 +230,24 @@ public partial interface IBankClient
         CancellationToken cancellationToken = default
     );
 
+    WithRawResponseTask<SecuritiesImportBankResponse> SecuritiesImportAsync(
+        SecuritiesImportBankRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<SecuritiesListBankResponse> SecuritiesListAsync(
+        SecuritiesListBankRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    WithRawResponseTask<SecuritiesGetBankResponse> SecuritiesGetAsync(
+        SecuritiesGetBankRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
     WithRawResponseTask<FeedsBanksListBankResponse> FeedsBanksListAsync(
         FeedsBanksListBankRequest request,
         RequestOptions? options = null,

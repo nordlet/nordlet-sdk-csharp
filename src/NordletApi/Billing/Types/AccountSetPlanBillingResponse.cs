@@ -14,6 +14,9 @@ public record AccountSetPlanBillingResponse : IJsonOnDeserialized
     [JsonPropertyName("plan")]
     public required AccountSetPlanBillingResponsePlan Plan { get; set; }
 
+    [JsonPropertyName("accountType")]
+    public required AccountSetPlanBillingResponseAccountType AccountType { get; set; }
+
     [JsonPropertyName("status")]
     public required AccountSetPlanBillingResponseStatus Status { get; set; }
 
@@ -51,8 +54,20 @@ public record AccountSetPlanBillingResponse : IJsonOnDeserialized
     public Dictionary<string, AccountSetPlanBillingResponsePlansValue> Plans { get; set; } =
         new Dictionary<string, AccountSetPlanBillingResponsePlansValue>();
 
+    [JsonPropertyName("apiRequestEur")]
+    public required string ApiRequestEur { get; set; }
+
     [JsonPropertyName("topUp")]
     public required AccountSetPlanBillingResponseTopUp TopUp { get; set; }
+
+    [JsonPropertyName("autoTopUp")]
+    public required AccountSetPlanBillingResponseAutoTopUp AutoTopUp { get; set; }
+
+    [JsonPropertyName("overdraftCapCents")]
+    public required long OverdraftCapCents { get; set; }
+
+    [JsonPropertyName("overdraftCapMaxCents")]
+    public required long OverdraftCapMaxCents { get; set; }
 
     [JsonPropertyName("trialDays")]
     public required long TrialDays { get; set; }

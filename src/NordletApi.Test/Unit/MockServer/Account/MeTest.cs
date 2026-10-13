@@ -34,10 +34,14 @@ public class MeTest : BaseMockServerTest
                 "status": "trial",
                 "plan": "plan",
                 "balanceCents": 1000000,
+                "overdraftAllowanceCents": 1000000,
                 "trialEndsAt": "2024-01-15T09:30:00.000Z",
                 "payerUserId": "x",
                 "payerEmail": "payerEmail",
-                "isPayer": true
+                "isPayer": true,
+                "planChosen": true,
+                "flatRate": true,
+                "accountType": "flat_rate"
               },
               "referralPoints": 1000000,
               "consent": {
@@ -119,10 +123,14 @@ public class MeTest : BaseMockServerTest
                 "status": "trial",
                 "plan": "plan",
                 "balanceCents": 1000000,
+                "overdraftAllowanceCents": 1000000,
                 "trialEndsAt": "2026-07-01T09:30:00.000Z",
                 "payerUserId": "payerUserId",
                 "payerEmail": "payerEmail",
-                "isPayer": true
+                "isPayer": true,
+                "planChosen": true,
+                "flatRate": true,
+                "accountType": "flat_rate"
               },
               "referralPoints": 1000000,
               "consent": {

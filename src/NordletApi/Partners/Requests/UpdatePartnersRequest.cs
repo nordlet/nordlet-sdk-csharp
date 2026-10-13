@@ -81,12 +81,6 @@ public record UpdatePartnersRequest
     [JsonPropertyName("eoriCode")]
     public string? EoriCode { get; set; }
 
-    [JsonPropertyName("otherCode")]
-    public string? OtherCode { get; set; }
-
-    [JsonPropertyName("foreignTaxNumber")]
-    public string? ForeignTaxNumber { get; set; }
-
     [JsonPropertyName("autoDebtReminder")]
     public bool? AutoDebtReminder { get; set; }
 

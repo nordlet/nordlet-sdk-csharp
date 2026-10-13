@@ -12,6 +12,9 @@ public record TopupCreateBillingRequest
     [JsonPropertyName("locale")]
     public TopupCreateBillingRequestLocale? Locale { get; set; }
 
+    [JsonPropertyName("returnTo")]
+    public TopupCreateBillingRequestReturnTo? ReturnTo { get; set; }
+
     /// <inheritdoc />
     public override string ToString()
     {

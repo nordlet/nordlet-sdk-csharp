@@ -4865,7 +4865,7 @@ await client.Sales.InvoicesPeppolXmlAsync(new InvoicesPeppolXmlSalesRequest { Id
 <dl>
 <dd>
 
-Send an issued invoice or credit note to the customer over Peppol through the company's own access point (Settings → Compliance → EU; Nordlet supports Recommand, Storecove and e-invoice.be). Without one the call is refused with 422 and the document can only be downloaded with `sales/invoices/peppol-xml`. `status` is `pending` until the receiving access point confirms, then `delivered`; `failed` and `rejected` come with `detail`, and the invoice can then be sent again. Later changes arrive through the access point's webhook and are announced as `sale_invoice.peppol_delivered`, `sale_invoice.peppol_rejected` and `sale_invoice.peppol_failed`.
+Send an issued invoice or credit note to the customer over Peppol through the company's own access point (Account → Compliance → EU; Nordlet supports Recommand, Storecove and e-invoice.be). Without one the call is refused with 422 and the document can only be downloaded with `sales/invoices/peppol-xml`. `status` is `pending` until the receiving access point confirms, then `delivered`; `failed` and `rejected` come with `detail`, and the invoice can then be sent again. Later changes arrive through the access point's webhook and are announced as `sale_invoice.peppol_delivered`, `sale_invoice.peppol_rejected` and `sale_invoice.peppol_failed`.
 </dd>
 </dl>
 </dd>
@@ -5838,6 +5838,212 @@ await client.Sales.ActsPdfAsync(new ActsPdfSalesRequest { Id = "id" });
 <dd>
 
 **request:** `ActsPdfSalesRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">InvoiceTemplatesCreateAsync</a>(InvoiceTemplatesCreateSalesRequest { ... }) -> WithRawResponseTask&lt;InvoiceTemplatesCreateSalesResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Sales.InvoiceTemplatesCreateAsync(
+    new InvoiceTemplatesCreateSalesRequest { Name = "name" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `InvoiceTemplatesCreateSalesRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">InvoiceTemplatesUpdateAsync</a>(InvoiceTemplatesUpdateSalesRequest { ... }) -> WithRawResponseTask&lt;InvoiceTemplatesUpdateSalesResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Sales.InvoiceTemplatesUpdateAsync(
+    new InvoiceTemplatesUpdateSalesRequest { Id = "id" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `InvoiceTemplatesUpdateSalesRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">InvoiceTemplatesGetAsync</a>(InvoiceTemplatesGetSalesRequest { ... }) -> WithRawResponseTask&lt;InvoiceTemplatesGetSalesResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Sales.InvoiceTemplatesGetAsync(new InvoiceTemplatesGetSalesRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `InvoiceTemplatesGetSalesRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">InvoiceTemplatesDeleteAsync</a>(InvoiceTemplatesDeleteSalesRequest { ... }) -> WithRawResponseTask&lt;InvoiceTemplatesDeleteSalesResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Sales.InvoiceTemplatesDeleteAsync(
+    new InvoiceTemplatesDeleteSalesRequest { Id = "id" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `InvoiceTemplatesDeleteSalesRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Sales.<a href="/src/NordletApi/Sales/SalesClient.cs">InvoiceTemplatesListAsync</a>(InvoiceTemplatesListSalesRequest { ... }) -> WithRawResponseTask&lt;InvoiceTemplatesListSalesResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Sales.InvoiceTemplatesListAsync(new InvoiceTemplatesListSalesRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `InvoiceTemplatesListSalesRequest` 
     
 </dd>
 </dl>
@@ -11080,7 +11286,7 @@ await client.Declarations.IeCt1GenerateAsync(
 <dl>
 <dd>
 
-Build the working paper for the Form B1 annual return of a financial year - company details, registered office, directors and secretary from Settings → Officers, the members from Settings → Shareholders, the issued share capital and the figures of the financial statements - in the order the CORE screens ask for them. The CRO publishes no file format for the B1, so it is keyed into CORE.
+Build the working paper for the Form B1 annual return of a financial year - company details, registered office, directors and secretary from Account → Officers, the members from Account → Shareholders, the issued share capital and the figures of the financial statements - in the order the CORE screens ask for them. The CRO publishes no file format for the B1, so it is keyed into CORE.
 </dd>
 </dl>
 </dd>
@@ -13767,7 +13973,7 @@ await client.Ledger.JournalTransactionsCreateAsync(
 <dl>
 <dd>
 
-The rows or codes of each return or registry deposit of the company country that are filled from account balances. Accounts fall into a row by the layout defaults for the standard chart of accounts unless mapped under Settings → Statement rows.
+The rows or codes of each return or registry deposit of the company country that are filled from account balances. Accounts fall into a row by the layout defaults for the standard chart of accounts unless mapped under Account → Statement rows.
 </dd>
 </dl>
 </dd>
@@ -23922,6 +24128,128 @@ await client.Bank.SettlementsPostAsync(new SettlementsPostBankRequest { Id = "id
 </dl>
 </details>
 
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">SecuritiesImportAsync</a>(SecuritiesImportBankRequest { ... }) -> WithRawResponseTask&lt;SecuritiesImportBankResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Bank.SecuritiesImportAsync(
+    new SecuritiesImportBankRequest { BankAccountId = "bankAccountId", Content = "content" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `SecuritiesImportBankRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">SecuritiesListAsync</a>(SecuritiesListBankRequest { ... }) -> WithRawResponseTask&lt;SecuritiesListBankResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Bank.SecuritiesListAsync(new SecuritiesListBankRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `SecuritiesListBankRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">SecuritiesGetAsync</a>(SecuritiesGetBankRequest { ... }) -> WithRawResponseTask&lt;SecuritiesGetBankResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Bank.SecuritiesGetAsync(new SecuritiesGetBankRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `SecuritiesGetBankRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">FeedsBanksListAsync</a>(FeedsBanksListBankRequest { ... }) -> WithRawResponseTask&lt;FeedsBanksListBankResponse&gt;</code></summary>
 <dl>
 <dd>
@@ -26589,6 +26917,135 @@ await client.Billing.AccountSetPlanAsync(
 </dl>
 </details>
 
+<details><summary><code>client.Billing.<a href="/src/NordletApi/Billing/BillingClient.cs">AccountSetAccountTypeAsync</a>(AccountSetAccountTypeBillingRequest { ... }) -> WithRawResponseTask&lt;AccountSetAccountTypeBillingResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Billing.AccountSetAccountTypeAsync(
+    new AccountSetAccountTypeBillingRequest
+    {
+        AccountType = AccountSetAccountTypeBillingRequestAccountType.FlatRate,
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `AccountSetAccountTypeBillingRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Billing.<a href="/src/NordletApi/Billing/BillingClient.cs">AccountSetAutoTopUpAsync</a>(AccountSetAutoTopUpBillingRequest { ... }) -> WithRawResponseTask&lt;AccountSetAutoTopUpBillingResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Billing.AccountSetAutoTopUpAsync(
+    new AccountSetAutoTopUpBillingRequest { Enabled = true, AmountCents = 1000000 }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `AccountSetAutoTopUpBillingRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Billing.<a href="/src/NordletApi/Billing/BillingClient.cs">AccountSetOverdraftCapAsync</a>(AccountSetOverdraftCapBillingRequest { ... }) -> WithRawResponseTask&lt;AccountSetOverdraftCapBillingResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Billing.AccountSetOverdraftCapAsync(
+    new AccountSetOverdraftCapBillingRequest { CapCents = 1000000 }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `AccountSetOverdraftCapBillingRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.Billing.<a href="/src/NordletApi/Billing/BillingClient.cs">TopupCreateAsync</a>(TopupCreateBillingRequest { ... }) -> WithRawResponseTask&lt;TopupCreateBillingResponse&gt;</code></summary>
 <dl>
 <dd>
@@ -26618,6 +27075,128 @@ await client.Billing.TopupCreateAsync(new TopupCreateBillingRequest { AmountCent
 <dd>
 
 **request:** `TopupCreateBillingRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Billing.<a href="/src/NordletApi/Billing/BillingClient.cs">TopupConfirmAsync</a>(TopupConfirmBillingRequest { ... }) -> WithRawResponseTask&lt;TopupConfirmBillingResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Billing.TopupConfirmAsync(new TopupConfirmBillingRequest { SessionId = "sessionId" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `TopupConfirmBillingRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Billing.<a href="/src/NordletApi/Billing/BillingClient.cs">FlatRateCreateAsync</a>(FlatRateCreateBillingRequest { ... }) -> WithRawResponseTask&lt;FlatRateCreateBillingResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Billing.FlatRateCreateAsync(new FlatRateCreateBillingRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `FlatRateCreateBillingRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Billing.<a href="/src/NordletApi/Billing/BillingClient.cs">FlatRateConfirmAsync</a>(FlatRateConfirmBillingRequest { ... }) -> WithRawResponseTask&lt;FlatRateConfirmBillingResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Billing.FlatRateConfirmAsync(
+    new FlatRateConfirmBillingRequest { SessionId = "sessionId" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `FlatRateConfirmBillingRequest` 
     
 </dd>
 </dl>

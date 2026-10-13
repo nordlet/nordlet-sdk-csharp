@@ -14,11 +14,11 @@ public record AccountGetBillingResponsePlansValue : IJsonOnDeserialized
     [JsonPropertyName("monthlyFeeEur")]
     public required string MonthlyFeeEur { get; set; }
 
-    [JsonPropertyName("includedRequests")]
-    public required long IncludedRequests { get; set; }
+    [JsonPropertyName("includedInvoices")]
+    public required long IncludedInvoices { get; set; }
 
-    [JsonPropertyName("requestOverageEur")]
-    public required string RequestOverageEur { get; set; }
+    [JsonPropertyName("invoiceOverageEur")]
+    public required string InvoiceOverageEur { get; set; }
 
     [JsonPropertyName("includedDatabaseBytes")]
     public required double IncludedDatabaseBytes { get; set; }

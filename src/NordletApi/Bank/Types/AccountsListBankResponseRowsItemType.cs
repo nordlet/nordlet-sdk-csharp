@@ -14,6 +14,8 @@ public readonly record struct AccountsListBankResponseRowsItemType : IStringEnum
 
     public static readonly AccountsListBankResponseRowsItemType Stripe = new(Values.Stripe);
 
+    public static readonly AccountsListBankResponseRowsItemType Broker = new(Values.Broker);
+
     public AccountsListBankResponseRowsItemType(string value)
     {
         Value = value;
@@ -116,5 +118,7 @@ public readonly record struct AccountsListBankResponseRowsItemType : IStringEnum
         public const string Bank = "bank";
 
         public const string Stripe = "stripe";
+
+        public const string Broker = "broker";
     }
 }

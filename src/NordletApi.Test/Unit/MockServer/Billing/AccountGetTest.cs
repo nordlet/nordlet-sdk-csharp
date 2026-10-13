@@ -19,6 +19,7 @@ public class AccountGetTest : BaseMockServerTest
         const string mockResponse = """
             {
               "plan": "starter",
+              "accountType": "flat_rate",
               "status": "trial",
               "balanceCents": 1000000,
               "trialEndsAt": "2024-01-15T09:30:00.000Z",
@@ -33,6 +34,7 @@ public class AccountGetTest : BaseMockServerTest
                 "from": "from",
                 "to": "to",
                 "apiRequests": 1000000,
+                "saleInvoices": 1000000,
                 "ocrPages": 1000000,
                 "fileBytes": 1.1,
                 "databaseBytes": 1.1,
@@ -42,16 +44,24 @@ public class AccountGetTest : BaseMockServerTest
               "plans": {
                 "plans": {
                   "monthlyFeeEur": "monthlyFeeEur",
-                  "includedRequests": 1000000,
-                  "requestOverageEur": "requestOverageEur",
+                  "includedInvoices": 1000000,
+                  "invoiceOverageEur": "invoiceOverageEur",
                   "includedDatabaseBytes": 1.1,
                   "includedFileBytes": 1.1
                 }
               },
+              "apiRequestEur": "apiRequestEur",
               "topUp": {
                 "minCents": 1000000,
                 "maxCents": 1000000
               },
+              "autoTopUp": {
+                "enabled": true,
+                "amountCents": 1000000,
+                "pending": true
+              },
+              "overdraftCapCents": 1000000,
+              "overdraftCapMaxCents": 1000000,
               "trialDays": 1000000
             }
             """;
@@ -86,6 +96,7 @@ public class AccountGetTest : BaseMockServerTest
         const string mockResponse = """
             {
               "plan": "starter",
+              "accountType": "flat_rate",
               "status": "trial",
               "balanceCents": 1000000,
               "trialEndsAt": "2026-07-01T09:30:00.000Z",
@@ -100,6 +111,7 @@ public class AccountGetTest : BaseMockServerTest
                 "from": "from",
                 "to": "to",
                 "apiRequests": 1000000,
+                "saleInvoices": 1000000,
                 "ocrPages": 1000000,
                 "fileBytes": 1.1,
                 "databaseBytes": 1.1,
@@ -109,16 +121,24 @@ public class AccountGetTest : BaseMockServerTest
               "plans": {
                 "key": {
                   "monthlyFeeEur": "monthlyFeeEur",
-                  "includedRequests": 1000000,
-                  "requestOverageEur": "requestOverageEur",
+                  "includedInvoices": 1000000,
+                  "invoiceOverageEur": "invoiceOverageEur",
                   "includedDatabaseBytes": 1.1,
                   "includedFileBytes": 1.1
                 }
               },
+              "apiRequestEur": "apiRequestEur",
               "topUp": {
                 "minCents": 1000000,
                 "maxCents": 1000000
               },
+              "autoTopUp": {
+                "enabled": true,
+                "amountCents": 1000000,
+                "pending": true
+              },
+              "overdraftCapCents": 1000000,
+              "overdraftCapMaxCents": 1000000,
               "trialDays": 1000000
             }
             """;
