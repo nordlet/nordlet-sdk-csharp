@@ -18,6 +18,8 @@ public readonly record struct ImportTemplatesCreateBankResponseType : IStringEnu
         Values.BankConnection
     );
 
+    public static readonly ImportTemplatesCreateBankResponseType Revolut = new(Values.Revolut);
+
     public ImportTemplatesCreateBankResponseType(string value)
     {
         Value = value;
@@ -122,5 +124,7 @@ public readonly record struct ImportTemplatesCreateBankResponseType : IStringEnu
         public const string Iso20022 = "iso20022";
 
         public const string BankConnection = "bank_connection";
+
+        public const string Revolut = "revolut";
     }
 }

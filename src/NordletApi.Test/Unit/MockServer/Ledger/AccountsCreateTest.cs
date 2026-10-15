@@ -25,11 +25,7 @@ public class AccountsCreateTest : BaseMockServerTest
               "id": "x",
               "code": "code",
               "name": "name",
-              "translations": {
-                "translations": {
-                  "name": "x"
-                }
-              },
+              "displayName": "displayName",
               "type": "asset",
               "parentId": "x",
               "isPostable": true,
@@ -58,7 +54,6 @@ public class AccountsCreateTest : BaseMockServerTest
             {
                 Code = "x",
                 Name = "x",
-                Translations = null,
                 Type = AccountsCreateLedgerRequestType.Asset,
                 ParentId = null,
                 IsPostable = null,
@@ -83,11 +78,7 @@ public class AccountsCreateTest : BaseMockServerTest
               "id": "id",
               "code": "code",
               "name": "name",
-              "translations": {
-                "key": {
-                  "name": "name"
-                }
-              },
+              "displayName": "displayName",
               "type": "asset",
               "parentId": "parentId",
               "isPostable": true,

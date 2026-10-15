@@ -5,14 +5,15 @@ using NordletApi.Core;
 namespace NordletApi;
 
 [Serializable]
-public record AccountsListLedgerResponseRowsItemTranslationsValue : IJsonOnDeserialized
+public record ImportTemplatesListBuiltinBankResponse : IJsonOnDeserialized
 {
     [JsonExtensionData]
     private readonly IDictionary<string, JsonElement> _extensionData =
         new Dictionary<string, JsonElement>();
 
-    [JsonPropertyName("name")]
-    public required string Name { get; set; }
+    [JsonPropertyName("rows")]
+    public IEnumerable<ImportTemplatesListBuiltinBankResponseRowsItem> Rows { get; set; } =
+        new List<ImportTemplatesListBuiltinBankResponseRowsItem>();
 
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();

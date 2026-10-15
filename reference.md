@@ -23223,6 +23223,46 @@ await client.Bank.ImportTemplatesGetAsync(new ImportTemplatesGetBankRequest { Id
 </dl>
 </details>
 
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">ImportTemplatesListBuiltinAsync</a>(ImportTemplatesListBuiltinBankRequest { ... }) -> WithRawResponseTask&lt;ImportTemplatesListBuiltinBankResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Bank.ImportTemplatesListBuiltinAsync(new ImportTemplatesListBuiltinBankRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ImportTemplatesListBuiltinBankRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">ImportTemplatesListAsync</a>(ImportTemplatesListBankRequest { ... }) -> WithRawResponseTask&lt;ImportTemplatesListBankResponse&gt;</code></summary>
 <dl>
 <dd>

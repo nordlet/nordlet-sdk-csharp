@@ -16,6 +16,8 @@ public readonly record struct StatementsImportBankRequestFormat : IStringEnum
 
     public static readonly StatementsImportBankRequestFormat StripeCsv = new(Values.StripeCsv);
 
+    public static readonly StatementsImportBankRequestFormat RevolutCsv = new(Values.RevolutCsv);
+
     public StatementsImportBankRequestFormat(string value)
     {
         Value = value;
@@ -118,5 +120,7 @@ public readonly record struct StatementsImportBankRequestFormat : IStringEnum
         public const string Mt940 = "mt940";
 
         public const string StripeCsv = "stripe-csv";
+
+        public const string RevolutCsv = "revolut-csv";
     }
 }

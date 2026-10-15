@@ -12,12 +12,6 @@ public record AccountsCreateLedgerRequest
     [JsonPropertyName("name")]
     public required string Name { get; set; }
 
-    [JsonPropertyName("translations")]
-    public Dictionary<
-        string,
-        AccountsCreateLedgerRequestTranslationsValue
-    >? Translations { get; set; }
-
     [JsonPropertyName("type")]
     public required AccountsCreateLedgerRequestType Type { get; set; }
 

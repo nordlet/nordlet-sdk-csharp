@@ -60,6 +60,12 @@ public record ImportTemplatesGetBankResponse : IJsonOnDeserialized
     [JsonPropertyName("fullRefundLabel")]
     public string? FullRefundLabel { get; set; }
 
+    /// <summary>
+    /// Provided by Nordlet for every company; it cannot be changed or deleted
+    /// </summary>
+    [JsonPropertyName("builtin")]
+    public required bool Builtin { get; set; }
+
     [JsonPropertyName("createdAt")]
     public required DateTime CreatedAt { get; set; }
 

@@ -51,6 +51,7 @@ public class ImportTemplatesCreateTest : BaseMockServerTest
               "lenderMetaField": "lenderMetaField",
               "partialRefundLabel": "partialRefundLabel",
               "fullRefundLabel": "fullRefundLabel",
+              "builtin": true,
               "createdAt": "2024-01-15T09:30:00.000Z",
               "updatedAt": "2024-01-15T09:30:00.000Z"
             }
@@ -131,6 +132,7 @@ public class ImportTemplatesCreateTest : BaseMockServerTest
               "lenderMetaField": "lenderMetaField",
               "partialRefundLabel": "partialRefundLabel",
               "fullRefundLabel": "fullRefundLabel",
+              "builtin": true,
               "createdAt": "2026-07-01T09:30:00.000Z",
               "updatedAt": "2026-07-01T09:30:00.000Z"
             }

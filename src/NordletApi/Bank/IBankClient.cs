@@ -95,6 +95,12 @@ public partial interface IBankClient
         CancellationToken cancellationToken = default
     );
 
+    WithRawResponseTask<ImportTemplatesListBuiltinBankResponse> ImportTemplatesListBuiltinAsync(
+        ImportTemplatesListBuiltinBankRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
     WithRawResponseTask<ImportTemplatesListBankResponse> ImportTemplatesListAsync(
         ImportTemplatesListBankRequest request,
         RequestOptions? options = null,

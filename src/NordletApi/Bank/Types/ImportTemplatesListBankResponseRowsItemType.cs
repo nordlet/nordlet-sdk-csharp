@@ -20,6 +20,10 @@ public readonly record struct ImportTemplatesListBankResponseRowsItemType : IStr
         Values.BankConnection
     );
 
+    public static readonly ImportTemplatesListBankResponseRowsItemType Revolut = new(
+        Values.Revolut
+    );
+
     public ImportTemplatesListBankResponseRowsItemType(string value)
     {
         Value = value;
@@ -128,5 +132,7 @@ public readonly record struct ImportTemplatesListBankResponseRowsItemType : IStr
         public const string Iso20022 = "iso20022";
 
         public const string BankConnection = "bank_connection";
+
+        public const string Revolut = "revolut";
     }
 }

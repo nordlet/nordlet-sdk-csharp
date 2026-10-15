@@ -12,12 +12,6 @@ public record AccountsUpdateLedgerRequest
     [JsonPropertyName("name")]
     public string? Name { get; set; }
 
-    [JsonPropertyName("translations")]
-    public Dictionary<
-        string,
-        AccountsUpdateLedgerRequestTranslationsValue?
-    >? Translations { get; set; }
-
     [JsonPropertyName("parentId")]
     public string? ParentId { get; set; }
 

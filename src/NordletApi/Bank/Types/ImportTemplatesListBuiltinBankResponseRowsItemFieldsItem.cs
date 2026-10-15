@@ -5,7 +5,7 @@ using NordletApi.Core;
 namespace NordletApi;
 
 [Serializable]
-public record AccountsUpdateLedgerResponseTranslationsValue : IJsonOnDeserialized
+public record ImportTemplatesListBuiltinBankResponseRowsItemFieldsItem : IJsonOnDeserialized
 {
     [JsonExtensionData]
     private readonly IDictionary<string, JsonElement> _extensionData =
@@ -13,6 +13,12 @@ public record AccountsUpdateLedgerResponseTranslationsValue : IJsonOnDeserialize
 
     [JsonPropertyName("name")]
     public required string Name { get; set; }
+
+    [JsonPropertyName("accountCode")]
+    public string? AccountCode { get; set; }
+
+    [JsonPropertyName("createPartner")]
+    public required bool CreatePartner { get; set; }
 
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();

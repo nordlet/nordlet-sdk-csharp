@@ -20,11 +20,11 @@ public record AccountsCreateLedgerResponse : IJsonOnDeserialized
     [JsonPropertyName("name")]
     public required string Name { get; set; }
 
-    [JsonPropertyName("translations")]
-    public Dictionary<
-        string,
-        AccountsCreateLedgerResponseTranslationsValue?
-    >? Translations { get; set; }
+    /// <summary>
+    /// The name in the language of the Accept-Language header
+    /// </summary>
+    [JsonPropertyName("displayName")]
+    public required string DisplayName { get; set; }
 
     [JsonPropertyName("type")]
     public required AccountsCreateLedgerResponseType Type { get; set; }

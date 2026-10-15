@@ -23,11 +23,7 @@ public class AccountsListTest : BaseMockServerTest
                   "id": "x",
                   "code": "code",
                   "name": "name",
-                  "translations": {
-                    "translations": {
-                      "name": "x"
-                    }
-                  },
+                  "displayName": "displayName",
                   "type": "asset",
                   "parentId": "x",
                   "isPostable": true,
@@ -37,11 +33,7 @@ public class AccountsListTest : BaseMockServerTest
                   "id": "x",
                   "code": "code",
                   "name": "name",
-                  "translations": {
-                    "translations": {
-                      "name": "x"
-                    }
-                  },
+                  "displayName": "displayName",
                   "type": "asset",
                   "parentId": "x",
                   "isPostable": true,
@@ -105,7 +97,7 @@ public class AccountsListTest : BaseMockServerTest
                   "id": "id",
                   "code": "code",
                   "name": "name",
-                  "translations": {},
+                  "displayName": "displayName",
                   "type": "asset",
                   "parentId": "parentId",
                   "isPostable": true,
