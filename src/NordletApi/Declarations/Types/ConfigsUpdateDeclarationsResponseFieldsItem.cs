@@ -23,6 +23,9 @@ public record ConfigsUpdateDeclarationsResponseFieldsItem : IJsonOnDeserialized
     [JsonPropertyName("options")]
     public IEnumerable<string>? Options { get; set; }
 
+    [JsonPropertyName("companyField")]
+    public ConfigsUpdateDeclarationsResponseFieldsItemCompanyField? CompanyField { get; set; }
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

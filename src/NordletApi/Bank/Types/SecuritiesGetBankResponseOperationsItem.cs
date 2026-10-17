@@ -14,6 +14,9 @@ public record SecuritiesGetBankResponseOperationsItem : IJsonOnDeserialized
     [JsonPropertyName("id")]
     public required string Id { get; set; }
 
+    [JsonPropertyName("bankAccountId")]
+    public required string BankAccountId { get; set; }
+
     [JsonPropertyName("kind")]
     public required string Kind { get; set; }
 

@@ -254,6 +254,12 @@ public partial interface IBankClient
         CancellationToken cancellationToken = default
     );
 
+    WithRawResponseTask<SecuritiesOperationsListBankResponse> SecuritiesOperationsListAsync(
+        SecuritiesOperationsListBankRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
     WithRawResponseTask<FeedsBanksListBankResponse> FeedsBanksListAsync(
         FeedsBanksListBankRequest request,
         RequestOptions? options = null,

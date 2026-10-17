@@ -35,6 +35,7 @@ public class SecuritiesGetTest : BaseMockServerTest
               "operations": [
                 {
                   "id": "x",
+                  "bankAccountId": "x",
                   "kind": "kind",
                   "date": "2023-01-15",
                   "time": "time",
@@ -58,6 +59,7 @@ public class SecuritiesGetTest : BaseMockServerTest
                 },
                 {
                   "id": "x",
+                  "bankAccountId": "x",
                   "kind": "kind",
                   "date": "2023-01-15",
                   "time": "time",
@@ -131,6 +133,7 @@ public class SecuritiesGetTest : BaseMockServerTest
               "operations": [
                 {
                   "id": "id",
+                  "bankAccountId": "bankAccountId",
                   "kind": "kind",
                   "date": "2026-07-01",
                   "time": "time",

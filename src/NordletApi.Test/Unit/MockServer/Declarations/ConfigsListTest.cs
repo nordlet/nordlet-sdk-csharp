@@ -32,7 +32,8 @@ public class ConfigsListTest : BaseMockServerTest
                       "options": [
                         "options",
                         "options"
-                      ]
+                      ],
+                      "companyField": "code"
                     },
                     {
                       "key": "key",
@@ -41,7 +42,8 @@ public class ConfigsListTest : BaseMockServerTest
                       "options": [
                         "options",
                         "options"
-                      ]
+                      ],
+                      "companyField": "code"
                     }
                   ],
                   "endpoints": [
@@ -73,7 +75,8 @@ public class ConfigsListTest : BaseMockServerTest
                       "options": [
                         "options",
                         "options"
-                      ]
+                      ],
+                      "companyField": "code"
                     },
                     {
                       "key": "key",
@@ -82,7 +85,8 @@ public class ConfigsListTest : BaseMockServerTest
                       "options": [
                         "options",
                         "options"
-                      ]
+                      ],
+                      "companyField": "code"
                     }
                   ],
                   "endpoints": [
@@ -123,7 +127,7 @@ public class ConfigsListTest : BaseMockServerTest
             );
 
         var response = await Client.Declarations.ConfigsListAsync(
-            new ConfigsListDeclarationsRequest()
+            new ConfigsListDeclarationsRequest { Country = null }
         );
         JsonAssert.AreEqual(response, mockResponse);
     }

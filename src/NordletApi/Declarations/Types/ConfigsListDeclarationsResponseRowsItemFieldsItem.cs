@@ -23,6 +23,9 @@ public record ConfigsListDeclarationsResponseRowsItemFieldsItem : IJsonOnDeseria
     [JsonPropertyName("options")]
     public IEnumerable<string>? Options { get; set; }
 
+    [JsonPropertyName("companyField")]
+    public ConfigsListDeclarationsResponseRowsItemFieldsItemCompanyField? CompanyField { get; set; }
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

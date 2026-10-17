@@ -24290,6 +24290,46 @@ await client.Bank.SecuritiesGetAsync(new SecuritiesGetBankRequest { Id = "id" })
 </dl>
 </details>
 
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">SecuritiesOperationsListAsync</a>(SecuritiesOperationsListBankRequest { ... }) -> WithRawResponseTask&lt;SecuritiesOperationsListBankResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Bank.SecuritiesOperationsListAsync(new SecuritiesOperationsListBankRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `SecuritiesOperationsListBankRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">FeedsBanksListAsync</a>(FeedsBanksListBankRequest { ... }) -> WithRawResponseTask&lt;FeedsBanksListBankResponse&gt;</code></summary>
 <dl>
 <dd>
