@@ -13125,7 +13125,7 @@ await client.Ledger.AccountsApplyTemplateAsync(new AccountsApplyTemplateLedgerRe
 <dl>
 <dd>
 
-Replaces the seeded chart with the chart template of the company country (the Romanian general chart for a company registered in Romania, the Lithuanian standard chart otherwise) and switches the posting defaults with it. Answers 409 when the company already uses that chart, has journal entries, holds accounts created by hand, or has settings that name an account the new chart does not have.
+Replaces the seeded chart with the chart template of the company country (the Romanian general chart for a company registered in Romania, the Estonian e-arveldaja chart for a company registered in Estonia, the Lithuanian standard chart otherwise) and switches the posting defaults with it. Answers 409 when the company already uses that chart, has journal entries, holds accounts created by hand, or has settings that name an account the new chart does not have.
 </dd>
 </dl>
 </dd>
@@ -17239,6 +17239,46 @@ await client.Payroll.SchedulesListAsync(new SchedulesListPayrollRequest());
 <dd>
 
 **request:** `SchedulesListPayrollRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Payroll.<a href="/src/NordletApi/Payroll/PayrollClient.cs">PaymentTypesListAsync</a>(PaymentTypesListPayrollRequest { ... }) -> WithRawResponseTask&lt;PaymentTypesListPayrollResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Payroll.PaymentTypesListAsync(new PaymentTypesListPayrollRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PaymentTypesListPayrollRequest` 
     
 </dd>
 </dl>

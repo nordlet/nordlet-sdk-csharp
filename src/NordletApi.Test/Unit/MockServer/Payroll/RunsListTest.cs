@@ -37,14 +37,16 @@ public class RunsListTest : BaseMockServerTest
                       "kind": "allowance",
                       "amount": "amount",
                       "rate": "rate",
-                      "base": "base"
+                      "base": "base",
+                      "paymentType": "paymentType"
                     },
                     {
                       "code": "code",
                       "kind": "allowance",
                       "amount": "amount",
                       "rate": "rate",
-                      "base": "base"
+                      "base": "base",
+                      "paymentType": "paymentType"
                     }
                   ],
                   "netTotal": "netTotal",
@@ -79,14 +81,16 @@ public class RunsListTest : BaseMockServerTest
                       "kind": "allowance",
                       "amount": "amount",
                       "rate": "rate",
-                      "base": "base"
+                      "base": "base",
+                      "paymentType": "paymentType"
                     },
                     {
                       "code": "code",
                       "kind": "allowance",
                       "amount": "amount",
                       "rate": "rate",
-                      "base": "base"
+                      "base": "base",
+                      "paymentType": "paymentType"
                     }
                   ],
                   "netTotal": "netTotal",

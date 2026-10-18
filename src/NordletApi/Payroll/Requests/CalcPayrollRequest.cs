@@ -30,6 +30,9 @@ public record CalcPayrollRequest
     [JsonPropertyName("options")]
     public Dictionary<string, string>? Options { get; set; }
 
+    [JsonPropertyName("payments")]
+    public IEnumerable<CalcPayrollRequestPaymentsItem>? Payments { get; set; }
+
     /// <inheritdoc />
     public override string ToString()
     {

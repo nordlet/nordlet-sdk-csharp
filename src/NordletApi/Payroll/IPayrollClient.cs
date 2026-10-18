@@ -26,6 +26,12 @@ public partial interface IPayrollClient
         CancellationToken cancellationToken = default
     );
 
+    WithRawResponseTask<PaymentTypesListPayrollResponse> PaymentTypesListAsync(
+        PaymentTypesListPayrollRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
     WithRawResponseTask<CalcPayrollResponse> CalcAsync(
         CalcPayrollRequest request,
         RequestOptions? options = null,

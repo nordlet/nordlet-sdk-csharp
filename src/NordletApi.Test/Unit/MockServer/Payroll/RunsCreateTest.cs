@@ -38,14 +38,16 @@ public class RunsCreateTest : BaseMockServerTest
                   "kind": "allowance",
                   "amount": "amount",
                   "rate": "rate",
-                  "base": "base"
+                  "base": "base",
+                  "paymentType": "paymentType"
                 },
                 {
                   "code": "code",
                   "kind": "allowance",
                   "amount": "amount",
                   "rate": "rate",
-                  "base": "base"
+                  "base": "base",
+                  "paymentType": "paymentType"
                 }
               ],
               "netTotal": "netTotal",
@@ -73,12 +75,16 @@ public class RunsCreateTest : BaseMockServerTest
                     {
                       "name": "name",
                       "amount": "amount",
-                      "taxable": true
+                      "taxable": true,
+                      "paymentType": "paymentType",
+                      "hours": "hours"
                     },
                     {
                       "name": "name",
                       "amount": "amount",
-                      "taxable": true
+                      "taxable": true,
+                      "paymentType": "paymentType",
+                      "hours": "hours"
                     }
                   ],
                   "deductions": [
@@ -102,14 +108,16 @@ public class RunsCreateTest : BaseMockServerTest
                       "kind": "allowance",
                       "amount": "amount",
                       "rate": "rate",
-                      "base": "base"
+                      "base": "base",
+                      "paymentType": "paymentType"
                     },
                     {
                       "code": "code",
                       "kind": "allowance",
                       "amount": "amount",
                       "rate": "rate",
-                      "base": "base"
+                      "base": "base",
+                      "paymentType": "paymentType"
                     }
                   ],
                   "net": "net",
@@ -129,12 +137,16 @@ public class RunsCreateTest : BaseMockServerTest
                     {
                       "name": "name",
                       "amount": "amount",
-                      "taxable": true
+                      "taxable": true,
+                      "paymentType": "paymentType",
+                      "hours": "hours"
                     },
                     {
                       "name": "name",
                       "amount": "amount",
-                      "taxable": true
+                      "taxable": true,
+                      "paymentType": "paymentType",
+                      "hours": "hours"
                     }
                   ],
                   "deductions": [
@@ -158,14 +170,16 @@ public class RunsCreateTest : BaseMockServerTest
                       "kind": "allowance",
                       "amount": "amount",
                       "rate": "rate",
-                      "base": "base"
+                      "base": "base",
+                      "paymentType": "paymentType"
                     },
                     {
                       "code": "code",
                       "kind": "allowance",
                       "amount": "amount",
                       "rate": "rate",
-                      "base": "base"
+                      "base": "base",
+                      "paymentType": "paymentType"
                     }
                   ],
                   "net": "net",
@@ -238,7 +252,8 @@ public class RunsCreateTest : BaseMockServerTest
                   "kind": "allowance",
                   "amount": "amount",
                   "rate": "rate",
-                  "base": "base"
+                  "base": "base",
+                  "paymentType": "paymentType"
                 }
               ],
               "netTotal": "netTotal",

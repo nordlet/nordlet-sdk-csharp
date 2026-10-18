@@ -20,6 +20,12 @@ public record LinesAttendancePayrollResponseAdditionsItem : IJsonOnDeserialized
     [JsonPropertyName("taxable")]
     public required bool Taxable { get; set; }
 
+    [JsonPropertyName("paymentType")]
+    public string? PaymentType { get; set; }
+
+    [JsonPropertyName("hours")]
+    public string? Hours { get; set; }
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

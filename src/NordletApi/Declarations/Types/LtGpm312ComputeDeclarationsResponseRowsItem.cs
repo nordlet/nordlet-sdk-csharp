@@ -32,6 +32,9 @@ public record LtGpm312ComputeDeclarationsResponseRowsItem : IJsonOnDeserialized
     [JsonPropertyName("gpmWithheld")]
     public required string GpmWithheld { get; set; }
 
+    [JsonPropertyName("gpmRatePercent")]
+    public required string GpmRatePercent { get; set; }
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

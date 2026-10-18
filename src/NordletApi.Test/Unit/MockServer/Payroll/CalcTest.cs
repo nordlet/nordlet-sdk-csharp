@@ -32,14 +32,16 @@ public class CalcTest : BaseMockServerTest
                   "kind": "allowance",
                   "amount": "amount",
                   "rate": "rate",
-                  "base": "base"
+                  "base": "base",
+                  "paymentType": "paymentType"
                 },
                 {
                   "code": "code",
                   "kind": "allowance",
                   "amount": "amount",
                   "rate": "rate",
-                  "base": "base"
+                  "base": "base",
+                  "paymentType": "paymentType"
                 }
               ],
               "net": "net"
@@ -73,6 +75,7 @@ public class CalcTest : BaseMockServerTest
                 FixedTerm = null,
                 BenefitInKind = null,
                 Options = null,
+                Payments = null,
             }
         );
         JsonAssert.AreEqual(response, mockResponse);
@@ -101,7 +104,8 @@ public class CalcTest : BaseMockServerTest
                   "kind": "allowance",
                   "amount": "amount",
                   "rate": "rate",
-                  "base": "base"
+                  "base": "base",
+                  "paymentType": "paymentType"
                 }
               ],
               "net": "net"

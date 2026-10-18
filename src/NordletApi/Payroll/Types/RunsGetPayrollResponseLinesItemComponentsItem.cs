@@ -26,6 +26,9 @@ public record RunsGetPayrollResponseLinesItemComponentsItem : IJsonOnDeserialize
     [JsonPropertyName("base")]
     public string? Base { get; set; }
 
+    [JsonPropertyName("paymentType")]
+    public string? PaymentType { get; set; }
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

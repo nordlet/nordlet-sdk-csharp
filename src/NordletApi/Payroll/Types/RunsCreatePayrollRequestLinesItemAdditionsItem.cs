@@ -20,6 +20,12 @@ public record RunsCreatePayrollRequestLinesItemAdditionsItem : IJsonOnDeserializ
     [JsonPropertyName("taxable")]
     public bool? Taxable { get; set; }
 
+    [JsonPropertyName("paymentType")]
+    public string? PaymentType { get; set; }
+
+    [JsonPropertyName("hours")]
+    public string? Hours { get; set; }
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

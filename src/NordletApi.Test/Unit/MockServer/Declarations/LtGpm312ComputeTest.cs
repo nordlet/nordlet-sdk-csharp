@@ -40,7 +40,8 @@ public class LtGpm312ComputeTest : BaseMockServerTest
                   "lastName": "lastName",
                   "paymentCode": "paymentCode",
                   "paidAmount": "paidAmount",
-                  "gpmWithheld": "gpmWithheld"
+                  "gpmWithheld": "gpmWithheld",
+                  "gpmRatePercent": "gpmRatePercent"
                 },
                 {
                   "employeeId": "x",
@@ -49,7 +50,8 @@ public class LtGpm312ComputeTest : BaseMockServerTest
                   "lastName": "lastName",
                   "paymentCode": "paymentCode",
                   "paidAmount": "paidAmount",
-                  "gpmWithheld": "gpmWithheld"
+                  "gpmWithheld": "gpmWithheld",
+                  "gpmRatePercent": "gpmRatePercent"
                 }
               ],
               "totals": {
@@ -123,7 +125,8 @@ public class LtGpm312ComputeTest : BaseMockServerTest
                   "lastName": "lastName",
                   "paymentCode": "paymentCode",
                   "paidAmount": "paidAmount",
-                  "gpmWithheld": "gpmWithheld"
+                  "gpmWithheld": "gpmWithheld",
+                  "gpmRatePercent": "gpmRatePercent"
                 }
               ],
               "totals": {
