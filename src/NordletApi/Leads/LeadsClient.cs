@@ -4274,6 +4274,9 @@ public partial class LeadsClient : ILeadsClient
         }
     }
 
+    /// <summary>
+    /// Creates a lead in status `new`, `contacted`, `qualified` or `lost`. `assignedUserId` must be a member of the company and `sourceId` and `typeId` must exist in it; `countryCode` and `currency` are stored in upper case; `documents` attach uploaded files not yet linked to a record, and `notes` become the lead's first notes with the caller as author. Emits `lead.created`.
+    /// </summary>
     /// <example><code>
     /// await client.Leads.CreateAsync(new CreateLeadsRequest { Name = "name" });
     /// </code></example>
@@ -4288,6 +4291,9 @@ public partial class LeadsClient : ILeadsClient
         );
     }
 
+    /// <summary>
+    /// Returns one lead with its source and type names.
+    /// </summary>
     /// <example><code>
     /// await client.Leads.GetAsync(new GetLeadsRequest { Id = "id" });
     /// </code></example>
@@ -4302,6 +4308,9 @@ public partial class LeadsClient : ILeadsClient
         );
     }
 
+    /// <summary>
+    /// Changes the given fields of a lead; the clearable fields accept null, `documents` attach more uploaded files, and `countryCode` and `currency` are stored in upper case. A lead that is already converted cannot change `status` (409).
+    /// </summary>
     /// <example><code>
     /// await client.Leads.UpdateAsync(new UpdateLeadsRequest { Id = "id" });
     /// </code></example>
@@ -4316,6 +4325,9 @@ public partial class LeadsClient : ILeadsClient
         );
     }
 
+    /// <summary>
+    /// Deletes a lead with its notes and detaches its files, which stay in the company's files without a record.
+    /// </summary>
     /// <example><code>
     /// await client.Leads.DeleteAsync(new DeleteLeadsRequest { Id = "id" });
     /// </code></example>
@@ -4330,6 +4342,9 @@ public partial class LeadsClient : ILeadsClient
         );
     }
 
+    /// <summary>
+    /// Lists leads with their source and type names; filterable by `name`, `contactName`, `email`, `phone`, `status`, `sourceId`, `typeId`, `countryCode`, `assignedUserId`, `partnerId`, `estimatedValue` and `createdAt`, sortable by `name`, `status`, `estimatedValue`, `createdAt` and `updatedAt`.
+    /// </summary>
     /// <example><code>
     /// await client.Leads.ListAsync(new ListLeadsRequest());
     /// </code></example>
@@ -4344,6 +4359,9 @@ public partial class LeadsClient : ILeadsClient
         );
     }
 
+    /// <summary>
+    /// Adds a note to a lead with the caller as author and refreshes the lead's `updatedAt`.
+    /// </summary>
     /// <example><code>
     /// await client.Leads.NotesCreateAsync(
     ///     new NotesCreateLeadsRequest { LeadId = "leadId", Body = "body" }
@@ -4360,6 +4378,9 @@ public partial class LeadsClient : ILeadsClient
         );
     }
 
+    /// <summary>
+    /// Deletes a lead note.
+    /// </summary>
     /// <example><code>
     /// await client.Leads.NotesDeleteAsync(new NotesDeleteLeadsRequest { Id = "id" });
     /// </code></example>
@@ -4374,6 +4395,9 @@ public partial class LeadsClient : ILeadsClient
         );
     }
 
+    /// <summary>
+    /// Lists the notes of a lead, newest first.
+    /// </summary>
     /// <example><code>
     /// await client.Leads.NotesListAsync(new NotesListLeadsRequest { LeadId = "leadId" });
     /// </code></example>
@@ -4388,6 +4412,9 @@ public partial class LeadsClient : ILeadsClient
         );
     }
 
+    /// <summary>
+    /// Lists the files attached to a lead, newest first.
+    /// </summary>
     /// <example><code>
     /// await client.Leads.FilesListAsync(new FilesListLeadsRequest { LeadId = "leadId" });
     /// </code></example>
@@ -4402,6 +4429,9 @@ public partial class LeadsClient : ILeadsClient
         );
     }
 
+    /// <summary>
+    /// Creates a lead source; a `name` already used by a source of the company is refused with 409.
+    /// </summary>
     /// <example><code>
     /// await client.Leads.SourcesCreateAsync(new SourcesCreateLeadsRequest { Name = "name" });
     /// </code></example>
@@ -4416,6 +4446,9 @@ public partial class LeadsClient : ILeadsClient
         );
     }
 
+    /// <summary>
+    /// Changes the name or `isActive` flag of a lead source; a name already used by another source of the company is refused with 409.
+    /// </summary>
     /// <example><code>
     /// await client.Leads.SourcesUpdateAsync(new SourcesUpdateLeadsRequest { Id = "id" });
     /// </code></example>
@@ -4430,6 +4463,9 @@ public partial class LeadsClient : ILeadsClient
         );
     }
 
+    /// <summary>
+    /// Deletes a lead source; one still referenced by a lead is refused with 409 and should be deactivated with `leads/sources/update` instead.
+    /// </summary>
     /// <example><code>
     /// await client.Leads.SourcesDeleteAsync(new SourcesDeleteLeadsRequest { Id = "id" });
     /// </code></example>
@@ -4444,6 +4480,9 @@ public partial class LeadsClient : ILeadsClient
         );
     }
 
+    /// <summary>
+    /// Lists all lead sources of the company, active and inactive, ordered by name.
+    /// </summary>
     /// <example><code>
     /// await client.Leads.SourcesListAsync(new SourcesListLeadsRequest());
     /// </code></example>
@@ -4458,6 +4497,9 @@ public partial class LeadsClient : ILeadsClient
         );
     }
 
+    /// <summary>
+    /// Lists the id and name of the active lead sources, ordered by name.
+    /// </summary>
     /// <example><code>
     /// await client.Leads.SourcesOptionsAsync(new SourcesOptionsLeadsRequest());
     /// </code></example>
@@ -4472,6 +4514,9 @@ public partial class LeadsClient : ILeadsClient
         );
     }
 
+    /// <summary>
+    /// Creates a lead type; a `name` already used by a type of the company is refused with 409.
+    /// </summary>
     /// <example><code>
     /// await client.Leads.TypesCreateAsync(new TypesCreateLeadsRequest { Name = "name" });
     /// </code></example>
@@ -4486,6 +4531,9 @@ public partial class LeadsClient : ILeadsClient
         );
     }
 
+    /// <summary>
+    /// Changes the name or `isActive` flag of a lead type; a name already used by another type of the company is refused with 409.
+    /// </summary>
     /// <example><code>
     /// await client.Leads.TypesUpdateAsync(new TypesUpdateLeadsRequest { Id = "id" });
     /// </code></example>
@@ -4500,6 +4548,9 @@ public partial class LeadsClient : ILeadsClient
         );
     }
 
+    /// <summary>
+    /// Deletes a lead type; one still referenced by a lead is refused with 409 and should be deactivated with `leads/types/update` instead.
+    /// </summary>
     /// <example><code>
     /// await client.Leads.TypesDeleteAsync(new TypesDeleteLeadsRequest { Id = "id" });
     /// </code></example>
@@ -4514,6 +4565,9 @@ public partial class LeadsClient : ILeadsClient
         );
     }
 
+    /// <summary>
+    /// Lists all lead types of the company, active and inactive, ordered by name.
+    /// </summary>
     /// <example><code>
     /// await client.Leads.TypesListAsync(new TypesListLeadsRequest());
     /// </code></example>
@@ -4528,6 +4582,9 @@ public partial class LeadsClient : ILeadsClient
         );
     }
 
+    /// <summary>
+    /// Lists the id and name of the active lead types, ordered by name.
+    /// </summary>
     /// <example><code>
     /// await client.Leads.TypesOptionsAsync(new TypesOptionsLeadsRequest());
     /// </code></example>

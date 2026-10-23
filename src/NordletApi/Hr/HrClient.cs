@@ -7515,6 +7515,9 @@ public partial class HrClient : IHrClient
         }
     }
 
+    /// <summary>
+    /// Creates a job position with an optional code and name translations, for use in `hr/contracts/create`.
+    /// </summary>
     /// <example><code>
     /// await client.Hr.PositionsCreateAsync(new PositionsCreateHrRequest { Name = "name" });
     /// </code></example>
@@ -7529,6 +7532,9 @@ public partial class HrClient : IHrClient
         );
     }
 
+    /// <summary>
+    /// Changes the code, name or translations of a position; a null `translations` removes them.
+    /// </summary>
     /// <example><code>
     /// await client.Hr.PositionsUpdateAsync(new PositionsUpdateHrRequest { Id = "id" });
     /// </code></example>
@@ -7543,6 +7549,9 @@ public partial class HrClient : IHrClient
         );
     }
 
+    /// <summary>
+    /// Lists the company's positions; filterable and sortable by `name` and `code`.
+    /// </summary>
     /// <example><code>
     /// await client.Hr.PositionsListAsync(new PositionsListHrRequest());
     /// </code></example>
@@ -7557,6 +7566,9 @@ public partial class HrClient : IHrClient
         );
     }
 
+    /// <summary>
+    /// Creates an employee record. `payrollOptions` holds the country-specific settings the payroll engine reads for the person (see `hr/employees/fields`); `applyAllowance` defaults to true and `pensionAccumulation` to false.
+    /// </summary>
     /// <example><code>
     /// await client.Hr.EmployeesCreateAsync(
     ///     new EmployeesCreateHrRequest { FirstName = "firstName", LastName = "lastName" }
@@ -7573,6 +7585,9 @@ public partial class HrClient : IHrClient
         );
     }
 
+    /// <summary>
+    /// Changes the given fields of an employee; a null clears the fields that allow it (code, personal code, birth date, contact details, address, IBAN, social insurance number and start, hire date, notes). `status` and `terminationDate` are set here too.
+    /// </summary>
     /// <example><code>
     /// await client.Hr.EmployeesUpdateAsync(new EmployeesUpdateHrRequest { Id = "id" });
     /// </code></example>
@@ -7587,6 +7602,9 @@ public partial class HrClient : IHrClient
         );
     }
 
+    /// <summary>
+    /// Reads one employee.
+    /// </summary>
     /// <example><code>
     /// await client.Hr.EmployeesGetAsync(new EmployeesGetHrRequest { Id = "id" });
     /// </code></example>
@@ -7618,6 +7636,9 @@ public partial class HrClient : IHrClient
         );
     }
 
+    /// <summary>
+    /// Lists the employees that are not deleted; filterable by `firstName`, `lastName`, `code`, `status` and `email`, sortable by `lastName`, `code` and `createdAt`.
+    /// </summary>
     /// <example><code>
     /// await client.Hr.EmployeesListAsync(new EmployeesListHrRequest());
     /// </code></example>
@@ -7632,6 +7653,9 @@ public partial class HrClient : IHrClient
         );
     }
 
+    /// <summary>
+    /// Marks the employee deleted; the record stays and no longer appears in lists or payroll runs. `hr/employees/anonymize` also blanks the personal data.
+    /// </summary>
     /// <example><code>
     /// await client.Hr.EmployeesDeleteAsync(new EmployeesDeleteHrRequest { Id = "id" });
     /// </code></example>
@@ -7663,6 +7687,9 @@ public partial class HrClient : IHrClient
         );
     }
 
+    /// <summary>
+    /// Creates an employment contract for an employee. A `permanent` contract takes no `endDate` and a `fixed_term` one requires it; the number comes from `contractNo` or, with `agreementId`, from the employee's agreement; `workHours` defaults by `salaryType`. Answers 422 when the end date is before the start, and 409 when the employee already has a contract overlapping the period (end it with `hr/contracts/end` first) or the contract number already exists.
+    /// </summary>
     /// <example><code>
     /// await client.Hr.ContractsCreateAsync(
     ///     new ContractsCreateHrRequest
@@ -7684,6 +7711,9 @@ public partial class HrClient : IHrClient
         );
     }
 
+    /// <summary>
+    /// Ends a contract on `endDate` with an optional reason. Answers 422 when the end date is before the contract start.
+    /// </summary>
     /// <example><code>
     /// await client.Hr.ContractsEndAsync(
     ///     new ContractsEndHrRequest { Id = "id", EndDate = new DateOnly(2026, 7, 1) }
@@ -7700,6 +7730,9 @@ public partial class HrClient : IHrClient
         );
     }
 
+    /// <summary>
+    /// Lists employment contracts; filterable by `employeeId`, `agreementId`, `status` and `contractNo`, sortable by `startDate` and `contractNo`.
+    /// </summary>
     /// <example><code>
     /// await client.Hr.ContractsListAsync(new ContractsListHrRequest());
     /// </code></example>
@@ -7714,6 +7747,9 @@ public partial class HrClient : IHrClient
         );
     }
 
+    /// <summary>
+    /// Creates or replaces the leave entitlement of an employee for a year; `usedDays` is kept unless given (0 on a new row) and `remainingDays` is the entitled days less the used ones.
+    /// </summary>
     /// <example><code>
     /// await client.Hr.LeaveBalancesSetAsync(
     ///     new LeaveBalancesSetHrRequest
@@ -7735,6 +7771,9 @@ public partial class HrClient : IHrClient
         );
     }
 
+    /// <summary>
+    /// Lists leave balances, narrowed to an employee and/or a year when given, oldest year first.
+    /// </summary>
     /// <example><code>
     /// await client.Hr.LeaveBalancesListAsync(new LeaveBalancesListHrRequest());
     /// </code></example>
@@ -7749,6 +7788,9 @@ public partial class HrClient : IHrClient
         );
     }
 
+    /// <summary>
+    /// Records a sick-leave certificate of an employee. Answers 422 when `toDate` is before `fromDate`. `payroll/runs/create` warns when a certificate covers working days of a month that has no timesheet.
+    /// </summary>
     /// <example><code>
     /// await client.Hr.IncapacityCertificatesCreateAsync(
     ///     new IncapacityCertificatesCreateHrRequest
@@ -7771,6 +7813,9 @@ public partial class HrClient : IHrClient
         );
     }
 
+    /// <summary>
+    /// Lists incapacity certificates; filterable by `employeeId` and `number`, sortable by `fromDate` and `number`.
+    /// </summary>
     /// <example><code>
     /// await client.Hr.IncapacityCertificatesListAsync(new IncapacityCertificatesListHrRequest());
     /// </code></example>
@@ -7785,6 +7830,9 @@ public partial class HrClient : IHrClient
         );
     }
 
+    /// <summary>
+    /// Adds the company's daily per diem rate for a destination country from `validFrom`; `hr/business-trips/create` takes the latest rate valid on the trip's start date. Answers 409 when a rate for that country already starts on that date.
+    /// </summary>
     /// <example><code>
     /// await client.Hr.PerDiemRatesCreateAsync(
     ///     new PerDiemRatesCreateHrRequest
@@ -7806,6 +7854,9 @@ public partial class HrClient : IHrClient
         );
     }
 
+    /// <summary>
+    /// Lists per diem rates; filterable by `countryCode`, sortable by `countryCode` and `validFrom`.
+    /// </summary>
     /// <example><code>
     /// await client.Hr.PerDiemRatesListAsync(new PerDiemRatesListHrRequest());
     /// </code></example>
@@ -7820,6 +7871,9 @@ public partial class HrClient : IHrClient
         );
     }
 
+    /// <summary>
+    /// Deletes a per diem rate.
+    /// </summary>
     /// <example><code>
     /// await client.Hr.PerDiemRatesDeleteAsync(new PerDiemRatesDeleteHrRequest { Id = "id" });
     /// </code></example>
@@ -7834,6 +7888,9 @@ public partial class HrClient : IHrClient
         );
     }
 
+    /// <summary>
+    /// Stores the trip as a draft with `days` counted as calendar days, both ends included, and `perDiemAmount` as the days times the company's rate for the destination valid on the start date (`hr/per-diem-rates/create`). Answers 422 when the trip ends before it starts or no rate covers the destination on that date, and 409 when the employee already has a trip overlapping the dates.
+    /// </summary>
     /// <example><code>
     /// await client.Hr.BusinessTripsCreateAsync(
     ///     new BusinessTripsCreateHrRequest
@@ -7857,6 +7914,9 @@ public partial class HrClient : IHrClient
         );
     }
 
+    /// <summary>
+    /// Reads one business trip.
+    /// </summary>
     /// <example><code>
     /// await client.Hr.BusinessTripsGetAsync(new BusinessTripsGetHrRequest { Id = "id" });
     /// </code></example>
@@ -7871,6 +7931,9 @@ public partial class HrClient : IHrClient
         );
     }
 
+    /// <summary>
+    /// Lists business trips; filterable by `employeeId`, `status` and `payrollRunId`, sortable by `startDate`.
+    /// </summary>
     /// <example><code>
     /// await client.Hr.BusinessTripsListAsync(new BusinessTripsListHrRequest());
     /// </code></example>
@@ -7885,6 +7948,9 @@ public partial class HrClient : IHrClient
         );
     }
 
+    /// <summary>
+    /// Sets the trip's status to `approved`. `payroll/runs/create` without explicit lines adds the per diem of every approved trip ending in the run month as an untaxed addition and sets the trip's `payrollRunId`; reversing or cancelling the run releases the trip again. Answers 409 when the trip is not a draft.
+    /// </summary>
     /// <example><code>
     /// await client.Hr.BusinessTripsApproveAsync(new BusinessTripsApproveHrRequest { Id = "id" });
     /// </code></example>
@@ -7899,6 +7965,9 @@ public partial class HrClient : IHrClient
         );
     }
 
+    /// <summary>
+    /// Deletes a draft trip; answers 409 when the trip is not a draft.
+    /// </summary>
     /// <example><code>
     /// await client.Hr.BusinessTripsDeleteAsync(new BusinessTripsDeleteHrRequest { Id = "id" });
     /// </code></example>
@@ -7913,6 +7982,9 @@ public partial class HrClient : IHrClient
         );
     }
 
+    /// <summary>
+    /// Adds an education, qualification, certificate or training record to an employee, optionally linked to one of the company's uploaded files (`fileId`).
+    /// </summary>
     /// <example><code>
     /// await client.Hr.EmployeesRecordsCreateAsync(
     ///     new EmployeesRecordsCreateHrRequest
@@ -7934,6 +8006,9 @@ public partial class HrClient : IHrClient
         );
     }
 
+    /// <summary>
+    /// Changes the given fields of an employee record; `issuedAt`, `validUntil` and `fileId` can be cleared with null.
+    /// </summary>
     /// <example><code>
     /// await client.Hr.EmployeesRecordsUpdateAsync(new EmployeesRecordsUpdateHrRequest { Id = "id" });
     /// </code></example>
@@ -7948,6 +8023,9 @@ public partial class HrClient : IHrClient
         );
     }
 
+    /// <summary>
+    /// Deletes an employee record.
+    /// </summary>
     /// <example><code>
     /// await client.Hr.EmployeesRecordsDeleteAsync(new EmployeesRecordsDeleteHrRequest { Id = "id" });
     /// </code></example>
@@ -7962,6 +8040,9 @@ public partial class HrClient : IHrClient
         );
     }
 
+    /// <summary>
+    /// Lists employee records; filterable by `employeeId`, `type` and `title`, sortable by `createdAt` and `issuedAt`.
+    /// </summary>
     /// <example><code>
     /// await client.Hr.EmployeesRecordsListAsync(new EmployeesRecordsListHrRequest());
     /// </code></example>
@@ -7976,6 +8057,9 @@ public partial class HrClient : IHrClient
         );
     }
 
+    /// <summary>
+    /// Lists the files uploaded against an employee, newest first.
+    /// </summary>
     /// <example><code>
     /// await client.Hr.EmployeesAttachmentsListAsync(
     ///     new EmployeesAttachmentsListHrRequest { EmployeeId = "employeeId" }
@@ -7992,6 +8076,9 @@ public partial class HrClient : IHrClient
         );
     }
 
+    /// <summary>
+    /// Builds the timesheet of the month for every employee with a contract in it, or for one employee with `employeeId`, replacing any existing timesheet: the Monday to Friday days within the contract get the contract's daily hours (its weekly hours over five), and for a Lithuanian company the public holidays are `holiday` days with 0 hours. Answers 422 when no contract covers the month.
+    /// </summary>
     /// <example><code>
     /// await client.Hr.TimesheetsGenerateAsync(
     ///     new TimesheetsGenerateHrRequest { Year = 1000000, Month = 1000000 }
@@ -8008,6 +8095,9 @@ public partial class HrClient : IHrClient
         );
     }
 
+    /// <summary>
+    /// Creates or replaces the timesheet of an employee for a month from the given days; `workedDays` and `workedHours` count the `work` and `business_trip` days with hours. Answers 422 for a day outside the month, a day given twice or more than 24 hours in a day. `payroll/runs/create` reads the timesheet for the paid days, the days worked and the business-trip days of the month.
+    /// </summary>
     /// <example><code>
     /// await client.Hr.TimesheetsUpsertAsync(
     ///     new TimesheetsUpsertHrRequest
@@ -8038,6 +8128,9 @@ public partial class HrClient : IHrClient
         );
     }
 
+    /// <summary>
+    /// Reads the timesheet of an employee for a month.
+    /// </summary>
     /// <example><code>
     /// await client.Hr.TimesheetsGetAsync(
     ///     new TimesheetsGetHrRequest
@@ -8059,6 +8152,9 @@ public partial class HrClient : IHrClient
         );
     }
 
+    /// <summary>
+    /// Lists the timesheets of a month, ordered by employee name.
+    /// </summary>
     /// <example><code>
     /// await client.Hr.TimesheetsListAsync(
     ///     new TimesheetsListHrRequest { Year = 1000000, Month = 1000000 }
@@ -8075,6 +8171,9 @@ public partial class HrClient : IHrClient
         );
     }
 
+    /// <summary>
+    /// Deletes a timesheet.
+    /// </summary>
     /// <example><code>
     /// await client.Hr.TimesheetsDeleteAsync(new TimesheetsDeleteHrRequest { Id = "id" });
     /// </code></example>

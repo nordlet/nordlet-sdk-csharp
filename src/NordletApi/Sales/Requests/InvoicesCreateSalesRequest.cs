@@ -66,6 +66,12 @@ public record InvoicesCreateSalesRequest
     [JsonPropertyName("documentRef")]
     public string? DocumentRef { get; set; }
 
+    /// <summary>
+    /// Language of the PDF and of the e-mail the invoice is sent with; unset means the language asked for when the PDF is made
+    /// </summary>
+    [JsonPropertyName("locale")]
+    public InvoicesCreateSalesRequestLocale? Locale { get; set; }
+
     [JsonPropertyName("operationTypeId")]
     public string? OperationTypeId { get; set; }
 

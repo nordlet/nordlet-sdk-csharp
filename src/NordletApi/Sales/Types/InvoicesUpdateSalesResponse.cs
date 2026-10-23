@@ -131,6 +131,12 @@ public record InvoicesUpdateSalesResponse : IJsonOnDeserialized
     [JsonPropertyName("receivedByTitle")]
     public string? ReceivedByTitle { get; set; }
 
+    [JsonPropertyName("locale")]
+    public string? Locale { get; set; }
+
+    [JsonPropertyName("recurringInvoiceId")]
+    public string? RecurringInvoiceId { get; set; }
+
     [JsonPropertyName("lockedAt")]
     public DateTime? LockedAt { get; set; }
 

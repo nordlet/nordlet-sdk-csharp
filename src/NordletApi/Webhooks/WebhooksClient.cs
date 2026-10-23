@@ -1312,6 +1312,9 @@ public partial class WebhooksClient : IWebhooksClient
         }
     }
 
+    /// <summary>
+    /// Register a webhook endpoint for the given event types (`*` for every event). The URL must be an https address that resolves to a public network (422 otherwise). The signing secret is generated unless `secret` is given, and this call is the only one that returns it.
+    /// </summary>
     /// <example><code>
     /// await client.Webhooks.SubscriptionsCreateAsync(
     ///     new SubscriptionsCreateWebhooksRequest
@@ -1335,6 +1338,9 @@ public partial class WebhooksClient : IWebhooksClient
         );
     }
 
+    /// <summary>
+    /// List the company's webhook subscriptions with their last delivery state. Filterable by `url` and `isActive`; sortable by `createdAt` and `url`.
+    /// </summary>
     /// <example><code>
     /// await client.Webhooks.SubscriptionsListAsync(new SubscriptionsListWebhooksRequest());
     /// </code></example>
@@ -1349,6 +1355,9 @@ public partial class WebhooksClient : IWebhooksClient
         );
     }
 
+    /// <summary>
+    /// Change the URL, event types or `isActive` flag of a subscription; at least one field is required (400) and a new URL must be an https address that resolves to a public network (422). Setting `isActive` to true also clears `pausedAt` and `consecutiveFailures`, which is how a subscription paused after 5 failed deliveries in a row is switched back on.
+    /// </summary>
     /// <example><code>
     /// await client.Webhooks.SubscriptionsUpdateAsync(
     ///     new SubscriptionsUpdateWebhooksRequest { Id = "id" }
@@ -1365,6 +1374,9 @@ public partial class WebhooksClient : IWebhooksClient
         );
     }
 
+    /// <summary>
+    /// Delete a webhook subscription.
+    /// </summary>
     /// <example><code>
     /// await client.Webhooks.SubscriptionsDeleteAsync(
     ///     new SubscriptionsDeleteWebhooksRequest { Id = "id" }
@@ -1381,6 +1393,9 @@ public partial class WebhooksClient : IWebhooksClient
         );
     }
 
+    /// <summary>
+    /// List the company's webhook deliveries, newest first. Filterable by `status`, `eventType` and `subscriptionId`; sortable by `createdAt`.
+    /// </summary>
     /// <example><code>
     /// await client.Webhooks.DeliveriesListAsync(new DeliveriesListWebhooksRequest());
     /// </code></example>
@@ -1395,6 +1410,9 @@ public partial class WebhooksClient : IWebhooksClient
         );
     }
 
+    /// <summary>
+    /// Send a delivery again now: its status goes back to `pending` with the attempt count and last error cleared. Answers 409 when the subscription is inactive.
+    /// </summary>
     /// <example><code>
     /// await client.Webhooks.DeliveriesRedeliverAsync(
     ///     new DeliveriesRedeliverWebhooksRequest { Id = "id" }

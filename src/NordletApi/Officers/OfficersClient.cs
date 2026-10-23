@@ -881,6 +881,9 @@ public partial class OfficersClient : IOfficersClient
         );
     }
 
+    /// <summary>
+    /// Add an officer to the company's register (`officers/list`); `signsAccounts` defaults to true. Refused with 422 when `resignedOn` is before `appointedOn`.
+    /// </summary>
     /// <example><code>
     /// await client.Officers.CreateAsync(
     ///     new CreateOfficersRequest { Name = "name", Role = CreateOfficersRequestRole.Director }
@@ -897,6 +900,9 @@ public partial class OfficersClient : IOfficersClient
         );
     }
 
+    /// <summary>
+    /// Replace the recorded data of an officer; every field is written as sent, so a field left out is cleared and `signsAccounts` falls back to true. Refused with 422 when `resignedOn` is before `appointedOn`.
+    /// </summary>
     /// <example><code>
     /// await client.Officers.UpdateAsync(
     ///     new UpdateOfficersRequest
@@ -918,6 +924,9 @@ public partial class OfficersClient : IOfficersClient
         );
     }
 
+    /// <summary>
+    /// Remove an officer from the company's register.
+    /// </summary>
     /// <example><code>
     /// await client.Officers.DeleteAsync(new DeleteOfficersRequest { Id = "id" });
     /// </code></example>

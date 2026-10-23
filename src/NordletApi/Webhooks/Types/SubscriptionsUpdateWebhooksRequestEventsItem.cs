@@ -90,6 +90,9 @@ public readonly record struct SubscriptionsUpdateWebhooksRequestEventsItem : ISt
         Values.PurchaseOrderReceived
     );
 
+    public static readonly SubscriptionsUpdateWebhooksRequestEventsItem RecurringInvoiceGenerated =
+        new(Values.RecurringInvoiceGenerated);
+
     public static readonly SubscriptionsUpdateWebhooksRequestEventsItem RefundLiabilityActual = new(
         Values.RefundLiabilityActual
     );
@@ -321,6 +324,8 @@ public readonly record struct SubscriptionsUpdateWebhooksRequestEventsItem : ISt
         public const string PurchaseOrderApproved = "purchase_order.approved";
 
         public const string PurchaseOrderReceived = "purchase_order.received";
+
+        public const string RecurringInvoiceGenerated = "recurring_invoice.generated";
 
         public const string RefundLiabilityActual = "refund_liability.actual";
 

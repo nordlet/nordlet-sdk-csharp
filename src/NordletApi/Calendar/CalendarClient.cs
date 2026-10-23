@@ -1503,6 +1503,9 @@ public partial class CalendarClient : ICalendarClient
         }
     }
 
+    /// <summary>
+    /// Lists, in due-date order, the filing deadlines Nordlet derives for the company from its country and profile together with the company's own events, between `from` and `to` (default 45 days back to 120 days ahead of the company's current date). Each deadline carries its submissions, whether it can be filed with `calendar/submit`, amended, or built with `calendar/download`, and whether its automation is on; `includeDone: false` leaves out the rows that are completed, submitted or accepted.
+    /// </summary>
     /// <example><code>
     /// await client.Calendar.ListAsync(new ListCalendarRequest());
     /// </code></example>
@@ -1517,6 +1520,9 @@ public partial class CalendarClient : ICalendarClient
         );
     }
 
+    /// <summary>
+    /// Reads one calendar row by `key`: the id of a company event, or `ruleKey:period` for a filing deadline with its submissions.
+    /// </summary>
     /// <example><code>
     /// await client.Calendar.GetAsync(new GetCalendarRequest { Key = "key" });
     /// </code></example>
@@ -1565,6 +1571,9 @@ public partial class CalendarClient : ICalendarClient
         );
     }
 
+    /// <summary>
+    /// Creates a company event (kind `custom`) with a title, a due date, notes and a done flag.
+    /// </summary>
     /// <example><code>
     /// await client.Calendar.CreateAsync(
     ///     new CreateCalendarRequest { Title = "title", DueDate = new DateOnly(2026, 7, 1) }
@@ -1581,6 +1590,9 @@ public partial class CalendarClient : ICalendarClient
         );
     }
 
+    /// <summary>
+    /// Changes a calendar row by `key`. A company event takes a new title, due date, notes or done flag; a filing deadline (`ruleKey:period`) takes only notes and done, keeps its own title and date, and gets a stored row the first time it is annotated.
+    /// </summary>
     /// <example><code>
     /// await client.Calendar.UpdateAsync(new UpdateCalendarRequest { Key = "key" });
     /// </code></example>
@@ -1595,6 +1607,9 @@ public partial class CalendarClient : ICalendarClient
         );
     }
 
+    /// <summary>
+    /// Deletes a company event by its id, or the stored notes and done mark of a filing deadline by `ruleKey:period`; the deadline itself still comes from the rules.
+    /// </summary>
     /// <example><code>
     /// await client.Calendar.DeleteAsync(new DeleteCalendarRequest { Key = "key" });
     /// </code></example>

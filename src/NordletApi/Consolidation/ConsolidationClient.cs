@@ -2820,6 +2820,9 @@ public partial class ConsolidationClient : IConsolidationClient
         }
     }
 
+    /// <summary>
+    /// Create a consolidation group owned by the calling company; `presentationCurrency` defaults to the company's base currency. Members are added with `consolidation/members/add`.
+    /// </summary>
     /// <example><code>
     /// await client.Consolidation.GroupsCreateAsync(
     ///     new GroupsCreateConsolidationRequest { Name = "name" }
@@ -2836,6 +2839,9 @@ public partial class ConsolidationClient : IConsolidationClient
         );
     }
 
+    /// <summary>
+    /// List the calling company's consolidation groups with their member counts.
+    /// </summary>
     /// <example><code>
     /// await client.Consolidation.GroupsListAsync(new GroupsListConsolidationRequest());
     /// </code></example>
@@ -2850,6 +2856,9 @@ public partial class ConsolidationClient : IConsolidationClient
         );
     }
 
+    /// <summary>
+    /// Return one consolidation group with its members, each with its ownership percentage and consolidation method.
+    /// </summary>
     /// <example><code>
     /// await client.Consolidation.GroupsGetAsync(
     ///     new GroupsGetConsolidationRequest { GroupId = "groupId" }
@@ -2866,6 +2875,9 @@ public partial class ConsolidationClient : IConsolidationClient
         );
     }
 
+    /// <summary>
+    /// Rename a consolidation group or change its presentation currency.
+    /// </summary>
     /// <example><code>
     /// await client.Consolidation.GroupsUpdateAsync(
     ///     new GroupsUpdateConsolidationRequest { GroupId = "groupId" }
@@ -2882,6 +2894,9 @@ public partial class ConsolidationClient : IConsolidationClient
         );
     }
 
+    /// <summary>
+    /// Delete a consolidation group.
+    /// </summary>
     /// <example><code>
     /// await client.Consolidation.GroupsDeleteAsync(
     ///     new GroupsDeleteConsolidationRequest { GroupId = "groupId" }
@@ -2898,6 +2913,9 @@ public partial class ConsolidationClient : IConsolidationClient
         );
     }
 
+    /// <summary>
+    /// Add a company to a consolidation group with its ownership percentage and method (`full`, `proportional` or `equity`), or change those of an existing member. Another company can be added only by a signed-in user who is owner, admin or accountant of it; an API key is refused with 403.
+    /// </summary>
     /// <example><code>
     /// await client.Consolidation.MembersAddAsync(
     ///     new MembersAddConsolidationRequest { GroupId = "groupId", MemberCompanyId = "memberCompanyId" }
@@ -2914,6 +2932,9 @@ public partial class ConsolidationClient : IConsolidationClient
         );
     }
 
+    /// <summary>
+    /// Remove a company from a consolidation group.
+    /// </summary>
     /// <example><code>
     /// await client.Consolidation.MembersRemoveAsync(
     ///     new MembersRemoveConsolidationRequest
@@ -2977,6 +2998,9 @@ public partial class ConsolidationClient : IConsolidationClient
         );
     }
 
+    /// <summary>
+    /// List the intercompany links of a group: which partner record of which member company stands for which other member company.
+    /// </summary>
     /// <example><code>
     /// await client.Consolidation.IntercompanyLinksListAsync(
     ///     new IntercompanyLinksListConsolidationRequest { GroupId = "groupId" }
@@ -2993,6 +3017,9 @@ public partial class ConsolidationClient : IConsolidationClient
         );
     }
 
+    /// <summary>
+    /// Remove an intercompany link from a group.
+    /// </summary>
     /// <example><code>
     /// await client.Consolidation.IntercompanyLinksRemoveAsync(
     ///     new IntercompanyLinksRemoveConsolidationRequest { GroupId = "groupId", Id = "id" }
@@ -3033,6 +3060,9 @@ public partial class ConsolidationClient : IConsolidationClient
         );
     }
 
+    /// <summary>
+    /// Consolidated financial statements of a group for a period in its presentation currency, with the consolidated trial balance and cash flow, each member's contribution and the intercompany candidates. Each member's balances are translated at the group owner's exchange rates of `toDate` and taken in full, in proportion to the ownership (`proportional`) or as an equity-method investment (`equity`); a fully consolidated member held below 100 % yields the non-controlling interest, and `eliminations` are amounts added to account codes before the statements are assembled (`balanced` tells whether they net to zero). Refused with 422 when the group has no members.
+    /// </summary>
     /// <example><code>
     /// await client.Consolidation.ReportAsync(
     ///     new ReportConsolidationRequest

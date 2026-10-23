@@ -6434,6 +6434,9 @@ public partial class ReportsClient : IReportsClient
         }
     }
 
+    /// <summary>
+    /// Trial balance of the posted ledger for a period: for every account with an opening balance or movement, the balance before `fromDate`, the debit and credit turnover between `fromDate` and `toDate`, and the closing balance, with debit and credit totals. Template account names follow the `Accept-Language` header.
+    /// </summary>
     /// <example><code>
     /// await client.Reports.TrialBalanceAsync(
     ///     new TrialBalanceReportsRequest
@@ -6454,6 +6457,9 @@ public partial class ReportsClient : IReportsClient
         );
     }
 
+    /// <summary>
+    /// Classify the company's size for a calendar year as micro, small, medium or large from total assets at the year end, the net turnover of the year and the average number of employees under employment contracts, against the limits returned in `thresholds`; a category applies when at least two of its three limits are met. This is the default category of `reports/financial-statements`.
+    /// </summary>
     /// <example><code>
     /// await client.Reports.SizeCategoryAsync(new SizeCategoryReportsRequest { Year = 1000000 });
     /// </code></example>
@@ -6468,6 +6474,9 @@ public partial class ReportsClient : IReportsClient
         );
     }
 
+    /// <summary>
+    /// Balance sheet at `toDate` and profit and loss for the period from the posted ledger, year-end closing entries excluded, laid out by size category: `category` when given, else the one `reports/size-category` derives for the period. Micro gets the short balance sheet and profit and loss; the other categories add the balance sheet and profit and loss detail; medium and large also get the changes in equity and a cash flow summary. Line groupings follow the company's chart template.
+    /// </summary>
     /// <example><code>
     /// await client.Reports.FinancialStatementsAsync(
     ///     new FinancialStatementsReportsRequest
@@ -6488,6 +6497,9 @@ public partial class ReportsClient : IReportsClient
         );
     }
 
+    /// <summary>
+    /// Posted journal transactions of a period in date order, each with its lines (account, debit, credit), paged with `page` and `pageSize` and the total count. Template account names follow the `Accept-Language` header.
+    /// </summary>
     /// <example><code>
     /// await client.Reports.GeneralJournalAsync(
     ///     new GeneralJournalReportsRequest
@@ -6508,6 +6520,9 @@ public partial class ReportsClient : IReportsClient
         );
     }
 
+    /// <summary>
+    /// Ledger card of one account for a period: the opening balance before `fromDate`, every posted line in date order with a running balance, and the closing balance.
+    /// </summary>
     /// <example><code>
     /// await client.Reports.GlDetailAsync(
     ///     new GlDetailReportsRequest
@@ -6529,6 +6544,9 @@ public partial class ReportsClient : IReportsClient
         );
     }
 
+    /// <summary>
+    /// Open balance per partner: receivables from issued sale invoices and payables from registered purchase invoices that are not fully paid, credit notes reducing the balance, converted to the base currency at the document rate, with totals.
+    /// </summary>
     /// <example><code>
     /// await client.Reports.PartnerBalancesAsync(new PartnerBalancesReportsRequest());
     /// </code></example>
@@ -6543,6 +6561,9 @@ public partial class ReportsClient : IReportsClient
         );
     }
 
+    /// <summary>
+    /// Ageing of the open receivables or payables (`side`) at `asOf` (default the company's current date) per partner: not yet due, 1 to 30, 31 to 60, 61 to 90 and over 90 days past the due date. Counts documents dated on or before `asOf` and payments made up to that date.
+    /// </summary>
     /// <example><code>
     /// await client.Reports.DebtAgingAsync(new DebtAgingReportsRequest());
     /// </code></example>
@@ -6557,6 +6578,9 @@ public partial class ReportsClient : IReportsClient
         );
     }
 
+    /// <summary>
+    /// One row per calendar month for the last `months` months ending with the current one: the receivable and payable balances at the end of the month and the revenue, expenses and net result posted in it, year-end closing entries excluded.
+    /// </summary>
     /// <example><code>
     /// await client.Reports.MonthlySummaryAsync(new MonthlySummaryReportsRequest());
     /// </code></example>
@@ -6571,6 +6595,9 @@ public partial class ReportsClient : IReportsClient
         );
     }
 
+    /// <summary>
+    /// Quantity and value on hand per item and warehouse at `asOf`, summed from the stock movements dated on or before it; `warehouseId` limits the report to one warehouse. Rows with zero quantity and zero value are left out.
+    /// </summary>
     /// <example><code>
     /// await client.Reports.StockBalanceAsync(
     ///     new StockBalanceReportsRequest { AsOf = new DateOnly(2026, 7, 1) }
@@ -6587,6 +6614,9 @@ public partial class ReportsClient : IReportsClient
         );
     }
 
+    /// <summary>
+    /// Stock movement per item for a period: opening quantity and value before `fromDate`, quantities and values received and issued between `fromDate` and `toDate`, and the closing figures; `warehouseId` and `itemId` narrow the report.
+    /// </summary>
     /// <example><code>
     /// await client.Reports.StockMovementAsync(
     ///     new StockMovementReportsRequest
@@ -6607,6 +6637,9 @@ public partial class ReportsClient : IReportsClient
         );
     }
 
+    /// <summary>
+    /// VAT of issued sale invoices (by issue date) or registered purchase invoices (by registration date) in a period, summed per VAT rate: net, VAT and gross in the base currency and the number of documents, credit notes counting negative. The rows of `reports/vat-detail` grouped by rate.
+    /// </summary>
     /// <example><code>
     /// await client.Reports.VatSummaryAsync(
     ///     new VatSummaryReportsRequest
@@ -6627,6 +6660,9 @@ public partial class ReportsClient : IReportsClient
         );
     }
 
+    /// <summary>
+    /// Cash flow statement of a period from the posted transactions that touch a cash account: the inflow and outflow of every counterpart account, grouped into operating, investing and financing by the account prefixes of the company's chart template, with opening and closing cash and `balanced` telling whether opening cash plus the net change equals closing cash. Template account names follow the `Accept-Language` header.
+    /// </summary>
     /// <example><code>
     /// await client.Reports.CashFlowAsync(
     ///     new CashFlowReportsRequest
@@ -6647,6 +6683,9 @@ public partial class ReportsClient : IReportsClient
         );
     }
 
+    /// <summary>
+    /// Age of the stock on hand at `asOf` per item and warehouse: the remaining quantity and value of each FIFO receipt layer, bucketed by days since the receipt (0 to 30, 31 to 60, 61 to 90, over 90), with totals; `warehouseId` limits the report to one warehouse. When movements after `asOf` exist, the layers are rebuilt by replaying the movements up to that date.
+    /// </summary>
     /// <example><code>
     /// await client.Reports.StockAgingAsync(
     ///     new StockAgingReportsRequest { AsOf = new DateOnly(2026, 7, 1) }
@@ -6663,6 +6702,9 @@ public partial class ReportsClient : IReportsClient
         );
     }
 
+    /// <summary>
+    /// Items whose reserved quantity exceeds the quantity on hand, per warehouse: on hand, reserved and the shortage. Only items with a reservation are checked; `warehouseId` limits the report to one warehouse.
+    /// </summary>
     /// <example><code>
     /// await client.Reports.StockShortageAsync(new StockShortageReportsRequest());
     /// </code></example>
@@ -6738,6 +6780,9 @@ public partial class ReportsClient : IReportsClient
         );
     }
 
+    /// <summary>
+    /// Registered purchase invoices of a period (by registration date) from partners in another EU country, summed per partner country and VAT rate: net and VAT in the base currency and the number of documents, credit notes counting negative. The partner's country is the country code of its address, else the first two characters of its VAT number.
+    /// </summary>
     /// <example><code>
     /// await client.Reports.EuPurchasesAsync(
     ///     new EuPurchasesReportsRequest
@@ -6758,6 +6803,9 @@ public partial class ReportsClient : IReportsClient
         );
     }
 
+    /// <summary>
+    /// VAT of issued sale invoices (by issue date) or registered purchase invoices (by registration date) in a period, one row per document and VAT rate: net, VAT and gross in the base currency, with totals; credit notes count negative. `reports/vat-summary` groups these rows by rate.
+    /// </summary>
     /// <example><code>
     /// await client.Reports.VatDetailAsync(
     ///     new VatDetailReportsRequest
@@ -6778,6 +6826,9 @@ public partial class ReportsClient : IReportsClient
         );
     }
 
+    /// <summary>
+    /// POS reports of a period (by report date): per report the net, VAT, gross, cash and card amounts and the cost of goods sold, the net and VAT per VAT rate across the reports, and totals.
+    /// </summary>
     /// <example><code>
     /// await client.Reports.PosSalesAsync(
     ///     new PosSalesReportsRequest
@@ -6798,6 +6849,9 @@ public partial class ReportsClient : IReportsClient
         );
     }
 
+    /// <summary>
+    /// Sales orders created in a period, grouped by channel and currency: the number of orders, how many are fulfilled, cancelled or still open (new or reserved), and the net and gross of the orders that are not cancelled, computed from their lines.
+    /// </summary>
     /// <example><code>
     /// await client.Reports.OnlineSalesAsync(
     ///     new OnlineSalesReportsRequest
@@ -6818,6 +6872,9 @@ public partial class ReportsClient : IReportsClient
         );
     }
 
+    /// <summary>
+    /// Issued sale invoices and credit notes of a period (by issue date) to partners in another EU country, summed per partner country and VAT rate: net and VAT in the base currency and the number of documents. The partner's country is the country code of its address, else the first two characters of its VAT number.
+    /// </summary>
     /// <example><code>
     /// await client.Reports.OssAsync(
     ///     new OssReportsRequest { FromDate = new DateOnly(2026, 7, 1), ToDate = new DateOnly(2026, 7, 1) }
@@ -6834,6 +6891,9 @@ public partial class ReportsClient : IReportsClient
         );
     }
 
+    /// <summary>
+    /// Cash advances per employee for a period: the balance before `fromDate`, the advances paid out and returned through cash orders in the period, the amount settled by expense reports dated in the period, and the closing balance. A cash order counts as an advance when it names an employee and its counter account is the `cash.advances` posting rule.
+    /// </summary>
     /// <example><code>
     /// await client.Reports.AdvanceReconciliationAsync(
     ///     new AdvanceReconciliationReportsRequest
@@ -6854,6 +6914,9 @@ public partial class ReportsClient : IReportsClient
         );
     }
 
+    /// <summary>
+    /// Stock issued by write-offs and stock takes in a period: one row per outgoing movement with item, warehouse, quantity, cost and notes, and the total cost; `warehouseId` limits the report to one warehouse.
+    /// </summary>
     /// <example><code>
     /// await client.Reports.WriteOffActsAsync(
     ///     new WriteOffActsReportsRequest
@@ -6874,6 +6937,9 @@ public partial class ReportsClient : IReportsClient
         );
     }
 
+    /// <summary>
+    /// Income, expenses and result per cost centre for a period, from the posted journal lines assigned to a cost centre.
+    /// </summary>
     /// <example><code>
     /// await client.Reports.CostCentersAsync(
     ///     new CostCentersReportsRequest
@@ -6894,6 +6960,9 @@ public partial class ReportsClient : IReportsClient
         );
     }
 
+    /// <summary>
+    /// Posted journal lines of one cost centre for a period, summed per account: debit, credit and net. Template account names follow the `Accept-Language` header.
+    /// </summary>
     /// <example><code>
     /// await client.Reports.CostCenterActivityAsync(
     ///     new CostCenterActivityReportsRequest
@@ -6915,6 +6984,9 @@ public partial class ReportsClient : IReportsClient
         );
     }
 
+    /// <summary>
+    /// Net purchases per cost centre and item for a period, from the lines of registered purchase invoices (by registration date) that carry a cost centre, credit notes counting negative; `costCenterId` limits the report to one cost centre. A line without an item is reported under its description.
+    /// </summary>
     /// <example><code>
     /// await client.Reports.CostCenterItemsAsync(
     ///     new CostCenterItemsReportsRequest
@@ -6935,6 +7007,9 @@ public partial class ReportsClient : IReportsClient
         );
     }
 
+    /// <summary>
+    /// Queue a report to be built in the background in one or more formats (`json`, `xlsx`, `pdf`) and stored as files; the job is returned at once with status `queued`. `reportType` is one of trial-balance, partner-balances, debt-aging, stock-balance, vat-summary, vat-detail, eu-purchases, oss, pos-sales, online-sales, advance-reconciliation, write-off-acts, cost-centers, cost-center-activity, cost-center-items and cash-flow, and `params` is the body of that report route; an unknown type or invalid params are refused with 422. Follow the job with `reports/jobs/get`, download its outputs with `files/get`, and listen for `report.completed` or `report.failed`; a report that does not finish within ten minutes fails.
+    /// </summary>
     /// <example><code>
     /// await client.Reports.JobsCreateAsync(new JobsCreateReportsRequest { ReportType = "reportType" });
     /// </code></example>
@@ -6949,6 +7024,9 @@ public partial class ReportsClient : IReportsClient
         );
     }
 
+    /// <summary>
+    /// Return one report job with its status (`queued`, `running`, `completed` or `failed`), the error of a failed job and the output files of a completed one.
+    /// </summary>
     /// <example><code>
     /// await client.Reports.JobsGetAsync(new JobsGetReportsRequest { Id = "id" });
     /// </code></example>
@@ -6963,6 +7041,9 @@ public partial class ReportsClient : IReportsClient
         );
     }
 
+    /// <summary>
+    /// List the company's report jobs, newest first; filterable by `status` and `reportType`, sortable by `createdAt`.
+    /// </summary>
     /// <example><code>
     /// await client.Reports.JobsListAsync(new JobsListReportsRequest());
     /// </code></example>

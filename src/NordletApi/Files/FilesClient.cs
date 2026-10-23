@@ -864,6 +864,9 @@ public partial class FilesClient : IFilesClient
         }
     }
 
+    /// <summary>
+    /// Store a base64-encoded file of up to 10 MB (413 above that) under an `entity` and optional `entityId`, and return its record with the SHA-256 of the content and its `storageKey`, which other calls take as `documentRef`.
+    /// </summary>
     /// <example><code>
     /// await client.Files.UploadAsync(
     ///     new UploadFilesRequest
@@ -886,6 +889,9 @@ public partial class FilesClient : IFilesClient
         );
     }
 
+    /// <summary>
+    /// Return a file record with its content, base64-encoded.
+    /// </summary>
     /// <example><code>
     /// await client.Files.GetAsync(new GetFilesRequest { Id = "id" });
     /// </code></example>
@@ -900,6 +906,9 @@ public partial class FilesClient : IFilesClient
         );
     }
 
+    /// <summary>
+    /// List the company's files. Filterable by `entity`, `entityId` and `fileName`; sortable by `createdAt`, `fileName` and `sizeBytes`.
+    /// </summary>
     /// <example><code>
     /// await client.Files.ListAsync(new ListFilesRequest());
     /// </code></example>
@@ -914,6 +923,9 @@ public partial class FilesClient : IFilesClient
         );
     }
 
+    /// <summary>
+    /// Delete a file record and its stored content.
+    /// </summary>
     /// <example><code>
     /// await client.Files.DeleteAsync(new DeleteFilesRequest { Id = "id" });
     /// </code></example>

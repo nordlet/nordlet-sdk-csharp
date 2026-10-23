@@ -6026,6 +6026,9 @@ public partial class CatalogClient : ICatalogClient
         }
     }
 
+    /// <summary>
+    /// Create a catalog item: a product, a service or a set of other items. `unit` must be `vnt`, a global measurement unit or one of the company's own units (`catalog/units/options`), the sale, purchase and expense account codes must be postable accounts of the chart, and `priceFrom`/`priceTo` and `validFrom`/`validTo` must be in order; otherwise 422. A `set` needs at least one component and none of them may be a set; `components` on any other type is refused with 422. 409 when an active item already carries the `code`. `documentRef` is the storage key of a file uploaded with `files/upload`, which is attached to the item. Emits `item.created`.
+    /// </summary>
     /// <example><code>
     /// await client.Catalog.ItemsCreateAsync(new ItemsCreateCatalogRequest { Name = "name" });
     /// </code></example>
@@ -6040,6 +6043,9 @@ public partial class CatalogClient : ICatalogClient
         );
     }
 
+    /// <summary>
+    /// Return one item; a set comes with its components.
+    /// </summary>
     /// <example><code>
     /// await client.Catalog.ItemsGetAsync(new ItemsGetCatalogRequest { Id = "id" });
     /// </code></example>
@@ -6054,6 +6060,9 @@ public partial class CatalogClient : ICatalogClient
         );
     }
 
+    /// <summary>
+    /// Change the fields of an item; the fields that are nullable in the request can be set to null to clear them. The checks of `catalog/items/create` apply. `components` replaces the whole component list and is accepted only when the item is or becomes a set (422); turning an item into a set needs components and is refused with 409 while the item is itself a component of another set. Turning a set into another type removes its components. 409 when an active item already carries the new `code`. Emits `item.updated`.
+    /// </summary>
     /// <example><code>
     /// await client.Catalog.ItemsUpdateAsync(new ItemsUpdateCatalogRequest { Id = "id" });
     /// </code></example>
@@ -6068,6 +6077,9 @@ public partial class CatalogClient : ICatalogClient
         );
     }
 
+    /// <summary>
+    /// Soft-delete an item. Refused with 409 while the item is a component of an active set. Emits `item.deleted`.
+    /// </summary>
     /// <example><code>
     /// await client.Catalog.ItemsDeleteAsync(new ItemsDeleteCatalogRequest { Id = "id" });
     /// </code></example>
@@ -6082,6 +6094,9 @@ public partial class CatalogClient : ICatalogClient
         );
     }
 
+    /// <summary>
+    /// List the active items. Filterable: name, code, barcode, type, vatClassifierCode, groupId, kindId, externalId, manufacturer, department. Sortable: name, code, createdAt, updatedAt, salePriceExclVat; default name ascending. Rows carry no components; `catalog/items/get` returns them.
+    /// </summary>
     /// <example><code>
     /// await client.Catalog.ItemsListAsync(new ItemsListCatalogRequest());
     /// </code></example>
@@ -6096,6 +6111,9 @@ public partial class CatalogClient : ICatalogClient
         );
     }
 
+    /// <summary>
+    /// List the files attached to an item, newest first.
+    /// </summary>
     /// <example><code>
     /// await client.Catalog.ItemsFilesListAsync(new ItemsFilesListCatalogRequest { ItemId = "itemId" });
     /// </code></example>
@@ -6110,6 +6128,9 @@ public partial class CatalogClient : ICatalogClient
         );
     }
 
+    /// <summary>
+    /// Create an item kind: a code, a name, the SAF-T item type, whether quantities are accounted for, and a sort order. 409 when the code already exists.
+    /// </summary>
     /// <example><code>
     /// await client.Catalog.ItemsKindsCreateAsync(
     ///     new ItemsKindsCreateCatalogRequest { Code = "code", Name = "name" }
@@ -6126,6 +6147,9 @@ public partial class CatalogClient : ICatalogClient
         );
     }
 
+    /// <summary>
+    /// Change an item kind. 409 when the new code already exists.
+    /// </summary>
     /// <example><code>
     /// await client.Catalog.ItemsKindsUpdateAsync(new ItemsKindsUpdateCatalogRequest { Id = "id" });
     /// </code></example>
@@ -6140,6 +6164,9 @@ public partial class CatalogClient : ICatalogClient
         );
     }
 
+    /// <summary>
+    /// Delete an item kind. Refused with 409 while an active item uses it; soft-deleted items that still carry it are detached.
+    /// </summary>
     /// <example><code>
     /// await client.Catalog.ItemsKindsDeleteAsync(new ItemsKindsDeleteCatalogRequest { Id = "id" });
     /// </code></example>
@@ -6154,6 +6181,9 @@ public partial class CatalogClient : ICatalogClient
         );
     }
 
+    /// <summary>
+    /// List the company's item kinds in sort order, then by code.
+    /// </summary>
     /// <example><code>
     /// await client.Catalog.ItemsKindsListAsync(new ItemsKindsListCatalogRequest());
     /// </code></example>
@@ -6168,6 +6198,9 @@ public partial class CatalogClient : ICatalogClient
         );
     }
 
+    /// <summary>
+    /// Create a unit of measure of the company's own, in addition to the global measurement units (`reference/units/list`). 409 when the code already exists.
+    /// </summary>
     /// <example><code>
     /// await client.Catalog.UnitsCreateAsync(
     ///     new UnitsCreateCatalogRequest { Code = "code", Name = "name" }
@@ -6184,6 +6217,9 @@ public partial class CatalogClient : ICatalogClient
         );
     }
 
+    /// <summary>
+    /// Change the code, name or active flag of a company unit. 409 when the new code already exists.
+    /// </summary>
     /// <example><code>
     /// await client.Catalog.UnitsUpdateAsync(new UnitsUpdateCatalogRequest { Id = "id" });
     /// </code></example>
@@ -6198,6 +6234,9 @@ public partial class CatalogClient : ICatalogClient
         );
     }
 
+    /// <summary>
+    /// Delete a company unit of measure.
+    /// </summary>
     /// <example><code>
     /// await client.Catalog.UnitsDeleteAsync(new UnitsDeleteCatalogRequest { Id = "id" });
     /// </code></example>
@@ -6212,6 +6251,9 @@ public partial class CatalogClient : ICatalogClient
         );
     }
 
+    /// <summary>
+    /// List the company's own units of measure, ordered by code.
+    /// </summary>
     /// <example><code>
     /// await client.Catalog.UnitsListAsync(new UnitsListCatalogRequest());
     /// </code></example>
@@ -6226,6 +6268,9 @@ public partial class CatalogClient : ICatalogClient
         );
     }
 
+    /// <summary>
+    /// Return the unit codes an item can use: the company's active own units first, then the global measurement units, named in the requested `locale` (Lithuanian for `lt`, English otherwise). A company unit hides a global unit with the same code.
+    /// </summary>
     /// <example><code>
     /// await client.Catalog.UnitsOptionsAsync(new UnitsOptionsCatalogRequest());
     /// </code></example>
@@ -6240,6 +6285,9 @@ public partial class CatalogClient : ICatalogClient
         );
     }
 
+    /// <summary>
+    /// Create an item group, optionally under `parentId`. 409 when the code already exists.
+    /// </summary>
     /// <example><code>
     /// await client.Catalog.ItemGroupsCreateAsync(
     ///     new ItemGroupsCreateCatalogRequest { Code = "code", Name = "name" }
@@ -6256,6 +6304,9 @@ public partial class CatalogClient : ICatalogClient
         );
     }
 
+    /// <summary>
+    /// Change the code, name or parent of an item group; `parentId` null moves it to the top level. 422 when the new parent is the group itself or one of its descendants. 409 when the new code already exists.
+    /// </summary>
     /// <example><code>
     /// await client.Catalog.ItemGroupsUpdateAsync(new ItemGroupsUpdateCatalogRequest { Id = "id" });
     /// </code></example>
@@ -6270,6 +6321,9 @@ public partial class CatalogClient : ICatalogClient
         );
     }
 
+    /// <summary>
+    /// Delete an item group. Refused with 409 while it has child groups or active items assigned.
+    /// </summary>
     /// <example><code>
     /// await client.Catalog.ItemGroupsDeleteAsync(new ItemGroupsDeleteCatalogRequest { Id = "id" });
     /// </code></example>
@@ -6284,6 +6338,9 @@ public partial class CatalogClient : ICatalogClient
         );
     }
 
+    /// <summary>
+    /// List the company's item groups, ordered by code.
+    /// </summary>
     /// <example><code>
     /// await client.Catalog.ItemGroupsListAsync(new ItemGroupsListCatalogRequest());
     /// </code></example>
@@ -6298,6 +6355,9 @@ public partial class CatalogClient : ICatalogClient
         );
     }
 
+    /// <summary>
+    /// Create or replace the supplier record of an item for a partner (one per item and partner): supplier code, purchase price excluding VAT, currency (EUR when omitted) and notes. Fields omitted from the request are cleared on an existing record.
+    /// </summary>
     /// <example><code>
     /// await client.Catalog.ItemsSuppliersUpsertAsync(
     ///     new ItemsSuppliersUpsertCatalogRequest { ItemId = "itemId", PartnerId = "partnerId" }
@@ -6314,6 +6374,9 @@ public partial class CatalogClient : ICatalogClient
         );
     }
 
+    /// <summary>
+    /// List the supplier records, optionally for one `itemId` and/or `partnerId`, ordered by partner name.
+    /// </summary>
     /// <example><code>
     /// await client.Catalog.ItemsSuppliersListAsync(new ItemsSuppliersListCatalogRequest());
     /// </code></example>
@@ -6328,6 +6391,9 @@ public partial class CatalogClient : ICatalogClient
         );
     }
 
+    /// <summary>
+    /// Delete the supplier record of an item.
+    /// </summary>
     /// <example><code>
     /// await client.Catalog.ItemsSuppliersDeleteAsync(
     ///     new ItemsSuppliersDeleteCatalogRequest { Id = "id" }
@@ -6344,6 +6410,9 @@ public partial class CatalogClient : ICatalogClient
         );
     }
 
+    /// <summary>
+    /// Create a price list (currency EUR and active when omitted). 409 when the code already exists.
+    /// </summary>
     /// <example><code>
     /// await client.Catalog.PriceListsCreateAsync(
     ///     new PriceListsCreateCatalogRequest { Code = "code", Name = "name" }
@@ -6360,6 +6429,9 @@ public partial class CatalogClient : ICatalogClient
         );
     }
 
+    /// <summary>
+    /// Change a price list. 409 when the new code already exists.
+    /// </summary>
     /// <example><code>
     /// await client.Catalog.PriceListsUpdateAsync(new PriceListsUpdateCatalogRequest { Id = "id" });
     /// </code></example>
@@ -6374,6 +6446,9 @@ public partial class CatalogClient : ICatalogClient
         );
     }
 
+    /// <summary>
+    /// List the company's price lists, ordered by code.
+    /// </summary>
     /// <example><code>
     /// await client.Catalog.PriceListsListAsync(new PriceListsListCatalogRequest());
     /// </code></example>
@@ -6388,6 +6463,9 @@ public partial class CatalogClient : ICatalogClient
         );
     }
 
+    /// <summary>
+    /// Set the unit price excluding VAT of up to 500 items on a price list; a price already on the list is replaced and the other items on the list are kept. 422 when an item appears twice in the request. Emits `price_list.updated` with the item ids.
+    /// </summary>
     /// <example><code>
     /// await client.Catalog.PriceListsItemsSetAsync(
     ///     new PriceListsItemsSetCatalogRequest
@@ -6415,6 +6493,9 @@ public partial class CatalogClient : ICatalogClient
         );
     }
 
+    /// <summary>
+    /// List the prices of a price list with the item name and code, ordered by item name.
+    /// </summary>
     /// <example><code>
     /// await client.Catalog.PriceListsItemsListAsync(
     ///     new PriceListsItemsListCatalogRequest { PriceListId = "priceListId" }
@@ -6431,6 +6512,9 @@ public partial class CatalogClient : ICatalogClient
         );
     }
 
+    /// <summary>
+    /// Remove one item from a price list.
+    /// </summary>
     /// <example><code>
     /// await client.Catalog.PriceListsItemsDeleteAsync(
     ///     new PriceListsItemsDeleteCatalogRequest { PriceListId = "priceListId", ItemId = "itemId" }

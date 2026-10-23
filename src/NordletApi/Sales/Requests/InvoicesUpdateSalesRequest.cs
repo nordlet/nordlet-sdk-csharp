@@ -48,6 +48,9 @@ public record InvoicesUpdateSalesRequest
     [JsonPropertyName("notes")]
     public string? Notes { get; set; }
 
+    [JsonPropertyName("locale")]
+    public InvoicesUpdateSalesRequestLocale? Locale { get; set; }
+
     [JsonPropertyName("operationTypeId")]
     public string? OperationTypeId { get; set; }
 
