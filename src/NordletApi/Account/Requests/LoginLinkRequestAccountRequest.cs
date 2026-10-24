@@ -21,6 +21,9 @@ public record LoginLinkRequestAccountRequest
     [JsonPropertyName("referralCode")]
     public string? ReferralCode { get; set; }
 
+    [JsonPropertyName("app")]
+    public LoginLinkRequestAccountRequestApp? App { get; set; }
+
     /// <inheritdoc />
     public override string ToString()
     {

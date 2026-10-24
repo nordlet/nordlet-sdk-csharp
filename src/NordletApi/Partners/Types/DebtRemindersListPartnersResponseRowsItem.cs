@@ -17,6 +17,9 @@ public record DebtRemindersListPartnersResponseRowsItem : IJsonOnDeserialized
     [JsonPropertyName("partnerId")]
     public required string PartnerId { get; set; }
 
+    [JsonPropertyName("kind")]
+    public required DebtRemindersListPartnersResponseRowsItemKind Kind { get; set; }
+
     [JsonPropertyName("sentTo")]
     public required string SentTo { get; set; }
 

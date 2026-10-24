@@ -22,6 +22,7 @@ public class DebtRemindersListTest : BaseMockServerTest
                 {
                   "id": "x",
                   "partnerId": "x",
+                  "kind": "before_due",
                   "sentTo": "sentTo",
                   "invoiceCount": 1000000,
                   "totalDue": "totalDue",
@@ -36,6 +37,7 @@ public class DebtRemindersListTest : BaseMockServerTest
                 {
                   "id": "x",
                   "partnerId": "x",
+                  "kind": "before_due",
                   "sentTo": "sentTo",
                   "invoiceCount": 1000000,
                   "totalDue": "totalDue",
@@ -104,6 +106,7 @@ public class DebtRemindersListTest : BaseMockServerTest
                 {
                   "id": "id",
                   "partnerId": "partnerId",
+                  "kind": "before_due",
                   "sentTo": "sentTo",
                   "invoiceCount": 1000000,
                   "totalDue": "totalDue",

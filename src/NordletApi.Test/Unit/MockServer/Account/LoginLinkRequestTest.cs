@@ -48,6 +48,7 @@ public class LoginLinkRequestTest : BaseMockServerTest
                 AcceptTerms = null,
                 AcceptDpa = null,
                 ReferralCode = null,
+                App = null,
             }
         );
         JsonAssert.AreEqual(response, mockResponse);
