@@ -28,6 +28,7 @@ public class AccountGetTest : BaseMockServerTest
               "paymentsConfigured": true,
               "hasPaymentAccount": true,
               "hasSubscription": true,
+              "subscriptionCancelAt": "2024-01-15T09:30:00.000Z",
               "paymentFailedAt": "2024-01-15T09:30:00.000Z",
               "paymentFailedInvoiceUrl": "paymentFailedInvoiceUrl",
               "monthToDate": {
@@ -105,6 +106,7 @@ public class AccountGetTest : BaseMockServerTest
               "paymentsConfigured": true,
               "hasPaymentAccount": true,
               "hasSubscription": true,
+              "subscriptionCancelAt": "2026-07-01T09:30:00.000Z",
               "paymentFailedAt": "2026-07-01T09:30:00.000Z",
               "paymentFailedInvoiceUrl": "paymentFailedInvoiceUrl",
               "monthToDate": {

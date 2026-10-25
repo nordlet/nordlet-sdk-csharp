@@ -10,6 +10,8 @@ namespace NordletApi;
 [Serializable]
 public readonly record struct InvoicesPaymentLinkSalesResponseSource : IStringEnum
 {
+    public static readonly InvoicesPaymentLinkSalesResponseSource Stripe = new(Values.Stripe);
+
     public static readonly InvoicesPaymentLinkSalesResponseSource Template = new(Values.Template);
 
     public InvoicesPaymentLinkSalesResponseSource(string value)
@@ -111,6 +113,8 @@ public readonly record struct InvoicesPaymentLinkSalesResponseSource : IStringEn
     [Serializable]
     public static class Values
     {
+        public const string Stripe = "stripe";
+
         public const string Template = "template";
     }
 }

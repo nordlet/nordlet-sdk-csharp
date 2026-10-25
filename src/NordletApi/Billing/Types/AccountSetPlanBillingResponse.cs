@@ -41,6 +41,12 @@ public record AccountSetPlanBillingResponse : IJsonOnDeserialized
     [JsonPropertyName("hasSubscription")]
     public required bool HasSubscription { get; set; }
 
+    /// <summary>
+    /// When the Stripe subscription ends after `subscription/cancel`; null while it renews
+    /// </summary>
+    [JsonPropertyName("subscriptionCancelAt")]
+    public DateTime? SubscriptionCancelAt { get; set; }
+
     [JsonPropertyName("paymentFailedAt")]
     public DateTime? PaymentFailedAt { get; set; }
 

@@ -21,7 +21,7 @@ public class InvoicesPaymentLinkTest : BaseMockServerTest
         const string mockResponse = """
             {
               "url": "url",
-              "source": "template"
+              "source": "stripe"
             }
             """;
 
@@ -59,7 +59,7 @@ public class InvoicesPaymentLinkTest : BaseMockServerTest
         const string mockResponse = """
             {
               "url": "url",
-              "source": "template"
+              "source": "stripe"
             }
             """;
 

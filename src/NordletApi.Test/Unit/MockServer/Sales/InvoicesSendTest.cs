@@ -47,6 +47,7 @@ public class InvoicesSendTest : BaseMockServerTest
                 Id = "x",
                 To = null,
                 Locale = null,
+                Quote = null,
             }
         );
         JsonAssert.AreEqual(response, mockResponse);

@@ -48,6 +48,42 @@ public record CompaniesCreateAccountRequest
     [JsonPropertyName("bankName")]
     public string? BankName { get; set; }
 
+    [JsonPropertyName("bankBic")]
+    public string? BankBic { get; set; }
+
+    /// <summary>
+    /// Sort code, routing number, BSB, IFSC or institution number
+    /// </summary>
+    [JsonPropertyName("bankCode")]
+    public string? BankCode { get; set; }
+
+    /// <summary>
+    /// Transit number (Canada)
+    /// </summary>
+    [JsonPropertyName("bankBranchCode")]
+    public string? BankBranchCode { get; set; }
+
+    [JsonPropertyName("bankAccountNumber")]
+    public string? BankAccountNumber { get; set; }
+
+    /// <summary>
+    /// Prefix of the numbers of invoices issued without a document series; SF when not set
+    /// </summary>
+    [JsonPropertyName("invoicePrefix")]
+    public string? InvoicePrefix { get; set; }
+
+    /// <summary>
+    /// Language a new invoice starts with when neither the invoice nor its partner names one
+    /// </summary>
+    [JsonPropertyName("defaultInvoiceLocale")]
+    public CompaniesCreateAccountRequestDefaultInvoiceLocale? DefaultInvoiceLocale { get; set; }
+
+    /// <summary>
+    /// Note a new invoice, proforma or advance invoice starts with when it names no notes
+    /// </summary>
+    [JsonPropertyName("defaultInvoiceNote")]
+    public string? DefaultInvoiceNote { get; set; }
+
     [JsonPropertyName("peppolId")]
     public string? PeppolId { get; set; }
 

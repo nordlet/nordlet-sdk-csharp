@@ -71,6 +71,36 @@ public record CompaniesUpdateAccountResponse : IJsonOnDeserialized
     [JsonPropertyName("bankName")]
     public string? BankName { get; set; }
 
+    [JsonPropertyName("bankBic")]
+    public string? BankBic { get; set; }
+
+    [JsonPropertyName("bankCode")]
+    public string? BankCode { get; set; }
+
+    [JsonPropertyName("bankBranchCode")]
+    public string? BankBranchCode { get; set; }
+
+    [JsonPropertyName("bankAccountNumber")]
+    public string? BankAccountNumber { get; set; }
+
+    /// <summary>
+    /// Prefix of the numbers of invoices issued without a document series (SF when none was set)
+    /// </summary>
+    [JsonPropertyName("invoicePrefix")]
+    public required string InvoicePrefix { get; set; }
+
+    /// <summary>
+    /// Number the next invoice issued without a document series gets, before any country-specific format
+    /// </summary>
+    [JsonPropertyName("nextInvoiceNumber")]
+    public required string NextInvoiceNumber { get; set; }
+
+    [JsonPropertyName("defaultInvoiceLocale")]
+    public string? DefaultInvoiceLocale { get; set; }
+
+    [JsonPropertyName("defaultInvoiceNote")]
+    public string? DefaultInvoiceNote { get; set; }
+
     [JsonPropertyName("peppolId")]
     public string? PeppolId { get; set; }
 

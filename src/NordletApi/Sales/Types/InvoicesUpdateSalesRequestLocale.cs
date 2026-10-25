@@ -14,6 +14,64 @@ public readonly record struct InvoicesUpdateSalesRequestLocale : IStringEnum
 
     public static readonly InvoicesUpdateSalesRequestLocale De = new(Values.De);
 
+    public static readonly InvoicesUpdateSalesRequestLocale Fr = new(Values.Fr);
+
+    public static readonly InvoicesUpdateSalesRequestLocale Es = new(Values.Es);
+
+    public static readonly InvoicesUpdateSalesRequestLocale It = new(Values.It);
+
+    public static readonly InvoicesUpdateSalesRequestLocale Pt = new(Values.Pt);
+
+    public static readonly InvoicesUpdateSalesRequestLocale Nl = new(Values.Nl);
+
+    public static readonly InvoicesUpdateSalesRequestLocale Pl = new(Values.Pl);
+
+    public static readonly InvoicesUpdateSalesRequestLocale Sv = new(Values.Sv);
+
+    public static readonly InvoicesUpdateSalesRequestLocale Da = new(Values.Da);
+
+    public static readonly InvoicesUpdateSalesRequestLocale No = new(Values.No);
+
+    public static readonly InvoicesUpdateSalesRequestLocale Fi = new(Values.Fi);
+
+    public static readonly InvoicesUpdateSalesRequestLocale Et = new(Values.Et);
+
+    public static readonly InvoicesUpdateSalesRequestLocale Lv = new(Values.Lv);
+
+    public static readonly InvoicesUpdateSalesRequestLocale Cs = new(Values.Cs);
+
+    public static readonly InvoicesUpdateSalesRequestLocale Sk = new(Values.Sk);
+
+    public static readonly InvoicesUpdateSalesRequestLocale Hu = new(Values.Hu);
+
+    public static readonly InvoicesUpdateSalesRequestLocale Ro = new(Values.Ro);
+
+    public static readonly InvoicesUpdateSalesRequestLocale Bg = new(Values.Bg);
+
+    public static readonly InvoicesUpdateSalesRequestLocale Hr = new(Values.Hr);
+
+    public static readonly InvoicesUpdateSalesRequestLocale Sl = new(Values.Sl);
+
+    public static readonly InvoicesUpdateSalesRequestLocale El = new(Values.El);
+
+    public static readonly InvoicesUpdateSalesRequestLocale Mt = new(Values.Mt);
+
+    public static readonly InvoicesUpdateSalesRequestLocale Is = new(Values.Is);
+
+    public static readonly InvoicesUpdateSalesRequestLocale Ga = new(Values.Ga);
+
+    public static readonly InvoicesUpdateSalesRequestLocale Zh = new(Values.Zh);
+
+    public static readonly InvoicesUpdateSalesRequestLocale Ja = new(Values.Ja);
+
+    public static readonly InvoicesUpdateSalesRequestLocale Ar = new(Values.Ar);
+
+    public static readonly InvoicesUpdateSalesRequestLocale Hi = new(Values.Hi);
+
+    public static readonly InvoicesUpdateSalesRequestLocale Ru = new(Values.Ru);
+
+    public static readonly InvoicesUpdateSalesRequestLocale Tr = new(Values.Tr);
+
     public InvoicesUpdateSalesRequestLocale(string value)
     {
         Value = value;
@@ -116,5 +174,63 @@ public readonly record struct InvoicesUpdateSalesRequestLocale : IStringEnum
         public const string Lt = "lt";
 
         public const string De = "de";
+
+        public const string Fr = "fr";
+
+        public const string Es = "es";
+
+        public const string It = "it";
+
+        public const string Pt = "pt";
+
+        public const string Nl = "nl";
+
+        public const string Pl = "pl";
+
+        public const string Sv = "sv";
+
+        public const string Da = "da";
+
+        public const string No = "no";
+
+        public const string Fi = "fi";
+
+        public const string Et = "et";
+
+        public const string Lv = "lv";
+
+        public const string Cs = "cs";
+
+        public const string Sk = "sk";
+
+        public const string Hu = "hu";
+
+        public const string Ro = "ro";
+
+        public const string Bg = "bg";
+
+        public const string Hr = "hr";
+
+        public const string Sl = "sl";
+
+        public const string El = "el";
+
+        public const string Mt = "mt";
+
+        public const string Is = "is";
+
+        public const string Ga = "ga";
+
+        public const string Zh = "zh";
+
+        public const string Ja = "ja";
+
+        public const string Ar = "ar";
+
+        public const string Hi = "hi";
+
+        public const string Ru = "ru";
+
+        public const string Tr = "tr";
     }
 }

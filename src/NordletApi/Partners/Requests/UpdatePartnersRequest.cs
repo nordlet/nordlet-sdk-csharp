@@ -45,6 +45,18 @@ public record UpdatePartnersRequest
     [JsonPropertyName("paymentTermDays")]
     public long? PaymentTermDays { get; set; }
 
+    /// <summary>
+    /// Currency a new invoice for this partner starts with when the invoice names none
+    /// </summary>
+    [JsonPropertyName("invoiceCurrency")]
+    public UpdatePartnersRequestInvoiceCurrency? InvoiceCurrency { get; set; }
+
+    /// <summary>
+    /// Language a new invoice for this partner starts with when the invoice names none
+    /// </summary>
+    [JsonPropertyName("invoiceLocale")]
+    public UpdatePartnersRequestInvoiceLocale? InvoiceLocale { get; set; }
+
     [JsonPropertyName("creditLimit")]
     public string? CreditLimit { get; set; }
 

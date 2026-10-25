@@ -50,6 +50,12 @@ public record ListPartnersResponseRowsItem : IJsonOnDeserialized
     [JsonPropertyName("paymentTermDays")]
     public long? PaymentTermDays { get; set; }
 
+    [JsonPropertyName("invoiceCurrency")]
+    public string? InvoiceCurrency { get; set; }
+
+    [JsonPropertyName("invoiceLocale")]
+    public string? InvoiceLocale { get; set; }
+
     [JsonPropertyName("creditLimit")]
     public string? CreditLimit { get; set; }
 

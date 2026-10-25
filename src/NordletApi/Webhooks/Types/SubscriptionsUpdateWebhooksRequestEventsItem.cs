@@ -138,6 +138,10 @@ public readonly record struct SubscriptionsUpdateWebhooksRequestEventsItem : ISt
         Values.SaleInvoicePeppolSent
     );
 
+    public static readonly SubscriptionsUpdateWebhooksRequestEventsItem SaleInvoiceQuoteSent = new(
+        Values.SaleInvoiceQuoteSent
+    );
+
     public static readonly SubscriptionsUpdateWebhooksRequestEventsItem SaleInvoiceSent = new(
         Values.SaleInvoiceSent
     );
@@ -352,6 +356,8 @@ public readonly record struct SubscriptionsUpdateWebhooksRequestEventsItem : ISt
         public const string SaleInvoicePeppolRejected = "sale_invoice.peppol_rejected";
 
         public const string SaleInvoicePeppolSent = "sale_invoice.peppol_sent";
+
+        public const string SaleInvoiceQuoteSent = "sale_invoice.quote_sent";
 
         public const string SaleInvoiceSent = "sale_invoice.sent";
 

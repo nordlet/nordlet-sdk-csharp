@@ -16,6 +16,8 @@ public readonly record struct FlatRateConfirmBillingResponsePlan : IStringEnum
 
     public static readonly FlatRateConfirmBillingResponsePlan Scale = new(Values.Scale);
 
+    public static readonly FlatRateConfirmBillingResponsePlan Invoicing = new(Values.Invoicing);
+
     public FlatRateConfirmBillingResponsePlan(string value)
     {
         Value = value;
@@ -118,5 +120,7 @@ public readonly record struct FlatRateConfirmBillingResponsePlan : IStringEnum
         public const string Business = "business";
 
         public const string Scale = "scale";
+
+        public const string Invoicing = "invoicing";
     }
 }

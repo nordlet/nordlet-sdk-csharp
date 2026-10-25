@@ -56,6 +56,12 @@ public record InvoicesIssueSalesResponse : IJsonOnDeserialized
     [JsonPropertyName("grossTotal")]
     public required string GrossTotal { get; set; }
 
+    [JsonPropertyName("salesTaxPercent")]
+    public string? SalesTaxPercent { get; set; }
+
+    [JsonPropertyName("salesTaxTotal")]
+    public required string SalesTaxTotal { get; set; }
+
     [JsonPropertyName("paidAmount")]
     public required string PaidAmount { get; set; }
 
@@ -145,6 +151,12 @@ public record InvoicesIssueSalesResponse : IJsonOnDeserialized
 
     [JsonPropertyName("payToken")]
     public string? PayToken { get; set; }
+
+    [JsonPropertyName("payLinkEnabled")]
+    public required bool PayLinkEnabled { get; set; }
+
+    [JsonPropertyName("debtRemindersEnabled")]
+    public required bool DebtRemindersEnabled { get; set; }
 
     [JsonPropertyName("einvoiceSystem")]
     public string? EinvoiceSystem { get; set; }

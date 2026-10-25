@@ -16,6 +16,10 @@ public readonly record struct AccountSetAccountTypeBillingResponsePlan : IString
 
     public static readonly AccountSetAccountTypeBillingResponsePlan Scale = new(Values.Scale);
 
+    public static readonly AccountSetAccountTypeBillingResponsePlan Invoicing = new(
+        Values.Invoicing
+    );
+
     public AccountSetAccountTypeBillingResponsePlan(string value)
     {
         Value = value;
@@ -124,5 +128,7 @@ public readonly record struct AccountSetAccountTypeBillingResponsePlan : IString
         public const string Business = "business";
 
         public const string Scale = "scale";
+
+        public const string Invoicing = "invoicing";
     }
 }

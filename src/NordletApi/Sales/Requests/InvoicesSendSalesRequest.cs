@@ -15,6 +15,9 @@ public record InvoicesSendSalesRequest
     [JsonPropertyName("locale")]
     public InvoicesSendSalesRequestLocale? Locale { get; set; }
 
+    [JsonPropertyName("quote")]
+    public bool? Quote { get; set; }
+
     /// <inheritdoc />
     public override string ToString()
     {

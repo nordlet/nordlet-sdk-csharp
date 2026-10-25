@@ -14,6 +14,8 @@ public readonly record struct TopupConfirmBillingResponsePlan : IStringEnum
 
     public static readonly TopupConfirmBillingResponsePlan Scale = new(Values.Scale);
 
+    public static readonly TopupConfirmBillingResponsePlan Invoicing = new(Values.Invoicing);
+
     public TopupConfirmBillingResponsePlan(string value)
     {
         Value = value;
@@ -116,5 +118,7 @@ public readonly record struct TopupConfirmBillingResponsePlan : IStringEnum
         public const string Business = "business";
 
         public const string Scale = "scale";
+
+        public const string Invoicing = "invoicing";
     }
 }

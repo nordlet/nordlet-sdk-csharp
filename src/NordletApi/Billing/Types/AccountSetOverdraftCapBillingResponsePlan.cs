@@ -18,6 +18,10 @@ public readonly record struct AccountSetOverdraftCapBillingResponsePlan : IStrin
 
     public static readonly AccountSetOverdraftCapBillingResponsePlan Scale = new(Values.Scale);
 
+    public static readonly AccountSetOverdraftCapBillingResponsePlan Invoicing = new(
+        Values.Invoicing
+    );
+
     public AccountSetOverdraftCapBillingResponsePlan(string value)
     {
         Value = value;
@@ -126,5 +130,7 @@ public readonly record struct AccountSetOverdraftCapBillingResponsePlan : IStrin
         public const string Business = "business";
 
         public const string Scale = "scale";
+
+        public const string Invoicing = "invoicing";
     }
 }

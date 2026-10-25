@@ -51,6 +51,12 @@ public record InvoicesUpdateSalesRequest
     [JsonPropertyName("locale")]
     public InvoicesUpdateSalesRequestLocale? Locale { get; set; }
 
+    [JsonPropertyName("payLinkEnabled")]
+    public bool? PayLinkEnabled { get; set; }
+
+    [JsonPropertyName("debtRemindersEnabled")]
+    public bool? DebtRemindersEnabled { get; set; }
+
     [JsonPropertyName("operationTypeId")]
     public string? OperationTypeId { get; set; }
 
@@ -77,6 +83,9 @@ public record InvoicesUpdateSalesRequest
 
     [JsonPropertyName("receivedByTitle")]
     public string? ReceivedByTitle { get; set; }
+
+    [JsonPropertyName("salesTaxPercent")]
+    public string? SalesTaxPercent { get; set; }
 
     [JsonPropertyName("lines")]
     public IEnumerable<InvoicesUpdateSalesRequestLinesItem>? Lines { get; set; }

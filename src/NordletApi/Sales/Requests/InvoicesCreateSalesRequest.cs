@@ -72,6 +72,18 @@ public record InvoicesCreateSalesRequest
     [JsonPropertyName("locale")]
     public InvoicesCreateSalesRequestLocale? Locale { get; set; }
 
+    /// <summary>
+    /// Whether the PDF and the e-mail carry the payment link of the company payment link template
+    /// </summary>
+    [JsonPropertyName("payLinkEnabled")]
+    public bool? PayLinkEnabled { get; set; }
+
+    /// <summary>
+    /// Whether automatic debt reminders include this invoice when its partner has them turned on
+    /// </summary>
+    [JsonPropertyName("debtRemindersEnabled")]
+    public bool? DebtRemindersEnabled { get; set; }
+
     [JsonPropertyName("operationTypeId")]
     public string? OperationTypeId { get; set; }
 
@@ -98,6 +110,12 @@ public record InvoicesCreateSalesRequest
 
     [JsonPropertyName("discountPercent")]
     public string? DiscountPercent { get; set; }
+
+    /// <summary>
+    /// Sales tax as a percent of the net total, added to the invoice total. It is not posted to the ledger and is left out of VAT and national tax reports. Invoices only.
+    /// </summary>
+    [JsonPropertyName("salesTaxPercent")]
+    public string? SalesTaxPercent { get; set; }
 
     [JsonPropertyName("lines")]
     public IEnumerable<InvoicesCreateSalesRequestLinesItem> Lines { get; set; } =
