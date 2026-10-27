@@ -32,6 +32,9 @@ public record CompaniesProfileAccountResponse : IJsonOnDeserialized
     [JsonPropertyName("isSandbox")]
     public required bool IsSandbox { get; set; }
 
+    [JsonPropertyName("cashBasis")]
+    public required bool CashBasis { get; set; }
+
     [JsonPropertyName("countryCode")]
     public required string CountryCode { get; set; }
 

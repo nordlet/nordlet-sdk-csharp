@@ -37,6 +37,8 @@ public readonly record struct DeReturnsGenerateDeclarationsRequestRuleKey : IStr
         Values.DePayrollStatements
     );
 
+    public static readonly DeReturnsGenerateDeclarationsRequestRuleKey DeEuer = new(Values.DeEuer);
+
     public DeReturnsGenerateDeclarationsRequestRuleKey(string value)
     {
         Value = value;
@@ -153,5 +155,7 @@ public readonly record struct DeReturnsGenerateDeclarationsRequestRuleKey : IStr
         public const string DePayrollWithholding = "de-payroll-withholding";
 
         public const string DePayrollStatements = "de-payroll-statements";
+
+        public const string DeEuer = "de-euer";
     }
 }

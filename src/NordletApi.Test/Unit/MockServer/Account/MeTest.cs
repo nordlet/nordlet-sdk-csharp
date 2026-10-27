@@ -61,6 +61,7 @@ public class MeTest : BaseMockServerTest
                   "vatCode": "vatCode",
                   "role": "role",
                   "isSandbox": true,
+                  "cashBasis": true,
                   "status": "active",
                   "deletedAt": "2024-01-15T09:30:00.000Z"
                 },
@@ -71,6 +72,7 @@ public class MeTest : BaseMockServerTest
                   "vatCode": "vatCode",
                   "role": "role",
                   "isSandbox": true,
+                  "cashBasis": true,
                   "status": "active",
                   "deletedAt": "2024-01-15T09:30:00.000Z"
                 }
@@ -150,6 +152,7 @@ public class MeTest : BaseMockServerTest
                   "vatCode": "vatCode",
                   "role": "role",
                   "isSandbox": true,
+                  "cashBasis": true,
                   "status": "active",
                   "deletedAt": "2026-07-01T09:30:00.000Z"
                 }

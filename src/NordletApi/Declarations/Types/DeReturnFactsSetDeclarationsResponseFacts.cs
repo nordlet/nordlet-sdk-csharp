@@ -86,6 +86,15 @@ public record DeReturnFactsSetDeclarationsResponseFacts : IJsonOnDeserialized
     [JsonPropertyName("distanceSales")]
     public string? DistanceSales { get; set; }
 
+    [JsonPropertyName("euerEinkunftsart")]
+    public DeReturnFactsSetDeclarationsResponseFactsEuerEinkunftsart? EuerEinkunftsart { get; set; }
+
+    [JsonPropertyName("euerEntnahmen")]
+    public string? EuerEntnahmen { get; set; }
+
+    [JsonPropertyName("euerEinlagen")]
+    public string? EuerEinlagen { get; set; }
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

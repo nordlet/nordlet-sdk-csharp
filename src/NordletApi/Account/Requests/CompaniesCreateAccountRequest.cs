@@ -138,6 +138,12 @@ public record CompaniesCreateAccountRequest
     [JsonPropertyName("isSandbox")]
     public bool? IsSandbox { get; set; }
 
+    /// <summary>
+    /// The company determines its profit on a cash basis (receipts and payments, in Germany the Einnahmenüberschussrechnung of § 4 Abs. 3 EStG); it gets the cash-basis returns in its filing calendar (immutable after creation)
+    /// </summary>
+    [JsonPropertyName("cashBasis")]
+    public bool? CashBasis { get; set; }
+
     /// <inheritdoc />
     public override string ToString()
     {

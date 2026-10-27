@@ -8480,7 +8480,7 @@ public partial class AccountClient : IAccountClient
     }
 
     /// <summary>
-    /// Change the profile of the active company; owners and admins may call it. Only the fields sent are changed, and the nullable ones can be sent as null to clear them. `logo` stores a base64-encoded image as a file of the company and sets `logoFileId`. The country, base currency and sandbox flag are fixed at creation.
+    /// Change the profile of the active company; owners and admins may call it. Only the fields sent are changed, and the nullable ones can be sent as null to clear them. `logo` stores a base64-encoded image as a file of the company and sets `logoFileId`. The country, base currency, sandbox flag and cash-basis flag are fixed at creation.
     /// </summary>
     /// <example><code>
     /// await client.Account.CompaniesUpdateAsync(new CompaniesUpdateAccountRequest());

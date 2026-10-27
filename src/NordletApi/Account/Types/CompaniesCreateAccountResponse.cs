@@ -29,6 +29,9 @@ public record CompaniesCreateAccountResponse : IJsonOnDeserialized
     [JsonPropertyName("isSandbox")]
     public required bool IsSandbox { get; set; }
 
+    [JsonPropertyName("cashBasis")]
+    public required bool CashBasis { get; set; }
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

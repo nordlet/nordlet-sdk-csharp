@@ -29,6 +29,9 @@ public record MeAccountResponseCompaniesItem : IJsonOnDeserialized
     [JsonPropertyName("isSandbox")]
     public required bool IsSandbox { get; set; }
 
+    [JsonPropertyName("cashBasis")]
+    public required bool CashBasis { get; set; }
+
     [JsonPropertyName("status")]
     public required MeAccountResponseCompaniesItemStatus Status { get; set; }
 

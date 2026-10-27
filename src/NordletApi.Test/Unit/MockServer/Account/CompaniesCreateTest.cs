@@ -25,7 +25,8 @@ public class CompaniesCreateTest : BaseMockServerTest
               "code": "code",
               "vatCode": "vatCode",
               "role": "role",
-              "isSandbox": true
+              "isSandbox": true,
+              "cashBasis": true
             }
             """;
 
@@ -84,6 +85,7 @@ public class CompaniesCreateTest : BaseMockServerTest
                 CountryCode = null,
                 BaseCurrency = null,
                 IsSandbox = null,
+                CashBasis = null,
             }
         );
         JsonAssert.AreEqual(response, mockResponse);
@@ -105,7 +107,8 @@ public class CompaniesCreateTest : BaseMockServerTest
               "code": "code",
               "vatCode": "vatCode",
               "role": "role",
-              "isSandbox": true
+              "isSandbox": true,
+              "cashBasis": true
             }
             """;
 

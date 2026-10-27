@@ -152,7 +152,10 @@ public class DeReturnFactsSetTest : BaseMockServerTest
                   "city": "x"
                 },
                 "singleTransportTax": "singleTransportTax",
-                "distanceSales": "distanceSales"
+                "distanceSales": "distanceSales",
+                "euerEinkunftsart": "1",
+                "euerEntnahmen": "euerEntnahmen",
+                "euerEinlagen": "euerEinlagen"
               }
             }
             """;
@@ -204,6 +207,9 @@ public class DeReturnFactsSetTest : BaseMockServerTest
                     Representative = null,
                     SingleTransportTax = null,
                     DistanceSales = null,
+                    EuerEinkunftsart = null,
+                    EuerEntnahmen = null,
+                    EuerEinlagen = null,
                 },
             }
         );
@@ -309,7 +315,10 @@ public class DeReturnFactsSetTest : BaseMockServerTest
                   "city": "city"
                 },
                 "singleTransportTax": "-121.00",
-                "distanceSales": "-121.00"
+                "distanceSales": "-121.00",
+                "euerEinkunftsart": "1",
+                "euerEntnahmen": "-121.00",
+                "euerEinlagen": "-121.00"
               }
             }
             """;
