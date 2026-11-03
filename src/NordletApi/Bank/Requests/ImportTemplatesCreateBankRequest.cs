@@ -24,6 +24,9 @@ public record ImportTemplatesCreateBankRequest
     [JsonPropertyName("invoiceVatRatePercent")]
     public string? InvoiceVatRatePercent { get; set; }
 
+    [JsonPropertyName("invoiceVatClassifierCode")]
+    public string? InvoiceVatClassifierCode { get; set; }
+
     [JsonPropertyName("companyMetaField")]
     public string? CompanyMetaField { get; set; }
 

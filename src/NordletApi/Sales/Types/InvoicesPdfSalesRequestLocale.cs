@@ -72,6 +72,8 @@ public readonly record struct InvoicesPdfSalesRequestLocale : IStringEnum
 
     public static readonly InvoicesPdfSalesRequestLocale Tr = new(Values.Tr);
 
+    public static readonly InvoicesPdfSalesRequestLocale Uk = new(Values.Uk);
+
     public InvoicesPdfSalesRequestLocale(string value)
     {
         Value = value;
@@ -232,5 +234,7 @@ public readonly record struct InvoicesPdfSalesRequestLocale : IStringEnum
         public const string Ru = "ru";
 
         public const string Tr = "tr";
+
+        public const string Uk = "uk";
     }
 }

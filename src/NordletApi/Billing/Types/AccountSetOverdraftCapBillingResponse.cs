@@ -11,6 +11,12 @@ public record AccountSetOverdraftCapBillingResponse : IJsonOnDeserialized
     private readonly IDictionary<string, JsonElement> _extensionData =
         new Dictionary<string, JsonElement>();
 
+    /// <summary>
+    /// The site whose plan this is, from the `x-nordlet-site` header
+    /// </summary>
+    [JsonPropertyName("site")]
+    public required AccountSetOverdraftCapBillingResponseSite Site { get; set; }
+
     [JsonPropertyName("plan")]
     public required AccountSetOverdraftCapBillingResponsePlan Plan { get; set; }
 

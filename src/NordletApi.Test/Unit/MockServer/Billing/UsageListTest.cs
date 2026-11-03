@@ -24,12 +24,14 @@ public class UsageListTest : BaseMockServerTest
               "rows": [
                 {
                   "companyId": "x",
+                  "site": "app",
                   "date": "2023-01-15",
                   "metric": "api_request",
                   "quantity": 1.1
                 },
                 {
                   "companyId": "x",
+                  "site": "app",
                   "date": "2023-01-15",
                   "metric": "api_request",
                   "quantity": 1.1
@@ -79,6 +81,7 @@ public class UsageListTest : BaseMockServerTest
               "rows": [
                 {
                   "companyId": "companyId",
+                  "site": "app",
                   "date": "2026-07-01",
                   "metric": "api_request",
                   "quantity": 1.1

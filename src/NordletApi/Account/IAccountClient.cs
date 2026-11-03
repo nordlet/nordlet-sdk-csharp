@@ -30,7 +30,7 @@ public partial interface IAccountClient
     );
 
     /// <summary>
-    /// Return the signed-in user, their active company and role in it, the companies they belong to and their consent state. `billing` is the billing account that pays for the active company (its payer, or the user when there is none or no company), with `isPayer` saying whether that is the user; `referralPoints` is the user's current points balance.
+    /// Return the signed-in user, their active company and role in it, the companies they belong to and their consent state. `billing` is the billing account of the request's site (the `x-nordlet-site` header, `app` when absent) that pays for the active company (its payer, or the user when there is none or no company), with `isPayer` saying whether that is the user; `referralPoints` is the user's current points balance. An API key may call it too: the active company is then the one named in the `x-nordlet-company` header, and `companies` lists every company the key works in.
     /// </summary>
     WithRawResponseTask<MeAccountResponse> MeAsync(
         MeAccountRequest request,
@@ -66,7 +66,7 @@ public partial interface IAccountClient
     );
 
     /// <summary>
-    /// Remove a member from the active company; owners and admins may call it. Their sessions lose this company as the active one and the API keys they created for it are revoked. Refused with 422 for the caller themself and with 403 for the owner.
+    /// Remove a member from the active company; owners and admins may call it. Their sessions lose this company as the active one and their API keys stop working in it. Refused with 422 for the caller themself and with 403 for the owner.
     /// </summary>
     WithRawResponseTask<MembersRemoveAccountResponse> MembersRemoveAsync(
         MembersRemoveAccountRequest request,
@@ -138,7 +138,7 @@ public partial interface IAccountClient
     );
 
     /// <summary>
-    /// Make one of the caller's companies the active company of the session. Refused with 403 when the caller is not a member and with 422 when the company is archived or deleted.
+    /// Make one of the caller's companies the active company of the session. Refused with 403 when the caller is not a member, with 422 when the company is archived or deleted, and with 422 for an API key, which names the company in the `x-nordlet-company` header of each call instead.
     /// </summary>
     WithRawResponseTask<CompaniesSelectAccountResponse> CompaniesSelectAsync(
         CompaniesSelectAccountRequest request,
@@ -192,7 +192,7 @@ public partial interface IAccountClient
     );
 
     /// <summary>
-    /// Create an API key for the active company and return the key itself once; owners, admins and developers may call it. `scopes` defaults to the caller's own scopes and may not exceed them (403); without `expiresInDays` the key does not expire.
+    /// Create an API key for the signed-in person and return the key itself once. Owners, admins and developers of the active company may call it. The key works in every company the person is a member of, with the rights of their role in each; every call names the company in the `x-nordlet-company` header. `scopes` defaults to the caller's scopes in the active company and may not exceed them (403); in each company the key's scopes are further limited to the person's role there. Without `expiresInDays` the key does not expire.
     /// </summary>
     WithRawResponseTask<ApiKeysCreateAccountResponse> ApiKeysCreateAsync(
         ApiKeysCreateAccountRequest request,
@@ -201,7 +201,7 @@ public partial interface IAccountClient
     );
 
     /// <summary>
-    /// List the API keys of the active company, including expired and revoked ones.
+    /// List the signed-in person's API keys, including expired and revoked ones.
     /// </summary>
     WithRawResponseTask<ApiKeysListAccountResponse> ApiKeysListAsync(
         ApiKeysListAccountRequest request,
@@ -210,7 +210,7 @@ public partial interface IAccountClient
     );
 
     /// <summary>
-    /// Create a new key with the name and scopes of the key `id` and return it once; the old key keeps working for `overlapHours` and then expires, and its `replacedByKeyId` points to the new one. `expiresInDays` applies to the new key. Refused with 409 when the old key is revoked.
+    /// Create a new key with the name and scopes of the signed-in person's key `id` and return it once; the old key keeps working for `overlapHours` and then expires, and its `replacedByKeyId` points to the new one. `expiresInDays` applies to the new key. Refused with 409 when the old key is revoked or belongs to an app connected through OAuth, which renews its own access.
     /// </summary>
     WithRawResponseTask<ApiKeysRotateAccountResponse> ApiKeysRotateAsync(
         ApiKeysRotateAccountRequest request,
@@ -219,7 +219,7 @@ public partial interface IAccountClient
     );
 
     /// <summary>
-    /// Revoke an API key of the active company at once.
+    /// Revoke one of the signed-in person's API keys at once.
     /// </summary>
     WithRawResponseTask<ApiKeysRevokeAccountResponse> ApiKeysRevokeAsync(
         ApiKeysRevokeAccountRequest request,
@@ -282,7 +282,7 @@ public partial interface IAccountClient
     );
 
     /// <summary>
-    /// Return the user's profile, consent state, memberships, unexpired sessions, billing account, credit transactions and the audit entries they made in their companies (the most recent 5000 of each of the last two).
+    /// Return the user's profile, consent state, memberships, unexpired sessions, billing accounts (`billing` is the `app` site's, `billingAccounts` has one per site), credit transactions and the audit entries they made in their companies (the most recent 5000 of each of the last two).
     /// </summary>
     WithRawResponseTask<ExportAccountResponse> ExportAsync(
         ExportAccountRequest request,
@@ -340,6 +340,33 @@ public partial interface IAccountClient
     /// </summary>
     WithRawResponseTask<TableSettingsListAccountResponse> TableSettingsListAsync(
         TableSettingsListAccountRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    /// <summary>
+    /// Check an OAuth authorization request of an app that wants to connect to Nordlet (such as Claude) and return the name the app registered, the address the signed-in person is sent back to and the scopes asked for. Refused with 422 when the request is invalid: unknown app, redirect address not registered for it, no PKCE (S256), unknown scope or a resource other than the MCP server.
+    /// </summary>
+    WithRawResponseTask<OauthAuthorizeDescribeAccountResponse> OauthAuthorizeDescribeAsync(
+        OauthAuthorizeDescribeAccountRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    /// <summary>
+    /// Allow the app of an OAuth authorization request to act for the signed-in person and return the app's redirect address with a one-time authorization code (valid for 5 minutes). The app exchanges the code at `/oauth/token` for an access token that works like an API key of the person: in every company they are a member of, with the rights of their role there. The connection is listed among the person's API keys under the app's name and is revoked there. Refused with 422 like `account/oauth/authorize/describe`.
+    /// </summary>
+    WithRawResponseTask<OauthAuthorizeApproveAccountResponse> OauthAuthorizeApproveAsync(
+        OauthAuthorizeApproveAccountRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    /// <summary>
+    /// Refuse an OAuth authorization request and return the app's redirect address with the error `access_denied`. Refused with 422 like `account/oauth/authorize/describe`.
+    /// </summary>
+    WithRawResponseTask<OauthAuthorizeDenyAccountResponse> OauthAuthorizeDenyAsync(
+        OauthAuthorizeDenyAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );

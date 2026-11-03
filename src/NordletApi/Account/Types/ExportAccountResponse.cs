@@ -31,6 +31,10 @@ public record ExportAccountResponse : IJsonOnDeserialized
     [JsonPropertyName("billing")]
     public ExportAccountResponseBilling? Billing { get; set; }
 
+    [JsonPropertyName("billingAccounts")]
+    public IEnumerable<ExportAccountResponseBillingAccountsItem> BillingAccounts { get; set; } =
+        new List<ExportAccountResponseBillingAccountsItem>();
+
     [JsonPropertyName("creditTransactions")]
     public IEnumerable<ExportAccountResponseCreditTransactionsItem> CreditTransactions { get; set; } =
         new List<ExportAccountResponseCreditTransactionsItem>();

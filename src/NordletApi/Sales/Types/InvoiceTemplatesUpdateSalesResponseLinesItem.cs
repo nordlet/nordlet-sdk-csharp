@@ -26,6 +26,9 @@ public record InvoiceTemplatesUpdateSalesResponseLinesItem : IJsonOnDeserialized
     [JsonPropertyName("vatRatePercent")]
     public string? VatRatePercent { get; set; }
 
+    [JsonPropertyName("vatClassifierCode")]
+    public string? VatClassifierCode { get; set; }
+
     [JsonPropertyName("vatExemptionBasis")]
     public string? VatExemptionBasis { get; set; }
 

@@ -74,6 +74,8 @@ public readonly record struct FindOrCreatePartnersRequestInvoiceLocale : IString
 
     public static readonly FindOrCreatePartnersRequestInvoiceLocale Tr = new(Values.Tr);
 
+    public static readonly FindOrCreatePartnersRequestInvoiceLocale Uk = new(Values.Uk);
+
     public FindOrCreatePartnersRequestInvoiceLocale(string value)
     {
         Value = value;
@@ -240,5 +242,7 @@ public readonly record struct FindOrCreatePartnersRequestInvoiceLocale : IString
         public const string Ru = "ru";
 
         public const string Tr = "tr";
+
+        public const string Uk = "uk";
     }
 }

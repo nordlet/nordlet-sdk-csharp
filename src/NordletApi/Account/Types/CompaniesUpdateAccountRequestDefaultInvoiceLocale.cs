@@ -74,6 +74,8 @@ public readonly record struct CompaniesUpdateAccountRequestDefaultInvoiceLocale 
 
     public static readonly CompaniesUpdateAccountRequestDefaultInvoiceLocale Tr = new(Values.Tr);
 
+    public static readonly CompaniesUpdateAccountRequestDefaultInvoiceLocale Uk = new(Values.Uk);
+
     public CompaniesUpdateAccountRequestDefaultInvoiceLocale(string value)
     {
         Value = value;
@@ -242,5 +244,7 @@ public readonly record struct CompaniesUpdateAccountRequestDefaultInvoiceLocale 
         public const string Ru = "ru";
 
         public const string Tr = "tr";
+
+        public const string Uk = "uk";
     }
 }

@@ -74,6 +74,8 @@ public readonly record struct UpdatePartnersRequestInvoiceLocale : IStringEnum
 
     public static readonly UpdatePartnersRequestInvoiceLocale Tr = new(Values.Tr);
 
+    public static readonly UpdatePartnersRequestInvoiceLocale Uk = new(Values.Uk);
+
     public UpdatePartnersRequestInvoiceLocale(string value)
     {
         Value = value;
@@ -234,5 +236,7 @@ public readonly record struct UpdatePartnersRequestInvoiceLocale : IStringEnum
         public const string Ru = "ru";
 
         public const string Tr = "tr";
+
+        public const string Uk = "uk";
     }
 }

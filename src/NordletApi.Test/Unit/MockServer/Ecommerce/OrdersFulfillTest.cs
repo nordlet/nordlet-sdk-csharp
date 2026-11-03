@@ -39,7 +39,8 @@ public class OrdersFulfillTest : BaseMockServerTest
                   "description": "description",
                   "quantity": "quantity",
                   "unitPriceExclVat": "unitPriceExclVat",
-                  "vatRatePercent": "vatRatePercent"
+                  "vatRatePercent": "vatRatePercent",
+                  "vatClassifierCode": "vatClassifierCode"
                 },
                 {
                   "id": "x",
@@ -47,7 +48,8 @@ public class OrdersFulfillTest : BaseMockServerTest
                   "description": "description",
                   "quantity": "quantity",
                   "unitPriceExclVat": "unitPriceExclVat",
-                  "vatRatePercent": "vatRatePercent"
+                  "vatRatePercent": "vatRatePercent",
+                  "vatClassifierCode": "vatClassifierCode"
                 }
               ]
             }
@@ -111,7 +113,8 @@ public class OrdersFulfillTest : BaseMockServerTest
                   "description": "description",
                   "quantity": "quantity",
                   "unitPriceExclVat": "unitPriceExclVat",
-                  "vatRatePercent": "vatRatePercent"
+                  "vatRatePercent": "vatRatePercent",
+                  "vatClassifierCode": "vatClassifierCode"
                 }
               ]
             }

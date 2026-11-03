@@ -16,6 +16,66 @@ public readonly record struct DebtRemindersPreviewPartnersResponseRowsItemLocale
 
     public static readonly DebtRemindersPreviewPartnersResponseRowsItemLocale De = new(Values.De);
 
+    public static readonly DebtRemindersPreviewPartnersResponseRowsItemLocale Fr = new(Values.Fr);
+
+    public static readonly DebtRemindersPreviewPartnersResponseRowsItemLocale Es = new(Values.Es);
+
+    public static readonly DebtRemindersPreviewPartnersResponseRowsItemLocale It = new(Values.It);
+
+    public static readonly DebtRemindersPreviewPartnersResponseRowsItemLocale Pt = new(Values.Pt);
+
+    public static readonly DebtRemindersPreviewPartnersResponseRowsItemLocale Nl = new(Values.Nl);
+
+    public static readonly DebtRemindersPreviewPartnersResponseRowsItemLocale Pl = new(Values.Pl);
+
+    public static readonly DebtRemindersPreviewPartnersResponseRowsItemLocale Sv = new(Values.Sv);
+
+    public static readonly DebtRemindersPreviewPartnersResponseRowsItemLocale Da = new(Values.Da);
+
+    public static readonly DebtRemindersPreviewPartnersResponseRowsItemLocale No = new(Values.No);
+
+    public static readonly DebtRemindersPreviewPartnersResponseRowsItemLocale Fi = new(Values.Fi);
+
+    public static readonly DebtRemindersPreviewPartnersResponseRowsItemLocale Et = new(Values.Et);
+
+    public static readonly DebtRemindersPreviewPartnersResponseRowsItemLocale Lv = new(Values.Lv);
+
+    public static readonly DebtRemindersPreviewPartnersResponseRowsItemLocale Cs = new(Values.Cs);
+
+    public static readonly DebtRemindersPreviewPartnersResponseRowsItemLocale Sk = new(Values.Sk);
+
+    public static readonly DebtRemindersPreviewPartnersResponseRowsItemLocale Hu = new(Values.Hu);
+
+    public static readonly DebtRemindersPreviewPartnersResponseRowsItemLocale Ro = new(Values.Ro);
+
+    public static readonly DebtRemindersPreviewPartnersResponseRowsItemLocale Bg = new(Values.Bg);
+
+    public static readonly DebtRemindersPreviewPartnersResponseRowsItemLocale Hr = new(Values.Hr);
+
+    public static readonly DebtRemindersPreviewPartnersResponseRowsItemLocale Sl = new(Values.Sl);
+
+    public static readonly DebtRemindersPreviewPartnersResponseRowsItemLocale El = new(Values.El);
+
+    public static readonly DebtRemindersPreviewPartnersResponseRowsItemLocale Mt = new(Values.Mt);
+
+    public static readonly DebtRemindersPreviewPartnersResponseRowsItemLocale Is = new(Values.Is);
+
+    public static readonly DebtRemindersPreviewPartnersResponseRowsItemLocale Ga = new(Values.Ga);
+
+    public static readonly DebtRemindersPreviewPartnersResponseRowsItemLocale Zh = new(Values.Zh);
+
+    public static readonly DebtRemindersPreviewPartnersResponseRowsItemLocale Ja = new(Values.Ja);
+
+    public static readonly DebtRemindersPreviewPartnersResponseRowsItemLocale Ar = new(Values.Ar);
+
+    public static readonly DebtRemindersPreviewPartnersResponseRowsItemLocale Hi = new(Values.Hi);
+
+    public static readonly DebtRemindersPreviewPartnersResponseRowsItemLocale Ru = new(Values.Ru);
+
+    public static readonly DebtRemindersPreviewPartnersResponseRowsItemLocale Tr = new(Values.Tr);
+
+    public static readonly DebtRemindersPreviewPartnersResponseRowsItemLocale Uk = new(Values.Uk);
+
     public DebtRemindersPreviewPartnersResponseRowsItemLocale(string value)
     {
         Value = value;
@@ -126,5 +186,65 @@ public readonly record struct DebtRemindersPreviewPartnersResponseRowsItemLocale
         public const string Lt = "lt";
 
         public const string De = "de";
+
+        public const string Fr = "fr";
+
+        public const string Es = "es";
+
+        public const string It = "it";
+
+        public const string Pt = "pt";
+
+        public const string Nl = "nl";
+
+        public const string Pl = "pl";
+
+        public const string Sv = "sv";
+
+        public const string Da = "da";
+
+        public const string No = "no";
+
+        public const string Fi = "fi";
+
+        public const string Et = "et";
+
+        public const string Lv = "lv";
+
+        public const string Cs = "cs";
+
+        public const string Sk = "sk";
+
+        public const string Hu = "hu";
+
+        public const string Ro = "ro";
+
+        public const string Bg = "bg";
+
+        public const string Hr = "hr";
+
+        public const string Sl = "sl";
+
+        public const string El = "el";
+
+        public const string Mt = "mt";
+
+        public const string Is = "is";
+
+        public const string Ga = "ga";
+
+        public const string Zh = "zh";
+
+        public const string Ja = "ja";
+
+        public const string Ar = "ar";
+
+        public const string Hi = "hi";
+
+        public const string Ru = "ru";
+
+        public const string Tr = "tr";
+
+        public const string Uk = "uk";
     }
 }

@@ -16,6 +16,66 @@ public readonly record struct InvitesCreateAccountRequestLocale : IStringEnum
 
     public static readonly InvitesCreateAccountRequestLocale De = new(Values.De);
 
+    public static readonly InvitesCreateAccountRequestLocale Fr = new(Values.Fr);
+
+    public static readonly InvitesCreateAccountRequestLocale Es = new(Values.Es);
+
+    public static readonly InvitesCreateAccountRequestLocale It = new(Values.It);
+
+    public static readonly InvitesCreateAccountRequestLocale Pt = new(Values.Pt);
+
+    public static readonly InvitesCreateAccountRequestLocale Nl = new(Values.Nl);
+
+    public static readonly InvitesCreateAccountRequestLocale Pl = new(Values.Pl);
+
+    public static readonly InvitesCreateAccountRequestLocale Sv = new(Values.Sv);
+
+    public static readonly InvitesCreateAccountRequestLocale Da = new(Values.Da);
+
+    public static readonly InvitesCreateAccountRequestLocale No = new(Values.No);
+
+    public static readonly InvitesCreateAccountRequestLocale Fi = new(Values.Fi);
+
+    public static readonly InvitesCreateAccountRequestLocale Et = new(Values.Et);
+
+    public static readonly InvitesCreateAccountRequestLocale Lv = new(Values.Lv);
+
+    public static readonly InvitesCreateAccountRequestLocale Cs = new(Values.Cs);
+
+    public static readonly InvitesCreateAccountRequestLocale Sk = new(Values.Sk);
+
+    public static readonly InvitesCreateAccountRequestLocale Hu = new(Values.Hu);
+
+    public static readonly InvitesCreateAccountRequestLocale Ro = new(Values.Ro);
+
+    public static readonly InvitesCreateAccountRequestLocale Bg = new(Values.Bg);
+
+    public static readonly InvitesCreateAccountRequestLocale Hr = new(Values.Hr);
+
+    public static readonly InvitesCreateAccountRequestLocale Sl = new(Values.Sl);
+
+    public static readonly InvitesCreateAccountRequestLocale El = new(Values.El);
+
+    public static readonly InvitesCreateAccountRequestLocale Mt = new(Values.Mt);
+
+    public static readonly InvitesCreateAccountRequestLocale Is = new(Values.Is);
+
+    public static readonly InvitesCreateAccountRequestLocale Ga = new(Values.Ga);
+
+    public static readonly InvitesCreateAccountRequestLocale Zh = new(Values.Zh);
+
+    public static readonly InvitesCreateAccountRequestLocale Ja = new(Values.Ja);
+
+    public static readonly InvitesCreateAccountRequestLocale Ar = new(Values.Ar);
+
+    public static readonly InvitesCreateAccountRequestLocale Hi = new(Values.Hi);
+
+    public static readonly InvitesCreateAccountRequestLocale Ru = new(Values.Ru);
+
+    public static readonly InvitesCreateAccountRequestLocale Tr = new(Values.Tr);
+
+    public static readonly InvitesCreateAccountRequestLocale Uk = new(Values.Uk);
+
     public InvitesCreateAccountRequestLocale(string value)
     {
         Value = value;
@@ -118,5 +178,65 @@ public readonly record struct InvitesCreateAccountRequestLocale : IStringEnum
         public const string Lt = "lt";
 
         public const string De = "de";
+
+        public const string Fr = "fr";
+
+        public const string Es = "es";
+
+        public const string It = "it";
+
+        public const string Pt = "pt";
+
+        public const string Nl = "nl";
+
+        public const string Pl = "pl";
+
+        public const string Sv = "sv";
+
+        public const string Da = "da";
+
+        public const string No = "no";
+
+        public const string Fi = "fi";
+
+        public const string Et = "et";
+
+        public const string Lv = "lv";
+
+        public const string Cs = "cs";
+
+        public const string Sk = "sk";
+
+        public const string Hu = "hu";
+
+        public const string Ro = "ro";
+
+        public const string Bg = "bg";
+
+        public const string Hr = "hr";
+
+        public const string Sl = "sl";
+
+        public const string El = "el";
+
+        public const string Mt = "mt";
+
+        public const string Is = "is";
+
+        public const string Ga = "ga";
+
+        public const string Zh = "zh";
+
+        public const string Ja = "ja";
+
+        public const string Ar = "ar";
+
+        public const string Hi = "hi";
+
+        public const string Ru = "ru";
+
+        public const string Tr = "tr";
+
+        public const string Uk = "uk";
     }
 }

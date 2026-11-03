@@ -18,6 +18,7 @@ public class AccountGetTest : BaseMockServerTest
 
         const string mockResponse = """
             {
+              "site": "app",
               "plan": "starter",
               "accountType": "flat_rate",
               "status": "trial",
@@ -96,6 +97,7 @@ public class AccountGetTest : BaseMockServerTest
 
         const string mockResponse = """
             {
+              "site": "app",
               "plan": "starter",
               "accountType": "flat_rate",
               "status": "trial",

@@ -20,6 +20,7 @@ public class AccountSetOverdraftCapTest : BaseMockServerTest
 
         const string mockResponse = """
             {
+              "site": "app",
               "plan": "starter",
               "accountType": "flat_rate",
               "status": "trial",
@@ -102,6 +103,7 @@ public class AccountSetOverdraftCapTest : BaseMockServerTest
 
         const string mockResponse = """
             {
+              "site": "app",
               "plan": "starter",
               "accountType": "flat_rate",
               "status": "trial",

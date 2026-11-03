@@ -74,6 +74,8 @@ public readonly record struct RecurringInvoicesCreateSalesRequestLocale : IStrin
 
     public static readonly RecurringInvoicesCreateSalesRequestLocale Tr = new(Values.Tr);
 
+    public static readonly RecurringInvoicesCreateSalesRequestLocale Uk = new(Values.Uk);
+
     public RecurringInvoicesCreateSalesRequestLocale(string value)
     {
         Value = value;
@@ -240,5 +242,7 @@ public readonly record struct RecurringInvoicesCreateSalesRequestLocale : IStrin
         public const string Ru = "ru";
 
         public const string Tr = "tr";
+
+        public const string Uk = "uk";
     }
 }

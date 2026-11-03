@@ -20,8 +20,20 @@ public record VatClassifiersListReferenceResponseRowsItem : IJsonOnDeserialized
     [JsonPropertyName("name")]
     public required string Name { get; set; }
 
+    [JsonPropertyName("nameEn")]
+    public string? NameEn { get; set; }
+
     [JsonPropertyName("ratePercent")]
     public string? RatePercent { get; set; }
+
+    [JsonPropertyName("side")]
+    public required VatClassifiersListReferenceResponseRowsItemSide Side { get; set; }
+
+    [JsonPropertyName("scheme")]
+    public VatClassifiersListReferenceResponseRowsItemScheme? Scheme { get; set; }
+
+    [JsonPropertyName("rateFromLine")]
+    public required VatClassifiersListReferenceResponseRowsItemRateFromLine RateFromLine { get; set; }
 
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();

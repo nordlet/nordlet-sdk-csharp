@@ -14,6 +14,9 @@ public record ExportAccountResponseCreditTransactionsItem : IJsonOnDeserialized
     [JsonPropertyName("id")]
     public required string Id { get; set; }
 
+    [JsonPropertyName("site")]
+    public required ExportAccountResponseCreditTransactionsItemSite Site { get; set; }
+
     [JsonPropertyName("type")]
     public required string Type { get; set; }
 

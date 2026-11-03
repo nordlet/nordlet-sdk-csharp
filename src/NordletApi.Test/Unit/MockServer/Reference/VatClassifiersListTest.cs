@@ -23,13 +23,27 @@ public class VatClassifiersListTest : BaseMockServerTest
                   "code": "code",
                   "countryCode": "countryCode",
                   "name": "name",
-                  "ratePercent": "ratePercent"
+                  "nameEn": "nameEn",
+                  "ratePercent": "ratePercent",
+                  "side": "sale",
+                  "scheme": "domestic",
+                  "rateFromLine": {
+                    "sale": true,
+                    "purchase": true
+                  }
                 },
                 {
                   "code": "code",
                   "countryCode": "countryCode",
                   "name": "name",
-                  "ratePercent": "ratePercent"
+                  "nameEn": "nameEn",
+                  "ratePercent": "ratePercent",
+                  "side": "sale",
+                  "scheme": "domestic",
+                  "rateFromLine": {
+                    "sale": true,
+                    "purchase": true
+                  }
                 }
               ],
               "page": 1000000,
@@ -89,7 +103,14 @@ public class VatClassifiersListTest : BaseMockServerTest
                   "code": "code",
                   "countryCode": "countryCode",
                   "name": "name",
-                  "ratePercent": "ratePercent"
+                  "nameEn": "nameEn",
+                  "ratePercent": "ratePercent",
+                  "side": "sale",
+                  "scheme": "domestic",
+                  "rateFromLine": {
+                    "sale": true,
+                    "purchase": true
+                  }
                 }
               ],
               "page": 1000000,

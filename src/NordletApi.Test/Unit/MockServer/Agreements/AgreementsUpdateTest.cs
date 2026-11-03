@@ -45,7 +45,8 @@ public class AgreementsUpdateTest : BaseMockServerTest
                   "description": "description",
                   "quantity": "quantity",
                   "unitPrice": "unitPrice",
-                  "vatRatePercent": "vatRatePercent"
+                  "vatRatePercent": "vatRatePercent",
+                  "vatClassifierCode": "vatClassifierCode"
                 },
                 {
                   "id": "x",
@@ -53,7 +54,8 @@ public class AgreementsUpdateTest : BaseMockServerTest
                   "description": "description",
                   "quantity": "quantity",
                   "unitPrice": "unitPrice",
-                  "vatRatePercent": "vatRatePercent"
+                  "vatRatePercent": "vatRatePercent",
+                  "vatClassifierCode": "vatClassifierCode"
                 }
               ]
             }
@@ -130,7 +132,8 @@ public class AgreementsUpdateTest : BaseMockServerTest
                   "description": "description",
                   "quantity": "quantity",
                   "unitPrice": "unitPrice",
-                  "vatRatePercent": "vatRatePercent"
+                  "vatRatePercent": "vatRatePercent",
+                  "vatClassifierCode": "vatClassifierCode"
                 }
               ]
             }

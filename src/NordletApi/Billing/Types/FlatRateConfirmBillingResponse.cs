@@ -11,6 +11,12 @@ public record FlatRateConfirmBillingResponse : IJsonOnDeserialized
     private readonly IDictionary<string, JsonElement> _extensionData =
         new Dictionary<string, JsonElement>();
 
+    /// <summary>
+    /// The site whose plan this is, from the `x-nordlet-site` header
+    /// </summary>
+    [JsonPropertyName("site")]
+    public required FlatRateConfirmBillingResponseSite Site { get; set; }
+
     [JsonPropertyName("plan")]
     public required FlatRateConfirmBillingResponsePlan Plan { get; set; }
 

@@ -51,6 +51,7 @@ public class InvoiceTemplatesCreateTest : BaseMockServerTest
                   "quantity": "quantity",
                   "unitPriceExclVat": "unitPriceExclVat",
                   "vatRatePercent": "vatRatePercent",
+                  "vatClassifierCode": "vatClassifierCode",
                   "vatExemptionBasis": "vatExemptionBasis",
                   "projectId": "x",
                   "unit": "unit"
@@ -61,6 +62,7 @@ public class InvoiceTemplatesCreateTest : BaseMockServerTest
                   "quantity": "quantity",
                   "unitPriceExclVat": "unitPriceExclVat",
                   "vatRatePercent": "vatRatePercent",
+                  "vatClassifierCode": "vatClassifierCode",
                   "vatExemptionBasis": "vatExemptionBasis",
                   "projectId": "x",
                   "unit": "unit"
@@ -161,6 +163,7 @@ public class InvoiceTemplatesCreateTest : BaseMockServerTest
                   "quantity": "quantity",
                   "unitPriceExclVat": "unitPriceExclVat",
                   "vatRatePercent": "vatRatePercent",
+                  "vatClassifierCode": "vatClassifierCode",
                   "vatExemptionBasis": "vatExemptionBasis",
                   "projectId": "projectId",
                   "unit": "unit"

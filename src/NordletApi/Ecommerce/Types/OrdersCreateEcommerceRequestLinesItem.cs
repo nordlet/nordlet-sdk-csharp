@@ -26,6 +26,9 @@ public record OrdersCreateEcommerceRequestLinesItem : IJsonOnDeserialized
     [JsonPropertyName("vatRatePercent")]
     public string? VatRatePercent { get; set; }
 
+    [JsonPropertyName("vatClassifierCode")]
+    public string? VatClassifierCode { get; set; }
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

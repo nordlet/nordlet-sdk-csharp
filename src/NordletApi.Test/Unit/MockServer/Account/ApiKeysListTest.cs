@@ -29,7 +29,6 @@ public class ApiKeysListTest : BaseMockServerTest
                   "lastUsedAt": "2024-01-15T09:30:00.000Z",
                   "expiresAt": "2024-01-15T09:30:00.000Z",
                   "replacedByKeyId": "x",
-                  "createdByUserId": "x",
                   "revokedAt": "2024-01-15T09:30:00.000Z",
                   "createdAt": "2024-01-15T09:30:00.000Z"
                 },
@@ -43,7 +42,6 @@ public class ApiKeysListTest : BaseMockServerTest
                   "lastUsedAt": "2024-01-15T09:30:00.000Z",
                   "expiresAt": "2024-01-15T09:30:00.000Z",
                   "replacedByKeyId": "x",
-                  "createdByUserId": "x",
                   "revokedAt": "2024-01-15T09:30:00.000Z",
                   "createdAt": "2024-01-15T09:30:00.000Z"
                 }
@@ -90,7 +88,6 @@ public class ApiKeysListTest : BaseMockServerTest
                   "lastUsedAt": "2026-07-01T09:30:00.000Z",
                   "expiresAt": "2026-07-01T09:30:00.000Z",
                   "replacedByKeyId": "replacedByKeyId",
-                  "createdByUserId": "createdByUserId",
                   "revokedAt": "2026-07-01T09:30:00.000Z",
                   "createdAt": "2026-07-01T09:30:00.000Z"
                 }

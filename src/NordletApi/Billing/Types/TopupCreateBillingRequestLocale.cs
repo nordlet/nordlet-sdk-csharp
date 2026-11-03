@@ -14,6 +14,66 @@ public readonly record struct TopupCreateBillingRequestLocale : IStringEnum
 
     public static readonly TopupCreateBillingRequestLocale De = new(Values.De);
 
+    public static readonly TopupCreateBillingRequestLocale Fr = new(Values.Fr);
+
+    public static readonly TopupCreateBillingRequestLocale Es = new(Values.Es);
+
+    public static readonly TopupCreateBillingRequestLocale It = new(Values.It);
+
+    public static readonly TopupCreateBillingRequestLocale Pt = new(Values.Pt);
+
+    public static readonly TopupCreateBillingRequestLocale Nl = new(Values.Nl);
+
+    public static readonly TopupCreateBillingRequestLocale Pl = new(Values.Pl);
+
+    public static readonly TopupCreateBillingRequestLocale Sv = new(Values.Sv);
+
+    public static readonly TopupCreateBillingRequestLocale Da = new(Values.Da);
+
+    public static readonly TopupCreateBillingRequestLocale No = new(Values.No);
+
+    public static readonly TopupCreateBillingRequestLocale Fi = new(Values.Fi);
+
+    public static readonly TopupCreateBillingRequestLocale Et = new(Values.Et);
+
+    public static readonly TopupCreateBillingRequestLocale Lv = new(Values.Lv);
+
+    public static readonly TopupCreateBillingRequestLocale Cs = new(Values.Cs);
+
+    public static readonly TopupCreateBillingRequestLocale Sk = new(Values.Sk);
+
+    public static readonly TopupCreateBillingRequestLocale Hu = new(Values.Hu);
+
+    public static readonly TopupCreateBillingRequestLocale Ro = new(Values.Ro);
+
+    public static readonly TopupCreateBillingRequestLocale Bg = new(Values.Bg);
+
+    public static readonly TopupCreateBillingRequestLocale Hr = new(Values.Hr);
+
+    public static readonly TopupCreateBillingRequestLocale Sl = new(Values.Sl);
+
+    public static readonly TopupCreateBillingRequestLocale El = new(Values.El);
+
+    public static readonly TopupCreateBillingRequestLocale Mt = new(Values.Mt);
+
+    public static readonly TopupCreateBillingRequestLocale Is = new(Values.Is);
+
+    public static readonly TopupCreateBillingRequestLocale Ga = new(Values.Ga);
+
+    public static readonly TopupCreateBillingRequestLocale Zh = new(Values.Zh);
+
+    public static readonly TopupCreateBillingRequestLocale Ja = new(Values.Ja);
+
+    public static readonly TopupCreateBillingRequestLocale Ar = new(Values.Ar);
+
+    public static readonly TopupCreateBillingRequestLocale Hi = new(Values.Hi);
+
+    public static readonly TopupCreateBillingRequestLocale Ru = new(Values.Ru);
+
+    public static readonly TopupCreateBillingRequestLocale Tr = new(Values.Tr);
+
+    public static readonly TopupCreateBillingRequestLocale Uk = new(Values.Uk);
+
     public TopupCreateBillingRequestLocale(string value)
     {
         Value = value;
@@ -116,5 +176,65 @@ public readonly record struct TopupCreateBillingRequestLocale : IStringEnum
         public const string Lt = "lt";
 
         public const string De = "de";
+
+        public const string Fr = "fr";
+
+        public const string Es = "es";
+
+        public const string It = "it";
+
+        public const string Pt = "pt";
+
+        public const string Nl = "nl";
+
+        public const string Pl = "pl";
+
+        public const string Sv = "sv";
+
+        public const string Da = "da";
+
+        public const string No = "no";
+
+        public const string Fi = "fi";
+
+        public const string Et = "et";
+
+        public const string Lv = "lv";
+
+        public const string Cs = "cs";
+
+        public const string Sk = "sk";
+
+        public const string Hu = "hu";
+
+        public const string Ro = "ro";
+
+        public const string Bg = "bg";
+
+        public const string Hr = "hr";
+
+        public const string Sl = "sl";
+
+        public const string El = "el";
+
+        public const string Mt = "mt";
+
+        public const string Is = "is";
+
+        public const string Ga = "ga";
+
+        public const string Zh = "zh";
+
+        public const string Ja = "ja";
+
+        public const string Ar = "ar";
+
+        public const string Hi = "hi";
+
+        public const string Ru = "ru";
+
+        public const string Tr = "tr";
+
+        public const string Uk = "uk";
     }
 }

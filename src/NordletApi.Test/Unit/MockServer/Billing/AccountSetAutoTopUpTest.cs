@@ -21,6 +21,7 @@ public class AccountSetAutoTopUpTest : BaseMockServerTest
 
         const string mockResponse = """
             {
+              "site": "app",
               "plan": "starter",
               "accountType": "flat_rate",
               "status": "trial",
@@ -104,6 +105,7 @@ public class AccountSetAutoTopUpTest : BaseMockServerTest
 
         const string mockResponse = """
             {
+              "site": "app",
               "plan": "starter",
               "accountType": "flat_rate",
               "status": "trial",

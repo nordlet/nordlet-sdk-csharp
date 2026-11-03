@@ -14,6 +14,9 @@ public record UsageListBillingResponseRowsItem : IJsonOnDeserialized
     [JsonPropertyName("companyId")]
     public required string CompanyId { get; set; }
 
+    [JsonPropertyName("site")]
+    public required UsageListBillingResponseRowsItemSite Site { get; set; }
+
     [JsonPropertyName("date")]
     public required DateOnly Date { get; set; }
 

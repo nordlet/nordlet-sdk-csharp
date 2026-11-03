@@ -14,6 +14,66 @@ public readonly record struct LocaleSetAccountRequestLocale : IStringEnum
 
     public static readonly LocaleSetAccountRequestLocale De = new(Values.De);
 
+    public static readonly LocaleSetAccountRequestLocale Fr = new(Values.Fr);
+
+    public static readonly LocaleSetAccountRequestLocale Es = new(Values.Es);
+
+    public static readonly LocaleSetAccountRequestLocale It = new(Values.It);
+
+    public static readonly LocaleSetAccountRequestLocale Pt = new(Values.Pt);
+
+    public static readonly LocaleSetAccountRequestLocale Nl = new(Values.Nl);
+
+    public static readonly LocaleSetAccountRequestLocale Pl = new(Values.Pl);
+
+    public static readonly LocaleSetAccountRequestLocale Sv = new(Values.Sv);
+
+    public static readonly LocaleSetAccountRequestLocale Da = new(Values.Da);
+
+    public static readonly LocaleSetAccountRequestLocale No = new(Values.No);
+
+    public static readonly LocaleSetAccountRequestLocale Fi = new(Values.Fi);
+
+    public static readonly LocaleSetAccountRequestLocale Et = new(Values.Et);
+
+    public static readonly LocaleSetAccountRequestLocale Lv = new(Values.Lv);
+
+    public static readonly LocaleSetAccountRequestLocale Cs = new(Values.Cs);
+
+    public static readonly LocaleSetAccountRequestLocale Sk = new(Values.Sk);
+
+    public static readonly LocaleSetAccountRequestLocale Hu = new(Values.Hu);
+
+    public static readonly LocaleSetAccountRequestLocale Ro = new(Values.Ro);
+
+    public static readonly LocaleSetAccountRequestLocale Bg = new(Values.Bg);
+
+    public static readonly LocaleSetAccountRequestLocale Hr = new(Values.Hr);
+
+    public static readonly LocaleSetAccountRequestLocale Sl = new(Values.Sl);
+
+    public static readonly LocaleSetAccountRequestLocale El = new(Values.El);
+
+    public static readonly LocaleSetAccountRequestLocale Mt = new(Values.Mt);
+
+    public static readonly LocaleSetAccountRequestLocale Is = new(Values.Is);
+
+    public static readonly LocaleSetAccountRequestLocale Ga = new(Values.Ga);
+
+    public static readonly LocaleSetAccountRequestLocale Zh = new(Values.Zh);
+
+    public static readonly LocaleSetAccountRequestLocale Ja = new(Values.Ja);
+
+    public static readonly LocaleSetAccountRequestLocale Ar = new(Values.Ar);
+
+    public static readonly LocaleSetAccountRequestLocale Hi = new(Values.Hi);
+
+    public static readonly LocaleSetAccountRequestLocale Ru = new(Values.Ru);
+
+    public static readonly LocaleSetAccountRequestLocale Tr = new(Values.Tr);
+
+    public static readonly LocaleSetAccountRequestLocale Uk = new(Values.Uk);
+
     public LocaleSetAccountRequestLocale(string value)
     {
         Value = value;
@@ -116,5 +176,65 @@ public readonly record struct LocaleSetAccountRequestLocale : IStringEnum
         public const string Lt = "lt";
 
         public const string De = "de";
+
+        public const string Fr = "fr";
+
+        public const string Es = "es";
+
+        public const string It = "it";
+
+        public const string Pt = "pt";
+
+        public const string Nl = "nl";
+
+        public const string Pl = "pl";
+
+        public const string Sv = "sv";
+
+        public const string Da = "da";
+
+        public const string No = "no";
+
+        public const string Fi = "fi";
+
+        public const string Et = "et";
+
+        public const string Lv = "lv";
+
+        public const string Cs = "cs";
+
+        public const string Sk = "sk";
+
+        public const string Hu = "hu";
+
+        public const string Ro = "ro";
+
+        public const string Bg = "bg";
+
+        public const string Hr = "hr";
+
+        public const string Sl = "sl";
+
+        public const string El = "el";
+
+        public const string Mt = "mt";
+
+        public const string Is = "is";
+
+        public const string Ga = "ga";
+
+        public const string Zh = "zh";
+
+        public const string Ja = "ja";
+
+        public const string Ar = "ar";
+
+        public const string Hi = "hi";
+
+        public const string Ru = "ru";
+
+        public const string Tr = "tr";
+
+        public const string Uk = "uk";
     }
 }

@@ -79,9 +79,28 @@ public class ExportTest : BaseMockServerTest
                 "trialEndsAt": "2024-01-15T09:30:00.000Z",
                 "firstTopUpAt": "2024-01-15T09:30:00.000Z"
               },
+              "billingAccounts": [
+                {
+                  "site": "app",
+                  "status": "status",
+                  "plan": "plan",
+                  "balanceCents": 1000000,
+                  "trialEndsAt": "2024-01-15T09:30:00.000Z",
+                  "firstTopUpAt": "2024-01-15T09:30:00.000Z"
+                },
+                {
+                  "site": "app",
+                  "status": "status",
+                  "plan": "plan",
+                  "balanceCents": 1000000,
+                  "trialEndsAt": "2024-01-15T09:30:00.000Z",
+                  "firstTopUpAt": "2024-01-15T09:30:00.000Z"
+                }
+              ],
               "creditTransactions": [
                 {
                   "id": "x",
+                  "site": "app",
                   "type": "type",
                   "amountCents": 1000000,
                   "balanceAfterCents": 1000000,
@@ -90,6 +109,7 @@ public class ExportTest : BaseMockServerTest
                 },
                 {
                   "id": "x",
+                  "site": "app",
                   "type": "type",
                   "amountCents": 1000000,
                   "balanceAfterCents": 1000000,
@@ -192,9 +212,20 @@ public class ExportTest : BaseMockServerTest
                 "trialEndsAt": "2026-07-01T09:30:00.000Z",
                 "firstTopUpAt": "2026-07-01T09:30:00.000Z"
               },
+              "billingAccounts": [
+                {
+                  "site": "app",
+                  "status": "status",
+                  "plan": "plan",
+                  "balanceCents": 1000000,
+                  "trialEndsAt": "2026-07-01T09:30:00.000Z",
+                  "firstTopUpAt": "2026-07-01T09:30:00.000Z"
+                }
+              ],
               "creditTransactions": [
                 {
                   "id": "id",
+                  "site": "app",
                   "type": "type",
                   "amountCents": 1000000,
                   "balanceAfterCents": 1000000,

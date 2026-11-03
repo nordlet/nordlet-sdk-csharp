@@ -29,9 +29,6 @@ public record ApiKeysListAccountResponseRowsItem : IJsonOnDeserialized
     [JsonPropertyName("replacedByKeyId")]
     public string? ReplacedByKeyId { get; set; }
 
-    [JsonPropertyName("createdByUserId")]
-    public string? CreatedByUserId { get; set; }
-
     [JsonPropertyName("revokedAt")]
     public DateTime? RevokedAt { get; set; }
 

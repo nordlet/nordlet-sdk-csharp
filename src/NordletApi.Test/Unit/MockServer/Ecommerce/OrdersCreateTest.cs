@@ -50,7 +50,8 @@ public class OrdersCreateTest : BaseMockServerTest
                   "description": "description",
                   "quantity": "quantity",
                   "unitPriceExclVat": "unitPriceExclVat",
-                  "vatRatePercent": "vatRatePercent"
+                  "vatRatePercent": "vatRatePercent",
+                  "vatClassifierCode": "vatClassifierCode"
                 },
                 {
                   "id": "x",
@@ -58,7 +59,8 @@ public class OrdersCreateTest : BaseMockServerTest
                   "description": "description",
                   "quantity": "quantity",
                   "unitPriceExclVat": "unitPriceExclVat",
-                  "vatRatePercent": "vatRatePercent"
+                  "vatRatePercent": "vatRatePercent",
+                  "vatClassifierCode": "vatClassifierCode"
                 }
               ]
             }
@@ -101,6 +103,7 @@ public class OrdersCreateTest : BaseMockServerTest
                         Quantity = "quantity",
                         UnitPriceExclVat = "unitPriceExclVat",
                         VatRatePercent = null,
+                        VatClassifierCode = null,
                     },
                     new OrdersCreateEcommerceRequestLinesItem
                     {
@@ -109,6 +112,7 @@ public class OrdersCreateTest : BaseMockServerTest
                         Quantity = "quantity",
                         UnitPriceExclVat = "unitPriceExclVat",
                         VatRatePercent = null,
+                        VatClassifierCode = null,
                     },
                 },
             }
@@ -152,7 +156,8 @@ public class OrdersCreateTest : BaseMockServerTest
                   "description": "description",
                   "quantity": "quantity",
                   "unitPriceExclVat": "unitPriceExclVat",
-                  "vatRatePercent": "vatRatePercent"
+                  "vatRatePercent": "vatRatePercent",
+                  "vatClassifierCode": "vatClassifierCode"
                 }
               ]
             }
