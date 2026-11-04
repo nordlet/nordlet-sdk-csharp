@@ -84,7 +84,7 @@ public partial interface IDeclarationsClient
     );
 
     /// <summary>
-    /// Builds an i.VAZ amendment message for up to 100 issued waybills, carrying their current data as TransportDocumentAmendment elements. Answers 422 when the registration code of the company is not numeric or when a waybill is not issued. With `persist`, the file is stored and a submission for `lt-ivaz-amendment` is created.
+    /// Builds an i.VAZ amendment message for up to 100 issued waybills as TransportDocumentAmendment elements. `corrections` carries corrected values per waybill: `consigneePartnerId`, `unloadAddress`, `vehiclePlate`, `trailerPlate`, `driverName`, `driverSurname` (the last three can be cleared with null) and line `quantity` by line id; the message carries the waybill with them applied, and with `persist` they are also stored on the waybill. Answers 422 when the registration code of the company is not numeric, when a waybill is not issued, or when a correction names a waybill not in `waybillIds`, a waybill twice, a line not on its waybill or a consignee partner the company does not have. With `persist`, the file is stored and a submission for `lt-ivaz-amendment` is created.
     /// </summary>
     WithRawResponseTask<LtIvazAmendDeclarationsResponse> LtIvazAmendAsync(
         LtIvazAmendDeclarationsRequest request,
@@ -678,7 +678,7 @@ public partial interface IDeclarationsClient
     );
 
     /// <summary>
-    /// Generate CIT-8(34), the annual corporate income tax return, from the ledger of the year and the recorded tax adjustments. The tax office code and the small-taxpayer setting come from the e-Deklaracje compliance settings, the seat address from the JPK gateway settings. Names the annexes the figures would need, which are not produced.
+    /// Generate CIT-8(34), the annual corporate income tax return, from the ledger of the year and the recorded tax adjustments. The tax office code and the small-taxpayer setting come from the e-Deklaracje compliance settings, the seat address from the JPK gateway settings. Names the annexes the figures would need, which are not produced. Answers 422 for a tax year that starts before 2025-01-01, which the CIT-8(34) schema does not accept.
     /// </summary>
     WithRawResponseTask<PlCit8GenerateDeclarationsResponse> PlCit8GenerateAsync(
         PlCit8GenerateDeclarationsRequest request,
@@ -826,6 +826,15 @@ public partial interface IDeclarationsClient
     /// </summary>
     WithRawResponseTask<SubmissionsRetryDeclarationsResponse> SubmissionsRetryAsync(
         SubmissionsRetryDeclarationsRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    /// <summary>
+    /// Sends a submission whose `confirmationPending` is true once more with the stored file and the token the administration handed back with its warnings (the advis of Erhvervsstyrelsen's Regnskab Indberet, which files the annual report only when it is sent again with that token), and returns the updated submission. Answers 409 when the submission is not waiting for a confirmation.
+    /// </summary>
+    WithRawResponseTask<SubmissionsConfirmDeclarationsResponse> SubmissionsConfirmAsync(
+        SubmissionsConfirmDeclarationsRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );

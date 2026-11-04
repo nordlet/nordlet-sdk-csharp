@@ -237,7 +237,7 @@ public partial interface IReportsClient
     );
 
     /// <summary>
-    /// Net purchases per cost centre and item for a period, from the lines of registered purchase invoices (by registration date) that carry a cost centre, credit notes counting negative; `costCenterId` limits the report to one cost centre. A line without an item is reported under its description.
+    /// Net purchases in the base currency per cost centre and item for a period, from the lines of registered purchase invoices (by registration date) that carry a cost centre, credit notes counting negative; `costCenterId` limits the report to one cost centre. A line without an item is reported under its description.
     /// </summary>
     WithRawResponseTask<CostCenterItemsReportsResponse> CostCenterItemsAsync(
         CostCenterItemsReportsRequest request,

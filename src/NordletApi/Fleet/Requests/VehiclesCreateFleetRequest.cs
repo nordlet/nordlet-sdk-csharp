@@ -39,6 +39,9 @@ public record VehiclesCreateFleetRequest
     [JsonPropertyName("insuranceDue")]
     public DateOnly? InsuranceDue { get; set; }
 
+    [JsonPropertyName("disposalDate")]
+    public DateOnly? DisposalDate { get; set; }
+
     [JsonPropertyName("notes")]
     public string? Notes { get; set; }
 

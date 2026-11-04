@@ -12,6 +12,9 @@ public record LtIvazAmendDeclarationsRequest
     [JsonPropertyName("persist")]
     public bool? Persist { get; set; }
 
+    [JsonPropertyName("corrections")]
+    public IEnumerable<LtIvazAmendDeclarationsRequestCorrectionsItem>? Corrections { get; set; }
+
     /// <inheritdoc />
     public override string ToString()
     {

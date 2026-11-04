@@ -30,6 +30,7 @@ public class MaintenanceCompleteTest : BaseMockServerTest
               "description": "description",
               "downtimeHours": "downtimeHours",
               "cost": "cost",
+              "purchaseInvoiceId": "x",
               "notes": "notes",
               "createdAt": "2024-01-15T09:30:00.000Z"
             }
@@ -58,6 +59,7 @@ public class MaintenanceCompleteTest : BaseMockServerTest
                 CompletedDate = new DateOnly(2023, 1, 15),
                 DowntimeHours = null,
                 Cost = null,
+                PurchaseInvoiceId = null,
                 Notes = null,
             }
         );
@@ -85,6 +87,7 @@ public class MaintenanceCompleteTest : BaseMockServerTest
               "description": "description",
               "downtimeHours": "downtimeHours",
               "cost": "cost",
+              "purchaseInvoiceId": "purchaseInvoiceId",
               "notes": "notes",
               "createdAt": "2026-07-01T09:30:00.000Z"
             }

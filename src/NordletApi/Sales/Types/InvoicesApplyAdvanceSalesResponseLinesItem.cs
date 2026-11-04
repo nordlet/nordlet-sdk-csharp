@@ -26,6 +26,12 @@ public record InvoicesApplyAdvanceSalesResponseLinesItem : IJsonOnDeserialized
     [JsonPropertyName("quantity")]
     public required string Quantity { get; set; }
 
+    [JsonPropertyName("unitFactor")]
+    public required string UnitFactor { get; set; }
+
+    [JsonPropertyName("baseQuantity")]
+    public required string BaseQuantity { get; set; }
+
     [JsonPropertyName("unitPriceExclVat")]
     public string? UnitPriceExclVat { get; set; }
 

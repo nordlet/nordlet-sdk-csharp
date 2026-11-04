@@ -93,7 +93,7 @@ public partial interface ICatalogClient
     );
 
     /// <summary>
-    /// Create a unit of measure of the company's own, in addition to the global measurement units (`reference/units/list`). 409 when the code already exists.
+    /// Create a unit of measure of the company's own, in addition to the global measurement units (`reference/units/list`). `rec20Code` is the UN/ECE Recommendation 20 code e-invoices carry for the unit. 409 when the code already exists.
     /// </summary>
     WithRawResponseTask<UnitsCreateCatalogResponse> UnitsCreateAsync(
         UnitsCreateCatalogRequest request,
@@ -102,7 +102,7 @@ public partial interface ICatalogClient
     );
 
     /// <summary>
-    /// Change the code, name or active flag of a company unit. 409 when the new code already exists.
+    /// Change the code, name, UN/ECE Recommendation 20 code or active flag of a company unit. 409 when the new code already exists.
     /// </summary>
     WithRawResponseTask<UnitsUpdateCatalogResponse> UnitsUpdateAsync(
         UnitsUpdateCatalogRequest request,
@@ -196,6 +196,42 @@ public partial interface ICatalogClient
     /// </summary>
     WithRawResponseTask<ItemsSuppliersDeleteCatalogResponse> ItemsSuppliersDeleteAsync(
         ItemsSuppliersDeleteCatalogRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    /// <summary>
+    /// Add an alternative unit to an item: `factor` is how many of the item's own unit one `unitCode` holds (a box of 12 pieces has factor 12). Document lines entered in that unit keep the entered quantity and unit price and move `quantity × factor` of the item's unit in stock and filings. `isDefaultSale` and `isDefaultPurchase` mark the unit the app offers first on sale and purchase documents; setting one clears it on the item's other units. 422 when `unitCode` is the item's own unit or not a known unit; 409 when the item already has that unit.
+    /// </summary>
+    WithRawResponseTask<ItemsUnitsCreateCatalogResponse> ItemsUnitsCreateAsync(
+        ItemsUnitsCreateCatalogRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    /// <summary>
+    /// Change the factor, default flags or barcode of an alternative unit. Document lines already entered keep the factor they were saved with; the new factor applies to lines entered or recalculated after the change.
+    /// </summary>
+    WithRawResponseTask<ItemsUnitsUpdateCatalogResponse> ItemsUnitsUpdateAsync(
+        ItemsUnitsUpdateCatalogRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    /// <summary>
+    /// Delete an alternative unit of an item. Document lines already entered in it keep their unit and factor.
+    /// </summary>
+    WithRawResponseTask<ItemsUnitsDeleteCatalogResponse> ItemsUnitsDeleteAsync(
+        ItemsUnitsDeleteCatalogRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    /// <summary>
+    /// List the alternative units of an item, ordered by unit code.
+    /// </summary>
+    WithRawResponseTask<ItemsUnitsListCatalogResponse> ItemsUnitsListAsync(
+        ItemsUnitsListCatalogRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );

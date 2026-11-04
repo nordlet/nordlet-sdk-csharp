@@ -31,6 +31,7 @@ public class MaintenanceCreateTest : BaseMockServerTest
               "description": "description",
               "downtimeHours": "downtimeHours",
               "cost": "cost",
+              "purchaseInvoiceId": "x",
               "notes": "notes",
               "createdAt": "2024-01-15T09:30:00.000Z"
             }
@@ -59,6 +60,7 @@ public class MaintenanceCreateTest : BaseMockServerTest
                 Type = MaintenanceCreateProductionRequestType.Preventive,
                 PlannedDate = new DateOnly(2023, 1, 15),
                 Description = null,
+                PurchaseInvoiceId = null,
                 Notes = null,
             }
         );
@@ -87,6 +89,7 @@ public class MaintenanceCreateTest : BaseMockServerTest
               "description": "description",
               "downtimeHours": "downtimeHours",
               "cost": "cost",
+              "purchaseInvoiceId": "purchaseInvoiceId",
               "notes": "notes",
               "createdAt": "2026-07-01T09:30:00.000Z"
             }

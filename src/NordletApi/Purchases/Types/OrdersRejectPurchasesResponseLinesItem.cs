@@ -26,6 +26,12 @@ public record OrdersRejectPurchasesResponseLinesItem : IJsonOnDeserialized
     [JsonPropertyName("quantity")]
     public required string Quantity { get; set; }
 
+    [JsonPropertyName("unitFactor")]
+    public required string UnitFactor { get; set; }
+
+    [JsonPropertyName("baseQuantity")]
+    public required string BaseQuantity { get; set; }
+
     [JsonPropertyName("receivedQty")]
     public required string ReceivedQty { get; set; }
 

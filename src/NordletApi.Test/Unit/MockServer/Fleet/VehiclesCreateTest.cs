@@ -35,6 +35,7 @@ public class VehiclesCreateTest : BaseMockServerTest
               "technicalInspectionDue": "technicalInspectionDue",
               "insuranceDue": "insuranceDue",
               "status": "active",
+              "disposalDate": "2023-01-15",
               "notes": "notes",
               "documents": [
                 {
@@ -88,6 +89,7 @@ public class VehiclesCreateTest : BaseMockServerTest
                 FixedAssetId = null,
                 TechnicalInspectionDue = null,
                 InsuranceDue = null,
+                DisposalDate = null,
                 Notes = null,
                 Documents = null,
             }
@@ -121,6 +123,7 @@ public class VehiclesCreateTest : BaseMockServerTest
               "technicalInspectionDue": "technicalInspectionDue",
               "insuranceDue": "insuranceDue",
               "status": "active",
+              "disposalDate": "2026-07-01",
               "notes": "notes",
               "documents": [
                 {

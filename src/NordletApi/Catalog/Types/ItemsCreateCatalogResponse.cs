@@ -81,6 +81,10 @@ public record ItemsCreateCatalogResponse : IJsonOnDeserialized
     public IEnumerable<ItemsCreateCatalogResponseComponentsItem> Components { get; set; } =
         new List<ItemsCreateCatalogResponseComponentsItem>();
 
+    [JsonPropertyName("alternativeUnits")]
+    public IEnumerable<ItemsCreateCatalogResponseAlternativeUnitsItem> AlternativeUnits { get; set; } =
+        new List<ItemsCreateCatalogResponseAlternativeUnitsItem>();
+
     [JsonPropertyName("kindId")]
     public string? KindId { get; set; }
 

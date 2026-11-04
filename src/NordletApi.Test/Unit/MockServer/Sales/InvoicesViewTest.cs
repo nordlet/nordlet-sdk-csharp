@@ -36,6 +36,7 @@ public class InvoicesViewTest : BaseMockServerTest
               "paidOn": "paidOn",
               "notes": "notes",
               "payUrl": "payUrl",
+              "cardPaymentReceived": true,
               "seller": {
                 "name": "name",
                 "vatCode": "vatCode",
@@ -136,6 +137,7 @@ public class InvoicesViewTest : BaseMockServerTest
               "paidOn": "paidOn",
               "notes": "notes",
               "payUrl": "payUrl",
+              "cardPaymentReceived": true,
               "seller": {
                 "name": "name",
                 "vatCode": "vatCode",

@@ -48,6 +48,8 @@ public class WaybillsUpdateTest : BaseMockServerTest
                   "description": "description",
                   "unit": "unit",
                   "quantity": "quantity",
+                  "unitFactor": "unitFactor",
+                  "baseQuantity": "baseQuantity",
                   "productCode": "productCode",
                   "sortOrder": 1000000
                 },
@@ -57,6 +59,8 @@ public class WaybillsUpdateTest : BaseMockServerTest
                   "description": "description",
                   "unit": "unit",
                   "quantity": "quantity",
+                  "unitFactor": "unitFactor",
+                  "baseQuantity": "baseQuantity",
                   "productCode": "productCode",
                   "sortOrder": 1000000
                 }
@@ -145,6 +149,8 @@ public class WaybillsUpdateTest : BaseMockServerTest
                   "description": "description",
                   "unit": "unit",
                   "quantity": "quantity",
+                  "unitFactor": "unitFactor",
+                  "baseQuantity": "baseQuantity",
                   "productCode": "productCode",
                   "sortOrder": 1000000
                 }

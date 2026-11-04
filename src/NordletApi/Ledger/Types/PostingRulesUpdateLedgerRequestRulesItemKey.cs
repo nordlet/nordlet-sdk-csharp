@@ -63,6 +63,14 @@ public readonly record struct PostingRulesUpdateLedgerRequestRulesItemKey : IStr
         Values.ProductionScrap
     );
 
+    public static readonly PostingRulesUpdateLedgerRequestRulesItemKey PosCashShortage = new(
+        Values.PosCashShortage
+    );
+
+    public static readonly PostingRulesUpdateLedgerRequestRulesItemKey PosCashSurplus = new(
+        Values.PosCashSurplus
+    );
+
     public static readonly PostingRulesUpdateLedgerRequestRulesItemKey BankFxGain = new(
         Values.BankFxGain
     );
@@ -286,6 +294,10 @@ public readonly record struct PostingRulesUpdateLedgerRequestRulesItemKey : IStr
         public const string ProductionLaborApplied = "production.laborApplied";
 
         public const string ProductionScrap = "production.scrap";
+
+        public const string PosCashShortage = "pos.cashShortage";
+
+        public const string PosCashSurplus = "pos.cashSurplus";
 
         public const string BankFxGain = "bank.fxGain";
 

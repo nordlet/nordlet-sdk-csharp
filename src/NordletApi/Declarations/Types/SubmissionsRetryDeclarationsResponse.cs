@@ -83,6 +83,9 @@ public record SubmissionsRetryDeclarationsResponse : IJsonOnDeserialized
     [JsonPropertyName("deliveryError")]
     public string? DeliveryError { get; set; }
 
+    [JsonPropertyName("confirmationPending")]
+    public required bool ConfirmationPending { get; set; }
+
     [JsonPropertyName("sentSha256")]
     public string? SentSha256 { get; set; }
 

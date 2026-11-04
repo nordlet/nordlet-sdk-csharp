@@ -23,6 +23,7 @@ public class UnitsListTest : BaseMockServerTest
                   "id": "x",
                   "code": "code",
                   "name": "name",
+                  "rec20Code": "rec20Code",
                   "isActive": true,
                   "createdAt": "2024-01-15T09:30:00.000Z"
                 },
@@ -30,6 +31,7 @@ public class UnitsListTest : BaseMockServerTest
                   "id": "x",
                   "code": "code",
                   "name": "name",
+                  "rec20Code": "rec20Code",
                   "isActive": true,
                   "createdAt": "2024-01-15T09:30:00.000Z"
                 }
@@ -71,6 +73,7 @@ public class UnitsListTest : BaseMockServerTest
                   "id": "id",
                   "code": "code",
                   "name": "name",
+                  "rec20Code": "rec20Code",
                   "isActive": true,
                   "createdAt": "2026-07-01T09:30:00.000Z"
                 }

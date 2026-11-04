@@ -26,6 +26,12 @@ public record DocumentsConfirmCaptureResponseInvoiceLinesItem : IJsonOnDeseriali
     [JsonPropertyName("quantity")]
     public required string Quantity { get; set; }
 
+    [JsonPropertyName("unitFactor")]
+    public required string UnitFactor { get; set; }
+
+    [JsonPropertyName("baseQuantity")]
+    public required string BaseQuantity { get; set; }
+
     [JsonPropertyName("unitPriceExclVat")]
     public string? UnitPriceExclVat { get; set; }
 
@@ -52,6 +58,12 @@ public record DocumentsConfirmCaptureResponseInvoiceLinesItem : IJsonOnDeseriali
 
     [JsonPropertyName("deferralEndDate")]
     public DateOnly? DeferralEndDate { get; set; }
+
+    [JsonPropertyName("lotNumber")]
+    public string? LotNumber { get; set; }
+
+    [JsonPropertyName("expiryDate")]
+    public DateOnly? ExpiryDate { get; set; }
 
     [JsonPropertyName("lineNet")]
     public required string LineNet { get; set; }

@@ -18,6 +18,9 @@ public record MaintenanceCreateProductionRequest
     [JsonPropertyName("description")]
     public string? Description { get; set; }
 
+    [JsonPropertyName("purchaseInvoiceId")]
+    public string? PurchaseInvoiceId { get; set; }
+
     [JsonPropertyName("notes")]
     public string? Notes { get; set; }
 

@@ -50,6 +50,9 @@ public record VehiclesGetFleetResponse : IJsonOnDeserialized
     [JsonPropertyName("status")]
     public required VehiclesGetFleetResponseStatus Status { get; set; }
 
+    [JsonPropertyName("disposalDate")]
+    public DateOnly? DisposalDate { get; set; }
+
     [JsonPropertyName("notes")]
     public string? Notes { get; set; }
 

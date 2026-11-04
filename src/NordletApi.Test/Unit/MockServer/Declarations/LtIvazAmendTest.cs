@@ -61,6 +61,7 @@ public class LtIvazAmendTest : BaseMockServerTest
             {
                 WaybillIds = new List<string>() { "waybillIds", "waybillIds" },
                 Persist = null,
+                Corrections = null,
             }
         );
         JsonAssert.AreEqual(response, mockResponse);

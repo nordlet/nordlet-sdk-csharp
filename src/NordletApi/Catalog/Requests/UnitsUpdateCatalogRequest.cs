@@ -15,6 +15,9 @@ public record UnitsUpdateCatalogRequest
     [JsonPropertyName("name")]
     public string? Name { get; set; }
 
+    [JsonPropertyName("rec20Code")]
+    public string? Rec20Code { get; set; }
+
     [JsonPropertyName("isActive")]
     public bool? IsActive { get; set; }
 

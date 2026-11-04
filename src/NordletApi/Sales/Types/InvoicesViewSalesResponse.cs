@@ -59,6 +59,9 @@ public record InvoicesViewSalesResponse : IJsonOnDeserialized
     [JsonPropertyName("payUrl")]
     public string? PayUrl { get; set; }
 
+    [JsonPropertyName("cardPaymentReceived")]
+    public required bool CardPaymentReceived { get; set; }
+
     [JsonPropertyName("seller")]
     public required InvoicesViewSalesResponseSeller Seller { get; set; }
 

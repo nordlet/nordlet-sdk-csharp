@@ -57,7 +57,7 @@ public partial interface IProductionClient
     );
 
     /// <summary>
-    /// Record a `preventive` or `corrective` maintenance planned for a work center on `plannedDate`; it starts as `planned`.
+    /// Record a `preventive` or `corrective` maintenance planned for a work center on `plannedDate`; it starts as `planned`. `purchaseInvoiceId` links the purchase invoice that books its cost (422 when it is not a purchase invoice of the company or is a credit note). Maintenance posts nothing to the ledger itself.
     /// </summary>
     WithRawResponseTask<MaintenanceCreateProductionResponse> MaintenanceCreateAsync(
         MaintenanceCreateProductionRequest request,
@@ -66,7 +66,7 @@ public partial interface IProductionClient
     );
 
     /// <summary>
-    /// Mark a `planned` maintenance as completed on `completedDate`, with optional `downtimeHours` and `cost` (409 when it is already completed or cancelled). The work center's `nextMaintenanceDate` is then counted from the latest completed maintenance date.
+    /// Mark a `planned` maintenance as completed on `completedDate`, with optional `downtimeHours` and `cost` (409 when it is already completed or cancelled). The work center's `nextMaintenanceDate` is then counted from the latest completed maintenance date. `purchaseInvoiceId` links the purchase invoice that books the cost, as on `production/maintenance/create`; the cost is not posted to the ledger, with or without the link.
     /// </summary>
     WithRawResponseTask<MaintenanceCompleteProductionResponse> MaintenanceCompleteAsync(
         MaintenanceCompleteProductionRequest request,
@@ -138,7 +138,7 @@ public partial interface IProductionClient
     );
 
     /// <summary>
-    /// Add a pending quality check to a draft production order (409 once the order is completed). The order cannot complete while a check is pending.
+    /// Add a pending quality check to a draft production order (409 once the order is completed). The order cannot complete while a check is pending or failed.
     /// </summary>
     WithRawResponseTask<QualityChecksAddProductionResponse> QualityChecksAddAsync(
         QualityChecksAddProductionRequest request,
@@ -147,7 +147,7 @@ public partial interface IProductionClient
     );
 
     /// <summary>
-    /// Record the result of a quality check as `passed` or `failed`, with the time and the actor (409 once the order is completed). Only a `pending` check blocks `production/orders/complete`; a `failed` one does not.
+    /// Record the result of a quality check as `passed` or `failed`, with the time and the actor (409 once the order is completed). `production/orders/complete` answers 409 while a check is `pending` or `failed`; a failed check can be recorded again as `passed`.
     /// </summary>
     WithRawResponseTask<QualityChecksRecordProductionResponse> QualityChecksRecordAsync(
         QualityChecksRecordProductionRequest request,
@@ -165,7 +165,7 @@ public partial interface IProductionClient
     );
 
     /// <summary>
-    /// Complete a draft production order on the order's date. An `assembly` consumes the components FIFO from the warehouse (line quantity × order quantity, increased by `scrapPercent`), prices each operation at its actual or planned minutes × `costPerHour`, receives the finished item at material cost + labor cost less the share of `scrappedQuantity`, and, when there is labor, scrap or a component stock account other than the finished one, posts a journal entry debiting the finished stock account (and the `production.scrap` rule account for the scrapped share) and crediting the component stock accounts and the work centers' cost accounts (or the `production.laborApplied` rule account); a `disassembly` consumes the finished item and receives the components at its cost shared by quantity. `componentsAccountCode` and `finishedAccountCode` default to the chart's production accounts. Refused with 409 when the order is already completed, a quality check is still pending or the accounting period is locked, and with 422 when the BOM has no lines, `scrappedQuantity` is given on a disassembly or exceeds the finished quantity, the assembly cost is zero, stock is insufficient, a received item needs lot or serial tracking, or a posting account is missing. Emits `stock.changed`.
+    /// Complete a draft production order on the order's date. An `assembly` consumes the components from the warehouse, the first-expiring lot first (lots without an expiry date after those with one, then the oldest layers first), leaving out expired lots (line quantity × order quantity, increased by `scrapPercent`), prices each operation at its actual or planned minutes × `costPerHour`, receives the finished item at material cost + labor cost less the share of `scrappedQuantity`, and, when there is labor, scrap or a component stock account other than the finished one, posts a journal entry debiting the finished stock account (and the `production.scrap` rule account for the scrapped share) and crediting the component stock accounts and the work centers' cost accounts (or the `production.laborApplied` rule account); a `disassembly` consumes the finished item and receives the components at its cost shared by quantity. `componentsAccountCode` and `finishedAccountCode` default to the chart's production accounts; consumed layers without a stock account are credited to the given code, else to the `inventory.stock` rule account. Refused with 409 when the order is already completed, a quality check is still pending or has failed, or the accounting period is locked, and with 422 when the BOM has no lines, `scrappedQuantity` is given on a disassembly or exceeds the finished quantity, the assembly cost is zero, stock is insufficient, a received item needs lot or serial tracking, or a posting account is missing. Emits `stock.changed`.
     /// </summary>
     WithRawResponseTask<OrdersCompleteProductionResponse> OrdersCompleteAsync(
         OrdersCompleteProductionRequest request,

@@ -5332,7 +5332,7 @@ await client.Catalog.ItemsKindsListAsync(new ItemsKindsListCatalogRequest());
 <dl>
 <dd>
 
-Create a unit of measure of the company's own, in addition to the global measurement units (`reference/units/list`). 409 when the code already exists.
+Create a unit of measure of the company's own, in addition to the global measurement units (`reference/units/list`). `rec20Code` is the UN/ECE Recommendation 20 code e-invoices carry for the unit. 409 when the code already exists.
 </dd>
 </dl>
 </dd>
@@ -5388,7 +5388,7 @@ await client.Catalog.UnitsCreateAsync(
 <dl>
 <dd>
 
-Change the code, name or active flag of a company unit. 409 when the new code already exists.
+Change the code, name, UN/ECE Recommendation 20 code or active flag of a company unit. 409 when the new code already exists.
 </dd>
 </dl>
 </dd>
@@ -5976,6 +5976,229 @@ await client.Catalog.ItemsSuppliersDeleteAsync(
 </dl>
 </details>
 
+<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">ItemsUnitsCreateAsync</a>(ItemsUnitsCreateCatalogRequest { ... }) -> WithRawResponseTask&lt;ItemsUnitsCreateCatalogResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Add an alternative unit to an item: `factor` is how many of the item's own unit one `unitCode` holds (a box of 12 pieces has factor 12). Document lines entered in that unit keep the entered quantity and unit price and move `quantity × factor` of the item's unit in stock and filings. `isDefaultSale` and `isDefaultPurchase` mark the unit the app offers first on sale and purchase documents; setting one clears it on the item's other units. 422 when `unitCode` is the item's own unit or not a known unit; 409 when the item already has that unit.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Catalog.ItemsUnitsCreateAsync(
+    new ItemsUnitsCreateCatalogRequest
+    {
+        ItemId = "itemId",
+        UnitCode = "unitCode",
+        Factor = "121.000000",
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ItemsUnitsCreateCatalogRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">ItemsUnitsUpdateAsync</a>(ItemsUnitsUpdateCatalogRequest { ... }) -> WithRawResponseTask&lt;ItemsUnitsUpdateCatalogResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Change the factor, default flags or barcode of an alternative unit. Document lines already entered keep the factor they were saved with; the new factor applies to lines entered or recalculated after the change.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Catalog.ItemsUnitsUpdateAsync(new ItemsUnitsUpdateCatalogRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ItemsUnitsUpdateCatalogRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">ItemsUnitsDeleteAsync</a>(ItemsUnitsDeleteCatalogRequest { ... }) -> WithRawResponseTask&lt;ItemsUnitsDeleteCatalogResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Delete an alternative unit of an item. Document lines already entered in it keep their unit and factor.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Catalog.ItemsUnitsDeleteAsync(new ItemsUnitsDeleteCatalogRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ItemsUnitsDeleteCatalogRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">ItemsUnitsListAsync</a>(ItemsUnitsListCatalogRequest { ... }) -> WithRawResponseTask&lt;ItemsUnitsListCatalogResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List the alternative units of an item, ordered by unit code.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Catalog.ItemsUnitsListAsync(new ItemsUnitsListCatalogRequest { ItemId = "itemId" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ItemsUnitsListCatalogRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.Catalog.<a href="/src/NordletApi/Catalog/CatalogClient.cs">PriceListsCreateAsync</a>(PriceListsCreateCatalogRequest { ... }) -> WithRawResponseTask&lt;PriceListsCreateCatalogResponse&gt;</code></summary>
 <dl>
 <dd>
@@ -6503,7 +6726,7 @@ await client.Sales.InvoicesPdfAsync(new InvoicesPdfSalesRequest { Id = "id" });
 <dl>
 <dd>
 
-Return a sale document as its customer sees it: the seller as printed on it (the snapshot taken at issue, else the company), the buyer with address and e-mail, the lines, the totals, `paidOn` (the date of the latest payment once the document is paid), `payUrl` (as in `sales/invoices/payment-link`) and `token`, the document's customer token for `public/invoices/get` and `public/invoices/pdf`, created on first use; `token` is null on a draft.
+Return a sale document as its customer sees it: the seller as printed on it (the snapshot taken at issue, else the company), the buyer with address and e-mail, the lines, the totals, `paidOn` (the date of the latest payment once the document is paid), `payUrl` (as in `sales/invoices/payment-link`; null while `cardPaymentReceived`), `cardPaymentReceived` (a completed card payment was received and the invoice waits for the payout settlement) and `token`, the document's customer token for `public/invoices/get` and `public/invoices/pdf`, created on first use; `token` is null on a draft.
 </dd>
 </dl>
 </dd>
@@ -7045,7 +7268,7 @@ await client.Sales.InvoicesDeleteAsync(new InvoicesDeleteSalesRequest { Id = "id
 <dl>
 <dd>
 
-Issue a draft sale document: assigns the next number (from its document series, else from `series` or the type's default prefix and the year), the issue date (`issueDate`, else the draft's, else today) and a missing due date from the partner's payment term, and for an invoice, credit note or advance invoice posts the journal entry and stores the VAT evidence. `warehouseId` (or the series' warehouse) takes the sold goods of an invoice out of stock with a cost of goods sold entry; `returnToStock` puts them back for a credit note that credits an invoice. A credit note is set against the unpaid balance of the credited document. Emits `sale_invoice.issued`, `sale_invoice.paid` when a credit note settles the credited invoice in full, and `intercompany.invoice_mirrored` when the partner is linked to another company of the group (a draft purchase invoice is created there). Answers 409 when the document is already issued or locked or the accounting period is locked, 422 when the lines carry VAT under a scheme that charges none, when credit notes would exceed the credited total, or when `returnToStock` is used on anything but a credit note of an invoice.
+Issue a draft sale document: assigns the next number (from its document series, else from `series` or the type's default prefix and the year), the issue date (`issueDate`, else the draft's, else today) and a missing due date from the partner's payment term, and for an invoice, credit note or advance invoice posts the journal entry and stores the VAT evidence. `warehouseId` (or the series' warehouse) takes the sold goods of an invoice out of stock, the first-expiring lot first (lots without an expiry date after those with one, then the oldest layers first), leaving out expired lots, with a cost of goods sold entry; `returnToStock` puts them back for a credit note that credits an invoice. A credit note is set against the unpaid balance of the credited document. Emits `sale_invoice.issued`, `sale_invoice.paid` when a credit note settles the credited invoice in full, and `intercompany.invoice_mirrored` when the partner is linked to another company of the group (a draft purchase invoice is created there). Answers 409 when the document is already issued or locked or the accounting period is locked, 422 when the lines carry VAT under a scheme that charges none, when credit notes would exceed the credited total, or when `returnToStock` is used on anything but a credit note of an invoice.
 </dd>
 </dl>
 </dd>
@@ -7481,7 +7704,7 @@ await client.Sales.InvoicesApplyAdvanceAsync(
 <dl>
 <dd>
 
-List the sale documents of the company with the partner name. Filterable by partnerId, type, status, paymentStatus, fullNumber, issueDate, currency, agreementId, creditedInvoiceId, operationTypeId, documentSeriesId, lockedAt, grossTotal, netTotal, vatTotal, dueDate, orderNumber, seriesLabel, locale and recurringInvoiceId; sortable by createdAt, issueDate, fullNumber, grossTotal, netTotal, vatTotal, status and paymentStatus.
+List the sale documents of the company with the partner name. An advance invoice also carries `advanceUnappliedAmount`: its gross total less the amounts applied with `sales/invoices/apply-advance` and the issued credit notes on it (null on other documents). Filterable by partnerId, type, status, paymentStatus, fullNumber, issueDate, currency, agreementId, creditedInvoiceId, operationTypeId, documentSeriesId, lockedAt, grossTotal, netTotal, vatTotal, dueDate, orderNumber, seriesLabel, locale and recurringInvoiceId; sortable by createdAt, issueDate, fullNumber, grossTotal, netTotal, vatTotal, status and paymentStatus.
 </dd>
 </dl>
 </dd>
@@ -7697,7 +7920,7 @@ await client.Sales.ActsIssueAsync(new ActsIssueSalesRequest { Id = "id" });
 <dl>
 <dd>
 
-Cancel a draft or issued delivery act. Answers 409 when it is already cancelled.
+Cancel a draft or issued delivery act. When issuing the act recognised milestone revenue, the recognition journal entry is reversed on the company's current date (or on the recognition date when that is later) and those milestone schedules return to `pending`. Answers 409 when it is already cancelled or when the recognition it posted has changed since.
 </dd>
 </dl>
 </dd>
@@ -9025,7 +9248,7 @@ await client.Sales.RefundLiabilityTrueUpAsync(
 <dl>
 <dd>
 
-List the money received on sale documents between `from` and `to` (inclusive), oldest first: bank payments matched to the document, card settlements of a payment provider and cash receipt orders. A reversed bank match is a row with a negative amount on the date it was reversed. Credit notes, advances applied to a final invoice and balances carried over by a migration are not money received and are left out. `amount` is in the document currency; `method` is `card` for a settlement or a payment into a Stripe bank account, `cash` for a cash order and `bank_transfer` otherwise.
+List the money received on sale documents between `from` and `to` (inclusive), oldest first: bank payments matched to the document, card settlements of a payment provider and cash receipt orders. A reversed bank match is a row with a negative amount on the date it was reversed. Refunds paid on credit notes, credit notes, advances applied to a final invoice and balances carried over by a migration are not money received and are left out. `amount` is in the document currency; `method` is `card` for a settlement or a payment into a Stripe bank account, `cash` for a cash order and `bank_transfer` otherwise.
 </dd>
 </dl>
 </dd>
@@ -10079,7 +10302,7 @@ await client.Purchases.InvoicesDeleteAsync(new InvoicesDeletePurchasesRequest { 
 <dl>
 <dd>
 
-Register a draft purchase invoice or credit note: posts the journal entry dated `registrationDate` (default the document date) and sets the status to `registered`. The entry debits each line's expense account (the line's `accountCode`, else the item's purchase or expense account, else the operation type's expense account, else the `purchases.goodsForResale` or `purchases.defaultExpense` rule account), debits VAT receivable (a company that is not a VAT payer books the VAT into the expense instead), credits payables (the operation type's credit account when set) and credits output VAT for self-assessed VAT; a credit note posts the reverse. Lines with `deferralStartDate` and `deferralEndDate` are debited to the `purchases.prepaidExpenses` account instead and get a monthly release schedule for `purchases/deferrals/post`. With `warehouseId` the product lines of an invoice are received into stock at their base-currency cost (422 on an order-linked invoice, whose goods arrive through `purchases/receipts/create`, and for a line that is also deferred); `returnFromStock` on a credit note that credits an invoice takes the goods back out of stock at their FIFO cost and books the difference to the credited amount on the `inventory.cogs` account (422 on an invoice, without `creditedInvoiceId`, or when no goods of the credited invoice are in stock). A credit note that credits a registered invoice in the same currency is applied to it as a payment up to the open amount. Refused with 409 when already registered or the accounting period is locked, and with 422 when the credit notes would exceed the credited invoice, a posting account is missing or no exchange rate exists for the date. Emits `purchase_invoice.registered`, `purchase_invoice.paid` when the credited invoice becomes fully paid, and `stock.changed` when stock moves.
+Register a draft purchase invoice or credit note: posts the journal entry dated `registrationDate` (default the document date) and sets the status to `registered`. The entry debits each line's expense account (the line's `accountCode`, else the item's purchase or expense account, else the operation type's expense account, else the `purchases.goodsForResale` or `purchases.defaultExpense` rule account), debits VAT receivable (a company that is not a VAT payer books the VAT into the expense instead), credits payables (the operation type's credit account when set) and credits output VAT for self-assessed VAT; a credit note posts the reverse. Lines with `deferralStartDate` and `deferralEndDate` are debited to the `purchases.prepaidExpenses` account instead and get a monthly release schedule for `purchases/deferrals/post`. With `warehouseId` the product lines of an invoice are received into stock at their base-currency cost, into the lot named by the line's `lotNumber` (an unknown lot is created, and the line's `expiryDate` is stored on a lot that has none) (422 on an order-linked invoice, whose goods arrive through `purchases/receipts/create`, for a line that is also deferred and for a lot- or serial-tracked item without `lotNumber`); `returnFromStock` on a credit note that credits an invoice takes the goods back out of stock at their FIFO cost and books the difference to the credited amount on the `inventory.cogs` account (422 on an invoice, without `creditedInvoiceId`, or when no goods of the credited invoice are in stock). A credit note that credits a registered invoice in the same currency is applied to it as a payment up to the open amount. Refused with 409 when already registered or the accounting period is locked, and with 422 when the credit notes would exceed the credited invoice, a posting account is missing or no exchange rate exists for the date. Emits `purchase_invoice.registered`, `purchase_invoice.paid` when the credited invoice becomes fully paid, and `stock.changed` when stock moves.
 </dd>
 </dl>
 </dd>
@@ -10187,7 +10410,7 @@ await client.Purchases.DeferralsListAsync(new DeferralsListPurchasesRequest());
 <dl>
 <dd>
 
-Post every `pending` prepaid-expense release row dated on or before `asOfDate` (default today in the company's time zone): one journal entry per schedule date debiting the expense account and crediting the prepaid account, and the rows become `posted`. A locked accounting period is refused with 409. The scheduled job `expense-deferrals` runs the same release for every active company.
+Post every `pending` prepaid-expense release row dated on or before `asOfDate` (default today in the company's time zone): one journal entry per schedule date debiting the expense account and crediting the prepaid account, and the rows become `posted`. A row dated in a locked accounting period is posted on the first day of the first open period after it, even when that day is after `asOfDate`. The scheduled job `expense-deferrals` runs the same release for every active company.
 </dd>
 </dl>
 </dd>
@@ -12270,7 +12493,7 @@ await client.Declarations.LtSaftGenerateAsync(
 <dl>
 <dd>
 
-Builds an i.VAZ amendment message for up to 100 issued waybills, carrying their current data as TransportDocumentAmendment elements. Answers 422 when the registration code of the company is not numeric or when a waybill is not issued. With `persist`, the file is stored and a submission for `lt-ivaz-amendment` is created.
+Builds an i.VAZ amendment message for up to 100 issued waybills as TransportDocumentAmendment elements. `corrections` carries corrected values per waybill: `consigneePartnerId`, `unloadAddress`, `vehiclePlate`, `trailerPlate`, `driverName`, `driverSurname` (the last three can be cleared with null) and line `quantity` by line id; the message carries the waybill with them applied, and with `persist` they are also stored on the waybill. Answers 422 when the registration code of the company is not numeric, when a waybill is not issued, or when a correction names a waybill not in `waybillIds`, a waybill twice, a line not on its waybill or a consignee partner the company does not have. With `persist`, the file is stored and a submission for `lt-ivaz-amendment` is created.
 </dd>
 </dl>
 </dd>
@@ -16071,7 +16294,7 @@ await client.Declarations.PlPit11GenerateAsync(
 <dl>
 <dd>
 
-Generate CIT-8(34), the annual corporate income tax return, from the ledger of the year and the recorded tax adjustments. The tax office code and the small-taxpayer setting come from the e-Deklaracje compliance settings, the seat address from the JPK gateway settings. Names the annexes the figures would need, which are not produced.
+Generate CIT-8(34), the annual corporate income tax return, from the ledger of the year and the recorded tax adjustments. The tax office code and the small-taxpayer setting come from the e-Deklaracje compliance settings, the seat address from the JPK gateway settings. Names the annexes the figures would need, which are not produced. Answers 422 for a tax year that starts before 2025-01-01, which the CIT-8(34) schema does not accept.
 </dd>
 </dl>
 </dd>
@@ -17007,6 +17230,62 @@ await client.Declarations.SubmissionsRetryAsync(
 <dd>
 
 **request:** `SubmissionsRetryDeclarationsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Declarations.<a href="/src/NordletApi/Declarations/DeclarationsClient.cs">SubmissionsConfirmAsync</a>(SubmissionsConfirmDeclarationsRequest { ... }) -> WithRawResponseTask&lt;SubmissionsConfirmDeclarationsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Sends a submission whose `confirmationPending` is true once more with the stored file and the token the administration handed back with its warnings (the advis of Erhvervsstyrelsen's Regnskab Indberet, which files the annual report only when it is sent again with that token), and returns the updated submission. Answers 409 when the submission is not waiting for a confirmation.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Declarations.SubmissionsConfirmAsync(
+    new SubmissionsConfirmDeclarationsRequest { Id = "id" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `SubmissionsConfirmDeclarationsRequest` 
     
 </dd>
 </dl>
@@ -22057,7 +22336,7 @@ await client.Hr.TimesheetsDeleteAsync(new TimesheetsDeleteHrRequest { Id = "id" 
 <dl>
 <dd>
 
-Register a vehicle. The plate number is stored in upper case and must be unique in the company (409 otherwise); `fixedAssetId` must name an existing fixed asset. Uploaded `documents` are attached to the vehicle.
+Register a vehicle. The plate number is stored in upper case and must be unique in the company (409 otherwise); `fixedAssetId` must name an existing fixed asset. Uploaded `documents` are attached to the vehicle. `disposalDate`, the day the vehicle was sold or scrapped, is the last day of its car benefit in kind.
 </dd>
 </dl>
 </dd>
@@ -22118,7 +22397,7 @@ await client.Fleet.VehiclesCreateAsync(
 <dl>
 <dd>
 
-Change a vehicle's details or set its `status` to `active`, `sold` or `scrapped`; omitted fields keep their value. A plate number already used by another vehicle is refused with 409.
+Change a vehicle's details or set its `status` to `active`, `sold` or `scrapped` and its `disposalDate`, the last day of its car benefit in kind; omitted fields keep their value. A plate number already used by another vehicle is refused with 409.
 </dd>
 </dl>
 </dd>
@@ -22451,7 +22730,7 @@ await client.Fleet.AssignmentsListAsync(new AssignmentsListFleetRequest());
 <dl>
 <dd>
 
-Preview the car benefit in kind of a month for a Lithuanian company: every assignment with `privateUse` that overlaps the month is valued at 0.75 % of the vehicle's market value when the employer pays the fuel, else 0.70 %, one row per employee and vehicle, with the total. A company registered in another country is refused with 422. The same amounts are added to a payroll run created with `includeNatura` (`payroll/runs/create`).
+Preview the car benefit in kind of a month for a Lithuanian company: every assignment with `privateUse` that overlaps the month is valued at 0.75 % of the vehicle's market value when the employer pays the fuel, else 0.70 %, one row per employee and vehicle, with the total. A month the assignment starts or ends in, or the vehicle's `disposalDate` falls in, is valued by its calendar days with the car; after the `disposalDate` there is no benefit. A company registered in another country is refused with 422. The same amounts are added to a payroll run created with `includeNatura` (`payroll/runs/create`).
 </dd>
 </dl>
 </dd>
@@ -22838,7 +23117,7 @@ await client.Payroll.CalcAsync(
 <dl>
 <dd>
 
-Creates a draft payroll run for a month, computing each line with the company country's payroll engine, the employee's approved runs of the year so far and of the two previous years, the month's timesheet and `payDate` (default the last day of the month). Without `lines`, every active employee whose contract covers the month gets a line: the gross is the contract's monthly salary reduced to the paid working days of the contract and the timesheet, unless `grossOverrides` sets it; the per diems of approved business trips ending in the month are added untaxed and the trips linked to the run; for a Lithuanian company the car benefit in kind (`includeNatura`) and the compensation for unused leave of a contract ending in the month are added. With `lines`, only the given employees are computed with their gross, additions and deductions; a taxable addition may carry a `paymentType` from `payroll/payment-types/list` and `hours`. Answers 422 when the country has no engine, an employee is given twice, has two contracts in the month, has no contract and no gross, or is paid by the hour or day without a gross; 409 when a run for the month already exists or the accounting period is locked.
+Creates a draft payroll run for a month, computing each line with the company country's payroll engine, the employee's approved runs of the year so far and of the two previous years, the month's timesheet and `payDate` (default the last day of the month). Without `lines`, every employee whose contract overlaps the month gets a line, whatever the employee's status: the gross is the contract's monthly salary reduced to the paid working days of the contract and the timesheet, unless `grossOverrides` sets it; the per diems of approved business trips ending in the month are added untaxed and the trips linked to the run; for a Lithuanian company the car benefit in kind (`includeNatura`) and the compensation for unused leave of a contract ending in the month are added. With `lines`, only the given employees are computed with their gross, additions and deductions; a taxable addition may carry a `paymentType` from `payroll/payment-types/list` and `hours`. Answers 422 when the country has no engine, an employee is given twice, has two contracts in the month, has no contract and no gross, or is paid by the hour or day without a gross; 409 when a run for the month already exists or the accounting period is locked.
 </dd>
 </dl>
 </dd>
@@ -23056,7 +23335,7 @@ await client.Payroll.LinesAttendanceAsync(new LinesAttendancePayrollRequest { Id
 <dl>
 <dd>
 
-Posts the run's journal entry dated the last day of the month and sets the status to `approved`: the wage expense (net pay, income tax, employee contributions and deductions) and the employer contributions are debited; the net payable, the income tax, the social contributions (on one account, or split between the employee and employer accounts when their codes differ) and the deductions are credited. The accounts default to the payroll accounts of the company's chart template; each can be given per call. Answers 409 when the run is not a draft or the accounting period is locked, 422 when the run has no lines or nothing to post, and emits `payroll_run.approved`. For an Irish company with the automation of the `ie-payroll-withholding` deadline switched on, the month's payroll submission is sent at once and a failure is added to the run's `warnings`. Undo with `payroll/runs/reverse`, pay with `payroll/payments/export`.
+Posts the run's journal entry dated the last day of the month and sets the status to `approved`: the wage expense (net pay, income tax, employee contributions and deductions) and the employer contributions are debited; the net payable, the income tax, the social contributions (on one account, or split between the employee and employer accounts when their codes differ) and the deductions are credited. The accounts default to the payroll accounts of the company's chart template; each can be given per call. Answers 409 when the run is not a draft or the accounting period is locked, 422 when the run has no lines or nothing to post, and emits `payroll_run.approved`. For an Irish company with the automation of the `ie-payroll-withholding` deadline switched on, the month's payroll submission is sent at once and a failure is added to the run's `warnings`. For a Lithuanian company the unused leave days a line paid as compensation, recorded per balance year when the run was created, are added to the used days of the leave balances. Undo with `payroll/runs/reverse`, pay with `payroll/payments/export`.
 </dd>
 </dl>
 </dd>
@@ -23110,7 +23389,7 @@ await client.Payroll.RunsApproveAsync(new RunsApprovePayrollRequest { Id = "id" 
 <dl>
 <dd>
 
-Posts a journal entry dated the last day of the month that mirrors the run's entry (debits and credits swapped), sets the status to `reversed` with the reason, and releases the business trips the run paid so the next run picks them up again. Answers 409 when the run is not approved, when part of it is matched to bank payments (`paidAmount`, unmatch them first) or when the accounting period is locked. Emits `payroll_run.reversed`.
+Posts a journal entry dated the last day of the month that mirrors the run's entry (debits and credits swapped), sets the status to `reversed` with the reason, and releases the business trips the run paid so the next run picks them up again; the leave days the run marked used as compensation for unused leave are given back to the leave balances. Answers 409 when the run is not approved, when part of it is matched to bank payments (`paidAmount`, unmatch them first) or when the accounting period is locked. Emits `payroll_run.reversed`.
 </dd>
 </dl>
 </dd>
@@ -24396,7 +24675,7 @@ await client.Inventory.StockReceiveAsync(
 <dl>
 <dd>
 
-Consume a quantity of an item from a warehouse, oldest layers first (from one lot when `lotNumber` is given), and post a journal entry: debit the expense account (`expenseAccountCode`, default the chart's inventory expense account), credit the stock account each consumed layer was received on (the chart's inventory account for layers without one), or `inventoryAccountCode` for the whole cost when given. 409 when the accounting period of `date` is locked; 422 when the stock is insufficient under the `reject` policy or in the named lot. Emits `stock.changed` and, when the consumption takes the available quantity from above a reorder rule's minimum to at or below it, `stock.reorder_needed`.
+Consume a quantity of an item from a warehouse, first-expiring lot first (lots without an expiry date after those with one, then the oldest layers first; expired lots included) or from one lot when `lotNumber` is given, and post a journal entry: debit the expense account (`expenseAccountCode`, default the chart's inventory expense account), credit the stock account each consumed layer was received on (the `inventory.stock` posting rule account for layers without one), or `inventoryAccountCode` for the whole cost when given. 409 when the accounting period of `date` is locked; 422 when the stock is insufficient under the `reject` policy or in the named lot. Emits `stock.changed` and, when the consumption takes the available quantity from above a reorder rule's minimum to at or below it, `stock.reorder_needed`.
 </dd>
 </dl>
 </dd>
@@ -24458,7 +24737,7 @@ await client.Inventory.StockWriteOffAsync(
 <dl>
 <dd>
 
-Move a quantity of an item from one warehouse to another: the source layers are consumed oldest first (from one lot when `lotNumber` is given) and received in the target with the same quantities, costs, lots and stock accounts (document type `warehouse_transfer`). 422 when both warehouses are the same or the source stock is insufficient under the `reject` policy. `inMovementId` is the first receipt when the consumption spans several lots or stock accounts. Emits `stock.changed` for both warehouses and `stock.reorder_needed` as `inventory/stock/write-off` does.
+Move a quantity of an item from one warehouse to another: the source layers are consumed as `inventory/stock/write-off` consumes them, except that expired lots are left out unless `lotNumber` names one, and received in the target with the same quantities, costs, lots and stock accounts, one receipt per lot and stock account (document type `warehouse_transfer`). 422 when both warehouses are the same or the source stock is insufficient under the `reject` policy. `inMovementId` is the first receipt when the consumption spans several lots or stock accounts. Emits `stock.changed` for both warehouses and `stock.reorder_needed` as `inventory/stock/write-off` does.
 </dd>
 </dl>
 </dd>
@@ -24521,7 +24800,7 @@ await client.Inventory.StockTransferAsync(
 <dl>
 <dd>
 
-Post a stock count for a warehouse. Each line names an item by `itemId` or `barcode` with its `countedQty`; the difference to the quantity on hand in the warehouse (all lots together) is written off oldest layers first or received as a surplus at `unitCost` (the item's purchase price when omitted; 422 when neither is set), with document type `stock_take`, and a surplus of a lot- or serial-tracked item needs `lotNumber` (422). The shortage cost less the surplus cost is posted in one journal entry between the expense account (`expenseAccountCode`, default the chart's inventory expense account) and the stock accounts (`inventoryAccountCode` for everything when given, else the accounts of the consumed layers and the chart's inventory account for the surpluses); nothing is posted and `journalTransactionId` is null when the net is zero. 409 when the accounting period of `date` is locked. Emits `stock.changed` per adjusted item.
+Post a stock count for a warehouse. Each line names an item by `itemId` or `barcode` with its `countedQty`; the difference to the quantity on hand in the warehouse (all lots together) is written off as `inventory/stock/write-off` consumes stock or received as a surplus at `unitCost` (the item's purchase price when omitted; 422 when neither is set), with document type `stock_take`, and a surplus of a lot- or serial-tracked item needs `lotNumber` (422). The shortage cost less the surplus cost is posted in one journal entry between the expense account (`expenseAccountCode`, default the chart's inventory expense account) and the stock accounts (`inventoryAccountCode` for everything when given, else the accounts of the consumed layers and the `inventory.stock` posting rule account for the surpluses); nothing is posted and `journalTransactionId` is null when the net is zero. 409 when the accounting period of `date` is locked. Emits `stock.changed` per adjusted item.
 </dd>
 </dl>
 </dd>
@@ -24747,7 +25026,7 @@ await client.Inventory.LotsListAsync(new LotsListInventoryRequest());
 <dl>
 <dd>
 
-Return a lot with its quantity on hand and its movements in date order.
+Return a lot with its quantity on hand and its movements in date order, the outgoing movement before the incoming one when one posting made both (a transfer).
 </dd>
 </dl>
 </dd>
@@ -24855,7 +25134,7 @@ await client.Inventory.LotsUpdateAsync(new LotsUpdateInventoryRequest { Id = "id
 <dl>
 <dd>
 
-Allocate an extra cost `amount` (positive, whole cents; 422 otherwise) over incoming stock movements, named by `movementIds` or taken from the lines of a goods receipt (`goodsReceiptId`; 422 when the receipt has no stock movements), in proportion to their cost (`by_value`) or quantity (`by_quantity`), largest remainder to the cent. The part of each share that belongs to the quantity still on hand raises the movement's remaining cost and recomputes its unit cost; the part that belongs to quantity already consumed is posted in a journal entry dated `date` debiting `inventory.cogs` and crediting the movement's stock account (`inventory.stock` when it has none), 409 when that period is locked. 422 when a movement is not incoming or the weights sum to zero. `sourceInvoiceId` records the purchase invoice the cost came from. Goods receipts come from `purchases/receipts/create`.
+Allocate an extra cost `amount` (positive, whole cents; 422 otherwise) over incoming stock movements, named by `movementIds` or taken from the lines of a goods receipt (`goodsReceiptId`; 422 when the receipt has no stock movements), in proportion to their cost (`by_value`) or quantity (`by_quantity`), largest remainder to the cent. The part of each share that belongs to the quantity still on hand raises the movement's remaining cost and recomputes its unit cost; the part that belongs to quantity moved to another warehouse by `inventory/stock/transfer` follows it to the receipts the transfer made there and is allocated on them the same way; the part that belongs to quantity already consumed is posted in a journal entry dated `date` debiting `inventory.cogs` and crediting the movement's stock account (`inventory.stock` when it has none), 409 when that period is locked. 422 when a movement is not incoming or the weights sum to zero. `sourceInvoiceId` records the purchase invoice the cost came from. Goods receipts come from `purchases/receipts/create`.
 </dd>
 </dl>
 </dd>
@@ -25639,7 +25918,7 @@ await client.Production.RoutingsListAsync(new RoutingsListProductionRequest());
 <dl>
 <dd>
 
-Record a `preventive` or `corrective` maintenance planned for a work center on `plannedDate`; it starts as `planned`.
+Record a `preventive` or `corrective` maintenance planned for a work center on `plannedDate`; it starts as `planned`. `purchaseInvoiceId` links the purchase invoice that books its cost (422 when it is not a purchase invoice of the company or is a credit note). Maintenance posts nothing to the ledger itself.
 </dd>
 </dl>
 </dd>
@@ -25700,7 +25979,7 @@ await client.Production.MaintenanceCreateAsync(
 <dl>
 <dd>
 
-Mark a `planned` maintenance as completed on `completedDate`, with optional `downtimeHours` and `cost` (409 when it is already completed or cancelled). The work center's `nextMaintenanceDate` is then counted from the latest completed maintenance date.
+Mark a `planned` maintenance as completed on `completedDate`, with optional `downtimeHours` and `cost` (409 when it is already completed or cancelled). The work center's `nextMaintenanceDate` is then counted from the latest completed maintenance date. `purchaseInvoiceId` links the purchase invoice that books the cost, as on `production/maintenance/create`; the cost is not posted to the ledger, with or without the link.
 </dd>
 </dl>
 </dd>
@@ -26161,7 +26440,7 @@ await client.Production.OrdersRecordOperationAsync(
 <dl>
 <dd>
 
-Add a pending quality check to a draft production order (409 once the order is completed). The order cannot complete while a check is pending.
+Add a pending quality check to a draft production order (409 once the order is completed). The order cannot complete while a check is pending or failed.
 </dd>
 </dl>
 </dd>
@@ -26217,7 +26496,7 @@ await client.Production.QualityChecksAddAsync(
 <dl>
 <dd>
 
-Record the result of a quality check as `passed` or `failed`, with the time and the actor (409 once the order is completed). Only a `pending` check blocks `production/orders/complete`; a `failed` one does not.
+Record the result of a quality check as `passed` or `failed`, with the time and the actor (409 once the order is completed). `production/orders/complete` answers 409 while a check is `pending` or `failed`; a failed check can be recorded again as `passed`.
 </dd>
 </dl>
 </dd>
@@ -26331,7 +26610,7 @@ await client.Production.QualityChecksListAsync(new QualityChecksListProductionRe
 <dl>
 <dd>
 
-Complete a draft production order on the order's date. An `assembly` consumes the components FIFO from the warehouse (line quantity × order quantity, increased by `scrapPercent`), prices each operation at its actual or planned minutes × `costPerHour`, receives the finished item at material cost + labor cost less the share of `scrappedQuantity`, and, when there is labor, scrap or a component stock account other than the finished one, posts a journal entry debiting the finished stock account (and the `production.scrap` rule account for the scrapped share) and crediting the component stock accounts and the work centers' cost accounts (or the `production.laborApplied` rule account); a `disassembly` consumes the finished item and receives the components at its cost shared by quantity. `componentsAccountCode` and `finishedAccountCode` default to the chart's production accounts. Refused with 409 when the order is already completed, a quality check is still pending or the accounting period is locked, and with 422 when the BOM has no lines, `scrappedQuantity` is given on a disassembly or exceeds the finished quantity, the assembly cost is zero, stock is insufficient, a received item needs lot or serial tracking, or a posting account is missing. Emits `stock.changed`.
+Complete a draft production order on the order's date. An `assembly` consumes the components from the warehouse, the first-expiring lot first (lots without an expiry date after those with one, then the oldest layers first), leaving out expired lots (line quantity × order quantity, increased by `scrapPercent`), prices each operation at its actual or planned minutes × `costPerHour`, receives the finished item at material cost + labor cost less the share of `scrappedQuantity`, and, when there is labor, scrap or a component stock account other than the finished one, posts a journal entry debiting the finished stock account (and the `production.scrap` rule account for the scrapped share) and crediting the component stock accounts and the work centers' cost accounts (or the `production.laborApplied` rule account); a `disassembly` consumes the finished item and receives the components at its cost shared by quantity. `componentsAccountCode` and `finishedAccountCode` default to the chart's production accounts; consumed layers without a stock account are credited to the given code, else to the `inventory.stock` rule account. Refused with 409 when the order is already completed, a quality check is still pending or has failed, or the accounting period is locked, and with 422 when the BOM has no lines, `scrappedQuantity` is given on a disassembly or exceeds the finished quantity, the assembly cost is zero, stock is insufficient, a received item needs lot or serial tracking, or a posting account is missing. Emits `stock.changed`.
 </dd>
 </dl>
 </dd>
@@ -26723,7 +27002,7 @@ await client.Ecommerce.OrdersReserveAsync(new OrdersReserveEcommerceRequest { Id
 <dl>
 <dd>
 
-Fulfil a `new` or `reserved` order: its reservations are released, the stock lines are consumed FIFO from the order's warehouse on `date` (default: the company's today), the cost of goods sold is posted as a journal entry debiting `cogsAccountCode` and crediting the stock accounts of the consumed layers (`inventoryAccountCode` when a layer has none), and a draft sale invoice for the order lines is created and linked as `invoiceId`, ready for `sales/invoices/issue`. With a `shipToCountryCode` on the order the invoice's VAT scheme is resolved for goods shipped there, as a marketplace sale when `marketplace` is set. Account codes default to the company's chart. Refused with 422 when the stock lines have no warehouse or stock is insufficient (unless the company allows negative stock), with 409 when the accounting period is locked or the order is already `fulfilled` or `cancelled`. Emits `sales_order.fulfilled` and `stock.changed`.
+Fulfil a `new` or `reserved` order: its reservations are released, the stock lines are consumed from the order's warehouse on `date` (default: the company's today), the first-expiring lot first (lots without an expiry date after those with one, then the oldest layers first) and expired lots left out, the cost of goods sold is posted as a journal entry debiting `cogsAccountCode` and crediting the stock accounts of the consumed layers (`inventoryAccountCode` when a layer has none), and a draft sale invoice for the order lines is created and linked as `invoiceId`, ready for `sales/invoices/issue`. With a `shipToCountryCode` on the order the invoice's VAT scheme is resolved for goods shipped there, as a marketplace sale when `marketplace` is set. Account codes default to the posting rules `inventory.cogs` and `inventory.stock`. Refused with 422 when the stock lines have no warehouse, when stock is insufficient (unless the company allows negative stock), when the quantity on hand less the reservations of other orders does not cover the order (unless the company allows negative stock), with 409 when the accounting period is locked or the order is already `fulfilled` or `cancelled`. Emits `sales_order.fulfilled` and `stock.changed`.
 </dd>
 </dl>
 </dd>
@@ -26940,7 +27219,7 @@ await client.Ecommerce.StockListAsync(new StockListEcommerceRequest());
 <dl>
 <dd>
 
-Creates a numbered cash receipt (series `KPO`) or cash disbursement (`KIO`) and posts it in the base currency between the cash account (`cashAccountCode`, default the cash account of the company's chart) and `counterAccountCode`; a receipt debits the cash account, a disbursement credits it. Linked to an invoice - `saleInvoiceId` for a receipt against an issued invoice or advance invoice or a disbursement against an issued credit note, `purchaseInvoiceId` for a disbursement against a registered purchase invoice - the counter account is the receivable or payable account of the posting rules, the invoice's paid amount and payment status (`partial` or `paid`) are updated, and `sale_invoice.paid` or `purchase_invoice.paid` is emitted when the invoice becomes fully paid. Answers 422 when both invoice ids are given, a receipt names a purchase invoice, `counterAccountCode` differs from the invoice's account, or the invoice is in another currency or belongs to another partner; 409 when `amount` exceeds the invoice's remaining amount or the accounting period of `date` is locked.
+Creates a numbered cash receipt (series `KPO`) or cash disbursement (`KIO`) and posts it in the base currency between the cash account (`cashAccountCode`, default the cash account of the company's chart) and `counterAccountCode`; a receipt debits the cash account, a disbursement credits it. Linked to an invoice - `saleInvoiceId` for a receipt against an issued invoice or advance invoice or a disbursement against an issued credit note, `purchaseInvoiceId` for a disbursement against a registered purchase invoice - the counter account is the receivable or payable account the invoice was posted to (its operation type's account, else the posting rule), the invoice's paid amount and payment status (`partial` or `paid`) are updated, and `sale_invoice.paid` or `purchase_invoice.paid` is emitted when the invoice becomes fully paid. Answers 422 when both invoice ids are given, a receipt names a purchase invoice, `counterAccountCode` differs from the invoice's account, or the invoice is in another currency or belongs to another partner; 409 when `amount` exceeds the invoice's remaining amount, a disbursement would take the balance of the cash account below zero on `date` or any later date, or the accounting period of `date` is locked.
 </dd>
 </dl>
 </dd>
@@ -28443,7 +28722,7 @@ await client.Pos.DevicesListAsync(new DevicesListPosRequest());
 <dl>
 <dd>
 
-Record a daily cash register report (Z-report) and post it to the ledger in one journal entry: the cash and card takings are debited to `cashAccountCode` and `cardAccountCode`, the net of the `vatLines` is credited to `revenueAccountCode` and their VAT to `vatAccountCode`. `itemLines` write the sold products off `warehouseId` FIFO (a set is expanded to its product components) and add the cost of goods sold, debited to `cogsAccountCode` against the stock accounts. Account codes default to the company's chart. Refused with 422 when cash plus card differs from the gross total, the item lines have no warehouse or the device is inactive, with 409 when the accounting period is locked or the `reportNumber` already exists. Emits `pos_report.created` and, per item line, `stock.changed`.
+Record a daily cash register report (Z-report) and post it to the ledger in one journal entry: the cash and card takings are debited to `cashAccountCode` and `cardAccountCode`, the net of the `vatLines` is credited to `revenueAccountCode` and their VAT to `vatAccountCode`. `itemLines` write the sold products off `warehouseId`, the first-expiring lot first (lots without an expiry date after those with one, then the oldest layers first), leaving out expired lots (a set is expanded to its product components) and add the cost of goods sold, debited to `cogsAccountCode` against the stock accounts. `cogsAccountCode` and `inventoryAccountCode` default to the posting rules `inventory.cogs` and `inventory.stock`, the other account codes to the company's chart. Refused with 422 when cash plus card differs from the gross total, the item lines have no warehouse or the device is inactive, with 409 when the accounting period is locked or the `reportNumber` already exists. Emits `pos_report.created` and, per item line, `stock.changed`.
 </dd>
 </dl>
 </dd>
@@ -28946,6 +29225,182 @@ await client.Pos.ReceiptsGetAsync(new ReceiptsGetPosRequest { Id = "id" });
 </dl>
 </details>
 
+<details><summary><code>client.Pos.<a href="/src/NordletApi/Pos/PosClient.cs">RefundsCreateAsync</a>(RefundsCreatePosRequest { ... }) -> WithRawResponseTask&lt;RefundsCreatePosResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Refund `quantity` of lines of a receipt, paid in cash out of the open shift `shiftId`, on `date` (default: the company's today). A line refunded in part is priced from its VAT-inclusive unit price, the rest of a line at what is left of its amounts. One journal entry debits the chart's POS revenue and VAT accounts with the net and VAT and credits the chart's cash account with the gross. When the receipt's shift is closed, the stock lines go back into the warehouse at the cost they left it on that shift's report, debited to their stock accounts (`inventory.stock` for layers without one) against `inventory.cogs`; when it is still open, the refunded quantities are left out of the stock write-off at its close. A receipt of another open shift is refused with 422, as are a line not on the receipt, a line named twice, a zero quantity and a quantity above what is left to refund; 409 when the shift is closed or the accounting period is locked.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Pos.RefundsCreateAsync(
+    new RefundsCreatePosRequest
+    {
+        ShiftId = "shiftId",
+        ReceiptId = "receiptId",
+        Lines = new List<RefundsCreatePosRequestLinesItem>()
+        {
+            new RefundsCreatePosRequestLinesItem
+            {
+                ReceiptLineId = "receiptLineId",
+                Quantity = "121.0000",
+            },
+        },
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `RefundsCreatePosRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Pos.<a href="/src/NordletApi/Pos/PosClient.cs">RefundsGetAsync</a>(RefundsGetPosRequest { ... }) -> WithRawResponseTask&lt;RefundsGetPosResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Read one POS refund with its lines.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Pos.RefundsGetAsync(new RefundsGetPosRequest { Id = "id" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `RefundsGetPosRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Pos.<a href="/src/NordletApi/Pos/PosClient.cs">RefundsListAsync</a>(RefundsListPosRequest { ... }) -> WithRawResponseTask&lt;RefundsListPosResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List POS refunds without their lines. Filterable by `shiftId` and `receiptId`; sortable by `date` and `createdAt`.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Pos.RefundsListAsync(new RefundsListPosRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `RefundsListPosRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.Pos.<a href="/src/NordletApi/Pos/PosClient.cs">ShiftsCloseAsync</a>(ShiftsClosePosRequest { ... }) -> WithRawResponseTask&lt;ShiftsClosePosResponse&gt;</code></summary>
 <dl>
 <dd>
@@ -28958,7 +29413,7 @@ await client.Pos.ReceiptsGetAsync(new ReceiptsGetPosRequest { Id = "id" });
 <dl>
 <dd>
 
-Close an open shift: its receipts are summed by VAT rate and by product into one POS report, created as by `pos/reports/create` with number `reportNumber` (default `Z-<device serial>-<n>`, n being the device's closed shifts plus one) on `date` (default: the company's today), which posts the takings and the stock write-off to the ledger and emits `pos_report.created`. The response adds `expectedCash` (opening cash plus the cash receipts) and `cashDifference` (`countedCash` less expected). A shift without receipts is refused with 422, a closed one with 409.
+Close an open shift: its receipts are summed by VAT rate and by product into one POS report, created as by `pos/reports/create` with number `reportNumber` (default `Z-<device serial>-<n>`, n being the device's closed shifts plus one) on `date` (default: the company's today), which posts the takings and the stock write-off to the ledger and emits `pos_report.created`. Quantities refunded from the shift's receipts by `pos/refunds/create` are left out of the stock write-off. The response adds `expectedCash` (opening cash plus the cash receipts less the cash refunds paid out of the shift) and `cashDifference` (`countedCash` less expected). A difference is posted in its own journal entry on `date` (document type `pos_shift`): a shortage debits the `pos.cashShortage` rule account and credits the chart's cash account, a surplus debits the cash account and credits `pos.cashSurplus`; 422 when the company's chart lacks the account. A shift without receipts is refused with 422, a closed one with 409.
 </dd>
 </dl>
 </dd>
@@ -30128,7 +30583,7 @@ await client.Bank.TransactionsListAsync(new TransactionsListBankRequest());
 <dl>
 <dd>
 
-Match one new bank transaction to a document: an issued sale invoice or advance for incoming money; an issued sale credit note, a registered purchase invoice or an approved payroll run (company currency only) for outgoing money. Posts the payment journal transaction between the bank account and the receivable, payable or net payable account, with any exchange difference on the gain or loss account, raises the paid amount of the document and sets the line to matched. `invoiceAmount` states the amount settled on an invoice in another currency; in the same currency it must equal the payment (422). Answers 409 when the line is already matched, when the amount exceeds the remaining balance of the document or when the accounting period of the line date is locked. A document that becomes fully paid is announced as `sale_invoice.paid` or `purchase_invoice.paid`.
+Match one new bank transaction to a document: an issued sale invoice or advance for incoming money; an issued sale credit note, a registered purchase invoice or an approved payroll run (company currency only) for outgoing money. Posts the payment journal transaction between the bank account and the receivable or payable account the invoice was posted to (the account of its operation type, else the posting rule) or the net payable account, with any exchange difference on the gain or loss account, raises the paid amount of the document and sets the line to matched. A payment in another currency is converted into the invoice currency at the rate of the line date, and the difference against the invoice's own rate is the exchange difference; `invoiceAmount` states the amount settled instead; in the same currency it must equal the payment (422). Answers 409 when the line is already matched, when the amount (converted, beyond one cent of the payment) exceeds the remaining balance of the document or when the accounting period of the line date is locked. A document that becomes fully paid is announced as `sale_invoice.paid` or `purchase_invoice.paid`.
 </dd>
 </dl>
 </dd>
@@ -31816,7 +32271,7 @@ await client.Bank.SettlementsUnlinkAsync(new SettlementsUnlinkBankRequest { Id =
 <dl>
 <dd>
 
-Post a settlement batch dated `date` (default: the payout date, else today): the bank account receives the net payout, the matched sale invoices are settled against the receivable (the receivable of each partner in a journal transaction of its own when invoices of several partners are settled), the provider fees, the marketplace commission and the seller payable are booked, and a payout in another currency is converted at the rate of that date with the exchange difference against each invoice's own rate on the gain or loss account. A line without a matched invoice is split by its own rate or amount, else by `commissionPercent`, else parked on the suspense account; a line already imported as a movement of a bank account is posted against that account instead. Answers 409 when the batch is already posted or the period is locked, 422 when it has no lines. The payout is linked to the bank line a match rule recognises. Emits `settlement.posted`, `sale_invoice.paid` for each invoice that becomes paid and `refund_liability.actual` for refunds of invoices carrying a refund liability.
+Post a settlement batch dated `date` (default: the payout date, else today): the bank account receives the net payout, the matched sale invoices are settled against the receivable account each was posted to (its operation type's account, else the posting rule; the receivable of each partner in a journal transaction of its own when invoices of several partners are settled), the provider fees, the marketplace commission and the seller payable are booked, and a payout in another currency is converted at the rate of that date with the exchange difference against each invoice's own rate on the gain or loss account. A line without a matched invoice is split by its own rate or amount, else by `commissionPercent`, else parked on the suspense account; a line already imported as a movement of a bank account is posted against that account instead. Answers 409 when the batch is already posted or the period is locked, 422 when it has no lines. The payout is linked to the bank line a match rule recognises. Emits `settlement.posted`, `sale_invoice.paid` for each invoice that becomes paid and `refund_liability.actual` for refunds of invoices carrying a refund liability.
 </dd>
 </dl>
 </dd>
@@ -34316,7 +34771,7 @@ await client.Reports.CostCenterActivityAsync(
 <dl>
 <dd>
 
-Net purchases per cost centre and item for a period, from the lines of registered purchase invoices (by registration date) that carry a cost centre, credit notes counting negative; `costCenterId` limits the report to one cost centre. A line without an item is reported under its description.
+Net purchases in the base currency per cost centre and item for a period, from the lines of registered purchase invoices (by registration date) that carry a cost centre, credit notes counting negative; `costCenterId` limits the report to one cost centre. A line without an item is reported under its description.
 </dd>
 </dl>
 </dd>
@@ -35346,7 +35801,7 @@ await client.Public.IntegrationRequestsAsync(
 <dl>
 <dd>
 
-Redirect (302) to the company's payment page for the issued invoice that carries this payment token, rendered from the template set with `sales/invoices/payment-settings/update` with the invoice number, the amount still unpaid, the currency, the token, the invoice id and the customer name (see `sales/invoices/payment-link`). Answers 404 when the token matches no issued invoice, the invoice has `payLinkEnabled` false or the company has no template, and 409 when the invoice is already paid.
+Redirect (302) to the company's payment page for the issued invoice that carries this payment token, rendered from the template set with `sales/invoices/payment-settings/update` with the invoice number, the amount still unpaid, the currency, the token, the invoice id and the customer name (see `sales/invoices/payment-link`). Answers 404 when the token matches no issued invoice, the document is a credit note, the invoice has `payLinkEnabled` false or the company has no template, and 409 when the invoice is already paid.
 </dd>
 </dl>
 </dd>
@@ -35454,7 +35909,7 @@ await client.Public.InvoicesGetAsync(new InvoicesGetPublicRequest { Token = "tok
 <dl>
 <dd>
 
-Open a Stripe Checkout page on the company's connected Stripe account for the amount still unpaid on the issued invoice that carries this customer token, and return its `url`. Stripe sends the customer back to the public invoice page. Answers 404 when the token matches no issued invoice, the invoice has `payLinkEnabled` false or the company has no Stripe account that can take charges, 409 when the invoice is already paid and 422 when Stripe cannot take the amount in the invoice currency.
+Open a Stripe Checkout page on the company's connected Stripe account for the amount still unpaid on the issued invoice that carries this customer token, and return its `url`. Stripe sends the customer back to the public invoice page. Answers 404 when the token matches no issued invoice, the document is a credit note, the invoice has `payLinkEnabled` false or the company has no Stripe account that can take charges, 409 when the invoice is already paid or a completed card payment for it was received and waits for the payout, and 422 when Stripe cannot take the amount in the invoice currency.
 </dd>
 </dl>
 </dd>
@@ -35617,7 +36072,7 @@ await client.Billing.AccountGetAsync(new AccountGetBillingRequest());
 <dl>
 <dd>
 
-Change the plan of the user's flat-rate billing account of the request's site; answers 422 when the plan is not one of that site's plans and 409 when the account type is not `flat_rate`. With a Stripe subscription and payments configured, the subscription is moved to the new plan.
+Change the plan of the user's flat-rate billing account of the request's site; answers 422 when the plan is not one of that site's plans and 409 when the account type is not `flat_rate`. With a Stripe subscription and payments configured, the subscription is moved to the new plan. On the day of the change, the plan fee (without a subscription) and the storage are split by hour, each hour at the plan in force when the hour starts, and the sale invoices of the day count against the plan in force when they were made.
 </dd>
 </dl>
 </dd>

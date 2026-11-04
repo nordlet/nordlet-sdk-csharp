@@ -206,6 +206,12 @@ public record InvoicesListSalesResponseRowsItem : IJsonOnDeserialized
     [JsonPropertyName("partnerName")]
     public string? PartnerName { get; set; }
 
+    /// <summary>
+    /// Gross amount of an advance invoice not yet applied or credited; null on other documents
+    /// </summary>
+    [JsonPropertyName("advanceUnappliedAmount")]
+    public string? AdvanceUnappliedAmount { get; set; }
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

@@ -84,7 +84,8 @@ public class InvoicesListTest : BaseMockServerTest
                   "peppolCheckedAt": "2024-01-15T09:30:00.000Z",
                   "createdAt": "2024-01-15T09:30:00.000Z",
                   "updatedAt": "2024-01-15T09:30:00.000Z",
-                  "partnerName": "partnerName"
+                  "partnerName": "partnerName",
+                  "advanceUnappliedAmount": "advanceUnappliedAmount"
                 },
                 {
                   "id": "x",
@@ -151,7 +152,8 @@ public class InvoicesListTest : BaseMockServerTest
                   "peppolCheckedAt": "2024-01-15T09:30:00.000Z",
                   "createdAt": "2024-01-15T09:30:00.000Z",
                   "updatedAt": "2024-01-15T09:30:00.000Z",
-                  "partnerName": "partnerName"
+                  "partnerName": "partnerName",
+                  "advanceUnappliedAmount": "advanceUnappliedAmount"
                 }
               ],
               "page": 1000000,
@@ -272,7 +274,8 @@ public class InvoicesListTest : BaseMockServerTest
                   "peppolCheckedAt": "2026-07-01T09:30:00.000Z",
                   "createdAt": "2026-07-01T09:30:00.000Z",
                   "updatedAt": "2026-07-01T09:30:00.000Z",
-                  "partnerName": "partnerName"
+                  "partnerName": "partnerName",
+                  "advanceUnappliedAmount": "advanceUnappliedAmount"
                 }
               ],
               "page": 1000000,

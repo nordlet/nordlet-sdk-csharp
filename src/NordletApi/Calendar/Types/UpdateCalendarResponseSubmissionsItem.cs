@@ -83,6 +83,9 @@ public record UpdateCalendarResponseSubmissionsItem : IJsonOnDeserialized
     [JsonPropertyName("deliveryError")]
     public string? DeliveryError { get; set; }
 
+    [JsonPropertyName("confirmationPending")]
+    public required bool ConfirmationPending { get; set; }
+
     [JsonPropertyName("sentSha256")]
     public string? SentSha256 { get; set; }
 

@@ -29,6 +29,7 @@ public class MaintenanceListTest : BaseMockServerTest
                   "description": "description",
                   "downtimeHours": "downtimeHours",
                   "cost": "cost",
+                  "purchaseInvoiceId": "x",
                   "notes": "notes",
                   "createdAt": "2024-01-15T09:30:00.000Z"
                 },
@@ -42,6 +43,7 @@ public class MaintenanceListTest : BaseMockServerTest
                   "description": "description",
                   "downtimeHours": "downtimeHours",
                   "cost": "cost",
+                  "purchaseInvoiceId": "x",
                   "notes": "notes",
                   "createdAt": "2024-01-15T09:30:00.000Z"
                 }
@@ -109,6 +111,7 @@ public class MaintenanceListTest : BaseMockServerTest
                   "description": "description",
                   "downtimeHours": "downtimeHours",
                   "cost": "cost",
+                  "purchaseInvoiceId": "purchaseInvoiceId",
                   "notes": "notes",
                   "createdAt": "2026-07-01T09:30:00.000Z"
                 }

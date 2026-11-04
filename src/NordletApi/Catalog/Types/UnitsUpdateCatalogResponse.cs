@@ -20,6 +20,9 @@ public record UnitsUpdateCatalogResponse : IJsonOnDeserialized
     [JsonPropertyName("name")]
     public required string Name { get; set; }
 
+    [JsonPropertyName("rec20Code")]
+    public string? Rec20Code { get; set; }
+
     [JsonPropertyName("isActive")]
     public required bool IsActive { get; set; }
 

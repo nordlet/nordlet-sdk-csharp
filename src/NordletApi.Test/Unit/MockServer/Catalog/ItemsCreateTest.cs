@@ -60,6 +60,24 @@ public class ItemsCreateTest : BaseMockServerTest
                   "quantity": "quantity"
                 }
               ],
+              "alternativeUnits": [
+                {
+                  "unitCode": "unitCode",
+                  "factor": "factor",
+                  "isDefaultSale": true,
+                  "isDefaultPurchase": true,
+                  "salePriceExclVat": "salePriceExclVat",
+                  "purchasePriceExclVat": "purchasePriceExclVat"
+                },
+                {
+                  "unitCode": "unitCode",
+                  "factor": "factor",
+                  "isDefaultSale": true,
+                  "isDefaultPurchase": true,
+                  "salePriceExclVat": "salePriceExclVat",
+                  "purchasePriceExclVat": "purchasePriceExclVat"
+                }
+              ],
               "kindId": "x",
               "saleAccountCode": "saleAccountCode",
               "purchaseAccountCode": "purchaseAccountCode",
@@ -210,6 +228,16 @@ public class ItemsCreateTest : BaseMockServerTest
                   "itemId": "itemId",
                   "itemName": "itemName",
                   "quantity": "quantity"
+                }
+              ],
+              "alternativeUnits": [
+                {
+                  "unitCode": "unitCode",
+                  "factor": "factor",
+                  "isDefaultSale": true,
+                  "isDefaultPurchase": true,
+                  "salePriceExclVat": "salePriceExclVat",
+                  "purchasePriceExclVat": "purchasePriceExclVat"
                 }
               ],
               "kindId": "kindId",

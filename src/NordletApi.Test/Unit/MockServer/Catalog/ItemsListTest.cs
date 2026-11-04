@@ -60,6 +60,24 @@ public class ItemsListTest : BaseMockServerTest
                       "quantity": "quantity"
                     }
                   ],
+                  "alternativeUnits": [
+                    {
+                      "unitCode": "unitCode",
+                      "factor": "factor",
+                      "isDefaultSale": true,
+                      "isDefaultPurchase": true,
+                      "salePriceExclVat": "salePriceExclVat",
+                      "purchasePriceExclVat": "purchasePriceExclVat"
+                    },
+                    {
+                      "unitCode": "unitCode",
+                      "factor": "factor",
+                      "isDefaultSale": true,
+                      "isDefaultPurchase": true,
+                      "salePriceExclVat": "salePriceExclVat",
+                      "purchasePriceExclVat": "purchasePriceExclVat"
+                    }
+                  ],
                   "kindId": "x",
                   "saleAccountCode": "saleAccountCode",
                   "purchaseAccountCode": "purchaseAccountCode",
@@ -131,6 +149,24 @@ public class ItemsListTest : BaseMockServerTest
                       "itemId": "x",
                       "itemName": "itemName",
                       "quantity": "quantity"
+                    }
+                  ],
+                  "alternativeUnits": [
+                    {
+                      "unitCode": "unitCode",
+                      "factor": "factor",
+                      "isDefaultSale": true,
+                      "isDefaultPurchase": true,
+                      "salePriceExclVat": "salePriceExclVat",
+                      "purchasePriceExclVat": "purchasePriceExclVat"
+                    },
+                    {
+                      "unitCode": "unitCode",
+                      "factor": "factor",
+                      "isDefaultSale": true,
+                      "isDefaultPurchase": true,
+                      "salePriceExclVat": "salePriceExclVat",
+                      "purchasePriceExclVat": "purchasePriceExclVat"
                     }
                   ],
                   "kindId": "x",
@@ -246,6 +282,14 @@ public class ItemsListTest : BaseMockServerTest
                       "itemId": "itemId",
                       "itemName": "itemName",
                       "quantity": "quantity"
+                    }
+                  ],
+                  "alternativeUnits": [
+                    {
+                      "unitCode": "unitCode",
+                      "factor": "factor",
+                      "isDefaultSale": true,
+                      "isDefaultPurchase": true
                     }
                   ],
                   "kindId": "kindId",

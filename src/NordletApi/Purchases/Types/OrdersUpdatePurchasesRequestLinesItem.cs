@@ -51,6 +51,12 @@ public record OrdersUpdatePurchasesRequestLinesItem : IJsonOnDeserialized
     [JsonPropertyName("deferralEndDate")]
     public DateOnly? DeferralEndDate { get; set; }
 
+    [JsonPropertyName("lotNumber")]
+    public string? LotNumber { get; set; }
+
+    [JsonPropertyName("expiryDate")]
+    public DateOnly? ExpiryDate { get; set; }
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

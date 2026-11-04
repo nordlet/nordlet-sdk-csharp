@@ -3,7 +3,7 @@ namespace NordletApi;
 public partial interface IFleetClient
 {
     /// <summary>
-    /// Register a vehicle. The plate number is stored in upper case and must be unique in the company (409 otherwise); `fixedAssetId` must name an existing fixed asset. Uploaded `documents` are attached to the vehicle.
+    /// Register a vehicle. The plate number is stored in upper case and must be unique in the company (409 otherwise); `fixedAssetId` must name an existing fixed asset. Uploaded `documents` are attached to the vehicle. `disposalDate`, the day the vehicle was sold or scrapped, is the last day of its car benefit in kind.
     /// </summary>
     WithRawResponseTask<VehiclesCreateFleetResponse> VehiclesCreateAsync(
         VehiclesCreateFleetRequest request,
@@ -12,7 +12,7 @@ public partial interface IFleetClient
     );
 
     /// <summary>
-    /// Change a vehicle's details or set its `status` to `active`, `sold` or `scrapped`; omitted fields keep their value. A plate number already used by another vehicle is refused with 409.
+    /// Change a vehicle's details or set its `status` to `active`, `sold` or `scrapped` and its `disposalDate`, the last day of its car benefit in kind; omitted fields keep their value. A plate number already used by another vehicle is refused with 409.
     /// </summary>
     WithRawResponseTask<VehiclesUpdateFleetResponse> VehiclesUpdateAsync(
         VehiclesUpdateFleetRequest request,
@@ -66,7 +66,7 @@ public partial interface IFleetClient
     );
 
     /// <summary>
-    /// Preview the car benefit in kind of a month for a Lithuanian company: every assignment with `privateUse` that overlaps the month is valued at 0.75 % of the vehicle's market value when the employer pays the fuel, else 0.70 %, one row per employee and vehicle, with the total. A company registered in another country is refused with 422. The same amounts are added to a payroll run created with `includeNatura` (`payroll/runs/create`).
+    /// Preview the car benefit in kind of a month for a Lithuanian company: every assignment with `privateUse` that overlaps the month is valued at 0.75 % of the vehicle's market value when the employer pays the fuel, else 0.70 %, one row per employee and vehicle, with the total. A month the assignment starts or ends in, or the vehicle's `disposalDate` falls in, is valued by its calendar days with the car; after the `disposalDate` there is no benefit. A company registered in another country is refused with 422. The same amounts are added to a payroll run created with `includeNatura` (`payroll/runs/create`).
     /// </summary>
     WithRawResponseTask<NaturaPreviewFleetResponse> NaturaPreviewAsync(
         NaturaPreviewFleetRequest request,

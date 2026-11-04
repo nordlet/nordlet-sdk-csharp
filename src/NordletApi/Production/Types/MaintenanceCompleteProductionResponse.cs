@@ -38,6 +38,9 @@ public record MaintenanceCompleteProductionResponse : IJsonOnDeserialized
     [JsonPropertyName("cost")]
     public string? Cost { get; set; }
 
+    [JsonPropertyName("purchaseInvoiceId")]
+    public string? PurchaseInvoiceId { get; set; }
+
     [JsonPropertyName("notes")]
     public string? Notes { get; set; }
 

@@ -42,6 +42,8 @@ public class ActsUpdateTest : BaseMockServerTest
                   "description": "description",
                   "unit": "unit",
                   "quantity": "quantity",
+                  "unitFactor": "unitFactor",
+                  "baseQuantity": "baseQuantity",
                   "unitPriceExclVat": "unitPriceExclVat",
                   "lineNet": "lineNet",
                   "sortOrder": 1000000
@@ -52,6 +54,8 @@ public class ActsUpdateTest : BaseMockServerTest
                   "description": "description",
                   "unit": "unit",
                   "quantity": "quantity",
+                  "unitFactor": "unitFactor",
+                  "baseQuantity": "baseQuantity",
                   "unitPriceExclVat": "unitPriceExclVat",
                   "lineNet": "lineNet",
                   "sortOrder": 1000000
@@ -129,6 +133,8 @@ public class ActsUpdateTest : BaseMockServerTest
                   "description": "description",
                   "unit": "unit",
                   "quantity": "quantity",
+                  "unitFactor": "unitFactor",
+                  "baseQuantity": "baseQuantity",
                   "unitPriceExclVat": "unitPriceExclVat",
                   "lineNet": "lineNet",
                   "sortOrder": 1000000

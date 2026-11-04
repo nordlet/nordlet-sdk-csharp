@@ -45,6 +45,9 @@ public record VehiclesUpdateFleetRequest
     [JsonPropertyName("status")]
     public VehiclesUpdateFleetRequestStatus? Status { get; set; }
 
+    [JsonPropertyName("disposalDate")]
+    public DateOnly? DisposalDate { get; set; }
+
     [JsonPropertyName("notes")]
     public string? Notes { get; set; }
 
