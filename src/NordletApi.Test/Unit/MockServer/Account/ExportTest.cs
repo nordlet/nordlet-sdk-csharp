@@ -134,6 +134,74 @@ public class ExportTest : BaseMockServerTest
                   "entityId": "entityId",
                   "createdAt": "2024-01-15T09:30:00.000Z"
                 }
+              ],
+              "authEvents": [
+                {
+                  "action": "action",
+                  "ipAddress": "ipAddress",
+                  "userAgent": "userAgent",
+                  "createdAt": "2024-01-15T09:30:00.000Z"
+                },
+                {
+                  "action": "action",
+                  "ipAddress": "ipAddress",
+                  "userAgent": "userAgent",
+                  "createdAt": "2024-01-15T09:30:00.000Z"
+                }
+              ],
+              "apiKeys": [
+                {
+                  "id": "x",
+                  "name": "name",
+                  "lastFour": "lastFour",
+                  "scopes": [
+                    "scopes",
+                    "scopes"
+                  ],
+                  "lastUsedAt": "2024-01-15T09:30:00.000Z",
+                  "expiresAt": "2024-01-15T09:30:00.000Z",
+                  "revokedAt": "2024-01-15T09:30:00.000Z",
+                  "createdAt": "2024-01-15T09:30:00.000Z"
+                },
+                {
+                  "id": "x",
+                  "name": "name",
+                  "lastFour": "lastFour",
+                  "scopes": [
+                    "scopes",
+                    "scopes"
+                  ],
+                  "lastUsedAt": "2024-01-15T09:30:00.000Z",
+                  "expiresAt": "2024-01-15T09:30:00.000Z",
+                  "revokedAt": "2024-01-15T09:30:00.000Z",
+                  "createdAt": "2024-01-15T09:30:00.000Z"
+                }
+              ],
+              "oauthGrants": [
+                {
+                  "apiKeyId": "x",
+                  "clientId": "clientId",
+                  "clientName": "clientName",
+                  "createdAt": "2024-01-15T09:30:00.000Z"
+                },
+                {
+                  "apiKeyId": "x",
+                  "clientId": "clientId",
+                  "clientName": "clientName",
+                  "createdAt": "2024-01-15T09:30:00.000Z"
+                }
+              ],
+              "referralPoints": [
+                {
+                  "points": 1000000,
+                  "reason": "reason",
+                  "createdAt": "2024-01-15T09:30:00.000Z"
+                },
+                {
+                  "points": 1000000,
+                  "reason": "reason",
+                  "createdAt": "2024-01-15T09:30:00.000Z"
+                }
               ]
             }
             """;
@@ -240,6 +308,43 @@ public class ExportTest : BaseMockServerTest
                   "action": "action",
                   "entity": "entity",
                   "entityId": "entityId",
+                  "createdAt": "2026-07-01T09:30:00.000Z"
+                }
+              ],
+              "authEvents": [
+                {
+                  "action": "action",
+                  "ipAddress": "ipAddress",
+                  "userAgent": "userAgent",
+                  "createdAt": "2026-07-01T09:30:00.000Z"
+                }
+              ],
+              "apiKeys": [
+                {
+                  "id": "id",
+                  "name": "name",
+                  "lastFour": "lastFour",
+                  "scopes": [
+                    "scopes"
+                  ],
+                  "lastUsedAt": "2026-07-01T09:30:00.000Z",
+                  "expiresAt": "2026-07-01T09:30:00.000Z",
+                  "revokedAt": "2026-07-01T09:30:00.000Z",
+                  "createdAt": "2026-07-01T09:30:00.000Z"
+                }
+              ],
+              "oauthGrants": [
+                {
+                  "apiKeyId": "apiKeyId",
+                  "clientId": "clientId",
+                  "clientName": "clientName",
+                  "createdAt": "2026-07-01T09:30:00.000Z"
+                }
+              ],
+              "referralPoints": [
+                {
+                  "points": 1000000,
+                  "reason": "reason",
                   "createdAt": "2026-07-01T09:30:00.000Z"
                 }
               ]

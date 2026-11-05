@@ -43,6 +43,22 @@ public record ExportAccountResponse : IJsonOnDeserialized
     public IEnumerable<ExportAccountResponseAuditEntriesItem> AuditEntries { get; set; } =
         new List<ExportAccountResponseAuditEntriesItem>();
 
+    [JsonPropertyName("authEvents")]
+    public IEnumerable<ExportAccountResponseAuthEventsItem> AuthEvents { get; set; } =
+        new List<ExportAccountResponseAuthEventsItem>();
+
+    [JsonPropertyName("apiKeys")]
+    public IEnumerable<ExportAccountResponseApiKeysItem> ApiKeys { get; set; } =
+        new List<ExportAccountResponseApiKeysItem>();
+
+    [JsonPropertyName("oauthGrants")]
+    public IEnumerable<ExportAccountResponseOauthGrantsItem> OauthGrants { get; set; } =
+        new List<ExportAccountResponseOauthGrantsItem>();
+
+    [JsonPropertyName("referralPoints")]
+    public IEnumerable<ExportAccountResponseReferralPointsItem> ReferralPoints { get; set; } =
+        new List<ExportAccountResponseReferralPointsItem>();
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

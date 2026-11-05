@@ -26,6 +26,10 @@ public readonly record struct ConfigsListDeclarationsResponseRowsItemFieldsItemK
         Values.Url
     );
 
+    public static readonly ConfigsListDeclarationsResponseRowsItemFieldsItemKind Host = new(
+        Values.Host
+    );
+
     public static readonly ConfigsListDeclarationsResponseRowsItemFieldsItemKind Certificate = new(
         Values.Certificate
     );
@@ -142,6 +146,8 @@ public readonly record struct ConfigsListDeclarationsResponseRowsItemFieldsItemK
         public const string Select = "select";
 
         public const string Url = "url";
+
+        public const string Host = "host";
 
         public const string Certificate = "certificate";
     }

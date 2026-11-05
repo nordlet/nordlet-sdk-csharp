@@ -17,6 +17,9 @@ public record InvitesAcceptAccountResponse : IJsonOnDeserialized
     [JsonPropertyName("expiresAt")]
     public required DateTime ExpiresAt { get; set; }
 
+    [JsonPropertyName("twoFactorRequired")]
+    public required bool TwoFactorRequired { get; set; }
+
     [JsonPropertyName("user")]
     public required InvitesAcceptAccountResponseUser User { get; set; }
 

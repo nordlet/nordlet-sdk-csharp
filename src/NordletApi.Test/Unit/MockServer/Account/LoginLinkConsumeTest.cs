@@ -22,6 +22,7 @@ public class LoginLinkConsumeTest : BaseMockServerTest
             {
               "token": "token",
               "expiresAt": "2024-01-15T09:30:00.000Z",
+              "twoFactorRequired": true,
               "user": {
                 "id": "x",
                 "email": "email",
@@ -67,6 +68,7 @@ public class LoginLinkConsumeTest : BaseMockServerTest
             {
               "token": "token",
               "expiresAt": "2026-07-01T09:30:00.000Z",
+              "twoFactorRequired": true,
               "user": {
                 "id": "id",
                 "email": "email",

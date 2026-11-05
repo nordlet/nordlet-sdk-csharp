@@ -22,6 +22,7 @@ public class ApiKeysListTest : BaseMockServerTest
                 {
                   "id": "x",
                   "name": "name",
+                  "lastFour": "lastFour",
                   "scopes": [
                     "scopes",
                     "scopes"
@@ -35,6 +36,7 @@ public class ApiKeysListTest : BaseMockServerTest
                 {
                   "id": "x",
                   "name": "name",
+                  "lastFour": "lastFour",
                   "scopes": [
                     "scopes",
                     "scopes"
@@ -82,6 +84,7 @@ public class ApiKeysListTest : BaseMockServerTest
                 {
                   "id": "id",
                   "name": "name",
+                  "lastFour": "lastFour",
                   "scopes": [
                     "scopes"
                   ],

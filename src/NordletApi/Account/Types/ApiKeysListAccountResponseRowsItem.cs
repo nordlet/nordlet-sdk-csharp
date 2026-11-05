@@ -17,6 +17,9 @@ public record ApiKeysListAccountResponseRowsItem : IJsonOnDeserialized
     [JsonPropertyName("name")]
     public required string Name { get; set; }
 
+    [JsonPropertyName("lastFour")]
+    public string? LastFour { get; set; }
+
     [JsonPropertyName("scopes")]
     public IEnumerable<string> Scopes { get; set; } = new List<string>();
 

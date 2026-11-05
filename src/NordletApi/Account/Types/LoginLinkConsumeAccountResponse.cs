@@ -17,6 +17,9 @@ public record LoginLinkConsumeAccountResponse : IJsonOnDeserialized
     [JsonPropertyName("expiresAt")]
     public required DateTime ExpiresAt { get; set; }
 
+    [JsonPropertyName("twoFactorRequired")]
+    public required bool TwoFactorRequired { get; set; }
+
     [JsonPropertyName("user")]
     public required LoginLinkConsumeAccountResponseUser User { get; set; }
 

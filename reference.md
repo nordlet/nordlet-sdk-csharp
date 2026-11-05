@@ -11914,7 +11914,7 @@ await client.Peppol.ParticipantsLookupAsync(new ParticipantsLookupPeppolRequest(
 <dl>
 <dd>
 
-Apply one event: a delivery status event updates the Peppol status of the sale invoice with that message id and, when the status changes, emits `sale_invoice.peppol_delivered`, `sale_invoice.peppol_rejected` or `sale_invoice.peppol_failed`; a received-document event fetches the document from the access point, stores it as a document capture with the matched supplier, emits `document_capture.peppol_received` and marks it read at the access point (a document already stored is skipped). `handled` is false when the event matched no invoice or document. Answers 404 when no company uses that provider account, 401 when the signature does not match.
+Apply one event: a delivery status event updates the Peppol status of the sale invoice with that message id and, when the status changes, emits `sale_invoice.peppol_delivered`, `sale_invoice.peppol_rejected` or `sale_invoice.peppol_failed`; a received-document event fetches the document from the access point, stores it as a document capture with the matched supplier, emits `document_capture.peppol_received` and marks it read at the access point (a document already stored is skipped). `handled` is false when the event matched no invoice or document. A status is not moved back: pending, failed, delivered and rejected come in that order, and an event with an earlier status than the stored one changes nothing. Answers 401, with the same body, when no company uses that provider account, when the signature does not match and, for e-invoice.be, when the `created_at` of the event is more than 5 minutes from the server time.
 </dd>
 </dl>
 </dd>
@@ -29904,7 +29904,7 @@ await client.Audit.ListAsync(new ListAuditRequest());
 <dl>
 <dd>
 
-Register a webhook endpoint for the given event types (`*` for every event). The URL must be an https address that resolves to a public network (422 otherwise). The signing secret is generated unless `secret` is given, and this call is the only one that returns it.
+Register a webhook endpoint for the given event types (`*` for every event). The URL must be an https address that resolves to a public network (422 otherwise). The signing secret is generated unless `secret` is given (at least 32 characters), and this call is the only one that returns it. Answers 503 when the platform encryption key is not configured.
 </dd>
 </dl>
 </dd>
@@ -29998,6 +29998,62 @@ await client.Webhooks.SubscriptionsListAsync(new SubscriptionsListWebhooksReques
 <dd>
 
 **request:** `SubscriptionsListWebhooksRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Webhooks.<a href="/src/NordletApi/Webhooks/WebhooksClient.cs">SubscriptionsRotateSecretAsync</a>(SubscriptionsRotateSecretWebhooksRequest { ... }) -> WithRawResponseTask&lt;SubscriptionsRotateSecretWebhooksResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Replace the signing secret of a subscription and return the new one; this call is the only one that returns it. The secret is generated unless `secret` is given (at least 32 characters). For 24 hours `x-nordlet-signature-v2` carries two `v1=` values, one with the new secret and one with the previous one, so a receiver can switch secrets without refusing deliveries; `x-nordlet-signature` uses the new secret only. Answers 404 for an unknown subscription and 503 when the platform encryption key is not configured.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Webhooks.SubscriptionsRotateSecretAsync(
+    new SubscriptionsRotateSecretWebhooksRequest { Id = "id" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `SubscriptionsRotateSecretWebhooksRequest` 
     
 </dd>
 </dl>
@@ -36736,7 +36792,7 @@ await client.Billing.UsageListAsync(
 <dl>
 <dd>
 
-Create a sign-in link for the e-mail address and send it; the link is valid for 15 minutes and is consumed with `account/login-link/consume`. When an unused link was requested for the same address within the last minute, the call answers `sent` without sending another. `locale` sets the language of the e-mail and of the link; `app` set to `invoice` makes the link open the invoice app instead of the Nordlet app; `acceptTerms`, `acceptDpa` and `referralCode` are stored with the link and used when the address has no account yet.
+Create a sign-in link for the e-mail address and send it; the link is valid for 15 minutes and is consumed with `account/login-link/consume`. When an unused link was requested for the same address within the last minute, the call answers `sent` without sending another; after five links for the address within an hour it answers 429; otherwise the earlier unused sign-in links for the address stop working. `locale` sets the language of the e-mail and of the link; `app` set to `invoice` makes the link open the invoice app instead of the Nordlet app; `acceptTerms`, `acceptDpa` and `referralCode` are stored with the link and used when the address has no account yet.
 </dd>
 </dl>
 </dd>
@@ -36790,7 +36846,7 @@ await client.Account.LoginLinkRequestAsync(new LoginLinkRequestAccountRequest { 
 <dl>
 <dd>
 
-Exchange a sign-in link token for a session; an unknown, used or expired token is refused with 401. When no account has the address, one is created (`isNewUser`), which is refused with 422 unless the link was requested with `acceptTerms` and `acceptDpa`; a `referralCode` on the link records who referred the new user. A link from `account/email/change-request` changes the signed-in user's address instead, refused with 409 when another account has it.
+Exchange a sign-in link token for a session; an unknown, used or expired token is refused with 401. When no account has the address, one is created (`isNewUser`), which is refused with 422 unless the link was requested with `acceptTerms` and `acceptDpa`; a `referralCode` on the link records who referred the new user. The link `account/email/change-request` sends to the current address signs that user in and sends a confirmation link to the new address; that second link changes the address, deletes the user's other sessions and sends the previous address a link, valid for 24 hours, that changes the address back and deletes every session of the user. No link goes to the new address when another account has it, and the change and the change back are refused with 409 when another account has the address. When the user has two-factor authentication on, `twoFactorRequired` is true and the session can make no call other than `account/two-factor/verify` and `account/logout` until a code is entered.
 </dd>
 </dl>
 </dd>
@@ -37176,7 +37232,7 @@ await client.Account.MembersRemoveAsync(new MembersRemoveAccountRequest { UserId
 <dl>
 <dd>
 
-Create an invitation to the active company for an e-mail address with the given role and send it by e-mail in `locale`; owners and admins may call it. The invitation is valid for 7 days and replaces an earlier pending one for the same address. Refused with 409 when the address already belongs to a member.
+Create an invitation to the active company for an e-mail address with the given role and send it by e-mail in `locale`; owners and admins may call it. The invitation is valid for 7 days and replaces an earlier pending one for the same address. Refused with 409 when the address already belongs to a member and with 429 (`rate_limited`) after 50 invitations by the user, in all their companies, within 24 hours.
 </dd>
 </dl>
 </dd>
@@ -37894,7 +37950,7 @@ await client.Account.CompaniesActivateAsync(
 <dl>
 <dd>
 
-Create an API key for the signed-in person and return the key itself once. Owners, admins and developers of the active company may call it. The key works in every company the person is a member of, with the rights of their role in each; every call names the company in the `x-nordlet-company` header. `scopes` defaults to the caller's scopes in the active company and may not exceed them (403); in each company the key's scopes are further limited to the person's role there. Without `expiresInDays` the key does not expire.
+Create an API key for the signed-in person and return the key itself once. Owners, admins and developers of the active company may call it. The key works in every company the person is a member of, with the rights of their role in each; every call names the company in the `x-nordlet-company` header. `scopes` defaults to the caller's scopes in the active company and may not exceed them (403); in each company the key's scopes are further limited to the person's role there. `expiresInDays` defaults to 90. The list shows the key's last four characters as `lastFour`.
 </dd>
 </dl>
 </dd>
@@ -37948,7 +38004,7 @@ await client.Account.ApiKeysCreateAsync(new ApiKeysCreateAccountRequest { Name =
 <dl>
 <dd>
 
-List the signed-in person's API keys, including expired and revoked ones.
+List the signed-in person's API keys, including expired and revoked ones. `lastFour` is the last four characters of the key (null for keys created before it was recorded); for an app connected through OAuth it is those of the current access token.
 </dd>
 </dl>
 </dd>
@@ -38002,7 +38058,7 @@ await client.Account.ApiKeysListAsync(new ApiKeysListAccountRequest());
 <dl>
 <dd>
 
-Create a new key with the name and scopes of the signed-in person's key `id` and return it once; the old key keeps working for `overlapHours` and then expires, and its `replacedByKeyId` points to the new one. `expiresInDays` applies to the new key. Refused with 409 when the old key is revoked or belongs to an app connected through OAuth, which renews its own access.
+Create a new key with the name and scopes of the signed-in person's key `id` and return it once; the old key keeps working for `overlapHours` and then expires, and its `replacedByKeyId` points to the new one. `expiresInDays` applies to the new key and defaults to 90. Refused with 409 when the old key is revoked or belongs to an app connected through OAuth, which renews its own access.
 </dd>
 </dl>
 </dd>
@@ -38220,7 +38276,7 @@ await client.Account.ProfileUpdateAsync(new ProfileUpdateAccountRequest());
 <dl>
 <dd>
 
-Send a confirmation link to `newEmail`; the address changes when that link is consumed with `account/login-link/consume`. When an unused link was sent to the address within the last minute, the call answers `sent` without sending another. Refused with 422 when it is already the user's address and with 409 when another account has it.
+Send a confirmation link for the change to `newEmail` to the user's current address. When it is consumed with `account/login-link/consume`, a second link goes to `newEmail`, and the address changes when that one is consumed. When an unused link for `newEmail` was created within the last minute, the call answers `sent` without sending another. Refused with 422 when it is already the user's address and with 429 (`rate_limited`) after five requests by the user within 24 hours. When another account has `newEmail`, the call answers the same, the confirmation link signs the user in and no link goes to `newEmail`.
 </dd>
 </dl>
 </dd>
@@ -38276,7 +38332,7 @@ await client.Account.EmailChangeRequestAsync(
 <dl>
 <dd>
 
-List the signed-in user's sessions that have not expired; `current` marks the one the call was made with.
+List the signed-in user's sessions that have not expired: a session ends 30 days after sign-in or after 7 days without a call. `current` marks the one the call was made with.
 </dd>
 </dl>
 </dd>
@@ -38438,7 +38494,7 @@ await client.Account.SessionsRevokeOthersAsync(new SessionsRevokeOthersAccountRe
 <dl>
 <dd>
 
-Return the user's profile, consent state, memberships, unexpired sessions, billing accounts (`billing` is the `app` site's, `billingAccounts` has one per site), credit transactions and the audit entries they made in their companies (the most recent 5000 of each of the last two).
+Return the user's profile, consent state, memberships, unexpired sessions, sign-in events, API keys (without the keys), connected OAuth apps, referral points, billing accounts (`billing` is the `app` site's, `billingAccounts` has one per site), credit transactions and every audit entry they made in their companies.
 </dd>
 </dl>
 </dd>
@@ -38965,6 +39021,332 @@ await client.Account.OauthAuthorizeDenyAsync(
 <dd>
 
 **request:** `OauthAuthorizeDenyAccountRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">TwoFactorGetAsync</a>(TwoFactorGetAccountRequest { ... }) -> WithRawResponseTask&lt;TwoFactorGetAccountResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Return the signed-in user's two-factor authentication state: `enabled`, `required` (true for platform administrators, who cannot use platform administration without it), the number of unused recovery codes and, while a setup started with `two-factor/setup` is not finished, the key to add to an authenticator app as `setup`.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Account.TwoFactorGetAsync(new TwoFactorGetAccountRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `TwoFactorGetAccountRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">TwoFactorSetupAsync</a>(TwoFactorSetupAccountRequest { ... }) -> WithRawResponseTask&lt;TwoFactorSetupAccountResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Start setting up two-factor authentication: create a new key for an authenticator app (time-based codes, RFC 6238: SHA-1, 6 digits, 30 seconds) and return it with its `otpauth://` address. Nothing changes at sign-in until `two-factor/enable` is called with a code from the app. Refused with 409 when two-factor authentication is already on.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Account.TwoFactorSetupAsync(new TwoFactorSetupAccountRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `TwoFactorSetupAccountRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">TwoFactorEnableAsync</a>(TwoFactorEnableAccountRequest { ... }) -> WithRawResponseTask&lt;TwoFactorEnableAccountResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Turn on two-factor authentication with a current code from the authenticator app set up by `two-factor/setup`. Returns 10 recovery codes, shown only this once; each one works once in place of a code. The user's other sessions are deleted. From then on a session created by a sign-in link can make no call other than `two-factor/verify` and `account/logout` until a code is entered. A wrong code answers 422; after 5 wrong codes the session is deleted (401).
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Account.TwoFactorEnableAsync(new TwoFactorEnableAccountRequest { Code = "code" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `TwoFactorEnableAccountRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">TwoFactorVerifyAsync</a>(TwoFactorVerifyAccountRequest { ... }) -> WithRawResponseTask&lt;TwoFactorVerifyAccountResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Finish signing in when `account/login-link/consume` answered `twoFactorRequired`: send a current code from the authenticator app or an unused recovery code. A wrong code answers 422; after 5 wrong codes the session is deleted (401) and the user signs in again with a new link.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Account.TwoFactorVerifyAsync(new TwoFactorVerifyAccountRequest { Code = "code" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `TwoFactorVerifyAccountRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">TwoFactorRecoveryCodesRegenerateAsync</a>(TwoFactorRecoveryCodesRegenerateAccountRequest { ... }) -> WithRawResponseTask&lt;TwoFactorRecoveryCodesRegenerateAccountResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Replace the recovery codes with 10 new ones, shown only this once, after a current code from the authenticator app. The earlier codes stop working.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Account.TwoFactorRecoveryCodesRegenerateAsync(
+    new TwoFactorRecoveryCodesRegenerateAccountRequest { Code = "code" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `TwoFactorRecoveryCodesRegenerateAccountRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">TwoFactorDisableAsync</a>(TwoFactorDisableAccountRequest { ... }) -> WithRawResponseTask&lt;TwoFactorDisableAccountResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Turn off two-factor authentication after a current code from the authenticator app or an unused recovery code; the key and the recovery codes are deleted. Refused with 422 for a platform administrator, for whom it is required.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Account.TwoFactorDisableAsync(new TwoFactorDisableAccountRequest { Code = "code" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `TwoFactorDisableAccountRequest` 
     
 </dd>
 </dl>
