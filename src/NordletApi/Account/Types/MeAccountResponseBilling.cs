@@ -38,6 +38,12 @@ public record MeAccountResponseBilling : IJsonOnDeserialized
     [JsonPropertyName("planChosen")]
     public required bool PlanChosen { get; set; }
 
+    /// <summary>
+    /// The payer has no paid plan and has started the free sandbox plan (running or ended)
+    /// </summary>
+    [JsonPropertyName("freeSandbox")]
+    public required bool FreeSandbox { get; set; }
+
     [JsonPropertyName("flatRate")]
     public required bool FlatRate { get; set; }
 

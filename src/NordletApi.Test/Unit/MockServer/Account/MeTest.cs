@@ -40,6 +40,7 @@ public class MeTest : BaseMockServerTest
                 "payerEmail": "payerEmail",
                 "isPayer": true,
                 "planChosen": true,
+                "freeSandbox": true,
                 "flatRate": true,
                 "accountType": "flat_rate"
               },
@@ -131,6 +132,7 @@ public class MeTest : BaseMockServerTest
                 "payerEmail": "payerEmail",
                 "isPayer": true,
                 "planChosen": true,
+                "freeSandbox": true,
                 "flatRate": true,
                 "accountType": "flat_rate"
               },

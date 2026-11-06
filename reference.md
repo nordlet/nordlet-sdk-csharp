@@ -36355,7 +36355,7 @@ await client.Billing.AccountSetOverdraftCapAsync(
 <dl>
 <dd>
 
-Open a Stripe Checkout session for a one-time credit top-up of `amountCents` and return its URL; a Stripe customer is created for the user when there is none. `returnTo` chooses whether Checkout returns to the credits page or to the onboarding plan page, in `locale`. Answers 409 on a site without top-ups and 503 when online payments are not configured.
+Open a Stripe Checkout session for a one-time credit top-up of `amountCents` and return its URL; a Stripe customer is created for the user when there is none. `returnTo` chooses whether Checkout returns to the credits page or to the onboarding plan page, in `locale`; with `convertCompanyId` it returns to the onboarding plan page, which then converts that sandbox company to a live company. Answers 409 on a site without top-ups and 503 when online payments are not configured.
 </dd>
 </dl>
 </dd>
@@ -36451,6 +36451,60 @@ await client.Billing.TopupConfirmAsync(new TopupConfirmBillingRequest { SessionI
 </dl>
 </details>
 
+<details><summary><code>client.Billing.<a href="/src/NordletApi/Billing/BillingClient.cs">FreeSandboxStartAsync</a>(FreeSandboxStartBillingRequest { ... }) -> WithRawResponseTask&lt;FreeSandboxStartBillingResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Start the free sandbox plan of the caller's `app` billing account: one sandbox company, free for 14 days from now, without a payment. A free sandbox that is already running keeps its end date. After `trialEndsAt` the sandbox company answers 402 until a paid plan is chosen. Answers 409 on the `invoice` site, when a paid plan is already active, and when the free sandbox of this account has already ended.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Billing.FreeSandboxStartAsync(new FreeSandboxStartBillingRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `FreeSandboxStartBillingRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.Billing.<a href="/src/NordletApi/Billing/BillingClient.cs">FlatRateCreateAsync</a>(FlatRateCreateBillingRequest { ... }) -> WithRawResponseTask&lt;FlatRateCreateBillingResponse&gt;</code></summary>
 <dl>
 <dd>
@@ -36463,7 +36517,7 @@ await client.Billing.TopupConfirmAsync(new TopupConfirmBillingRequest { SessionI
 <dl>
 <dd>
 
-Open a Stripe Checkout session for a flat-rate subscription on `plan` (by default the first plan of the request's site) for the billing account of the request's site, with the trial period of `trialDays` days, and return its URL; a Stripe customer is created for that account when it has none. The `invoicing` plan of the `invoice` site takes its trial days from the server setting `INVOICE_PLAN_TRIAL_DAYS` and returns to the invoice app. Answers 422 when the plan is not one of the site's plans, 409 when the site's flat-rate subscription is already active and 503 when online payments are not configured, the plan has no price, or the Invoicing trial is not set.
+Open a Stripe Checkout session for a flat-rate subscription on `plan` (by default the first plan of the request's site) for the billing account of the request's site and return its URL; a Stripe customer is created for that account when it has none. The plans of the `app` site have no trial period: the first month is charged at checkout. The `invoicing` plan of the `invoice` site takes its trial days from the server setting `INVOICE_PLAN_TRIAL_DAYS` and returns to the invoice app. With `convertCompanyId` Checkout returns to the onboarding plan page, which then converts that sandbox company to a live company. Answers 422 when the plan is not one of the site's plans, 409 when the site's flat-rate subscription is already active and 503 when online payments are not configured, the plan has no price, or the Invoicing trial is not set.
 </dd>
 </dl>
 </dd>
@@ -37564,7 +37618,7 @@ await client.Account.LocaleSetAsync(
 <dl>
 <dd>
 
-Create a company with the caller as its owner and payer, seed its chart of accounts from the template of `countryCode`, and make it the active company of the session. `timeZone` defaults to the country's, `isVatPayer` to true and `defaultInvoiceCurrency` to the base currency. Refused with 422 when `baseCurrency` is not a supported currency.
+Create a company with the caller as its owner and payer, seed its chart of accounts from the template of `countryCode`, and make it the active company of the session. `timeZone` defaults to the country's, `isVatPayer` to true and `defaultInvoiceCurrency` to the base currency. Without a paid plan the caller may create only one sandbox company, which starts the free sandbox plan; a live company, a second sandbox company, or a sandbox company after the free sandbox has ended is refused with 402. Refused with 422 when `baseCurrency` is not a supported currency.
 </dd>
 </dl>
 </dd>
@@ -37871,6 +37925,62 @@ await client.Account.CompaniesDeleteAsync(
 <dd>
 
 **request:** `CompaniesDeleteAccountRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">CompaniesConvertToLiveAsync</a>(CompaniesConvertToLiveAccountRequest { ... }) -> WithRawResponseTask&lt;CompaniesConvertToLiveAccountResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Turn the sandbox company `companyId` into a live company and keep all of its data: from then on its filings go to the authorities' production systems and a delete is no longer purged at once. The caller must be the company's owner and payer and have a paid plan (a flat-rate subscription or per-request billing). Refused with 403 when the caller is not the owner or not the payer, 409 when the company is not a sandbox company and 402 when the caller has no paid plan.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Account.CompaniesConvertToLiveAsync(
+    new CompaniesConvertToLiveAccountRequest { CompanyId = "companyId" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `CompaniesConvertToLiveAccountRequest` 
     
 </dd>
 </dl>

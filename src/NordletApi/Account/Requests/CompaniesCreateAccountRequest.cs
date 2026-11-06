@@ -133,7 +133,7 @@ public record CompaniesCreateAccountRequest
     public string? BaseCurrency { get; set; }
 
     /// <summary>
-    /// Sandbox companies hold test data and are purged immediately on delete (immutable after creation)
+    /// Sandbox companies hold test data and are purged immediately on delete; `companies/convert-to-live` turns one into a live company
     /// </summary>
     [JsonPropertyName("isSandbox")]
     public bool? IsSandbox { get; set; }

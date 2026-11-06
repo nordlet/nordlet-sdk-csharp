@@ -12,6 +12,9 @@ public record FlatRateCreateBillingRequest
     [JsonPropertyName("plan")]
     public FlatRateCreateBillingRequestPlan? Plan { get; set; }
 
+    [JsonPropertyName("convertCompanyId")]
+    public string? ConvertCompanyId { get; set; }
+
     /// <inheritdoc />
     public override string ToString()
     {

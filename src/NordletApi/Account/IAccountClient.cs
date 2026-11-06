@@ -129,7 +129,7 @@ public partial interface IAccountClient
     );
 
     /// <summary>
-    /// Create a company with the caller as its owner and payer, seed its chart of accounts from the template of `countryCode`, and make it the active company of the session. `timeZone` defaults to the country's, `isVatPayer` to true and `defaultInvoiceCurrency` to the base currency. Refused with 422 when `baseCurrency` is not a supported currency.
+    /// Create a company with the caller as its owner and payer, seed its chart of accounts from the template of `countryCode`, and make it the active company of the session. `timeZone` defaults to the country's, `isVatPayer` to true and `defaultInvoiceCurrency` to the base currency. Without a paid plan the caller may create only one sandbox company, which starts the free sandbox plan; a live company, a second sandbox company, or a sandbox company after the free sandbox has ended is refused with 402. Refused with 422 when `baseCurrency` is not a supported currency.
     /// </summary>
     WithRawResponseTask<CompaniesCreateAccountResponse> CompaniesCreateAsync(
         CompaniesCreateAccountRequest request,
@@ -178,6 +178,15 @@ public partial interface IAccountClient
     /// </summary>
     WithRawResponseTask<CompaniesDeleteAccountResponse> CompaniesDeleteAsync(
         CompaniesDeleteAccountRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    /// <summary>
+    /// Turn the sandbox company `companyId` into a live company and keep all of its data: from then on its filings go to the authorities' production systems and a delete is no longer purged at once. The caller must be the company's owner and payer and have a paid plan (a flat-rate subscription or per-request billing). Refused with 403 when the caller is not the owner or not the payer, 409 when the company is not a sandbox company and 402 when the caller has no paid plan.
+    /// </summary>
+    WithRawResponseTask<CompaniesConvertToLiveAccountResponse> CompaniesConvertToLiveAsync(
+        CompaniesConvertToLiveAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );

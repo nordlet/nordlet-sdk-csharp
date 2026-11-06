@@ -32,6 +32,12 @@ public record SubscriptionCancelBillingResponse : IJsonOnDeserialized
     [JsonPropertyName("trialEndsAt")]
     public DateTime? TrialEndsAt { get; set; }
 
+    /// <summary>
+    /// When the free sandbox plan was started; it ends at `trialEndsAt`
+    /// </summary>
+    [JsonPropertyName("freeSandboxStartedAt")]
+    public DateTime? FreeSandboxStartedAt { get; set; }
+
     [JsonPropertyName("firstTopUpAt")]
     public DateTime? FirstTopUpAt { get; set; }
 

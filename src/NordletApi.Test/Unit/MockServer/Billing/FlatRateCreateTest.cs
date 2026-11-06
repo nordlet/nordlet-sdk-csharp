@@ -40,7 +40,12 @@ public class FlatRateCreateTest : BaseMockServerTest
             );
 
         var response = await Client.Billing.FlatRateCreateAsync(
-            new FlatRateCreateBillingRequest { Locale = null, Plan = null }
+            new FlatRateCreateBillingRequest
+            {
+                Locale = null,
+                Plan = null,
+                ConvertCompanyId = null,
+            }
         );
         JsonAssert.AreEqual(response, mockResponse);
     }

@@ -15,6 +15,9 @@ public record TopupCreateBillingRequest
     [JsonPropertyName("returnTo")]
     public TopupCreateBillingRequestReturnTo? ReturnTo { get; set; }
 
+    [JsonPropertyName("convertCompanyId")]
+    public string? ConvertCompanyId { get; set; }
+
     /// <inheritdoc />
     public override string ToString()
     {

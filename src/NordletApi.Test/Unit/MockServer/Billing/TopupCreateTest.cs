@@ -47,6 +47,7 @@ public class TopupCreateTest : BaseMockServerTest
                 AmountCents = 1000000,
                 Locale = null,
                 ReturnTo = null,
+                ConvertCompanyId = null,
             }
         );
         JsonAssert.AreEqual(response, mockResponse);
