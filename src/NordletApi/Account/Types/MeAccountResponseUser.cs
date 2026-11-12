@@ -29,6 +29,9 @@ public record MeAccountResponseUser : IJsonOnDeserialized
     [JsonPropertyName("isSuperAdmin")]
     public required bool IsSuperAdmin { get; set; }
 
+    [JsonPropertyName("whiteLabel")]
+    public required bool WhiteLabel { get; set; }
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

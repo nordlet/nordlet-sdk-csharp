@@ -26,7 +26,12 @@ public class CompaniesCreateTest : BaseMockServerTest
               "vatCode": "vatCode",
               "role": "role",
               "isSandbox": true,
-              "cashBasis": true
+              "cashBasis": true,
+              "countryCode": "countryCode",
+              "baseCurrency": "baseCurrency",
+              "isVatPayer": true,
+              "vatPeriod": "monthly",
+              "fiscalYearEndMonth": 1000000
             }
             """;
 
@@ -108,7 +113,12 @@ public class CompaniesCreateTest : BaseMockServerTest
               "vatCode": "vatCode",
               "role": "role",
               "isSandbox": true,
-              "cashBasis": true
+              "cashBasis": true,
+              "countryCode": "countryCode",
+              "baseCurrency": "baseCurrency",
+              "isVatPayer": true,
+              "vatPeriod": "monthly",
+              "fiscalYearEndMonth": 1000000
             }
             """;
 

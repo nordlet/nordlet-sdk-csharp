@@ -56,6 +56,15 @@ public record InvoicesRegisterPurchasesResponse : IJsonOnDeserialized
     [JsonPropertyName("journalTransactionId")]
     public string? JournalTransactionId { get; set; }
 
+    [JsonPropertyName("reversedAt")]
+    public DateTime? ReversedAt { get; set; }
+
+    [JsonPropertyName("reversalJournalTransactionId")]
+    public string? ReversalJournalTransactionId { get; set; }
+
+    [JsonPropertyName("reversalReason")]
+    public string? ReversalReason { get; set; }
+
     [JsonPropertyName("creditedInvoiceId")]
     public string? CreditedInvoiceId { get; set; }
 
@@ -95,6 +104,10 @@ public record InvoicesRegisterPurchasesResponse : IJsonOnDeserialized
     [JsonPropertyName("lines")]
     public IEnumerable<InvoicesRegisterPurchasesResponseLinesItem> Lines { get; set; } =
         new List<InvoicesRegisterPurchasesResponseLinesItem>();
+
+    [JsonPropertyName("warnings")]
+    public IEnumerable<InvoicesRegisterPurchasesResponseWarningsItem> Warnings { get; set; } =
+        new List<InvoicesRegisterPurchasesResponseWarningsItem>();
 
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();

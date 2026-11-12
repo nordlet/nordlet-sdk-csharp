@@ -17,6 +17,10 @@ public record TransactionsImportBankResponse : IJsonOnDeserialized
     [JsonPropertyName("skipped")]
     public required long Skipped { get; set; }
 
+    [JsonPropertyName("duplicates")]
+    public IEnumerable<TransactionsImportBankResponseDuplicatesItem> Duplicates { get; set; } =
+        new List<TransactionsImportBankResponseDuplicatesItem>();
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

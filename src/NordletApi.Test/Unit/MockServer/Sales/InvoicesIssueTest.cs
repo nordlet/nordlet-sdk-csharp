@@ -208,7 +208,17 @@ public class InvoicesIssueTest : BaseMockServerTest
                     "category": "category"
                   }
                 ]
-              }
+              },
+              "warnings": [
+                {
+                  "code": "code",
+                  "message": "message"
+                },
+                {
+                  "code": "code",
+                  "message": "message"
+                }
+              ]
             }
             """;
 
@@ -391,7 +401,13 @@ public class InvoicesIssueTest : BaseMockServerTest
                     "country": "country"
                   }
                 ]
-              }
+              },
+              "warnings": [
+                {
+                  "code": "code",
+                  "message": "message"
+                }
+              ]
             }
             """;
 

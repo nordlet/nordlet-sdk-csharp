@@ -35,6 +35,9 @@ public class InvoicesUpdateTest : BaseMockServerTest
               "grossTotal": "grossTotal",
               "paidAmount": "paidAmount",
               "journalTransactionId": "x",
+              "reversedAt": "2024-01-15T09:30:00.000Z",
+              "reversalJournalTransactionId": "x",
+              "reversalReason": "reversalReason",
               "creditedInvoiceId": "x",
               "purchaseOrderId": "x",
               "operationTypeId": "x",
@@ -134,6 +137,9 @@ public class InvoicesUpdateTest : BaseMockServerTest
                 IntrastatNatureOfTransaction = null,
                 EinvoiceNumber = null,
                 Lines = null,
+                NetTotal = null,
+                VatTotal = null,
+                GrossTotal = null,
             }
         );
         JsonAssert.AreEqual(response, mockResponse);
@@ -165,6 +171,9 @@ public class InvoicesUpdateTest : BaseMockServerTest
               "grossTotal": "grossTotal",
               "paidAmount": "paidAmount",
               "journalTransactionId": "journalTransactionId",
+              "reversedAt": "2026-07-01T09:30:00.000Z",
+              "reversalJournalTransactionId": "reversalJournalTransactionId",
+              "reversalReason": "reversalReason",
               "creditedInvoiceId": "creditedInvoiceId",
               "purchaseOrderId": "purchaseOrderId",
               "operationTypeId": "operationTypeId",

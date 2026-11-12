@@ -23,9 +23,6 @@ public record FreeSandboxStartBillingResponseMonthToDate : IJsonOnDeserialized
     [JsonPropertyName("saleInvoices")]
     public required long SaleInvoices { get; set; }
 
-    [JsonPropertyName("ocrPages")]
-    public required long OcrPages { get; set; }
-
     [JsonPropertyName("fileBytes")]
     public required double FileBytes { get; set; }
 

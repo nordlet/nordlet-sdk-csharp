@@ -23,6 +23,10 @@ public record PeriodsLockLedgerResponse : IJsonOnDeserialized
     [JsonPropertyName("status")]
     public required PeriodsLockLedgerResponseStatus Status { get; set; }
 
+    [JsonPropertyName("warnings")]
+    public IEnumerable<PeriodsLockLedgerResponseWarningsItem> Warnings { get; set; } =
+        new List<PeriodsLockLedgerResponseWarningsItem>();
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

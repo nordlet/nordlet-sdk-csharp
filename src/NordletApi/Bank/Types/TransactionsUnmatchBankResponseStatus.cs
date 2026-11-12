@@ -14,6 +14,8 @@ public readonly record struct TransactionsUnmatchBankResponseStatus : IStringEnu
 
     public static readonly TransactionsUnmatchBankResponseStatus Matched = new(Values.Matched);
 
+    public static readonly TransactionsUnmatchBankResponseStatus Ignored = new(Values.Ignored);
+
     public TransactionsUnmatchBankResponseStatus(string value)
     {
         Value = value;
@@ -116,5 +118,7 @@ public readonly record struct TransactionsUnmatchBankResponseStatus : IStringEnu
         public const string New = "new";
 
         public const string Matched = "matched";
+
+        public const string Ignored = "ignored";
     }
 }

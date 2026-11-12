@@ -33,6 +33,7 @@ public class TransactionsUnmatchTest : BaseMockServerTest
               "matchedDocumentType": "matchedDocumentType",
               "matchedDocumentId": "x",
               "journalTransactionId": "x",
+              "ignoreReason": "ignoreReason",
               "createdAt": "2024-01-15T09:30:00.000Z"
             }
             """;
@@ -83,6 +84,7 @@ public class TransactionsUnmatchTest : BaseMockServerTest
               "matchedDocumentType": "matchedDocumentType",
               "matchedDocumentId": "matchedDocumentId",
               "journalTransactionId": "journalTransactionId",
+              "ignoreReason": "ignoreReason",
               "createdAt": "2026-07-01T09:30:00.000Z"
             }
             """;

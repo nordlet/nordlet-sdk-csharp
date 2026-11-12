@@ -18,6 +18,9 @@ public record TransactionsMatchBankRequest
     [JsonPropertyName("invoiceAmount")]
     public string? InvoiceAmount { get; set; }
 
+    [JsonPropertyName("remainder")]
+    public TransactionsMatchBankRequestRemainder? Remainder { get; set; }
+
     /// <inheritdoc />
     public override string ToString()
     {

@@ -56,6 +56,15 @@ public record DocumentsConfirmCaptureResponseInvoice : IJsonOnDeserialized
     [JsonPropertyName("journalTransactionId")]
     public string? JournalTransactionId { get; set; }
 
+    [JsonPropertyName("reversedAt")]
+    public DateTime? ReversedAt { get; set; }
+
+    [JsonPropertyName("reversalJournalTransactionId")]
+    public string? ReversalJournalTransactionId { get; set; }
+
+    [JsonPropertyName("reversalReason")]
+    public string? ReversalReason { get; set; }
+
     [JsonPropertyName("creditedInvoiceId")]
     public string? CreditedInvoiceId { get; set; }
 

@@ -13,6 +13,12 @@ public record TransactionsImportBankRequest
     public IEnumerable<TransactionsImportBankRequestTransactionsItem> Transactions { get; set; } =
         new List<TransactionsImportBankRequestTransactionsItem>();
 
+    [JsonPropertyName("openingBalance")]
+    public string? OpeningBalance { get; set; }
+
+    [JsonPropertyName("closingBalance")]
+    public string? ClosingBalance { get; set; }
+
     /// <inheritdoc />
     public override string ToString()
     {

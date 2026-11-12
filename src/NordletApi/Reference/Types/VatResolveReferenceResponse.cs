@@ -36,6 +36,9 @@ public record VatResolveReferenceResponse : IJsonOnDeserialized
     [JsonPropertyName("notes")]
     public IEnumerable<string> Notes { get; set; } = new List<string>();
 
+    [JsonPropertyName("vatTypeCodes")]
+    public IEnumerable<string> VatTypeCodes { get; set; } = new List<string>();
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

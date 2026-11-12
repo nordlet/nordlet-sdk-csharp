@@ -24,7 +24,27 @@ public class PeriodsLockTest : BaseMockServerTest
               "id": "x",
               "year": 1000000,
               "month": 1000000,
-              "status": "open"
+              "status": "open",
+              "warnings": [
+                {
+                  "code": "draft_sale_documents",
+                  "count": 1000000,
+                  "message": "message",
+                  "ids": [
+                    "ids",
+                    "ids"
+                  ]
+                },
+                {
+                  "code": "draft_sale_documents",
+                  "count": 1000000,
+                  "message": "message",
+                  "ids": [
+                    "ids",
+                    "ids"
+                  ]
+                }
+              ]
             }
             """;
 
@@ -65,7 +85,17 @@ public class PeriodsLockTest : BaseMockServerTest
               "id": "id",
               "year": 1000000,
               "month": 1000000,
-              "status": "open"
+              "status": "open",
+              "warnings": [
+                {
+                  "code": "draft_sale_documents",
+                  "count": 1000000,
+                  "message": "message",
+                  "ids": [
+                    "ids"
+                  ]
+                }
+              ]
             }
             """;
 

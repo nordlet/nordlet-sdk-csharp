@@ -29,6 +29,7 @@ public class ConfigsUpdateTest : BaseMockServerTest
               "fields": [
                 {
                   "key": "key",
+                  "label": "label",
                   "kind": "text",
                   "multiline": true,
                   "options": [
@@ -39,6 +40,7 @@ public class ConfigsUpdateTest : BaseMockServerTest
                 },
                 {
                   "key": "key",
+                  "label": "label",
                   "kind": "text",
                   "multiline": true,
                   "options": [
@@ -113,6 +115,7 @@ public class ConfigsUpdateTest : BaseMockServerTest
               "fields": [
                 {
                   "key": "key",
+                  "label": "label",
                   "kind": "text",
                   "multiline": true,
                   "options": [

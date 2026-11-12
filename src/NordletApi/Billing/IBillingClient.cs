@@ -120,7 +120,7 @@ public partial interface IBillingClient
     );
 
     /// <summary>
-    /// List the daily usage records of the request's site in the companies the user pays for, from `from` to `to`: one row per company, date and metric (API requests, OCR pages, file storage bytes, database bytes, sale invoices). Requests, OCR pages and invoices count on the site the request came from; storage counts on the `app` site.
+    /// List the daily usage records of the request's site in the companies the user pays for, from `from` to `to`: one row per company, date and metric (API requests, file storage bytes, database bytes, sale invoices; `ocr_page` rows remain from the time document scanning was charged). Requests and invoices count on the site the request came from; storage counts on the `app` site.
     /// </summary>
     WithRawResponseTask<UsageListBillingResponse> UsageListAsync(
         UsageListBillingRequest request,

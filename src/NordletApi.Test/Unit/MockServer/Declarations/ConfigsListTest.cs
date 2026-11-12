@@ -27,6 +27,7 @@ public class ConfigsListTest : BaseMockServerTest
                   "fields": [
                     {
                       "key": "key",
+                      "label": "label",
                       "kind": "text",
                       "multiline": true,
                       "options": [
@@ -37,6 +38,7 @@ public class ConfigsListTest : BaseMockServerTest
                     },
                     {
                       "key": "key",
+                      "label": "label",
                       "kind": "text",
                       "multiline": true,
                       "options": [
@@ -70,6 +72,7 @@ public class ConfigsListTest : BaseMockServerTest
                   "fields": [
                     {
                       "key": "key",
+                      "label": "label",
                       "kind": "text",
                       "multiline": true,
                       "options": [
@@ -80,6 +83,7 @@ public class ConfigsListTest : BaseMockServerTest
                     },
                     {
                       "key": "key",
+                      "label": "label",
                       "kind": "text",
                       "multiline": true,
                       "options": [

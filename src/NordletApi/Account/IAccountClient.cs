@@ -30,7 +30,7 @@ public partial interface IAccountClient
     );
 
     /// <summary>
-    /// Return the signed-in user, their active company and role in it, the companies they belong to and their consent state. `billing` is the billing account of the request's site (the `x-nordlet-site` header, `app` when absent) that pays for the active company (its payer, or the user when there is none or no company), with `isPayer` saying whether that is the user; `referralPoints` is the user's current points balance. An API key may call it too: the active company is then the one named in the `x-nordlet-company` header, and `companies` lists every company the key works in.
+    /// Return the signed-in user, their active company and role in it, the companies they belong to and their consent state. `billing` is the billing account of the request's site (the `x-nordlet-site` header, `app` when absent) that pays for the active company (its payer, or the user when there is none or no company), with `isPayer` saying whether that is the user; `referralPoints` is the user's current points balance; `user.whiteLabel` says the user is a white-label partner, who may call `account/brand/get` and `account/brand/update`. An API key may call it too: the active company is then the one named in the `x-nordlet-company` header, and `companies` lists every company the key works in, each with its country, base currency, VAT payer flag, VAT period and the month its fiscal year ends in.
     /// </summary>
     WithRawResponseTask<MeAccountResponse> MeAsync(
         MeAccountRequest request,
@@ -129,7 +129,7 @@ public partial interface IAccountClient
     );
 
     /// <summary>
-    /// Create a company with the caller as its owner and payer, seed its chart of accounts from the template of `countryCode`, and make it the active company of the session. `timeZone` defaults to the country's, `isVatPayer` to true and `defaultInvoiceCurrency` to the base currency. Without a paid plan the caller may create only one sandbox company, which starts the free sandbox plan; a live company, a second sandbox company, or a sandbox company after the free sandbox has ended is refused with 402. Refused with 422 when `baseCurrency` is not a supported currency.
+    /// Create a company with the caller as its owner and payer, seed its chart of accounts from the template of `countryCode`, and make it the active company of the session. `timeZone` defaults to the country's, `isVatPayer` to true and `defaultInvoiceCurrency` to the base currency. Without a paid plan the caller may create only one sandbox company, which starts the free sandbox plan; a live company, a second sandbox company, or a sandbox company after the free sandbox has ended is refused with 402. Refused with 422 when `baseCurrency` is not a supported currency. An API key may call it when it holds the `account:write` scope (403 otherwise): the company is created for the person the key belongs to, and the key works in it like in their other companies.
     /// </summary>
     WithRawResponseTask<CompaniesCreateAccountResponse> CompaniesCreateAsync(
         CompaniesCreateAccountRequest request,
@@ -147,7 +147,7 @@ public partial interface IAccountClient
     );
 
     /// <summary>
-    /// Return the profile of the active company.
+    /// Return the profile of the active company. An API key reads the company named in the `x-nordlet-company` header and needs the `account:read` scope.
     /// </summary>
     WithRawResponseTask<CompaniesProfileAccountResponse> CompaniesProfileAsync(
         CompaniesProfileAccountRequest request,
@@ -156,7 +156,7 @@ public partial interface IAccountClient
     );
 
     /// <summary>
-    /// Change the profile of the active company; owners and admins may call it. Only the fields sent are changed, and the nullable ones can be sent as null to clear them. `logo` stores a base64-encoded image as a file of the company and sets `logoFileId`. The country, base currency, sandbox flag and cash-basis flag are fixed at creation.
+    /// Change the profile of the active company; owners and admins may call it. Only the fields sent are changed, and the nullable ones can be sent as null to clear them. `logo` stores a base64-encoded image as a file of the company and sets `logoFileId`. The country, base currency, sandbox flag and cash-basis flag are fixed at creation. An API key changes the company named in the `x-nordlet-company` header, needs the `account:write` scope and the owner or admin role there, and may send only `code`, `vatCode`, `smeExemptionNumber`, `legalForm`, `registryName`, `incorporatedOn`, `shareCapital`, `address`, `email`, `phone`, `accountsKeptBy`, `bookkeeperName`, `auditorName`, `auditorRegistrationNumber`, `auditRequired`; any other field is refused with 403.
     /// </summary>
     WithRawResponseTask<CompaniesUpdateAccountResponse> CompaniesUpdateAsync(
         CompaniesUpdateAccountRequest request,
@@ -250,6 +250,24 @@ public partial interface IAccountClient
     /// </summary>
     WithRawResponseTask<ProfileUpdateAccountResponse> ProfileUpdateAsync(
         ProfileUpdateAccountRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    /// <summary>
+    /// Return the brand settings of the signed-in white-label partner: `name`, `logoUrl`, `color` and `footer`, each null when not set. Refused with 403 when the user is not a white-label partner.
+    /// </summary>
+    WithRawResponseTask<BrandGetAccountResponse> BrandGetAsync(
+        BrandGetAccountRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    /// <summary>
+    /// Set the brand settings of the signed-in white-label partner; all four fields are sent and null clears one. They apply to every company the user pays for: the invoice, quote and payment reminder e-mails show `logoUrl` (an https address of an image) in the header, use `color` (`#rrggbb`) for the top line, the brand name and the buttons, and print `footer`, or `name` when there is no footer, in place of the Nordlet footer line; the public invoice page prints `name` in its "Sent with" line and leaves the line out when there is no name (`sentWith` of `public/invoices/get`); filled official form PDFs carry `name` as their producer and creator. Refused with 403 when the user is not a white-label partner.
+    /// </summary>
+    WithRawResponseTask<BrandUpdateAccountResponse> BrandUpdateAsync(
+        BrandUpdateAccountRequest request,
         RequestOptions? options = null,
         CancellationToken cancellationToken = default
     );

@@ -14,6 +14,8 @@ public readonly record struct TransactionsMatchManyBankResponseStatus : IStringE
 
     public static readonly TransactionsMatchManyBankResponseStatus Matched = new(Values.Matched);
 
+    public static readonly TransactionsMatchManyBankResponseStatus Ignored = new(Values.Ignored);
+
     public TransactionsMatchManyBankResponseStatus(string value)
     {
         Value = value;
@@ -116,5 +118,7 @@ public readonly record struct TransactionsMatchManyBankResponseStatus : IStringE
         public const string New = "new";
 
         public const string Matched = "matched";
+
+        public const string Ignored = "ignored";
     }
 }

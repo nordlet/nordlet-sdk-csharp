@@ -32,6 +32,21 @@ public record MeAccountResponseCompaniesItem : IJsonOnDeserialized
     [JsonPropertyName("cashBasis")]
     public required bool CashBasis { get; set; }
 
+    [JsonPropertyName("countryCode")]
+    public required string CountryCode { get; set; }
+
+    [JsonPropertyName("baseCurrency")]
+    public required string BaseCurrency { get; set; }
+
+    [JsonPropertyName("isVatPayer")]
+    public required bool IsVatPayer { get; set; }
+
+    [JsonPropertyName("vatPeriod")]
+    public MeAccountResponseCompaniesItemVatPeriod? VatPeriod { get; set; }
+
+    [JsonPropertyName("fiscalYearEndMonth")]
+    public long? FiscalYearEndMonth { get; set; }
+
     [JsonPropertyName("status")]
     public required MeAccountResponseCompaniesItemStatus Status { get; set; }
 

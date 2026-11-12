@@ -31,7 +31,21 @@ public class TransactionsImportTest : BaseMockServerTest
         const string mockResponse = """
             {
               "imported": 1000000,
-              "skipped": 1000000
+              "skipped": 1000000,
+              "duplicates": [
+                {
+                  "index": 1000000,
+                  "existingTransactionId": "x",
+                  "date": "2023-01-15",
+                  "amount": "amount"
+                },
+                {
+                  "index": 1000000,
+                  "existingTransactionId": "x",
+                  "date": "2023-01-15",
+                  "amount": "amount"
+                }
+              ]
             }
             """;
 
@@ -78,6 +92,8 @@ public class TransactionsImportTest : BaseMockServerTest
                         ExternalId = null,
                     },
                 },
+                OpeningBalance = null,
+                ClosingBalance = null,
             }
         );
         JsonAssert.AreEqual(response, mockResponse);
@@ -101,7 +117,15 @@ public class TransactionsImportTest : BaseMockServerTest
         const string mockResponse = """
             {
               "imported": 1000000,
-              "skipped": 1000000
+              "skipped": 1000000,
+              "duplicates": [
+                {
+                  "index": 1000000,
+                  "existingTransactionId": "existingTransactionId",
+                  "date": "2026-07-01",
+                  "amount": "amount"
+                }
+              ]
             }
             """;
 

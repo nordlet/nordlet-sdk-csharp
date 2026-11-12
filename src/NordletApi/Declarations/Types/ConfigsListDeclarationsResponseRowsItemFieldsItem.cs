@@ -14,15 +14,24 @@ public record ConfigsListDeclarationsResponseRowsItemFieldsItem : IJsonOnDeseria
     [JsonPropertyName("key")]
     public required string Key { get; set; }
 
+    [JsonPropertyName("label")]
+    public string? Label { get; set; }
+
     [JsonPropertyName("kind")]
     public required ConfigsListDeclarationsResponseRowsItemFieldsItemKind Kind { get; set; }
 
     [JsonPropertyName("multiline")]
     public bool? Multiline { get; set; }
 
+    /// <summary>
+    /// The allowed values of a `select` field
+    /// </summary>
     [JsonPropertyName("options")]
     public IEnumerable<string>? Options { get; set; }
 
+    /// <summary>
+    /// The company profile field the value is taken from; change it with `account/companies/update`
+    /// </summary>
     [JsonPropertyName("companyField")]
     public ConfigsListDeclarationsResponseRowsItemFieldsItemCompanyField? CompanyField { get; set; }
 

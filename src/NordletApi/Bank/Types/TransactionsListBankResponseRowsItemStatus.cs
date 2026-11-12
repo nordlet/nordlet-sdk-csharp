@@ -14,6 +14,8 @@ public readonly record struct TransactionsListBankResponseRowsItemStatus : IStri
 
     public static readonly TransactionsListBankResponseRowsItemStatus Matched = new(Values.Matched);
 
+    public static readonly TransactionsListBankResponseRowsItemStatus Ignored = new(Values.Ignored);
+
     public TransactionsListBankResponseRowsItemStatus(string value)
     {
         Value = value;
@@ -120,5 +122,7 @@ public readonly record struct TransactionsListBankResponseRowsItemStatus : IStri
         public const string New = "new";
 
         public const string Matched = "matched";
+
+        public const string Ignored = "ignored";
     }
 }

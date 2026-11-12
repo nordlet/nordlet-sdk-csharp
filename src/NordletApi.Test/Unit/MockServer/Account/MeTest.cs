@@ -24,7 +24,8 @@ public class MeTest : BaseMockServerTest
                 "name": "name",
                 "locale": "locale",
                 "plan": "plan",
-                "isSuperAdmin": true
+                "isSuperAdmin": true,
+                "whiteLabel": true
               },
               "locale": "locale",
               "activeCompanyId": "x",
@@ -63,6 +64,11 @@ public class MeTest : BaseMockServerTest
                   "role": "role",
                   "isSandbox": true,
                   "cashBasis": true,
+                  "countryCode": "countryCode",
+                  "baseCurrency": "baseCurrency",
+                  "isVatPayer": true,
+                  "vatPeriod": "monthly",
+                  "fiscalYearEndMonth": 1000000,
                   "status": "active",
                   "deletedAt": "2024-01-15T09:30:00.000Z"
                 },
@@ -74,6 +80,11 @@ public class MeTest : BaseMockServerTest
                   "role": "role",
                   "isSandbox": true,
                   "cashBasis": true,
+                  "countryCode": "countryCode",
+                  "baseCurrency": "baseCurrency",
+                  "isVatPayer": true,
+                  "vatPeriod": "monthly",
+                  "fiscalYearEndMonth": 1000000,
                   "status": "active",
                   "deletedAt": "2024-01-15T09:30:00.000Z"
                 }
@@ -116,7 +127,8 @@ public class MeTest : BaseMockServerTest
                 "name": "name",
                 "locale": "locale",
                 "plan": "plan",
-                "isSuperAdmin": true
+                "isSuperAdmin": true,
+                "whiteLabel": true
               },
               "locale": "locale",
               "activeCompanyId": "activeCompanyId",
@@ -155,6 +167,11 @@ public class MeTest : BaseMockServerTest
                   "role": "role",
                   "isSandbox": true,
                   "cashBasis": true,
+                  "countryCode": "countryCode",
+                  "baseCurrency": "baseCurrency",
+                  "isVatPayer": true,
+                  "vatPeriod": "monthly",
+                  "fiscalYearEndMonth": 1000000,
                   "status": "active",
                   "deletedAt": "2026-07-01T09:30:00.000Z"
                 }

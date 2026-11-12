@@ -38,6 +38,9 @@ public record JournalTransactionsGetLedgerResponse : IJsonOnDeserialized
     [JsonPropertyName("postedAt")]
     public DateTime? PostedAt { get; set; }
 
+    [JsonPropertyName("reversedByTransactionId")]
+    public string? ReversedByTransactionId { get; set; }
+
     [JsonPropertyName("entries")]
     public IEnumerable<JournalTransactionsGetLedgerResponseEntriesItem> Entries { get; set; } =
         new List<JournalTransactionsGetLedgerResponseEntriesItem>();

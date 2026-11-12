@@ -18,6 +18,9 @@ public record VatResolveReferenceRequest
     [JsonPropertyName("supplyType")]
     public VatResolveReferenceRequestSupplyType? SupplyType { get; set; }
 
+    [JsonPropertyName("side")]
+    public VatResolveReferenceRequestSide? Side { get; set; }
+
     [JsonPropertyName("date")]
     public DateOnly? Date { get; set; }
 

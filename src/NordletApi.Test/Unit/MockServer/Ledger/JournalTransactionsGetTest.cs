@@ -29,6 +29,7 @@ public class JournalTransactionsGetTest : BaseMockServerTest
               "status": "draft",
               "createdAt": "2024-01-15T09:30:00.000Z",
               "postedAt": "2024-01-15T09:30:00.000Z",
+              "reversedByTransactionId": "x",
               "entries": [
                 {
                   "id": "x",
@@ -98,6 +99,7 @@ public class JournalTransactionsGetTest : BaseMockServerTest
               "status": "draft",
               "createdAt": "2026-07-01T09:30:00.000Z",
               "postedAt": "2026-07-01T09:30:00.000Z",
+              "reversedByTransactionId": "reversedByTransactionId",
               "entries": [
                 {
                   "id": "id",

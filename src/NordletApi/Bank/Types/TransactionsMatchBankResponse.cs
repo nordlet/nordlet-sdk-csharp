@@ -50,6 +50,9 @@ public record TransactionsMatchBankResponse : IJsonOnDeserialized
     [JsonPropertyName("journalTransactionId")]
     public string? JournalTransactionId { get; set; }
 
+    [JsonPropertyName("ignoreReason")]
+    public string? IgnoreReason { get; set; }
+
     [JsonPropertyName("createdAt")]
     public required DateTime CreatedAt { get; set; }
 

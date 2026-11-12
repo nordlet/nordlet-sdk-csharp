@@ -51,6 +51,15 @@ public record InvoicesUpdatePurchasesRequest
     [JsonPropertyName("lines")]
     public IEnumerable<InvoicesUpdatePurchasesRequestLinesItem>? Lines { get; set; }
 
+    [JsonPropertyName("netTotal")]
+    public string? NetTotal { get; set; }
+
+    [JsonPropertyName("vatTotal")]
+    public string? VatTotal { get; set; }
+
+    [JsonPropertyName("grossTotal")]
+    public string? GrossTotal { get; set; }
+
     /// <inheritdoc />
     public override string ToString()
     {

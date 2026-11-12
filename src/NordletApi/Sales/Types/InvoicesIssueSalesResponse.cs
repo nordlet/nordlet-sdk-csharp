@@ -216,6 +216,10 @@ public record InvoicesIssueSalesResponse : IJsonOnDeserialized
     [JsonPropertyName("vatEvidence")]
     public InvoicesIssueSalesResponseVatEvidence? VatEvidence { get; set; }
 
+    [JsonPropertyName("warnings")]
+    public IEnumerable<InvoicesIssueSalesResponseWarningsItem> Warnings { get; set; } =
+        new List<InvoicesIssueSalesResponseWarningsItem>();
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

@@ -16,6 +16,8 @@ public readonly record struct InvoicesCreatePurchasesResponseStatus : IStringEnu
         Values.Registered
     );
 
+    public static readonly InvoicesCreatePurchasesResponseStatus Reversed = new(Values.Reversed);
+
     public InvoicesCreatePurchasesResponseStatus(string value)
     {
         Value = value;
@@ -118,5 +120,7 @@ public readonly record struct InvoicesCreatePurchasesResponseStatus : IStringEnu
         public const string Draft = "draft";
 
         public const string Registered = "registered";
+
+        public const string Reversed = "reversed";
     }
 }

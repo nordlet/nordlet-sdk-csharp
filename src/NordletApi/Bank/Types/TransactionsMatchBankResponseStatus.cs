@@ -14,6 +14,8 @@ public readonly record struct TransactionsMatchBankResponseStatus : IStringEnum
 
     public static readonly TransactionsMatchBankResponseStatus Matched = new(Values.Matched);
 
+    public static readonly TransactionsMatchBankResponseStatus Ignored = new(Values.Ignored);
+
     public TransactionsMatchBankResponseStatus(string value)
     {
         Value = value;
@@ -115,5 +117,7 @@ public readonly record struct TransactionsMatchBankResponseStatus : IStringEnum
         public const string New = "new";
 
         public const string Matched = "matched";
+
+        public const string Ignored = "ignored";
     }
 }

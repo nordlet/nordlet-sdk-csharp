@@ -41,6 +41,9 @@ public class InvoicesCreateTest : BaseMockServerTest
               "grossTotal": "grossTotal",
               "paidAmount": "paidAmount",
               "journalTransactionId": "x",
+              "reversedAt": "2024-01-15T09:30:00.000Z",
+              "reversalJournalTransactionId": "x",
+              "reversalReason": "reversalReason",
               "creditedInvoiceId": "x",
               "purchaseOrderId": "x",
               "operationTypeId": "x",
@@ -101,6 +104,16 @@ public class InvoicesCreateTest : BaseMockServerTest
                   "lineVat": "lineVat",
                   "lineGross": "lineGross",
                   "sortOrder": 1000000
+                }
+              ],
+              "warnings": [
+                {
+                  "code": "code",
+                  "message": "message"
+                },
+                {
+                  "code": "code",
+                  "message": "message"
                 }
               ]
             }
@@ -180,6 +193,9 @@ public class InvoicesCreateTest : BaseMockServerTest
                         ExpiryDate = null,
                     },
                 },
+                NetTotal = null,
+                VatTotal = null,
+                GrossTotal = null,
             }
         );
         JsonAssert.AreEqual(response, mockResponse);
@@ -216,6 +232,9 @@ public class InvoicesCreateTest : BaseMockServerTest
               "grossTotal": "grossTotal",
               "paidAmount": "paidAmount",
               "journalTransactionId": "journalTransactionId",
+              "reversedAt": "2026-07-01T09:30:00.000Z",
+              "reversalJournalTransactionId": "reversalJournalTransactionId",
+              "reversalReason": "reversalReason",
               "creditedInvoiceId": "creditedInvoiceId",
               "purchaseOrderId": "purchaseOrderId",
               "operationTypeId": "operationTypeId",
@@ -252,6 +271,12 @@ public class InvoicesCreateTest : BaseMockServerTest
                   "lineVat": "lineVat",
                   "lineGross": "lineGross",
                   "sortOrder": 1000000
+                }
+              ],
+              "warnings": [
+                {
+                  "code": "code",
+                  "message": "message"
                 }
               ]
             }

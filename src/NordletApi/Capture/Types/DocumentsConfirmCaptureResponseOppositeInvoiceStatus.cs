@@ -18,6 +18,10 @@ public readonly record struct DocumentsConfirmCaptureResponseOppositeInvoiceStat
         Values.Registered
     );
 
+    public static readonly DocumentsConfirmCaptureResponseOppositeInvoiceStatus Reversed = new(
+        Values.Reversed
+    );
+
     public DocumentsConfirmCaptureResponseOppositeInvoiceStatus(string value)
     {
         Value = value;
@@ -126,5 +130,7 @@ public readonly record struct DocumentsConfirmCaptureResponseOppositeInvoiceStat
         public const string Draft = "draft";
 
         public const string Registered = "registered";
+
+        public const string Reversed = "reversed";
     }
 }

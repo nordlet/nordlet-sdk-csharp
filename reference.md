@@ -736,7 +736,7 @@ await client.Reference.CurrenciesListAsync(new CurrenciesListReferenceRequest())
 <dl>
 <dd>
 
-Lists the company's VAT types (code, country, name and rate). A document line names one in `vatClassifierCode` and takes its rate, VAT scheme and return boxes from it; a company that has VAT types refuses a line without one (422). `side` says whether the type is for sale lines, purchase lines or both, `scheme` is its VAT scheme and `nameEn` its English name; both are null for a type the company added itself. A type without a rate takes the line's `vatRatePercent` on the sides where `rateFromLine` is true, and 0% elsewhere. Filterable by `code`, `countryCode` and `ratePercent`; sortable by `code` and `ratePercent`.
+Lists the company's VAT types (code, country, name and rate). A document line names one in `vatClassifierCode` and takes its rate, VAT scheme and return boxes from it; a company that has VAT types refuses a line without one (422). `side` says whether the type is for sale lines, purchase lines or both, `scheme` is its VAT scheme and `nameEn` its English name; both are null for a type the company added itself. A type without a rate takes the line's `vatRatePercent` on the sides where `rateFromLine` is true, and 0% elsewhere. Filterable by `code`, `countryCode`, `ratePercent`, `side` and `scheme`; `side` and `scheme` take `eq`, `ne` and `in`, and `side` `sale` or `purchase` also matches the types for both sides. Sortable by `code` and `ratePercent`.
 </dd>
 </dl>
 </dd>
@@ -973,7 +973,7 @@ await client.Reference.EuVatRatesSetOverridesAsync(
 <dl>
 <dd>
 
-Works out the VAT treatment of a supply by this company: the scheme (domestic, intra-EU B2B, reverse charge, OSS, IOSS, marketplace deemed supplier, export, out of scope or SME exempt), the country whose VAT applies, its rates with the company's overrides applied, and the legal basis. The customer comes from `partnerId` (country from the partner's address or VAT number, business status from the VAT number) or from `customerCountryCode` and `customerIsBusiness`; `date` defaults to the company's current date; when `belowDistanceSalesThreshold` is not given, the distance-sales threshold is tracked from the company's ledger. Answers 422 when the partner has neither an address country nor a VAT code.
+Works out the VAT treatment of a supply by this company: the scheme (domestic, intra-EU B2B, reverse charge, OSS, IOSS, marketplace deemed supplier, export, out of scope or SME exempt), the country whose VAT applies, its rates with the company's overrides applied, and the legal basis. The customer comes from `partnerId` (country from the partner's address or VAT number, business status from the VAT number) or from `customerCountryCode` and `customerIsBusiness`; `date` defaults to the company's current date; when `belowDistanceSalesThreshold` is not given, the distance-sales threshold is tracked from the company's ledger. Answers 422 when the partner has neither an address country nor a VAT code. `vatTypeCodes` lists the codes of the VAT types of the company's country that fit the treatment and are valid on `date` (for `vatClassifierCode` on a line), empty when none is known; when they all belong to one of the schemes `intra_eu_b2b` and `reverse_charge`, `scheme` is that scheme. With `side` `purchase` the partner (or `customerCountryCode` and `customerIsBusiness`) is the supplier, the treatment is that of the supplier's supply to this company, `vatTypeCodes` are purchase types, and the marketplace, platform-service and special-goods fields are not used.
 </dd>
 </dl>
 </dd>
@@ -1852,7 +1852,7 @@ await client.Partners.ContactsListAsync(new ContactsListPartnersRequest());
 <dl>
 <dd>
 
-Adds a bank account to the partner in `partnerId`. The IBAN is stored without spaces in upper case; an IBAN the partner already has is refused with 409. With `isDefault` true the partner's other accounts lose their default mark.
+Adds a bank account to the partner in `partnerId`. The IBAN is stored without spaces in upper case; an IBAN whose check digits fail (ISO 13616) is refused with 422 and one the partner already has with 409. With `isDefault` true the partner's other accounts lose their default mark.
 </dd>
 </dl>
 </dd>
@@ -1908,7 +1908,7 @@ await client.Partners.BankAccountsCreateAsync(
 <dl>
 <dd>
 
-Changes the given fields of a partner bank account. A new IBAN is stored without spaces in upper case and is refused with 409 when the partner already has it; when the account is the default after the change, the partner's other accounts lose their default mark.
+Changes the given fields of a partner bank account. A new IBAN is stored without spaces in upper case and is refused with 422 when its check digits fail (ISO 13616) and with 409 when the partner already has it; when the account is the default after the change, the partner's other accounts lose their default mark.
 </dd>
 </dl>
 </dd>
@@ -2618,7 +2618,7 @@ await client.Partners.CreateAsync(new CreatePartnersRequest { Name = "name" });
 <dl>
 <dd>
 
-Returns the live partner matched by `code`, then `vatCode`, then `email` (at least one is required), or creates one from the body with the same validation and VIES check as `partners/create`; `created` says which happened. A creation that loses a race on the partner code returns the partner the other call created.
+Returns the live partner matched by `code`, then `vatCode` (compared without spaces, dots and dashes and without regard to case), then `email` (at least one is required), or creates one from the body with the same validation and VIES check as `partners/create`; `created` says which happened. Without `isCustomer` a new partner is a customer unless `isSupplier` is true. A creation that loses a race on the partner code returns the partner the other call created.
 </dd>
 </dl>
 </dd>
@@ -6555,7 +6555,7 @@ await client.Catalog.PriceListsItemsDeleteAsync(
 <dl>
 <dd>
 
-Create a draft sale document - an invoice, credit note, proforma or advance invoice (`type`) - with its lines; the totals are computed from the lines and `discountPercent`, and the number is assigned by `sales/invoices/issue`. Answers 422 when a credit note credits a proforma, another credit note or a document that is not issued, when the credited document has another partner or currency, when an OSS or IOSS document has no EU `vatCountryCode`, when the lines carry VAT but the company is not a VAT payer or the VAT scheme charges none, or when the operation type or document series is for another document type.
+Create a draft sale document - an invoice, credit note, proforma or advance invoice (`type`) - with its lines; the totals are computed from the lines and `discountPercent`, and the number is assigned by `sales/invoices/issue`. Answers 422 when a credit note credits a proforma, another credit note or a document that is not issued, when the credited document has another partner or currency, when an OSS or IOSS document has no EU `vatCountryCode`, when the lines carry VAT but the company is not a VAT payer or the VAT scheme charges none, or when the operation type or document series is for another document type. `warnings` lists what does not refuse the document but needs a look: `vat_type_not_valid_on_date` (a line VAT type is not valid on the issue date, else today), `vat_type_domestic_for_eu_partner` (a domestic VAT type for a partner VAT-registered in another EU country), `vat_type_intra_eu_for_domestic_partner` (an intra-EU VAT type for a partner in the company country) and `vat_type_intra_eu_without_vat_number` (an intra-EU VAT type for a partner without a VAT number).
 </dd>
 </dl>
 </dd>
@@ -6726,7 +6726,7 @@ await client.Sales.InvoicesPdfAsync(new InvoicesPdfSalesRequest { Id = "id" });
 <dl>
 <dd>
 
-Return a sale document as its customer sees it: the seller as printed on it (the snapshot taken at issue, else the company), the buyer with address and e-mail, the lines, the totals, `paidOn` (the date of the latest payment once the document is paid), `payUrl` (as in `sales/invoices/payment-link`; null while `cardPaymentReceived`), `cardPaymentReceived` (a completed card payment was received and the invoice waits for the payout settlement) and `token`, the document's customer token for `public/invoices/get` and `public/invoices/pdf`, created on first use; `token` is null on a draft.
+Return a sale document as its customer sees it: the seller as printed on it (the snapshot taken at issue, else the company), the buyer with address and e-mail, the lines, the totals, `paidOn` (the date of the latest payment once the document is paid), `payUrl` (as in `sales/invoices/payment-link`; null while `cardPaymentReceived`), `cardPaymentReceived` (a completed card payment was received and the invoice waits for the payout settlement), `sentWith` (the name the public invoice page prints in its "Sent with" line: Nordlet, or the brand name of the white-label partner who pays for the company, null when that partner has set no name) and `token`, the document's customer token for `public/invoices/get` and `public/invoices/pdf`, created on first use; `token` is null on a draft.
 </dd>
 </dl>
 </dd>
@@ -6996,7 +6996,7 @@ await client.Sales.InvoicesPeppolStatusAsync(new InvoicesPeppolStatusSalesReques
 <dl>
 <dd>
 
-Render an issued invoice as the national e-invoicing payload for the company country: FatturaPA (IT), KSeF FA(3) (PL) or UBL CIUS-RO (RO). Review the warnings - data the invoice does not carry is flagged, never invented.
+Render an issued invoice as the national e-invoicing payload for the company country: SII or Veri*Factu (ES), Factur-X (FR), myDATA (GR), Fiskalizacija (HR), NAV Online Számla (HU), FatturaPA (IT), KSeF FA(3) (PL), AT comunicação de faturas (PT) or UBL CIUS-RO (RO). Review the warnings - data the invoice does not carry is flagged, never invented.
 </dd>
 </dl>
 </dd>
@@ -7268,7 +7268,7 @@ await client.Sales.InvoicesDeleteAsync(new InvoicesDeleteSalesRequest { Id = "id
 <dl>
 <dd>
 
-Issue a draft sale document: assigns the next number (from its document series, else from `series` or the type's default prefix and the year), the issue date (`issueDate`, else the draft's, else today) and a missing due date from the partner's payment term, and for an invoice, credit note or advance invoice posts the journal entry and stores the VAT evidence. `warehouseId` (or the series' warehouse) takes the sold goods of an invoice out of stock, the first-expiring lot first (lots without an expiry date after those with one, then the oldest layers first), leaving out expired lots, with a cost of goods sold entry; `returnToStock` puts them back for a credit note that credits an invoice. A credit note is set against the unpaid balance of the credited document. Emits `sale_invoice.issued`, `sale_invoice.paid` when a credit note settles the credited invoice in full, and `intercompany.invoice_mirrored` when the partner is linked to another company of the group (a draft purchase invoice is created there). Answers 409 when the document is already issued or locked or the accounting period is locked, 422 when the lines carry VAT under a scheme that charges none, when credit notes would exceed the credited total, or when `returnToStock` is used on anything but a credit note of an invoice.
+Issue a draft sale document: assigns the next number (from its document series, else from `series` or the type's default prefix and the year), the issue date (`issueDate`, else the draft's, else today) and a missing due date from the partner's payment term, and for an invoice, credit note or advance invoice posts the journal entry and stores the VAT evidence. `warehouseId` (or the series' warehouse) takes the sold goods of an invoice out of stock, the first-expiring lot first (lots without an expiry date after those with one, then the oldest layers first), leaving out expired lots, with a cost of goods sold entry; `returnToStock` puts them back for a credit note that credits an invoice. A credit note is set against the unpaid balance of the credited document. Emits `sale_invoice.issued`, `sale_invoice.paid` when a credit note settles the credited invoice in full, and `intercompany.invoice_mirrored` when the partner is linked to another company of the group (a draft purchase invoice is created there). Answers 409 when the document is already issued or locked or the accounting period is locked, 422 when the lines carry VAT under a scheme that charges none, when credit notes would exceed the credited total, or when `returnToStock` is used on anything but a credit note of an invoice. `warnings` carries the VAT type warnings of `sales/invoices/create` and `document_date_before_last_number` when the document is dated before the last number issued in its series.
 </dd>
 </dl>
 </dd>
@@ -8638,7 +8638,7 @@ await client.Sales.RecurringInvoicesDeleteAsync(
 <dl>
 <dd>
 
-Generate the next invoice of a schedule now, dated its `nextRunDate`: creates a draft from the template (due date from the template's payment term, VAT scheme from the template or else resolved for the partner and supply type), issues it when `autoIssue` is set and e-mails it when `autoSend` is set, then moves the schedule to its next occurrence (or to `finished` after the last one) and emits `recurring_invoice.generated`. A failure to issue or send comes back in `error` and is stored as `lastError`; the draft stays. Answers 409 when the schedule is finished, 422 when the template is a credit note template or has no lines.
+Generate the next invoice of a schedule now, dated its `nextRunDate`: creates a draft from the template (due date from the template's payment term, VAT scheme from the template or else resolved for the partner and supply type), issues it when `autoIssue` is set and e-mails it when `autoSend` is set, then moves the schedule to its next occurrence (or to `finished` after the last one) and emits `recurring_invoice.generated`. A failure to issue or send comes back in `error` and is stored as `lastError`; the draft stays. Answers 409 when the schedule is finished or its `nextRunDate` is after the company's current date, 422 when the template is a credit note template or has no lines.
 </dd>
 </dl>
 </dd>
@@ -10075,7 +10075,7 @@ await client.DocumentSeries.ListAsync(new ListDocumentSeriesRequest());
 <dl>
 <dd>
 
-Create a draft purchase invoice or credit note (`type`) from a supplier document; it is posted with `purchases/invoices/register`. Lines without a unit price take the item's supplier or purchase price, `currency` defaults to the company's invoice currency, `documentRef` links an uploaded file, and the gross total leaves out self-assessed VAT. `creditedInvoiceId` (credit notes only) must be an invoice of the same partner, `purchaseOrderId` an order of the same partner that is not draft, submitted or cancelled, and `operationTypeId` an active purchase operation type, each 422 otherwise; the same `documentNumber` for the same partner is refused with 409.
+Create a draft purchase invoice or credit note (`type`) from a supplier document; it is posted with `purchases/invoices/register`. Lines without a unit price take the item's supplier or purchase price, `currency` defaults to the company's invoice currency, `documentRef` links an uploaded file, and the gross total is the amount owed: it leaves out self-assessed VAT (reverse charge, intra-EU acquisitions and import VAT the buyer declares in its VAT return) and the value of lines whose VAT type is import VAT assessed by customs. `netTotal`, `vatTotal` and `grossTotal` are the totals printed on the document, with the meanings of the response fields: a difference of at most 0.01 from the totals of the lines is put on the line with the largest amount and the printed totals are stored, a larger one is refused with 422 naming both sets of totals. `creditedInvoiceId` (credit notes only) must be an invoice of the same partner, `purchaseOrderId` an order of the same partner that is not draft, submitted or cancelled, and `operationTypeId` an active purchase operation type, each 422 otherwise; the same `documentNumber` for the same partner is refused with 409; numbers are compared without regard to case, and spaces, dashes, slashes, dots and underscores count as one separator. `warnings` lists what does not refuse the document but needs a look: `vat_type_not_valid_on_date`, `vat_type_domestic_for_eu_partner` and `vat_type_intra_eu_for_domestic_partner` as on `sales/invoices/create` (on the document date), and `possible_duplicate` when the supplier already has a document of the same type with the same document date and gross total.
 </dd>
 </dl>
 </dd>
@@ -10194,7 +10194,7 @@ await client.Purchases.InvoicesGetAsync(new InvoicesGetPurchasesRequest { Id = "
 <dl>
 <dd>
 
-Change a draft purchase invoice (409 once registered); only the fields sent are changed, and `lines` replace all existing lines with the totals recomputed. `purchaseOrderId` and `operationTypeId` are checked as on `purchases/invoices/create` (422). A `documentNumber` already used for the partner is refused with 409.
+Change a draft purchase invoice (409 once registered); only the fields sent are changed, and `lines` replace all existing lines with the totals recomputed. `netTotal`, `vatTotal` and `grossTotal` are the printed totals as on `purchases/invoices/create`; sent without `lines`, they are applied to the stored lines. `purchaseOrderId` and `operationTypeId` are checked as on `purchases/invoices/create` (422). A `documentNumber` already used for the partner is refused with 409, compared as on `purchases/invoices/create`.
 </dd>
 </dl>
 </dd>
@@ -10302,7 +10302,7 @@ await client.Purchases.InvoicesDeleteAsync(new InvoicesDeletePurchasesRequest { 
 <dl>
 <dd>
 
-Register a draft purchase invoice or credit note: posts the journal entry dated `registrationDate` (default the document date) and sets the status to `registered`. The entry debits each line's expense account (the line's `accountCode`, else the item's purchase or expense account, else the operation type's expense account, else the `purchases.goodsForResale` or `purchases.defaultExpense` rule account), debits VAT receivable (a company that is not a VAT payer books the VAT into the expense instead), credits payables (the operation type's credit account when set) and credits output VAT for self-assessed VAT; a credit note posts the reverse. Lines with `deferralStartDate` and `deferralEndDate` are debited to the `purchases.prepaidExpenses` account instead and get a monthly release schedule for `purchases/deferrals/post`. With `warehouseId` the product lines of an invoice are received into stock at their base-currency cost, into the lot named by the line's `lotNumber` (an unknown lot is created, and the line's `expiryDate` is stored on a lot that has none) (422 on an order-linked invoice, whose goods arrive through `purchases/receipts/create`, for a line that is also deferred and for a lot- or serial-tracked item without `lotNumber`); `returnFromStock` on a credit note that credits an invoice takes the goods back out of stock at their FIFO cost and books the difference to the credited amount on the `inventory.cogs` account (422 on an invoice, without `creditedInvoiceId`, or when no goods of the credited invoice are in stock). A credit note that credits a registered invoice in the same currency is applied to it as a payment up to the open amount. Refused with 409 when already registered or the accounting period is locked, and with 422 when the credit notes would exceed the credited invoice, a posting account is missing or no exchange rate exists for the date. Emits `purchase_invoice.registered`, `purchase_invoice.paid` when the credited invoice becomes fully paid, and `stock.changed` when stock moves.
+Register a draft purchase invoice or credit note: posts the journal entry dated `registrationDate` (default the document date) and sets the status to `registered`. The entry debits each line's expense account (the line's `accountCode`, else the item's purchase or expense account, else the operation type's expense account, else the `purchases.goodsForResale` or `purchases.defaultExpense` rule account), debits VAT receivable with the deductible VAT (the share of the line's VAT that its VAT type allows to deduct; the rest, and all VAT of a company that is not a VAT payer, is booked into the expense), credits payables (the operation type's credit account when set) and credits output VAT for self-assessed VAT (reverse charge, intra-EU acquisitions and import VAT the buyer declares in its VAT return); a line whose VAT type is import VAT assessed by customs posts only its VAT, owed to the document's partner, and is not received into stock; a credit note posts the reverse. Lines with `deferralStartDate` and `deferralEndDate` are debited to the `purchases.prepaidExpenses` account instead and get a monthly release schedule for `purchases/deferrals/post`. With `warehouseId` the product lines of an invoice are received into stock at their base-currency cost, into the lot named by the line's `lotNumber` (an unknown lot is created, and the line's `expiryDate` is stored on a lot that has none) (422 on an order-linked invoice, whose goods arrive through `purchases/receipts/create`, for a line that is also deferred and for a lot- or serial-tracked item without `lotNumber`); `returnFromStock` on a credit note that credits an invoice takes the goods back out of stock at their FIFO cost and books the difference to the credited amount on the `inventory.cogs` account (422 on an invoice, without `creditedInvoiceId`, or when no goods of the credited invoice are in stock). A credit note that credits a registered invoice in the same currency is applied to it as a payment up to the open amount. Refused with 409 when already registered or the accounting period is locked, and with 422 when the credit notes would exceed the credited invoice, the gross total differs from what the lines give by more than 0.01 (or the converted amounts by more than their conversion rounding), a posting account is missing or no exchange rate exists for the date. Emits `purchase_invoice.registered`, `purchase_invoice.paid` when the credited invoice becomes fully paid, and `stock.changed` when stock moves. `warnings` carries the VAT type warnings of `purchases/invoices/create`.
 </dd>
 </dl>
 </dd>
@@ -10495,6 +10495,62 @@ await client.Purchases.InvoicesListAsync(new InvoicesListPurchasesRequest());
 <dd>
 
 **request:** `InvoicesListPurchasesRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Purchases.<a href="/src/NordletApi/Purchases/PurchasesClient.cs">InvoicesReverseAsync</a>(InvoicesReversePurchasesRequest { ... }) -> WithRawResponseTask&lt;InvoicesReversePurchasesResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Posts a journal entry dated `date` (default the registration date) that mirrors the document's entry (debits and credits swapped), reverses the prepaid-expense releases already posted for it, cancels its pending releases and sets the status to `reversed` with the reason. The reversed document leaves the VAT returns, the open items and payment matching, and its supplier `documentNumber` can be entered again. `date` must be in the month of the registration date and not before it (422; correct an earlier month with a credit note). Answers 409 when the document is not registered, when the accounting period of `date` is locked (naming the period), when registered credit notes credit it, when payments are matched to it (naming them; unmatch them first), and when it moved goods in or out of stock or is the source of a landed cost (post a credit note with `returnFromStock` instead).
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Purchases.InvoicesReverseAsync(
+    new InvoicesReversePurchasesRequest { Id = "id", Reason = "reason" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `InvoicesReversePurchasesRequest` 
     
 </dd>
 </dl>
@@ -11289,283 +11345,6 @@ await client.Purchases.InvoicesMatchAsync(
 </details>
 
 ## capture
-<details><summary><code>client.Capture.<a href="/src/NordletApi/Capture/CaptureClient.cs">SettingsGetAsync</a>(SettingsGetCaptureRequest { ... }) -> WithRawResponseTask&lt;SettingsGetCaptureResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Return the company's document capture settings: whether intake by e-mail is enabled, whether e-mailed documents are read on arrival, the company's intake e-mail address and whether a reading provider is configured. The intake token behind the address is created on the first call.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Capture.SettingsGetAsync(new SettingsGetCaptureRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `SettingsGetCaptureRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Capture.<a href="/src/NordletApi/Capture/CaptureClient.cs">SettingsUpdateAsync</a>(SettingsUpdateCaptureRequest { ... }) -> WithRawResponseTask&lt;SettingsUpdateCaptureResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Switch `intakeEnabled` (documents sent to the intake address are accepted) and `captureAutoExtract` (they are read on arrival) on or off; at least one field is required.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Capture.SettingsUpdateAsync(new SettingsUpdateCaptureRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `SettingsUpdateCaptureRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Capture.<a href="/src/NordletApi/Capture/CaptureClient.cs">SettingsRegenerateIntakeAsync</a>(SettingsRegenerateIntakeCaptureRequest { ... }) -> WithRawResponseTask&lt;SettingsRegenerateIntakeCaptureResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Replace the company's intake token, so the previous intake e-mail address stops working and the settings come back with the new one.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Capture.SettingsRegenerateIntakeAsync(new SettingsRegenerateIntakeCaptureRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `SettingsRegenerateIntakeCaptureRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Capture.<a href="/src/NordletApi/Capture/CaptureClient.cs">InboundEmailAsync</a>(InboundEmailCaptureRequest { ... }) -> WithRawResponseTask&lt;InboundEmailCaptureResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Endpoint for the inbound e-mail provider (Postmark field names or the generic `to`, `from`, `subject` and `attachments` form). It needs the `x-inbound-secret` header and finds the company by the `intake+<token>@` recipient address (404 when unknown, 403 when intake is disabled). Every PDF, image, Word or PowerPoint attachment up to 10 MB becomes a `pending` capture (`accepted`), anything else is `skipped`; when the company has automatic reading on, is not on trial and a reading provider is configured, each capture is read at once.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Capture.InboundEmailAsync(new InboundEmailCaptureRequest());
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `InboundEmailCaptureRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.Capture.<a href="/src/NordletApi/Capture/CaptureClient.cs">DocumentsUploadAsync</a>(DocumentsUploadCaptureRequest { ... }) -> WithRawResponseTask&lt;DocumentsUploadCaptureResponse&gt;</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Upload a supplier document (PDF, image, Word or PowerPoint, up to 10 MB; 422 for any other type) as a capture and read it at once. The result holds the extracted supplier, dates, totals and lines, the partner matched by VAT code, then partner code, then name, the raw text, and `status` `extracted` or `failed` with `error`. Needs a configured reading provider, is refused with 402 for a company on trial until its first top-up, and counts every page read as `ocr_page` usage. The draft is reviewed and saved with `capture/documents/confirm`.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```csharp
-await client.Capture.DocumentsUploadAsync(
-    new DocumentsUploadCaptureRequest
-    {
-        FileName = "fileName",
-        MimeType = "mimeType",
-        Content = "content",
-    }
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `DocumentsUploadCaptureRequest` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
 <details><summary><code>client.Capture.<a href="/src/NordletApi/Capture/CaptureClient.cs">DocumentsExtractAsync</a>(DocumentsExtractCaptureRequest { ... }) -> WithRawResponseTask&lt;DocumentsExtractCaptureResponse&gt;</code></summary>
 <dl>
 <dd>
@@ -11578,7 +11357,7 @@ await client.Capture.DocumentsUploadAsync(
 <dl>
 <dd>
 
-Read a stored capture again and replace its draft (supplier, totals, lines, matched partner). A capture received over Peppol is parsed from its document again without a reading provider; any other needs the provider and, for a company on trial, the first top-up (402). Refused with 409 once the capture is linked to a purchase invoice.
+Parse a capture received over Peppol from its stored document again and replace its draft (supplier, totals, lines, matched partner). Refused with 422 for a capture that was not received over Peppol and with 409 once the capture is linked to a purchase invoice.
 </dd>
 </dl>
 </dd>
@@ -11632,7 +11411,7 @@ await client.Capture.DocumentsExtractAsync(new DocumentsExtractCaptureRequest { 
 <dl>
 <dd>
 
-Return one capture with its extraction and raw text.
+Return one document received over Peppol (a capture) with its draft: supplier, dates, totals and lines.
 </dd>
 </dl>
 </dd>
@@ -11686,7 +11465,7 @@ await client.Capture.DocumentsGetAsync(new DocumentsGetCaptureRequest { Id = "id
 <dl>
 <dd>
 
-List captures without raw text. Filterable by `status`, `matchedPartnerId` and `purchaseInvoiceId`; sortable by `createdAt` and `updatedAt`.
+List the documents received over Peppol (captures) with their drafts. Filterable by `status`, `matchedPartnerId` and `purchaseInvoiceId`; sortable by `createdAt` and `updatedAt`.
 </dd>
 </dl>
 </dd>
@@ -14213,7 +13992,7 @@ await client.Declarations.TaxPaymentsCreateAsync(
 <dl>
 <dd>
 
-Changes the kind, amount, payment date, reference or description of a recorded tax payment; fields left out keep their value and an empty `reference` clears it. Answers 422 when the new amount is zero.
+Changes the kind, amount, payment date, reference or description of a recorded tax payment; fields left out keep their value and an empty `reference` clears it. Answers 422 when the new amount is zero, and 409 when the kind or amount of a payment booked from a bank transaction (`bank/transactions/post`) changes.
 </dd>
 </dl>
 </dd>
@@ -14269,7 +14048,7 @@ await client.Declarations.TaxPaymentsUpdateAsync(
 <dl>
 <dd>
 
-Deletes a recorded tax payment.
+Deletes a recorded tax payment. Answers 409 when the payment is booked from a bank transaction (`bank/transactions/post`).
 </dd>
 </dl>
 </dd>
@@ -16798,7 +16577,7 @@ await client.Declarations.LiLohnlistenGenerateAsync(
 <dl>
 <dd>
 
-Lists the filing systems the company can configure: those of the company country (or of `country` when given), the EU-wide systems and the cross-border e-invoicing systems `it_sdi`, `pl_ksef` and `ro_efactura`. Each row carries the stored values, with a secret or certificate field shown as `__secret_set__` and the fields taken from the company profile filled from it.
+Lists the filing systems the company can configure: those of the company country (or of `country` when given), the EU-wide systems and the cross-border e-invoicing systems `it_sdi`, `pl_ksef` and `ro_efactura`. Each row carries the stored values, with a secret or certificate field shown as `__secret_set__` and the fields taken from the company profile filled from it. Each field carries its `label` in the language of `Accept-Language` (English otherwise) when Nordlet has one, and a `select` field its allowed values in `options`. Set the values with `declarations/configs/update` {system, config: {key: value}}.
 </dd>
 </dl>
 </dd>
@@ -17816,7 +17595,7 @@ await client.Ledger.PeriodsListAsync(new PeriodsListLedgerRequest());
 <dl>
 <dd>
 
-Locks the month so that postings dated in it are refused with 409 (`ledger/journal/transactions/create`, `cash/orders/create` and `cash/expense-reports/create` among them). Before locking a month that is not locked yet, posts the pending ratable revenue recognition tranches scheduled up to the month end and emits `revenue_recognition.posted` when there were any; when the month is the company's fiscal year end and no year-end close is posted for that year, posts the year-end close that moves the income and expense balances of the fiscal year to the retained earnings account (posting rule `closing.retainedEarnings`).
+Locks the month so that postings dated in it are refused with 409 (`ledger/journal/transactions/create`, `cash/orders/create` and `cash/expense-reports/create` among them). Before locking a month that is not locked yet, posts the pending ratable revenue recognition tranches scheduled up to the month end and emits `revenue_recognition.posted` when there were any; when the month is the company's fiscal year end and no year-end close is posted for that year, posts the year-end close that moves the income and expense balances of the fiscal year to the retained earnings account (posting rule `closing.retainedEarnings`). The lock is not refused for open items: `warnings` lists them as `reports/period-checklist` does, for the month, or for the fiscal year when the month is the fiscal year end.
 </dd>
 </dl>
 </dd>
@@ -18703,7 +18482,7 @@ await client.Ledger.OwnersListAsync(new OwnersListLedgerRequest());
 <dl>
 <dd>
 
-Returns a journal transaction with its entries, ordered by account code.
+Returns a journal transaction with its entries, ordered by account code. `reversedByTransactionId` is the transaction posted by `ledger/journal/transactions/reverse` for a manual transaction, else null.
 </dd>
 </dl>
 </dd>
@@ -18759,7 +18538,7 @@ await client.Ledger.JournalTransactionsGetAsync(
 <dl>
 <dd>
 
-Posts a manual journal transaction (`documentType` `manual`, status `posted`) in the company's base currency. Every `accountCode` must be a postable account of the chart, cost centers must exist and be active, projects must exist, and the debits must equal the credits. Answers 422 for an amount with more than two decimals, for a `currency` other than the base currency and for an inactive cost center, and 409 when the accounting period of `date` is locked.
+Posts a manual journal transaction (`documentType` `manual`, status `posted`) in the company's base currency. Every `accountCode` must be a postable account of the chart, cost centers must exist and be active, projects must exist, and the debits must equal the credits. Answers 422 for an amount that is not whole cents (a third or fourth decimal other than zero; `10.5000` is accepted), for a `currency` other than the base currency and for an inactive cost center, and 409 when the accounting period of `date` is locked.
 </dd>
 </dl>
 </dd>
@@ -18799,6 +18578,62 @@ await client.Ledger.JournalTransactionsCreateAsync(
 <dd>
 
 **request:** `JournalTransactionsCreateLedgerRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Ledger.<a href="/src/NordletApi/Ledger/LedgerClient.cs">JournalTransactionsReverseAsync</a>(JournalTransactionsReverseLedgerRequest { ... }) -> WithRawResponseTask&lt;JournalTransactionsReverseLedgerResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Posts a journal transaction (`documentType` `manual_reversal`, `documentId` the original) dated `date` (default the original date) whose entries mirror the original's (debits and credits swapped). Only a `manual` transaction is reversed here; a transaction posted by a document is reversed through that document. Answers 409 when the transaction is not manual, when it is already reversed and when the accounting period of `date` is locked, and 400 when `date` is before the original date.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Ledger.JournalTransactionsReverseAsync(
+    new JournalTransactionsReverseLedgerRequest { Id = "id", Reason = "reason" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `JournalTransactionsReverseLedgerRequest` 
     
 </dd>
 </dl>
@@ -20529,7 +20364,7 @@ await client.Hr.PositionsListAsync(new PositionsListHrRequest());
 <dl>
 <dd>
 
-Creates an employee record. `payrollOptions` holds the country-specific settings the payroll engine reads for the person (see `hr/employees/fields`); `applyAllowance` defaults to true and `pensionAccumulation` to false.
+Creates an employee record. `payrollOptions` holds the country-specific settings the payroll engine reads for the person (see `hr/employees/fields`); `applyAllowance` defaults to true and `pensionAccumulation` to false. An `iban` whose check digits fail (ISO 13616) is refused with 422.
 </dd>
 </dl>
 </dd>
@@ -20585,7 +20420,7 @@ await client.Hr.EmployeesCreateAsync(
 <dl>
 <dd>
 
-Changes the given fields of an employee; a null clears the fields that allow it (code, personal code, birth date, contact details, address, IBAN, social insurance number and start, hire date, notes). `status` and `terminationDate` are set here too.
+Changes the given fields of an employee; a null clears the fields that allow it (code, personal code, birth date, contact details, address, IBAN, social insurance number and start, hire date, notes). `status` and `terminationDate` are set here too. An `iban` whose check digits fail (ISO 13616) is refused with 422.
 </dd>
 </dl>
 </dd>
@@ -27219,7 +27054,7 @@ await client.Ecommerce.StockListAsync(new StockListEcommerceRequest());
 <dl>
 <dd>
 
-Creates a numbered cash receipt (series `KPO`) or cash disbursement (`KIO`) and posts it in the base currency between the cash account (`cashAccountCode`, default the cash account of the company's chart) and `counterAccountCode`; a receipt debits the cash account, a disbursement credits it. Linked to an invoice - `saleInvoiceId` for a receipt against an issued invoice or advance invoice or a disbursement against an issued credit note, `purchaseInvoiceId` for a disbursement against a registered purchase invoice - the counter account is the receivable or payable account the invoice was posted to (its operation type's account, else the posting rule), the invoice's paid amount and payment status (`partial` or `paid`) are updated, and `sale_invoice.paid` or `purchase_invoice.paid` is emitted when the invoice becomes fully paid. Answers 422 when both invoice ids are given, a receipt names a purchase invoice, `counterAccountCode` differs from the invoice's account, or the invoice is in another currency or belongs to another partner; 409 when `amount` exceeds the invoice's remaining amount, a disbursement would take the balance of the cash account below zero on `date` or any later date, or the accounting period of `date` is locked.
+Creates a numbered cash receipt (series `KPO`) or cash disbursement (`KIO`) and posts it in the base currency between the cash account (`cashAccountCode`, default the cash account of the company's chart) and `counterAccountCode`; a receipt debits the cash account, a disbursement credits it. `counterAccountCode` is required (400 without it) unless `saleInvoiceId` or `purchaseInvoiceId` is given, also for an order with `employeeId`. Linked to an invoice - `saleInvoiceId` for a receipt against an issued invoice or advance invoice or a disbursement against an issued credit note, `purchaseInvoiceId` for a disbursement against a registered purchase invoice - the counter account is the receivable or payable account the invoice was posted to (its operation type's account, else the posting rule), the invoice's paid amount and payment status (`partial` or `paid`) are updated, and `sale_invoice.paid` or `purchase_invoice.paid` is emitted when the invoice becomes fully paid. Answers 422 when both invoice ids are given, a receipt names a purchase invoice, `counterAccountCode` differs from the invoice's account, or the invoice is in another currency or belongs to another partner; 409 when `amount` exceeds the invoice's remaining amount, a disbursement would take the balance of the cash account below zero on `date` or any later date, or the accounting period of `date` is locked.
 </dd>
 </dl>
 </dd>
@@ -29630,7 +29465,7 @@ await client.Calendar.SubmitAsync(new SubmitCalendarRequest { Key = "key" });
 <dl>
 <dd>
 
-Builds the file of a deadline whose format Nordlet produces but whose administration takes it only through the company's own account or program. Nothing is sent and no filing is recorded.
+Builds the file of a deadline whose format Nordlet produces but whose administration takes it only through the company's own account or program. Nothing is sent and no filing is recorded. `key` is `<ruleKey>:<period>` as `calendar/list` returns it. Answers 404 for an unknown rule or an invalid period, and 422 with the reason when Nordlet builds no single file for the deadline.
 </dd>
 </dl>
 </dd>
@@ -30462,7 +30297,7 @@ await client.Bank.AccountsUpdateAsync(new AccountsUpdateBankRequest { Id = "id" 
 <dl>
 <dd>
 
-Insert statement lines (up to 1000 per call) into a bank account as new transactions. A line without `currency` takes the account currency; a line in another currency is refused with 422. A line whose `externalId` is already on the account is skipped and counted in `skipped`. An incoming line that an active match rule (`bank/match-rules/create`) recognises is linked to its settlement batch.
+Insert statement lines (up to 1000 per call) into a bank account as new transactions. A line without `currency` takes the account currency; a line in another currency is refused with 422. A line whose `externalId` is already on the account is skipped and counted in `skipped`. A line without `externalId` that is identical to a line already on the account (same booking date, amount, counterparty IBAN, or name when either IBAN is missing, and description) is skipped, counted in `skipped` and listed in `duplicates`. When `openingBalance` and `closingBalance` are both given, the opening balance plus the lines must give the closing balance (422 with both figures otherwise), and the closing balance is kept for `bank/reconciliation/get` as the balance on the latest line date. An incoming line that an active match rule (`bank/match-rules/create`) recognises is linked to its settlement batch.
 </dd>
 </dl>
 </dd>
@@ -30529,7 +30364,7 @@ await client.Bank.TransactionsImportAsync(
 <dl>
 <dd>
 
-Import a statement file into a bank account: camt.053 XML, MT940, a Stripe balance CSV or a Revolut Business CSV, chosen by `format` or by the type of `templateId` (an iso20022 template also takes MT940 content). Statements whose IBAN or currency differ from the account are left out; the call is refused with 422 when none remains, when a line is in another currency, when the file lacks the columns or elements the template requires or when it holds more than 50000 lines. Lines already on the account are skipped, and Stripe movements already posted through a settlement payout are skipped with a warning. With a template, the mapped fields are posted to their ledger accounts, partners are created, payments are matched to the invoices they reference, and invoices, credit notes or advance invoices are issued where the template asks for them (`invoiceMetaField`, `advanceInvoices`); `transfersCsv` posts the lender payouts and commissions of a Stripe template. Invoices issued this way are announced as `sale_invoice.issued`.
+Import a statement file into a bank account: camt.053 XML, MT940, a Stripe balance CSV or a Revolut Business CSV, chosen by `format` or by the type of `templateId` (an iso20022 template also takes MT940 content). Statements whose IBAN or currency differ from the account are left out; the call is refused with 422 when none remains, when a line is in another currency, when the opening balance plus the lines of a camt.053 or MT940 statement does not give its closing balance (the message names both figures), when the file lacks the columns or elements the template requires or when it holds more than 50000 lines. The closing balance of each statement is kept for `bank/reconciliation/get`. Lines already on the account are skipped, and Stripe movements already posted through a settlement payout are skipped with a warning. With a template, the mapped fields are posted to their ledger accounts, partners are created, payments are matched to the invoices they reference, and invoices, credit notes or advance invoices are issued where the template asks for them (`invoiceMetaField`, `advanceInvoices`); `transfersCsv` posts the lender payouts and commissions of a Stripe template. Invoices issued this way are announced as `sale_invoice.issued`.
 </dd>
 </dl>
 </dd>
@@ -30639,7 +30474,7 @@ await client.Bank.TransactionsListAsync(new TransactionsListBankRequest());
 <dl>
 <dd>
 
-Match one new bank transaction to a document: an issued sale invoice or advance for incoming money; an issued sale credit note, a registered purchase invoice or an approved payroll run (company currency only) for outgoing money. Posts the payment journal transaction between the bank account and the receivable or payable account the invoice was posted to (the account of its operation type, else the posting rule) or the net payable account, with any exchange difference on the gain or loss account, raises the paid amount of the document and sets the line to matched. A payment in another currency is converted into the invoice currency at the rate of the line date, and the difference against the invoice's own rate is the exchange difference; `invoiceAmount` states the amount settled instead; in the same currency it must equal the payment (422). Answers 409 when the line is already matched, when the amount (converted, beyond one cent of the payment) exceeds the remaining balance of the document or when the accounting period of the line date is locked. A document that becomes fully paid is announced as `sale_invoice.paid` or `purchase_invoice.paid`.
+Match one new bank transaction to a document: an issued sale invoice or advance for incoming money; an issued sale credit note, a registered purchase invoice or an approved payroll run (company currency only) for outgoing money. Posts the payment journal transaction between the bank account and the receivable or payable account the invoice was posted to (the account of its operation type, else the posting rule) or the net payable account, with any exchange difference on the gain or loss account, raises the paid amount of the document and sets the line to matched. A payment in another currency is converted into the invoice currency at the rate of the line date, and the difference against the invoice's own rate is the exchange difference; `invoiceAmount` states the amount settled instead; in the same currency it must equal the payment (422). `remainder` settles a payment that differs from the remaining balance of a sale or purchase invoice in its own currency: `advance` books an overpayment beyond the balance to the advances-received posting rule (customer payments) or to `remainder.accountCode`, which a supplier overpayment must name, on the line's partner; `write_off` books the over- or underpayment to `remainder.accountCode` and settles the invoice in full; `leave_open` settles an underpayment as a partial payment and leaves the rest open. Answers 409 when the line is already matched or ignored, when the amount (converted, beyond one cent of the payment) exceeds the remaining balance of the document and no `remainder` is given, or when the accounting period of the line date is locked. A document that becomes fully paid is announced as `sale_invoice.paid` or `purchase_invoice.paid`.
 </dd>
 </dl>
 </dd>
@@ -30769,7 +30604,7 @@ await client.Bank.TransactionsMatchManyAsync(
 <dl>
 <dd>
 
-Undo a match. A payment matched to an invoice, or a line posted by an import template, gets a reversing journal transaction dated date (default: today) and the invoice paid amount and payment status are restored; a line linked to a payment-provider settlement is only unlinked. The line returns to status new.
+Undo a match. A payment matched to an invoice, a line posted by an import template or by `bank/transactions/post` (to an account or a tax payment) gets a reversing journal transaction dated date (default: today) and the invoice paid amount and payment status are restored; a line linked to a payment-provider settlement is only unlinked; an ignored line is restored as with `bank/transactions/unignore`. The line returns to status new.
 </dd>
 </dl>
 </dd>
@@ -30813,6 +30648,234 @@ await client.Bank.TransactionsUnmatchAsync(
 </dl>
 </details>
 
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">TransactionsPostAsync</a>(TransactionsPostBankRequest { ... }) -> WithRawResponseTask&lt;TransactionsPostBankResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Book one new bank transaction against a ledger account, for lines that settle no invoice (bank fees, interest, tax payments, transfers). Posts a journal transaction dated on the line's booking date between the bank account's ledger account and `accountCode` (incoming money: debit bank, credit the account; outgoing money the reverse), with the optional `partnerId` on the transaction and `costCenterId` and `projectId` on the counter entry, and sets the line to matched with `matchedDocumentType` `journal_transaction`. With `taxPaymentId` the line settles a tax payment recorded with `declarations/tax-payments/create`: an outgoing line for a payment, an incoming line for a refund, in the company currency and for the same amount (422 otherwise), not yet booked from another line (409); the line is matched as `tax_payment`. VAT is not booked here, because VAT returns are built from documents: a `vatClassifierCode` answers 422, and a fee with VAT is registered as a purchase invoice and the line matched to it. Answers 409 when the line is already matched or ignored or when the accounting period of the line date is locked. `bank/transactions/unmatch` reverses the posting.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Bank.TransactionsPostAsync(
+    new TransactionsPostBankRequest { TransactionId = "transactionId", AccountCode = "accountCode" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `TransactionsPostBankRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">TransactionsIgnoreAsync</a>(TransactionsIgnoreBankRequest { ... }) -> WithRawResponseTask&lt;TransactionsIgnoreBankResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Mark a new bank transaction as ignored, for a line that needs no booking (a duplicate the bank sent, a line booked another way), with the reason kept on the line. Nothing is posted. Answers 409 when the line is matched or already ignored; `bank/transactions/unignore` returns it to new.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Bank.TransactionsIgnoreAsync(
+    new TransactionsIgnoreBankRequest { TransactionId = "transactionId", Reason = "reason" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `TransactionsIgnoreBankRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">TransactionsUnignoreAsync</a>(TransactionsUnignoreBankRequest { ... }) -> WithRawResponseTask&lt;TransactionsUnignoreBankResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Return an ignored bank transaction to status new and clear its reason. Answers 409 when the line is not ignored.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Bank.TransactionsUnignoreAsync(
+    new TransactionsUnignoreBankRequest { TransactionId = "transactionId" }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `TransactionsUnignoreBankRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">ReconciliationGetAsync</a>(ReconciliationGetBankRequest { ... }) -> WithRawResponseTask&lt;ReconciliationGetBankResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Compare a bank account's statement balance with its ledger balance on `date`. The statement balance is `statementBalance` when given, else the latest closing balance kept from an imported statement on or before `date` (`statementClosingDate`) plus the lines on the account dated after it up to `date`. The ledger balance is the posted balance of the bank account's ledger account up to `date`, in the account currency (for an account in another currency than the company's, the sum of the entries' currency amounts in that currency). `difference` is the statement balance less the ledger balance. `unbookedLines` are the lines up to `date` still in status new (at most 1000; `unbookedCount` and `unbookedTotal` cover all of them). Answers 404 when the bank account does not exist.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Bank.ReconciliationGetAsync(
+    new ReconciliationGetBankRequest
+    {
+        BankAccountId = "bankAccountId",
+        Date = new DateOnly(2026, 7, 1),
+    }
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `ReconciliationGetBankRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.Bank.<a href="/src/NordletApi/Bank/BankClient.cs">TransactionsRecordAsync</a>(TransactionsRecordBankRequest { ... }) -> WithRawResponseTask&lt;TransactionsRecordBankResponse&gt;</code></summary>
 <dl>
 <dd>
@@ -30825,7 +30888,7 @@ await client.Bank.TransactionsUnmatchAsync(
 <dl>
 <dd>
 
-Record a payment that is on no imported statement: inserts a bank transaction on the account dated `date` (positive for a sale invoice, negative for a purchase invoice or payroll run, in the account currency) and matches it to the document with the checks, posting and `sale_invoice.paid` or `purchase_invoice.paid` event of `bank/transactions/match`.
+Record a payment that is on no imported statement: inserts a bank transaction on the account dated `date` (`amount` is always positive, in the account currency: money received for a sale invoice, money paid out for a purchase invoice or payroll run) and matches it to the document with the checks, posting and `sale_invoice.paid` or `purchase_invoice.paid` event of `bank/transactions/match`.
 </dd>
 </dl>
 </dd>
@@ -34278,6 +34341,60 @@ await client.Reports.FecAsync(
 </dl>
 </details>
 
+<details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">PeriodChecklistAsync</a>(PeriodChecklistReportsRequest { ... }) -> WithRawResponseTask&lt;PeriodChecklistReportsResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Lists what is still open for `period`: a month (`YYYY-MM`) or the fiscal year that ends in `YYYY`. Items: draft sale documents (invoices, credit notes and advance invoices with an issue date in the period) and draft purchase documents dated in the period, bank lines dated in the period with status `new`, assets with depreciation months not posted up to the period end, expense deferral rows due by the period end and not posted, active recurring invoices whose next run date is on or before the period end, payroll runs of the period's months still in draft, and for a fiscal year the issued sale and registered purchase documents in a currency other than the base currency still open at the year end. Each item carries the `count` and the `ids` of the documents, rows, assets, recurring invoices or runs; an item with nothing open is left out. `ledger/periods/lock` returns the same items as `warnings`.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Reports.PeriodChecklistAsync(new PeriodChecklistReportsRequest { Period = "period" });
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `PeriodChecklistReportsRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.Reports.<a href="/src/NordletApi/Reports/ReportsClient.cs">EuPurchasesAsync</a>(EuPurchasesReportsRequest { ... }) -> WithRawResponseTask&lt;EuPurchasesReportsResponse&gt;</code></summary>
 <dl>
 <dd>
@@ -36789,7 +36906,7 @@ await client.Billing.TransactionsListAsync(new TransactionsListBillingRequest())
 <dl>
 <dd>
 
-List the daily usage records of the request's site in the companies the user pays for, from `from` to `to`: one row per company, date and metric (API requests, OCR pages, file storage bytes, database bytes, sale invoices). Requests, OCR pages and invoices count on the site the request came from; storage counts on the `app` site.
+List the daily usage records of the request's site in the companies the user pays for, from `from` to `to`: one row per company, date and metric (API requests, file storage bytes, database bytes, sale invoices; `ocr_page` rows remain from the time document scanning was charged). Requests and invoices count on the site the request came from; storage counts on the `app` site.
 </dd>
 </dl>
 </dd>
@@ -37008,7 +37125,7 @@ await client.Account.LogoutAsync(new LogoutAccountRequest());
 <dl>
 <dd>
 
-Return the signed-in user, their active company and role in it, the companies they belong to and their consent state. `billing` is the billing account of the request's site (the `x-nordlet-site` header, `app` when absent) that pays for the active company (its payer, or the user when there is none or no company), with `isPayer` saying whether that is the user; `referralPoints` is the user's current points balance. An API key may call it too: the active company is then the one named in the `x-nordlet-company` header, and `companies` lists every company the key works in.
+Return the signed-in user, their active company and role in it, the companies they belong to and their consent state. `billing` is the billing account of the request's site (the `x-nordlet-site` header, `app` when absent) that pays for the active company (its payer, or the user when there is none or no company), with `isPayer` saying whether that is the user; `referralPoints` is the user's current points balance; `user.whiteLabel` says the user is a white-label partner, who may call `account/brand/get` and `account/brand/update`. An API key may call it too: the active company is then the one named in the `x-nordlet-company` header, and `companies` lists every company the key works in, each with its country, base currency, VAT payer flag, VAT period and the month its fiscal year ends in.
 </dd>
 </dl>
 </dd>
@@ -37618,7 +37735,7 @@ await client.Account.LocaleSetAsync(
 <dl>
 <dd>
 
-Create a company with the caller as its owner and payer, seed its chart of accounts from the template of `countryCode`, and make it the active company of the session. `timeZone` defaults to the country's, `isVatPayer` to true and `defaultInvoiceCurrency` to the base currency. Without a paid plan the caller may create only one sandbox company, which starts the free sandbox plan; a live company, a second sandbox company, or a sandbox company after the free sandbox has ended is refused with 402. Refused with 422 when `baseCurrency` is not a supported currency.
+Create a company with the caller as its owner and payer, seed its chart of accounts from the template of `countryCode`, and make it the active company of the session. `timeZone` defaults to the country's, `isVatPayer` to true and `defaultInvoiceCurrency` to the base currency. Without a paid plan the caller may create only one sandbox company, which starts the free sandbox plan; a live company, a second sandbox company, or a sandbox company after the free sandbox has ended is refused with 402. Refused with 422 when `baseCurrency` is not a supported currency. An API key may call it when it holds the `account:write` scope (403 otherwise): the company is created for the person the key belongs to, and the key works in it like in their other companies.
 </dd>
 </dl>
 </dd>
@@ -37728,7 +37845,7 @@ await client.Account.CompaniesSelectAsync(
 <dl>
 <dd>
 
-Return the profile of the active company.
+Return the profile of the active company. An API key reads the company named in the `x-nordlet-company` header and needs the `account:read` scope.
 </dd>
 </dl>
 </dd>
@@ -37782,7 +37899,7 @@ await client.Account.CompaniesProfileAsync(new CompaniesProfileAccountRequest())
 <dl>
 <dd>
 
-Change the profile of the active company; owners and admins may call it. Only the fields sent are changed, and the nullable ones can be sent as null to clear them. `logo` stores a base64-encoded image as a file of the company and sets `logoFileId`. The country, base currency, sandbox flag and cash-basis flag are fixed at creation.
+Change the profile of the active company; owners and admins may call it. Only the fields sent are changed, and the nullable ones can be sent as null to clear them. `logo` stores a base64-encoded image as a file of the company and sets `logoFileId`. The country, base currency, sandbox flag and cash-basis flag are fixed at creation. An API key changes the company named in the `x-nordlet-company` header, needs the `account:write` scope and the owner or admin role there, and may send only `code`, `vatCode`, `smeExemptionNumber`, `legalForm`, `registryName`, `incorporatedOn`, `shareCapital`, `address`, `email`, `phone`, `accountsKeptBy`, `bookkeeperName`, `auditorName`, `auditorRegistrationNumber`, `auditRequired`; any other field is refused with 403.
 </dd>
 </dl>
 </dd>
@@ -38363,6 +38480,114 @@ await client.Account.ProfileUpdateAsync(new ProfileUpdateAccountRequest());
 <dd>
 
 **request:** `ProfileUpdateAccountRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">BrandGetAsync</a>(BrandGetAccountRequest { ... }) -> WithRawResponseTask&lt;BrandGetAccountResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Return the brand settings of the signed-in white-label partner: `name`, `logoUrl`, `color` and `footer`, each null when not set. Refused with 403 when the user is not a white-label partner.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Account.BrandGetAsync(new BrandGetAccountRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `BrandGetAccountRequest` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.Account.<a href="/src/NordletApi/Account/AccountClient.cs">BrandUpdateAsync</a>(BrandUpdateAccountRequest { ... }) -> WithRawResponseTask&lt;BrandUpdateAccountResponse&gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Set the brand settings of the signed-in white-label partner; all four fields are sent and null clears one. They apply to every company the user pays for: the invoice, quote and payment reminder e-mails show `logoUrl` (an https address of an image) in the header, use `color` (`#rrggbb`) for the top line, the brand name and the buttons, and print `footer`, or `name` when there is no footer, in place of the Nordlet footer line; the public invoice page prints `name` in its "Sent with" line and leaves the line out when there is no name (`sentWith` of `public/invoices/get`); filled official form PDFs carry `name` as their producer and creator. Refused with 403 when the user is not a white-label partner.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```csharp
+await client.Account.BrandUpdateAsync(new BrandUpdateAccountRequest());
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `BrandUpdateAccountRequest` 
     
 </dd>
 </dl>

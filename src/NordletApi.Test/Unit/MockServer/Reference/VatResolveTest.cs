@@ -37,6 +37,10 @@ public class VatResolveTest : BaseMockServerTest
               "notes": [
                 "notes",
                 "notes"
+              ],
+              "vatTypeCodes": [
+                "vatTypeCodes",
+                "vatTypeCodes"
               ]
             }
             """;
@@ -64,6 +68,7 @@ public class VatResolveTest : BaseMockServerTest
                 CustomerCountryCode = null,
                 CustomerIsBusiness = null,
                 SupplyType = null,
+                Side = null,
                 Date = null,
                 BelowDistanceSalesThreshold = null,
                 FacilitatedByMarketplace = null,
@@ -104,6 +109,9 @@ public class VatResolveTest : BaseMockServerTest
               "legalBasis": "legalBasis",
               "notes": [
                 "notes"
+              ],
+              "vatTypeCodes": [
+                "vatTypeCodes"
               ]
             }
             """;

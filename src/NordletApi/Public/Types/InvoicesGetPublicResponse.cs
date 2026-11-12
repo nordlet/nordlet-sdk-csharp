@@ -62,6 +62,9 @@ public record InvoicesGetPublicResponse : IJsonOnDeserialized
     [JsonPropertyName("cardPaymentReceived")]
     public required bool CardPaymentReceived { get; set; }
 
+    [JsonPropertyName("sentWith")]
+    public string? SentWith { get; set; }
+
     [JsonPropertyName("seller")]
     public required InvoicesGetPublicResponseSeller Seller { get; set; }
 
