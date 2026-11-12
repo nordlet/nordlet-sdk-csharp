@@ -32,6 +32,12 @@ public record TransactionsMatchBankResponse : IJsonOnDeserialized
     [JsonPropertyName("counterpartyIban")]
     public string? CounterpartyIban { get; set; }
 
+    [JsonPropertyName("partnerId")]
+    public string? PartnerId { get; set; }
+
+    [JsonPropertyName("partnerName")]
+    public string? PartnerName { get; set; }
+
     [JsonPropertyName("description")]
     public string? Description { get; set; }
 
