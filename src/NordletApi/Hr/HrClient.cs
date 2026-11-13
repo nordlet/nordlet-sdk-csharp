@@ -7932,7 +7932,7 @@ public partial class HrClient : IHrClient
     }
 
     /// <summary>
-    /// Lists business trips; filterable by `employeeId`, `status` and `payrollRunId`, sortable by `startDate`.
+    /// Lists business trips; filterable by `employeeId`, `status`, `payrollRunId` and `purpose`, sortable by `startDate`.
     /// </summary>
     /// <example><code>
     /// await client.Hr.BusinessTripsListAsync(new BusinessTripsListHrRequest());

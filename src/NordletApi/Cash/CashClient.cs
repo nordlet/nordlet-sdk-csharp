@@ -1854,7 +1854,7 @@ public partial class CashClient : ICashClient
     }
 
     /// <summary>
-    /// Lists expense reports without their lines. Filterable by `employeeId` and `date`; sortable by `date` and `number`.
+    /// Lists expense reports without their lines. Filterable by `employeeId`, `date` and `number`; sortable by `date` and `number`.
     /// </summary>
     /// <example><code>
     /// await client.Cash.ExpenseReportsListAsync(new ExpenseReportsListCashRequest());

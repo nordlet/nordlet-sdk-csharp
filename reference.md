@@ -2450,7 +2450,7 @@ await client.Partners.ValidateVatAsync(new ValidateVatPartnersRequest());
 <dl>
 <dd>
 
-Lists the VAT reviews opened by VIES checks of partners' VAT codes, with reason `invalid`, `name_mismatch` or `service_error`; filterable by `partnerId`, `status` and `reason`, sortable by `createdAt`.
+Lists the VAT reviews opened by VIES checks of partners' VAT codes, with reason `invalid`, `name_mismatch` or `service_error`; filterable by `partnerId`, `status`, `reason` and `vatCode`, sortable by `createdAt`.
 </dd>
 </dl>
 </dd>
@@ -10248,7 +10248,7 @@ await client.Purchases.InvoicesUpdateAsync(new InvoicesUpdatePurchasesRequest { 
 <dl>
 <dd>
 
-Mark a draft purchase invoice as deleted (409 once registered). A document capture linked to it goes back to `extracted` (or `pending` when it has no extraction) and can be confirmed again.
+Mark a draft, registered or reversed purchase invoice as deleted. Deleting a registered invoice also removes its registration journal transaction and cancels its pending prepaid-expense releases; it answers 409 in the cases where `purchases/invoices/reverse` does (registered credit notes credit it, payments are matched to it, it moved stock or is the source of a landed cost). Deleting a reversed invoice also removes its registration and reversal journal transactions. Both answer 409 when the date of a removed journal transaction is in a locked period or when prepaid-expense releases of the invoice were posted. A document capture linked to it goes back to `extracted` (or `pending` when it has no extraction) and can be confirmed again.
 </dd>
 </dl>
 </dd>
@@ -17264,7 +17264,7 @@ await client.Declarations.SubmissionsListAsync(new SubmissionsListDeclarationsRe
 <dl>
 <dd>
 
-Lists the company's chart of accounts. Filterable by `code`, `name`, `type` and `isPostable`; sortable by `code` and `name`.
+Lists the company's chart of accounts. Filterable by `code`, `name`, `type` and `isPostable`; sortable by `code` and `name`. A `name` filter with `contains` matches the stored name and the name shown in the language of the request (`displayName`).
 </dd>
 </dl>
 </dd>
@@ -21432,7 +21432,7 @@ await client.Hr.BusinessTripsGetAsync(new BusinessTripsGetHrRequest { Id = "id" 
 <dl>
 <dd>
 
-Lists business trips; filterable by `employeeId`, `status` and `payrollRunId`, sortable by `startDate`.
+Lists business trips; filterable by `employeeId`, `status`, `payrollRunId` and `purpose`, sortable by `startDate`.
 </dd>
 </dl>
 </dd>
@@ -27401,7 +27401,7 @@ await client.Cash.ExpenseReportsGetAsync(new ExpenseReportsGetCashRequest { Id =
 <dl>
 <dd>
 
-Lists expense reports without their lines. Filterable by `employeeId` and `date`; sortable by `date` and `number`.
+Lists expense reports without their lines. Filterable by `employeeId`, `date` and `number`; sortable by `date` and `number`.
 </dd>
 </dl>
 </dd>
@@ -30474,7 +30474,7 @@ await client.Bank.TransactionsListAsync(new TransactionsListBankRequest());
 <dl>
 <dd>
 
-Match one new bank transaction to a document: an issued sale invoice or advance for incoming money; an issued sale credit note, a registered purchase invoice or an approved payroll run (company currency only) for outgoing money. Posts the payment journal transaction between the bank account and the receivable or payable account the invoice was posted to (the account of its operation type, else the posting rule) or the net payable account, with any exchange difference on the gain or loss account, raises the paid amount of the document and sets the line to matched. A payment in another currency is converted into the invoice currency at the rate of the line date, and the difference against the invoice's own rate is the exchange difference; `invoiceAmount` states the amount settled instead; in the same currency it must equal the payment (422). `remainder` settles a payment that differs from the remaining balance of a sale or purchase invoice in its own currency: `advance` books an overpayment beyond the balance to the advances-received posting rule (customer payments) or to `remainder.accountCode`, which a supplier overpayment must name, on the line's partner; `write_off` books the over- or underpayment to `remainder.accountCode` and settles the invoice in full; `leave_open` settles an underpayment as a partial payment and leaves the rest open. Answers 409 when the line is already matched or ignored, when the amount (converted, beyond one cent of the payment) exceeds the remaining balance of the document and no `remainder` is given, or when the accounting period of the line date is locked. A document that becomes fully paid is announced as `sale_invoice.paid` or `purchase_invoice.paid`.
+Match one new bank transaction to a document: an issued sale invoice or advance for incoming money; an issued sale credit note, a registered purchase invoice or an approved payroll run (company currency only) for outgoing money. Posts the payment journal transaction between the bank account and the receivable or payable account the invoice was posted to (the account of its operation type, else the posting rule) or the net payable account, with any exchange difference on the gain or loss account, raises the paid amount of the document and sets the line to matched. A payment in another currency is converted into the invoice currency at the rate of the line date, and the difference against the invoice's own rate is the exchange difference; `invoiceAmount` states the amount settled instead; in the same currency it must equal the payment (422). `remainder` settles a payment that differs from the remaining balance of a sale or purchase invoice in its own currency: `advance` books an overpayment beyond the balance to the advances-received posting rule (customer payments) or to `remainder.accountCode`, which a supplier overpayment must name, on the line's partner; `write_off` books the over- or underpayment to `remainder.accountCode`, else to the `bank.paymentDifferenceLoss` posting rule (a customer underpayment, a supplier overpayment, a credit note refund beyond its balance) or the `bank.paymentDifferenceGain` rule (a supplier underpayment, a customer overpayment, a credit note refund below its balance), and settles the invoice in full; `leave_open` settles an underpayment as a partial payment and leaves the rest open. Answers 409 when the line is already matched or ignored, when the amount (converted, beyond one cent of the payment) exceeds the remaining balance of the document and no `remainder` is given, or when the accounting period of the line date is locked. A document that becomes fully paid is announced as `sale_invoice.paid` or `purchase_invoice.paid`.
 </dd>
 </dl>
 </dd>
@@ -31950,7 +31950,7 @@ await client.Bank.DirectDebitsExportAsync(
 <dl>
 <dd>
 
-Suggest documents for a new bank transaction: issued sale invoices and advances for incoming money; registered purchase invoices, issued sale credit notes and approved payroll runs for outgoing money. Candidates are unpaid documents whose remaining balance covers the payment (any balance when in another currency), scored by an equal remaining balance, the document number or payroll period in the payment description and a counterparty IBAN or name matching the partner or an employee on the run; the best `limit` come back with their reasons. A transaction that is already matched answers 409.
+Suggest documents for a new bank transaction: issued sale invoices and advances for incoming money; registered purchase invoices, issued sale credit notes and approved payroll runs for outgoing money. Candidates are unpaid documents with any remaining balance, also one below the payment, scored by an equal remaining balance, the document number or payroll period in the payment description and a counterparty IBAN or name matching the partner or an employee on the run; the best `limit` come back with their reasons. A transaction that is already matched answers 409.
 </dd>
 </dl>
 </dd>

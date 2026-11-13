@@ -3,7 +3,7 @@ namespace NordletApi;
 public partial interface ILedgerClient
 {
     /// <summary>
-    /// Lists the company's chart of accounts. Filterable by `code`, `name`, `type` and `isPostable`; sortable by `code` and `name`.
+    /// Lists the company's chart of accounts. Filterable by `code`, `name`, `type` and `isPostable`; sortable by `code` and `name`. A `name` filter with `contains` matches the stored name and the name shown in the language of the request (`displayName`).
     /// </summary>
     WithRawResponseTask<AccountsListLedgerResponse> AccountsListAsync(
         AccountsListLedgerRequest request,

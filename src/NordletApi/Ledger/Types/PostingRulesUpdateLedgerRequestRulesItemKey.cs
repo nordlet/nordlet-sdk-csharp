@@ -79,6 +79,12 @@ public readonly record struct PostingRulesUpdateLedgerRequestRulesItemKey : IStr
         Values.BankFxLoss
     );
 
+    public static readonly PostingRulesUpdateLedgerRequestRulesItemKey BankPaymentDifferenceGain =
+        new(Values.BankPaymentDifferenceGain);
+
+    public static readonly PostingRulesUpdateLedgerRequestRulesItemKey BankPaymentDifferenceLoss =
+        new(Values.BankPaymentDifferenceLoss);
+
     public static readonly PostingRulesUpdateLedgerRequestRulesItemKey BankFees = new(
         Values.BankFees
     );
@@ -302,6 +308,10 @@ public readonly record struct PostingRulesUpdateLedgerRequestRulesItemKey : IStr
         public const string BankFxGain = "bank.fxGain";
 
         public const string BankFxLoss = "bank.fxLoss";
+
+        public const string BankPaymentDifferenceGain = "bank.paymentDifferenceGain";
+
+        public const string BankPaymentDifferenceLoss = "bank.paymentDifferenceLoss";
 
         public const string BankFees = "bank.fees";
 
