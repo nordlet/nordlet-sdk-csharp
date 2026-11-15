@@ -45,6 +45,12 @@ public record InvoicesCreateSalesRequestLinesItem : IJsonOnDeserialized
     [JsonPropertyName("recognition")]
     public InvoicesCreateSalesRequestLinesItemRecognition? Recognition { get; set; }
 
+    /// <summary>
+    /// A fixed asset sold on this line: the line net is booked to the assets.disposalProceeds posting rule account and `assets/assets/dispose` takes the proceeds from the issued invoice. Only on an invoice (422), only for an asset that is not disposed, and not with revenue recognition over time.
+    /// </summary>
+    [JsonPropertyName("assetId")]
+    public string? AssetId { get; set; }
+
     [JsonPropertyName("vatExemptionBasis")]
     public string? VatExemptionBasis { get; set; }
 

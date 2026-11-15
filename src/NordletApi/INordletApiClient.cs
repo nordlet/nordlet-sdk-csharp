@@ -17,6 +17,7 @@ public partial interface INordletApiClient
     public IOfficersClient Officers { get; }
     public IPlatformSellersClient PlatformSellers { get; }
     public IMigrationClient Migration { get; }
+    public IReviewClient Review { get; }
     public IAssetsClient Assets { get; }
     public IHrClient Hr { get; }
     public IFleetClient Fleet { get; }

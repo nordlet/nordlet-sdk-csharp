@@ -120,6 +120,9 @@ public record FindOrCreatePartnersRequest
     [JsonPropertyName("legalCountryClass")]
     public FindOrCreatePartnersRequestLegalCountryClass? LegalCountryClass { get; set; }
 
+    [JsonPropertyName("iban")]
+    public string? Iban { get; set; }
+
     /// <inheritdoc />
     public override string ToString()
     {

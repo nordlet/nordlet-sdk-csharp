@@ -34,6 +34,13 @@ public class SubmissionsListTest : BaseMockServerTest
                   "period": "period",
                   "documentKey": "documentKey",
                   "amendment": 1000000,
+                  "authorityRef": "authorityRef",
+                  "correctionInput": {
+                    "reason": "reason",
+                    "reasonCode": "reasonCode",
+                    "authorityReference": "authorityReference",
+                    "discoveredOn": "discoveredOn"
+                  },
                   "origin": "origin",
                   "transportSystem": "transportSystem",
                   "environment": "test",
@@ -50,7 +57,29 @@ public class SubmissionsListTest : BaseMockServerTest
                   "submittedByActorType": "submittedByActorType",
                   "submittedByActorId": "submittedByActorId",
                   "createdAt": "2024-01-15T09:30:00.000Z",
-                  "updatedAt": "2024-01-15T09:30:00.000Z"
+                  "updatedAt": "2024-01-15T09:30:00.000Z",
+                  "canAmend": true,
+                  "correction": {
+                    "required": [
+                      "reason",
+                      "reason"
+                    ],
+                    "optional": [
+                      "reason",
+                      "reason"
+                    ],
+                    "reasonCodes": [
+                      {
+                        "code": "code",
+                        "label": "label"
+                      },
+                      {
+                        "code": "code",
+                        "label": "label"
+                      }
+                    ],
+                    "carry": true
+                  }
                 },
                 {
                   "id": "x",
@@ -67,6 +96,13 @@ public class SubmissionsListTest : BaseMockServerTest
                   "period": "period",
                   "documentKey": "documentKey",
                   "amendment": 1000000,
+                  "authorityRef": "authorityRef",
+                  "correctionInput": {
+                    "reason": "reason",
+                    "reasonCode": "reasonCode",
+                    "authorityReference": "authorityReference",
+                    "discoveredOn": "discoveredOn"
+                  },
                   "origin": "origin",
                   "transportSystem": "transportSystem",
                   "environment": "test",
@@ -83,7 +119,29 @@ public class SubmissionsListTest : BaseMockServerTest
                   "submittedByActorType": "submittedByActorType",
                   "submittedByActorId": "submittedByActorId",
                   "createdAt": "2024-01-15T09:30:00.000Z",
-                  "updatedAt": "2024-01-15T09:30:00.000Z"
+                  "updatedAt": "2024-01-15T09:30:00.000Z",
+                  "canAmend": true,
+                  "correction": {
+                    "required": [
+                      "reason",
+                      "reason"
+                    ],
+                    "optional": [
+                      "reason",
+                      "reason"
+                    ],
+                    "reasonCodes": [
+                      {
+                        "code": "code",
+                        "label": "label"
+                      },
+                      {
+                        "code": "code",
+                        "label": "label"
+                      }
+                    ],
+                    "carry": true
+                  }
                 }
               ],
               "page": 1000000,
@@ -154,6 +212,8 @@ public class SubmissionsListTest : BaseMockServerTest
                   "period": "period",
                   "documentKey": "documentKey",
                   "amendment": 1000000,
+                  "authorityRef": "authorityRef",
+                  "correctionInput": {},
                   "origin": "origin",
                   "transportSystem": "transportSystem",
                   "environment": "test",
@@ -170,7 +230,23 @@ public class SubmissionsListTest : BaseMockServerTest
                   "submittedByActorType": "submittedByActorType",
                   "submittedByActorId": "submittedByActorId",
                   "createdAt": "2026-07-01T09:30:00.000Z",
-                  "updatedAt": "2026-07-01T09:30:00.000Z"
+                  "updatedAt": "2026-07-01T09:30:00.000Z",
+                  "canAmend": true,
+                  "correction": {
+                    "required": [
+                      "reason"
+                    ],
+                    "optional": [
+                      "reason"
+                    ],
+                    "reasonCodes": [
+                      {
+                        "code": "code",
+                        "label": "label"
+                      }
+                    ],
+                    "carry": true
+                  }
                 }
               ],
               "page": 1000000,

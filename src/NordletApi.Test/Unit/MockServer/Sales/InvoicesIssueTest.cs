@@ -39,6 +39,9 @@ public class InvoicesIssueTest : BaseMockServerTest
               "salesTaxTotal": "salesTaxTotal",
               "paidAmount": "paidAmount",
               "journalTransactionId": "x",
+              "reversedAt": "2024-01-15T09:30:00.000Z",
+              "reversalJournalTransactionId": "x",
+              "reversalReason": "reversalReason",
               "appliedToInvoiceId": "x",
               "creditedInvoiceId": "x",
               "creditedInvoiceReference": "creditedInvoiceReference",
@@ -99,6 +102,7 @@ public class InvoicesIssueTest : BaseMockServerTest
                   "vatRatePercent": "vatRatePercent",
                   "vatClassifierCode": "vatClassifierCode",
                   "vatExemptionBasis": "vatExemptionBasis",
+                  "assetId": "x",
                   "costCenterId": "x",
                   "projectId": "x",
                   "lineNet": "lineNet",
@@ -137,6 +141,7 @@ public class InvoicesIssueTest : BaseMockServerTest
                   "vatRatePercent": "vatRatePercent",
                   "vatClassifierCode": "vatClassifierCode",
                   "vatExemptionBasis": "vatExemptionBasis",
+                  "assetId": "x",
                   "costCenterId": "x",
                   "projectId": "x",
                   "lineNet": "lineNet",
@@ -212,11 +217,13 @@ public class InvoicesIssueTest : BaseMockServerTest
               "warnings": [
                 {
                   "code": "code",
-                  "message": "message"
+                  "message": "message",
+                  "fix": "x"
                 },
                 {
                   "code": "code",
-                  "message": "message"
+                  "message": "message",
+                  "fix": "x"
                 }
               ]
             }
@@ -281,6 +288,9 @@ public class InvoicesIssueTest : BaseMockServerTest
               "salesTaxTotal": "salesTaxTotal",
               "paidAmount": "paidAmount",
               "journalTransactionId": "journalTransactionId",
+              "reversedAt": "2026-07-01T09:30:00.000Z",
+              "reversalJournalTransactionId": "reversalJournalTransactionId",
+              "reversalReason": "reversalReason",
               "appliedToInvoiceId": "appliedToInvoiceId",
               "creditedInvoiceId": "creditedInvoiceId",
               "creditedInvoiceReference": "creditedInvoiceReference",
@@ -341,6 +351,7 @@ public class InvoicesIssueTest : BaseMockServerTest
                   "vatRatePercent": "vatRatePercent",
                   "vatClassifierCode": "vatClassifierCode",
                   "vatExemptionBasis": "vatExemptionBasis",
+                  "assetId": "assetId",
                   "costCenterId": "costCenterId",
                   "projectId": "projectId",
                   "lineNet": "lineNet",
@@ -405,7 +416,8 @@ public class InvoicesIssueTest : BaseMockServerTest
               "warnings": [
                 {
                   "code": "code",
-                  "message": "message"
+                  "message": "message",
+                  "fix": "fix"
                 }
               ]
             }

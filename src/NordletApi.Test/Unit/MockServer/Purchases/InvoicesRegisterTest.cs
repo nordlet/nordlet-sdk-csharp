@@ -103,11 +103,13 @@ public class InvoicesRegisterTest : BaseMockServerTest
               "warnings": [
                 {
                   "code": "code",
-                  "message": "message"
+                  "message": "message",
+                  "fix": "x"
                 },
                 {
                   "code": "code",
-                  "message": "message"
+                  "message": "message",
+                  "fix": "x"
                 }
               ]
             }
@@ -211,7 +213,8 @@ public class InvoicesRegisterTest : BaseMockServerTest
               "warnings": [
                 {
                   "code": "code",
-                  "message": "message"
+                  "message": "message",
+                  "fix": "fix"
                 }
               ]
             }

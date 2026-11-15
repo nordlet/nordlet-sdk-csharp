@@ -34,6 +34,13 @@ public class SubmitTest : BaseMockServerTest
               "period": "period",
               "documentKey": "documentKey",
               "amendment": 1000000,
+              "authorityRef": "authorityRef",
+              "correctionInput": {
+                "reason": "reason",
+                "reasonCode": "reasonCode",
+                "authorityReference": "authorityReference",
+                "discoveredOn": "discoveredOn"
+              },
               "origin": "origin",
               "transportSystem": "transportSystem",
               "environment": "test",
@@ -71,7 +78,13 @@ public class SubmitTest : BaseMockServerTest
             );
 
         var response = await Client.Calendar.SubmitAsync(
-            new SubmitCalendarRequest { Key = "x", Amend = null }
+            new SubmitCalendarRequest
+            {
+                Key = "x",
+                Amend = null,
+                Correction = null,
+                DocumentKeys = null,
+            }
         );
         JsonAssert.AreEqual(response, mockResponse);
     }
@@ -101,6 +114,13 @@ public class SubmitTest : BaseMockServerTest
               "period": "period",
               "documentKey": "documentKey",
               "amendment": 1000000,
+              "authorityRef": "authorityRef",
+              "correctionInput": {
+                "reason": "reason",
+                "reasonCode": "reasonCode",
+                "authorityReference": "authorityReference",
+                "discoveredOn": "discoveredOn"
+              },
               "origin": "origin",
               "transportSystem": "transportSystem",
               "environment": "test",

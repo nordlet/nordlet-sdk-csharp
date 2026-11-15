@@ -14,6 +14,8 @@ public readonly record struct InvoicesUnlockSalesResponseStatus : IStringEnum
 
     public static readonly InvoicesUnlockSalesResponseStatus Issued = new(Values.Issued);
 
+    public static readonly InvoicesUnlockSalesResponseStatus Reversed = new(Values.Reversed);
+
     public InvoicesUnlockSalesResponseStatus(string value)
     {
         Value = value;
@@ -114,5 +116,7 @@ public readonly record struct InvoicesUnlockSalesResponseStatus : IStringEnum
         public const string Draft = "draft";
 
         public const string Issued = "issued";
+
+        public const string Reversed = "reversed";
     }
 }

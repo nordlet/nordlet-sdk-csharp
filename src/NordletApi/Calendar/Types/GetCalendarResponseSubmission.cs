@@ -53,6 +53,12 @@ public record GetCalendarResponseSubmission : IJsonOnDeserialized
     [JsonPropertyName("amendment")]
     public required long Amendment { get; set; }
 
+    [JsonPropertyName("authorityRef")]
+    public string? AuthorityRef { get; set; }
+
+    [JsonPropertyName("correctionInput")]
+    public GetCalendarResponseSubmissionCorrectionInput? CorrectionInput { get; set; }
+
     [JsonPropertyName("origin")]
     public required string Origin { get; set; }
 

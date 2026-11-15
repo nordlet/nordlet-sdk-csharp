@@ -25,7 +25,20 @@ public class StockReceiveTest : BaseMockServerTest
         const string mockResponse = """
             {
               "movementId": "x",
-              "totalCost": "totalCost"
+              "totalCost": "totalCost",
+              "journalTransactionId": "x",
+              "warnings": [
+                {
+                  "code": "code",
+                  "message": "message",
+                  "fix": "x"
+                },
+                {
+                  "code": "code",
+                  "message": "message",
+                  "fix": "x"
+                }
+              ]
             }
             """;
 
@@ -53,6 +66,7 @@ public class StockReceiveTest : BaseMockServerTest
                 Date = new DateOnly(2023, 1, 15),
                 Quantity = "quantity",
                 UnitCost = "unitCost",
+                CounterAccountCode = null,
                 LotNumber = null,
                 ExpiryDate = null,
                 Notes = null,
@@ -77,7 +91,15 @@ public class StockReceiveTest : BaseMockServerTest
         const string mockResponse = """
             {
               "movementId": "movementId",
-              "totalCost": "totalCost"
+              "totalCost": "totalCost",
+              "journalTransactionId": "journalTransactionId",
+              "warnings": [
+                {
+                  "code": "code",
+                  "message": "message",
+                  "fix": "fix"
+                }
+              ]
             }
             """;
 

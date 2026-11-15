@@ -45,6 +45,13 @@ public class ListTest : BaseMockServerTest
                     "period": "period",
                     "documentKey": "documentKey",
                     "amendment": 1000000,
+                    "authorityRef": "authorityRef",
+                    "correctionInput": {
+                      "reason": "reason",
+                      "reasonCode": "reasonCode",
+                      "authorityReference": "authorityReference",
+                      "discoveredOn": "discoveredOn"
+                    },
                     "origin": "origin",
                     "transportSystem": "transportSystem",
                     "environment": "test",
@@ -79,6 +86,13 @@ public class ListTest : BaseMockServerTest
                       "period": "period",
                       "documentKey": "documentKey",
                       "amendment": 1000000,
+                      "authorityRef": "authorityRef",
+                      "correctionInput": {
+                        "reason": "reason",
+                        "reasonCode": "reasonCode",
+                        "authorityReference": "authorityReference",
+                        "discoveredOn": "discoveredOn"
+                      },
                       "origin": "origin",
                       "transportSystem": "transportSystem",
                       "environment": "test",
@@ -112,6 +126,13 @@ public class ListTest : BaseMockServerTest
                       "period": "period",
                       "documentKey": "documentKey",
                       "amendment": 1000000,
+                      "authorityRef": "authorityRef",
+                      "correctionInput": {
+                        "reason": "reason",
+                        "reasonCode": "reasonCode",
+                        "authorityReference": "authorityReference",
+                        "discoveredOn": "discoveredOn"
+                      },
                       "origin": "origin",
                       "transportSystem": "transportSystem",
                       "environment": "test",
@@ -133,6 +154,27 @@ public class ListTest : BaseMockServerTest
                   ],
                   "canSubmit": true,
                   "canAmend": true,
+                  "correction": {
+                    "required": [
+                      "reason",
+                      "reason"
+                    ],
+                    "optional": [
+                      "reason",
+                      "reason"
+                    ],
+                    "reasonCodes": [
+                      {
+                        "code": "code",
+                        "label": "label"
+                      },
+                      {
+                        "code": "code",
+                        "label": "label"
+                      }
+                    ],
+                    "carry": true
+                  },
                   "canDownload": true,
                   "automated": true
                 },
@@ -162,6 +204,13 @@ public class ListTest : BaseMockServerTest
                     "period": "period",
                     "documentKey": "documentKey",
                     "amendment": 1000000,
+                    "authorityRef": "authorityRef",
+                    "correctionInput": {
+                      "reason": "reason",
+                      "reasonCode": "reasonCode",
+                      "authorityReference": "authorityReference",
+                      "discoveredOn": "discoveredOn"
+                    },
                     "origin": "origin",
                     "transportSystem": "transportSystem",
                     "environment": "test",
@@ -196,6 +245,13 @@ public class ListTest : BaseMockServerTest
                       "period": "period",
                       "documentKey": "documentKey",
                       "amendment": 1000000,
+                      "authorityRef": "authorityRef",
+                      "correctionInput": {
+                        "reason": "reason",
+                        "reasonCode": "reasonCode",
+                        "authorityReference": "authorityReference",
+                        "discoveredOn": "discoveredOn"
+                      },
                       "origin": "origin",
                       "transportSystem": "transportSystem",
                       "environment": "test",
@@ -229,6 +285,13 @@ public class ListTest : BaseMockServerTest
                       "period": "period",
                       "documentKey": "documentKey",
                       "amendment": 1000000,
+                      "authorityRef": "authorityRef",
+                      "correctionInput": {
+                        "reason": "reason",
+                        "reasonCode": "reasonCode",
+                        "authorityReference": "authorityReference",
+                        "discoveredOn": "discoveredOn"
+                      },
                       "origin": "origin",
                       "transportSystem": "transportSystem",
                       "environment": "test",
@@ -250,6 +313,27 @@ public class ListTest : BaseMockServerTest
                   ],
                   "canSubmit": true,
                   "canAmend": true,
+                  "correction": {
+                    "required": [
+                      "reason",
+                      "reason"
+                    ],
+                    "optional": [
+                      "reason",
+                      "reason"
+                    ],
+                    "reasonCodes": [
+                      {
+                        "code": "code",
+                        "label": "label"
+                      },
+                      {
+                        "code": "code",
+                        "label": "label"
+                      }
+                    ],
+                    "carry": true
+                  },
                   "canDownload": true,
                   "automated": true
                 }
@@ -345,6 +429,21 @@ public class ListTest : BaseMockServerTest
                   ],
                   "canSubmit": true,
                   "canAmend": true,
+                  "correction": {
+                    "required": [
+                      "reason"
+                    ],
+                    "optional": [
+                      "reason"
+                    ],
+                    "reasonCodes": [
+                      {
+                        "code": "code",
+                        "label": "label"
+                      }
+                    ],
+                    "carry": true
+                  },
                   "canDownload": true,
                   "automated": true
                 }

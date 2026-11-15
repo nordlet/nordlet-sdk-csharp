@@ -38,6 +38,7 @@ public class JournalTransactionsGetTest : BaseMockServerTest
                   "accountName": "accountName",
                   "costCenterId": "x",
                   "projectId": "x",
+                  "partnerId": "x",
                   "debit": "debit",
                   "credit": "credit",
                   "description": "description"
@@ -49,6 +50,7 @@ public class JournalTransactionsGetTest : BaseMockServerTest
                   "accountName": "accountName",
                   "costCenterId": "x",
                   "projectId": "x",
+                  "partnerId": "x",
                   "debit": "debit",
                   "credit": "credit",
                   "description": "description"
@@ -108,6 +110,7 @@ public class JournalTransactionsGetTest : BaseMockServerTest
                   "accountName": "accountName",
                   "costCenterId": "costCenterId",
                   "projectId": "projectId",
+                  "partnerId": "partnerId",
                   "debit": "debit",
                   "credit": "credit",
                   "description": "description"

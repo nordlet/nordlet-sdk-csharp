@@ -48,7 +48,7 @@ public partial interface IInventoryClient
     );
 
     /// <summary>
-    /// Record a manual receipt of an item into a warehouse at `unitCost` (document type `manual_receipt`); the quantity must be positive (422). A lot- or serial-tracked item needs `lotNumber` (422); an unknown lot is created, and `expiryDate` is stored on a lot that has none. A serial-tracked item is received one unit at a time (422), and 409 when that serial number is already in stock. Open shortages of the item in the warehouse (negative stock policy `allow`) are settled from the receipt. Emits `stock.changed`. Receipts against a purchase order go through `purchases/receipts/create`.
+    /// Record a manual receipt of an item into a warehouse at `unitCost` (document type `manual_receipt`); the quantity must be positive (422). A lot- or serial-tracked item needs `lotNumber` (422); an unknown lot is created, and `expiryDate` is stored on a lot that has none. A serial-tracked item is received one unit at a time (422), and 409 when that serial number is already in stock. Open shortages of the item in the warehouse (negative stock policy `allow`) are settled from the receipt. Emits `stock.changed`. Receipts against a purchase order go through `purchases/receipts/create`. With `counterAccountCode` the receipt also posts a journal entry (debit the `inventory.stock` posting rule account, credit the counter-account; 422 for an unknown or non-postable account, 409 when the accounting period of `date` is locked) and answers its `journalTransactionId`; without it nothing is posted and `warnings` holds `stock_receipt_not_posted`, because a purchase invoice already receives its goods into stock and must not be posted twice.
     /// </summary>
     WithRawResponseTask<StockReceiveInventoryResponse> StockReceiveAsync(
         StockReceiveInventoryRequest request,
@@ -93,7 +93,7 @@ public partial interface IInventoryClient
     );
 
     /// <summary>
-    /// List the stock movements. Filterable: itemId, warehouseId, lotId, direction, documentType, date, quantity, totalCost. Sortable: date, createdAt, quantity, totalCost; default newest first.
+    /// List the stock movements. Filterable: itemId, warehouseId, lotId, direction, documentType, date, quantity, totalCost. Sortable: date, createdAt, quantity, totalCost, itemName (the name of the item), warehouseName (the name of the warehouse), direction, documentType; default newest first.
     /// </summary>
     WithRawResponseTask<StockMovementsListInventoryResponse> StockMovementsListAsync(
         StockMovementsListInventoryRequest request,
@@ -102,7 +102,7 @@ public partial interface IInventoryClient
     );
 
     /// <summary>
-    /// List the lots with their quantity on hand (the remaining quantity of the lot's incoming movements). Filterable: itemId, lotNumber, expiryDate. Sortable: lotNumber, expiryDate, createdAt; default newest first.
+    /// List the lots with their quantity on hand (the remaining quantity of the lot's incoming movements). Filterable: itemId, lotNumber, expiryDate. Sortable: lotNumber, expiryDate, createdAt, itemName (the name of the item), onHand; default newest first.
     /// </summary>
     WithRawResponseTask<LotsListInventoryResponse> LotsListAsync(
         LotsListInventoryRequest request,
@@ -147,7 +147,7 @@ public partial interface IInventoryClient
     );
 
     /// <summary>
-    /// List the landed costs without their lines. Filterable: date, method, goodsReceiptId, sourceInvoiceId. Sortable: date, createdAt, amount; default newest first.
+    /// List the landed costs without their lines. Filterable: date, method, goodsReceiptId, sourceInvoiceId. Sortable: date, createdAt, amount, method, notes, goodsReceiptNumber (the number of the goods receipt); default newest first.
     /// </summary>
     WithRawResponseTask<LandedCostsListInventoryResponse> LandedCostsListAsync(
         LandedCostsListInventoryRequest request,
@@ -183,7 +183,7 @@ public partial interface IInventoryClient
     );
 
     /// <summary>
-    /// List the reorder rules. Filterable: itemId, warehouseId, isActive. Sortable: createdAt, minQty; default newest first.
+    /// List the reorder rules. Filterable: itemId, warehouseId, isActive. Sortable: createdAt, minQty, reorderQty, itemName (the name of the item), warehouseName (the name of the warehouse, empty for all warehouses); default newest first.
     /// </summary>
     WithRawResponseTask<ReorderRulesListInventoryResponse> ReorderRulesListAsync(
         ReorderRulesListInventoryRequest request,

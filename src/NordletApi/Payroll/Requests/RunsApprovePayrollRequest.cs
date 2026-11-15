@@ -18,6 +18,12 @@ public record RunsApprovePayrollRequest
     [JsonPropertyName("payableAccountCode")]
     public string? PayableAccountCode { get; set; }
 
+    [JsonPropertyName("incomeTaxAccountCode")]
+    public string? IncomeTaxAccountCode { get; set; }
+
+    [JsonPropertyName("socialContributionsAccountCode")]
+    public string? SocialContributionsAccountCode { get; set; }
+
     [JsonPropertyName("gpmAccountCode")]
     public string? GpmAccountCode { get; set; }
 

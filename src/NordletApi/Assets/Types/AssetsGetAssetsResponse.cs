@@ -90,6 +90,9 @@ public record AssetsGetAssetsResponse : IJsonOnDeserialized
     [JsonPropertyName("disposalJournalTransactionId")]
     public string? DisposalJournalTransactionId { get; set; }
 
+    [JsonPropertyName("disposalSaleInvoiceId")]
+    public string? DisposalSaleInvoiceId { get; set; }
+
     [JsonPropertyName("createdAt")]
     public required DateTime CreatedAt { get; set; }
 

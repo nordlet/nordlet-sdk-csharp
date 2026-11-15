@@ -136,6 +136,7 @@ public class FindOrCreateTest : BaseMockServerTest
                 IsGroupMember = null,
                 IsActive = null,
                 LegalCountryClass = null,
+                Iban = null,
             }
         );
         JsonAssert.AreEqual(response, mockResponse);

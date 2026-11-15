@@ -1152,7 +1152,7 @@ public partial class DocumentSeriesClient : IDocumentSeriesClient
     }
 
     /// <summary>
-    /// List document series. Filterable by documentType, prefix, operationTypeId and isActive; sortable by prefix, documentType and createdAt.
+    /// List document series. Filterable by documentType, prefix, operationTypeId and isActive; sortable by prefix, name, label, documentType, operationTypeName (the code and name of the operation type), nextNumber, numberLength, isDefault, isActive and createdAt.
     /// </summary>
     /// <example><code>
     /// await client.DocumentSeries.ListAsync(new ListDocumentSeriesRequest());

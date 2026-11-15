@@ -53,6 +53,12 @@ public record SubmissionsListDeclarationsResponseRowsItem : IJsonOnDeserialized
     [JsonPropertyName("amendment")]
     public required long Amendment { get; set; }
 
+    [JsonPropertyName("authorityRef")]
+    public string? AuthorityRef { get; set; }
+
+    [JsonPropertyName("correctionInput")]
+    public SubmissionsListDeclarationsResponseRowsItemCorrectionInput? CorrectionInput { get; set; }
+
     [JsonPropertyName("origin")]
     public required string Origin { get; set; }
 
@@ -103,6 +109,12 @@ public record SubmissionsListDeclarationsResponseRowsItem : IJsonOnDeserialized
 
     [JsonPropertyName("updatedAt")]
     public required DateTime UpdatedAt { get; set; }
+
+    [JsonPropertyName("canAmend")]
+    public required bool CanAmend { get; set; }
+
+    [JsonPropertyName("correction")]
+    public SubmissionsListDeclarationsResponseRowsItemCorrection? Correction { get; set; }
 
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();

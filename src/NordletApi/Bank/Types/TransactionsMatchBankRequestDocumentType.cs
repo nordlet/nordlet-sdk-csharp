@@ -22,6 +22,10 @@ public readonly record struct TransactionsMatchBankRequestDocumentType : IString
         Values.PayrollRun
     );
 
+    public static readonly TransactionsMatchBankRequestDocumentType ExpenseReport = new(
+        Values.ExpenseReport
+    );
+
     public TransactionsMatchBankRequestDocumentType(string value)
     {
         Value = value;
@@ -130,5 +134,7 @@ public readonly record struct TransactionsMatchBankRequestDocumentType : IString
         public const string PurchaseInvoice = "purchase_invoice";
 
         public const string PayrollRun = "payroll_run";
+
+        public const string ExpenseReport = "expense_report";
     }
 }

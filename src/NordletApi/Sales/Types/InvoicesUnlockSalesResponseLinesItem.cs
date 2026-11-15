@@ -47,6 +47,9 @@ public record InvoicesUnlockSalesResponseLinesItem : IJsonOnDeserialized
     [JsonPropertyName("vatExemptionBasis")]
     public string? VatExemptionBasis { get; set; }
 
+    [JsonPropertyName("assetId")]
+    public string? AssetId { get; set; }
+
     [JsonPropertyName("costCenterId")]
     public string? CostCenterId { get; set; }
 

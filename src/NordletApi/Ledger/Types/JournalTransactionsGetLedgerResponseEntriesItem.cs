@@ -29,6 +29,9 @@ public record JournalTransactionsGetLedgerResponseEntriesItem : IJsonOnDeseriali
     [JsonPropertyName("projectId")]
     public string? ProjectId { get; set; }
 
+    [JsonPropertyName("partnerId")]
+    public string? PartnerId { get; set; }
+
     [JsonPropertyName("debit")]
     public required string Debit { get; set; }
 

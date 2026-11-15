@@ -34,6 +34,10 @@ public readonly record struct PostingRulesUpdateLedgerRequestRulesItemKey : IStr
         Values.PurchasesPayables
     );
 
+    public static readonly PostingRulesUpdateLedgerRequestRulesItemKey PurchasesAdvancesPaid = new(
+        Values.PurchasesAdvancesPaid
+    );
+
     public static readonly PostingRulesUpdateLedgerRequestRulesItemKey PurchasesVatReceivable = new(
         Values.PurchasesVatReceivable
     );
@@ -77,6 +81,22 @@ public readonly record struct PostingRulesUpdateLedgerRequestRulesItemKey : IStr
 
     public static readonly PostingRulesUpdateLedgerRequestRulesItemKey BankFxLoss = new(
         Values.BankFxLoss
+    );
+
+    public static readonly PostingRulesUpdateLedgerRequestRulesItemKey BankFxUnrealisedGain = new(
+        Values.BankFxUnrealisedGain
+    );
+
+    public static readonly PostingRulesUpdateLedgerRequestRulesItemKey BankFxUnrealisedLoss = new(
+        Values.BankFxUnrealisedLoss
+    );
+
+    public static readonly PostingRulesUpdateLedgerRequestRulesItemKey TaxCorporateExpense = new(
+        Values.TaxCorporateExpense
+    );
+
+    public static readonly PostingRulesUpdateLedgerRequestRulesItemKey TaxCorporatePayable = new(
+        Values.TaxCorporatePayable
     );
 
     public static readonly PostingRulesUpdateLedgerRequestRulesItemKey BankPaymentDifferenceGain =
@@ -285,6 +305,8 @@ public readonly record struct PostingRulesUpdateLedgerRequestRulesItemKey : IStr
 
         public const string PurchasesPayables = "purchases.payables";
 
+        public const string PurchasesAdvancesPaid = "purchases.advancesPaid";
+
         public const string PurchasesVatReceivable = "purchases.vatReceivable";
 
         public const string PurchasesGoodsForResale = "purchases.goodsForResale";
@@ -308,6 +330,14 @@ public readonly record struct PostingRulesUpdateLedgerRequestRulesItemKey : IStr
         public const string BankFxGain = "bank.fxGain";
 
         public const string BankFxLoss = "bank.fxLoss";
+
+        public const string BankFxUnrealisedGain = "bank.fxUnrealisedGain";
+
+        public const string BankFxUnrealisedLoss = "bank.fxUnrealisedLoss";
+
+        public const string TaxCorporateExpense = "tax.corporateExpense";
+
+        public const string TaxCorporatePayable = "tax.corporatePayable";
 
         public const string BankPaymentDifferenceGain = "bank.paymentDifferenceGain";
 

@@ -88,6 +88,8 @@ public class RunsApproveTest : BaseMockServerTest
                 WageAccountCode = null,
                 EmployerAccountCode = null,
                 PayableAccountCode = null,
+                IncomeTaxAccountCode = null,
+                SocialContributionsAccountCode = null,
                 GpmAccountCode = null,
                 SodraAccountCode = null,
                 EmployerSocialAccountCode = null,

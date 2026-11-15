@@ -39,7 +39,7 @@ public partial interface ILeadsClient
     );
 
     /// <summary>
-    /// Lists leads with their source and type names; filterable by `name`, `contactName`, `email`, `phone`, `status`, `sourceId`, `typeId`, `countryCode`, `assignedUserId`, `partnerId`, `estimatedValue` and `createdAt`, sortable by `name`, `status`, `estimatedValue`, `createdAt` and `updatedAt`.
+    /// Lists leads with their source and type names; filterable by `name`, `contactName`, `email`, `phone`, `status`, `sourceId`, `typeId`, `countryCode`, `assignedUserId`, `partnerId`, `estimatedValue` and `createdAt`, sortable by `name`, `contactName`, `email`, `phone`, `status`, `typeName` (the name of the lead type), `sourceName` (the name of the lead source), `estimatedValue`, `createdAt` and `updatedAt`.
     /// </summary>
     WithRawResponseTask<ListLeadsResponse> ListAsync(
         ListLeadsRequest request,

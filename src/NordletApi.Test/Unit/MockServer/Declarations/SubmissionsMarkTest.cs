@@ -35,6 +35,13 @@ public class SubmissionsMarkTest : BaseMockServerTest
               "period": "period",
               "documentKey": "documentKey",
               "amendment": 1000000,
+              "authorityRef": "authorityRef",
+              "correctionInput": {
+                "reason": "reason",
+                "reasonCode": "reasonCode",
+                "authorityReference": "authorityReference",
+                "discoveredOn": "discoveredOn"
+              },
               "origin": "origin",
               "transportSystem": "transportSystem",
               "environment": "test",
@@ -109,6 +116,13 @@ public class SubmissionsMarkTest : BaseMockServerTest
               "period": "period",
               "documentKey": "documentKey",
               "amendment": 1000000,
+              "authorityRef": "authorityRef",
+              "correctionInput": {
+                "reason": "reason",
+                "reasonCode": "reasonCode",
+                "authorityReference": "authorityReference",
+                "discoveredOn": "discoveredOn"
+              },
               "origin": "origin",
               "transportSystem": "transportSystem",
               "environment": "test",

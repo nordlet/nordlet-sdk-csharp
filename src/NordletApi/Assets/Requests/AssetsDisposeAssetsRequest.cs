@@ -21,6 +21,12 @@ public record AssetsDisposeAssetsRequest
     [JsonPropertyName("proceeds")]
     public string? Proceeds { get; set; }
 
+    /// <summary>
+    /// The issued sales invoice that sold the asset
+    /// </summary>
+    [JsonPropertyName("saleInvoiceId")]
+    public string? SaleInvoiceId { get; set; }
+
     [JsonPropertyName("notes")]
     public string? Notes { get; set; }
 

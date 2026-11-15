@@ -17,6 +17,9 @@ public record InvoicesCreatePurchasesResponseWarningsItem : IJsonOnDeserialized
     [JsonPropertyName("message")]
     public required string Message { get; set; }
 
+    [JsonPropertyName("fix")]
+    public required string Fix { get; set; }
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

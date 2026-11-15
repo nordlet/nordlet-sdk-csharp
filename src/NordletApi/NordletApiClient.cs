@@ -48,6 +48,7 @@ public partial class NordletApiClient : INordletApiClient
         Officers = new OfficersClient(_client);
         PlatformSellers = new PlatformSellersClient(_client);
         Migration = new MigrationClient(_client);
+        Review = new ReviewClient(_client);
         Assets = new AssetsClient(_client);
         Hr = new HrClient(_client);
         Fleet = new FleetClient(_client);
@@ -101,6 +102,8 @@ public partial class NordletApiClient : INordletApiClient
     public IPlatformSellersClient PlatformSellers { get; }
 
     public IMigrationClient Migration { get; }
+
+    public IReviewClient Review { get; }
 
     public IAssetsClient Assets { get; }
 

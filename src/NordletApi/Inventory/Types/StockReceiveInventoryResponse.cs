@@ -17,6 +17,13 @@ public record StockReceiveInventoryResponse : IJsonOnDeserialized
     [JsonPropertyName("totalCost")]
     public required string TotalCost { get; set; }
 
+    [JsonPropertyName("journalTransactionId")]
+    public string? JournalTransactionId { get; set; }
+
+    [JsonPropertyName("warnings")]
+    public IEnumerable<StockReceiveInventoryResponseWarningsItem> Warnings { get; set; } =
+        new List<StockReceiveInventoryResponseWarningsItem>();
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

@@ -21,6 +21,9 @@ public record StockReceiveInventoryRequest
     [JsonPropertyName("unitCost")]
     public required string UnitCost { get; set; }
 
+    [JsonPropertyName("counterAccountCode")]
+    public string? CounterAccountCode { get; set; }
+
     [JsonPropertyName("lotNumber")]
     public string? LotNumber { get; set; }
 

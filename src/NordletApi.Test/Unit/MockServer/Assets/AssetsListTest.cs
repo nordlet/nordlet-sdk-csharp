@@ -66,6 +66,7 @@ public class AssetsListTest : BaseMockServerTest
                   "disposalReason": "sold",
                   "disposalProceeds": "disposalProceeds",
                   "disposalJournalTransactionId": "disposalJournalTransactionId",
+                  "disposalSaleInvoiceId": "disposalSaleInvoiceId",
                   "createdAt": "2024-01-15T09:30:00.000Z"
                 },
                 {
@@ -115,6 +116,7 @@ public class AssetsListTest : BaseMockServerTest
                   "disposalReason": "sold",
                   "disposalProceeds": "disposalProceeds",
                   "disposalJournalTransactionId": "disposalJournalTransactionId",
+                  "disposalSaleInvoiceId": "disposalSaleInvoiceId",
                   "createdAt": "2024-01-15T09:30:00.000Z"
                 }
               ],
@@ -209,6 +211,7 @@ public class AssetsListTest : BaseMockServerTest
                   "disposalReason": "sold",
                   "disposalProceeds": "disposalProceeds",
                   "disposalJournalTransactionId": "disposalJournalTransactionId",
+                  "disposalSaleInvoiceId": "disposalSaleInvoiceId",
                   "createdAt": "2026-07-01T09:30:00.000Z"
                 }
               ],

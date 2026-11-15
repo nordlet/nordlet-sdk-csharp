@@ -47,6 +47,9 @@ public readonly record struct SubscriptionsCreateWebhooksRequestEventsItem : ISt
         Values.ItemUpdated
     );
 
+    public static readonly SubscriptionsCreateWebhooksRequestEventsItem JournalTransactionReversed =
+        new(Values.JournalTransactionReversed);
+
     public static readonly SubscriptionsCreateWebhooksRequestEventsItem LeadConverted = new(
         Values.LeadConverted
     );
@@ -81,6 +84,9 @@ public readonly record struct SubscriptionsCreateWebhooksRequestEventsItem : ISt
 
     public static readonly SubscriptionsCreateWebhooksRequestEventsItem PurchaseInvoiceRegistered =
         new(Values.PurchaseInvoiceRegistered);
+
+    public static readonly SubscriptionsCreateWebhooksRequestEventsItem PurchaseInvoiceReversed =
+        new(Values.PurchaseInvoiceReversed);
 
     public static readonly SubscriptionsCreateWebhooksRequestEventsItem PurchaseOrderApproved = new(
         Values.PurchaseOrderApproved
@@ -140,6 +146,10 @@ public readonly record struct SubscriptionsCreateWebhooksRequestEventsItem : ISt
 
     public static readonly SubscriptionsCreateWebhooksRequestEventsItem SaleInvoiceQuoteSent = new(
         Values.SaleInvoiceQuoteSent
+    );
+
+    public static readonly SubscriptionsCreateWebhooksRequestEventsItem SaleInvoiceReversed = new(
+        Values.SaleInvoiceReversed
     );
 
     public static readonly SubscriptionsCreateWebhooksRequestEventsItem SaleInvoiceSent = new(
@@ -307,6 +317,8 @@ public readonly record struct SubscriptionsCreateWebhooksRequestEventsItem : ISt
 
         public const string ItemUpdated = "item.updated";
 
+        public const string JournalTransactionReversed = "journal_transaction.reversed";
+
         public const string LeadConverted = "lead.converted";
 
         public const string LeadCreated = "lead.created";
@@ -324,6 +336,8 @@ public readonly record struct SubscriptionsCreateWebhooksRequestEventsItem : ISt
         public const string PurchaseInvoicePaid = "purchase_invoice.paid";
 
         public const string PurchaseInvoiceRegistered = "purchase_invoice.registered";
+
+        public const string PurchaseInvoiceReversed = "purchase_invoice.reversed";
 
         public const string PurchaseOrderApproved = "purchase_order.approved";
 
@@ -358,6 +372,8 @@ public readonly record struct SubscriptionsCreateWebhooksRequestEventsItem : ISt
         public const string SaleInvoicePeppolSent = "sale_invoice.peppol_sent";
 
         public const string SaleInvoiceQuoteSent = "sale_invoice.quote_sent";
+
+        public const string SaleInvoiceReversed = "sale_invoice.reversed";
 
         public const string SaleInvoiceSent = "sale_invoice.sent";
 

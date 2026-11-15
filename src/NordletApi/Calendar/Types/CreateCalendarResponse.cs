@@ -54,6 +54,9 @@ public record CreateCalendarResponse : IJsonOnDeserialized
     [JsonPropertyName("canAmend")]
     public required bool CanAmend { get; set; }
 
+    [JsonPropertyName("correction")]
+    public CreateCalendarResponseCorrection? Correction { get; set; }
+
     [JsonPropertyName("canDownload")]
     public required bool CanDownload { get; set; }
 

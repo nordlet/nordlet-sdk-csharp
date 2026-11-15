@@ -48,7 +48,7 @@ public partial interface IBankClient
     );
 
     /// <summary>
-    /// List the bank transactions of the company. Filterable by id, bankAccountId, status, matchedDocumentId, date, amount, counterpartyIban, counterpartyName, partnerId and externalId; sortable by date, createdAt and amount. `counterpartyName` is the name as the bank wrote it; `partnerId` and `partnerName` are the partner the line belongs to.
+    /// List the bank transactions of the company. Filterable by id, bankAccountId, status, matchedDocumentId, date, amount, counterpartyIban, counterpartyName, partnerId and externalId; sortable by date, createdAt, amount, bankAccountName (the name of the bank account), partnerName (the name of the partner, else the counterparty name), description and status. `counterpartyName` is the name as the bank wrote it; `partnerId` and `partnerName` are the partner the line belongs to.
     /// </summary>
     WithRawResponseTask<TransactionsListBankResponse> TransactionsListAsync(
         TransactionsListBankRequest request,
@@ -57,7 +57,7 @@ public partial interface IBankClient
     );
 
     /// <summary>
-    /// Match one new bank transaction to a document: an issued sale invoice or advance for incoming money; an issued sale credit note, a registered purchase invoice or an approved payroll run (company currency only) for outgoing money. Posts the payment journal transaction between the bank account and the receivable or payable account the invoice was posted to (the account of its operation type, else the posting rule) or the net payable account, with any exchange difference on the gain or loss account, raises the paid amount of the document and sets the line to matched. A payment in another currency is converted into the invoice currency at the rate of the line date, and the difference against the invoice's own rate is the exchange difference; `invoiceAmount` states the amount settled instead; in the same currency it must equal the payment (422). `remainder` settles a payment that differs from the remaining balance of a sale or purchase invoice in its own currency: `advance` books an overpayment beyond the balance to the advances-received posting rule (customer payments) or to `remainder.accountCode`, which a supplier overpayment must name, on the line's partner; `write_off` books the over- or underpayment to `remainder.accountCode`, else to the `bank.paymentDifferenceLoss` posting rule (a customer underpayment, a supplier overpayment, a credit note refund beyond its balance) or the `bank.paymentDifferenceGain` rule (a supplier underpayment, a customer overpayment, a credit note refund below its balance), and settles the invoice in full; `leave_open` settles an underpayment as a partial payment and leaves the rest open. Answers 409 when the line is already matched or ignored, when the amount (converted, beyond one cent of the payment) exceeds the remaining balance of the document and no `remainder` is given, or when the accounting period of the line date is locked. A document that becomes fully paid is announced as `sale_invoice.paid` or `purchase_invoice.paid`.
+    /// Match one new bank transaction to a document: an issued sale invoice or advance for incoming money; an issued sale credit note, a registered purchase invoice, an approved payroll run or an expense report (the last two in company currency only) for outgoing money. An expense report is paid to the employee by debiting the cash advances account (`cash.advances`) against the bank account, which settles the employee's advance balance in `cash/advance-holders/balances`; a report already paid in full or a payment above its remaining amount answers 409. Posts the payment journal transaction between the bank account and the receivable or payable account the invoice was posted to (the account of its operation type, else the posting rule) or the net payable account, with any exchange difference on the gain or loss account, raises the paid amount of the document and sets the line to matched. A payment in another currency is converted into the invoice currency at the rate of the line date, and the difference against the invoice's own rate is the exchange difference; `invoiceAmount` states the amount settled instead; in the same currency it must equal the payment (422). `remainder` settles a payment that differs from the remaining balance of a sale or purchase invoice in its own currency: `advance` books an overpayment beyond the balance to the advances-received posting rule (customer payments) or, for a supplier overpayment, to the `purchases.advancesPaid` posting rule, or to `remainder.accountCode` when given, on the line's partner; `write_off` books the over- or underpayment to `remainder.accountCode`, else to the `bank.paymentDifferenceLoss` posting rule (a customer underpayment, a supplier overpayment, a credit note refund beyond its balance) or the `bank.paymentDifferenceGain` rule (a supplier underpayment, a customer overpayment, a credit note refund below its balance), and settles the invoice in full; `leave_open` settles an underpayment as a partial payment and leaves the rest open. Answers 409 when the line is already matched or ignored, when the amount (converted, beyond one cent of the payment) exceeds the remaining balance of the document and no `remainder` is given, or when the accounting period of the line date is locked. A document that becomes fully paid is announced as `sale_invoice.paid` or `purchase_invoice.paid`.
     /// </summary>
     WithRawResponseTask<TransactionsMatchBankResponse> TransactionsMatchAsync(
         TransactionsMatchBankRequest request,
@@ -129,7 +129,7 @@ public partial interface IBankClient
     );
 
     /// <summary>
-    /// Build a SEPA credit transfer file (pain.001.001.03) that pays the remaining amount of each registered purchase invoice from the bank account on `executionDate` (default: today), to the partner's default bank account. The bank account needs an IBAN and every invoice must be in EUR and have a partner bank account on file (422 otherwise, see `partners/bank-accounts/create`); an invoice that is already paid answers 409. The file is returned as `xml`; nothing is posted or marked paid.
+    /// Build a credit transfer file (ISO 20022 pain.001.001.03) that pays the remaining amount of each registered purchase invoice from the bank account on `executionDate` (default: today), to the partner's default bank account. The bank account needs an IBAN and every invoice must be in the currency of the bank account and have a partner bank account on file (422 otherwise, see `partners/bank-accounts/create`); an invoice that is already paid answers 409. A file in EUR is a SEPA credit transfer (service level SEPA); a file in another currency is a generic pain.001 without the SEPA service level, in the currency of the account. The file is returned as `xml`; nothing is posted or marked paid.
     /// </summary>
     WithRawResponseTask<PaymentsExportBankResponse> PaymentsExportAsync(
         PaymentsExportBankRequest request,
@@ -264,7 +264,7 @@ public partial interface IBankClient
     );
 
     /// <summary>
-    /// List the mandates of the company. Filterable by partnerId, status, scheme, reference and iban; sortable by createdAt and signatureDate.
+    /// List the mandates of the company. Filterable by partnerId, status, scheme, reference and iban; sortable by createdAt, signatureDate, reference, partnerName (the name of the partner, else the debtor name), iban, scheme, sequenceType, collectionsCount, expiresOn (the last collection date, else the signature date) and status.
     /// </summary>
     WithRawResponseTask<MandatesListBankResponse> MandatesListAsync(
         MandatesListBankRequest request,
@@ -273,7 +273,7 @@ public partial interface IBankClient
     );
 
     /// <summary>
-    /// List the issued EUR sale invoices that are unpaid or partly paid and whose partner holds an active mandate, each with the mandate `bank/direct-debits/export` would use (the most recently signed active one). Filterable by partnerId, fullNumber, issueDate and dueDate; sortable by issueDate, dueDate, fullNumber, grossTotal and createdAt.
+    /// List the issued EUR sale invoices that are unpaid or partly paid and whose partner holds an active mandate, each with the mandate `bank/direct-debits/export` would use (the most recently signed active one). Filterable by partnerId, fullNumber, issueDate and dueDate; sortable by issueDate, dueDate, fullNumber, grossTotal, createdAt, partnerName (the name of the partner), remaining (the gross total less the paid amount) and mandateReference (the reference of the mandate shown).
     /// </summary>
     WithRawResponseTask<DirectDebitsCandidatesBankResponse> DirectDebitsCandidatesAsync(
         DirectDebitsCandidatesBankRequest request,
@@ -291,7 +291,7 @@ public partial interface IBankClient
     );
 
     /// <summary>
-    /// Suggest documents for a new bank transaction: issued sale invoices and advances for incoming money; registered purchase invoices, issued sale credit notes and approved payroll runs for outgoing money. Candidates are unpaid documents with any remaining balance, also one below the payment, scored by an equal remaining balance, the document number or payroll period in the payment description and a counterparty IBAN or name matching the partner or an employee on the run; the best `limit` come back with their reasons. A transaction that is already matched answers 409.
+    /// Suggest documents for a new bank transaction: issued sale invoices and advances for incoming money; registered purchase invoices, issued sale credit notes and approved payroll runs for outgoing money. Candidates are unpaid documents with any remaining balance, also one below the payment, scored by an equal remaining balance, the document number or payroll period in the payment description and a counterparty IBAN or name matching the partner or an employee on the run; the best `limit` come back with their reasons; a candidate with no matching reason (score 0) is left out. A transaction that is already matched answers 409.
     /// </summary>
     WithRawResponseTask<TransactionsSuggestMatchesBankResponse> TransactionsSuggestMatchesAsync(
         TransactionsSuggestMatchesBankRequest request,
@@ -309,7 +309,7 @@ public partial interface IBankClient
     );
 
     /// <summary>
-    /// List the settlement batches with their line counts and the clearing figures against the bank lines. Filterable by provider, payoutId, status, currency and bankAccountId; sortable by payoutDate, createdAt and netTotal.
+    /// List the settlement batches with their line counts and the clearing figures against the bank lines. Filterable by provider, payoutId, status, currency and bankAccountId; sortable by payoutDate, createdAt, netTotal, payoutId, provider, bankAccountName (the name of the bank account), grossTotal, feeTotal, lineCount (the number of lines) and status.
     /// </summary>
     WithRawResponseTask<SettlementsListBankResponse> SettlementsListAsync(
         SettlementsListBankRequest request,
@@ -399,7 +399,7 @@ public partial interface IBankClient
     );
 
     /// <summary>
-    /// List the imported securities operations, newest first; filterable by `bankAccountId`, `kind`, `status`, `symbol` and `date`, sortable by `date` and `createdAt`.
+    /// List the imported securities operations, newest first; filterable by `bankAccountId`, `kind`, `status`, `symbol` and `date`, sortable by `date`, `createdAt`, `bankAccountName` (the name of the bank account), `kind`, `symbol`, `quantity`, `amount`, `fee`, `cashBase`, `costBase`, `realizedBase` and `status`.
     /// </summary>
     WithRawResponseTask<SecuritiesOperationsListBankResponse> SecuritiesOperationsListAsync(
         SecuritiesOperationsListBankRequest request,

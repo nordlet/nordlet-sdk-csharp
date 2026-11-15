@@ -12,6 +12,12 @@ public record SubmitCalendarRequest
     [JsonPropertyName("amend")]
     public bool? Amend { get; set; }
 
+    [JsonPropertyName("correction")]
+    public SubmitCalendarRequestCorrection? Correction { get; set; }
+
+    [JsonPropertyName("documentKeys")]
+    public IEnumerable<string>? DocumentKeys { get; set; }
+
     /// <inheritdoc />
     public override string ToString()
     {

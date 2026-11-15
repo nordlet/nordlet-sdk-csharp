@@ -14,6 +14,8 @@ public readonly record struct InvoicesApplyAdvanceSalesResponseStatus : IStringE
 
     public static readonly InvoicesApplyAdvanceSalesResponseStatus Issued = new(Values.Issued);
 
+    public static readonly InvoicesApplyAdvanceSalesResponseStatus Reversed = new(Values.Reversed);
+
     public InvoicesApplyAdvanceSalesResponseStatus(string value)
     {
         Value = value;
@@ -116,5 +118,7 @@ public readonly record struct InvoicesApplyAdvanceSalesResponseStatus : IStringE
         public const string Draft = "draft";
 
         public const string Issued = "issued";
+
+        public const string Reversed = "reversed";
     }
 }

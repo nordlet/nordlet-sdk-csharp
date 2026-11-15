@@ -20,6 +20,9 @@ public record JournalTransactionsCreateLedgerRequestEntriesItem : IJsonOnDeseria
     [JsonPropertyName("projectId")]
     public string? ProjectId { get; set; }
 
+    [JsonPropertyName("partnerId")]
+    public string? PartnerId { get; set; }
+
     [JsonPropertyName("debit")]
     public string? Debit { get; set; }
 

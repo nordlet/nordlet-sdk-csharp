@@ -9375,7 +9375,7 @@ public partial class PartnersClient : IPartnersClient
     }
 
     /// <summary>
-    /// Lists the VAT reviews opened by VIES checks of partners' VAT codes, with reason `invalid`, `name_mismatch` or `service_error`; filterable by `partnerId`, `status`, `reason` and `vatCode`, sortable by `createdAt`.
+    /// Lists the VAT reviews opened by VIES checks of partners' VAT codes, with reason `invalid`, `name_mismatch` or `service_error`; filterable by `partnerId`, `status`, `reason` and `vatCode`, sortable by `createdAt`, `partnerName` (the name of the partner), `vatCode`, `reason`, `details` (the service message for a service error, else the name found in VIES) and `resolution`.
     /// </summary>
     /// <example><code>
     /// await client.Partners.VatReviewsListAsync(new VatReviewsListPartnersRequest());
@@ -9415,7 +9415,7 @@ public partial class PartnersClient : IPartnersClient
     }
 
     /// <summary>
-    /// Creates a partner. `groupId`, `statusId` and `priceListId` must belong to the company; without `legalCountryClass` the class is derived from the address country (`lt`, `eu` or `non_eu`); `documentRef` attaches an uploaded file that is not yet linked to a record; a `code` already used by a live partner of the company is refused with 409. A `vatCode` is checked against VIES at once and the result stored on the partner: an invalid number, a VIES name that shares no word with the partner's name, or a VIES failure opens a VAT review (`vat_review.opened`), while a code that is not an EU VAT number is stored unchecked (see `partners/validate-vat`).
+    /// Creates a partner; without `isCustomer` it is a customer unless `isSupplier` is true. `groupId`, `statusId` and `priceListId` must belong to the company; without `legalCountryClass` the class is derived from the address country (`lt`, `eu` or `non_eu`); `documentRef` attaches an uploaded file that is not yet linked to a record; a `code` already used by a live partner of the company is refused with 409. A `vatCode` is checked against VIES at once and the result stored on the partner: an invalid number, a VIES name that shares no word with the partner's name, or a VIES failure opens a VAT review (`vat_review.opened`), while a code that is not an EU VAT number is stored unchecked (see `partners/validate-vat`).
     /// </summary>
     /// <example><code>
     /// await client.Partners.CreateAsync(new CreatePartnersRequest { Name = "name" });
@@ -9432,7 +9432,7 @@ public partial class PartnersClient : IPartnersClient
     }
 
     /// <summary>
-    /// Returns the live partner matched by `code`, then `vatCode` (compared without spaces, dots and dashes and without regard to case), then `email` (at least one is required), or creates one from the body with the same validation and VIES check as `partners/create`; `created` says which happened. Without `isCustomer` a new partner is a customer unless `isSupplier` is true. A creation that loses a race on the partner code returns the partner the other call created.
+    /// Returns the live partner matched by `code`, then `vatCode` (compared without spaces, dots and dashes and without regard to case), then `email` (at least one is required), or creates one from the body with the same validation and VIES check as `partners/create`; `created` says which happened. Without `isCustomer` a new partner is a customer unless `isSupplier` is true. A creation that loses a race on the partner code returns the partner the other call created. An `iban` (check digits validated as in `partners/bank-accounts/create`, 422 when they fail) is added as a bank account of the returned partner when the partner does not have it yet; it becomes the default account when the partner has none.
     /// </summary>
     /// <example><code>
     /// await client.Partners.FindOrCreateAsync(new FindOrCreatePartnersRequest { Name = "name" });
@@ -9536,7 +9536,7 @@ public partial class PartnersClient : IPartnersClient
     }
 
     /// <summary>
-    /// Lists live partners; filterable by `name`, `code`, `vatCode`, `email`, `type`, `isCustomer`, `isSupplier`, `isActive`, `legalCountryClass`, `isEmployee`, `groupId`, `statusId` and `nextCallDate`, sortable by `name`, `code`, `createdAt`, `nextCallDate` and `rating`.
+    /// Lists live partners; filterable by `name`, `code`, `vatCode`, `email`, `type`, `isCustomer`, `isSupplier`, `isActive`, `legalCountryClass`, `isEmployee`, `groupId`, `statusId` and `nextCallDate`, sortable by `name`, `code`, `createdAt`, `nextCallDate`, `rating`, `vatCode`, `vatValid` and `roles` (customer and supplier flags).
     /// </summary>
     /// <example><code>
     /// await client.Partners.ListAsync(new ListPartnersRequest());
