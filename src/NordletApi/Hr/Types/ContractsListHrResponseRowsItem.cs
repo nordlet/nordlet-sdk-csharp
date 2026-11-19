@@ -50,6 +50,9 @@ public record ContractsListHrResponseRowsItem : IJsonOnDeserialized
     [JsonPropertyName("salaryType")]
     public required ContractsListHrResponseRowsItemSalaryType SalaryType { get; set; }
 
+    [JsonPropertyName("payFrequency")]
+    public required ContractsListHrResponseRowsItemPayFrequency PayFrequency { get; set; }
+
     [JsonPropertyName("workHours")]
     public required string WorkHours { get; set; }
 

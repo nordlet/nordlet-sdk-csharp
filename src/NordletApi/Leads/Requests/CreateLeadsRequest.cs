@@ -36,6 +36,9 @@ public record CreateLeadsRequest
     [JsonPropertyName("estimatedValue")]
     public string? EstimatedValue { get; set; }
 
+    /// <summary>
+    /// Defaults to the company's base currency
+    /// </summary>
     [JsonPropertyName("currency")]
     public string? Currency { get; set; }
 

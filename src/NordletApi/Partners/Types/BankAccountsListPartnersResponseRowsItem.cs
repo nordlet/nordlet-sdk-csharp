@@ -18,7 +18,19 @@ public record BankAccountsListPartnersResponseRowsItem : IJsonOnDeserialized
     public required string PartnerId { get; set; }
 
     [JsonPropertyName("iban")]
-    public required string Iban { get; set; }
+    public string? Iban { get; set; }
+
+    [JsonPropertyName("bankCode")]
+    public string? BankCode { get; set; }
+
+    [JsonPropertyName("bankAccountNumber")]
+    public string? BankAccountNumber { get; set; }
+
+    /// <summary>
+    /// Checking or savings account; a US ACH file needs it
+    /// </summary>
+    [JsonPropertyName("accountType")]
+    public BankAccountsListPartnersResponseRowsItemAccountType? AccountType { get; set; }
 
     [JsonPropertyName("bankName")]
     public string? BankName { get; set; }

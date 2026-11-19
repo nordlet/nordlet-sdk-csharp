@@ -20,6 +20,8 @@ public readonly record struct VatResolveReferenceResponseScheme : IStringEnum
 
     public static readonly VatResolveReferenceResponseScheme OssUnion = new(Values.OssUnion);
 
+    public static readonly VatResolveReferenceResponseScheme OssNonUnion = new(Values.OssNonUnion);
+
     public static readonly VatResolveReferenceResponseScheme Ioss = new(Values.Ioss);
 
     public static readonly VatResolveReferenceResponseScheme MarketplaceDeemed = new(
@@ -136,6 +138,8 @@ public readonly record struct VatResolveReferenceResponseScheme : IStringEnum
         public const string ReverseCharge = "reverse_charge";
 
         public const string OssUnion = "oss_union";
+
+        public const string OssNonUnion = "oss_non_union";
 
         public const string Ioss = "ioss";
 

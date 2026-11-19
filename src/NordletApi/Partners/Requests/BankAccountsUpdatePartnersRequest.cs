@@ -9,12 +9,33 @@ public record BankAccountsUpdatePartnersRequest
     [JsonPropertyName("iban")]
     public string? Iban { get; set; }
 
+    /// <summary>
+    /// Sort code, routing number or other national bank code, for an account without an IBAN
+    /// </summary>
+    [JsonPropertyName("bankCode")]
+    public string? BankCode { get; set; }
+
+    /// <summary>
+    /// Account number, for an account without an IBAN
+    /// </summary>
+    [JsonPropertyName("bankAccountNumber")]
+    public string? BankAccountNumber { get; set; }
+
+    /// <summary>
+    /// Checking or savings account; a US ACH file needs it
+    /// </summary>
+    [JsonPropertyName("accountType")]
+    public BankAccountsUpdatePartnersRequestAccountType? AccountType { get; set; }
+
     [JsonPropertyName("bankName")]
     public string? BankName { get; set; }
 
     [JsonPropertyName("bic")]
     public string? Bic { get; set; }
 
+    /// <summary>
+    /// Defaults to the company's base currency
+    /// </summary>
     [JsonPropertyName("currency")]
     public string? Currency { get; set; }
 

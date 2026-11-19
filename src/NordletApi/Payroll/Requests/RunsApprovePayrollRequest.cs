@@ -24,12 +24,6 @@ public record RunsApprovePayrollRequest
     [JsonPropertyName("socialContributionsAccountCode")]
     public string? SocialContributionsAccountCode { get; set; }
 
-    [JsonPropertyName("gpmAccountCode")]
-    public string? GpmAccountCode { get; set; }
-
-    [JsonPropertyName("sodraAccountCode")]
-    public string? SodraAccountCode { get; set; }
-
     [JsonPropertyName("employerSocialAccountCode")]
     public string? EmployerSocialAccountCode { get; set; }
 

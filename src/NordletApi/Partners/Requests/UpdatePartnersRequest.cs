@@ -36,6 +36,12 @@ public record UpdatePartnersRequest
     [JsonPropertyName("birthDate")]
     public DateOnly? BirthDate { get; set; }
 
+    /// <summary>
+    /// Whether the partner acts as a business for VAT; when not set, a partner with a VAT code is a business. Regulation (EU) 282/2011 art. 18 lets a customer without a VAT number be treated as a business on other proof
+    /// </summary>
+    [JsonPropertyName("isBusiness")]
+    public bool? IsBusiness { get; set; }
+
     [JsonPropertyName("isCustomer")]
     public bool? IsCustomer { get; set; }
 

@@ -14,7 +14,6 @@ public class BankAccountsCreateTest : BaseMockServerTest
     {
         const string requestJson = """
             {
-              "iban": "alpha",
               "partnerId": "x"
             }
             """;
@@ -24,6 +23,9 @@ public class BankAccountsCreateTest : BaseMockServerTest
               "id": "x",
               "partnerId": "x",
               "iban": "iban",
+              "bankCode": "bankCode",
+              "bankAccountNumber": "bankAccountNumber",
+              "accountType": "checking",
               "bankName": "bankName",
               "bic": "bic",
               "currency": "currency",
@@ -51,7 +53,10 @@ public class BankAccountsCreateTest : BaseMockServerTest
         var response = await Client.Partners.BankAccountsCreateAsync(
             new BankAccountsCreatePartnersRequest
             {
-                Iban = "alpha",
+                Iban = null,
+                BankCode = null,
+                BankAccountNumber = null,
+                AccountType = null,
                 BankName = null,
                 Bic = null,
                 Currency = null,
@@ -67,7 +72,6 @@ public class BankAccountsCreateTest : BaseMockServerTest
     {
         const string requestJson = """
             {
-              "iban": "iban",
               "partnerId": "partnerId"
             }
             """;
@@ -77,6 +81,9 @@ public class BankAccountsCreateTest : BaseMockServerTest
               "id": "id",
               "partnerId": "partnerId",
               "iban": "iban",
+              "bankCode": "bankCode",
+              "bankAccountNumber": "bankAccountNumber",
+              "accountType": "checking",
               "bankName": "bankName",
               "bic": "bic",
               "currency": "currency",
@@ -102,7 +109,7 @@ public class BankAccountsCreateTest : BaseMockServerTest
             );
 
         var response = await Client.Partners.BankAccountsCreateAsync(
-            new BankAccountsCreatePartnersRequest { Iban = "iban", PartnerId = "partnerId" }
+            new BankAccountsCreatePartnersRequest { PartnerId = "partnerId" }
         );
         JsonAssert.AreEqual(response, mockResponse);
     }

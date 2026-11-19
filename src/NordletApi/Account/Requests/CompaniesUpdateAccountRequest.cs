@@ -18,14 +18,44 @@ public record CompaniesUpdateAccountRequest
     [JsonPropertyName("smeExemptionNumber")]
     public string? SmeExemptionNumber { get; set; }
 
+    /// <summary>
+    /// Registration numbers of the company other than `code` and `vatCode`, by key: `utr` (GB, Corporation Tax Unique Taxpayer Reference (UTR), 10 digits); `taxOfficeNumber` (GB, PAYE tax office number, 3 digits); `taxOfficeReference` (GB, PAYE tax office reference, 1 to 10 letters, digits or punctuation, not starting with a space); `accountsOfficeReference` (GB, Accounts Office reference, 13 characters: 3 digits, P, a letter, 7 digits and a digit or X); `ein` (US, Employer Identification Number (EIN), 9 digits whose first two are a prefix the IRS assigns); `deBusinessLicense` (US, Delaware business license number); `deWithholdingAccount` (US, Delaware withholding account number, 9 digits, the federal EIN); `deUnemploymentAccount` (US, Delaware unemployment insurance account number); `deUnemploymentRate` (US, Delaware unemployment insurance tax rate (%), a percentage from 0 to 100 with at most 4 decimals); `deEntityFileNumber` (US, Delaware Division of Corporations file number (formed in Delaware)); `deForeignEntityFileNumber` (US, Delaware Division of Corporations file number (formed in another state))
+    /// </summary>
+    [JsonPropertyName("identifiers")]
+    public Dictionary<string, string?>? Identifiers { get; set; }
+
     [JsonPropertyName("isVatPayer")]
     public bool? IsVatPayer { get; set; }
 
     [JsonPropertyName("vatPeriod")]
     public CompaniesUpdateAccountRequestVatPeriod? VatPeriod { get; set; }
 
+    /// <summary>
+    /// A month in which a VAT period ends, for VAT periods that do not follow the calendar quarters
+    /// </summary>
+    [JsonPropertyName("vatPeriodEndMonth")]
+    public long? VatPeriodEndMonth { get; set; }
+
     [JsonPropertyName("fiscalYearEndMonth")]
     public long? FiscalYearEndMonth { get; set; }
+
+    /// <summary>
+    /// Day of `fiscalYearEndMonth` the fiscal year ends on; the last day of the month when omitted
+    /// </summary>
+    [JsonPropertyName("fiscalYearEndDay")]
+    public long? FiscalYearEndDay { get; set; }
+
+    /// <summary>
+    /// For a 52-53-week fiscal year: the weekday it always ends on, 0 Sunday to 6 Saturday
+    /// </summary>
+    [JsonPropertyName("fiscalYearWeekday")]
+    public long? FiscalYearWeekday { get; set; }
+
+    /// <summary>
+    /// With `fiscalYearWeekday`: `last` ends the year on the last such weekday of `fiscalYearEndMonth`, `nearest` on the one nearest the last day of that month
+    /// </summary>
+    [JsonPropertyName("fiscalYearWeekRule")]
+    public CompaniesUpdateAccountRequestFiscalYearWeekRule? FiscalYearWeekRule { get; set; }
 
     [JsonPropertyName("timeZone")]
     public string? TimeZone { get; set; }

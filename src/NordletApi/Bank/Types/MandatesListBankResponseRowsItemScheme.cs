@@ -14,6 +14,12 @@ public readonly record struct MandatesListBankResponseRowsItemScheme : IStringEn
 
     public static readonly MandatesListBankResponseRowsItemScheme B2B = new(Values.B2B);
 
+    public static readonly MandatesListBankResponseRowsItemScheme Bacs = new(Values.Bacs);
+
+    public static readonly MandatesListBankResponseRowsItemScheme Ppd = new(Values.Ppd);
+
+    public static readonly MandatesListBankResponseRowsItemScheme Ccd = new(Values.Ccd);
+
     public MandatesListBankResponseRowsItemScheme(string value)
     {
         Value = value;
@@ -116,5 +122,11 @@ public readonly record struct MandatesListBankResponseRowsItemScheme : IStringEn
         public const string Core = "CORE";
 
         public const string B2B = "B2B";
+
+        public const string Bacs = "BACS";
+
+        public const string Ppd = "PPD";
+
+        public const string Ccd = "CCD";
     }
 }

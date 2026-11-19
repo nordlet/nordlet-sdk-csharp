@@ -26,6 +26,10 @@ public readonly record struct VatClassifiersListReferenceResponseRowsItemScheme 
         Values.OssUnion
     );
 
+    public static readonly VatClassifiersListReferenceResponseRowsItemScheme OssNonUnion = new(
+        Values.OssNonUnion
+    );
+
     public static readonly VatClassifiersListReferenceResponseRowsItemScheme Ioss = new(
         Values.Ioss
     );
@@ -157,6 +161,8 @@ public readonly record struct VatClassifiersListReferenceResponseRowsItemScheme 
         public const string ReverseCharge = "reverse_charge";
 
         public const string OssUnion = "oss_union";
+
+        public const string OssNonUnion = "oss_non_union";
 
         public const string Ioss = "ioss";
 

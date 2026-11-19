@@ -39,6 +39,9 @@ public record ContractsCreateHrRequest
     [JsonPropertyName("salaryType")]
     public ContractsCreateHrRequestSalaryType? SalaryType { get; set; }
 
+    [JsonPropertyName("payFrequency")]
+    public ContractsCreateHrRequestPayFrequency? PayFrequency { get; set; }
+
     [JsonPropertyName("workHours")]
     public string? WorkHours { get; set; }
 

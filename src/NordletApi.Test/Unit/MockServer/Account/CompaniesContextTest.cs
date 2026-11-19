@@ -148,6 +148,9 @@ public class CompaniesContextTest : BaseMockServerTest
                 "name": "name",
                 "code": "code",
                 "vatCode": "vatCode",
+                "identifiers": {
+                  "identifiers": "identifiers"
+                },
                 "smeExemptionNumber": "smeExemptionNumber",
                 "isVatPayer": true,
                 "isSandbox": true,
@@ -162,7 +165,8 @@ public class CompaniesContextTest : BaseMockServerTest
                   "street": "street",
                   "city": "city",
                   "postalCode": "postalCode",
-                  "countryCode": "xy"
+                  "countryCode": "xy",
+                  "subdivision": "subdivision"
                 },
                 "email": "email",
                 "phone": "phone",
@@ -185,7 +189,11 @@ public class CompaniesContextTest : BaseMockServerTest
                 "shareCapital": "shareCapital",
                 "accountsKeptBy": "company",
                 "vatPeriod": "monthly",
+                "vatPeriodEndMonth": 1000000,
                 "fiscalYearEndMonth": 1000000,
+                "fiscalYearEndDay": 1000000,
+                "fiscalYearWeekday": 1000000,
+                "fiscalYearWeekRule": "last",
                 "timeZone": "timeZone",
                 "filingOptions": {
                   "filingOptions": "filingOptions"
@@ -301,6 +309,9 @@ public class CompaniesContextTest : BaseMockServerTest
                 "name": "name",
                 "code": "code",
                 "vatCode": "vatCode",
+                "identifiers": {
+                  "key": "value"
+                },
                 "smeExemptionNumber": "smeExemptionNumber",
                 "isVatPayer": true,
                 "isSandbox": true,
@@ -315,7 +326,8 @@ public class CompaniesContextTest : BaseMockServerTest
                   "street": "street",
                   "city": "city",
                   "postalCode": "postalCode",
-                  "countryCode": "countryCode"
+                  "countryCode": "countryCode",
+                  "subdivision": "subdivision"
                 },
                 "email": "email",
                 "phone": "phone",
@@ -338,7 +350,11 @@ public class CompaniesContextTest : BaseMockServerTest
                 "shareCapital": "shareCapital",
                 "accountsKeptBy": "company",
                 "vatPeriod": "monthly",
+                "vatPeriodEndMonth": 1000000,
                 "fiscalYearEndMonth": 1000000,
+                "fiscalYearEndDay": 1000000,
+                "fiscalYearWeekday": 1000000,
+                "fiscalYearWeekRule": "last",
                 "timeZone": "timeZone",
                 "filingOptions": {
                   "key": "value"

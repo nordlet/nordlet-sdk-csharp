@@ -15,7 +15,6 @@ public class MandatesCreateTest : BaseMockServerTest
         const string requestJson = """
             {
               "partnerId": "x",
-              "iban": "blackcurrant...",
               "signatureDate": "2023-01-15"
             }
             """;
@@ -31,10 +30,15 @@ public class MandatesCreateTest : BaseMockServerTest
               "debtorName": "debtorName",
               "iban": "iban",
               "bic": "bic",
+              "bankCode": "bankCode",
+              "bankAccountNumber": "bankAccountNumber",
+              "accountType": "checking",
               "signatureDate": "2023-01-15",
               "collectionsCount": 1000000,
               "lastCollectionDate": "2023-01-15",
               "expiresOn": "expiresOn",
+              "lodgedOn": "lodgedOn",
+              "cancellationLodgedOn": "cancellationLodgedOn",
               "cancelledAt": "2024-01-15T09:30:00.000Z",
               "notes": "notes",
               "createdAt": "2024-01-15T09:30:00.000Z"
@@ -61,8 +65,11 @@ public class MandatesCreateTest : BaseMockServerTest
             new MandatesCreateBankRequest
             {
                 PartnerId = "x",
-                Iban = "blackcurrant...",
+                Iban = null,
                 Bic = null,
+                BankCode = null,
+                BankAccountNumber = null,
+                AccountType = null,
                 Scheme = null,
                 SequenceType = null,
                 SignatureDate = new DateOnly(2023, 1, 15),
@@ -80,7 +87,6 @@ public class MandatesCreateTest : BaseMockServerTest
         const string requestJson = """
             {
               "partnerId": "partnerId",
-              "iban": "iban",
               "signatureDate": "2026-07-01"
             }
             """;
@@ -96,10 +102,15 @@ public class MandatesCreateTest : BaseMockServerTest
               "debtorName": "debtorName",
               "iban": "iban",
               "bic": "bic",
+              "bankCode": "bankCode",
+              "bankAccountNumber": "bankAccountNumber",
+              "accountType": "checking",
               "signatureDate": "2026-07-01",
               "collectionsCount": 1000000,
               "lastCollectionDate": "2026-07-01",
               "expiresOn": "expiresOn",
+              "lodgedOn": "lodgedOn",
+              "cancellationLodgedOn": "cancellationLodgedOn",
               "cancelledAt": "2026-07-01T09:30:00.000Z",
               "notes": "notes",
               "createdAt": "2026-07-01T09:30:00.000Z"
@@ -126,7 +137,6 @@ public class MandatesCreateTest : BaseMockServerTest
             new MandatesCreateBankRequest
             {
                 PartnerId = "partnerId",
-                Iban = "iban",
                 SignatureDate = new DateOnly(2026, 7, 1),
             }
         );

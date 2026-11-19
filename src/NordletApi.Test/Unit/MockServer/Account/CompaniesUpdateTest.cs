@@ -22,6 +22,9 @@ public class CompaniesUpdateTest : BaseMockServerTest
               "name": "name",
               "code": "code",
               "vatCode": "vatCode",
+              "identifiers": {
+                "identifiers": "identifiers"
+              },
               "smeExemptionNumber": "smeExemptionNumber",
               "isVatPayer": true,
               "isSandbox": true,
@@ -36,7 +39,8 @@ public class CompaniesUpdateTest : BaseMockServerTest
                 "street": "street",
                 "city": "city",
                 "postalCode": "postalCode",
-                "countryCode": "xy"
+                "countryCode": "xy",
+                "subdivision": "subdivision"
               },
               "email": "email",
               "phone": "phone",
@@ -59,7 +63,11 @@ public class CompaniesUpdateTest : BaseMockServerTest
               "shareCapital": "shareCapital",
               "accountsKeptBy": "company",
               "vatPeriod": "monthly",
+              "vatPeriodEndMonth": 1000000,
               "fiscalYearEndMonth": 1000000,
+              "fiscalYearEndDay": 1000000,
+              "fiscalYearWeekday": 1000000,
+              "fiscalYearWeekRule": "last",
               "timeZone": "timeZone",
               "filingOptions": {
                 "filingOptions": "filingOptions"
@@ -94,9 +102,14 @@ public class CompaniesUpdateTest : BaseMockServerTest
                 Code = null,
                 VatCode = null,
                 SmeExemptionNumber = null,
+                Identifiers = null,
                 IsVatPayer = null,
                 VatPeriod = null,
+                VatPeriodEndMonth = null,
                 FiscalYearEndMonth = null,
+                FiscalYearEndDay = null,
+                FiscalYearWeekday = null,
+                FiscalYearWeekRule = null,
                 TimeZone = null,
                 FilingOptions = null,
                 Address = null,
@@ -142,6 +155,9 @@ public class CompaniesUpdateTest : BaseMockServerTest
               "name": "name",
               "code": "code",
               "vatCode": "vatCode",
+              "identifiers": {
+                "key": "value"
+              },
               "smeExemptionNumber": "smeExemptionNumber",
               "isVatPayer": true,
               "isSandbox": true,
@@ -156,7 +172,8 @@ public class CompaniesUpdateTest : BaseMockServerTest
                 "street": "street",
                 "city": "city",
                 "postalCode": "postalCode",
-                "countryCode": "countryCode"
+                "countryCode": "countryCode",
+                "subdivision": "subdivision"
               },
               "email": "email",
               "phone": "phone",
@@ -179,7 +196,11 @@ public class CompaniesUpdateTest : BaseMockServerTest
               "shareCapital": "shareCapital",
               "accountsKeptBy": "company",
               "vatPeriod": "monthly",
+              "vatPeriodEndMonth": 1000000,
               "fiscalYearEndMonth": 1000000,
+              "fiscalYearEndDay": 1000000,
+              "fiscalYearWeekday": 1000000,
+              "fiscalYearWeekRule": "last",
               "timeZone": "timeZone",
               "filingOptions": {
                 "key": "value"

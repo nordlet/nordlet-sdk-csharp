@@ -42,6 +42,9 @@ public record AgreementsCreateAgreementsRequest
     [JsonPropertyName("billingPeriod")]
     public AgreementsCreateAgreementsRequestBillingPeriod? BillingPeriod { get; set; }
 
+    /// <summary>
+    /// Defaults to the company's base currency
+    /// </summary>
     [JsonPropertyName("currency")]
     public string? Currency { get; set; }
 

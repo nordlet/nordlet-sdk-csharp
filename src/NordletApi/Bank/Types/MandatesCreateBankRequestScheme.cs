@@ -12,6 +12,12 @@ public readonly record struct MandatesCreateBankRequestScheme : IStringEnum
 
     public static readonly MandatesCreateBankRequestScheme B2B = new(Values.B2B);
 
+    public static readonly MandatesCreateBankRequestScheme Bacs = new(Values.Bacs);
+
+    public static readonly MandatesCreateBankRequestScheme Ppd = new(Values.Ppd);
+
+    public static readonly MandatesCreateBankRequestScheme Ccd = new(Values.Ccd);
+
     public MandatesCreateBankRequestScheme(string value)
     {
         Value = value;
@@ -112,5 +118,11 @@ public readonly record struct MandatesCreateBankRequestScheme : IStringEnum
         public const string Core = "CORE";
 
         public const string B2B = "B2B";
+
+        public const string Bacs = "BACS";
+
+        public const string Ppd = "PPD";
+
+        public const string Ccd = "CCD";
     }
 }

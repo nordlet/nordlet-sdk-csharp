@@ -32,9 +32,13 @@ public class EmployeesGetTest : BaseMockServerTest
                 "street": "street",
                 "city": "city",
                 "postalCode": "postalCode",
-                "countryCode": "xy"
+                "countryCode": "xy",
+                "subdivision": "subdivision"
               },
               "iban": "iban",
+              "bankCode": "bankCode",
+              "bankAccountNumber": "bankAccountNumber",
+              "bankAccountType": "checking",
               "socialInsuranceNo": "socialInsuranceNo",
               "socialInsuranceStart": "socialInsuranceStart",
               "hireDate": "2023-01-15",
@@ -104,9 +108,13 @@ public class EmployeesGetTest : BaseMockServerTest
                 "street": "street",
                 "city": "city",
                 "postalCode": "postalCode",
-                "countryCode": "countryCode"
+                "countryCode": "countryCode",
+                "subdivision": "subdivision"
               },
               "iban": "iban",
+              "bankCode": "bankCode",
+              "bankAccountNumber": "bankAccountNumber",
+              "bankAccountType": "checking",
               "socialInsuranceNo": "socialInsuranceNo",
               "socialInsuranceStart": "socialInsuranceStart",
               "hireDate": "2026-07-01",

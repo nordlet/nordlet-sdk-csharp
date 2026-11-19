@@ -13,10 +13,7 @@ public class RunsCreateTest : BaseMockServerTest
     public async Task MockServerTest_1()
     {
         const string requestJson = """
-            {
-              "year": 1000000,
-              "month": 1000000
-            }
+            {}
             """;
 
         const string mockResponse = """
@@ -24,6 +21,11 @@ public class RunsCreateTest : BaseMockServerTest
               "id": "x",
               "year": 1000000,
               "month": 1000000,
+              "frequency": "monthly",
+              "periodStart": "periodStart",
+              "periodEnd": "periodEnd",
+              "taxYear": 1000000,
+              "taxPeriod": 1000000,
               "countryCode": "countryCode",
               "payDate": "2023-01-15",
               "status": "draft",
@@ -211,8 +213,10 @@ public class RunsCreateTest : BaseMockServerTest
         var response = await Client.Payroll.RunsCreateAsync(
             new RunsCreatePayrollRequest
             {
-                Year = 1000000,
-                Month = 1000000,
+                Frequency = null,
+                Year = null,
+                Month = null,
+                PeriodStart = null,
                 IncludeNatura = null,
                 GrossOverrides = null,
                 Lines = null,
@@ -227,10 +231,7 @@ public class RunsCreateTest : BaseMockServerTest
     public async Task MockServerTest_2()
     {
         const string requestJson = """
-            {
-              "year": 1000000,
-              "month": 1000000
-            }
+            {}
             """;
 
         const string mockResponse = """
@@ -238,6 +239,11 @@ public class RunsCreateTest : BaseMockServerTest
               "id": "id",
               "year": 1000000,
               "month": 1000000,
+              "frequency": "monthly",
+              "periodStart": "periodStart",
+              "periodEnd": "periodEnd",
+              "taxYear": 1000000,
+              "taxPeriod": 1000000,
               "countryCode": "countryCode",
               "payDate": "2026-07-01",
               "status": "draft",
@@ -327,9 +333,7 @@ public class RunsCreateTest : BaseMockServerTest
                     .WithBody(mockResponse)
             );
 
-        var response = await Client.Payroll.RunsCreateAsync(
-            new RunsCreatePayrollRequest { Year = 1000000, Month = 1000000 }
-        );
+        var response = await Client.Payroll.RunsCreateAsync(new RunsCreatePayrollRequest());
         JsonAssert.AreEqual(response, mockResponse);
     }
 }

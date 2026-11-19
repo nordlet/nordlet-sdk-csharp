@@ -23,6 +23,15 @@ public record AccountsListBankResponseRowsItem : IJsonOnDeserialized
     [JsonPropertyName("iban")]
     public string? Iban { get; set; }
 
+    [JsonPropertyName("bankCode")]
+    public string? BankCode { get; set; }
+
+    [JsonPropertyName("bankAccountNumber")]
+    public string? BankAccountNumber { get; set; }
+
+    [JsonPropertyName("paymentFileSettings")]
+    public required AccountsListBankResponseRowsItemPaymentFileSettings PaymentFileSettings { get; set; }
+
     [JsonPropertyName("currency")]
     public required string Currency { get; set; }
 

@@ -34,7 +34,7 @@ public class ConfigsListTest : BaseMockServerTest
                         "options",
                         "options"
                       ],
-                      "companyField": "code"
+                      "companyField": "companyField"
                     },
                     {
                       "key": "key",
@@ -45,7 +45,7 @@ public class ConfigsListTest : BaseMockServerTest
                         "options",
                         "options"
                       ],
-                      "companyField": "code"
+                      "companyField": "companyField"
                     }
                   ],
                   "endpoints": [
@@ -79,7 +79,7 @@ public class ConfigsListTest : BaseMockServerTest
                         "options",
                         "options"
                       ],
-                      "companyField": "code"
+                      "companyField": "companyField"
                     },
                     {
                       "key": "key",
@@ -90,7 +90,7 @@ public class ConfigsListTest : BaseMockServerTest
                         "options",
                         "options"
                       ],
-                      "companyField": "code"
+                      "companyField": "companyField"
                     }
                   ],
                   "endpoints": [

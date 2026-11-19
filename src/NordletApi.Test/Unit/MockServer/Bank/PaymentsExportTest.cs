@@ -24,11 +24,13 @@ public class PaymentsExportTest : BaseMockServerTest
 
         const string mockResponse = """
             {
+              "format": "pain.001.001.03",
               "messageId": "messageId",
               "fileName": "fileName",
+              "contentType": "contentType",
               "transactionCount": 1000000,
               "controlSum": "controlSum",
-              "xml": "xml"
+              "content": "content"
             }
             """;
 
@@ -77,11 +79,13 @@ public class PaymentsExportTest : BaseMockServerTest
 
         const string mockResponse = """
             {
+              "format": "pain.001.001.03",
               "messageId": "messageId",
               "fileName": "fileName",
+              "contentType": "contentType",
               "transactionCount": 1000000,
               "controlSum": "controlSum",
-              "xml": "xml"
+              "content": "content"
             }
             """;
 

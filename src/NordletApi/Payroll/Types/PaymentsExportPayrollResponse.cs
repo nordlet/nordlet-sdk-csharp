@@ -11,11 +11,17 @@ public record PaymentsExportPayrollResponse : IJsonOnDeserialized
     private readonly IDictionary<string, JsonElement> _extensionData =
         new Dictionary<string, JsonElement>();
 
+    [JsonPropertyName("format")]
+    public required PaymentsExportPayrollResponseFormat Format { get; set; }
+
     [JsonPropertyName("messageId")]
     public required string MessageId { get; set; }
 
     [JsonPropertyName("fileName")]
     public required string FileName { get; set; }
+
+    [JsonPropertyName("contentType")]
+    public required string ContentType { get; set; }
 
     [JsonPropertyName("transactionCount")]
     public required long TransactionCount { get; set; }
@@ -23,8 +29,8 @@ public record PaymentsExportPayrollResponse : IJsonOnDeserialized
     [JsonPropertyName("controlSum")]
     public required string ControlSum { get; set; }
 
-    [JsonPropertyName("xml")]
-    public required string Xml { get; set; }
+    [JsonPropertyName("content")]
+    public required string Content { get; set; }
 
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();

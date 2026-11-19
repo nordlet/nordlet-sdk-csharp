@@ -33,10 +33,22 @@ public record MandatesCancelBankResponse : IJsonOnDeserialized
     public required string DebtorName { get; set; }
 
     [JsonPropertyName("iban")]
-    public required string Iban { get; set; }
+    public string? Iban { get; set; }
 
     [JsonPropertyName("bic")]
     public string? Bic { get; set; }
+
+    [JsonPropertyName("bankCode")]
+    public string? BankCode { get; set; }
+
+    [JsonPropertyName("bankAccountNumber")]
+    public string? BankAccountNumber { get; set; }
+
+    /// <summary>
+    /// Checking or savings account; a US ACH file needs it
+    /// </summary>
+    [JsonPropertyName("accountType")]
+    public MandatesCancelBankResponseAccountType? AccountType { get; set; }
 
     [JsonPropertyName("signatureDate")]
     public required DateOnly SignatureDate { get; set; }
@@ -48,7 +60,13 @@ public record MandatesCancelBankResponse : IJsonOnDeserialized
     public DateOnly? LastCollectionDate { get; set; }
 
     [JsonPropertyName("expiresOn")]
-    public required string ExpiresOn { get; set; }
+    public string? ExpiresOn { get; set; }
+
+    [JsonPropertyName("lodgedOn")]
+    public string? LodgedOn { get; set; }
+
+    [JsonPropertyName("cancellationLodgedOn")]
+    public string? CancellationLodgedOn { get; set; }
 
     [JsonPropertyName("cancelledAt")]
     public DateTime? CancelledAt { get; set; }

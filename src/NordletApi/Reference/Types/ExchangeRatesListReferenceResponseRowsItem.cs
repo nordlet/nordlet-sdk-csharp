@@ -11,6 +11,9 @@ public record ExchangeRatesListReferenceResponseRowsItem : IJsonOnDeserialized
     private readonly IDictionary<string, JsonElement> _extensionData =
         new Dictionary<string, JsonElement>();
 
+    [JsonPropertyName("baseCurrency")]
+    public required string BaseCurrency { get; set; }
+
     [JsonPropertyName("currencyCode")]
     public required string CurrencyCode { get; set; }
 

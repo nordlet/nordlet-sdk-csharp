@@ -6,11 +6,17 @@ namespace NordletApi;
 [Serializable]
 public record RunsCreatePayrollRequest
 {
+    [JsonPropertyName("frequency")]
+    public RunsCreatePayrollRequestFrequency? Frequency { get; set; }
+
     [JsonPropertyName("year")]
-    public required long Year { get; set; }
+    public long? Year { get; set; }
 
     [JsonPropertyName("month")]
-    public required long Month { get; set; }
+    public long? Month { get; set; }
+
+    [JsonPropertyName("periodStart")]
+    public DateOnly? PeriodStart { get; set; }
 
     [JsonPropertyName("includeNatura")]
     public bool? IncludeNatura { get; set; }

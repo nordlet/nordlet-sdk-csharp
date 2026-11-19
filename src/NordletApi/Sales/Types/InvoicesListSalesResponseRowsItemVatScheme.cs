@@ -26,6 +26,10 @@ public readonly record struct InvoicesListSalesResponseRowsItemVatScheme : IStri
         Values.OssUnion
     );
 
+    public static readonly InvoicesListSalesResponseRowsItemVatScheme OssNonUnion = new(
+        Values.OssNonUnion
+    );
+
     public static readonly InvoicesListSalesResponseRowsItemVatScheme Ioss = new(Values.Ioss);
 
     public static readonly InvoicesListSalesResponseRowsItemVatScheme MarketplaceDeemed = new(
@@ -152,6 +156,8 @@ public readonly record struct InvoicesListSalesResponseRowsItemVatScheme : IStri
         public const string ReverseCharge = "reverse_charge";
 
         public const string OssUnion = "oss_union";
+
+        public const string OssNonUnion = "oss_non_union";
 
         public const string Ioss = "ioss";
 

@@ -33,6 +33,24 @@ public record EmployeesCreateHrRequest
     [JsonPropertyName("iban")]
     public string? Iban { get; set; }
 
+    /// <summary>
+    /// Sort code, routing number or other national bank code, for an account without an IBAN
+    /// </summary>
+    [JsonPropertyName("bankCode")]
+    public string? BankCode { get; set; }
+
+    /// <summary>
+    /// Account number, for an account without an IBAN
+    /// </summary>
+    [JsonPropertyName("bankAccountNumber")]
+    public string? BankAccountNumber { get; set; }
+
+    /// <summary>
+    /// Checking or savings account; a US ACH file needs it
+    /// </summary>
+    [JsonPropertyName("bankAccountType")]
+    public EmployeesCreateHrRequestBankAccountType? BankAccountType { get; set; }
+
     [JsonPropertyName("socialInsuranceNo")]
     public string? SocialInsuranceNo { get; set; }
 

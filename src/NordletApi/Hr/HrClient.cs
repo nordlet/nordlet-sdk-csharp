@@ -7688,7 +7688,7 @@ public partial class HrClient : IHrClient
     }
 
     /// <summary>
-    /// Creates an employment contract for an employee. A `permanent` contract takes no `endDate` and a `fixed_term` one requires it; the number comes from `contractNo` or, with `agreementId`, from the employee's agreement; `workHours` defaults by `salaryType`. Answers 422 when the end date is before the start, and 409 when the employee already has a contract overlapping the period (end it with `hr/contracts/end` first) or the contract number already exists.
+    /// Creates an employment contract for an employee. A `permanent` contract takes no `endDate` and a `fixed_term` one requires it; the number comes from `contractNo` or, with `agreementId`, from the employee's agreement; `workHours` defaults by `salaryType`; `payFrequency` (default `monthly`) is the pay period of the payroll runs that pay the contract, one of `payroll/frequencies/list`. Answers 422 when the end date is before the start or the company country's payroll engine does not calculate the pay frequency, and 409 when the employee already has a contract overlapping the period (end it with `hr/contracts/end` first) or the contract number already exists.
     /// </summary>
     /// <example><code>
     /// await client.Hr.ContractsCreateAsync(
@@ -8096,7 +8096,7 @@ public partial class HrClient : IHrClient
     }
 
     /// <summary>
-    /// Creates or replaces the timesheet of an employee for a month from the given days; `workedDays` and `workedHours` count the `work` and `business_trip` days with hours. Answers 422 for a day outside the month, a day given twice or more than 24 hours in a day. `payroll/runs/create` reads the timesheet for the paid days, the days worked and the business-trip days of the month.
+    /// Creates or replaces the timesheet of an employee for a month from the given days; `workedDays` and `workedHours` count the `work` and `business_trip` days with hours. Answers 422 for a day outside the month, a day given twice or more than 24 hours in a day. `payroll/runs/create` reads the timesheets of the months a run's period touches for the paid days, the days worked and the business-trip days of the period.
     /// </summary>
     /// <example><code>
     /// await client.Hr.TimesheetsUpsertAsync(

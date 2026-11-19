@@ -24,11 +24,14 @@ public class DirectDebitsExportTest : BaseMockServerTest
 
         const string mockResponse = """
             {
+              "format": "pain.001.001.03",
               "messageId": "messageId",
               "fileName": "fileName",
+              "contentType": "contentType",
               "transactionCount": 1000000,
               "controlSum": "controlSum",
-              "xml": "xml"
+              "content": "content",
+              "collectionDate": "2023-01-15"
             }
             """;
 
@@ -73,11 +76,14 @@ public class DirectDebitsExportTest : BaseMockServerTest
 
         const string mockResponse = """
             {
+              "format": "pain.001.001.03",
               "messageId": "messageId",
               "fileName": "fileName",
+              "contentType": "contentType",
               "transactionCount": 1000000,
               "controlSum": "controlSum",
-              "xml": "xml"
+              "content": "content",
+              "collectionDate": "2026-07-01"
             }
             """;
 

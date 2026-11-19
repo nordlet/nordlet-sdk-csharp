@@ -20,6 +20,10 @@ public readonly record struct InvoicesUpdateSalesResponseVatScheme : IStringEnum
 
     public static readonly InvoicesUpdateSalesResponseVatScheme OssUnion = new(Values.OssUnion);
 
+    public static readonly InvoicesUpdateSalesResponseVatScheme OssNonUnion = new(
+        Values.OssNonUnion
+    );
+
     public static readonly InvoicesUpdateSalesResponseVatScheme Ioss = new(Values.Ioss);
 
     public static readonly InvoicesUpdateSalesResponseVatScheme MarketplaceDeemed = new(
@@ -138,6 +142,8 @@ public readonly record struct InvoicesUpdateSalesResponseVatScheme : IStringEnum
         public const string ReverseCharge = "reverse_charge";
 
         public const string OssUnion = "oss_union";
+
+        public const string OssNonUnion = "oss_non_union";
 
         public const string Ioss = "ioss";
 

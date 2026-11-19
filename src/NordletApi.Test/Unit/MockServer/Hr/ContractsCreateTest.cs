@@ -35,6 +35,7 @@ public class ContractsCreateTest : BaseMockServerTest
               "endReason": "endReason",
               "baseSalary": "baseSalary",
               "salaryType": "monthly",
+              "payFrequency": "monthly",
               "workHours": "workHours",
               "workHoursUnit": "day",
               "status": "active",
@@ -73,6 +74,7 @@ public class ContractsCreateTest : BaseMockServerTest
                 EndDate = null,
                 BaseSalary = "baseSalary",
                 SalaryType = null,
+                PayFrequency = null,
                 WorkHours = null,
                 Notes = null,
             }
@@ -106,6 +108,7 @@ public class ContractsCreateTest : BaseMockServerTest
               "endReason": "endReason",
               "baseSalary": "baseSalary",
               "salaryType": "monthly",
+              "payFrequency": "monthly",
               "workHours": "workHours",
               "workHoursUnit": "day",
               "status": "active",

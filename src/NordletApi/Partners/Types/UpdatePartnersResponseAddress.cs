@@ -29,6 +29,12 @@ public record UpdatePartnersResponseAddress : IJsonOnDeserialized
     [JsonPropertyName("countryCode")]
     public string? CountryCode { get; set; }
 
+    /// <summary>
+    /// ISO 3166-2 code of the state, province or UK nation, such as US-CA or GB-SCT
+    /// </summary>
+    [JsonPropertyName("subdivision")]
+    public string? Subdivision { get; set; }
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

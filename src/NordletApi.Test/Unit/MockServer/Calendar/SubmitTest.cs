@@ -84,6 +84,7 @@ public class SubmitTest : BaseMockServerTest
                 Amend = null,
                 Correction = null,
                 DocumentKeys = null,
+                Device = null,
             }
         );
         JsonAssert.AreEqual(response, mockResponse);

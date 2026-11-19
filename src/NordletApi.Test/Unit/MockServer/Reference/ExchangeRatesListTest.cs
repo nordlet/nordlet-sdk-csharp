@@ -20,11 +20,13 @@ public class ExchangeRatesListTest : BaseMockServerTest
             {
               "rows": [
                 {
+                  "baseCurrency": "baseCurrency",
                   "currencyCode": "currencyCode",
                   "date": "2023-01-15",
                   "rate": "rate"
                 },
                 {
+                  "baseCurrency": "baseCurrency",
                   "currencyCode": "currencyCode",
                   "date": "2023-01-15",
                   "rate": "rate"
@@ -84,6 +86,7 @@ public class ExchangeRatesListTest : BaseMockServerTest
             {
               "rows": [
                 {
+                  "baseCurrency": "baseCurrency",
                   "currencyCode": "currencyCode",
                   "date": "2026-07-01",
                   "rate": "rate"

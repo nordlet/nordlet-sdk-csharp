@@ -41,6 +41,9 @@ public record ListPartnersResponseRowsItem : IJsonOnDeserialized
     [JsonPropertyName("birthDate")]
     public DateOnly? BirthDate { get; set; }
 
+    [JsonPropertyName("isBusiness")]
+    public bool? IsBusiness { get; set; }
+
     [JsonPropertyName("isCustomer")]
     public required bool IsCustomer { get; set; }
 

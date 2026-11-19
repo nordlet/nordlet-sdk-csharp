@@ -36,7 +36,7 @@ public class ConfigsUpdateTest : BaseMockServerTest
                     "options",
                     "options"
                   ],
-                  "companyField": "code"
+                  "companyField": "companyField"
                 },
                 {
                   "key": "key",
@@ -47,7 +47,7 @@ public class ConfigsUpdateTest : BaseMockServerTest
                     "options",
                     "options"
                   ],
-                  "companyField": "code"
+                  "companyField": "companyField"
                 }
               ],
               "endpoints": [
@@ -121,7 +121,7 @@ public class ConfigsUpdateTest : BaseMockServerTest
                   "options": [
                     "options"
                   ],
-                  "companyField": "code"
+                  "companyField": "companyField"
                 }
               ],
               "endpoints": [

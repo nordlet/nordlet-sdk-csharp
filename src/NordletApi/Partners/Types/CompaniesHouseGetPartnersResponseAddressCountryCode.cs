@@ -5,20 +5,14 @@ using NordletApi.Core;
 namespace NordletApi;
 
 [JsonConverter(
-    typeof(ConfigsListDeclarationsResponseRowsItemFieldsItemCompanyField.ConfigsListDeclarationsResponseRowsItemFieldsItemCompanyFieldSerializer)
+    typeof(CompaniesHouseGetPartnersResponseAddressCountryCode.CompaniesHouseGetPartnersResponseAddressCountryCodeSerializer)
 )]
 [Serializable]
-public readonly record struct ConfigsListDeclarationsResponseRowsItemFieldsItemCompanyField
-    : IStringEnum
+public readonly record struct CompaniesHouseGetPartnersResponseAddressCountryCode : IStringEnum
 {
-    public static readonly ConfigsListDeclarationsResponseRowsItemFieldsItemCompanyField Code = new(
-        Values.Code
-    );
+    public static readonly CompaniesHouseGetPartnersResponseAddressCountryCode Gb = new(Values.Gb);
 
-    public static readonly ConfigsListDeclarationsResponseRowsItemFieldsItemCompanyField VatCode =
-        new(Values.VatCode);
-
-    public ConfigsListDeclarationsResponseRowsItemFieldsItemCompanyField(string value)
+    public CompaniesHouseGetPartnersResponseAddressCountryCode(string value)
     {
         Value = value;
     }
@@ -31,11 +25,9 @@ public readonly record struct ConfigsListDeclarationsResponseRowsItemFieldsItemC
     /// <summary>
     /// Create a string enum with the given value.
     /// </summary>
-    public static ConfigsListDeclarationsResponseRowsItemFieldsItemCompanyField FromCustom(
-        string value
-    )
+    public static CompaniesHouseGetPartnersResponseAddressCountryCode FromCustom(string value)
     {
-        return new ConfigsListDeclarationsResponseRowsItemFieldsItemCompanyField(value);
+        return new CompaniesHouseGetPartnersResponseAddressCountryCode(value);
     }
 
     public bool Equals(string? other)
@@ -52,27 +44,27 @@ public readonly record struct ConfigsListDeclarationsResponseRowsItemFieldsItemC
     }
 
     public static bool operator ==(
-        ConfigsListDeclarationsResponseRowsItemFieldsItemCompanyField value1,
+        CompaniesHouseGetPartnersResponseAddressCountryCode value1,
         string value2
     ) => value1.Value.Equals(value2);
 
     public static bool operator !=(
-        ConfigsListDeclarationsResponseRowsItemFieldsItemCompanyField value1,
+        CompaniesHouseGetPartnersResponseAddressCountryCode value1,
         string value2
     ) => !value1.Value.Equals(value2);
 
     public static explicit operator string(
-        ConfigsListDeclarationsResponseRowsItemFieldsItemCompanyField value
+        CompaniesHouseGetPartnersResponseAddressCountryCode value
     ) => value.Value;
 
-    public static explicit operator ConfigsListDeclarationsResponseRowsItemFieldsItemCompanyField(
+    public static explicit operator CompaniesHouseGetPartnersResponseAddressCountryCode(
         string value
     ) => new(value);
 
-    internal class ConfigsListDeclarationsResponseRowsItemFieldsItemCompanyFieldSerializer
-        : JsonConverter<ConfigsListDeclarationsResponseRowsItemFieldsItemCompanyField>
+    internal class CompaniesHouseGetPartnersResponseAddressCountryCodeSerializer
+        : JsonConverter<CompaniesHouseGetPartnersResponseAddressCountryCode>
     {
-        public override ConfigsListDeclarationsResponseRowsItemFieldsItemCompanyField Read(
+        public override CompaniesHouseGetPartnersResponseAddressCountryCode Read(
             ref Utf8JsonReader reader,
             Type typeToConvert,
             JsonSerializerOptions options
@@ -83,19 +75,19 @@ public readonly record struct ConfigsListDeclarationsResponseRowsItemFieldsItemC
                 ?? throw new global::System.Exception(
                     "The JSON value could not be read as a string."
                 );
-            return new ConfigsListDeclarationsResponseRowsItemFieldsItemCompanyField(stringValue);
+            return new CompaniesHouseGetPartnersResponseAddressCountryCode(stringValue);
         }
 
         public override void Write(
             Utf8JsonWriter writer,
-            ConfigsListDeclarationsResponseRowsItemFieldsItemCompanyField value,
+            CompaniesHouseGetPartnersResponseAddressCountryCode value,
             JsonSerializerOptions options
         )
         {
             writer.WriteStringValue(value.Value);
         }
 
-        public override ConfigsListDeclarationsResponseRowsItemFieldsItemCompanyField ReadAsPropertyName(
+        public override CompaniesHouseGetPartnersResponseAddressCountryCode ReadAsPropertyName(
             ref Utf8JsonReader reader,
             Type typeToConvert,
             JsonSerializerOptions options
@@ -106,12 +98,12 @@ public readonly record struct ConfigsListDeclarationsResponseRowsItemFieldsItemC
                 ?? throw new global::System.Exception(
                     "The JSON property name could not be read as a string."
                 );
-            return new ConfigsListDeclarationsResponseRowsItemFieldsItemCompanyField(stringValue);
+            return new CompaniesHouseGetPartnersResponseAddressCountryCode(stringValue);
         }
 
         public override void WriteAsPropertyName(
             Utf8JsonWriter writer,
-            ConfigsListDeclarationsResponseRowsItemFieldsItemCompanyField value,
+            CompaniesHouseGetPartnersResponseAddressCountryCode value,
             JsonSerializerOptions options
         )
         {
@@ -125,8 +117,6 @@ public readonly record struct ConfigsListDeclarationsResponseRowsItemFieldsItemC
     [Serializable]
     public static class Values
     {
-        public const string Code = "code";
-
-        public const string VatCode = "vatCode";
+        public const string Gb = "GB";
     }
 }

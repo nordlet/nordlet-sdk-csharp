@@ -5,20 +5,20 @@ using NordletApi.Core;
 namespace NordletApi;
 
 [JsonConverter(
-    typeof(ConfigsUpdateDeclarationsResponseFieldsItemCompanyField.ConfigsUpdateDeclarationsResponseFieldsItemCompanyFieldSerializer)
+    typeof(BankAccountsCreatePartnersResponseAccountType.BankAccountsCreatePartnersResponseAccountTypeSerializer)
 )]
 [Serializable]
-public readonly record struct ConfigsUpdateDeclarationsResponseFieldsItemCompanyField : IStringEnum
+public readonly record struct BankAccountsCreatePartnersResponseAccountType : IStringEnum
 {
-    public static readonly ConfigsUpdateDeclarationsResponseFieldsItemCompanyField Code = new(
-        Values.Code
+    public static readonly BankAccountsCreatePartnersResponseAccountType Checking = new(
+        Values.Checking
     );
 
-    public static readonly ConfigsUpdateDeclarationsResponseFieldsItemCompanyField VatCode = new(
-        Values.VatCode
+    public static readonly BankAccountsCreatePartnersResponseAccountType Savings = new(
+        Values.Savings
     );
 
-    public ConfigsUpdateDeclarationsResponseFieldsItemCompanyField(string value)
+    public BankAccountsCreatePartnersResponseAccountType(string value)
     {
         Value = value;
     }
@@ -31,9 +31,9 @@ public readonly record struct ConfigsUpdateDeclarationsResponseFieldsItemCompany
     /// <summary>
     /// Create a string enum with the given value.
     /// </summary>
-    public static ConfigsUpdateDeclarationsResponseFieldsItemCompanyField FromCustom(string value)
+    public static BankAccountsCreatePartnersResponseAccountType FromCustom(string value)
     {
-        return new ConfigsUpdateDeclarationsResponseFieldsItemCompanyField(value);
+        return new BankAccountsCreatePartnersResponseAccountType(value);
     }
 
     public bool Equals(string? other)
@@ -50,27 +50,25 @@ public readonly record struct ConfigsUpdateDeclarationsResponseFieldsItemCompany
     }
 
     public static bool operator ==(
-        ConfigsUpdateDeclarationsResponseFieldsItemCompanyField value1,
+        BankAccountsCreatePartnersResponseAccountType value1,
         string value2
     ) => value1.Value.Equals(value2);
 
     public static bool operator !=(
-        ConfigsUpdateDeclarationsResponseFieldsItemCompanyField value1,
+        BankAccountsCreatePartnersResponseAccountType value1,
         string value2
     ) => !value1.Value.Equals(value2);
 
-    public static explicit operator string(
-        ConfigsUpdateDeclarationsResponseFieldsItemCompanyField value
-    ) => value.Value;
+    public static explicit operator string(BankAccountsCreatePartnersResponseAccountType value) =>
+        value.Value;
 
-    public static explicit operator ConfigsUpdateDeclarationsResponseFieldsItemCompanyField(
-        string value
-    ) => new(value);
+    public static explicit operator BankAccountsCreatePartnersResponseAccountType(string value) =>
+        new(value);
 
-    internal class ConfigsUpdateDeclarationsResponseFieldsItemCompanyFieldSerializer
-        : JsonConverter<ConfigsUpdateDeclarationsResponseFieldsItemCompanyField>
+    internal class BankAccountsCreatePartnersResponseAccountTypeSerializer
+        : JsonConverter<BankAccountsCreatePartnersResponseAccountType>
     {
-        public override ConfigsUpdateDeclarationsResponseFieldsItemCompanyField Read(
+        public override BankAccountsCreatePartnersResponseAccountType Read(
             ref Utf8JsonReader reader,
             Type typeToConvert,
             JsonSerializerOptions options
@@ -81,19 +79,19 @@ public readonly record struct ConfigsUpdateDeclarationsResponseFieldsItemCompany
                 ?? throw new global::System.Exception(
                     "The JSON value could not be read as a string."
                 );
-            return new ConfigsUpdateDeclarationsResponseFieldsItemCompanyField(stringValue);
+            return new BankAccountsCreatePartnersResponseAccountType(stringValue);
         }
 
         public override void Write(
             Utf8JsonWriter writer,
-            ConfigsUpdateDeclarationsResponseFieldsItemCompanyField value,
+            BankAccountsCreatePartnersResponseAccountType value,
             JsonSerializerOptions options
         )
         {
             writer.WriteStringValue(value.Value);
         }
 
-        public override ConfigsUpdateDeclarationsResponseFieldsItemCompanyField ReadAsPropertyName(
+        public override BankAccountsCreatePartnersResponseAccountType ReadAsPropertyName(
             ref Utf8JsonReader reader,
             Type typeToConvert,
             JsonSerializerOptions options
@@ -104,12 +102,12 @@ public readonly record struct ConfigsUpdateDeclarationsResponseFieldsItemCompany
                 ?? throw new global::System.Exception(
                     "The JSON property name could not be read as a string."
                 );
-            return new ConfigsUpdateDeclarationsResponseFieldsItemCompanyField(stringValue);
+            return new BankAccountsCreatePartnersResponseAccountType(stringValue);
         }
 
         public override void WriteAsPropertyName(
             Utf8JsonWriter writer,
-            ConfigsUpdateDeclarationsResponseFieldsItemCompanyField value,
+            BankAccountsCreatePartnersResponseAccountType value,
             JsonSerializerOptions options
         )
         {
@@ -123,8 +121,8 @@ public readonly record struct ConfigsUpdateDeclarationsResponseFieldsItemCompany
     [Serializable]
     public static class Values
     {
-        public const string Code = "code";
+        public const string Checking = "checking";
 
-        public const string VatCode = "vatCode";
+        public const string Savings = "savings";
     }
 }

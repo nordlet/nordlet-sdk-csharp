@@ -41,6 +41,18 @@ public record EmployeesAnonymizeHrResponse : IJsonOnDeserialized
     [JsonPropertyName("iban")]
     public string? Iban { get; set; }
 
+    [JsonPropertyName("bankCode")]
+    public string? BankCode { get; set; }
+
+    [JsonPropertyName("bankAccountNumber")]
+    public string? BankAccountNumber { get; set; }
+
+    /// <summary>
+    /// Checking or savings account; a US ACH file needs it
+    /// </summary>
+    [JsonPropertyName("bankAccountType")]
+    public EmployeesAnonymizeHrResponseBankAccountType? BankAccountType { get; set; }
+
     [JsonPropertyName("socialInsuranceNo")]
     public string? SocialInsuranceNo { get; set; }
 

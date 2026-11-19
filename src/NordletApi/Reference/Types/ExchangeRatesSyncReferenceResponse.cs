@@ -14,6 +14,9 @@ public record ExchangeRatesSyncReferenceResponse : IJsonOnDeserialized
     [JsonPropertyName("date")]
     public required DateOnly Date { get; set; }
 
+    [JsonPropertyName("baseCurrency")]
+    public required string BaseCurrency { get; set; }
+
     [JsonPropertyName("imported")]
     public required long Imported { get; set; }
 

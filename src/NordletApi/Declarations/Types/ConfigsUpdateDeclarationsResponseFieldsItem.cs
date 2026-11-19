@@ -30,10 +30,10 @@ public record ConfigsUpdateDeclarationsResponseFieldsItem : IJsonOnDeserialized
     public IEnumerable<string>? Options { get; set; }
 
     /// <summary>
-    /// The company profile field the value is taken from; change it with `account/companies/update`
+    /// The company profile field the value is taken from: `code`, `vatCode`, or `identifiers.&lt;key&gt;` for an entry of `identifiers`; change it with `account/companies/update`
     /// </summary>
     [JsonPropertyName("companyField")]
-    public ConfigsUpdateDeclarationsResponseFieldsItemCompanyField? CompanyField { get; set; }
+    public string? CompanyField { get; set; }
 
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();

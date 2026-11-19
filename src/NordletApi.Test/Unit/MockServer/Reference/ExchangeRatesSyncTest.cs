@@ -19,6 +19,7 @@ public class ExchangeRatesSyncTest : BaseMockServerTest
         const string mockResponse = """
             {
               "date": "2023-01-15",
+              "baseCurrency": "baseCurrency",
               "imported": 1000000
             }
             """;
@@ -55,6 +56,7 @@ public class ExchangeRatesSyncTest : BaseMockServerTest
         const string mockResponse = """
             {
               "date": "2026-07-01",
+              "baseCurrency": "baseCurrency",
               "imported": 1000000
             }
             """;

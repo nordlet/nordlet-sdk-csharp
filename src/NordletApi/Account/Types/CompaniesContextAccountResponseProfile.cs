@@ -23,6 +23,9 @@ public record CompaniesContextAccountResponseProfile : IJsonOnDeserialized
     [JsonPropertyName("vatCode")]
     public string? VatCode { get; set; }
 
+    [JsonPropertyName("identifiers")]
+    public Dictionary<string, string> Identifiers { get; set; } = new Dictionary<string, string>();
+
     [JsonPropertyName("smeExemptionNumber")]
     public string? SmeExemptionNumber { get; set; }
 
@@ -45,10 +48,10 @@ public record CompaniesContextAccountResponseProfile : IJsonOnDeserialized
     public required string ChartTemplate { get; set; }
 
     /// <summary>
-    /// Chart of accounts template of the company country
+    /// Chart of accounts template of the company country; null when Nordlet has no chart for it
     /// </summary>
     [JsonPropertyName("countryChartTemplate")]
-    public required string CountryChartTemplate { get; set; }
+    public string? CountryChartTemplate { get; set; }
 
     [JsonPropertyName("baseCurrency")]
     public required string BaseCurrency { get; set; }
@@ -131,8 +134,20 @@ public record CompaniesContextAccountResponseProfile : IJsonOnDeserialized
     [JsonPropertyName("vatPeriod")]
     public CompaniesContextAccountResponseProfileVatPeriod? VatPeriod { get; set; }
 
+    [JsonPropertyName("vatPeriodEndMonth")]
+    public long? VatPeriodEndMonth { get; set; }
+
     [JsonPropertyName("fiscalYearEndMonth")]
     public long? FiscalYearEndMonth { get; set; }
+
+    [JsonPropertyName("fiscalYearEndDay")]
+    public long? FiscalYearEndDay { get; set; }
+
+    [JsonPropertyName("fiscalYearWeekday")]
+    public long? FiscalYearWeekday { get; set; }
+
+    [JsonPropertyName("fiscalYearWeekRule")]
+    public CompaniesContextAccountResponseProfileFiscalYearWeekRule? FiscalYearWeekRule { get; set; }
 
     [JsonPropertyName("timeZone")]
     public required string TimeZone { get; set; }

@@ -20,6 +20,21 @@ public record RunsApprovePayrollResponse : IJsonOnDeserialized
     [JsonPropertyName("month")]
     public required long Month { get; set; }
 
+    [JsonPropertyName("frequency")]
+    public required RunsApprovePayrollResponseFrequency Frequency { get; set; }
+
+    [JsonPropertyName("periodStart")]
+    public required string PeriodStart { get; set; }
+
+    [JsonPropertyName("periodEnd")]
+    public required string PeriodEnd { get; set; }
+
+    [JsonPropertyName("taxYear")]
+    public required long TaxYear { get; set; }
+
+    [JsonPropertyName("taxPeriod")]
+    public long? TaxPeriod { get; set; }
+
     [JsonPropertyName("countryCode")]
     public required string CountryCode { get; set; }
 

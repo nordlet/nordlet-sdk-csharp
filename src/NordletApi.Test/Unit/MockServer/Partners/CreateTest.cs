@@ -30,6 +30,7 @@ public class CreateTest : BaseMockServerTest
               "phone": "phone",
               "selfEmploymentCertNo": "selfEmploymentCertNo",
               "birthDate": "2023-01-15",
+              "isBusiness": true,
               "isCustomer": true,
               "isSupplier": true,
               "paymentTermDays": 1000000,
@@ -47,7 +48,8 @@ public class CreateTest : BaseMockServerTest
                 "municipality": "municipality",
                 "county": "county",
                 "postalCode": "postalCode",
-                "countryCode": "xy"
+                "countryCode": "xy",
+                "subdivision": "subdivision"
               },
               "correspondenceAddress": {
                 "street": "street",
@@ -55,7 +57,8 @@ public class CreateTest : BaseMockServerTest
                 "municipality": "municipality",
                 "county": "county",
                 "postalCode": "postalCode",
-                "countryCode": "xy"
+                "countryCode": "xy",
+                "subdivision": "subdivision"
               },
               "notes": "notes",
               "documentRef": "documentRef",
@@ -106,6 +109,7 @@ public class CreateTest : BaseMockServerTest
                 Phone = null,
                 SelfEmploymentCertNo = null,
                 BirthDate = null,
+                IsBusiness = null,
                 IsCustomer = null,
                 IsSupplier = null,
                 PaymentTermDays = null,
@@ -159,6 +163,7 @@ public class CreateTest : BaseMockServerTest
               "phone": "phone",
               "selfEmploymentCertNo": "selfEmploymentCertNo",
               "birthDate": "2026-07-01",
+              "isBusiness": true,
               "isCustomer": true,
               "isSupplier": true,
               "paymentTermDays": 1000000,
@@ -176,7 +181,8 @@ public class CreateTest : BaseMockServerTest
                 "municipality": "municipality",
                 "county": "county",
                 "postalCode": "postalCode",
-                "countryCode": "countryCode"
+                "countryCode": "countryCode",
+                "subdivision": "subdivision"
               },
               "correspondenceAddress": {
                 "street": "street",
@@ -184,7 +190,8 @@ public class CreateTest : BaseMockServerTest
                 "municipality": "municipality",
                 "county": "county",
                 "postalCode": "postalCode",
-                "countryCode": "countryCode"
+                "countryCode": "countryCode",
+                "subdivision": "subdivision"
               },
               "notes": "notes",
               "documentRef": "documentRef",
