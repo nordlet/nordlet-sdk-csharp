@@ -24,7 +24,14 @@ public class UsDeWithholdingGetTest : BaseMockServerTest
               "to": "to",
               "employees": 1.1,
               "wages": "wages",
-              "taxWithheld": "taxWithheld"
+              "taxWithheld": "taxWithheld",
+              "wthTax": {
+                "taxpayerId": "taxpayerId",
+                "taxPeriodBeginning": "taxPeriodBeginning",
+                "taxPeriodEnding": "taxPeriodEnding",
+                "line1": "line1",
+                "line2": "line2"
+              }
             }
             """;
 
@@ -65,7 +72,14 @@ public class UsDeWithholdingGetTest : BaseMockServerTest
               "to": "to",
               "employees": 1.1,
               "wages": "wages",
-              "taxWithheld": "taxWithheld"
+              "taxWithheld": "taxWithheld",
+              "wthTax": {
+                "taxpayerId": "taxpayerId",
+                "taxPeriodBeginning": "taxPeriodBeginning",
+                "taxPeriodEnding": "taxPeriodEnding",
+                "line1": "line1",
+                "line2": "line2"
+              }
             }
             """;
 

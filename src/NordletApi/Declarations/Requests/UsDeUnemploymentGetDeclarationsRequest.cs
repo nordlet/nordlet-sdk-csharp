@@ -12,6 +12,15 @@ public record UsDeUnemploymentGetDeclarationsRequest
     [JsonPropertyName("quarter")]
     public required long Quarter { get; set; }
 
+    [JsonPropertyName("approvedCredit")]
+    public string? ApprovedCredit { get; set; }
+
+    [JsonPropertyName("interest")]
+    public string? Interest { get; set; }
+
+    [JsonPropertyName("penalty")]
+    public string? Penalty { get; set; }
+
     /// <inheritdoc />
     public override string ToString()
     {

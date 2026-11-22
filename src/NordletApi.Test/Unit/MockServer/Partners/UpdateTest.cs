@@ -76,6 +76,9 @@ public class UpdateTest : BaseMockServerTest
               "isGroupMember": true,
               "isActive": true,
               "legalCountryClass": "lt",
+              "identifiers": {
+                "identifiers": "identifiers"
+              },
               "createdAt": "2024-01-15T09:30:00.000Z",
               "updatedAt": "2024-01-15T09:30:00.000Z"
             }
@@ -138,6 +141,7 @@ public class UpdateTest : BaseMockServerTest
                 IsGroupMember = null,
                 IsActive = null,
                 LegalCountryClass = null,
+                Identifiers = null,
             }
         );
         JsonAssert.AreEqual(response, mockResponse);
@@ -210,6 +214,9 @@ public class UpdateTest : BaseMockServerTest
               "isGroupMember": true,
               "isActive": true,
               "legalCountryClass": "lt",
+              "identifiers": {
+                "key": "value"
+              },
               "createdAt": "2026-07-01T09:30:00.000Z",
               "updatedAt": "2026-07-01T09:30:00.000Z"
             }

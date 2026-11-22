@@ -87,6 +87,15 @@ public record InvoicesUpdateSalesRequest
     [JsonPropertyName("salesTaxPercent")]
     public string? SalesTaxPercent { get; set; }
 
+    /// <summary>
+    /// The US state the sales tax is collected for, as an ISO 3166-2 code such as `US-CA`
+    /// </summary>
+    [JsonPropertyName("salesTaxJurisdiction")]
+    public string? SalesTaxJurisdiction { get; set; }
+
+    [JsonPropertyName("deliveryAddress")]
+    public InvoicesUpdateSalesRequestDeliveryAddress? DeliveryAddress { get; set; }
+
     [JsonPropertyName("lines")]
     public IEnumerable<InvoicesUpdateSalesRequestLinesItem>? Lines { get; set; }
 

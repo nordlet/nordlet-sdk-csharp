@@ -26,6 +26,9 @@ public record UsDeWithholdingGetDeclarationsResponse : IJsonOnDeserialized
     [JsonPropertyName("taxWithheld")]
     public required string TaxWithheld { get; set; }
 
+    [JsonPropertyName("wthTax")]
+    public required UsDeWithholdingGetDeclarationsResponseWthTax WthTax { get; set; }
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

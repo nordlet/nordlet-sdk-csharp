@@ -42,7 +42,79 @@ public class UsDeUnemploymentGetTest : BaseMockServerTest
                   "lastName": "lastName",
                   "wages": "wages"
                 }
-              ]
+              ],
+              "uc8": {
+                "reportingPeriod": "reportingPeriod",
+                "accountNo": "accountNo",
+                "federalIdNumber": "federalIdNumber",
+                "taxRate": "taxRate",
+                "line1": [
+                  1.1,
+                  1.1
+                ],
+                "line2": "line2",
+                "line3": "line3",
+                "line4": "line4",
+                "line5": "line5",
+                "line6": "line6",
+                "line7": "line7",
+                "line8": "line8",
+                "line9": "line9",
+                "line10": "line10"
+              },
+              "uc8a": {
+                "pages": [
+                  {
+                    "rows": [
+                      {
+                        "line": 1.1,
+                        "socialSecurityNumber": "socialSecurityNumber",
+                        "firstInitial": "firstInitial",
+                        "middleInitial": "middleInitial",
+                        "lastName": "lastName",
+                        "grossCoveredWages": "grossCoveredWages"
+                      },
+                      {
+                        "line": 1.1,
+                        "socialSecurityNumber": "socialSecurityNumber",
+                        "firstInitial": "firstInitial",
+                        "middleInitial": "middleInitial",
+                        "lastName": "lastName",
+                        "grossCoveredWages": "grossCoveredWages"
+                      }
+                    ],
+                    "line31": "line31"
+                  },
+                  {
+                    "rows": [
+                      {
+                        "line": 1.1,
+                        "socialSecurityNumber": "socialSecurityNumber",
+                        "firstInitial": "firstInitial",
+                        "middleInitial": "middleInitial",
+                        "lastName": "lastName",
+                        "grossCoveredWages": "grossCoveredWages"
+                      },
+                      {
+                        "line": 1.1,
+                        "socialSecurityNumber": "socialSecurityNumber",
+                        "firstInitial": "firstInitial",
+                        "middleInitial": "middleInitial",
+                        "lastName": "lastName",
+                        "grossCoveredWages": "grossCoveredWages"
+                      }
+                    ],
+                    "line31": "line31"
+                  }
+                ],
+                "line32": "line32",
+                "line33": "line33"
+              },
+              "warnings": [
+                "warnings",
+                "warnings"
+              ],
+              "source": "source"
             }
             """;
 
@@ -63,7 +135,14 @@ public class UsDeUnemploymentGetTest : BaseMockServerTest
             );
 
         var response = await Client.Declarations.UsDeUnemploymentGetAsync(
-            new UsDeUnemploymentGetDeclarationsRequest { Year = 1000000, Quarter = 1000000 }
+            new UsDeUnemploymentGetDeclarationsRequest
+            {
+                Year = 1000000,
+                Quarter = 1000000,
+                ApprovedCredit = null,
+                Interest = null,
+                Penalty = null,
+            }
         );
         JsonAssert.AreEqual(response, mockResponse);
     }
@@ -94,7 +173,46 @@ public class UsDeUnemploymentGetTest : BaseMockServerTest
                   "lastName": "lastName",
                   "wages": "wages"
                 }
-              ]
+              ],
+              "uc8": {
+                "reportingPeriod": "reportingPeriod",
+                "accountNo": "accountNo",
+                "federalIdNumber": "federalIdNumber",
+                "taxRate": "taxRate",
+                "line1": [
+                  1.1
+                ],
+                "line2": "line2",
+                "line3": "line3",
+                "line4": "line4",
+                "line5": "line5",
+                "line6": "line6",
+                "line7": "line7",
+                "line8": "line8",
+                "line9": "line9",
+                "line10": "line10"
+              },
+              "uc8a": {
+                "pages": [
+                  {
+                    "rows": [
+                      {
+                        "line": 1.1,
+                        "firstInitial": "firstInitial",
+                        "lastName": "lastName",
+                        "grossCoveredWages": "grossCoveredWages"
+                      }
+                    ],
+                    "line31": "line31"
+                  }
+                ],
+                "line32": "line32",
+                "line33": "line33"
+              },
+              "warnings": [
+                "warnings"
+              ],
+              "source": "source"
             }
             """;
 

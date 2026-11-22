@@ -41,6 +41,15 @@ public class InvoicesCreateTest : BaseMockServerTest
               "grossTotal": "grossTotal",
               "salesTaxPercent": "salesTaxPercent",
               "salesTaxTotal": "salesTaxTotal",
+              "salesTaxJurisdiction": "salesTaxJurisdiction",
+              "salesTaxExemptionId": "x",
+              "deliveryAddress": {
+                "street": "street",
+                "city": "city",
+                "postalCode": "postalCode",
+                "countryCode": "xy",
+                "subdivision": "subdivision"
+              },
               "paidAmount": "paidAmount",
               "journalTransactionId": "x",
               "reversedAt": "2024-01-15T09:30:00.000Z",
@@ -283,6 +292,8 @@ public class InvoicesCreateTest : BaseMockServerTest
                 ReceivedByTitle = null,
                 DiscountPercent = null,
                 SalesTaxPercent = null,
+                SalesTaxJurisdiction = null,
+                DeliveryAddress = null,
                 Lines = new List<InvoicesCreateSalesRequestLinesItem>()
                 {
                     new InvoicesCreateSalesRequestLinesItem
@@ -358,6 +369,15 @@ public class InvoicesCreateTest : BaseMockServerTest
               "grossTotal": "grossTotal",
               "salesTaxPercent": "salesTaxPercent",
               "salesTaxTotal": "salesTaxTotal",
+              "salesTaxJurisdiction": "salesTaxJurisdiction",
+              "salesTaxExemptionId": "salesTaxExemptionId",
+              "deliveryAddress": {
+                "street": "street",
+                "city": "city",
+                "postalCode": "postalCode",
+                "countryCode": "countryCode",
+                "subdivision": "subdivision"
+              },
               "paidAmount": "paidAmount",
               "journalTransactionId": "journalTransactionId",
               "reversedAt": "2026-07-01T09:30:00.000Z",

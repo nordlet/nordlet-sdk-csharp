@@ -62,6 +62,15 @@ public record InvoicesGetSalesResponse : IJsonOnDeserialized
     [JsonPropertyName("salesTaxTotal")]
     public required string SalesTaxTotal { get; set; }
 
+    [JsonPropertyName("salesTaxJurisdiction")]
+    public string? SalesTaxJurisdiction { get; set; }
+
+    [JsonPropertyName("salesTaxExemptionId")]
+    public string? SalesTaxExemptionId { get; set; }
+
+    [JsonPropertyName("deliveryAddress")]
+    public InvoicesGetSalesResponseDeliveryAddress? DeliveryAddress { get; set; }
+
     [JsonPropertyName("paidAmount")]
     public required string PaidAmount { get; set; }
 

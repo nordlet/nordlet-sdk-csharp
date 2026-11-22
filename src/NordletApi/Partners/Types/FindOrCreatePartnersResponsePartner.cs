@@ -131,6 +131,9 @@ public record FindOrCreatePartnersResponsePartner : IJsonOnDeserialized
     [JsonPropertyName("legalCountryClass")]
     public FindOrCreatePartnersResponsePartnerLegalCountryClass? LegalCountryClass { get; set; }
 
+    [JsonPropertyName("identifiers")]
+    public Dictionary<string, string> Identifiers { get; set; } = new Dictionary<string, string>();
+
     [JsonPropertyName("createdAt")]
     public required DateTime CreatedAt { get; set; }
 

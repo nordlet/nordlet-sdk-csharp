@@ -33,6 +33,18 @@ public record UsDeUnemploymentGetDeclarationsResponse : IJsonOnDeserialized
     public IEnumerable<UsDeUnemploymentGetDeclarationsResponseEmployeesItem> Employees { get; set; } =
         new List<UsDeUnemploymentGetDeclarationsResponseEmployeesItem>();
 
+    [JsonPropertyName("uc8")]
+    public required UsDeUnemploymentGetDeclarationsResponseUc8 Uc8 { get; set; }
+
+    [JsonPropertyName("uc8a")]
+    public required UsDeUnemploymentGetDeclarationsResponseUc8A Uc8A { get; set; }
+
+    [JsonPropertyName("warnings")]
+    public IEnumerable<string> Warnings { get; set; } = new List<string>();
+
+    [JsonPropertyName("source")]
+    public required string Source { get; set; }
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 
