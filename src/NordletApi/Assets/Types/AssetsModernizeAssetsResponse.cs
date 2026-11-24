@@ -93,6 +93,9 @@ public record AssetsModernizeAssetsResponse : IJsonOnDeserialized
     [JsonPropertyName("disposalSaleInvoiceId")]
     public string? DisposalSaleInvoiceId { get; set; }
 
+    [JsonPropertyName("purchaseInvoiceLineId")]
+    public string? PurchaseInvoiceLineId { get; set; }
+
     [JsonPropertyName("createdAt")]
     public required DateTime CreatedAt { get; set; }
 

@@ -26,6 +26,10 @@ public readonly record struct PostingRulesUpdateLedgerRequestRulesItemKey : IStr
         Values.SalesVatPayable
     );
 
+    public static readonly PostingRulesUpdateLedgerRequestRulesItemKey SalesOssVatPayable = new(
+        Values.SalesOssVatPayable
+    );
+
     public static readonly PostingRulesUpdateLedgerRequestRulesItemKey SalesAdvancesReceived = new(
         Values.SalesAdvancesReceived
     );
@@ -300,6 +304,8 @@ public readonly record struct PostingRulesUpdateLedgerRequestRulesItemKey : IStr
         public const string SalesRevenueServices = "sales.revenueServices";
 
         public const string SalesVatPayable = "sales.vatPayable";
+
+        public const string SalesOssVatPayable = "sales.ossVatPayable";
 
         public const string SalesAdvancesReceived = "sales.advancesReceived";
 

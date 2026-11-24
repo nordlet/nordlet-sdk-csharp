@@ -47,6 +47,9 @@ public record ItemsCreateCatalogResponse : IJsonOnDeserialized
     [JsonPropertyName("cnCode")]
     public string? CnCode { get; set; }
 
+    [JsonPropertyName("cpaCode")]
+    public string? CpaCode { get; set; }
+
     [JsonPropertyName("originCountry")]
     public string? OriginCountry { get; set; }
 

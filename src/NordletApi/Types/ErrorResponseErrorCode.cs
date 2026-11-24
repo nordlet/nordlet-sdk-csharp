@@ -30,6 +30,10 @@ public readonly record struct ErrorResponseErrorCode : IStringEnum
 
     public static readonly ErrorResponseErrorCode PaymentRequired = new(Values.PaymentRequired);
 
+    public static readonly ErrorResponseErrorCode ConfirmationRequired = new(
+        Values.ConfirmationRequired
+    );
+
     public static readonly ErrorResponseErrorCode Internal = new(Values.Internal);
 
     public ErrorResponseErrorCode(string value)
@@ -145,6 +149,8 @@ public readonly record struct ErrorResponseErrorCode : IStringEnum
         public const string RateLimited = "rate_limited";
 
         public const string PaymentRequired = "payment_required";
+
+        public const string ConfirmationRequired = "confirmation_required";
 
         public const string Internal = "internal";
     }

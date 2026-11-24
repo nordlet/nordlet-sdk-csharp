@@ -93,6 +93,33 @@ public partial interface IAgreementsClient
     );
 
     /// <summary>
+    /// The schedule of the supplier invoices an agreement with a `billingPeriod` leads you to expect, such as a lease: each period from `startDate` up to `to` (default today), on the grid of `agreements/agreements/generate-invoice` (prorated by days when cut by `endDate`, an `autoRenew` agreement continuing by whole terms), with `expectedNet`, the sum of quantity times unit price of the agreement items, else `value`, times the prorated share, rounded to the cent (null when an item has no unit price or the agreement has neither), and the purchase invoices registered for the period: those created or updated with this `agreementId` and the period's `periodStart` as `agreementPeriodStart`. A period without one is `missing`. Answers 404 for an unknown agreement and 422 when it has no `billingPeriod`.
+    /// </summary>
+    WithRawResponseTask<AgreementsExpectedInvoicesAgreementsResponse> AgreementsExpectedInvoicesAsync(
+        AgreementsExpectedInvoicesAgreementsRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    /// <summary>
+    /// Keep the repayment schedule of a loan or lease agreement as the lender or lessor gives it: one row per instalment with its `dueDate`, the `principal` it repays and the `interest` it pays. The rows replace the agreement's earlier schedule; an empty list removes it. Nordlet does not compute instalments, because the interest rate, day count and rounding are the lender's. Answers 404 for an unknown agreement and 422 when two rows have the same `dueDate`.
+    /// </summary>
+    WithRawResponseTask<AgreementsPaymentScheduleSetAgreementsResponse> AgreementsPaymentScheduleSetAsync(
+        AgreementsPaymentScheduleSetAgreementsRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    /// <summary>
+    /// The repayment schedule kept with `agreements/agreements/payment-schedule/set`, by due date, with each instalment's total and, when the agreement has a `value` (the amount lent or financed), the principal outstanding after it. Answers 404 for an unknown agreement.
+    /// </summary>
+    WithRawResponseTask<AgreementsPaymentScheduleGetAgreementsResponse> AgreementsPaymentScheduleGetAsync(
+        AgreementsPaymentScheduleGetAgreementsRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    /// <summary>
     /// Generate the invoices due up to `asOfDate` (default today) for every active agreement of the company that has a partner and a billing period, one invoice per period and at most 60 per agreement in one run, in the same way as `agreements/agreements/generate-invoice`. An agreement that is fully billed and whose `endDate` has passed is set to `expired`. A failing agreement is listed in `errors` and does not stop the run. Each invoice emits `agreement.invoice_generated`.
     /// </summary>
     WithRawResponseTask<AgreementsBillingRunAgreementsResponse> AgreementsBillingRunAsync(

@@ -80,6 +80,7 @@ public class AssetsInputVatTest : BaseMockServerTest
               "disposalProceeds": "disposalProceeds",
               "disposalJournalTransactionId": "disposalJournalTransactionId",
               "disposalSaleInvoiceId": "disposalSaleInvoiceId",
+              "purchaseInvoiceLineId": "purchaseInvoiceLineId",
               "createdAt": "2024-01-15T09:30:00.000Z"
             }
             """;
@@ -185,6 +186,7 @@ public class AssetsInputVatTest : BaseMockServerTest
               "disposalProceeds": "disposalProceeds",
               "disposalJournalTransactionId": "disposalJournalTransactionId",
               "disposalSaleInvoiceId": "disposalSaleInvoiceId",
+              "purchaseInvoiceLineId": "purchaseInvoiceLineId",
               "createdAt": "2026-07-01T09:30:00.000Z"
             }
             """;

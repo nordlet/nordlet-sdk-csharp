@@ -34,7 +34,9 @@ public class AccountsListTest : BaseMockServerTest
                     "immediateDestinationName": "immediateDestinationName",
                     "companyIdentification": "companyIdentification",
                     "companyName": "x",
-                    "companyDiscretionaryData": "companyDiscretionaryData"
+                    "companyDiscretionaryData": "companyDiscretionaryData",
+                    "bic": "bic",
+                    "initiatingPartyBankId": "x"
                   },
                   "currency": "currency",
                   "accountCode": "accountCode",
@@ -56,7 +58,9 @@ public class AccountsListTest : BaseMockServerTest
                     "immediateDestinationName": "immediateDestinationName",
                     "companyIdentification": "companyIdentification",
                     "companyName": "x",
-                    "companyDiscretionaryData": "companyDiscretionaryData"
+                    "companyDiscretionaryData": "companyDiscretionaryData",
+                    "bic": "bic",
+                    "initiatingPartyBankId": "x"
                   },
                   "currency": "currency",
                   "accountCode": "accountCode",

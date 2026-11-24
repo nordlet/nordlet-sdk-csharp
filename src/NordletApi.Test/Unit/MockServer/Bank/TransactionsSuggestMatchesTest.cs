@@ -49,6 +49,32 @@ public class TransactionsSuggestMatchesTest : BaseMockServerTest
                     "reasons"
                   ]
                 }
+              ],
+              "allocations": [
+                {
+                  "documentType": "sale_invoice",
+                  "documentId": "x",
+                  "number": "number",
+                  "amount": "amount"
+                },
+                {
+                  "documentType": "sale_invoice",
+                  "documentId": "x",
+                  "number": "number",
+                  "amount": "amount"
+                }
+              ],
+              "postingRules": [
+                {
+                  "ruleId": "x",
+                  "accountCode": "accountCode",
+                  "partnerId": "x"
+                },
+                {
+                  "ruleId": "x",
+                  "accountCode": "accountCode",
+                  "partnerId": "x"
+                }
               ]
             }
             """;
@@ -99,6 +125,21 @@ public class TransactionsSuggestMatchesTest : BaseMockServerTest
                   "reasons": [
                     "reasons"
                   ]
+                }
+              ],
+              "allocations": [
+                {
+                  "documentType": "sale_invoice",
+                  "documentId": "documentId",
+                  "number": "number",
+                  "amount": "amount"
+                }
+              ],
+              "postingRules": [
+                {
+                  "ruleId": "ruleId",
+                  "accountCode": "accountCode",
+                  "partnerId": "partnerId"
                 }
               ]
             }

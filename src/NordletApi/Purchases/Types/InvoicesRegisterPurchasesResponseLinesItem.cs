@@ -44,6 +44,9 @@ public record InvoicesRegisterPurchasesResponseLinesItem : IJsonOnDeserialized
     [JsonPropertyName("vatClassifierCode")]
     public string? VatClassifierCode { get; set; }
 
+    [JsonPropertyName("deductiblePercent")]
+    public long? DeductiblePercent { get; set; }
+
     [JsonPropertyName("costCenterId")]
     public string? CostCenterId { get; set; }
 
@@ -64,6 +67,9 @@ public record InvoicesRegisterPurchasesResponseLinesItem : IJsonOnDeserialized
 
     [JsonPropertyName("expiryDate")]
     public DateOnly? ExpiryDate { get; set; }
+
+    [JsonPropertyName("chassisNumbers")]
+    public IEnumerable<string>? ChassisNumbers { get; set; }
 
     [JsonPropertyName("lineNet")]
     public required string LineNet { get; set; }

@@ -32,6 +32,7 @@ public class CreateTest : BaseMockServerTest
               "allocatedTo": 1000000,
               "warehouseId": "x",
               "printSeries": true,
+              "suffix": "suffix",
               "isDefault": true,
               "isActive": true,
               "createdAt": "2024-01-15T09:30:00.000Z",
@@ -69,6 +70,7 @@ public class CreateTest : BaseMockServerTest
                 AllocatedTo = null,
                 WarehouseId = null,
                 PrintSeries = null,
+                Suffix = null,
                 IsDefault = null,
                 IsActive = null,
             }
@@ -99,6 +101,7 @@ public class CreateTest : BaseMockServerTest
               "allocatedTo": 1000000,
               "warehouseId": "warehouseId",
               "printSeries": true,
+              "suffix": "suffix",
               "isDefault": true,
               "isActive": true,
               "createdAt": "2026-07-01T09:30:00.000Z",

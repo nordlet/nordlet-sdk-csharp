@@ -75,7 +75,7 @@ public class UpdateTest : BaseMockServerTest
               "isEmployee": true,
               "isGroupMember": true,
               "isActive": true,
-              "legalCountryClass": "lt",
+              "legalCountryClass": "domestic",
               "identifiers": {
                 "identifiers": "identifiers"
               },
@@ -213,7 +213,7 @@ public class UpdateTest : BaseMockServerTest
               "isEmployee": true,
               "isGroupMember": true,
               "isActive": true,
-              "legalCountryClass": "lt",
+              "legalCountryClass": "domestic",
               "identifiers": {
                 "key": "value"
               },

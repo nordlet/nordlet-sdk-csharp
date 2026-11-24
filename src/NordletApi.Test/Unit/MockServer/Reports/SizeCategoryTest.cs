@@ -27,6 +27,7 @@ public class SizeCategoryTest : BaseMockServerTest
                 "avgEmployees": 1000000
               },
               "category": "micro",
+              "currency": "currency",
               "thresholds": {
                 "thresholds": {
                   "totalAssets": 1.1,
@@ -77,6 +78,7 @@ public class SizeCategoryTest : BaseMockServerTest
                 "avgEmployees": 1000000
               },
               "category": "micro",
+              "currency": "currency",
               "thresholds": {
                 "key": {
                   "totalAssets": 1.1,

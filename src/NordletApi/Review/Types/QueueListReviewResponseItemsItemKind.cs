@@ -26,6 +26,10 @@ public readonly record struct QueueListReviewResponseItemsItemKind : IStringEnum
         Values.FilingSettingsMissing
     );
 
+    public static readonly QueueListReviewResponseItemsItemKind FileUnattached = new(
+        Values.FileUnattached
+    );
+
     public QueueListReviewResponseItemsItemKind(string value)
     {
         Value = value;
@@ -132,5 +136,7 @@ public readonly record struct QueueListReviewResponseItemsItemKind : IStringEnum
         public const string PartnerVatInvalid = "partner_vat_invalid";
 
         public const string FilingSettingsMissing = "filing_settings_missing";
+
+        public const string FileUnattached = "file_unattached";
     }
 }

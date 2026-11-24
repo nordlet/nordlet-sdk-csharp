@@ -47,6 +47,9 @@ public record UpdateDocumentSeriesResponse : IJsonOnDeserialized
     [JsonPropertyName("printSeries")]
     public required bool PrintSeries { get; set; }
 
+    [JsonPropertyName("suffix")]
+    public required string Suffix { get; set; }
+
     [JsonPropertyName("isDefault")]
     public required bool IsDefault { get; set; }
 

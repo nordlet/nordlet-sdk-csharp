@@ -62,6 +62,18 @@ public record AccountsCreateBankRequestPaymentFileSettings : IJsonOnDeserialized
     [JsonPropertyName("companyDiscretionaryData")]
     public string? CompanyDiscretionaryData { get; set; }
 
+    /// <summary>
+    /// pain.001: the BIC of the bank that holds this account, written as the debtor agent; required for a SEK supplier file from a Swedish account
+    /// </summary>
+    [JsonPropertyName("bic")]
+    public string? Bic { get; set; }
+
+    /// <summary>
+    /// pain.001: the identifier the bank gave the company for file payments (at Swedbank the agreement ID), written as InitgPty/Id/OrgId/Othr with scheme BANK
+    /// </summary>
+    [JsonPropertyName("initiatingPartyBankId")]
+    public string? InitiatingPartyBankId { get; set; }
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

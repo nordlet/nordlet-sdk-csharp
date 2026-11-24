@@ -48,6 +48,15 @@ public partial interface IAssetsClient
     );
 
     /// <summary>
+    /// Register a fixed asset from a line of a registered purchase invoice that was booked to the asset account of the group (422 otherwise, and for a credit note, a draft or reversed invoice and a deferred line). The acquisition date is the invoice's registration date, else its document date. The acquisition cost is what the line booked, in the company currency (its net amount plus the VAT not deducted), less what earlier assets from the same line took; `acquisitionCost` takes a part of it instead, for a line that holds several assets (422 above what is left, 409 when nothing is left). The name defaults to the line description. The asset keeps `purchaseInvoiceLineId`. Otherwise as `assets/assets/create`.
+    /// </summary>
+    WithRawResponseTask<AssetsCreateFromPurchaseAssetsResponse> AssetsCreateFromPurchaseAsync(
+        AssetsCreateFromPurchaseAssetsRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    );
+
+    /// <summary>
     /// Change an asset that has no posted depreciation yet: group, code, name, dates, cost, salvage value, useful life, notes or documents. Refused with 409 once depreciation is posted or the asset is disposed, and with 422 when the salvage value would reach the acquisition cost; a duplicate code is 409.
     /// </summary>
     WithRawResponseTask<AssetsUpdateAssetsResponse> AssetsUpdateAsync(

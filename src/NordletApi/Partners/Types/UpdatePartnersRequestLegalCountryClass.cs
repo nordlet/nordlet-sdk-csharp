@@ -10,7 +10,7 @@ namespace NordletApi;
 [Serializable]
 public readonly record struct UpdatePartnersRequestLegalCountryClass : IStringEnum
 {
-    public static readonly UpdatePartnersRequestLegalCountryClass Lt = new(Values.Lt);
+    public static readonly UpdatePartnersRequestLegalCountryClass Domestic = new(Values.Domestic);
 
     public static readonly UpdatePartnersRequestLegalCountryClass Eu = new(Values.Eu);
 
@@ -115,7 +115,7 @@ public readonly record struct UpdatePartnersRequestLegalCountryClass : IStringEn
     [Serializable]
     public static class Values
     {
-        public const string Lt = "lt";
+        public const string Domestic = "domestic";
 
         public const string Eu = "eu";
 

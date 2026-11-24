@@ -47,6 +47,7 @@ public class InvoicesIssueTest : BaseMockServerTest
                 "subdivision": "subdivision"
               },
               "paidAmount": "paidAmount",
+              "advanceVatOnPayment": true,
               "journalTransactionId": "x",
               "reversedAt": "2024-01-15T09:30:00.000Z",
               "reversalJournalTransactionId": "x",
@@ -111,6 +112,7 @@ public class InvoicesIssueTest : BaseMockServerTest
                   "vatRatePercent": "vatRatePercent",
                   "vatClassifierCode": "vatClassifierCode",
                   "vatExemptionBasis": "vatExemptionBasis",
+                  "accountCode": "accountCode",
                   "assetId": "x",
                   "costCenterId": "x",
                   "projectId": "x",
@@ -150,6 +152,7 @@ public class InvoicesIssueTest : BaseMockServerTest
                   "vatRatePercent": "vatRatePercent",
                   "vatClassifierCode": "vatClassifierCode",
                   "vatExemptionBasis": "vatExemptionBasis",
+                  "accountCode": "accountCode",
                   "assetId": "x",
                   "costCenterId": "x",
                   "projectId": "x",
@@ -259,6 +262,7 @@ public class InvoicesIssueTest : BaseMockServerTest
             {
                 Id = "x",
                 Series = null,
+                Number = null,
                 IssueDate = null,
                 WarehouseId = null,
                 ReturnToStock = null,
@@ -305,6 +309,7 @@ public class InvoicesIssueTest : BaseMockServerTest
                 "subdivision": "subdivision"
               },
               "paidAmount": "paidAmount",
+              "advanceVatOnPayment": true,
               "journalTransactionId": "journalTransactionId",
               "reversedAt": "2026-07-01T09:30:00.000Z",
               "reversalJournalTransactionId": "reversalJournalTransactionId",
@@ -369,6 +374,7 @@ public class InvoicesIssueTest : BaseMockServerTest
                   "vatRatePercent": "vatRatePercent",
                   "vatClassifierCode": "vatClassifierCode",
                   "vatExemptionBasis": "vatExemptionBasis",
+                  "accountCode": "accountCode",
                   "assetId": "assetId",
                   "costCenterId": "costCenterId",
                   "projectId": "projectId",

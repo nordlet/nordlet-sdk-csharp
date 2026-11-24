@@ -47,6 +47,7 @@ public class InvoicesListTest : BaseMockServerTest
                     "subdivision": "subdivision"
                   },
                   "paidAmount": "paidAmount",
+                  "advanceVatOnPayment": true,
                   "journalTransactionId": "x",
                   "reversedAt": "2024-01-15T09:30:00.000Z",
                   "reversalJournalTransactionId": "x",
@@ -127,6 +128,7 @@ public class InvoicesListTest : BaseMockServerTest
                     "subdivision": "subdivision"
                   },
                   "paidAmount": "paidAmount",
+                  "advanceVatOnPayment": true,
                   "journalTransactionId": "x",
                   "reversedAt": "2024-01-15T09:30:00.000Z",
                   "reversalJournalTransactionId": "x",
@@ -255,6 +257,7 @@ public class InvoicesListTest : BaseMockServerTest
                   "salesTaxExemptionId": "salesTaxExemptionId",
                   "deliveryAddress": {},
                   "paidAmount": "paidAmount",
+                  "advanceVatOnPayment": true,
                   "journalTransactionId": "journalTransactionId",
                   "reversedAt": "2026-07-01T09:30:00.000Z",
                   "reversalJournalTransactionId": "reversalJournalTransactionId",

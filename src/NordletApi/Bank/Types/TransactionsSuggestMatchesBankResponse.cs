@@ -15,6 +15,13 @@ public record TransactionsSuggestMatchesBankResponse : IJsonOnDeserialized
     public IEnumerable<TransactionsSuggestMatchesBankResponseSuggestionsItem> Suggestions { get; set; } =
         new List<TransactionsSuggestMatchesBankResponseSuggestionsItem>();
 
+    [JsonPropertyName("allocations")]
+    public IEnumerable<TransactionsSuggestMatchesBankResponseAllocationsItem>? Allocations { get; set; }
+
+    [JsonPropertyName("postingRules")]
+    public IEnumerable<TransactionsSuggestMatchesBankResponsePostingRulesItem> PostingRules { get; set; } =
+        new List<TransactionsSuggestMatchesBankResponsePostingRulesItem>();
+
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();
 

@@ -36,16 +36,22 @@ public class ExpenseReportsGetTest : BaseMockServerTest
                   "description": "description",
                   "documentNumber": "documentNumber",
                   "accountCode": "accountCode",
+                  "partnerId": "x",
+                  "vatClassifierCode": "vatClassifierCode",
                   "netAmount": "netAmount",
-                  "vatAmount": "vatAmount"
+                  "vatAmount": "vatAmount",
+                  "deductibleVat": "deductibleVat"
                 },
                 {
                   "id": "x",
                   "description": "description",
                   "documentNumber": "documentNumber",
                   "accountCode": "accountCode",
+                  "partnerId": "x",
+                  "vatClassifierCode": "vatClassifierCode",
                   "netAmount": "netAmount",
-                  "vatAmount": "vatAmount"
+                  "vatAmount": "vatAmount",
+                  "deductibleVat": "deductibleVat"
                 }
               ]
             }
@@ -100,8 +106,11 @@ public class ExpenseReportsGetTest : BaseMockServerTest
                   "description": "description",
                   "documentNumber": "documentNumber",
                   "accountCode": "accountCode",
+                  "partnerId": "partnerId",
+                  "vatClassifierCode": "vatClassifierCode",
                   "netAmount": "netAmount",
-                  "vatAmount": "vatAmount"
+                  "vatAmount": "vatAmount",
+                  "deductibleVat": "deductibleVat"
                 }
               ]
             }

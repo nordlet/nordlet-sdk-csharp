@@ -39,6 +39,9 @@ public record CreateDocumentSeriesRequest
     [JsonPropertyName("printSeries")]
     public bool? PrintSeries { get; set; }
 
+    [JsonPropertyName("suffix")]
+    public string? Suffix { get; set; }
+
     [JsonPropertyName("isDefault")]
     public bool? IsDefault { get; set; }
 

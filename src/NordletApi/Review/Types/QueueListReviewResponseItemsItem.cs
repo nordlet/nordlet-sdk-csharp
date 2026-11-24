@@ -15,7 +15,7 @@ public record QueueListReviewResponseItemsItem : IJsonOnDeserialized
     public required QueueListReviewResponseItemsItemKind Kind { get; set; }
 
     /// <summary>
-    /// The id of the draft, bank transaction or partner, or the key of the filing
+    /// The id of the draft, bank transaction, partner or file, or the key of the filing
     /// </summary>
     [JsonPropertyName("id")]
     public required string Id { get; set; }

@@ -49,16 +49,22 @@ public class ExpenseReportsCreateTest : BaseMockServerTest
                   "description": "description",
                   "documentNumber": "documentNumber",
                   "accountCode": "accountCode",
+                  "partnerId": "x",
+                  "vatClassifierCode": "vatClassifierCode",
                   "netAmount": "netAmount",
-                  "vatAmount": "vatAmount"
+                  "vatAmount": "vatAmount",
+                  "deductibleVat": "deductibleVat"
                 },
                 {
                   "id": "x",
                   "description": "description",
                   "documentNumber": "documentNumber",
                   "accountCode": "accountCode",
+                  "partnerId": "x",
+                  "vatClassifierCode": "vatClassifierCode",
                   "netAmount": "netAmount",
-                  "vatAmount": "vatAmount"
+                  "vatAmount": "vatAmount",
+                  "deductibleVat": "deductibleVat"
                 }
               ]
             }
@@ -93,6 +99,8 @@ public class ExpenseReportsCreateTest : BaseMockServerTest
                         Description = "x",
                         DocumentNumber = null,
                         AccountCode = "x",
+                        PartnerId = null,
+                        VatClassifierCode = null,
                         NetAmount = "netAmount",
                         VatAmount = null,
                     },
@@ -101,6 +109,8 @@ public class ExpenseReportsCreateTest : BaseMockServerTest
                         Description = "x",
                         DocumentNumber = null,
                         AccountCode = "x",
+                        PartnerId = null,
+                        VatClassifierCode = null,
                         NetAmount = "netAmount",
                         VatAmount = null,
                     },
@@ -145,8 +155,11 @@ public class ExpenseReportsCreateTest : BaseMockServerTest
                   "description": "description",
                   "documentNumber": "documentNumber",
                   "accountCode": "accountCode",
+                  "partnerId": "partnerId",
+                  "vatClassifierCode": "vatClassifierCode",
                   "netAmount": "netAmount",
-                  "vatAmount": "vatAmount"
+                  "vatAmount": "vatAmount",
+                  "deductibleVat": "deductibleVat"
                 }
               ]
             }

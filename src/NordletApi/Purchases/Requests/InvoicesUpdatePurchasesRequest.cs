@@ -48,6 +48,15 @@ public record InvoicesUpdatePurchasesRequest
     [JsonPropertyName("einvoiceNumber")]
     public string? EinvoiceNumber { get; set; }
 
+    [JsonPropertyName("paymentReference")]
+    public string? PaymentReference { get; set; }
+
+    [JsonPropertyName("agreementId")]
+    public string? AgreementId { get; set; }
+
+    [JsonPropertyName("agreementPeriodStart")]
+    public DateOnly? AgreementPeriodStart { get; set; }
+
     [JsonPropertyName("lines")]
     public IEnumerable<InvoicesUpdatePurchasesRequestLinesItem>? Lines { get; set; }
 

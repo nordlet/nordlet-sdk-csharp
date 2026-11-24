@@ -23,11 +23,20 @@ public record ExpenseReportsCreateCashResponseLinesItem : IJsonOnDeserialized
     [JsonPropertyName("accountCode")]
     public required string AccountCode { get; set; }
 
+    [JsonPropertyName("partnerId")]
+    public string? PartnerId { get; set; }
+
+    [JsonPropertyName("vatClassifierCode")]
+    public string? VatClassifierCode { get; set; }
+
     [JsonPropertyName("netAmount")]
     public required string NetAmount { get; set; }
 
     [JsonPropertyName("vatAmount")]
     public required string VatAmount { get; set; }
+
+    [JsonPropertyName("deductibleVat")]
+    public string? DeductibleVat { get; set; }
 
     [JsonIgnore]
     public ReadOnlyAdditionalProperties AdditionalProperties { get; private set; } = new();

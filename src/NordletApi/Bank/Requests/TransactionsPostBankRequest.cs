@@ -30,6 +30,9 @@ public record TransactionsPostBankRequest
     [JsonPropertyName("vatClassifierCode")]
     public string? VatClassifierCode { get; set; }
 
+    [JsonPropertyName("saveRule")]
+    public TransactionsPostBankRequestSaveRule? SaveRule { get; set; }
+
     /// <inheritdoc />
     public override string ToString()
     {

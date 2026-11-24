@@ -74,6 +74,12 @@ public record InvoicesGetSalesResponse : IJsonOnDeserialized
     [JsonPropertyName("paidAmount")]
     public required string PaidAmount { get; set; }
 
+    /// <summary>
+    /// True for an issued advance invoice whose VAT is due when it is paid, and for its credit notes: the VAT is posted and declared with each payment, not at issue
+    /// </summary>
+    [JsonPropertyName("advanceVatOnPayment")]
+    public required bool AdvanceVatOnPayment { get; set; }
+
     [JsonPropertyName("journalTransactionId")]
     public string? JournalTransactionId { get; set; }
 

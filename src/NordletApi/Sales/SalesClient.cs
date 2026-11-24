@@ -1946,6 +1946,223 @@ public partial class SalesClient : ISalesClient
     }
 
     private async Task<
+        WithRawResponse<InvoicesZugferdPdfSalesResponse>
+    > InvoicesZugferdPdfAsyncCore(
+        InvoicesZugferdPdfSalesRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        var _queryString = new NordletApi.Core.QueryStringBuilder.Builder(capacity: 0)
+            .MergeAdditional(options?.AdditionalQueryParameters)
+            .Build();
+        var _headers = await new NordletApi.Core.HeadersBuilder.Builder()
+            .Add(_client.Options.Headers)
+            .Add(_client.Options.AdditionalHeaders)
+            .Add(options?.AdditionalHeaders)
+            .BuildAsync()
+            .ConfigureAwait(false);
+        var response = await _client
+            .SendRequestAsync(
+                new JsonRequest
+                {
+                    Method = HttpMethod.Post,
+                    Path = "v1/sales/invoices/zugferd-pdf",
+                    Body = request,
+                    QueryString = _queryString,
+                    Headers = _headers,
+                    ContentType = "application/json",
+                    Options = options,
+                },
+                cancellationToken
+            )
+            .ConfigureAwait(false);
+        if (response.StatusCode is >= 200 and < 400)
+        {
+            var responseBody = await response
+                .Raw.Content.ReadAsStringAsync(cancellationToken)
+                .ConfigureAwait(false);
+            try
+            {
+                var responseData = JsonUtils.Deserialize<InvoicesZugferdPdfSalesResponse>(
+                    responseBody
+                )!;
+                return new WithRawResponse<InvoicesZugferdPdfSalesResponse>()
+                {
+                    Data = responseData,
+                    RawResponse = new NordletApi.RawResponse()
+                    {
+                        StatusCode = response.Raw.StatusCode,
+                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
+                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                    },
+                };
+            }
+            catch (JsonException e)
+            {
+                throw new NordletApiApiException(
+                    "Failed to deserialize response",
+                    response.StatusCode,
+                    responseBody,
+                    e,
+                    rawResponse: new NordletApi.RawResponse()
+                    {
+                        StatusCode = response.Raw.StatusCode,
+                        Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
+                        Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                    }
+                );
+            }
+        }
+        {
+            var responseBody = await response
+                .Raw.Content.ReadAsStringAsync(cancellationToken)
+                .ConfigureAwait(false);
+            try
+            {
+                switch (response.StatusCode)
+                {
+                    case 400:
+                        throw new BadRequestError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 401:
+                        throw new UnauthorizedError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 402:
+                        throw new PaymentRequiredError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 403:
+                        throw new ForbiddenError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 404:
+                        throw new NotFoundError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 409:
+                        throw new ConflictError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 413:
+                        throw new ContentTooLargeError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 422:
+                        throw new UnprocessableEntityError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 429:
+                        throw new TooManyRequestsError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                    case 500:
+                        throw new InternalServerError(
+                            JsonUtils.Deserialize<ErrorResponse>(responseBody),
+                            rawResponse: new NordletApi.RawResponse()
+                            {
+                                StatusCode = response.Raw.StatusCode,
+                                Url =
+                                    response.Raw.RequestMessage?.RequestUri
+                                    ?? new Uri("about:blank"),
+                                Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                            }
+                        );
+                }
+            }
+            catch (JsonException)
+            {
+                // unable to map error response, throwing generic error
+            }
+            throw new NordletApiApiException(
+                $"Error with status code {response.StatusCode}",
+                response.StatusCode,
+                responseBody,
+                rawResponse: new NordletApi.RawResponse()
+                {
+                    StatusCode = response.Raw.StatusCode,
+                    Url = response.Raw.RequestMessage?.RequestUri ?? new Uri("about:blank"),
+                    Headers = ResponseHeaders.FromHttpResponseMessage(response.Raw),
+                }
+            );
+        }
+    }
+
+    private async Task<
         WithRawResponse<InvoicesEinvoiceSendSalesResponse>
     > InvoicesEinvoiceSendAsyncCore(
         InvoicesEinvoiceSendSalesRequest request,
@@ -11981,7 +12198,7 @@ public partial class SalesClient : ISalesClient
     }
 
     /// <summary>
-    /// Send an issued invoice or credit note to the customer over Peppol through the company's own access point (Account → Compliance → EU; Nordlet supports Recommand, Storecove and e-invoice.be). Without one the call is refused with 422 and the document can only be downloaded with `sales/invoices/peppol-xml`. `status` is `pending` until the receiving access point confirms, then `delivered`; `failed` and `rejected` come with `detail`, and the invoice can then be sent again. Later changes arrive through the access point's webhook and are announced as `sale_invoice.peppol_delivered`, `sale_invoice.peppol_rejected` and `sale_invoice.peppol_failed`.
+    /// Send an issued invoice or credit note to the customer over Peppol through the company's own access point (declarations/configs/update (system peppol); Nordlet supports Recommand, Storecove and e-invoice.be). Without one the call is refused with 422 and the document can only be downloaded with `sales/invoices/peppol-xml`. `status` is `pending` until the receiving access point confirms, then `delivered`; `failed` and `rejected` come with `detail`, and the invoice can then be sent again. Later changes arrive through the access point's webhook and are announced as `sale_invoice.peppol_delivered`, `sale_invoice.peppol_rejected` and `sale_invoice.peppol_failed`.
     /// </summary>
     /// <example><code>
     /// await client.Sales.InvoicesPeppolSendAsync(new InvoicesPeppolSendSalesRequest { Id = "id" });
@@ -12015,7 +12232,7 @@ public partial class SalesClient : ISalesClient
     }
 
     /// <summary>
-    /// Render an issued invoice as the national e-invoicing payload for the company country: SII or Veri*Factu (ES), Factur-X (FR), myDATA (GR), Fiskalizacija (HR), NAV Online Számla (HU), FatturaPA (IT), KSeF FA(3) (PL), AT comunicação de faturas (PT) or UBL CIUS-RO (RO). Review the warnings - data the invoice does not carry is flagged, never invented.
+    /// Render an issued invoice as the national e-invoicing payload for the company country: XRechnung UBL (DE), SII or Veri*Factu (ES), Factur-X (FR), myDATA (GR), Fiskalizacija (HR), NAV Online Számla (HU), FatturaPA (IT), KSeF FA(3) (PL), AT comunicação de faturas (PT) or UBL CIUS-RO (RO). Review the warnings - data the invoice does not carry is flagged, never invented. For XRechnung, answers 422 naming what the BR-DE rules need and the company or invoice lacks; a customer whose Peppol ID has scheme 0204 gets its Leitweg-ID as the buyer reference.
     /// </summary>
     /// <example><code>
     /// await client.Sales.InvoicesEinvoiceXmlAsync(new InvoicesEinvoiceXmlSalesRequest { Id = "id" });
@@ -12028,6 +12245,23 @@ public partial class SalesClient : ISalesClient
     {
         return new WithRawResponseTask<InvoicesEinvoiceXmlSalesResponse>(
             InvoicesEinvoiceXmlAsyncCore(request, options, cancellationToken)
+        );
+    }
+
+    /// <summary>
+    /// Render an issued invoice or credit note of a German company as a ZUGFeRD 2.5.2 (Factur-X 1.09.2) hybrid e-invoice in the EN 16931 profile, returned base64-encoded: the PDF of `sales/invoices/pdf` as PDF/A-3 with the invoice data embedded as `factur-x.xml` (UN/CEFACT Cross Industry Invoice). The embedded XML is the leading part of the invoice. The seller is the one printed on the document, with the Steuernummer of the `de-elster` compliance settings (scheme FC) and the USt-IdNr. (scheme VA). The date of supply written is the issue date. Answers 422 for a company outside Germany, a draft, a document other than an invoice or credit note, a document with sales tax, and a seller with neither a Steuernummer nor a USt-IdNr.
+    /// </summary>
+    /// <example><code>
+    /// await client.Sales.InvoicesZugferdPdfAsync(new InvoicesZugferdPdfSalesRequest { Id = "id" });
+    /// </code></example>
+    public WithRawResponseTask<InvoicesZugferdPdfSalesResponse> InvoicesZugferdPdfAsync(
+        InvoicesZugferdPdfSalesRequest request,
+        RequestOptions? options = null,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return new WithRawResponseTask<InvoicesZugferdPdfSalesResponse>(
+            InvoicesZugferdPdfAsyncCore(request, options, cancellationToken)
         );
     }
 
@@ -12102,7 +12336,7 @@ public partial class SalesClient : ISalesClient
     }
 
     /// <summary>
-    /// Issue a draft sale document: assigns the next number (from its document series, else from `series` or the type's default prefix and the year), the issue date (`issueDate`, else the draft's, else today) and a missing due date from the partner's payment term, and for an invoice, credit note or advance invoice posts the journal entry and stores the VAT evidence. `warehouseId` (or the series' warehouse) takes the sold goods of an invoice out of stock, the first-expiring lot first (lots without an expiry date after those with one, then the oldest layers first), leaving out expired lots, with a cost of goods sold entry; `returnToStock` puts them back for a credit note that credits an invoice. A credit note is set against the unpaid balance of the credited document. Emits `sale_invoice.issued`, `sale_invoice.paid` when a credit note settles the credited invoice in full, and `intercompany.invoice_mirrored` when the partner is linked to another company of the group (a draft purchase invoice is created there). Answers 409 when the document is already issued or locked, the accounting period is locked or the credited invoice is reversed, 422 when the lines carry VAT under a scheme that charges none, when credit notes would exceed the credited total, or when `returnToStock` is used on anything but a credit note of an invoice. `warnings` carries the VAT type warnings of `sales/invoices/create` and `document_date_before_last_number` when the document is dated before the last number issued in its series.
+    /// Issue a draft sale document: assigns the next number (from its document series, else from `series` or the type's default prefix and the year), or keeps `number`, the number a document issued in another program (a webshop, a till) already carries, without moving the series counter (409 when the company already has a document with that number, 422 in a country whose sale documents get national marks at issue, Portugal), the issue date (`issueDate`, else the draft's, else today) and a missing due date from the partner's payment term, and for an invoice, credit note or advance invoice posts the journal entry and stores the VAT evidence. `warehouseId` (or the series' warehouse) takes the sold goods of an invoice out of stock, the first-expiring lot first (lots without an expiry date after those with one, then the oldest layers first), leaving out expired lots, with a cost of goods sold entry; `returnToStock` puts them back for a credit note that credits an invoice. A credit note is set against the unpaid balance of the credited document. An advance invoice whose VAT is due when it is paid (`advanceVatOnPayment`: the VAT country is AT, BG, CZ, DE, EE, ES, FI, FR, HR, HU, LT, LV, PL, SE, SI or SK, or BE, IE, LU or NL with a customer who is not a business) posts no VAT at issue: each payment posts and declares the VAT of the part paid, and a credit note takes back only VAT already declared. Emits `sale_invoice.issued`, `sale_invoice.paid` when a credit note settles the credited invoice in full, and `intercompany.invoice_mirrored` when the partner is linked to another company of the group (a draft purchase invoice is created there). Answers 409 when the document is already issued or locked, the accounting period is locked or the credited invoice is reversed, 422 when the lines carry VAT under a scheme that charges none, when credit notes would exceed the credited total, or when `returnToStock` is used on anything but a credit note of an invoice. `warnings` carries the VAT type warnings of `sales/invoices/create` and `document_date_before_last_number` when the document is dated before the last number issued in its series.
     /// </summary>
     /// <example><code>
     /// await client.Sales.InvoicesIssueAsync(new InvoicesIssueSalesRequest { Id = "id" });

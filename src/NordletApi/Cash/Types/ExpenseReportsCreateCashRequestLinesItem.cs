@@ -20,6 +20,12 @@ public record ExpenseReportsCreateCashRequestLinesItem : IJsonOnDeserialized
     [JsonPropertyName("accountCode")]
     public required string AccountCode { get; set; }
 
+    [JsonPropertyName("partnerId")]
+    public string? PartnerId { get; set; }
+
+    [JsonPropertyName("vatClassifierCode")]
+    public string? VatClassifierCode { get; set; }
+
     [JsonPropertyName("netAmount")]
     public required string NetAmount { get; set; }
 

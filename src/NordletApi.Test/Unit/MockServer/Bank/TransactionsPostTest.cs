@@ -68,6 +68,7 @@ public class TransactionsPostTest : BaseMockServerTest
                 ProjectId = null,
                 Description = null,
                 VatClassifierCode = null,
+                SaveRule = null,
             }
         );
         JsonAssert.AreEqual(response, mockResponse);

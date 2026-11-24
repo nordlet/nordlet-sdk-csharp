@@ -20,6 +20,9 @@ public record SizeCategoryReportsResponse : IJsonOnDeserialized
     [JsonPropertyName("category")]
     public required SizeCategoryReportsResponseCategory Category { get; set; }
 
+    [JsonPropertyName("currency")]
+    public required string Currency { get; set; }
+
     [JsonPropertyName("thresholds")]
     public Dictionary<string, SizeCategoryReportsResponseThresholdsValue> Thresholds { get; set; } =
         new Dictionary<string, SizeCategoryReportsResponseThresholdsValue>();

@@ -90,7 +90,7 @@ public record CompaniesUpdateAccountResponse : IJsonOnDeserialized
     public string? BankAccountNumber { get; set; }
 
     /// <summary>
-    /// Prefix of the numbers of invoices issued without a document series (SF when none was set)
+    /// Prefix of the numbers of invoices issued without a document series (SF when none was set; empty in Bulgaria, where invoices and notes share one ten-digit number range)
     /// </summary>
     [JsonPropertyName("invoicePrefix")]
     public required string InvoicePrefix { get; set; }

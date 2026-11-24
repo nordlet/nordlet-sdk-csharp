@@ -92,8 +92,17 @@ public record InvoicesRegisterPurchasesResponse : IJsonOnDeserialized
     [JsonPropertyName("einvoiceNumber")]
     public string? EinvoiceNumber { get; set; }
 
+    [JsonPropertyName("paymentReference")]
+    public string? PaymentReference { get; set; }
+
     [JsonPropertyName("documentRef")]
     public string? DocumentRef { get; set; }
+
+    [JsonPropertyName("agreementId")]
+    public string? AgreementId { get; set; }
+
+    [JsonPropertyName("agreementPeriodStart")]
+    public string? AgreementPeriodStart { get; set; }
 
     [JsonPropertyName("createdAt")]
     public required DateTime CreatedAt { get; set; }

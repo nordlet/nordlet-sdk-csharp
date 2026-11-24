@@ -3,7 +3,7 @@ namespace NordletApi;
 public partial interface IReferenceClient
 {
     /// <summary>
-    /// Fetches the official exchange rates for `date` (default: the company's current date) quoted against the company's base currency and stores them in the rate table shared by all companies, replacing the rates already stored for the same base, currency and date. A company that keeps its books in GBP gets the HMRC monthly rates of the month of `date` (units per 1 GBP, dated the first day of the month), one in USD the Federal Reserve H.10 rates of the two weeks up to `date` (units per 1 USD), and every other company the euro rates the Bank of Lithuania publishes for `date` (units per 1 EUR). `baseCurrency` in the answer names the base the rates are quoted against. Answers 404 when no rates are published for the date.
+    /// Fetches the official exchange rates for `date` (default: the company's current date) quoted against the company's base currency and stores them in the rate table shared by all companies, replacing the rates already stored for the same base, currency and date. A company that keeps its books in GBP gets the HMRC monthly rates of the month of `date` (units per 1 GBP, dated the first day of the month), one in USD the Federal Reserve H.10 rates of the two weeks up to `date` (units per 1 USD), one in PLN the National Bank of Poland table A average rates of the two weeks up to `date` (stored as units per 1 PLN, the inverse of the published rate), and every other company the euro rates the Bank of Lithuania publishes for `date` (units per 1 EUR). `baseCurrency` in the answer names the base the rates are quoted against. Answers 404 when no rates are published for the date.
     /// </summary>
     WithRawResponseTask<ExchangeRatesSyncReferenceResponse> ExchangeRatesSyncAsync(
         ExchangeRatesSyncReferenceRequest request,
@@ -12,7 +12,7 @@ public partial interface IReferenceClient
     );
 
     /// <summary>
-    /// Lists the stored official exchange rates, which are shared by all companies. `rate` is the units of `currencyCode` per one unit of `baseCurrency`: EUR rates come from the Bank of Lithuania, GBP rates from HMRC, USD rates from the Federal Reserve. Filterable by `baseCurrency`, `currencyCode` and `date`; sortable by `date`, `baseCurrency` and `currencyCode`.
+    /// Lists the stored official exchange rates, which are shared by all companies. `rate` is the units of `currencyCode` per one unit of `baseCurrency`: EUR rates come from the Bank of Lithuania, GBP rates from HMRC, USD rates from the Federal Reserve, PLN rates from the National Bank of Poland (table A). Filterable by `baseCurrency`, `currencyCode` and `date`; sortable by `date`, `baseCurrency` and `currencyCode`.
     /// </summary>
     WithRawResponseTask<ExchangeRatesListReferenceResponse> ExchangeRatesListAsync(
         ExchangeRatesListReferenceRequest request,

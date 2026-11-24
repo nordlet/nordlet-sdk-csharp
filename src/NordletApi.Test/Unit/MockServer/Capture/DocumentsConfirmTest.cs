@@ -133,7 +133,10 @@ public class DocumentsConfirmTest : BaseMockServerTest
                 "intrastatRegion": "intrastatRegion",
                 "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
                 "einvoiceNumber": "einvoiceNumber",
+                "paymentReference": "paymentReference",
                 "documentRef": "documentRef",
+                "agreementId": "x",
+                "agreementPeriodStart": "agreementPeriodStart",
                 "createdAt": "2024-01-15T09:30:00.000Z",
                 "updatedAt": "2024-01-15T09:30:00.000Z",
                 "lines": [
@@ -149,6 +152,7 @@ public class DocumentsConfirmTest : BaseMockServerTest
                     "unitPriceInclVat": "unitPriceInclVat",
                     "vatRatePercent": "vatRatePercent",
                     "vatClassifierCode": "vatClassifierCode",
+                    "deductiblePercent": 1000000,
                     "costCenterId": "x",
                     "projectId": "x",
                     "accountCode": "accountCode",
@@ -156,6 +160,10 @@ public class DocumentsConfirmTest : BaseMockServerTest
                     "deferralEndDate": "2023-01-15",
                     "lotNumber": "lotNumber",
                     "expiryDate": "2023-01-15",
+                    "chassisNumbers": [
+                      "chassisNumbers",
+                      "chassisNumbers"
+                    ],
                     "lineNet": "lineNet",
                     "lineVat": "lineVat",
                     "lineGross": "lineGross",
@@ -173,6 +181,7 @@ public class DocumentsConfirmTest : BaseMockServerTest
                     "unitPriceInclVat": "unitPriceInclVat",
                     "vatRatePercent": "vatRatePercent",
                     "vatClassifierCode": "vatClassifierCode",
+                    "deductiblePercent": 1000000,
                     "costCenterId": "x",
                     "projectId": "x",
                     "accountCode": "accountCode",
@@ -180,6 +189,10 @@ public class DocumentsConfirmTest : BaseMockServerTest
                     "deferralEndDate": "2023-01-15",
                     "lotNumber": "lotNumber",
                     "expiryDate": "2023-01-15",
+                    "chassisNumbers": [
+                      "chassisNumbers",
+                      "chassisNumbers"
+                    ],
                     "lineNet": "lineNet",
                     "lineVat": "lineVat",
                     "lineGross": "lineGross",
@@ -215,7 +228,10 @@ public class DocumentsConfirmTest : BaseMockServerTest
                 "intrastatRegion": "intrastatRegion",
                 "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
                 "einvoiceNumber": "einvoiceNumber",
+                "paymentReference": "paymentReference",
                 "documentRef": "documentRef",
+                "agreementId": "x",
+                "agreementPeriodStart": "agreementPeriodStart",
                 "createdAt": "2024-01-15T09:30:00.000Z",
                 "updatedAt": "2024-01-15T09:30:00.000Z",
                 "lines": [
@@ -231,6 +247,7 @@ public class DocumentsConfirmTest : BaseMockServerTest
                     "unitPriceInclVat": "unitPriceInclVat",
                     "vatRatePercent": "vatRatePercent",
                     "vatClassifierCode": "vatClassifierCode",
+                    "deductiblePercent": 1000000,
                     "costCenterId": "x",
                     "projectId": "x",
                     "accountCode": "accountCode",
@@ -238,6 +255,10 @@ public class DocumentsConfirmTest : BaseMockServerTest
                     "deferralEndDate": "2023-01-15",
                     "lotNumber": "lotNumber",
                     "expiryDate": "2023-01-15",
+                    "chassisNumbers": [
+                      "chassisNumbers",
+                      "chassisNumbers"
+                    ],
                     "lineNet": "lineNet",
                     "lineVat": "lineVat",
                     "lineGross": "lineGross",
@@ -255,6 +276,7 @@ public class DocumentsConfirmTest : BaseMockServerTest
                     "unitPriceInclVat": "unitPriceInclVat",
                     "vatRatePercent": "vatRatePercent",
                     "vatClassifierCode": "vatClassifierCode",
+                    "deductiblePercent": 1000000,
                     "costCenterId": "x",
                     "projectId": "x",
                     "accountCode": "accountCode",
@@ -262,6 +284,10 @@ public class DocumentsConfirmTest : BaseMockServerTest
                     "deferralEndDate": "2023-01-15",
                     "lotNumber": "lotNumber",
                     "expiryDate": "2023-01-15",
+                    "chassisNumbers": [
+                      "chassisNumbers",
+                      "chassisNumbers"
+                    ],
                     "lineNet": "lineNet",
                     "lineVat": "lineVat",
                     "lineGross": "lineGross",
@@ -319,6 +345,8 @@ public class DocumentsConfirmTest : BaseMockServerTest
                         DeferralEndDate = null,
                         LotNumber = null,
                         ExpiryDate = null,
+                        DeductiblePercent = null,
+                        ChassisNumbers = null,
                     },
                     new DocumentsConfirmCaptureRequestLinesItem
                     {
@@ -337,6 +365,8 @@ public class DocumentsConfirmTest : BaseMockServerTest
                         DeferralEndDate = null,
                         LotNumber = null,
                         ExpiryDate = null,
+                        DeductiblePercent = null,
+                        ChassisNumbers = null,
                     },
                 },
                 OppositeLines = null,
@@ -431,7 +461,10 @@ public class DocumentsConfirmTest : BaseMockServerTest
                 "intrastatRegion": "intrastatRegion",
                 "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
                 "einvoiceNumber": "einvoiceNumber",
+                "paymentReference": "paymentReference",
                 "documentRef": "documentRef",
+                "agreementId": "agreementId",
+                "agreementPeriodStart": "agreementPeriodStart",
                 "createdAt": "2026-07-01T09:30:00.000Z",
                 "updatedAt": "2026-07-01T09:30:00.000Z",
                 "lines": [
@@ -481,7 +514,10 @@ public class DocumentsConfirmTest : BaseMockServerTest
                 "intrastatRegion": "intrastatRegion",
                 "intrastatNatureOfTransaction": "intrastatNatureOfTransaction",
                 "einvoiceNumber": "einvoiceNumber",
+                "paymentReference": "paymentReference",
                 "documentRef": "documentRef",
+                "agreementId": "agreementId",
+                "agreementPeriodStart": "agreementPeriodStart",
                 "createdAt": "2026-07-01T09:30:00.000Z",
                 "updatedAt": "2026-07-01T09:30:00.000Z",
                 "lines": [

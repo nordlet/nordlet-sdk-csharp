@@ -45,6 +45,17 @@ public readonly record struct PeriodsLockLedgerResponseWarningsItemCode : IStrin
         Values.OpenFxPayables
     );
 
+    public static readonly PeriodsLockLedgerResponseWarningsItemCode BankLedgerDiffersFromStatement =
+        new(Values.BankLedgerDiffersFromStatement);
+
+    public static readonly PeriodsLockLedgerResponseWarningsItemCode VatOutsideReturns = new(
+        Values.VatOutsideReturns
+    );
+
+    public static readonly PeriodsLockLedgerResponseWarningsItemCode FilingSettingsMissing = new(
+        Values.FilingSettingsMissing
+    );
+
     public PeriodsLockLedgerResponseWarningsItemCode(string value)
     {
         Value = value;
@@ -165,5 +176,11 @@ public readonly record struct PeriodsLockLedgerResponseWarningsItemCode : IStrin
         public const string OpenFxReceivables = "open_fx_receivables";
 
         public const string OpenFxPayables = "open_fx_payables";
+
+        public const string BankLedgerDiffersFromStatement = "bank_ledger_differs_from_statement";
+
+        public const string VatOutsideReturns = "vat_outside_returns";
+
+        public const string FilingSettingsMissing = "filing_settings_missing";
     }
 }

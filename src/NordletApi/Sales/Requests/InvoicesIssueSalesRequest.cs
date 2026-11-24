@@ -12,6 +12,9 @@ public record InvoicesIssueSalesRequest
     [JsonPropertyName("series")]
     public string? Series { get; set; }
 
+    [JsonPropertyName("number")]
+    public string? Number { get; set; }
+
     [JsonPropertyName("issueDate")]
     public DateOnly? IssueDate { get; set; }
 

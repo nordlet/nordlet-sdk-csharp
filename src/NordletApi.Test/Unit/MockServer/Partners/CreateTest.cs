@@ -75,7 +75,7 @@ public class CreateTest : BaseMockServerTest
               "isEmployee": true,
               "isGroupMember": true,
               "isActive": true,
-              "legalCountryClass": "lt",
+              "legalCountryClass": "domestic",
               "identifiers": {
                 "identifiers": "identifiers"
               },
@@ -212,7 +212,7 @@ public class CreateTest : BaseMockServerTest
               "isEmployee": true,
               "isGroupMember": true,
               "isActive": true,
-              "legalCountryClass": "lt",
+              "legalCountryClass": "domestic",
               "identifiers": {
                 "key": "value"
               },

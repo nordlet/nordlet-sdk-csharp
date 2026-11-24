@@ -21,6 +21,9 @@ public record ItemsCreateCatalogRequest
     [JsonPropertyName("barcode")]
     public string? Barcode { get; set; }
 
+    /// <summary>
+    /// Unit of measure; without it `vnt` for a Lithuanian company and `pcs` for any other
+    /// </summary>
     [JsonPropertyName("unit")]
     public string? Unit { get; set; }
 
@@ -38,6 +41,12 @@ public record ItemsCreateCatalogRequest
 
     [JsonPropertyName("cnCode")]
     public string? CnCode { get; set; }
+
+    /// <summary>
+    /// CPA code of a service, six digits without dots (62.01.11 is 620111); the Italian Intrastat list of services needs it
+    /// </summary>
+    [JsonPropertyName("cpaCode")]
+    public string? CpaCode { get; set; }
 
     [JsonPropertyName("originCountry")]
     public string? OriginCountry { get; set; }

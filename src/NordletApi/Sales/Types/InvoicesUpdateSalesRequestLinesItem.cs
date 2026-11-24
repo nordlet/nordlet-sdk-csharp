@@ -54,6 +54,12 @@ public record InvoicesUpdateSalesRequestLinesItem : IJsonOnDeserialized
     [JsonPropertyName("vatExemptionBasis")]
     public string? VatExemptionBasis { get; set; }
 
+    /// <summary>
+    /// The revenue account the line is credited to at issue, a postable account of the company's chart (422 otherwise); without it the operation type's income account, else the item's sale account, else the services revenue posting rule account for a service item or a line without an item and the products revenue posting rule account for a product item. A line that sells a fixed asset always goes to `assets.disposalProceeds`.
+    /// </summary>
+    [JsonPropertyName("accountCode")]
+    public string? AccountCode { get; set; }
+
     [JsonPropertyName("standaloneSellingPrice")]
     public string? StandaloneSellingPrice { get; set; }
 

@@ -137,6 +137,8 @@ public class OrdersCreateTest : BaseMockServerTest
                         DeferralEndDate = null,
                         LotNumber = null,
                         ExpiryDate = null,
+                        DeductiblePercent = null,
+                        ChassisNumbers = null,
                     },
                     new OrdersCreatePurchasesRequestLinesItem
                     {
@@ -155,6 +157,8 @@ public class OrdersCreateTest : BaseMockServerTest
                         DeferralEndDate = null,
                         LotNumber = null,
                         ExpiryDate = null,
+                        DeductiblePercent = null,
+                        ChassisNumbers = null,
                     },
                 },
             }
